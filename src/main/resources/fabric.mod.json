@@ -1,0 +1,28 @@
+{
+    "schemaVersion": 1,
+    "id": "knightsheraldry",
+    "version": "${version}",
+    "name": "Knights & Heraldry",
+    "description": "",
+    "authors": [],
+    "contact": {},
+    "license": "All-Rights-Reserved",
+    "icon": "assets/knightsheraldry/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "client": [
+            "com.knightsheraldry.KnightsHeraldry"
+        ],
+        "main": [
+            "com.knightsheraldry.KnightsHeraldry"
+        ]
+    },
+    "mixins": [
+        "knightsheraldry.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "fabric": "*",
+        "minecraft": "${minecraft_version}"
+    }
+}
