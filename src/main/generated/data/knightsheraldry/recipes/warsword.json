@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "knightsheraldry:warsword"
+    },
+    "H": {
+      "item": "knightsheraldry:smithing_hammer"
+    }
+  },
+  "pattern": [
+    "HC"
+  ],
+  "result": {
+    "item": "knightsheraldry:warsword"
+  },
+  "show_notification": true
+}

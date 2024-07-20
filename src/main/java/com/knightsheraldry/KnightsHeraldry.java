@@ -1,6 +1,6 @@
 package com.knightsheraldry;
 
-import com.knightsheraldry.datagen.ModModelProvider;
+import com.knightsheraldry.datagen.ModRecipeProvider;
 import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
 import net.fabricmc.api.ClientModInitializer;
@@ -29,6 +29,6 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
-        pack.addProvider(ModModelProvider::new);
+        pack.addProvider(ModRecipeProvider::new);
     }
 }

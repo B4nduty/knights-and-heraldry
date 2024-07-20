@@ -1,17 +1,21 @@
 package com.knightsheraldry.items;
 
 import com.knightsheraldry.KnightsHeraldry;
+import com.knightsheraldry.items.custom.SmithingHammer;
+import com.knightsheraldry.items.custom.WarSword;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static final Item WEAPON_1 = registerItem("weapon_1",
-            new SwordItem(ToolMaterials.WOOD, 1, -2.4F, new FabricItemSettings()));
+    public static final Item SMITHING_HAMMER = registerItem("smithing_hammer",
+            new SmithingHammer(new FabricItemSettings().maxCount(1)));
+
+    public static final Item WARSWORD = registerItem("warsword",
+            new WarSword(ToolMaterials.IRON, 1, -2.6F, new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

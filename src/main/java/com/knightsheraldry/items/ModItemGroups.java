@@ -10,11 +10,12 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class ModItemGroups {
-    public static final ItemGroup KNIGHTS_AND_HERALDRY_WEAPONS = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(KnightsHeraldry.MOD_ID, "weapons"),
-            FabricItemGroup.builder().displayName(Text.literal("Knights & Heraldry Weapons"))
-                    .icon(() -> new ItemStack(ModItems.WEAPON_1)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.WEAPON_1);
+    public static final ItemGroup KNIGHTS_AND_HERALDRY_TOOLS_AND_WEAPONS = Registry.register(Registries.ITEM_GROUP,
+            new Identifier(KnightsHeraldry.MOD_ID, "tools_and_weapons"),
+            FabricItemGroup.builder().displayName(Text.literal("K&H Tools & Weapons"))
+                    .icon(() -> new ItemStack(ModItems.SMITHING_HAMMER)).entries((displayContext, entries) -> {
+                        entries.add(ModItems.SMITHING_HAMMER);
+                        entries.add(ModItems.WARSWORD);
                     })
                     .build());
 
