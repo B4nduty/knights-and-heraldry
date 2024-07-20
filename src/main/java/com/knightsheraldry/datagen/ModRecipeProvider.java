@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
@@ -30,10 +31,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.SMITHING_HAMMER)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARSWORD, 1)
-                .pattern("HC")
-                .input('H', ModItems.SMITHING_HAMMER)
-                .input('C', ModItems.WARSWORD)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARSWORD, 1)
+                .input(ModItems.SMITHING_HAMMER, 1)
+                .input(ModItems.WARSWORD, 1)
                 .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
                 .criterion(hasItem(ModItems.WARSWORD), conditionsFromItem(ModItems.WARSWORD))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.WARSWORD)));
