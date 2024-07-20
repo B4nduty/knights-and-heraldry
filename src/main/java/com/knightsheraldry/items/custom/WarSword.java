@@ -34,24 +34,24 @@ public class WarSword extends SwordItem {
         return super.getRecipeRemainder(stack);
     }
 
-    @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        ItemStack offHandStack = user.getOffHandStack();
-        if (!world.isClient) {
-            if (((itemStack.getItem() == ModItems.WARSWORD && offHandStack.getItem() == ModItems.SMITHING_HAMMER) ||
-                    (offHandStack.getItem() == ModItems.WARSWORD && itemStack.getItem() == ModItems.SMITHING_HAMMER))
-                    && user.isSneaking()) {
-                int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
-                int newVariant = (currentVariant + 1) % MAX_TEXTURE_VARIANTS;
+    // @Override
+    // public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    //     ItemStack itemStack = user.getStackInHand(hand);
+    //     ItemStack offHandStack = user.getOffHandStack();
+    //     if (!world.isClient) {
+    //         if (((itemStack.getItem() == ModItems.WARSWORD && offHandStack.getItem() == ModItems.SMITHING_HAMMER) ||
+    //                 (offHandStack.getItem() == ModItems.WARSWORD && itemStack.getItem() == ModItems.SMITHING_HAMMER))
+    //                  && user.isSneaking()) {
+    //             int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
+    //             int newVariant = (currentVariant + 1) % MAX_TEXTURE_VARIANTS;
 
-                itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
+    //             itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
 
-                world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_ANVIL_LAND,
-                        SoundCategory.BLOCKS, 1f, 1f);
-                return TypedActionResult.success(itemStack);
-            }
-        }
-        return TypedActionResult.fail(itemStack);
-    }
+    //            world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_ANVIL_LAND,
+    //                     SoundCategory.BLOCKS, 1f, 1f);
+    //            return TypedActionResult.success(itemStack);
+    //         }
+    //    }
+    //     return TypedActionResult.fail(itemStack);
+    // }
 }
