@@ -17,14 +17,15 @@ import org.jetbrains.annotations.Nullable;
 public class AttackEventHandler implements AttackEntityCallback {
     @Override
     public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
-        if (player instanceof IEntityDataSaver) {
+        boolean staminaBlocked = ((IEntityDataSaver) player).bsroleplay$getPersistentData().getBoolean("stamina_blocked");
+        if (!player.isCreative() || !player.isSpectator()) {
             int stamina = ((IEntityDataSaver) player).bsroleplay$getPersistentData().getInt("stamina_int");
 
             int staminaCost = 10;
-            if (stamina >= staminaCost) {
+            if (stamina >= staminaCost && !staminaBlocked) {
                 ClientPlayNetworking.send(ModMessages.ATTACK_ID, PacketByteBufs.create());
                 player.sendMessage(Text.literal("This is the Cost:" + staminaCost +
-                        " Now you have:" + (stamina-staminaCost)), true);
+                        " Now you have:" + (stamina - staminaCost)), true);
             } else {
                 return ActionResult.FAIL;
             }

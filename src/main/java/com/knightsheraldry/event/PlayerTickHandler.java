@@ -4,35 +4,45 @@ import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.StaminaData;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 
-public class PlayerTickHandler implements ServerTickEvents.StartTick{
+public class PlayerTickHandler implements ServerTickEvents.StartTick {
     @Override
     public void onStartTick(MinecraftServer server) {
         for (ServerPlayerEntity playerEntity : server.getPlayerManager().getPlayerList()) {
-            int stamina = ((IEntityDataSaver) playerEntity).bsroleplay$getPersistentData().getInt("stamina_int");
-            int staminaRecoverTime = 20;
-            int totalStamina = 200;
+            if (!playerEntity.isCreative() || !playerEntity.isSpectator()) {
+                int stamina = ((IEntityDataSaver) playerEntity).bsroleplay$getPersistentData().getInt("stamina_int");
+                int totalStamina = 200;
 
-            int ticksPerRecovery = (int) (staminaRecoverTime * (20.0 / totalStamina));
-            StaminaData.addStamina(((IEntityDataSaver) playerEntity), 0);
-            if (playerEntity.age % ticksPerRecovery == 0 && stamina < totalStamina) {
-                StaminaData.addStamina(((IEntityDataSaver) playerEntity), Math.min(1, totalStamina - stamina));
-            }
-            if (!KnightsHeraldry.CONFIG.common.getBlocking) {
-                if (playerEntity.isBlocking()) {
-                    int staminaCost = 5;
-
-                    if (stamina >= staminaCost) {
-                        if (playerEntity.age % 20 == 0) {
-                            StaminaData.removeStamina((IEntityDataSaver) playerEntity, staminaCost);
-                            playerEntity.sendMessage(Text.literal("Shield block performed! Stamina remaining: " + (stamina - staminaCost)), true);
-                        }
-                    } else {
-                        playerEntity.sendMessage(Text.literal("Not enough stamina to block!"), true);
-                    }
+                double foodLevel = playerEntity.getHungerManager().getFoodLevel();
+                double health = playerEntity.getHealth();
+                double ticksPerRecovery = (foodLevel + health) / 20.0d;
+                double roundOff = (double) Math.round(ticksPerRecovery * 100) / 100;
+                StaminaData.addStamina(((IEntityDataSaver) playerEntity), 0);
+                if (stamina == 0) {
+                    StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, true);
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 3, 3));
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 3, 1));
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 3, 3));
+                }
+                boolean staminaBlocked = ((IEntityDataSaver) playerEntity).bsroleplay$getPersistentData().getBoolean("stamina_blocked");
+                if (staminaBlocked && stamina == 30)
+                    StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, false);
+                if (ticksPerRecovery != 0 && playerEntity.age % roundOff == 0 && stamina < totalStamina) {
+                    StaminaData.addStamina(((IEntityDataSaver) playerEntity), Math.min(1, totalStamina - stamina));
+                }
+                if (!staminaBlocked && !KnightsHeraldry.CONFIG.common.getBlocking && playerEntity.isBlocking()
+                        && stamina >= 1 && playerEntity.age % 4 == 0) {
+                    StaminaData.removeStamina((IEntityDataSaver) playerEntity, 1);
+                }
+                if (!staminaBlocked && playerEntity.isSprinting() && stamina >= 1) {
+                    StaminaData.removeStamina((IEntityDataSaver) playerEntity, 1);
+                }
+                if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0 && stamina >= 2) {
+                    StaminaData.removeStamina((IEntityDataSaver) playerEntity, 2);
                 }
             }
         }

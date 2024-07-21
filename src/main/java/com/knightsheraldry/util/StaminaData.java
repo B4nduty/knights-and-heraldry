@@ -8,6 +8,12 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class StaminaData {
+    public static void setStaminaBlocked(IEntityDataSaver player, boolean blocked) {
+        NbtCompound nbt = player.bsroleplay$getPersistentData();
+        nbt.putBoolean("stamina_blocked", blocked);
+        syncStaminaBlocked(blocked, (ServerPlayerEntity) player);
+    }
+
     public static void addStamina(IEntityDataSaver player, int amount) {
         NbtCompound nbt = player.bsroleplay$getPersistentData();
         int stamina_int = nbt.getInt("stamina_int");
@@ -41,5 +47,11 @@ public class StaminaData {
         PacketByteBuf buffer = PacketByteBufs.create();
         buffer.writeInt(stamina_int);
         ServerPlayNetworking.send(player, ModMessages.STAMINA_INT_ID, buffer);
+    }
+
+    public static void syncStaminaBlocked(boolean blocked, ServerPlayerEntity player) {
+        PacketByteBuf buffer = PacketByteBufs.create();
+        buffer.writeBoolean(blocked);
+        ServerPlayNetworking.send(player, ModMessages.STAMINA_BLOCKED_ID, buffer);
     }
 }
