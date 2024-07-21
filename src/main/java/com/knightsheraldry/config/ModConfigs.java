@@ -19,8 +19,8 @@ public class ModConfigs extends PartitioningSerializer.GlobalData {
     public static final class Common implements ConfigData {
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("""
-                Disable Vanilla Swords | Default: true
+                True to use Stamina on Blocking, False to use Stamina while Blocking | Default: true
                 """)
-        public boolean getDisableVanillaSwords = true;
+        public boolean getBlocking = true;
     }
 }
