@@ -8,6 +8,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 
 public class PlayerTickHandler implements ServerTickEvents.StartTick {
     @Override
@@ -19,8 +20,8 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
 
                 double foodLevel = playerEntity.getHungerManager().getFoodLevel();
                 double health = playerEntity.getHealth();
-                double ticksPerRecovery = (foodLevel + health) / 20.0d;
-                int roundOff = (int) (4 - Math.round(ticksPerRecovery));
+                double ticksPerRecovery = (foodLevel + health) / 5.0d;
+                int roundOff = (int) (10 - Math.round(ticksPerRecovery));
                 StaminaData.addStamina(((IEntityDataSaver) playerEntity), 0);
                 if (stamina == 0) {
                     StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, true);
@@ -42,16 +43,22 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
                     StaminaData.addStamina(((IEntityDataSaver) playerEntity), Math.min(1, totalStamina - stamina));
                 }
                 if (!staminaBlocked && !KnightsHeraldry.CONFIG.common.getBlocking && playerEntity.isBlocking()
-                        && stamina >= 1 && playerEntity.age % 4 == 0) {
+                        && stamina >= 1 && playerEntity.age % 2 == 0) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, 1);
+                    playerEntity.sendMessage(Text.literal("Shield False Stamina: " + stamina));
                 }
                 if (!staminaBlocked && playerEntity.isSprinting() && stamina >= 1) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, 1);
+                    playerEntity.sendMessage(Text.literal("Sprinting Stamina: " + stamina));
                 }
-                if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0 && stamina >= 8) {
+                if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0
+                        && stamina >= 8 && !playerEntity.isBlocking()) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, 8);
-                } else if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0) {
+                    playerEntity.sendMessage(Text.literal("Jumping Stamina: " + stamina));
+                } else if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0
+                        && !playerEntity.isBlocking()) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, stamina);
+                    playerEntity.sendMessage(Text.literal("Jumping Left Stamina: " + stamina));
                 }
             }
         }

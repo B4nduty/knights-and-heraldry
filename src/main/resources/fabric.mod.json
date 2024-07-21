@@ -18,6 +18,12 @@
         ],
         "fabric-datagen": [
             "com.knightsheraldry.KnightsHeraldry"
+        ],
+        "rei_client": [
+            "com.knightsheraldry.compat.KnightsHeraldryREIClientPlugin"
+        ],
+        "modmenu": [
+            "com.knightsheraldry.compat.ModMenuIntegration"
         ]
     },
     "mixins": [

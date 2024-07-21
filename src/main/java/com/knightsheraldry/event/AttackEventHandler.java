@@ -24,8 +24,7 @@ public class AttackEventHandler implements AttackEntityCallback {
             int staminaCost = 10;
             if (stamina >= staminaCost && !staminaBlocked) {
                 ClientPlayNetworking.send(ModMessages.ATTACK_ID, PacketByteBufs.create());
-                player.sendMessage(Text.literal("This is the Cost:" + staminaCost +
-                        " Now you have:" + (stamina - staminaCost)), true);
+                player.sendMessage(Text.literal("Attack Stamina: " + stamina));
             } else {
                 return ActionResult.FAIL;
             }
