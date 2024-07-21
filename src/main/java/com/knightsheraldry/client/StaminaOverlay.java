@@ -22,7 +22,7 @@ public class StaminaOverlay implements HudRenderCallback {
         if (player == null) return;
         int stamina = ((IEntityDataSaver) player).bsroleplay$getPersistentData().getInt("stamina_int");
         boolean staminaBlocked = ((IEntityDataSaver) player).bsroleplay$getPersistentData().getBoolean("stamina_blocked");
-        if (!player.isSpectator() || !player.isCreative()) {
+        if (!player.isSpectator()) {
             int totalStamina = 200;
             MinecraftClient client = MinecraftClient.getInstance();
             if (client != null) {

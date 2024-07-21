@@ -8,12 +8,13 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 
 public class PlayerTickHandler implements ServerTickEvents.StartTick {
     @Override
     public void onStartTick(MinecraftServer server) {
         for (ServerPlayerEntity playerEntity : server.getPlayerManager().getPlayerList()) {
-            if (!playerEntity.isCreative() || !playerEntity.isSpectator()) {
+            if (!playerEntity.isSpectator()) {
                 int stamina = ((IEntityDataSaver) playerEntity).bsroleplay$getPersistentData().getInt("stamina_int");
                 int totalStamina = 200;
 
@@ -24,16 +25,20 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
                 StaminaData.addStamina(((IEntityDataSaver) playerEntity), 0);
                 if (stamina == 0) {
                     StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, true);
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 3,
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, -1, 3,
                             false, false, false));
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, 1,
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, -1, 1,
                             false, false, false));
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 3,
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, -1, 3,
                             false, false, false));
                 }
                 boolean staminaBlocked = ((IEntityDataSaver) playerEntity).bsroleplay$getPersistentData().getBoolean("stamina_blocked");
-                if (staminaBlocked && stamina == 30)
+                if (staminaBlocked && stamina == 30) {
                     StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, false);
+                    playerEntity.removeStatusEffect(StatusEffects.SLOWNESS);
+                    playerEntity.removeStatusEffect(StatusEffects.MINING_FATIGUE);
+                    playerEntity.removeStatusEffect(StatusEffects.WEAKNESS);
+                }
                 if (ticksPerRecovery != 0 && playerEntity.age % roundOff == 0 && stamina < totalStamina) {
                     StaminaData.addStamina(((IEntityDataSaver) playerEntity), Math.min(1, totalStamina - stamina));
                 }
@@ -43,9 +48,11 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
                 }
                 if (!staminaBlocked && playerEntity.isSprinting() && stamina >= 1) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, 1);
+                    playerEntity.sendMessage(Text.literal("Stamina: " + stamina));
                 }
-                if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0 && stamina >= 2) {
-                    StaminaData.removeStamina((IEntityDataSaver) playerEntity, 2);
+                if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0 && stamina >= 8) {
+                    StaminaData.removeStamina((IEntityDataSaver) playerEntity, 8);
+                    playerEntity.sendMessage(Text.literal("Stamina: " + stamina));
                 }
             }
         }
