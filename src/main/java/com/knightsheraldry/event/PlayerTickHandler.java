@@ -8,7 +8,6 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 
 public class PlayerTickHandler implements ServerTickEvents.StartTick {
     @Override
@@ -48,11 +47,11 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
                 }
                 if (!staminaBlocked && playerEntity.isSprinting() && stamina >= 1) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, 1);
-                    playerEntity.sendMessage(Text.literal("Stamina: " + stamina));
                 }
                 if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0 && stamina >= 8) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, 8);
-                    playerEntity.sendMessage(Text.literal("Stamina: " + stamina));
+                } else if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0) {
+                    StaminaData.removeStamina((IEntityDataSaver) playerEntity, stamina);
                 }
             }
         }

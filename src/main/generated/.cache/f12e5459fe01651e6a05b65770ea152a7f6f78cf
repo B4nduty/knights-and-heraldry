@@ -1,5 +1,7 @@
-// 1.20.1	2024-07-20T19:48:57.5415846	Knights & Heraldry/Recipes
+// 1.20.1	2024-07-21T21:03:34.9556694	Knights & Heraldry/Recipes
 80bd9fd87ce20c0990d5d39da752db26d3556e8f data\knightsheraldry\advancements\recipes\misc\smithing_hammer.json
+14e2ded54f47c6a32e2d5cc3cbbddc7e0c10d60f data\knightsheraldry\recipes\example_1.json
 fdfc8801adb17e190723bde5027e488f1d95550d data\knightsheraldry\advancements\recipes\misc\warsword.json
 87554a735c469ef4d82e12c7c2c9c1a060067a58 data\knightsheraldry\recipes\smithing_hammer.json
 9c910f5294c67a5c5876dbbdb3afe2d98826db01 data\knightsheraldry\recipes\warsword.json
+9fd0618d1c1688b58d379d5ae09377fa20df6148 data\knightsheraldry\advancements\recipes\misc\example_1.json
