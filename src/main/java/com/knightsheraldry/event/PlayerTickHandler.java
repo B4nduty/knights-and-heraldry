@@ -20,13 +20,16 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
                 double foodLevel = playerEntity.getHungerManager().getFoodLevel();
                 double health = playerEntity.getHealth();
                 double ticksPerRecovery = (foodLevel + health) / 20.0d;
-                double roundOff = (double) Math.round(ticksPerRecovery * 100) / 100;
+                int roundOff = (int) (4 - Math.round(ticksPerRecovery));
                 StaminaData.addStamina(((IEntityDataSaver) playerEntity), 0);
                 if (stamina == 0) {
                     StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, true);
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 3, 3));
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 3, 1));
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 3, 3));
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 3,
+                            false, false, false));
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60, 1,
+                            false, false, false));
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 3,
+                            false, false, false));
                 }
                 boolean staminaBlocked = ((IEntityDataSaver) playerEntity).bsroleplay$getPersistentData().getBoolean("stamina_blocked");
                 if (staminaBlocked && stamina == 30)
