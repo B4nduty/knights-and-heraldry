@@ -1,5 +1,6 @@
 package com.knightsheraldry;
 
+import com.knightsheraldry.client.DistanceCrosshairOverlay;
 import com.knightsheraldry.client.StaminaOverlay;
 import com.knightsheraldry.config.ModConfigs;
 import com.knightsheraldry.datagen.ModRecipeProvider;
@@ -35,6 +36,7 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
     @Override
     public void onInitializeClient() {
         HudRenderCallback.EVENT.register(new StaminaOverlay());
+        HudRenderCallback.EVENT.register(new DistanceCrosshairOverlay());
         ModMessages.registerS2CPackets();
         ClientPreAttackCallback.EVENT.register(new AttackCancelHandler());
     }

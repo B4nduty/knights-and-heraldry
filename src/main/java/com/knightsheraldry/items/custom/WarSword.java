@@ -37,19 +37,21 @@ public class WarSword extends SwordItem {
             double maxDistance = 3.5;
             Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
 
-            float standardDamage = this.getAttackDamage();
-
             playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
                     entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1)).forEach(entity -> {
                 double distance = playerPos.distanceTo(target.getPos());
 
                 float damage = 0.0F;
                 if (distance <= 1.0) {
-                    damage = 0.0F;
-                } else if (distance <= 2.0) {
-                    damage = standardDamage;
-                } else if (distance <= 3.5) {
-                    damage = standardDamage * 2;
+                    damage = 1.0F;
+                } else if (distance <= 2) {
+                    damage = 8.0F;
+                }  else if (distance <= 2.5) {
+                    damage = 12.0F;
+                }  else if (distance <= 3.5) {
+                    damage = 8.0F;
+                } else if (distance <= 4) {
+                    damage = 4.0F;
                 }
 
                 playerEntity.sendMessage(Text.literal("Damage: " + damage));
