@@ -5,8 +5,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
@@ -39,25 +37,4 @@ public class WarSword extends SwordItem {
         user.setCurrentHand(hand);
         return TypedActionResult.consume(itemStack);
     }
-
-    // @Override
-    // public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-    //     ItemStack itemStack = user.getStackInHand(hand);
-    //     ItemStack offHandStack = user.getOffHandStack();
-    //     if (!world.isClient) {
-    //         if (((itemStack.getItem() == ModItems.WARSWORD && offHandStack.getItem() == ModItems.SMITHING_HAMMER) ||
-    //                 (offHandStack.getItem() == ModItems.WARSWORD && itemStack.getItem() == ModItems.SMITHING_HAMMER))
-    //                  && user.isSneaking()) {
-    //             int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
-    //             int newVariant = (currentVariant + 1) % MAX_TEXTURE_VARIANTS;
-
-    //             itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
-
-    //            world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_ANVIL_LAND,
-    //                     SoundCategory.BLOCKS, 1f, 1f);
-    //            return TypedActionResult.success(itemStack);
-    //         }
-    //    }
-    //     return TypedActionResult.fail(itemStack);
-    // }
 }
