@@ -1,17 +1,21 @@
 package com.knightsheraldry.items.custom;
 
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class WarSword extends SwordItem {
-    public WarSword(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
-        super(toolMaterial, attackDamage, attackSpeed, settings);
+    public WarSword(ToolMaterial toolMaterial, float attackSpeed, Settings settings) {
+        super(toolMaterial, 0, attackSpeed, settings);
     }
 
     @Override
@@ -24,5 +28,35 @@ public class WarSword extends SwordItem {
         ItemStack itemStack = user.getStackInHand(hand);
         user.setCurrentHand(hand);
         return TypedActionResult.consume(itemStack);
+    }
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if (attacker instanceof PlayerEntity playerEntity) {
+            Vec3d playerPos = playerEntity.getPos();
+            double maxDistance = 3.5;
+            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
+
+            float standardDamage = this.getAttackDamage();
+
+            playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
+                    entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1)).forEach(entity -> {
+                double distance = playerPos.distanceTo(target.getPos());
+
+                float damage = 0.0F;
+                if (distance <= 1.0) {
+                    damage = 0.0F;
+                } else if (distance <= 2.0) {
+                    damage = standardDamage;
+                } else if (distance <= 3.5) {
+                    damage = standardDamage * 2;
+                }
+
+                playerEntity.sendMessage(Text.literal("Damage: " + damage));
+
+                entity.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
+            });
+        }
+        return true;
     }
 }
