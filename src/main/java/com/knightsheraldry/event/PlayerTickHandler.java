@@ -8,7 +8,6 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 
 public class PlayerTickHandler implements ServerTickEvents.StartTick {
     @Override
@@ -39,26 +38,27 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
                     playerEntity.removeStatusEffect(StatusEffects.MINING_FATIGUE);
                     playerEntity.removeStatusEffect(StatusEffects.WEAKNESS);
                 }
-                if (ticksPerRecovery != 0 && playerEntity.age % roundOff == 0 && stamina < totalStamina) {
+                if (ticksPerRecovery != 0 && playerEntity.age % roundOff == 0
+                        && stamina < totalStamina && !playerEntity.isTouchingWater()) {
                     StaminaData.addStamina(((IEntityDataSaver) playerEntity), Math.min(1, totalStamina - stamina));
                 }
                 if (!staminaBlocked && !KnightsHeraldry.CONFIG.common.getBlocking && playerEntity.isBlocking()
                         && stamina >= 1 && playerEntity.age % 2 == 0) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, 1);
-                    playerEntity.sendMessage(Text.literal("Shield False Stamina: " + stamina));
                 }
                 if (!staminaBlocked && playerEntity.isSprinting() && stamina >= 1) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, 1);
-                    playerEntity.sendMessage(Text.literal("Sprinting Stamina: " + stamina));
                 }
                 if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0
-                        && stamina >= 8 && !playerEntity.isBlocking()) {
+                        && stamina >= 8 && !playerEntity.isBlocking() && !playerEntity.hasVehicle()
+                        && !playerEntity.isTouchingWater()) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, 8);
-                    playerEntity.sendMessage(Text.literal("Jumping Stamina: " + stamina));
                 } else if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0
-                        && !playerEntity.isBlocking()) {
+                        && !playerEntity.isBlocking() && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, stamina);
-                    playerEntity.sendMessage(Text.literal("Jumping Left Stamina: " + stamina));
+                }
+                if (playerEntity.isTouchingWater() && stamina >= 1 && playerEntity.age % 2 == 0) {
+                    StaminaData.removeStamina((IEntityDataSaver) playerEntity, 1);
                 }
             }
         }

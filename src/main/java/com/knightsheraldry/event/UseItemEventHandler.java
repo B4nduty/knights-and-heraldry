@@ -3,20 +3,18 @@ package com.knightsheraldry.event;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.util.IEntityDataSaver;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
-public class AttackEventHandler implements AttackEntityCallback {
+public class UseItemEventHandler implements UseItemCallback {
     @Override
-    public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
+    public TypedActionResult<ItemStack> interact(PlayerEntity player, World world, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
         boolean staminaBlocked = ((IEntityDataSaver) player).bsroleplay$getPersistentData().getBoolean("stamina_blocked");
         if (!player.isSpectator()) {
             int stamina = ((IEntityDataSaver) player).bsroleplay$getPersistentData().getInt("stamina_int");
@@ -24,11 +22,10 @@ public class AttackEventHandler implements AttackEntityCallback {
             int staminaCost = 10;
             if (stamina >= staminaCost && !staminaBlocked) {
                 ClientPlayNetworking.send(ModMessages.ATTACK_ID, PacketByteBufs.create());
-                player.sendMessage(Text.literal("Attack Stamina: " + stamina));
             } else {
-                return ActionResult.FAIL;
+                return TypedActionResult.fail(itemStack);
             }
         }
-        return ActionResult.PASS;
+        return TypedActionResult.pass(itemStack);
     }
 }

@@ -15,7 +15,16 @@ public class ModItems {
             new SmithingHammer(new FabricItemSettings().maxCount(1)));
 
     public static final Item WARSWORD = registerItem("warsword",
-            new WarSword(ToolMaterials.IRON, 1, -2.6F, new FabricItemSettings()));
+            new WarSword(ToolMaterials.IRON, 1, -2.6F, new FabricItemSettings().maxDamage(-1)));
+
+    public static final Item WARSWORD_CLAYMORE = registerItem("warsword_claymore",
+            new WarSword(ToolMaterials.IRON, 1, -2.6F, new FabricItemSettings().maxDamage(-1)));
+
+    public static final Item WARSWORD_FLAMBERGE = registerItem("warsword_flamberge",
+            new WarSword(ToolMaterials.IRON, 1, -2.6F, new FabricItemSettings().maxDamage(-1)));
+
+    public static final Item WARSWORD_ZWEIHANDER = registerItem("warsword_zweihander",
+            new WarSword(ToolMaterials.IRON, 1, -2.6F, new FabricItemSettings().maxDamage(-1)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

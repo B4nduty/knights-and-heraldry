@@ -1,17 +1,17 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "knightsheraldry:item/steel_flamberge"
+    "layer0": "knightsheraldry:item/warsword_zweihander"
   },
   "display": {
     "thirdperson_righthand": {
       "rotation": [0, 90, 0],
-      "translation": [0, 18, 2],
+      "translation": [0, 15, 2],
       "scale": [3, 3, 0.8]
     },
     "thirdperson_lefthand": {
       "rotation": [0, -90, 0],
-      "translation": [0, 18, 2],
+      "translation": [0, 15, 2],
       "scale": [3, 3, 0.8]
     },
     "firstperson_righthand": {

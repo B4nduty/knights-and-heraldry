@@ -15,16 +15,16 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:warsword"
+        "recipe": "minecraft:warsword_zweihander"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_warsword_zweihander": {
+    "has_warsword_flamberge": {
       "conditions": {
         "items": [
           {
             "items": [
-              "knightsheraldry:warsword_zweihander"
+              "knightsheraldry:warsword_flamberge"
             ]
           }
         ]
@@ -35,13 +35,13 @@
   "requirements": [
     [
       "has_smithing_hammer",
-      "has_warsword_zweihander",
+      "has_warsword_flamberge",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:warsword"
+      "minecraft:warsword_zweihander"
     ]
   },
   "sends_telemetry_event": false

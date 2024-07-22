@@ -3,7 +3,7 @@ package com.knightsheraldry;
 import com.knightsheraldry.client.StaminaOverlay;
 import com.knightsheraldry.config.ModConfigs;
 import com.knightsheraldry.datagen.ModRecipeProvider;
-import com.knightsheraldry.event.AttackEventHandler;
+import com.knightsheraldry.event.UseItemEventHandler;
 import com.knightsheraldry.event.PlayerTickHandler;
 import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
@@ -17,7 +17,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
         ModItemGroups.registerItemGroups();
         ModMessages.registerC2SPackets();
         ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
-        AttackEntityCallback.EVENT.register(new AttackEventHandler());
+        UseItemCallback.EVENT.register(new UseItemEventHandler());
     }
 
     @Override

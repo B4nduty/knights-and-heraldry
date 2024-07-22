@@ -2,22 +2,17 @@
 	"credit": "Made with Blockbench",
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "knightsheraldry:item/steel_warsword"
+		"layer0": "knightsheraldry:item/warsword"
 	},
-	"overrides": [
-		{ "predicate": { "custom_model_data": 1 }, "model": "knightsheraldry:item/steel_flamberge" },
-		{ "predicate": { "custom_model_data": 2 }, "model": "knightsheraldry:item/steel_claymore" },
-		{ "predicate": { "custom_model_data": 3 }, "model": "knightsheraldry:item/steel_zweihander" }
-	],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, 90, 0],
-			"translation": [0, 18, 2],
+			"translation": [0, 15, 2],
 			"scale": [3, 3, 0.8]
 		},
 		"thirdperson_lefthand": {
 			"rotation": [0, -90, 0],
-			"translation": [0, 18, 2],
+			"translation": [0, 15, 2],
 			"scale": [3, 3, 0.8]
 		},
 		"firstperson_righthand": {

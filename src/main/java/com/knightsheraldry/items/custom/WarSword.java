@@ -1,6 +1,5 @@
 package com.knightsheraldry.items.custom;
 
-import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.util.IEntityDataSaver;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -14,26 +13,8 @@ import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
 public class WarSword extends SwordItem {
-    private static final int MAX_TEXTURE_VARIANTS = 4;
-    private static int currentVariant;
     public WarSword(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
-    }
-
-    @Override
-    public void onCraft(ItemStack stack, World world, PlayerEntity player) {
-        super.onCraft(stack, world, player);
-        int newVariant = (currentVariant + 1) % MAX_TEXTURE_VARIANTS;
-
-        stack.getOrCreateNbt().putInt("CustomModelData", newVariant);
-    }
-
-    @Override
-    public ItemStack getRecipeRemainder(ItemStack stack) {
-        if (stack.getItem() == ModItems.WARSWORD) {
-            currentVariant = stack.getOrCreateNbt().getInt("CustomModelData");
-        }
-        return super.getRecipeRemainder(stack);
     }
 
     @Override

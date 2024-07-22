@@ -33,10 +33,15 @@ public class StaminaOverlay implements HudRenderCallback {
                 y = height;
             }
 
+            int height = 49;
+            if (player.isSubmergedInWater()) {
+                height = 59;
+            }
+
             for(int i = 0; i < 10; i++) {
                 RenderSystem.disableDepthTest();
                 RenderSystem.setShaderTexture(0, STAMINA_EMPTY);
-                drawContext.drawTexture(STAMINA_EMPTY,x + 82 - (i * 8),y - 49,0,0,9,9,
+                drawContext.drawTexture(STAMINA_EMPTY,x + 82 - (i * 8),y - height,0,0,9,9,
                         9,9);
 
                 RenderSystem.enableDepthTest();
@@ -46,14 +51,14 @@ public class StaminaOverlay implements HudRenderCallback {
                 if (stamina > i && staminaBlocked) {
                     RenderSystem.disableDepthTest();
                     RenderSystem.setShaderTexture(0, STAMINA_BLOCKED);
-                    drawContext.drawTexture(STAMINA_BLOCKED,x + 82 - (i/20 * 8),y - 49,0,0,9,9,
+                    drawContext.drawTexture(STAMINA_BLOCKED,x + 82 - (i/20 * 8),y - height,0,0,9,9,
                             9,9);
 
                     RenderSystem.enableDepthTest();
                 } else if(stamina > i) {
                     RenderSystem.disableDepthTest();
                     RenderSystem.setShaderTexture(0, STAMINA);
-                    drawContext.drawTexture(STAMINA,x + 82 - (i/20 * 8),y - 49,0,0,9,9,
+                    drawContext.drawTexture(STAMINA,x + 82 - (i/20 * 8),y - height,0,0,9,9,
                             9,9);
 
                     RenderSystem.enableDepthTest();

@@ -6,10 +6,10 @@
       "item": "knightsheraldry:smithing_hammer"
     },
     {
-      "item": "knightsheraldry:warsword_zweihander"
+      "item": "knightsheraldry:warsword_flamberge"
     }
   ],
   "result": {
-    "item": "knightsheraldry:warsword"
+    "item": "knightsheraldry:warsword_zweihander"
   }
 }
