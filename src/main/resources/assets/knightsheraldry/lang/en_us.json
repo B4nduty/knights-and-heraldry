@@ -3,5 +3,8 @@
   "item.knightsheraldry.warsword_claymore": "War Sword",
   "item.knightsheraldry.warsword_flamberge": "War Sword",
   "item.knightsheraldry.warsword_zweihander": "War Sword",
-  "item.knightsheraldry.smithing_hammer": "Smithing Hammer"
+
+  "item.knightsheraldry.smithing_hammer": "Smithing Hammer",
+
+  "text.autoconfig.knightsheraldry.option.common.getBlocking": "Use Stamina on Blocking or use Stamina while Blocking"
 }

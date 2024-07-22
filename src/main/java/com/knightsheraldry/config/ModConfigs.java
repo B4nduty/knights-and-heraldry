@@ -19,7 +19,7 @@ public class ModConfigs extends PartitioningSerializer.GlobalData {
     public static final class Common implements ConfigData {
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("""
-                True to use Stamina on Blocking, False to use Stamina while Blocking | Default: true
+                Use Stamina on Blocking or use Stamina while Blocking | Default: true
                 """)
         public boolean getBlocking = true;
     }
