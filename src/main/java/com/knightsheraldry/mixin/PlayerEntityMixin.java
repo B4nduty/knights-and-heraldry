@@ -4,7 +4,6 @@ import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.StaminaData;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
