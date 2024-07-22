@@ -13,7 +13,9 @@ public class MinecraftClientInjectMixin {
     @Inject(method = "doAttack", at = @At("HEAD"), cancellable = true)
     private void pre_doAttack(CallbackInfoReturnable<Boolean> info) {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
-        if (player != null) info.setReturnValue(!((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("stamina_blocked"));
-        info.cancel();
+        if (player != null && ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("stamina_blocked")) {
+            info.setReturnValue(false);
+            info.cancel();
+        }
     }
 }

@@ -47,7 +47,9 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     private void knightsHeraldry$onDamageShield(float amount, CallbackInfo ci) {
         List<Item> itemsList = new ArrayList<>();
         itemsList.add(ModItems.WARSWORD);
-        itemsList.add(ModItems.SMITHING_HAMMER);
+        itemsList.add(ModItems.WARSWORD_CLAYMORE);
+        itemsList.add(ModItems.WARSWORD_FLAMBERGE);
+        itemsList.add(ModItems.WARSWORD_ZWEIHANDER);
         PlayerEntity player = (PlayerEntity) (Object) this;
         if (itemsList.contains(player.getActiveItem().getItem())) {
             if (!player.getWorld().isClient) {
