@@ -9,13 +9,13 @@ import net.minecraft.server.network.ServerPlayerEntity;
 
 public class StaminaData {
     public static void setStaminaBlocked(IEntityDataSaver player, boolean blocked) {
-        NbtCompound nbt = player.bsroleplay$getPersistentData();
+        NbtCompound nbt = player.knightsheraldry$getPersistentData();
         nbt.putBoolean("stamina_blocked", blocked);
         syncStaminaBlocked(blocked, (ServerPlayerEntity) player);
     }
 
     public static void addStamina(IEntityDataSaver player, int amount) {
-        NbtCompound nbt = player.bsroleplay$getPersistentData();
+        NbtCompound nbt = player.knightsheraldry$getPersistentData();
         int stamina_int = nbt.getInt("stamina_int");
         int totalStamina = 200;
         if (stamina_int + amount >= totalStamina) {
@@ -31,7 +31,7 @@ public class StaminaData {
     }
 
     public static void removeStamina(IEntityDataSaver player, int amount) {
-        NbtCompound nbt = player.bsroleplay$getPersistentData();
+        NbtCompound nbt = player.knightsheraldry$getPersistentData();
         int stamina_int = nbt.getInt("stamina_int");
         if (stamina_int - amount < 0) {
             stamina_int = 0;

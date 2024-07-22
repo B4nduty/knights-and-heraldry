@@ -14,7 +14,7 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
     public void onStartTick(MinecraftServer server) {
         for (ServerPlayerEntity playerEntity : server.getPlayerManager().getPlayerList()) {
             if (!playerEntity.isSpectator()) {
-                int stamina = ((IEntityDataSaver) playerEntity).bsroleplay$getPersistentData().getInt("stamina_int");
+                int stamina = ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getInt("stamina_int");
                 int totalStamina = 200;
 
                 double foodLevel = playerEntity.getHungerManager().getFoodLevel();
@@ -22,21 +22,29 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
                 double ticksPerRecovery = (foodLevel + health) / 5.0d;
                 int roundOff = (int) (10 - Math.round(ticksPerRecovery));
                 StaminaData.addStamina(((IEntityDataSaver) playerEntity), 0);
-                if (stamina == 0) {
-                    StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, true);
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, -1, 3,
+                if (stamina < 60 && stamina > 30) {
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, -1, 0,
                             false, false, false));
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, -1, 1,
-                            false, false, false));
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, -1, 3,
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, -1, 0,
                             false, false, false));
                 }
-                boolean staminaBlocked = ((IEntityDataSaver) playerEntity).bsroleplay$getPersistentData().getBoolean("stamina_blocked");
+                if (stamina == 0) {
+                    StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, true);
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, -1, 3,
+                            false, false, false));
+                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, -1, 3,
+                            false, false, false));
+                }
+                boolean staminaBlocked = ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
                 if (staminaBlocked && stamina == 30) {
                     StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, false);
                     playerEntity.removeStatusEffect(StatusEffects.SLOWNESS);
                     playerEntity.removeStatusEffect(StatusEffects.MINING_FATIGUE);
-                    playerEntity.removeStatusEffect(StatusEffects.WEAKNESS);
+                }
+                if (stamina == 60) {
+                    StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, false);
+                    playerEntity.removeStatusEffect(StatusEffects.SLOWNESS);
+                    playerEntity.removeStatusEffect(StatusEffects.MINING_FATIGUE);
                 }
                 if (ticksPerRecovery != 0 && playerEntity.age % roundOff == 0
                         && stamina < totalStamina && !playerEntity.isTouchingWater()) {
@@ -50,9 +58,9 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, 1);
                 }
                 if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0
-                        && stamina >= 8 && !playerEntity.isBlocking() && !playerEntity.hasVehicle()
+                        && stamina >= 6 && !playerEntity.isBlocking() && !playerEntity.hasVehicle()
                         && !playerEntity.isTouchingWater()) {
-                    StaminaData.removeStamina((IEntityDataSaver) playerEntity, 8);
+                    StaminaData.removeStamina((IEntityDataSaver) playerEntity, 6);
                 } else if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0
                         && !playerEntity.isBlocking() && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
                     StaminaData.removeStamina((IEntityDataSaver) playerEntity, stamina);

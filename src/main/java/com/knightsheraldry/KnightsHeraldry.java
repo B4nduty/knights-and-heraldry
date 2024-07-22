@@ -3,23 +3,18 @@ package com.knightsheraldry;
 import com.knightsheraldry.client.StaminaOverlay;
 import com.knightsheraldry.config.ModConfigs;
 import com.knightsheraldry.datagen.ModRecipeProvider;
-import com.knightsheraldry.event.UseItemEventHandler;
-import com.knightsheraldry.event.PlayerTickHandler;
-import com.knightsheraldry.items.ModItemGroups;
-import com.knightsheraldry.items.ModItems;
+import com.knightsheraldry.event.*;
+import com.knightsheraldry.items.*;
 import com.knightsheraldry.networking.ModMessages;
 import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
-import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.ModInitializer;
+import me.shedaniel.autoconfig.serializer.*;
+import net.fabricmc.api.*;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
-import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.*;
+import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.fabricmc.fabric.api.event.player.UseItemCallback;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.fabricmc.fabric.api.event.player.*;
+import org.slf4j.*;
 
 public class KnightsHeraldry implements ModInitializer, ClientModInitializer, DataGeneratorEntrypoint {
     public static final String MOD_ID = "knightsheraldry";
@@ -34,13 +29,14 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
         ModItemGroups.registerItemGroups();
         ModMessages.registerC2SPackets();
         ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
-        UseItemCallback.EVENT.register(new UseItemEventHandler());
+        AttackEntityCallback.EVENT.register(new AttackEntityEventHandler());
     }
 
     @Override
     public void onInitializeClient() {
         HudRenderCallback.EVENT.register(new StaminaOverlay());
         ModMessages.registerS2CPackets();
+        ClientPreAttackCallback.EVENT.register(new AttackCancelHandler());
     }
 
     @Override

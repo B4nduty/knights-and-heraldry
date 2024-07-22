@@ -10,7 +10,7 @@ public class StaminaBlockedS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler,
                                PacketByteBuf buf, PacketSender responseSender) {
         if (client.player != null) {
-            ((IEntityDataSaver) client.player).bsroleplay$getPersistentData().putBoolean("stamina_blocked", buf.readBoolean());
+            ((IEntityDataSaver) client.player).knightsheraldry$getPersistentData().putBoolean("stamina_blocked", buf.readBoolean());
         }
     }
 }

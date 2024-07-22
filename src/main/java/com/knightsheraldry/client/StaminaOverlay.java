@@ -20,8 +20,8 @@ public class StaminaOverlay implements HudRenderCallback {
         int y = 0;
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
-        int stamina = ((IEntityDataSaver) player).bsroleplay$getPersistentData().getInt("stamina_int");
-        boolean staminaBlocked = ((IEntityDataSaver) player).bsroleplay$getPersistentData().getBoolean("stamina_blocked");
+        int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
+        boolean staminaBlocked = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
         if (!player.isSpectator()) {
             int totalStamina = 200;
             MinecraftClient client = MinecraftClient.getInstance();

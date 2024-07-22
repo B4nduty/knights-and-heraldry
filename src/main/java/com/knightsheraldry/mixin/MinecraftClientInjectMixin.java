@@ -1,0 +1,19 @@
+package com.knightsheraldry.mixin;
+
+import com.knightsheraldry.util.IEntityDataSaver;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+@Mixin(MinecraftClient.class)
+public class MinecraftClientInjectMixin {
+    @Inject(method = "doAttack", at = @At("HEAD"), cancellable = true)
+    private void pre_doAttack(CallbackInfoReturnable<Boolean> info) {
+        ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        if (player != null) info.setReturnValue(!((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("stamina_blocked"));
+        info.cancel();
+    }
+}

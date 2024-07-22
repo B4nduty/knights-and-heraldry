@@ -1,6 +1,5 @@
 package com.knightsheraldry.items.custom;
 
-import com.knightsheraldry.util.IEntityDataSaver;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -17,23 +16,12 @@ public class WarSword extends SwordItem {
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        if (stack.getOrCreateNbt().getBoolean("stamina_blocked")) {
-            return UseAction.NONE;
-        }
         return UseAction.BLOCK;
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-
-        boolean isStaminaBlocked = ((IEntityDataSaver) user).bsroleplay$getPersistentData().getBoolean("stamina_blocked");
-        itemStack.getOrCreateNbt().putBoolean("stamina_blocked", isStaminaBlocked);
-
-        if (isStaminaBlocked) {
-            return TypedActionResult.fail(itemStack);
-        }
-
         user.setCurrentHand(hand);
         return TypedActionResult.consume(itemStack);
     }

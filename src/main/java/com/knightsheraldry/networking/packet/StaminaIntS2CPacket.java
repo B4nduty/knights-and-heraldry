@@ -10,7 +10,7 @@ public class StaminaIntS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler,
                                PacketByteBuf buf, PacketSender responseSender) {
         if (client.player != null) {
-            ((IEntityDataSaver) client.player).bsroleplay$getPersistentData().putInt("stamina_int", buf.readInt());
+            ((IEntityDataSaver) client.player).knightsheraldry$getPersistentData().putInt("stamina_int", buf.readInt());
         }
     }
 }

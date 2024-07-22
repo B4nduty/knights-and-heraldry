@@ -4,11 +4,13 @@
   "package": "com.knightsheraldry.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "LivingEntityMixin",
     "PlayerEntityMixin"
-  ],
-  "client": [
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+    "MinecraftClientInjectMixin"
+  ]
 }
