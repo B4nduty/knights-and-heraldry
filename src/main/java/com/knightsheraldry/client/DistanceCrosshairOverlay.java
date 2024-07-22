@@ -1,18 +1,14 @@
 package com.knightsheraldry.client;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.ModItems;
+import com.knightsheraldry.util.ModTags;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DistanceCrosshairOverlay implements HudRenderCallback {
     private static final Identifier TOO_FAR_CLOSE = new Identifier(KnightsHeraldry.MOD_ID, "textures/overlay/too_far_close.png");
@@ -21,11 +17,6 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
     private static final Identifier SLASHING_MAXIMUM = new Identifier(KnightsHeraldry.MOD_ID, "textures/overlay/slashing_maximum.png");
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {
-        List<Item> itemsList = new ArrayList<>();
-        itemsList.add(ModItems.WARSWORD);
-        itemsList.add(ModItems.WARSWORD_CLAYMORE);
-        itemsList.add(ModItems.WARSWORD_FLAMBERGE);
-        itemsList.add(ModItems.WARSWORD_ZWEIHANDER);
         int x = 0;
         int y = 0;
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
@@ -43,8 +34,8 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
             closestDistance = distance;
         }
 
-        if (!player.isSpectator() && (itemsList.contains((player.getMainHandStack().getItem())) ||
-                itemsList.contains((player.getOffHandStack().getItem())))) {
+        if (!player.isSpectator() && (player.getMainHandStack().isIn(ModTags.Items.WARSWORD) ||
+                player.getOffHandStack().isIn(ModTags.Items.WARSWORD))) {
             MinecraftClient client = MinecraftClient.getInstance();
             if (client != null) {
                 int width = client.getWindow().getScaledWidth();

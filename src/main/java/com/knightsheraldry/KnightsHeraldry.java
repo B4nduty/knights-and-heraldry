@@ -3,6 +3,7 @@ package com.knightsheraldry;
 import com.knightsheraldry.client.DistanceCrosshairOverlay;
 import com.knightsheraldry.client.StaminaOverlay;
 import com.knightsheraldry.config.ModConfigs;
+import com.knightsheraldry.datagen.ModItemTagProvider;
 import com.knightsheraldry.datagen.ModRecipeProvider;
 import com.knightsheraldry.event.*;
 import com.knightsheraldry.items.*;
@@ -46,5 +47,6 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
         pack.addProvider(ModRecipeProvider::new);
+        pack.addProvider(ModItemTagProvider::new);
     }
 }
