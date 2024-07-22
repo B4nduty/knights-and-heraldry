@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 
 public class ModTags {
     public static class Items {
-        public static final TagKey<Item> WARSWORD = createTag("warsword");
+        public static final TagKey<Item> KH_WEAPONS = createTag("kh_weapons");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name));

@@ -42,7 +42,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     @Inject(method = "damageShield", at = @At("HEAD"), cancellable = true)
     private void knightsHeraldry$onDamageShield(float amount, CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getActiveItem().isIn(ModTags.Items.WARSWORD)) {
+        if (player.getActiveItem().isIn(ModTags.Items.KH_WEAPONS)) {
             if (!player.getWorld().isClient) {
                 player.incrementStat(Stats.USED.getOrCreateStat(player.getActiveItem().getItem()));
             }

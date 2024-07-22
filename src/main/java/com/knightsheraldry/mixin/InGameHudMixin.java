@@ -15,8 +15,8 @@ public class InGameHudMixin {
     @Inject(method = "renderCrosshair", at = @At("HEAD"), cancellable = true)
     private void renderCrosshair(DrawContext context, CallbackInfo ci) {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
-        if (player != null && (player.getMainHandStack().isIn(ModTags.Items.WARSWORD) ||
-                player.getOffHandStack().isIn(ModTags.Items.WARSWORD))) {
+        if (player != null && (player.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS) ||
+                player.getOffHandStack().isIn(ModTags.Items.KH_WEAPONS))) {
             ci.cancel();
         }
     }

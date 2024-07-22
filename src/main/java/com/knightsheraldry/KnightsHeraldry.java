@@ -16,6 +16,9 @@ import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.*;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.util.Identifier;
 import org.slf4j.*;
 
 public class KnightsHeraldry implements ModInitializer, ClientModInitializer, DataGeneratorEntrypoint {
@@ -40,6 +43,8 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
         HudRenderCallback.EVENT.register(new DistanceCrosshairOverlay());
         ModMessages.registerS2CPackets();
         ClientPreAttackCallback.EVENT.register(new AttackCancelHandler());
+        registerModelPredicate(ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
+                ModItems.WARSWORD_ZWEIHANDER);
     }
 
     @Override
@@ -48,5 +53,13 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
 
         pack.addProvider(ModRecipeProvider::new);
         pack.addProvider(ModItemTagProvider::new);
+    }
+
+    private void registerModelPredicate(Item... items) {
+        for (Item item : items) {
+            ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
+                    (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F
+            );
+        }
     }
 }

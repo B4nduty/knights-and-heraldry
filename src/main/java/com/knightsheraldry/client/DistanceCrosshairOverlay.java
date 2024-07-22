@@ -34,8 +34,8 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
             closestDistance = distance;
         }
 
-        if (!player.isSpectator() && (player.getMainHandStack().isIn(ModTags.Items.WARSWORD) ||
-                player.getOffHandStack().isIn(ModTags.Items.WARSWORD))) {
+        if (!player.isSpectator() && (player.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS) ||
+                player.getOffHandStack().isIn(ModTags.Items.KH_WEAPONS))) {
             MinecraftClient client = MinecraftClient.getInstance();
             if (client != null) {
                 int width = client.getWindow().getScaledWidth();

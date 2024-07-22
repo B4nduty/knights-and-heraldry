@@ -33,5 +33,13 @@
       "rotation": [0, -180, 45],
       "translation": [1, 0.25, 0]
     }
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "knightsheraldry:item/warsword_flamberge_blocking"
+    }
+  ]
 }

@@ -46,9 +46,9 @@ public class WarSword extends SwordItem {
                     damage = 1.0F;
                 } else if (distance <= 2) {
                     damage = 8.0F;
-                }  else if (distance <= 2.5) {
+                } else if (distance <= 2.5) {
                     damage = 12.0F;
-                }  else if (distance <= 3.5) {
+                } else if (distance <= 3.5) {
                     damage = 8.0F;
                 } else if (distance <= 4) {
                     damage = 4.0F;

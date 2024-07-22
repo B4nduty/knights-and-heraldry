@@ -15,7 +15,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(ModTags.Items.WARSWORD)
+        getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS)
                 .add(ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
                         ModItems.WARSWORD_ZWEIHANDER);
     }
