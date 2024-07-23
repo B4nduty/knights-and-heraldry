@@ -1,12 +1,5 @@
 package com.knightsheraldry.items.custom;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.UseAction;
-import net.minecraft.world.World;
-
 public class WarSword extends KHWeaponsTemplate {
     public WarSword(float attackSpeed, Settings settings) {
         super(attackSpeed, settings);
@@ -15,7 +8,6 @@ public class WarSword extends KHWeaponsTemplate {
     @Override
     public float[] getDefaultAttackDamageValues() {
         return new float[] {
-                // Respect the order of higher and lower values, Crosshair Overlay not compatible with that right now
                 1.0F, 8.0F, 12.0F, 8.0F, 4.0F, //Slashing
                 1.0F, 6.0F, 9.0F, 6.0F, 3.0F, //Piercing
                 1.0F, 5.0F, 7.25F, 5.0F, 2.5F //Bludgeoning
@@ -32,17 +24,5 @@ public class WarSword extends KHWeaponsTemplate {
                 3.5d, //4th Distance
                 4.0d //5th Distance
         };
-    }
-
-    @Override
-    public UseAction getUseAction(ItemStack stack) {
-        return UseAction.BLOCK;
-    }
-
-    @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        user.setCurrentHand(hand);
-        return TypedActionResult.consume(itemStack);
     }
 }

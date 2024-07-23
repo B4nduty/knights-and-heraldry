@@ -11,6 +11,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -75,14 +76,6 @@ public class KHWeaponsTemplate extends SwordItem {
         return 0.0F;
     }
 
-    protected void setDamageType(ItemStack stack, int value) {
-        stack.getOrCreateNbt().putInt("DamageType", value);
-    }
-
-    public int getDamageType(ItemStack stack) {
-        return stack.getOrCreateNbt().getInt("DamageType");
-    }
-
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (attacker instanceof PlayerEntity playerEntity) {
@@ -101,13 +94,10 @@ public class KHWeaponsTemplate extends SwordItem {
 
                 if (bludgeoning) {
                     damage = getBludgeoningDamage(distance);
-                    setDamageType(stack, 0);
                 } else if (piercing) {
                     damage = getPiercingDamage(distance);
-                    setDamageType(stack, 1);
                 } else {
                     damage = getSlashingDamage(distance);
-                    setDamageType(stack, 2);
                 }
 
                 entity.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
@@ -115,6 +105,11 @@ public class KHWeaponsTemplate extends SwordItem {
             });
         }
         return true;
+    }
+
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.BLOCK;
     }
 
     @Override
@@ -129,6 +124,7 @@ public class KHWeaponsTemplate extends SwordItem {
                 return TypedActionResult.success(itemStack);
             }
         }
+        user.setCurrentHand(hand);
         return TypedActionResult.consume(itemStack);
     }
 }
