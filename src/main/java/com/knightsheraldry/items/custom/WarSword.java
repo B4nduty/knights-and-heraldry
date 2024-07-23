@@ -1,23 +1,37 @@
 package com.knightsheraldry.items.custom;
 
-import com.knightsheraldry.util.ModTags;
-import net.bettercombat.logic.PlayerAttackProperties;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class WarSword extends SwordItem {
-    public WarSword(ToolMaterial toolMaterial, float attackSpeed, Settings settings) {
-        super(toolMaterial, 0, attackSpeed, settings);
+public class WarSword extends KHWeaponsTemplate {
+    public WarSword(float attackSpeed, Settings settings) {
+        super(attackSpeed, settings);
+    }
+
+    @Override
+    public float[] getDefaultAttackDamageValues() {
+        return new float[] {
+                // Respect the order of higher and lower values, Crosshair Overlay not compatible with that right now
+                1.0F, 8.0F, 12.0F, 8.0F, 4.0F, //Slashing
+                1.0F, 6.0F, 9.0F, 6.0F, 3.0F, //Piercing
+                1.0F, 5.0F, 7.25F, 5.0F, 2.5F //Bludgeoning
+        };
+    }
+
+    @Override
+    public double[] getDefaultRadiusValues() {
+        return new double[] {
+                // Values cannot be higher than it's next value
+                1.0d, //1st Distance
+                2.0d, //2nd Distance
+                2.5d, //3rd Distance
+                3.5d, //4th Distance
+                4.0d //5th Distance
+        };
     }
 
     @Override
@@ -29,56 +43,6 @@ public class WarSword extends SwordItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         user.setCurrentHand(hand);
-        if (!world.isClient) {
-            if ((itemStack.isIn(ModTags.Items.KH_WEAPONS)) && user.isSneaking()) {
-                int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
-                int newVariant = (currentVariant + 1) % 2;
-
-                itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
-                return TypedActionResult.success(itemStack);
-            }
-        }
         return TypedActionResult.consume(itemStack);
-    }
-
-    @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (attacker instanceof PlayerEntity playerEntity) {
-            Vec3d playerPos = playerEntity.getPos();
-            double maxDistance = 3.5;
-            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
-
-            playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
-                    entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1)).forEach(entity -> {
-                double distance = playerPos.distanceTo(target.getPos());
-                int comboCount = ((PlayerAttackProperties) playerEntity).getComboCount();
-
-                float damage = 0.0F;
-                if (stack.getOrCreateNbt().getInt("CustomModelData") == 1) {
-                    if (distance <= 1.0) damage = 1.0F;
-                    else if (distance <= 2) damage = 5F;
-                    else if (distance <= 2.5) damage = 7.5F;
-                    else if (distance <= 3.5) damage = 5F;
-                    else if (distance <= 4) damage = 2.5F;
-                } else if (comboCount % 3 == 1) {
-                    if (distance <= 1.0) damage = 1.0F;
-                    else if (distance <= 2) damage = 6F;
-                    else if (distance <= 2.5) damage = 9F;
-                    else if (distance <= 3.5) damage = 6F;
-                    else if (distance <= 4) damage = 3F;
-                } else {
-                    if (distance <= 1.0) damage = 1.0F;
-                    else if (distance <= 2) damage = 8.0F;
-                    else if (distance <= 2.5) damage = 12.0F;
-                    else if (distance <= 3.5) damage = 8.0F;
-                    else if (distance <= 4) damage = 4.0F;
-                }
-
-                playerEntity.sendMessage(Text.literal("Damage: " + damage));
-
-                entity.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
-            });
-        }
-        return true;
     }
 }

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "knightsheraldry:warsword",
+    "knightsheraldry:warsword_claymore",
+    "knightsheraldry:warsword_flamberge",
+    "knightsheraldry:warsword_zweihander"
+  ]
+}

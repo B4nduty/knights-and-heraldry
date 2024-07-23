@@ -49,7 +49,6 @@ public class StaminaOverlay implements HudRenderCallback {
 
             for(int i = 0; i < totalStamina; i++) {
                 if (stamina > i && staminaBlocked) {
-                    RenderSystem.disableDepthTest();
                     RenderSystem.setShaderTexture(0, STAMINA_BLOCKED);
                     drawContext.drawTexture(STAMINA_BLOCKED,x + 82 - (i/20 * 8),y - height,0,0,9,9,
                             9,9);

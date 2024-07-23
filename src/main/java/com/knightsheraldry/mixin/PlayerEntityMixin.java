@@ -28,21 +28,21 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
     protected void injectWriteMethod(NbtCompound nbt, CallbackInfo ci) {
         if(persistentData != null) {
-            nbt.put("bsroleplay.data", persistentData);
+            nbt.put("knightsheraldry.data", persistentData);
         }
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
     protected void injectReadMethod(NbtCompound nbt, CallbackInfo info) {
-        if (nbt.contains("bsroleplay.data", 10)) {
-            persistentData = nbt.getCompound("bsroleplay.data");
+        if (nbt.contains("knightsheraldry.data", 10)) {
+            persistentData = nbt.getCompound("knightsheraldry.data");
         }
     }
 
     @Inject(method = "damageShield", at = @At("HEAD"), cancellable = true)
     private void knightsHeraldry$onDamageShield(float amount, CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getActiveItem().isIn(ModTags.Items.KH_WEAPONS)) {
+        if (player.getActiveItem().isIn(ModTags.Items.KH_WEAPONS_SHIELD)) {
             if (!player.getWorld().isClient) {
                 player.incrementStat(Stats.USED.getOrCreateStat(player.getActiveItem().getItem()));
             }

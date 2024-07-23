@@ -18,5 +18,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS)
                 .add(ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
                         ModItems.WARSWORD_ZWEIHANDER);
+        getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_SHIELD)
+                .add(ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
+                        ModItems.WARSWORD_ZWEIHANDER);
     }
 }
