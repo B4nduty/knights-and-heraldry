@@ -1,5 +1,7 @@
 package com.knightsheraldry.items.custom;
 
+import com.knightsheraldry.util.ModTags;
+import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -27,6 +29,15 @@ public class WarSword extends SwordItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         user.setCurrentHand(hand);
+        if (!world.isClient) {
+            if ((itemStack.isIn(ModTags.Items.KH_WEAPONS)) && user.isSneaking()) {
+                int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
+                int newVariant = (currentVariant + 1) % 2;
+
+                itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
+                return TypedActionResult.success(itemStack);
+            }
+        }
         return TypedActionResult.consume(itemStack);
     }
 
@@ -40,18 +51,27 @@ public class WarSword extends SwordItem {
             playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
                     entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1)).forEach(entity -> {
                 double distance = playerPos.distanceTo(target.getPos());
+                int comboCount = ((PlayerAttackProperties) playerEntity).getComboCount();
 
                 float damage = 0.0F;
-                if (distance <= 1.0) {
-                    damage = 1.0F;
-                } else if (distance <= 2) {
-                    damage = 8.0F;
-                } else if (distance <= 2.5) {
-                    damage = 12.0F;
-                } else if (distance <= 3.5) {
-                    damage = 8.0F;
-                } else if (distance <= 4) {
-                    damage = 4.0F;
+                if (stack.getOrCreateNbt().getInt("CustomModelData") == 1) {
+                    if (distance <= 1.0) damage = 1.0F;
+                    else if (distance <= 2) damage = 5F;
+                    else if (distance <= 2.5) damage = 7.5F;
+                    else if (distance <= 3.5) damage = 5F;
+                    else if (distance <= 4) damage = 2.5F;
+                } else if (comboCount % 3 == 1) {
+                    if (distance <= 1.0) damage = 1.0F;
+                    else if (distance <= 2) damage = 6F;
+                    else if (distance <= 2.5) damage = 9F;
+                    else if (distance <= 3.5) damage = 6F;
+                    else if (distance <= 4) damage = 3F;
+                } else {
+                    if (distance <= 1.0) damage = 1.0F;
+                    else if (distance <= 2) damage = 8.0F;
+                    else if (distance <= 2.5) damage = 12.0F;
+                    else if (distance <= 3.5) damage = 8.0F;
+                    else if (distance <= 4) damage = 4.0F;
                 }
 
                 playerEntity.sendMessage(Text.literal("Damage: " + damage));

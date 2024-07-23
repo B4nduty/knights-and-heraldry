@@ -5,22 +5,22 @@
 	},
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [0, 90, 0],
-			"translation": [0, 15, 2],
+			"rotation": [180, 90, 0],
+			"translation": [-1, 9, 2],
 			"scale": [3, 3, 0.8]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [0, -90, 0],
-			"translation": [0, 15, 2],
+			"rotation": [180, -90, 0],
+			"translation": [-1, 9, 2],
 			"scale": [3, 3, 0.8]
 		},
 		"firstperson_righthand": {
-			"rotation": [-25, 90, 0],
+			"rotation": [155, 90, 0],
 			"translation": [0, 9, -2],
 			"scale": [1.5, 2, 0.8]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-25, -90, 0],
+			"rotation": [155, -90, 0],
 			"translation": [0, 9, -2],
 			"scale": [1.5, 2, 0.8]
 		},
@@ -30,16 +30,8 @@
 			"scale": [1, 1, 0.5]
 		},
 		"gui": {
-			"rotation": [0, -180, 45],
+			"rotation": [180, -180, 45],
 			"translation": [1, 0.25, 0]
 		}
-	},
-	"overrides": [
-		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/warsword_blocking" },
-		{ "predicate": { "custom_model_data": 1 }, "model": "knightsheraldry:item/warsword_bludgeoning" },
-		{ "predicate": {
-			"blocking": 1,
-			"custom_model_data": 1
-		}, "model": "knightsheraldry:item/warsword_bludgeoning_blocking" }
-	]
+	}
 }

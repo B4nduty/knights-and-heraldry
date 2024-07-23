@@ -35,11 +35,11 @@
     }
   },
   "overrides": [
-    {
-      "predicate": {
-        "blocking": 1
-      },
-      "model": "knightsheraldry:item/warsword_claymore_blocking"
-    }
+    { "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/warsword_claymore_blocking" },
+    { "predicate": { "custom_model_data": 1 }, "model": "knightsheraldry:item/warsword_claymore_bludgeoning" },
+    { "predicate": {
+      "blocking": 1,
+      "custom_model_data": 1
+    }, "model": "knightsheraldry:item/warsword_claymore_bludgeoning_blocking" }
   ]
 }
