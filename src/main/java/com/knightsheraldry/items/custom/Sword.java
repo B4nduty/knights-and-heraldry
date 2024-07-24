@@ -1,7 +1,6 @@
 package com.knightsheraldry.items.custom;
 
 import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.StaminaData;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
