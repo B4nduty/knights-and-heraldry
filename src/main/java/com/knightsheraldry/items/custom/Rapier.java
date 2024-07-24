@@ -1,7 +1,7 @@
 package com.knightsheraldry.items.custom;
 
-public class Stiletto extends KHWeapons {
-    public Stiletto(float attackSpeed, Settings settings) {
+public class Rapier extends KHWeapons {
+    public Rapier(float attackSpeed, Settings settings) {
         super(attackSpeed, settings);
     }
 
@@ -10,7 +10,7 @@ public class Stiletto extends KHWeapons {
         return new float[] {
                 // For activate Bludgeoning, you need KH_WEAPONS_BLUDGEONING Item Tag
                 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Slashing
-                0.0F, 6.0F, 12.0F, 6.0F, 3.0F, //Piercing
+                1.0F, 6.0F, 12.0F, 6.0F, 3.0F, //Piercing
                 0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
         };
     }
@@ -19,11 +19,11 @@ public class Stiletto extends KHWeapons {
     public double[] getDefaultRadiusValues() {
         return new double[] {
                 // Values cannot be higher or equal than its next value
-                0.0d, //1st Distance
-                0.5d, //2nd Distance
-                0.8d, //3rd Distance
-                0.9d, //4th Distance
-                1.0d //5th Distance
+                2.5d, //1st Distance
+                2.8d, //2nd Distance
+                3.0d, //3rd Distance
+                3.5d, //4th Distance
+                3.6d //5th Distance
         };
     }
 }

@@ -33,6 +33,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.SMITHING_HAMMER)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SWORD, 1)
+                .input(ModItems.SMITHING_HAMMER, 1)
+                .input(ModItems.ARMING_SWORD, 1)
+                .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
+                .criterion(hasItem(ModItems.ARMING_SWORD), conditionsFromItem(ModItems.ARMING_SWORD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.SWORD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.V_SWORD, 1)
+                .input(ModItems.SMITHING_HAMMER, 1)
+                .input(ModItems.SWORD, 1)
+                .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
+                .criterion(hasItem(ModItems.SWORD), conditionsFromItem(ModItems.SWORD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.V_SWORD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ARMING_SWORD, 1)
+                .input(ModItems.SMITHING_HAMMER, 1)
+                .input(ModItems.V_SWORD, 1)
+                .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
+                .criterion(hasItem(ModItems.V_SWORD), conditionsFromItem(ModItems.V_SWORD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMING_SWORD)));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARSWORD_CLAYMORE, 1)
                 .input(ModItems.SMITHING_HAMMER, 1)
                 .input(ModItems.WARSWORD, 1)

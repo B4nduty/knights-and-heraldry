@@ -1,7 +1,7 @@
 package com.knightsheraldry.client;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.KHWeaponsTemplate;
+import com.knightsheraldry.items.custom.KHWeapons;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -47,12 +47,12 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
 
         ItemStack mainHandStack = player.getMainHandStack();
         ItemStack offHandStack = player.getOffHandStack();
-        KHWeaponsTemplate weapon = null;
+        KHWeapons weapon = null;
 
-        if (mainHandStack.getItem() instanceof KHWeaponsTemplate) {
-            weapon = (KHWeaponsTemplate) mainHandStack.getItem();
-        } else if (offHandStack.getItem() instanceof KHWeaponsTemplate) {
-            weapon = (KHWeaponsTemplate) offHandStack.getItem();
+        if (mainHandStack.getItem() instanceof KHWeapons) {
+            weapon = (KHWeapons) mainHandStack.getItem();
+        } else if (offHandStack.getItem() instanceof KHWeapons) {
+            weapon = (KHWeapons) offHandStack.getItem();
         }
 
         if (weapon != null) {
@@ -91,13 +91,13 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
             if (distance <= radiusValues[i]) {
                 Identifier texture = textures[i];
                 int width, height, xT, yT;
-                if (texture == SLASHING_CRITICAL) {
+                if (texture == BLUDGEONING_CRITICAL) {
                     width = height = 9;
                     xT = yT = 5;
-                } else if (texture == SLASHING_MAXIMUM) {
+                } else if (texture == BLUDGEONING_EFFECTIVE) {
                     width = height = 9;
                     xT = yT = 5;
-                } else if (texture == SLASHING_EFFECTIVE) {
+                } else if (texture == BLUDGEONING_MAXIMUM) {
                     width = height = 7;
                     xT = yT = 4;
                 } else if (texture == TOO_FAR_CLOSE) {
@@ -133,13 +133,13 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
             if (distance <= radiusValues[i]) {
                 Identifier texture = textures[i];
                 int width, height, xT, yT;
-                if (texture == SLASHING_CRITICAL) {
+                if (texture == PIERCING_CRITICAL) {
                     width = height = 11;
                     xT = yT = 6;
-                } else if (texture == SLASHING_MAXIMUM) {
+                } else if (texture == PIERCING_EFFECTIVE) {
                     width = height = 11;
                     xT = yT = 6;
-                } else if (texture == SLASHING_EFFECTIVE) {
+                } else if (texture == PIERCING_MAXIMUM) {
                     width = height = 7;
                     xT = yT = 4;
                 } else if (texture == TOO_FAR_CLOSE) {
@@ -179,10 +179,10 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
                 if (texture == SLASHING_CRITICAL) {
                     width = height = 9;
                     xT = yT = 5;
-                } else if (texture == SLASHING_MAXIMUM) {
+                } else if (texture == SLASHING_EFFECTIVE) {
                     width = height = 9;
                     xT = yT = 5;
-                } else if (texture == SLASHING_EFFECTIVE) {
+                } else if (texture == SLASHING_MAXIMUM) {
                     width = height = 7;
                     xT = yT = 4;
                 } else if (texture == TOO_FAR_CLOSE) {

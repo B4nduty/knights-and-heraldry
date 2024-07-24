@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
+    "knightsheraldry:rapier",
+    "knightsheraldry:sword",
+    "knightsheraldry:v_sword",
+    "knightsheraldry:arming_sword",
     "knightsheraldry:warsword",
     "knightsheraldry:warsword_claymore",
     "knightsheraldry:warsword_flamberge",

@@ -1,10 +1,8 @@
 package com.knightsheraldry;
 
-import com.knightsheraldry.client.DistanceCrosshairOverlay;
-import com.knightsheraldry.client.StaminaOverlay;
+import com.knightsheraldry.client.*;
 import com.knightsheraldry.config.ModConfigs;
-import com.knightsheraldry.datagen.ModItemTagProvider;
-import com.knightsheraldry.datagen.ModRecipeProvider;
+import com.knightsheraldry.datagen.*;
 import com.knightsheraldry.event.*;
 import com.knightsheraldry.items.*;
 import com.knightsheraldry.networking.ModMessages;
@@ -43,7 +41,8 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
         HudRenderCallback.EVENT.register(new DistanceCrosshairOverlay());
         ModMessages.registerS2CPackets();
         ClientPreAttackCallback.EVENT.register(new AttackCancelHandler());
-        registerModelPredicate(ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
+        registerModelPredicate(ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD,
+                ModItems.ARMING_SWORD, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
                 ModItems.WARSWORD_ZWEIHANDER);
     }
 

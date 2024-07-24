@@ -17,7 +17,8 @@ public class AttackEntityEventHandler implements AttackEntityCallback {
     @Override
     public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
         boolean staminaBlocked = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
-        if (!player.isSpectator()) {
+        boolean ableStamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("able_stamina");
+        if (ableStamina && !player.isSpectator()) {
             int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
 
             int staminaCost = 10;

@@ -1,6 +1,6 @@
 package com.knightsheraldry.items.custom;
 
-public class WarSword extends KHWeaponsTemplate {
+public class WarSword extends KHWeapons {
     public WarSword(float attackSpeed, Settings settings) {
         super(attackSpeed, settings);
     }
@@ -8,6 +8,7 @@ public class WarSword extends KHWeaponsTemplate {
     @Override
     public float[] getDefaultAttackDamageValues() {
         return new float[] {
+                // For activate Bludgeoning, you need KH_WEAPONS_BLUDGEONING Item Tag
                 1.0F, 8.0F, 12.0F, 8.0F, 4.0F, //Slashing
                 1.0F, 6.0F, 9.0F, 6.0F, 3.0F, //Piercing
                 1.0F, 5.0F, 7.25F, 5.0F, 2.5F //Bludgeoning
@@ -17,7 +18,7 @@ public class WarSword extends KHWeaponsTemplate {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher than it's next value
+                // Values cannot be higher than its next value
                 1.0d, //1st Distance
                 2.0d, //2nd Distance
                 2.5d, //3rd Distance

@@ -1,16 +1,22 @@
 {
   "itemGroup.knightsheraldry.title.tools_and_weapons": "K&H Tools & Weapons",
 
+  "item.knightsheraldry.dagger": "Dagger",
+
+  "item.knightsheraldry.stiletto": "Stiletto",
+
+  "item.knightsheraldry.rapier": "Rapier",
+
+  "item.knightsheraldry.sword": "Sword",
+  "item.knightsheraldry.v_sword": "Sword",
+  "item.knightsheraldry.arming_sword": "Sword",
+
   "item.knightsheraldry.warsword": "War Sword",
   "item.knightsheraldry.warsword_claymore": "War Sword",
   "item.knightsheraldry.warsword_flamberge": "War Sword",
   "item.knightsheraldry.warsword_zweihander": "War Sword",
 
-  "item.knightsheraldry.dagger": "Dagger",
-
-  "item.knightsheraldry.stiletto": "Stiletto",
-
   "item.knightsheraldry.smithing_hammer": "Smithing Hammer",
 
-  "text.autoconfig.knightsheraldry.option.common.getBlocking": "Use Stamina on Blocking or use Stamina while Blocking"
+  "text.autoconfig.knightsheraldry.option.common.getBlocking": "Use Stamina on or while Blocking"
 }

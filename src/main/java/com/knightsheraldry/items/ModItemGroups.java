@@ -17,6 +17,8 @@ public class ModItemGroups {
                         entries.add(ModItems.SMITHING_HAMMER);
                         entries.add(ModItems.DAGGER);
                         entries.add(ModItems.STILETTO);
+                        entries.add(ModItems.RAPIER);
+                        entries.add(ModItems.SWORD);
                         entries.add(ModItems.WARSWORD);
                     })
                     .build());

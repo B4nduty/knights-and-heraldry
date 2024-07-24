@@ -12,6 +12,7 @@ public class ModTags {
         public static final TagKey<Item> KH_WEAPONS_SHIELD = createTag("kh_weapons_shield");
         public static final TagKey<Item> KH_WEAPONS_DAMAGE_BEHIND = createTag("kh_weapons_damage_behind");
         public static final TagKey<Item> KH_WEAPONS_IGNORES_ARMOR = createTag("kh_weapons_ignores_armor");
+        public static final TagKey<Item> KH_WEAPONS_BLUDGEONING = createTag("kh_weapons_ignores_armor");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name));

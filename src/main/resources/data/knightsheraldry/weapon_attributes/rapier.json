@@ -1,0 +1,14 @@
+{
+  "parent": "bettercombat:rapier",
+  "attributes": {
+    "attack_range": 3.5,
+    "attacks": [
+      {
+        "angle": 100
+      },
+      {
+        "damageMultiplier": 0.0
+      }
+    ]
+  }
+}

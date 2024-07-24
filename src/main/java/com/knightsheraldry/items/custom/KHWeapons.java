@@ -15,8 +15,8 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class KHWeaponsTemplate extends SwordItem {
-    public KHWeaponsTemplate(float attackSpeed, Settings settings) {
+public class KHWeapons extends SwordItem {
+    public KHWeapons(float attackSpeed, Settings settings) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
 
@@ -79,7 +79,7 @@ public class KHWeaponsTemplate extends SwordItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (attacker instanceof PlayerEntity playerEntity) {
             Vec3d playerPos = playerEntity.getPos();
-            double maxDistance = 3.5;
+            double maxDistance = getRadius(4);
             Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
 
             playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
@@ -125,20 +125,19 @@ public class KHWeaponsTemplate extends SwordItem {
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.BLOCK;
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_SHIELD)) return UseAction.BLOCK;
+        return UseAction.NONE;
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        if (!world.isClient) {
-            if ((itemStack.isIn(ModTags.Items.KH_WEAPONS)) && user.isSneaking()) {
-                int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
-                int newVariant = (currentVariant + 1) % 2;
+        if (!world.isClient && itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING) && user.isSneaking()) {
+            int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
+            int newVariant = (currentVariant + 1) % 2;
 
-                itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
-                return TypedActionResult.success(itemStack);
-            }
+            itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
+            return TypedActionResult.success(itemStack);
         }
         user.setCurrentHand(hand);
         return TypedActionResult.consume(itemStack);
