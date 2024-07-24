@@ -15,6 +15,8 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemGroup.knightsheraldry.title.tools_and_weapons"))
                     .icon(() -> new ItemStack(ModItems.SMITHING_HAMMER)).entries((displayContext, entries) -> {
                         entries.add(ModItems.SMITHING_HAMMER);
+                        entries.add(ModItems.DAGGER);
+                        entries.add(ModItems.STILETTO);
                         entries.add(ModItems.WARSWORD);
                     })
                     .build());

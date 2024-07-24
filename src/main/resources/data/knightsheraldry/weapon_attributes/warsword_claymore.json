@@ -7,10 +7,10 @@
         "angle": 100
       },
       {
-        "damageMultiplier": 0.1
+        "damageMultiplier": 0.0
       },
       {
-        "damageMultiplier": 0.3
+        "damageMultiplier": 0.0
       }
     ]
   }

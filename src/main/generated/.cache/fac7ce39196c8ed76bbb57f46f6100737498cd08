@@ -1,3 +1,5 @@
-// 1.20.1	2024-07-23T16:25:22.0972579	Knights & Heraldry/Tags for minecraft:item
+// 1.20.1	2024-07-24T11:30:47.5977899	Knights & Heraldry/Tags for minecraft:item
 08f4560831a30d1d4bdbc6b734f65dbfee134c3c data\knightsheraldry\tags\items\kh_weapons_shield.json
-08f4560831a30d1d4bdbc6b734f65dbfee134c3c data\knightsheraldry\tags\items\kh_weapons.json
+1ac8bbb29335f98d8bfec25cbd1149ac2c3e00c1 data\knightsheraldry\tags\items\kh_weapons_ignores_armor.json
+ef558e24a8bcd2d96cac8e8abf4713edac8fcaab data\knightsheraldry\tags\items\kh_weapons_damage_behind.json
+8748953983e0d932cd4dc66380aa88aa3b3cbeec data\knightsheraldry\tags\items\kh_weapons.json

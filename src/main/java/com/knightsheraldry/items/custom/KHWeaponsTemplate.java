@@ -8,7 +8,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
-import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
@@ -50,29 +49,29 @@ public class KHWeaponsTemplate extends SwordItem {
     }
 
     private float getSlashingDamage(double distance) {
-        if (distance <= getRadius(0)) return getAttackDamage(0);
-        if (distance <= getRadius(1)) return getAttackDamage(1);
-        if (distance <= getRadius(2)) return getAttackDamage(2);
-        if (distance <= getRadius(3)) return getAttackDamage(3);
-        if (distance <= getRadius(4)) return getAttackDamage(4);
+        if (distance < getRadius(0)) return getAttackDamage(0);
+        if (distance < getRadius(1)) return getAttackDamage(1);
+        if (distance < getRadius(2)) return getAttackDamage(2);
+        if (distance < getRadius(3)) return getAttackDamage(3);
+        if (distance < getRadius(4)) return getAttackDamage(4);
         return 0.0F;
     }
 
     private float getPiercingDamage(double distance) {
-        if (distance <= getRadius(0)) return getAttackDamage(5);
-        if (distance <= getRadius(1)) return getAttackDamage(6);
-        if (distance <= getRadius(2)) return getAttackDamage(7);
-        if (distance <= getRadius(3)) return getAttackDamage(8);
-        if (distance <= getRadius(4)) return getAttackDamage(9);
+        if (distance < getRadius(0)) return getAttackDamage(5);
+        if (distance < getRadius(1)) return getAttackDamage(6);
+        if (distance < getRadius(2)) return getAttackDamage(7);
+        if (distance < getRadius(3)) return getAttackDamage(8);
+        if (distance < getRadius(4)) return getAttackDamage(9);
         return 0.0F;
     }
 
     private float getBludgeoningDamage(double distance) {
-        if (distance <= getRadius(0)) return getAttackDamage(10);
-        if (distance <= getRadius(1)) return getAttackDamage(11);
-        if (distance <= getRadius(2)) return getAttackDamage(12);
-        if (distance <= getRadius(3)) return getAttackDamage(13);
-        if (distance <= getRadius(4)) return getAttackDamage(14);
+        if (distance < getRadius(0)) return getAttackDamage(10);
+        if (distance < getRadius(1)) return getAttackDamage(11);
+        if (distance < getRadius(2)) return getAttackDamage(12);
+        if (distance < getRadius(3)) return getAttackDamage(13);
+        if (distance < getRadius(4)) return getAttackDamage(14);
         return 0.0F;
     }
 
@@ -100,8 +99,25 @@ public class KHWeaponsTemplate extends SwordItem {
                     damage = getSlashingDamage(distance);
                 }
 
+                if (stack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_BEHIND)) {
+                    Vec3d targetToAttacker = playerPos.subtract(target.getPos()).normalize();
+                    Vec3d targetFacing = target.getRotationVec(1.0F).normalize();
+                    boolean isBehind = targetFacing.dotProduct(targetToAttacker) < -0.5;
+
+                    if (isBehind) {
+                        damage *= 2;
+                    }
+                }
+
+                if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR)) {
+                    target.setHealth(target.getHealth() - damage);
+                    if (target.getHealth() <= 0.0F) {
+                        target.onDeath(playerEntity.getDamageSources().playerAttack(playerEntity));
+                    }
+                    return;
+                }
+
                 entity.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
-                attacker.sendMessage(Text.literal("Damage: " + damage));
             });
         }
         return true;

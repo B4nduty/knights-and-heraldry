@@ -1,7 +1,9 @@
 package com.knightsheraldry.items;
 
 import com.knightsheraldry.KnightsHeraldry;
+import com.knightsheraldry.items.custom.Dagger;
 import com.knightsheraldry.items.custom.SmithingHammer;
+import com.knightsheraldry.items.custom.Stiletto;
 import com.knightsheraldry.items.custom.WarSword;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -24,6 +26,12 @@ public class ModItems {
 
     public static final Item WARSWORD_ZWEIHANDER = registerItem("warsword_zweihander",
             new WarSword(-2.6F, new FabricItemSettings()));
+
+    public static final Item DAGGER = registerItem("dagger",
+            new Dagger(-2F, new FabricItemSettings()));
+
+    public static final Item STILETTO = registerItem("stiletto",
+            new Stiletto(-2F, new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

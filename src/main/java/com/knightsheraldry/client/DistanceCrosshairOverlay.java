@@ -82,9 +82,9 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
 
         Identifier[] textures = new Identifier[radiusValues.length];
         textures[indices[0] - 10] = BLUDGEONING_CRITICAL;
-        textures[indices[1] - 10] = BLUDGEONING_MAXIMUM;
-        textures[indices[2] - 10] = BLUDGEONING_MAXIMUM;
-        textures[indices[3] - 10] = BLUDGEONING_EFFECTIVE;
+        textures[indices[1] - 10] = BLUDGEONING_EFFECTIVE;
+        textures[indices[2] - 10] = BLUDGEONING_EFFECTIVE;
+        textures[indices[3] - 10] = BLUDGEONING_MAXIMUM;
         textures[indices[4] - 10] = TOO_FAR_CLOSE;
 
         for (int i = 0; i < radiusValues.length; i++) {
@@ -124,9 +124,9 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
 
         Identifier[] textures = new Identifier[radiusValues.length];
         textures[indices[0] - 5] = PIERCING_CRITICAL;
-        textures[indices[1] - 5] = PIERCING_MAXIMUM;
-        textures[indices[2] - 5] = PIERCING_MAXIMUM;
-        textures[indices[3] - 5] = PIERCING_EFFECTIVE;
+        textures[indices[1] - 5] = PIERCING_EFFECTIVE;
+        textures[indices[2] - 5] = PIERCING_EFFECTIVE;
+        textures[indices[3] - 5] = PIERCING_MAXIMUM;
         textures[indices[4] - 5] = TOO_FAR_CLOSE;
 
         for (int i = 0; i < radiusValues.length; i++) {
@@ -166,9 +166,9 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
 
         Identifier[] textures = new Identifier[radiusValues.length];
         textures[indices[0]] = SLASHING_CRITICAL;
-        textures[indices[1]] = SLASHING_MAXIMUM;
-        textures[indices[2]] = SLASHING_MAXIMUM;
-        textures[indices[3]] = SLASHING_EFFECTIVE;
+        textures[indices[1]] = SLASHING_EFFECTIVE;
+        textures[indices[2]] = SLASHING_EFFECTIVE;
+        textures[indices[3]] = SLASHING_MAXIMUM;
         textures[indices[4]] = TOO_FAR_CLOSE;
 
         boolean textureFound = false;
