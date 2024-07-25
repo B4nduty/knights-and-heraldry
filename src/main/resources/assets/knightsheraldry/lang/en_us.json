@@ -1,5 +1,5 @@
 {
-  "itemGroup.knightsheraldry.title.tools_and_weapons": "K&H Tools & Weapons",
+  "itemgroup.knightsheraldry.tools_and_weapons": "K&H Tools & Weapons",
 
   "item.knightsheraldry.dagger": "Dagger",
 
@@ -17,6 +17,8 @@
   "item.knightsheraldry.warsword_zweihander": "War Sword",
 
   "item.knightsheraldry.smithing_hammer": "Smithing Hammer",
+
+  "tooltip.knightsheraldry.shift-right_click": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
 
   "text.autoconfig.knightsheraldry.option.common.getBlocking": "Use Stamina on or while Blocking"
 }

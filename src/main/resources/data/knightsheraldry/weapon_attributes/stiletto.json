@@ -1,13 +1,10 @@
 {
-  "parent": "bettercombat:dagger",
+  "parent": "bettercombat:rapier",
   "attributes": {
     "attack_range": 1,
     "attacks": [
       {
         "angle": 100
-      },
-      {
-        "damageMultiplier": 0.0
       },
       {
         "damageMultiplier": 0.0

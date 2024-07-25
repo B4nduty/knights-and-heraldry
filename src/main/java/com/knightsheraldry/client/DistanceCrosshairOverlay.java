@@ -2,6 +2,7 @@ package com.knightsheraldry.client;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.KHWeapons;
+import com.knightsheraldry.util.ModTags;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -59,6 +60,7 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
             boolean bludgeoning = weapon.getDefaultStack().getOrCreateNbt().getInt("CustomModelData") == 1;
             int comboCount = ((PlayerAttackProperties) player).getComboCount();
             boolean piercing = comboCount % 3 == 1;
+            if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
             float[] damageValues = weapon.getDefaultAttackDamageValues();
             double[] radiusValues = weapon.getDefaultRadiusValues();
 

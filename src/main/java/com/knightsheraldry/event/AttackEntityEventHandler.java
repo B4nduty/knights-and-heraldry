@@ -2,6 +2,7 @@ package com.knightsheraldry.event;
 
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.util.IEntityDataSaver;
+import com.knightsheraldry.util.ModTags;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
@@ -18,7 +19,8 @@ public class AttackEntityEventHandler implements AttackEntityCallback {
     public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
         boolean staminaBlocked = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
         boolean ableStamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("able_stamina");
-        if (ableStamina && !player.isSpectator()) {
+        boolean isHoldingKHWeapon = player.getStackInHand(hand).isIn(ModTags.Items.KH_WEAPONS);
+        if (isHoldingKHWeapon && ableStamina && !player.isSpectator()) {
             int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
 
             int staminaCost = 10;

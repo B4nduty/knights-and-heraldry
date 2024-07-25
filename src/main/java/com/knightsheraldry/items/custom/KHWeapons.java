@@ -2,22 +2,44 @@ package com.knightsheraldry.items.custom;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
+import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
 import net.bettercombat.logic.PlayerAttackProperties;
+import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class KHWeapons extends SwordItem {
     public KHWeapons(float attackSpeed, Settings settings) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        super.inventoryTick(stack, world, entity, slot, selected);
+
+        if (!(entity instanceof PlayerEntity player)) {
+            return;
+        }
+
+        IEntityDataSaver dataSaver = (IEntityDataSaver) player;
+        boolean isEquipped = player.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS) ||
+                player.getOffHandStack().isIn(ModTags.Items.KH_WEAPONS);
+
+        dataSaver.knightsheraldry$getPersistentData().putBoolean("able_stamina", isEquipped);
     }
 
     public float getAttackDamage(int index) {
@@ -90,10 +112,11 @@ public class KHWeapons extends SwordItem {
                 float damage;
                 boolean bludgeoning = stack.getOrCreateNbt().getInt("CustomModelData") == 1;
                 boolean piercing = comboCount % 3 == 1;
+                if (stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
 
                 if (bludgeoning) {
                     damage = getBludgeoningDamage(distance);
-                } else if (piercing) {
+                } else if (piercing && stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)) {
                     damage = getPiercingDamage(distance);
                 } else {
                     damage = getSlashingDamage(distance);
@@ -117,6 +140,7 @@ public class KHWeapons extends SwordItem {
                     return;
                 }
 
+                playerEntity.sendMessage(Text.literal("Damage: " + damage));
                 entity.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
             });
         }
@@ -139,7 +163,14 @@ public class KHWeapons extends SwordItem {
             itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
             return TypedActionResult.success(itemStack);
         }
+        if (!itemStack.isIn(ModTags.Items.KH_WEAPONS_SHIELD)) return TypedActionResult.fail(itemStack);
         user.setCurrentHand(hand);
         return TypedActionResult.consume(itemStack);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING))
+            tooltip.add(Text.translatable("tooltip.knightsheraldry.shift-right_click"));
     }
 }

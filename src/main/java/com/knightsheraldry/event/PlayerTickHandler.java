@@ -2,10 +2,12 @@ package com.knightsheraldry.event;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.util.IEntityDataSaver;
+import com.knightsheraldry.util.ModTags;
 import com.knightsheraldry.util.StaminaData;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 
@@ -43,7 +45,8 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
         int roundOff = (int) (10 - Math.round(ticksPerRecovery));
 
         StaminaData.addStamina((IEntityDataSaver) playerEntity, 0);
-        if (ticksPerRecovery != 0 && playerEntity.age % roundOff == 0 && stamina < TOTAL_STAMINA && !playerEntity.isTouchingWater()) {
+        if (ticksPerRecovery != 0 && playerEntity.age % roundOff == 0 && stamina < TOTAL_STAMINA
+                && !playerEntity.isTouchingWater()) {
             StaminaData.addStamina((IEntityDataSaver) playerEntity, Math.min(1, TOTAL_STAMINA - stamina));
         }
     }
@@ -77,33 +80,62 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
         boolean staminaBlocked = dataSaver.knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
 
         if (ableStamina) {
-            if (!staminaBlocked && !KnightsHeraldry.CONFIG.common.getBlocking && playerEntity.isBlocking() && stamina >= 1 && playerEntity.age % 2 == 0) {
+            if (isHoldingKHWeapon(playerEntity) && !staminaBlocked && !KnightsHeraldry.CONFIG.common.getBlocking
+                    && playerEntity.isBlocking() && stamina >= 1 && playerEntity.age % 2 == 0) {
                 StaminaData.removeStamina(dataSaver, 1);
             }
 
-            if (!staminaBlocked && playerEntity.isSprinting() && stamina >= 1) {
+            if (isWearingKHArmor(playerEntity) && !staminaBlocked && playerEntity.isSprinting() && stamina >= 1) {
                 StaminaData.removeStamina(dataSaver, 1);
             }
 
-            if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0 && stamina >= 6 && !playerEntity.isBlocking() && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
+            if (isWearingKHArmor(playerEntity) && !staminaBlocked && !playerEntity.isOnGround()
+                    && playerEntity.getVelocity().y > 0 && stamina >= 6 && !playerEntity.isBlocking()
+                    && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
                 StaminaData.removeStamina(dataSaver, 6);
-            } else if (!staminaBlocked && !playerEntity.isOnGround() && playerEntity.getVelocity().y > 0 && !playerEntity.isBlocking() && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
+            } else if (isWearingKHArmor(playerEntity) && !staminaBlocked && !playerEntity.isOnGround()
+                    && playerEntity.getVelocity().y > 0 && !playerEntity.isBlocking()
+                    && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
                 StaminaData.removeStamina(dataSaver, stamina);
             }
 
-            if (playerEntity.isTouchingWater() && stamina >= 1 && playerEntity.age % 2 == 0) {
+            if (isWearingKHArmor(playerEntity) && playerEntity.isTouchingWater() && stamina >= 1
+                    && playerEntity.age % 2 == 0) {
                 StaminaData.removeStamina(dataSaver, 1);
             }
         }
     }
 
     private void applyStaminaEffects(ServerPlayerEntity playerEntity, int miningFatigueLevel, int slownessLevel) {
-        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, -1, miningFatigueLevel, false, false, false));
-        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, -1, slownessLevel, false, false, false));
+        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, -1,
+                miningFatigueLevel, false, false, false));
+        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, -1,
+                slownessLevel, false, false, false));
     }
 
     private void removeStaminaEffects(ServerPlayerEntity playerEntity) {
         playerEntity.removeStatusEffect(StatusEffects.SLOWNESS);
         playerEntity.removeStatusEffect(StatusEffects.MINING_FATIGUE);
+    }
+
+    private boolean isHoldingKHWeapon(ServerPlayerEntity playerEntity) {
+        return isKHWeapon(playerEntity.getMainHandStack()) || isKHWeapon(playerEntity.getOffHandStack());
+    }
+
+    private boolean isKHWeapon(ItemStack stack) {
+        return stack.isIn(ModTags.Items.KH_WEAPONS);
+    }
+
+    private boolean isWearingKHArmor(ServerPlayerEntity playerEntity) {
+        for (ItemStack armorStack : playerEntity.getArmorItems()) {
+            if (isKHArmor(armorStack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isKHArmor(ItemStack stack) {
+        return stack.isIn(ModTags.Items.KH_ARMORS);
     }
 }

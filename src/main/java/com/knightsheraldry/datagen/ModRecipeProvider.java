@@ -33,6 +33,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.SMITHING_HAMMER)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.AXE, 1)
+                .input(ModItems.SMITHING_HAMMER, 1)
+                .input(ModItems.STRAIGHT_CROOKED_AXE, 1)
+                .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
+                .criterion(hasItem(ModItems.STRAIGHT_CROOKED_AXE), conditionsFromItem(ModItems.STRAIGHT_CROOKED_AXE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.AXE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BROAD_AXE, 1)
+                .input(ModItems.SMITHING_HAMMER, 1)
+                .input(ModItems.AXE, 1)
+                .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
+                .criterion(hasItem(ModItems.AXE), conditionsFromItem(ModItems.AXE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BROAD_AXE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CROOKED_AXE, 1)
+                .input(ModItems.SMITHING_HAMMER, 1)
+                .input(ModItems.BROAD_AXE, 1)
+                .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
+                .criterion(hasItem(ModItems.BROAD_AXE), conditionsFromItem(ModItems.BROAD_AXE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CROOKED_AXE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STRAIGHT_CROOKED_AXE, 1)
+                .input(ModItems.SMITHING_HAMMER, 1)
+                .input(ModItems.CROOKED_AXE, 1)
+                .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
+                .criterion(hasItem(ModItems.CROOKED_AXE), conditionsFromItem(ModItems.CROOKED_AXE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.STRAIGHT_CROOKED_AXE)));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SWORD, 1)
                 .input(ModItems.SMITHING_HAMMER, 1)
                 .input(ModItems.ARMING_SWORD, 1)

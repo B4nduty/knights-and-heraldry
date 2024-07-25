@@ -14,20 +14,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin implements IEntityDataSaver {
+
     @Unique
     private NbtCompound persistentData;
 
     @Override
     public NbtCompound knightsheraldry$getPersistentData() {
-        if(this.persistentData == null) {
-            this.persistentData = new NbtCompound();
+        if (persistentData == null) {
+            persistentData = new NbtCompound();
         }
         return persistentData;
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
     protected void injectWriteMethod(NbtCompound nbt, CallbackInfo ci) {
-        if(persistentData != null) {
+        if (persistentData != null) {
             nbt.put("knightsheraldry.data", persistentData);
         }
     }
@@ -52,10 +53,8 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
         int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
         int staminaCost = 20;
 
-        if (KnightsHeraldry.CONFIG.common.getBlocking && stamina >= staminaCost) {
-            StaminaData.removeStamina((IEntityDataSaver) player, staminaCost);
-        } else if (KnightsHeraldry.CONFIG.common.getBlocking) {
-            StaminaData.removeStamina((IEntityDataSaver) player, stamina);
+        if (KnightsHeraldry.CONFIG.common.getBlocking) {
+            StaminaData.removeStamina((IEntityDataSaver) player, Math.min(stamina, staminaCost));
         }
     }
 }

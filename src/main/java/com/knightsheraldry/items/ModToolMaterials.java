@@ -17,11 +17,18 @@ public enum ModToolMaterials implements ToolMaterial {
     private final int enchantability;
     private final Supplier<Ingredient> repairIngredient;
 
-    ModToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attckDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
+    ModToolMaterials(
+            int miningLevel,
+            int itemDurability,
+            float miningSpeed,
+            float attackDamage,
+            int enchantability,
+            Supplier<Ingredient> repairIngredient
+    ) {
         this.miningLevel = miningLevel;
         this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;
-        this.attackDamage = attckDamage;
+        this.attackDamage = attackDamage;
         this.enchantability = enchantability;
         this.repairIngredient = repairIngredient;
     }

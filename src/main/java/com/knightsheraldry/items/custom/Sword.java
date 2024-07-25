@@ -1,12 +1,5 @@
 package com.knightsheraldry.items.custom;
 
-import com.knightsheraldry.util.IEntityDataSaver;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
-
 public class Sword extends KHWeapons {
     public Sword(float attackSpeed, Settings settings) {
         super(attackSpeed, settings);
@@ -32,15 +25,5 @@ public class Sword extends KHWeapons {
                 2.5d, //4th Distance
                 3.0d //5th Distance
         };
-    }
-
-    @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        super.use(world, user, hand);
-        ItemStack stack = user.getStackInHand(hand);
-        IEntityDataSaver dataSaver = (IEntityDataSaver) user;
-        boolean currentAbleStamina = dataSaver.knightsheraldry$getPersistentData().getBoolean("able_stamina");
-        dataSaver.knightsheraldry$getPersistentData().putBoolean("able_stamina", !currentAbleStamina);
-        return TypedActionResult.success(stack);
     }
 }

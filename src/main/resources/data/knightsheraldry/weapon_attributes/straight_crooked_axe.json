@@ -1,0 +1,14 @@
+{
+  "parent": "bettercombat:axe",
+  "attributes": {
+    "attack_range": 1,
+    "attacks": [
+      {
+        "damageMultiplier": 0.0
+      },
+      {
+        "damageMultiplier": 0.0
+      }
+    ]
+  }
+}
