@@ -12,6 +12,9 @@
   },
   "client": [
     "InGameHudMixin",
-    "MinecraftClientInjectMixin"
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "MinecraftClientInjectMixin",
+    "ModelLoaderMixin"
   ]
 }

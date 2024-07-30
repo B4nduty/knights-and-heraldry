@@ -37,6 +37,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.WARSWORD_ZWEIHANDER);
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)
                 .add(ModItems.STILETTO, ModItems.RAPIER);
+        getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_DISABLE_SHIELD)
+                .add(ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE);
         getOrCreateTagBuilder(ModTags.Items.KH_ARMORS);
     }
 }

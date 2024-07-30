@@ -15,6 +15,7 @@ public class ModTags {
         public static final TagKey<Item> KH_WEAPONS_BLUDGEONING = createTag("kh_weapons_bludgeoning");
         public static final TagKey<Item> KH_WEAPONS_PIERCING = createTag("kh_weapons_piercing");
         public static final TagKey<Item> KH_WEAPONS_ONLY_PIERCING = createTag("kh_weapons_only_piercing");
+        public static final TagKey<Item> KH_WEAPONS_DISABLE_SHIELD = createTag("kh_weapons_disable_shield");
         public static final TagKey<Item> KH_ARMORS = createTag("kh_armors");
 
         private static TagKey<Item> createTag(String name) {

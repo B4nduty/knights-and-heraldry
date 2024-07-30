@@ -43,18 +43,20 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     @Inject(method = "damageShield", at = @At("HEAD"), cancellable = true)
     private void knightsHeraldry$onDamageShield(float amount, CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getActiveItem().isIn(ModTags.Items.KH_WEAPONS_SHIELD)) {
-            if (!player.getWorld().isClient) {
-                player.incrementStat(Stats.USED.getOrCreateStat(player.getActiveItem().getItem()));
+        if (((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("able_stamina")) {
+            if (player.getActiveItem().isIn(ModTags.Items.KH_WEAPONS_SHIELD)) {
+                if (!player.getWorld().isClient) {
+                    player.incrementStat(Stats.USED.getOrCreateStat(player.getActiveItem().getItem()));
+                }
+                ci.cancel();
             }
-            ci.cancel();
-        }
 
-        int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
-        int staminaCost = 20;
+            int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
+            int staminaCost = 20;
 
-        if (KnightsHeraldry.CONFIG.common.getBlocking) {
-            StaminaData.removeStamina((IEntityDataSaver) player, Math.min(stamina, staminaCost));
+            if (KnightsHeraldry.CONFIG.common.getBlocking) {
+                StaminaData.removeStamina((IEntityDataSaver) player, Math.min(stamina, staminaCost));
+            }
         }
     }
 }

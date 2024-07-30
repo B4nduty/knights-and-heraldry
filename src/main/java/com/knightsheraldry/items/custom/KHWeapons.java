@@ -70,30 +70,32 @@ public class KHWeapons extends SwordItem {
         }
     }
 
+    public int getPiercingAnimation() {
+        return 0;
+    }
+
+    public int getAnimation() {
+        return 0;
+    }
+
     private float getSlashingDamage(double distance) {
-        if (distance < getRadius(0)) return getAttackDamage(0);
-        if (distance < getRadius(1)) return getAttackDamage(1);
-        if (distance < getRadius(2)) return getAttackDamage(2);
-        if (distance < getRadius(3)) return getAttackDamage(3);
-        if (distance < getRadius(4)) return getAttackDamage(4);
-        return 0.0F;
+        return calculateDamage(distance, 0, 4);
     }
 
     private float getPiercingDamage(double distance) {
-        if (distance < getRadius(0)) return getAttackDamage(5);
-        if (distance < getRadius(1)) return getAttackDamage(6);
-        if (distance < getRadius(2)) return getAttackDamage(7);
-        if (distance < getRadius(3)) return getAttackDamage(8);
-        if (distance < getRadius(4)) return getAttackDamage(9);
-        return 0.0F;
+        return calculateDamage(distance, 5, 9);
     }
 
     private float getBludgeoningDamage(double distance) {
-        if (distance < getRadius(0)) return getAttackDamage(10);
-        if (distance < getRadius(1)) return getAttackDamage(11);
-        if (distance < getRadius(2)) return getAttackDamage(12);
-        if (distance < getRadius(3)) return getAttackDamage(13);
-        if (distance < getRadius(4)) return getAttackDamage(14);
+        return calculateDamage(distance, 10, 14);
+    }
+
+    private float calculateDamage(double distance, int startIndex, int endIndex) {
+        for (int i = startIndex; i <= endIndex; i++) {
+            if (distance < getRadius(i - startIndex)) {
+                return getAttackDamage(i);
+            }
+        }
         return 0.0F;
     }
 
@@ -111,7 +113,8 @@ public class KHWeapons extends SwordItem {
 
                 float damage;
                 boolean bludgeoning = stack.getOrCreateNbt().getInt("CustomModelData") == 1;
-                boolean piercing = comboCount % 3 == 1;
+                boolean piercing = false;
+                if (stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)) piercing = comboCount % getPiercingAnimation() == getAnimation() - 1;
                 if (stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
 
                 if (bludgeoning) {
@@ -149,8 +152,7 @@ public class KHWeapons extends SwordItem {
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        if (stack.isIn(ModTags.Items.KH_WEAPONS_SHIELD)) return UseAction.BLOCK;
-        return UseAction.NONE;
+        return stack.isIn(ModTags.Items.KH_WEAPONS_SHIELD) ? UseAction.BLOCK : UseAction.NONE;
     }
 
     @Override

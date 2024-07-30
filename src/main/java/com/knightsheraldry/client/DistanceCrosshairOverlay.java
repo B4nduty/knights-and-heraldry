@@ -59,7 +59,9 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
         if (weapon != null) {
             boolean bludgeoning = weapon.getDefaultStack().getOrCreateNbt().getInt("CustomModelData") == 1;
             int comboCount = ((PlayerAttackProperties) player).getComboCount();
-            boolean piercing = comboCount % 3 == 1;
+            boolean piercing = false;
+            if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_PIERCING) && !weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING))
+                piercing = comboCount % weapon.getPiercingAnimation() == weapon.getAnimation() - 1;
             if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
             float[] damageValues = weapon.getDefaultAttackDamageValues();
             double[] radiusValues = weapon.getDefaultRadiusValues();
@@ -73,7 +75,6 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
             }
         }
 
-        RenderSystem.enableDepthTest();
     }
 
     private void renderBludgeoningOverlay(DrawContext drawContext, double distance, double[] radiusValues, float[] damageValues) {
@@ -111,11 +112,13 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
                 }
                 RenderSystem.setShaderTexture(0, texture);
                 drawContext.drawTexture(texture, x - xT, y / 2 - yT, 0, 0, width, height, width, height);
+                RenderSystem.enableDepthTest();
                 return;
             }
         }
         RenderSystem.setShaderTexture(0, TOO_FAR_CLOSE);
         drawContext.drawTexture(TOO_FAR_CLOSE, x - 1, y / 2 - 1, 0, 0, 1, 1, 1, 1);
+        RenderSystem.enableDepthTest();
     }
 
     private void renderPiercingOverlay(DrawContext drawContext, double distance, double[] radiusValues, float[] damageValues) {
@@ -153,11 +156,13 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
                 }
                 RenderSystem.setShaderTexture(0, texture);
                 drawContext.drawTexture(texture, x - xT, y / 2 - yT, 0, 0, width, height, width, height);
+                RenderSystem.enableDepthTest();
                 return;
             }
         }
         RenderSystem.setShaderTexture(0, TOO_FAR_CLOSE);
         drawContext.drawTexture(TOO_FAR_CLOSE, x - 1, y / 2 - 1, 0, 0, 1, 1, 1, 1);
+        RenderSystem.enableDepthTest();
     }
 
     private void renderSlashingOverlay(DrawContext drawContext, double distance, double[] radiusValues, float[] damageValues) {
@@ -196,6 +201,7 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
                 }
                 RenderSystem.setShaderTexture(0, texture);
                 drawContext.drawTexture(texture, x - xT, y / 2 - yT, 0, 0, width, height, width, height);
+                RenderSystem.enableDepthTest();
                 textureFound = true;
                 break;
             }
@@ -203,6 +209,7 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
         if (!textureFound) {
             RenderSystem.setShaderTexture(0, TOO_FAR_CLOSE);
             drawContext.drawTexture(TOO_FAR_CLOSE, x - 1, y / 2 - 1, 0, 0, 1, 1, 1, 1);
+            RenderSystem.enableDepthTest();
         }
     }
 }

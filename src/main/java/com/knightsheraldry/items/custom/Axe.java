@@ -9,7 +9,8 @@ public class Axe extends KHWeapons {
     public float[] getDefaultAttackDamageValues() {
         return new float[] {
                 // For activate Bludgeoning, you need KH_WEAPONS_BLUDGEONING Item Tag
-                1.0F, 8.0F, 16.0F, 8.0F, 4.0F, //Slashing
+                // If you want Piercing only, you need KH_WEAPONS_ONLY_PIERCING Item Tag
+                1.0F, 8.0F, 12.0F, 8.0F, 4.0F, //Slashing
                 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Piercing
                 0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
         };

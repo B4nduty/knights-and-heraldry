@@ -9,8 +9,9 @@ public class Stiletto extends KHWeapons {
     public float[] getDefaultAttackDamageValues() {
         return new float[] {
                 // For activate Bludgeoning, you need KH_WEAPONS_BLUDGEONING Item Tag
+                // If you want Piercing only, you need KH_WEAPONS_ONLY_PIERCING Item Tag
                 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Slashing
-                0.0F, 6.0F, 12.0F, 6.0F, 3.0F, //Piercing
+                0.0F, 6.0F, 9.0F, 6.0F, 3.0F, //Piercing
                 0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
         };
     }
