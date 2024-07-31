@@ -31,6 +31,7 @@ public abstract class ModelLoaderMixin {
                 "dagger_3d",
                 "stiletto_3d",
                 "rapier_3d",
+                "rapier_3d_blocking",
                 "sword_3d",
                 "sword_3d_blocking",
                 "sword_3d_bludgeoning",

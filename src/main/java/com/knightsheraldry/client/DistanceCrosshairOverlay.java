@@ -57,7 +57,8 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
         }
 
         if (weapon != null) {
-            boolean bludgeoning = weapon.getDefaultStack().getOrCreateNbt().getInt("CustomModelData") == 1;
+            boolean bludgeoning = player.getMainHandStack().getOrCreateNbt().getInt("CustomModelData") == 1 ||
+                    player.getMainHandStack().getOrCreateNbt().getInt("CustomModelData") == 1;
             int comboCount = ((PlayerAttackProperties) player).getComboCount();
             boolean piercing = false;
             if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_PIERCING) && !weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING))
