@@ -5,41 +5,41 @@
 	},
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [0, 90, 0],
-			"translation": [0, 8, 2],
-			"scale": [2, 2, 0.8]
+			"rotation": [0, -90, 0],
+			"translation": [-1.25, 10, 1.75],
+			"scale": [2, 2, 1]
 		},
 		"thirdperson_lefthand": {
 			"rotation": [0, -90, 0],
-			"translation": [0, 8, 2],
-			"scale": [2, 2, 0.8]
+			"translation": [-1.25, 10, 1.75],
+			"scale": [2, 2, 1]
 		},
 		"firstperson_righthand": {
-			"rotation": [-25, 90, 0],
-			"translation": [0, 9, -2],
-			"scale": [1.5, 2, 0.8]
+			"rotation": [-17, -90, 0],
+			"translation": [-1.25, 10, 1.75],
+			"scale": [2, 2, 1]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-25, -90, 0],
-			"translation": [0, 9, -2],
-			"scale": [1.5, 2, 0.8]
+			"rotation": [-17, -90, 0],
+			"translation": [-1.25, 10, 1.75],
+			"scale": [2, 2, 1]
 		},
 		"ground": {
-			"rotation": [90, 0, 0],
-			"translation": [0, -3.5, 0],
-			"scale": [1, 1, 0.5]
+			"rotation": [-180, 0, 0],
+			"translation": [0, -12.5, -16]
 		},
-		"gui": {
-			"rotation": [0, -180, 45],
-			"translation": [1, 0.25, 0]
+		"fixed": {
+			"rotation": [-180, 0, 0],
+			"translation": [0, -32, -16.75],
+			"scale": [2, 2, 1]
 		}
 	},
 	"overrides": [
-		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/sword_blocking" },
-		{ "predicate": { "custom_model_data": 1 }, "model": "knightsheraldry:item/sword_bludgeoning" },
+		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/sword_3d_blocking" },
+		{ "predicate": { "custom_model_data": 1 }, "model": "knightsheraldry:item/sword_3d_bludgeoning" },
 		{ "predicate": {
 			"blocking": 1,
 			"custom_model_data": 1
-		}, "model": "knightsheraldry:item/sword_bludgeoning_blocking" }
+		}, "model": "knightsheraldry:item/sword_3d_bludgeoning_blocking" }
 	]
 }
