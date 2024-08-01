@@ -1,13 +1,18 @@
 package com.knightsheraldry.mixin;
 
+import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.util.IEntityDataSaver;
+import com.knightsheraldry.util.ModTags;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
@@ -35,6 +40,20 @@ public abstract class LivingEntityMixin {
         if (entity instanceof PlayerEntity playerEntity
                 && ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getBoolean("stamina_blocked")) {
             ci.cancel();
+        }
+    }
+
+
+    @Inject(method = "disablesShield", at = @At("HEAD"), cancellable = true)
+    public void disablesShield(CallbackInfoReturnable<Boolean> cir) {
+        ItemStack mainStack = ((LivingEntity) (Object) this).getMainHandStack();
+        boolean isWeaponOrInTag = mainStack.getItem() instanceof AxeItem
+                || mainStack.isIn(ModTags.Items.KH_WEAPONS_DISABLE_SHIELD);
+
+        if (KnightsHeraldry.CONFIG.common.getVanillaWeaponsDamage0) {
+            cir.setReturnValue(mainStack.isIn(ModTags.Items.KH_WEAPONS_DISABLE_SHIELD));
+        } else {
+            cir.setReturnValue(isWeaponOrInTag);
         }
     }
 }

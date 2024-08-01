@@ -10,7 +10,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShieldItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
@@ -144,19 +143,11 @@ public class KHWeapons extends SwordItem {
                     return;
                 }
 
-                if (stack.isIn(ModTags.Items.KH_WEAPONS_DISABLE_SHIELD) && target instanceof PlayerEntity targetEntity)
-                    disableShield(targetEntity, 60);
-
                 playerEntity.sendMessage(Text.literal("Damage: " + damage));
                 entity.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
             });
         }
         return true;
-    }
-
-    private void disableShield(PlayerEntity target, int ticks) {
-        if (target.getOffHandStack().getItem() instanceof ShieldItem || target.getOffHandStack().isIn(ModTags.Items.KH_WEAPONS_SHIELD))
-            target.getItemCooldownManager().set(target.getOffHandStack().getItem(), ticks);
     }
 
     @Override

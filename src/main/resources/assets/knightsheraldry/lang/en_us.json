@@ -25,5 +25,6 @@
 
   "tooltip.knightsheraldry.shift-right_click": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
 
+  "text.autoconfig.knightsheraldry.option.common.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 of Damage",
   "text.autoconfig.knightsheraldry.option.common.getBlocking": "Use Stamina on or while Blocking"
 }
