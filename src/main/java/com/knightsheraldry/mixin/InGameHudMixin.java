@@ -1,7 +1,6 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.items.custom.KHWeapons;
-import com.knightsheraldry.util.ModTags;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
