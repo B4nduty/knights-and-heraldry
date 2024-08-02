@@ -4,13 +4,16 @@ import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -55,5 +58,22 @@ public abstract class LivingEntityMixin {
         } else {
             cir.setReturnValue(isWeaponOrInTag);
         }
+    }
+
+    @Inject(method = "damage", at = @At("HEAD"))
+    private void injectDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        if (source.getAttacker() instanceof PlayerEntity attacker) {
+            if (attacker.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS_BYPASS_BLOCK)) {
+                this.blockShield = false;
+            }
+        }
+    }
+
+    @Unique
+    private boolean blockShield = true;
+
+    @Redirect(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;blockedByShield(Lnet/minecraft/entity/damage/DamageSource;)Z"))
+    private boolean redirectBlockedByShield(LivingEntity instance, DamageSource source) {
+        return blockShield && instance.blockedByShield(source);
     }
 }

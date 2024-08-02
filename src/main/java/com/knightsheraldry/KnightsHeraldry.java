@@ -41,9 +41,10 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
         HudRenderCallback.EVENT.register(new DistanceCrosshairOverlay());
         ModMessages.registerS2CPackets();
         ClientPreAttackCallback.EVENT.register(new AttackCancelHandler());
-        registerModelPredicate(ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD,
-                ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE,
-                ModItems.STRAIGHT_CROOKED_AXE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
+        registerModelPredicate(ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE,
+                ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE,
+                ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD, ModItems.V_LONGSWORD,
+                ModItems.FALCHION, ModItems.SCIMITAR, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
                 ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER);
     }
 

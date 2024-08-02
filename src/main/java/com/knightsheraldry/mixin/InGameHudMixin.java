@@ -1,5 +1,6 @@
 package com.knightsheraldry.mixin;
 
+import com.knightsheraldry.items.custom.KHWeapons;
 import com.knightsheraldry.util.ModTags;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -15,8 +16,8 @@ public class InGameHudMixin {
     @Inject(method = "renderCrosshair", at = @At("HEAD"), cancellable = true)
     private void renderCrosshair(DrawContext context, CallbackInfo ci) {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
-        if (player != null && (player.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS) ||
-                player.getOffHandStack().isIn(ModTags.Items.KH_WEAPONS))) {
+        if (player != null && (player.getMainHandStack().getItem() instanceof KHWeapons ||
+                player.getOffHandStack().getItem() instanceof KHWeapons)) {
             ci.cancel();
         }
     }

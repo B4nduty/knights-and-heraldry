@@ -1,6 +1,7 @@
 package com.knightsheraldry.event;
 
 import com.knightsheraldry.KnightsHeraldry;
+import com.knightsheraldry.items.custom.KHWeapons;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
 import com.knightsheraldry.util.StaminaData;
@@ -123,7 +124,7 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
     }
 
     private boolean isKHWeapon(ItemStack stack) {
-        return stack.isIn(ModTags.Items.KH_WEAPONS);
+        return stack.getItem() instanceof KHWeapons;
     }
 
     private boolean isWearingKHArmor(ServerPlayerEntity playerEntity) {

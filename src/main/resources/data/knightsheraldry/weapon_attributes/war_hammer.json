@@ -1,0 +1,17 @@
+{
+  "parent": "bettercombat:mace",
+  "attributes": {
+    "attack_range": 3,
+    "attacks": [
+      {
+        "damageMultiplier": 0.0
+      },
+      {
+        "damageMultiplier": 0.0
+      },
+      {
+        "damageMultiplier": 0.0
+      }
+    ]
+  }
+}

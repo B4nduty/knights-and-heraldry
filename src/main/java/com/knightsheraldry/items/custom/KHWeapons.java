@@ -23,6 +23,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class KHWeapons extends SwordItem {
+    private static final int MAX_VARIANT = 2;
+
     public KHWeapons(float attackSpeed, Settings settings) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
@@ -31,15 +33,109 @@ public class KHWeapons extends SwordItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, world, entity, slot, selected);
 
-        if (!(entity instanceof PlayerEntity player)) {
-            return;
+        if (entity instanceof PlayerEntity player) {
+            IEntityDataSaver dataSaver = (IEntityDataSaver) player;
+            boolean isEquipped = player.getMainHandStack().getItem() instanceof KHWeapons ||
+                    player.getOffHandStack().getItem() instanceof KHWeapons;
+            dataSaver.knightsheraldry$getPersistentData().putBoolean("able_stamina", isEquipped);
         }
+    }
 
-        IEntityDataSaver dataSaver = (IEntityDataSaver) player;
-        boolean isEquipped = player.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS) ||
-                player.getOffHandStack().isIn(ModTags.Items.KH_WEAPONS);
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return stack.isIn(ModTags.Items.KH_WEAPONS_SHIELD) ? UseAction.BLOCK : UseAction.NONE;
+    }
 
-        dataSaver.knightsheraldry$getPersistentData().putBoolean("able_stamina", isEquipped);
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack itemStack = user.getStackInHand(hand);
+        if (!world.isClient) {
+            if ((itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING) && user.isSneaking())
+                    || itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) {
+                int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
+                int newVariant = (currentVariant + 1) % MAX_VARIANT;
+                itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
+                return TypedActionResult.success(itemStack);
+            }
+        }
+        if (!itemStack.isIn(ModTags.Items.KH_WEAPONS_SHIELD)) return TypedActionResult.fail(itemStack);
+        user.setCurrentHand(hand);
+        return TypedActionResult.consume(itemStack);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING))
+            tooltip.add(Text.translatable("tooltip.knightsheraldry.shift-right_click-bludgeoning"));
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING))
+            tooltip.add(Text.translatable("tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing"));
+    }
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if (attacker instanceof PlayerEntity playerEntity) {
+            handlePostHit(stack, target, playerEntity);
+        }
+        return true;
+    }
+
+    private void handlePostHit(ItemStack stack, LivingEntity target, PlayerEntity playerEntity) {
+        Vec3d playerPos = playerEntity.getPos();
+        double maxDistance = getRadius(4);
+        Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
+
+        playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
+                        entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1))
+                .forEach(entity -> {
+                    double distance = playerPos.distanceTo(target.getPos());
+                    float damage = calculateDamageBasedOnWeaponType(stack, distance, ((PlayerAttackProperties) playerEntity).getComboCount());
+
+                    if (stack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_BEHIND)) {
+                        damage = adjustDamageForBackstab(target, playerPos, damage);
+                    }
+
+                    applyDamage(target, playerEntity, stack, damage);
+                });
+    }
+
+    private float calculateDamageBasedOnWeaponType(ItemStack stack, double distance, int comboCount) {
+        boolean bludgeoning = stack.getOrCreateNbt().getInt("CustomModelData") == 1;
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) bludgeoning = !bludgeoning;
+        boolean piercing = false;
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)) piercing = comboCount % getPiercingAnimation() == getAnimation() - 1;
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
+
+        if (bludgeoning || stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_BLUDGEONING)) {
+            return getBludgeoningDamage(distance);
+        } else if (piercing && stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)
+                || stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) {
+            return getPiercingDamage(distance);
+        } else {
+            return getSlashingDamage(distance);
+        }
+    }
+
+    private float adjustDamageForBackstab(LivingEntity target, Vec3d playerPos, float damage) {
+        Vec3d targetToAttacker = playerPos.subtract(target.getPos()).normalize();
+        Vec3d targetFacing = target.getRotationVec(1.0F).normalize();
+        boolean isBehind = targetFacing.dotProduct(targetToAttacker) < -0.5;
+
+        if (isBehind) {
+            damage *= 2;
+        }
+        return damage;
+    }
+
+    private void applyDamage(LivingEntity target, PlayerEntity playerEntity, ItemStack stack, float damage) {
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR)) {
+            target.setHealth(target.getHealth() - damage);
+            if (target.getHealth() <= 0.0F) {
+                target.onDeath(playerEntity.getDamageSources().playerAttack(playerEntity));
+            }
+        } else {
+            playerEntity.sendMessage(Text.literal("Damage: " + damage));
+            target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
+        }
     }
 
     public float getAttackDamage(int index) {
@@ -97,82 +193,5 @@ public class KHWeapons extends SwordItem {
             }
         }
         return 0.0F;
-    }
-
-    @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (attacker instanceof PlayerEntity playerEntity) {
-            Vec3d playerPos = playerEntity.getPos();
-            double maxDistance = getRadius(4);
-            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
-
-            playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
-                    entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1)).forEach(entity -> {
-                double distance = playerPos.distanceTo(target.getPos());
-                int comboCount = ((PlayerAttackProperties) playerEntity).getComboCount();
-
-                float damage;
-                boolean bludgeoning = stack.getOrCreateNbt().getInt("CustomModelData") == 1;
-                boolean piercing = false;
-                if (stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)) piercing = comboCount % getPiercingAnimation() == getAnimation() - 1;
-                if (stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
-
-                if (bludgeoning) {
-                    damage = getBludgeoningDamage(distance);
-                } else if (piercing && stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)) {
-                    damage = getPiercingDamage(distance);
-                } else {
-                    damage = getSlashingDamage(distance);
-                }
-
-                if (stack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_BEHIND)) {
-                    Vec3d targetToAttacker = playerPos.subtract(target.getPos()).normalize();
-                    Vec3d targetFacing = target.getRotationVec(1.0F).normalize();
-                    boolean isBehind = targetFacing.dotProduct(targetToAttacker) < -0.5;
-
-                    if (isBehind) {
-                        damage *= 2;
-                    }
-                }
-
-                if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR)) {
-                    target.setHealth(target.getHealth() - damage);
-                    if (target.getHealth() <= 0.0F) {
-                        target.onDeath(playerEntity.getDamageSources().playerAttack(playerEntity));
-                    }
-                    return;
-                }
-
-                playerEntity.sendMessage(Text.literal("Damage: " + damage));
-                entity.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
-            });
-        }
-        return true;
-    }
-
-    @Override
-    public UseAction getUseAction(ItemStack stack) {
-        return stack.isIn(ModTags.Items.KH_WEAPONS_SHIELD) ? UseAction.BLOCK : UseAction.NONE;
-    }
-
-    @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        if (!world.isClient && itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING) && user.isSneaking()) {
-            int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
-            int newVariant = (currentVariant + 1) % 2;
-
-            itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
-            return TypedActionResult.success(itemStack);
-        }
-        if (!itemStack.isIn(ModTags.Items.KH_WEAPONS_SHIELD)) return TypedActionResult.fail(itemStack);
-        user.setCurrentHand(hand);
-        return TypedActionResult.consume(itemStack);
-    }
-
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING))
-            tooltip.add(Text.translatable("tooltip.knightsheraldry.shift-right_click"));
     }
 }

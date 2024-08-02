@@ -8,23 +8,39 @@
   "item.knightsheraldry.rapier": "Rapier",
 
   "item.knightsheraldry.sword": "Sword",
-  "item.knightsheraldry.v_sword": "Sword",
-  "item.knightsheraldry.arming_sword": "Sword",
+  "item.knightsheraldry.v_sword": "V-Guard Sword",
+  "item.knightsheraldry.arming_sword": "Arming Sword",
 
   "item.knightsheraldry.axe": "Axe",
-  "item.knightsheraldry.broad_axe": "Axe",
-  "item.knightsheraldry.crooked_axe": "Axe",
-  "item.knightsheraldry.straight_crooked_axe": "Axe",
+  "item.knightsheraldry.broad_axe": "Broad Axe",
+  "item.knightsheraldry.crooked_axe": "Crooked Axe",
+  "item.knightsheraldry.straight_crooked_axe": "Straight Crooked Axe",
+
+  "item.knightsheraldry.mace": "Mace",
+  "item.knightsheraldry.spiked_mace": "Spiked Mace",
+
+  "item.knightsheraldry.flail": "Flail",
+  "item.knightsheraldry.ball_flail": "Ball Flail",
+
+  "item.knightsheraldry.hammer": "Hammer",
+  "item.knightsheraldry.war_hammer": "War Hammer",
+
+  "item.knightsheraldry.longsword": "Longsword",
+  "item.knightsheraldry.v_longsword": "V-Guard Longsword",
+
+  "item.knightsheraldry.falchion": "Falchion",
+  "item.knightsheraldry.scimitar": "Scimitar",
 
   "item.knightsheraldry.warsword": "War Sword",
-  "item.knightsheraldry.warsword_claymore": "War Sword",
-  "item.knightsheraldry.warsword_flamberge": "War Sword",
-  "item.knightsheraldry.warsword_zweihander": "War Sword",
+  "item.knightsheraldry.warsword_claymore": "War Sword Claymore",
+  "item.knightsheraldry.warsword_flamberge": "War Sword Flamberge",
+  "item.knightsheraldry.warsword_zweihander": "War Sword Zweihander",
 
   "item.knightsheraldry.smithing_hammer": "Smithing Hammer",
 
-  "tooltip.knightsheraldry.shift-right_click": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
+  "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
+  "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",
 
-  "text.autoconfig.knightsheraldry.option.common.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 of Damage",
+  "text.autoconfig.knightsheraldry.option.common.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
   "text.autoconfig.knightsheraldry.option.common.getBlocking": "Use Stamina on or while Blocking"
 }
