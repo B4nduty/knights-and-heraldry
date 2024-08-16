@@ -8,11 +8,9 @@ public class Flail extends KHWeapons{
     @Override
     public float[] getDefaultAttackDamageValues() {
         return new float[] {
-                // For activate Bludgeoning, you need KH_WEAPONS_BLUDGEONING Item Tag
-                // If you want Piercing only, you need KH_WEAPONS_ONLY_PIERCING Item Tag
                 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Slashing
                 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Piercing
-                1.0F, 5.0F, 7.5F, 5.0F, 2.5F //Bludgeoning
+                0.0F, 5.0F, 7.5F, 5.0F, 2.5F //Bludgeoning
         };
     }
 

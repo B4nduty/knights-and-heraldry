@@ -31,6 +31,19 @@
   "item.knightsheraldry.falchion": "Falchion",
   "item.knightsheraldry.scimitar": "Scimitar",
 
+  "item.knightsheraldry.katana": "Katana",
+
+  "item.knightsheraldry.pitchfork": "Pitchfork",
+
+  "item.knightsheraldry.spear": "Spear",
+
+  "item.knightsheraldry.pike": "Pike",
+
+  "item.knightsheraldry.billhook": "Billhook",
+
+  "item.knightsheraldry.glaive": "Glaive",
+  "item.knightsheraldry.curved_glaive": "Curved Glaive",
+
   "item.knightsheraldry.warsword": "War Sword",
   "item.knightsheraldry.warsword_claymore": "War Sword Claymore",
   "item.knightsheraldry.warsword_flamberge": "War Sword Flamberge",
@@ -40,6 +53,7 @@
 
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",
+  "tooltip.knightsheraldry.right_click-replant": "§4Right-Click Crops §rto §lHarvest §r& §lReplant",
 
   "text.autoconfig.knightsheraldry.option.common.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
   "text.autoconfig.knightsheraldry.option.common.getBlocking": "Use Stamina on or while Blocking"

@@ -45,6 +45,6 @@
 		{ "predicate": {
 			"blocking": 1,
 			"custom_model_data": 1
-		}, "model": "war_knightsheraldry:item/hammer_3d_bludgeoning_blocking" }
+		}, "model": "knightsheraldry:item/war_hammer_3d_bludgeoning_blocking" }
 	]
 }

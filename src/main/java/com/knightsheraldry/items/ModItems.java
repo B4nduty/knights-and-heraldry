@@ -74,6 +74,27 @@ public class ModItems {
     public static final Item SCIMITAR = registerItem("scimitar",
             new Falchion(-2.5F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
 
+    public static final Item KATANA = registerItem("katana",
+            new Katana(-2.4F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item PITCHFORK = registerItem("pitchfork",
+            new Pitchfork(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item SPEAR = registerItem("spear",
+            new Spear(-2.4F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item PIKE = registerItem("pike",
+            new Pike(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item BILLHOOK = registerItem("billhook",
+            new Billhook(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item GLAIVE = registerItem("glaive",
+            new Glaive(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item CURVED_GLAIVE = registerItem("curved_glaive",
+            new Glaive(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
     public static final Item WARSWORD = registerItem("warsword",
             new WarSword(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
 

@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-03T00:47:01.4318892	Knights & Heraldry/Recipes
+// 1.20.1	2024-08-03T21:51:04.2484924	Knights & Heraldry/Recipes
 80bd9fd87ce20c0990d5d39da752db26d3556e8f data\knightsheraldry\advancements\recipes\misc\smithing_hammer.json
 4f557ca060e7be405e7941ea52fa35ed0a3a3e5f data\knightsheraldry\advancements\recipes\misc\mace.json
 c46feb9c18edd78af267fdd244f400c11a41ccc0 data\knightsheraldry\advancements\recipes\misc\warsword.json
@@ -11,8 +11,8 @@ f28f109a036927ef2d490c2ae86f70f771258014 data\knightsheraldry\advancements\recip
 0fefb312589f04980d321aa8c7c721e6e7ad7a3b data\knightsheraldry\advancements\recipes\misc\broad_axe.json
 12c4663b1e147bce5ad46ff2110c2c441de66ad9 data\knightsheraldry\recipes\longsword.json
 60d6f4cbc02d7aba45d76ff3bbea6fb28cae6687 data\knightsheraldry\recipes\sword.json
-0df3adaa15c757613172063175af282d7ee58544 data\knightsheraldry\advancements\recipes\misc\longsword.json
 864e4af75c19f337b6c0a0985c448905626dadc8 data\knightsheraldry\recipes\warsword_zweihander.json
+0df3adaa15c757613172063175af282d7ee58544 data\knightsheraldry\advancements\recipes\misc\longsword.json
 14e2ded54f47c6a32e2d5cc3cbbddc7e0c10d60f data\knightsheraldry\recipes\example_1.json
 9a52b61e9405c72bc7bebab13a126d4bd1bfcc09 data\knightsheraldry\advancements\recipes\misc\hammer.json
 df036fc11c8af1fdbbcd091a2309ac60a7bfbc60 data\knightsheraldry\advancements\recipes\misc\axe.json
@@ -25,8 +25,8 @@ e0610eff1ba1dccd3de79824f69dd4f58103a8ab data\knightsheraldry\recipes\spiked_mac
 ca3a38bb0576146d6d8c313acbaa606d39b938c5 data\knightsheraldry\advancements\recipes\misc\war_hammer.json
 fe13a01514adb3ec066731eb8988c35e1507e4f0 data\knightsheraldry\advancements\recipes\misc\arming_sword.json
 829d8a5d33a7d4896e56349cc3f48b8bb41f0257 data\knightsheraldry\advancements\recipes\misc\crooked_axe.json
-3fab8eb6549235bdc2b19ca084df74da81748446 data\knightsheraldry\advancements\recipes\misc\warsword_zweihander.json
 d0f3a77707b0bf21815d4152db855f2c80156b96 data\knightsheraldry\recipes\scimitar.json
+3fab8eb6549235bdc2b19ca084df74da81748446 data\knightsheraldry\advancements\recipes\misc\warsword_zweihander.json
 65752a7e9d36480c419afb357e1047641cc984f0 data\knightsheraldry\advancements\recipes\misc\flail.json
 bb1517975ac8d879aae95bb814bab4ce63fd9a2b data\knightsheraldry\recipes\war_hammer.json
 c9575295210f35025b7d58b3266d0639e96f91d3 data\knightsheraldry\recipes\v_longsword.json

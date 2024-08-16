@@ -33,6 +33,7 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
         ModMessages.registerC2SPackets();
         ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
         AttackEntityCallback.EVENT.register(new AttackEntityEventHandler());
+        PlayerBlockBreakEvents.AFTER.register(new PlayerBlockBreakHandler());
     }
 
     @Override
@@ -44,7 +45,8 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
         registerModelPredicate(ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE,
                 ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE,
                 ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD, ModItems.V_LONGSWORD,
-                ModItems.FALCHION, ModItems.SCIMITAR, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
+                ModItems.FALCHION, ModItems.SCIMITAR, ModItems.KATANA, ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE,
+                ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
                 ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER);
     }
 

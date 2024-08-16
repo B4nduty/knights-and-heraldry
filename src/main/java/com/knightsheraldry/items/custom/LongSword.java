@@ -8,11 +8,9 @@ public class LongSword extends KHWeapons {
     @Override
     public float[] getDefaultAttackDamageValues() {
         return new float[] {
-                // For activate Bludgeoning, you need KH_WEAPONS_BLUDGEONING Item Tag
-                // If you want Piercing only, you need KH_WEAPONS_ONLY_PIERCING Item Tag
-                1.0F, 7.0F, 10.5F, 7.0F, 3.5F, //Slashing
-                1.0F, 4.0F, 6.0F, 4.0F, 2.0F, //Piercing
-                1.0F, 5.0F, 7.5F, 5.0F, 2.5F //Bludgeoning
+                0.0F, 7.0F, 10.5F, 7.0F, 3.5F, //Slashing
+                0.0F, 4.0F, 6.0F, 4.0F, 2.0F, //Piercing
+                0.0F, 5.0F, 7.5F, 5.0F, 2.5F //Bludgeoning
         };
     }
 
@@ -35,9 +33,12 @@ public class LongSword extends KHWeapons {
     }
 
     @Override
-    public int getPiercingAnimation() {
+    public int[] getPiercingAnimation() {
         // In which animation is Piercing Damage applied
         // Item needs to have Tag KH_WEAPONS_PIERCING
-        return 3;
+        // Max length of index is 2
+        return new int[] {
+                3
+        };
     }
 }

@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "knightsheraldry:stiletto",
-    "knightsheraldry:rapier"
+    "knightsheraldry:rapier",
+    "knightsheraldry:pitchfork",
+    "knightsheraldry:spear",
+    "knightsheraldry:pike"
   ]
 }

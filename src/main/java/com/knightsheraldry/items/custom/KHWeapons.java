@@ -5,19 +5,26 @@ import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
 import net.bettercombat.logic.PlayerAttackProperties;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.CropBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.SwordItem;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -50,8 +57,8 @@ public class KHWeapons extends SwordItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
-            if ((itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING) && user.isSneaking())
-                    || itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) {
+            if ((itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING)
+                    || itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) && user.isSneaking()) {
                 int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
                 int newVariant = (currentVariant + 1) % MAX_VARIANT;
                 itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
@@ -69,6 +76,8 @@ public class KHWeapons extends SwordItem {
             tooltip.add(Text.translatable("tooltip.knightsheraldry.shift-right_click-bludgeoning"));
         if (stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING))
             tooltip.add(Text.translatable("tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing"));
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_HARVEST))
+            tooltip.add(Text.translatable("tooltip.knightsheraldry.right_click-replant"));
     }
 
     @Override
@@ -98,17 +107,35 @@ public class KHWeapons extends SwordItem {
                 });
     }
 
-    private float calculateDamageBasedOnWeaponType(ItemStack stack, double distance, int comboCount) {
+    public float calculateDamageBasedOnWeaponType(ItemStack stack, double distance, int comboCount) {
         boolean bludgeoning = stack.getOrCreateNbt().getInt("CustomModelData") == 1;
         if (stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) bludgeoning = !bludgeoning;
         boolean piercing = false;
-        if (stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)) piercing = comboCount % getPiercingAnimation() == getAnimation() - 1;
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)) {
+            int[] piercingAnimations = getPiercingAnimation();
+            for (int piercingAnimation : piercingAnimations) {
+                if (comboCount == 0 && piercingAnimation == 1) {
+                    piercing = true;
+                    break;
+                }
+                if (piercingAnimations.length == 1 && comboCount % piercingAnimation == getAnimation() - 1) {
+                    piercing = true;
+                    break;
+                }
+
+                if (piercingAnimations.length == 2 && (comboCount - (piercingAnimation - 1)) % getAnimation() == 0) {
+                    piercing = true;
+                    break;
+                }
+            }
+
+            if (piercingAnimations.length == getAnimation()) piercing = true;
+        }
         if (stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
 
         if (bludgeoning || stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_BLUDGEONING)) {
             return getBludgeoningDamage(distance);
-        } else if (piercing && stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)
-                || stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) {
+        } else if (piercing || stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) {
             return getPiercingDamage(distance);
         } else {
             return getSlashingDamage(distance);
@@ -166,8 +193,8 @@ public class KHWeapons extends SwordItem {
         }
     }
 
-    public int getPiercingAnimation() {
-        return 0;
+    public int[] getPiercingAnimation() {
+        return new int[0];
     }
 
     public int getAnimation() {
@@ -188,10 +215,44 @@ public class KHWeapons extends SwordItem {
 
     private float calculateDamage(double distance, int startIndex, int endIndex) {
         for (int i = startIndex; i <= endIndex; i++) {
-            if (distance < getRadius(i - startIndex)) {
+            if (distance < getRadius(i - startIndex) + 0.25F) {
                 return getAttackDamage(i);
             }
         }
         return 0.0F;
+    }
+
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        World world = context.getWorld();
+        BlockPos pos = context.getBlockPos();
+        PlayerEntity player = context.getPlayer();
+        BlockState state = world.getBlockState(pos);
+
+        if (!world.isClient && player != null) {
+            ItemStack stack = context.getStack();
+            Block block = state.getBlock();
+
+            if (block instanceof CropBlock cropBlock) {
+                if (cropBlock.isMature(state) && world.breakBlock(pos, true, player)) {
+                    replantCrop(world, pos, cropBlock, player);
+                    stack.damage(1, player, p -> p.sendToolBreakStatus(context.getHand()));
+                    return ActionResult.SUCCESS;
+                }
+            }
+        }
+        return ActionResult.PASS;
+    }
+
+    private void replantCrop(World world, BlockPos pos, CropBlock cropBlock, PlayerEntity player) {
+        ItemStack seedStack = new ItemStack(cropBlock.asItem());
+
+        if (!seedStack.isEmpty()) {
+            world.setBlockState(pos, cropBlock.getDefaultState());
+            world.emitGameEvent(GameEvent.BLOCK_PLACE, pos, GameEvent.Emitter.of(player, cropBlock.getDefaultState()));
+            if (!player.isCreative()) {
+                seedStack.decrement(1);
+            }
+        }
     }
 }

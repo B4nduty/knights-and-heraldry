@@ -1,0 +1,20 @@
+{
+  "parent": "bettercombat:katana",
+  "attributes": {
+    "attack_range": 3.5,
+    "attacks": [
+      {
+        "damageMultiplier": 0.0
+      },
+      {
+        "damageMultiplier": 0.0
+      },
+      {
+        "damageMultiplier": 0.0
+      },
+      {
+        "damageMultiplier": 0.0
+      }
+    ]
+  }
+}

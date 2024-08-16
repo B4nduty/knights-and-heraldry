@@ -62,16 +62,34 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
             if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) bludgeoning = !bludgeoning;
             int comboCount = ((PlayerAttackProperties) player).getComboCount();
             boolean piercing = false;
-            if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_PIERCING) && !weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING))
-                piercing = comboCount % weapon.getPiercingAnimation() == weapon.getAnimation() - 1;
-            if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
+            if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_PIERCING)) {
+                int[] piercingAnimations = weapon.getPiercingAnimation();
+                for (int piercingAnimation : piercingAnimations) {
+                    if (comboCount == 0 && piercingAnimation == 1) {
+                        piercing = true;
+                        break;
+                    }
+                    if (piercingAnimations.length == 1 && comboCount % piercingAnimation == weapon.getAnimation() - 1) {
+                        piercing = true;
+                        break;
+                    }
+
+                    if (piercingAnimations.length == 2 && (comboCount - (piercingAnimation - 1)) % weapon.getAnimation() == 0) {
+                        piercing = true;
+                        break;
+                    }
+                }
+
+                if (piercingAnimations.length == weapon.getAnimation()) piercing = true;
+            }
             float[] damageValues = weapon.getDefaultAttackDamageValues();
             double[] radiusValues = weapon.getDefaultRadiusValues();
 
             if (bludgeoning || weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_ONLY_BLUDGEONING)) { // Bludgeoning
                 renderBludgeoningOverlay(drawContext, closestDistance, radiusValues, damageValues);
             } else if (piercing && weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_PIERCING)
-                    || weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) { // Piercing
+                    || weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)
+                    || weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) { // Piercing
                 renderPiercingOverlay(drawContext, closestDistance, radiusValues, damageValues);
             } else { // Slashing (default case)
                 renderSlashingOverlay(drawContext, closestDistance, radiusValues, damageValues);
@@ -94,7 +112,7 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
         textures[indices[4] - 10] = TOO_FAR_CLOSE;
 
         for (int i = 0; i < radiusValues.length; i++) {
-            if (distance <= radiusValues[i]) {
+            if (distance <= radiusValues[i] + 0.25F) {
                 Identifier texture = textures[i];
                 int width, height, xT, yT;
                 if (texture == BLUDGEONING_CRITICAL) {
@@ -138,7 +156,7 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
         textures[indices[4] - 5] = TOO_FAR_CLOSE;
 
         for (int i = 0; i < radiusValues.length; i++) {
-            if (distance <= radiusValues[i]) {
+            if (distance <= radiusValues[i] + 0.25F) {
                 Identifier texture = textures[i];
                 int width, height, xT, yT;
                 if (texture == PIERCING_CRITICAL) {
@@ -183,7 +201,7 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
 
         boolean textureFound = false;
         for (int i = 0; i < radiusValues.length; i++) {
-            if (distance <= radiusValues[i]) {
+            if (distance <= radiusValues[i] + 0.25F) {
                 Identifier texture = textures[i];
                 int width, height, xT, yT;
                 if (texture == SLASHING_CRITICAL) {

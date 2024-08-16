@@ -11,10 +11,11 @@
     "defaultRequire": 1
   },
   "client": [
+    "GameRendererMixin",
     "InGameHudMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",
-    "MinecraftClientInjectMixin",
+    "MinecraftClientMixin",
     "ModelLoaderMixin"
   ]
 }

@@ -79,6 +79,13 @@ public abstract class ItemRendererMixin {
         if (stack.isOf(ModItems.V_LONGSWORD)) return "v_longsword_3d";
         if (stack.isOf(ModItems.FALCHION)) return "falchion_3d";
         if (stack.isOf(ModItems.SCIMITAR)) return "scimitar_3d";
+        if (stack.isOf(ModItems.KATANA)) return "katana_3d";
+        if (stack.isOf(ModItems.PITCHFORK)) return "pitchfork_3d";
+        if (stack.isOf(ModItems.SPEAR)) return "spear_3d";
+        if (stack.isOf(ModItems.PIKE)) return "pike_3d";
+        if (stack.isOf(ModItems.BILLHOOK)) return "billhook_3d";
+        if (stack.isOf(ModItems.GLAIVE)) return "glaive_3d";
+        if (stack.isOf(ModItems.CURVED_GLAIVE)) return "curved_glaive_3d";
         if (stack.isOf(ModItems.WARSWORD)) return "warsword_3d";
         if (stack.isOf(ModItems.WARSWORD_CLAYMORE)) return "warsword_claymore_3d";
         if (stack.isOf(ModItems.WARSWORD_FLAMBERGE)) return "warsword_flamberge_3d";

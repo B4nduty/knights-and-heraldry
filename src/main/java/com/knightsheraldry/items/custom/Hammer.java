@@ -8,11 +8,9 @@ public class Hammer extends KHWeapons{
     @Override
     public float[] getDefaultAttackDamageValues() {
         return new float[] {
-                // For activate Bludgeoning, you need KH_WEAPONS_BLUDGEONING Item Tag
-                // If you want Piercing only, you need KH_WEAPONS_ONLY_PIERCING Item Tag
                 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Slashing
-                1.0F, 4.0F, 6.0F, 4.0F, 2.0F, //Piercing
-                1.0F, 6.0F, 9.0F, 6.0F, 3.0F //Bludgeoning
+                0.0F, 4.0F, 6.0F, 4.0F, 2.0F, //Piercing
+                0.0F, 6.0F, 9.0F, 6.0F, 3.0F //Bludgeoning
         };
     }
 
