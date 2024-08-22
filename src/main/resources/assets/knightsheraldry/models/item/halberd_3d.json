@@ -1,7 +1,7 @@
 {
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "knightsheraldry:item/ball_flail_3d"
+		"layer0": "knightsheraldry:item/halberd_3d"
 	},
 	"display": {
 		"thirdperson_righthand": {
@@ -39,5 +39,8 @@
 			"translation": [-0.5, -30, -16.75],
 			"scale": [2, 2, 1]
 		}
-	}
+	},
+	"overrides": [
+		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/halberd_3d_blocking" }
+	]
 }

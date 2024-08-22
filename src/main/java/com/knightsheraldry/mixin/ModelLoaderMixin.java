@@ -29,6 +29,7 @@ public abstract class ModelLoaderMixin {
 
         String[] modelNames = {
                 "dagger_3d",
+                "stiletto_3d",
                 "rapier_3d",
                 "sword_3d",
                 "v_sword_3d",
@@ -54,6 +55,8 @@ public abstract class ModelLoaderMixin {
                 "billhook_3d",
                 "glaive_3d",
                 "curved_glaive_3d",
+                "halberd_3d",
+                "lance_3d",
                 "warsword_3d",
                 "warsword_claymore_3d",
                 "warsword_flamberge_3d",

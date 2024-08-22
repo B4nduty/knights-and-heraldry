@@ -19,7 +19,7 @@ public class Glaive extends KHWeapons {
         return new double[] {
                 // Values cannot be higher or equal than its next value
                 4.0d, //1st Distance
-                4.3d, //2nd Distance
+                4.2d, //2nd Distance
                 4.5d, //3rd Distance
                 4.8d, //4th Distance
                 5.0d //5th Distance

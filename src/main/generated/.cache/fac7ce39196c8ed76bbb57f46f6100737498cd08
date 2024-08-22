@@ -1,13 +1,14 @@
-// 1.20.1	2024-08-03T21:51:04.2534888	Knights & Heraldry/Tags for minecraft:item
+// 1.20.1	2024-08-20T16:46:36.5011246	Knights & Heraldry/Tags for minecraft:item
 1ac8bbb29335f98d8bfec25cbd1149ac2c3e00c1 data\knightsheraldry\tags\items\kh_weapons_ignores_armor.json
 7e097a358b4d68a957846b568bb8a635379fde7c data\knightsheraldry\tags\items\kh_weapons_only_bludgeoning.json
 512f85caab3940d6de4def69b7bd5ee30a7d5aad data\knightsheraldry\tags\items\kh_weapons_bludgeoning_piercing.json
+dc5e4366833ab9cc586d46ed6573b008e722b23e data\knightsheraldry\tags\items\kh_weapons_damage_x_velocity.json
 717476cbe3cfe8b558518cdfc8259d99f7fa8c34 data\knightsheraldry\tags\items\kh_weapons_disable_shield.json
 a77f0e56413a539be8079ce888aa773ec94bafb4 data\knightsheraldry\tags\items\kh_weapons_harvest.json
 286cd66467886ea8790907c4007737edb3496257 data\knightsheraldry\tags\items\kh_weapons_bludgeoning.json
-9cb029483c9baad1aad5fbda4c437e56f29162f0 data\knightsheraldry\tags\items\kh_weapons_shield.json
+df91c6f2e8bf8b7c012612f8cdb6506d5063c880 data\knightsheraldry\tags\items\kh_weapons_shield.json
 ef558e24a8bcd2d96cac8e8abf4713edac8fcaab data\knightsheraldry\tags\items\kh_weapons_damage_behind.json
 8a23702b05296c8af5014d6aa6e9265ded85c7d9 data\knightsheraldry\tags\items\kh_armors.json
-87cc20eb8939c17e3d5d71d0053b621915d989cb data\knightsheraldry\tags\items\kh_weapons_piercing.json
+5581f5efa0891692d53b9c11d0105e21b5befa77 data\knightsheraldry\tags\items\kh_weapons_piercing.json
 95308deba17101a6956f4a09b124a5a9d38a9a22 data\knightsheraldry\tags\items\kh_weapons_bypass_block.json
-e343f95bba295f1088d9ff6395a1c87efdcf09f9 data\knightsheraldry\tags\items\kh_weapons_only_piercing.json
+ab725a64d1cd30045d19faa8987630d7a5c8a47f data\knightsheraldry\tags\items\kh_weapons_only_piercing.json

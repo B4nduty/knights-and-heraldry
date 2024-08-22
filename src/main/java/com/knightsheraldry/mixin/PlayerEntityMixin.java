@@ -2,19 +2,22 @@ package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.KHWeapons;
-import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.ModTags;
-import com.knightsheraldry.util.StaminaData;
+import com.knightsheraldry.util.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.passive.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.vehicle.BoatEntity;
+import net.minecraft.entity.vehicle.MinecartEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
@@ -86,6 +89,52 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
             player.clearActiveItem();
             world.sendEntityStatus(player, (byte) 30);
             ci.cancel();
+        }
+    }
+
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void onTick(CallbackInfo ci) {
+        PlayerEntity player = (PlayerEntity) (Object) this;
+        if ((player.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY)
+                || player.getOffHandStack().isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY))
+                && player instanceof ServerPlayerEntity serverPlayerEntity) {
+
+            NbtCompound nbt = ((IEntityDataSaver) serverPlayerEntity).knightsheraldry$getPersistentData();
+            int nonSprintingTicks = nbt.getInt("nonSprintingTicks");
+
+            BlockPos previousBlockPos = BlockPos.fromLong(nbt.getLong("previousBlockPos"));
+            BlockPos currentBlockPos = serverPlayerEntity.getBlockPos();
+
+            boolean staying = currentBlockPos.equals(previousBlockPos);
+
+            float velocity = serverPlayerEntity.getMovementSpeed();
+
+            if (serverPlayerEntity.isSprinting()) {
+                velocity *= 1.3f;
+                nonSprintingTicks = 0;
+            } else {
+                nonSprintingTicks++;
+                if (nonSprintingTicks >= 3) {
+                    if (nonSprintingTicks >= 5 && staying) {
+                        velocity *= 0.1f;
+                        nonSprintingTicks = 0;
+                    } else if (serverPlayerEntity.isSneaking()) {
+                        velocity *= 0.3f;
+                        nonSprintingTicks = 0;
+                    } else if (serverPlayerEntity.hasVehicle()) {
+                        if (serverPlayerEntity.getVehicle() instanceof MinecartEntity minecartEntity)
+                            velocity = (float) minecartEntity.getVelocity().length();
+                        else if (serverPlayerEntity.getVehicle() instanceof BoatEntity boatEntity)
+                            velocity = (float) boatEntity.getVelocity().length();
+                        else if (serverPlayerEntity.getVehicle() instanceof AbstractHorseEntity abstractHorseEntity)
+                            velocity = (float) abstractHorseEntity.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
+                    }
+                    PlayerVelocity.updatePreviousBlockPos((IEntityDataSaver) serverPlayerEntity, currentBlockPos.asLong());
+                } else velocity = nbt.getFloat("speedHistory");
+            }
+
+            PlayerVelocity.updateSpeedHistory((IEntityDataSaver) serverPlayerEntity, velocity);
+            PlayerVelocity.updateNonSprintingTicks((IEntityDataSaver) serverPlayerEntity, nonSprintingTicks);
         }
     }
 

@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-public class PlayerTickHandler implements ServerTickEvents.StartTick {
+public class StartTickHandler implements ServerTickEvents.StartTick {
 
     private static final int TOTAL_STAMINA = 200;
     private static final int MID_STAMINA_THRESHOLD = 60;

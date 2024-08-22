@@ -4,9 +4,7 @@ import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.registry.*;
 import net.minecraft.util.Identifier;
 
@@ -94,6 +92,12 @@ public class ModItems {
 
     public static final Item CURVED_GLAIVE = registerItem("curved_glaive",
             new Glaive(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item HALBERD = registerItem("halberd",
+            new Halberd(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item LANCE = registerItem("lance",
+            new Lance(-3.0F, new FabricItemSettings().maxDamage(1)), ModItemGroups.TOOLS_AND_WEAPONS);
 
     public static final Item WARSWORD = registerItem("warsword",
             new WarSword(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);

@@ -30,8 +30,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class KHWeapons extends SwordItem {
-    private static final int MAX_VARIANT = 2;
-
     public KHWeapons(float attackSpeed, Settings settings) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
@@ -60,7 +58,7 @@ public class KHWeapons extends SwordItem {
             if ((itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING)
                     || itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)) && user.isSneaking()) {
                 int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
-                int newVariant = (currentVariant + 1) % MAX_VARIANT;
+                int newVariant = (currentVariant + 1) % 2;
                 itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
                 return TypedActionResult.success(itemStack);
             }
@@ -84,6 +82,7 @@ public class KHWeapons extends SwordItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (attacker instanceof PlayerEntity playerEntity) {
             handlePostHit(stack, target, playerEntity);
+            stack.damage(1, playerEntity, p -> p.sendToolBreakStatus(playerEntity.getActiveHand()));
         }
         return true;
     }
@@ -101,6 +100,12 @@ public class KHWeapons extends SwordItem {
 
                     if (stack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_BEHIND)) {
                         damage = adjustDamageForBackstab(target, playerPos, damage);
+                    }
+
+                    if (stack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY)) {
+                        float speedHistory = ((IEntityDataSaver)playerEntity)
+                                .knightsheraldry$getPersistentData().getFloat("speedHistory");
+                            damage *= speedHistory * 10;
                     }
 
                     applyDamage(target, playerEntity, stack, damage);

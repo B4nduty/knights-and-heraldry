@@ -1,6 +1,6 @@
 package com.knightsheraldry.items.custom;
 
-public class Flail extends KHWeapons{
+public class Flail extends KHWeapons {
     public Flail(float attackSpeed, Settings settings) {
         super(attackSpeed, settings);
     }

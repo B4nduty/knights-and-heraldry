@@ -13,7 +13,6 @@
   "client": [
     "GameRendererMixin",
     "InGameHudMixin",
-    "ItemRendererAccessor",
     "ItemRendererMixin",
     "MinecraftClientMixin",
     "ModelLoaderMixin"

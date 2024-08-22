@@ -18,6 +18,7 @@ import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import org.slf4j.*;
+import software.bernie.geckolib.GeckoLib;
 
 public class KnightsHeraldry implements ModInitializer, ClientModInitializer, DataGeneratorEntrypoint {
     public static final String MOD_ID = "knightsheraldry";
@@ -30,8 +31,9 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
         CONFIG = AutoConfig.getConfigHolder(ModConfigs.class).getConfig();
         ModItems.registerModItems();
         ModItemGroups.registerItemGroups();
+        GeckoLib.initialize();
         ModMessages.registerC2SPackets();
-        ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
+        ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
         AttackEntityCallback.EVENT.register(new AttackEntityEventHandler());
         PlayerBlockBreakEvents.AFTER.register(new PlayerBlockBreakHandler());
     }
@@ -46,8 +48,8 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
                 ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE,
                 ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD, ModItems.V_LONGSWORD,
                 ModItems.FALCHION, ModItems.SCIMITAR, ModItems.KATANA, ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE,
-                ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
-                ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER);
+                ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.WARSWORD,
+                ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER);
     }
 
     @Override
