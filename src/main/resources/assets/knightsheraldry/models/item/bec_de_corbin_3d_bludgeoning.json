@@ -1,0 +1,43 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "knightsheraldry:item/bec_de_corbin_3d"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [180, -90, 0],
+			"translation": [-0.25, 4.5, 1.75],
+			"scale": [4, 4, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [180, -90, 0],
+			"translation": [-0.25, 4.5, 1.75],
+			"scale": [4, 4, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [163, -90, 0],
+			"translation": [-1.25, 4.5, 1.75],
+			"scale": [4, 4, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [163, -90, 0],
+			"translation": [-1.25, 4.5, 1.75],
+			"scale": [4, 4, 1]
+		},
+		"ground": {
+			"rotation": [-180, 0, 0],
+			"translation": [0, -12.5, -8],
+			"scale": [1, 1, 0.5]
+		},
+		"gui": {
+			"rotation": [-180, 0, 45],
+			"translation": [-22.5, -22.5, 0],
+			"scale": [2, 2, 1]
+		},
+		"fixed": {
+			"rotation": [-180, 0, 0],
+			"translation": [-0.5, -30, -16.75],
+			"scale": [2, 2, 1]
+		}
+	}
+}

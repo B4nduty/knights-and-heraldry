@@ -9,13 +9,13 @@ import com.knightsheraldry.networking.ModMessages;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.*;
 import net.fabricmc.api.*;
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.*;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import org.slf4j.*;
 import software.bernie.geckolib.GeckoLib;
@@ -48,8 +48,13 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
                 ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE,
                 ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD, ModItems.V_LONGSWORD,
                 ModItems.FALCHION, ModItems.SCIMITAR, ModItems.KATANA, ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE,
-                ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.WARSWORD,
-                ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER);
+                ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.LANCE,
+                ModItems.WOODEN_LANCE, ModItems.POLEAXE, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN,
+                ModItems.MORNING_STAR, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
+                ModItems.WARSWORD_ZWEIHANDER);
+
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
+                        tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), ModItems.WOODEN_LANCE);
     }
 
     @Override
@@ -63,6 +68,11 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
 
     private void registerModelPredicate(Item... items) {
         for (Item item : items) {
+            ModelPredicateProviderRegistry.register(item, new Identifier("charged"),
+                    (stack, world, entity, seed) -> entity != null
+                            && (entity.getMainHandStack() == stack || entity.getOffHandStack() == stack)
+                            && stack.getNbt() != null
+                            && stack.getNbt().getBoolean("Charged") ? 1.0F : 0.0F);
             ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
                     (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
         }

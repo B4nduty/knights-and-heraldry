@@ -99,6 +99,21 @@ public class ModItems {
     public static final Item LANCE = registerItem("lance",
             new Lance(-3.0F, new FabricItemSettings().maxDamage(1)), ModItemGroups.TOOLS_AND_WEAPONS);
 
+    public static final Item WOODEN_LANCE = registerItem("wooden_lance",
+            new WoodenLance(-3.0F, new FabricItemSettings().maxDamage(1)), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item POLEAXE = registerItem("poleaxe",
+            new Poleaxe(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item POLEHAMMER = registerItem("polehammer",
+            new Polehammer(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item BEC_DE_CORBIN = registerItem("bec_de_corbin",
+            new Polehammer(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item MORNING_STAR = registerItem("morning_star",
+            new MorningStar(-3.0F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
     public static final Item WARSWORD = registerItem("warsword",
             new WarSword(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
 

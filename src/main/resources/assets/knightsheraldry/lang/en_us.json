@@ -47,6 +47,14 @@
   "item.knightsheraldry.halberd": "Halberd",
 
   "item.knightsheraldry.lance": "Lance",
+  "item.knightsheraldry.wooden_lance": "Wooden Lance",
+
+  "item.knightsheraldry.poleaxe": "Poleaxe",
+
+  "item.knightsheraldry.polehammer": "Polehammer",
+  "item.knightsheraldry.bec_de_corbin": "Bec de Corbin",
+
+  "item.knightsheraldry.morning_star": "Morning Star",
 
   "item.knightsheraldry.warsword": "War Sword",
   "item.knightsheraldry.warsword_claymore": "War Sword Claymore",
@@ -58,6 +66,7 @@
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",
   "tooltip.knightsheraldry.right_click-replant": "§4Right-Click Crops §rto §lHarvest §r& §lReplant",
+  "tooltip.knightsheraldry.right_click-to-charge": "§4Right-Click §rto §lCharge §rfor §l2 Seconds",
 
   "text.autoconfig.knightsheraldry.option.common.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
   "text.autoconfig.knightsheraldry.option.common.getBlocking": "Use Stamina on or while Blocking"

@@ -95,8 +95,14 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     @Inject(method = "tick", at = @At("HEAD"))
     private void onTick(CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if ((player.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY)
-                || player.getOffHandStack().isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY))
+        ItemStack mainHandStack = player.getMainHandStack();
+        ItemStack offHandStack = player.getOffHandStack();
+        ItemStack weapon = null;
+
+        if (mainHandStack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY)) weapon = mainHandStack;
+        else if (offHandStack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY)) weapon = offHandStack;
+
+        if (weapon != null && weapon.getNbt() != null && weapon.getNbt().getBoolean("Charged")
                 && player instanceof ServerPlayerEntity serverPlayerEntity) {
 
             NbtCompound nbt = ((IEntityDataSaver) serverPlayerEntity).knightsheraldry$getPersistentData();

@@ -15,6 +15,7 @@
     "InGameHudMixin",
     "ItemRendererMixin",
     "MinecraftClientMixin",
-    "ModelLoaderMixin"
+    "ModelLoaderMixin",
+    "PlayerEntityRendererMixin"
   ]
 }

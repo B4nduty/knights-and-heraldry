@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "knightsheraldry:lance"
+    "knightsheraldry:lance",
+    "knightsheraldry:wooden_lance"
   ]
 }

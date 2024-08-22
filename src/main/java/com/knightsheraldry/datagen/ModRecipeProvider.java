@@ -152,6 +152,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.FALCHION), conditionsFromItem(ModItems.FALCHION))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.SCIMITAR)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.POLEHAMMER, 1)
+                .input(ModItems.SMITHING_HAMMER, 1)
+                .input(ModItems.BEC_DE_CORBIN, 1)
+                .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
+                .criterion(hasItem(ModItems.BEC_DE_CORBIN), conditionsFromItem(ModItems.BEC_DE_CORBIN))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.POLEHAMMER)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BEC_DE_CORBIN, 1)
+                .input(ModItems.SMITHING_HAMMER, 1)
+                .input(ModItems.POLEHAMMER, 1)
+                .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
+                .criterion(hasItem(ModItems.POLEHAMMER), conditionsFromItem(ModItems.POLEHAMMER))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BEC_DE_CORBIN)));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARSWORD_CLAYMORE, 1)
                 .input(ModItems.SMITHING_HAMMER, 1)
                 .input(ModItems.WARSWORD, 1)

@@ -30,7 +30,7 @@ public abstract class ItemRendererMixin {
             return;
         }
 
-        if (renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.FIXED || renderMode == ModelTransformationMode.GROUND) {
+        if (renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.GROUND) {
             return;
         }
 

@@ -21,8 +21,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD,
                         ModItems.V_LONGSWORD, ModItems.FALCHION, ModItems.SCIMITAR, ModItems.KATANA, ModItems.PITCHFORK,
                         ModItems.SPEAR, ModItems.PIKE, ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE,
-                        ModItems.HALBERD, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
-                        ModItems.WARSWORD_ZWEIHANDER);
+                        ModItems.HALBERD, ModItems.POLEAXE, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN, ModItems.MORNING_STAR,
+                        ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER);
 
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_DAMAGE_BEHIND)
                 .add(ModItems.DAGGER);
@@ -31,21 +31,22 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.STILETTO);
 
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_ONLY_BLUDGEONING)
-                .add(ModItems.MACE, ModItems.SPIKED_MACE, ModItems.FLAIL, ModItems.BALL_FLAIL);
+                .add(ModItems.MACE, ModItems.SPIKED_MACE, ModItems.FLAIL, ModItems.BALL_FLAIL, ModItems.MORNING_STAR);
 
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_BLUDGEONING)
                 .add(ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.LONGSWORD, ModItems.V_LONGSWORD,
-                        ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
+                        ModItems.POLEAXE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
                         ModItems.WARSWORD_ZWEIHANDER);
 
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_PIERCING)
                 .add(ModItems.DAGGER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.LONGSWORD,
                         ModItems.V_LONGSWORD, ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE,
-                        ModItems.HALBERD, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
-                        ModItems.WARSWORD_ZWEIHANDER);
+                        ModItems.HALBERD, ModItems.POLEAXE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
+                        ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER);
 
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)
-                .add(ModItems.STILETTO, ModItems.RAPIER, ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE, ModItems.LANCE);
+                .add(ModItems.STILETTO, ModItems.RAPIER, ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE,
+                        ModItems.LANCE, ModItems.WOODEN_LANCE);
 
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_DISABLE_SHIELD)
                 .add(ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE);
@@ -53,14 +54,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_BYPASS_BLOCK)
                 .add(ModItems.FLAIL, ModItems.BALL_FLAIL);
 
-        getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_BLUDGEONING_PIERCING)
-                .add(ModItems.HAMMER, ModItems.WAR_HAMMER);
+        getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_BLUDGEONING_TO_PIERCING)
+                .add(ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN);
 
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_HARVEST)
                 .add(ModItems.PITCHFORK);
 
         getOrCreateTagBuilder(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY)
-                .add(ModItems.LANCE);
+                .add(ModItems.LANCE, ModItems.WOODEN_LANCE);
 
         getOrCreateTagBuilder(ModTags.Items.KH_ARMORS);
     }
