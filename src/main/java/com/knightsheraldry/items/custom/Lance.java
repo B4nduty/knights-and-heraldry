@@ -44,7 +44,7 @@ public class Lance extends SwordItem {
                 Entity targetedEntity = raycastEntity(player, getRange());
 
                 if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)
-                        && player.getItemCooldownManager().isCoolingDown(this)) {
+                        && !player.getItemCooldownManager().isCoolingDown(this)) {
                     float damage = getLanceDamage() * ((IEntityDataSaver) player)
                             .knightsheraldry$getPersistentData().getFloat("speedHistory") * 10;
 
