@@ -67,6 +67,7 @@
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",
   "tooltip.knightsheraldry.right_click-replant": "§4Right-Click Crops §rto §lHarvest §r& §lReplant",
   "tooltip.knightsheraldry.right_click-to-charge": "§4Right-Click §rto §lCharge §rfor §l2 Seconds",
+  "tooltip.knightsheraldry.on-charge": "On §4Charge §rit will §lAuto Attack",
 
   "text.autoconfig.knightsheraldry.option.common.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
   "text.autoconfig.knightsheraldry.option.common.getBlocking": "Use Stamina on or while Blocking"

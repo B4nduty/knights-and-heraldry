@@ -41,11 +41,6 @@
 		}
 	},
 	"overrides": [
-		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/morning_star_3d_blocking" },
-		{ "predicate": { "custom_model_data": 1 }, "model": "knightsheraldry:item/morning_star_3d_bludgeoning" },
-		{ "predicate": {
-			"blocking": 1,
-			"custom_model_data": 1
-		}, "model": "knightsheraldry:item/morning_star_3d_bludgeoning_blocking" }
+		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/morning_star_3d_blocking" }
 	]
 }

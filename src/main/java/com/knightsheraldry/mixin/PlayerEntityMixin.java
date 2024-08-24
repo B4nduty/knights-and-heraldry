@@ -2,6 +2,7 @@ package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.KHWeapons;
+import com.knightsheraldry.items.custom.Lance;
 import com.knightsheraldry.util.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -99,8 +100,8 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
         ItemStack offHandStack = player.getOffHandStack();
         ItemStack weapon = null;
 
-        if (mainHandStack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY)) weapon = mainHandStack;
-        else if (offHandStack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY)) weapon = offHandStack;
+        if (mainHandStack.getItem() instanceof Lance) weapon = mainHandStack;
+        else if (offHandStack.getItem() instanceof Lance) weapon = offHandStack;
 
         if (weapon != null && weapon.getNbt() != null && weapon.getNbt().getBoolean("Charged")
                 && player instanceof ServerPlayerEntity serverPlayerEntity) {

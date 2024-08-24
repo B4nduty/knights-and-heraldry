@@ -14,7 +14,7 @@ public class PlayerEntityRendererMixin {
     @Inject(method = "getArmPose", at = @At("RETURN"), cancellable = true)
     private static void knightsheraldry$getArmPose(AbstractClientPlayerEntity player, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> callbackInfoReturnable) {
         if (player.getStackInHand(hand).getNbt() != null && player.getStackInHand(hand).getNbt().getBoolean("Charged")) {
-            callbackInfoReturnable.setReturnValue(BipedEntityModel.ArmPose.THROW_SPEAR);
+            callbackInfoReturnable.setReturnValue(BipedEntityModel.ArmPose.BOW_AND_ARROW);
         }
     }
 }

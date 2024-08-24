@@ -13,9 +13,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -31,7 +28,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class KHWeapons extends SwordItem {
-    private boolean charged = false;
     public KHWeapons(float attackSpeed, Settings settings) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
@@ -50,52 +46,13 @@ public class KHWeapons extends SwordItem {
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        return stack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY) ? UseAction.SPEAR :
-                (stack.isIn(ModTags.Items.KH_WEAPONS_SHIELD) ? UseAction.BLOCK : UseAction.NONE);
-    }
-
-    private static void doChargeProgress(int useTicks, ItemStack stack, LivingEntity user, World world) {
-        float f = (float)useTicks / (float)40;
-        if (f >= 1.0F && !isCharged(stack) && user instanceof PlayerEntity player) {
-            world.playSound(null, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.ITEM_CROSSBOW_LOADING_END, SoundCategory.PLAYERS, 1.0F,
-                    1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
-            setCharged(stack, true);
-            player.sendMessage(Text.literal("Has been charged"), true);
-        }
-    }
-
-    @Override
-    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
-        if (!world.isClient) {
-            int i = this.getMaxUseTime(stack) - remainingUseTicks;
-            doChargeProgress(i, stack, user, world);
-            float f = (float)(stack.getMaxUseTime() - remainingUseTicks) / (float)40;
-            if (f < 1.0F) {
-                this.charged = false;
-            }
-
-            if (f >= 1.0F && !this.charged) {
-                this.charged = true;
-            }
-        }
+        return stack.isIn(ModTags.Items.KH_WEAPONS_SHIELD) ? UseAction.BLOCK : UseAction.NONE;
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
-            if (itemStack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY)) {
-                if (isCharged(itemStack)) {
-                    setCharged(itemStack, false);
-                    return TypedActionResult.success(itemStack);
-                } else if (!isCharged(itemStack)) {
-                    this.charged = false;
-                    user.setCurrentHand(hand);
-                }
-
-                return TypedActionResult.consume(itemStack);
-            }
             if ((itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING)
                     || itemStack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_TO_PIERCING)) && user.isSneaking()) {
                 int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
@@ -110,21 +67,6 @@ public class KHWeapons extends SwordItem {
     }
 
     @Override
-    public int getMaxUseTime(ItemStack stack) {
-        return 100;
-    }
-
-    public static boolean isCharged(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getNbt();
-        return nbtCompound != null && nbtCompound.getBoolean("Charged");
-    }
-
-    public static void setCharged(ItemStack stack, boolean charged) {
-        NbtCompound nbtCompound = stack.getOrCreateNbt();
-        nbtCompound.putBoolean("Charged", charged);
-    }
-
-    @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING))
             tooltip.add(Text.translatable("tooltip.knightsheraldry.shift-right_click-bludgeoning"));
@@ -132,8 +74,6 @@ public class KHWeapons extends SwordItem {
             tooltip.add(Text.translatable("tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing"));
         if (stack.isIn(ModTags.Items.KH_WEAPONS_HARVEST))
             tooltip.add(Text.translatable("tooltip.knightsheraldry.right_click-replant"));
-        if (stack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY))
-            tooltip.add(Text.translatable("tooltip.knightsheraldry.right_click-to-charge"));
     }
 
     @Override
@@ -158,15 +98,6 @@ public class KHWeapons extends SwordItem {
 
                     if (stack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_BEHIND)) {
                         damage = adjustDamageForBackstab(target, playerPos, damage);
-                    }
-
-                    if (stack.isIn(ModTags.Items.KH_WEAPONS_DAMAGE_X_VELOCITY)) {
-                        if (isCharged(stack)) {
-                            float speedHistory = ((IEntityDataSaver)playerEntity)
-                                    .knightsheraldry$getPersistentData().getFloat("speedHistory");
-                            damage *= speedHistory * 10;
-                            setCharged(stack, false);
-                        } else damage *= 0.01F;
                     }
 
                     applyDamage(target, playerEntity, stack, damage);
@@ -222,12 +153,12 @@ public class KHWeapons extends SwordItem {
     private void applyDamage(LivingEntity target, PlayerEntity playerEntity, ItemStack stack, float damage) {
         if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR)) {
             target.setHealth(target.getHealth() - damage);
-            if (target.getHealth() <= 0.0F) {
-                target.onDeath(playerEntity.getDamageSources().playerAttack(playerEntity));
-            }
         } else {
             playerEntity.sendMessage(Text.literal("Damage: " + damage));
             target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
+        }
+        if (target.getHealth() <= 0.0F) {
+            target.onDeath(playerEntity.getDamageSources().playerAttack(playerEntity));
         }
     }
 
