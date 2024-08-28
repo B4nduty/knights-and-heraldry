@@ -38,7 +38,7 @@ public class LongSword extends KHWeapons {
         // Item needs to have Tag KH_WEAPONS_PIERCING
         // Max length of index is 2
         return new int[] {
-                3
+                2
         };
     }
 }

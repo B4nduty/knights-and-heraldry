@@ -28,5 +28,11 @@ public class ModConfigs extends PartitioningSerializer.GlobalData {
                 Use Stamina on Blocking or use Stamina while Blocking | Default: true
                 """)
         public boolean getBlocking = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("""
+                Lance Weapons can Damage Tamed Entities | Default: false
+                """)
+        public boolean getDamageTamedEntities = false;
     }
 }

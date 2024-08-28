@@ -1,10 +1,12 @@
 package com.knightsheraldry.items.custom;
 
+import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.util.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.*;
@@ -42,7 +44,9 @@ public class Lance extends SwordItem {
             }
             if (weapon != null) {
                 Entity targetedEntity = raycastEntity(player, getRange());
-
+                boolean damageTamedEntities = KnightsHeraldry.CONFIG.common.getDamageTamedEntities;
+                if (damageTamedEntities && (targetedEntity instanceof TameableEntity tameableEntity
+                        && tameableEntity.isOwner(player))) return;
                 if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)
                         && !player.getItemCooldownManager().isCoolingDown(this)) {
                     float damage = getLanceDamage() * ((IEntityDataSaver) player)
@@ -89,13 +93,8 @@ public class Lance extends SwordItem {
         Vec3d direction = player.getRotationVec(1.0F);
         Vec3d end = start.add(direction.multiply(range));
 
-        // Define a bounding box that extends in the direction the player is looking
         Box box = player.getBoundingBox().stretch(direction.multiply(range)).expand(1.0, 1.0, 1.0);
-
-        // Predicate to filter valid entities
         Predicate<Entity> validEntity = (entity) -> !entity.isSpectator() && entity.isAlive() && entity != player;
-
-        // Perform the raycast
         EntityHitResult entityHitResult = ProjectileUtil.raycast(player, start, end, box, validEntity, range * range);
 
         return entityHitResult != null ? entityHitResult.getEntity() : null;

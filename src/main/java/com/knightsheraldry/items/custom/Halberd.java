@@ -1,5 +1,6 @@
 package com.knightsheraldry.items.custom;
 
+import com.knightsheraldry.util.ModTags;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -64,7 +65,7 @@ public class Halberd extends KHWeapons {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.getPos());
                         float damage = calculateDamageBasedOnWeaponType(stack, distance, ((PlayerAttackProperties) playerEntity).getComboCount());
-                        float maxDamage = getMaxValueDamage();
+                        float maxDamage = getMaxValueDamage(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
 
                         if (damage >= maxDamage) {
                             critical = true;
@@ -83,14 +84,43 @@ public class Halberd extends KHWeapons {
         return false;
     }
 
-    private float getMaxValueDamage() {
+    private float getMaxValueDamage(ItemStack stack, int comboCount) {
         float[] damageValues = getDefaultAttackDamageValues();
         float maxDamage = 0.0F;
-        for (float damage : damageValues) {
-            if (damage > maxDamage) {
-                maxDamage = damage;
+        boolean piercing = false;
+
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)) {
+            int[] piercingAnimations = getPiercingAnimation();
+            for (int piercingAnimation : piercingAnimations) {
+                if (comboCount == 0 && piercingAnimation == 1) {
+                    piercing = true;
+                    break;
+                }
+                if (piercingAnimations.length == 1 && comboCount % piercingAnimation == getAnimation() - 1) {
+                    piercing = true;
+                    break;
+                }
+
+                if (piercingAnimations.length == 2 && (comboCount - (piercingAnimation - 1)) % getAnimation() == 0) {
+                    piercing = true;
+                    break;
+                }
+            }
+
+            if (piercingAnimations.length == getAnimation()) piercing = true;
+        }
+
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
+
+        int startIndex = piercing ? 5 : 0;
+        int endIndex = piercing ? 9 : 4;
+
+        for (int i = startIndex; i <= endIndex; i++) {
+            if (damageValues[i] > maxDamage) {
+                maxDamage = damageValues[i];
             }
         }
+
         return maxDamage;
     }
 }
