@@ -110,23 +110,15 @@ public class KHWeapons extends SwordItem {
         boolean piercing = false;
         if (stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)) {
             int[] piercingAnimations = getPiercingAnimation();
+            int animationLength = getAnimation();
             for (int piercingAnimation : piercingAnimations) {
-                if (comboCount == 0 && piercingAnimation == 1) {
-                    piercing = true;
-                    break;
-                }
-                if (piercingAnimations.length == 1 && comboCount % piercingAnimation == getAnimation() - 1) {
-                    piercing = true;
-                    break;
-                }
-
-                if (piercingAnimations.length == 2 && (comboCount - (piercingAnimation - 1)) % getAnimation() == 0) {
+                if (comboCount % animationLength == piercingAnimation - 1) {
                     piercing = true;
                     break;
                 }
             }
 
-            if (piercingAnimations.length == getAnimation()) piercing = true;
+            if (piercingAnimations.length == animationLength) piercing = true;
         }
         if (stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
 

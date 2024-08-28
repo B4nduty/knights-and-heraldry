@@ -62,25 +62,18 @@ public class DistanceCrosshairOverlay implements HudRenderCallback {
             if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_TO_PIERCING)) bludgeoning = !bludgeoning;
             int comboCount = ((PlayerAttackProperties) player).getComboCount();
             boolean piercing = false;
+
             if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_PIERCING)) {
                 int[] piercingAnimations = weapon.getPiercingAnimation();
+                int animationLength = weapon.getAnimation();
                 for (int piercingAnimation : piercingAnimations) {
-                    if (comboCount == 0 && piercingAnimation == 1) {
-                        piercing = true;
-                        break;
-                    }
-                    if (piercingAnimations.length == 1 && comboCount % piercingAnimation == weapon.getAnimation() - 1) {
-                        piercing = true;
-                        break;
-                    }
-
-                    if (piercingAnimations.length == 2 && (comboCount - (piercingAnimation - 1)) % weapon.getAnimation() == 0) {
+                    if (comboCount % animationLength == piercingAnimation - 1) {
                         piercing = true;
                         break;
                     }
                 }
 
-                if (piercingAnimations.length == weapon.getAnimation()) piercing = true;
+                if (piercingAnimations.length == animationLength) piercing = true;
             }
             float[] damageValues = weapon.getDefaultAttackDamageValues();
             double[] radiusValues = weapon.getDefaultRadiusValues();
