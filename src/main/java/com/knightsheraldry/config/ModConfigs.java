@@ -13,10 +13,10 @@ public class ModConfigs extends PartitioningSerializer.GlobalData {
 
     @ConfigEntry.Category("common")
     @ConfigEntry.Gui.TransitiveObject()
-    public Common common = new Common();
+    public Configs configs = new Configs();
 
-    @Config(name = KnightsHeraldry.MOD_ID + "-common")
-    public static final class Common implements ConfigData {
+    @Config(name = KnightsHeraldry.MOD_ID)
+    public static final class Configs implements ConfigData {
         @ConfigEntry.Gui.Tooltip(count = 0)
         @Comment("""
                 Vanilla Weapons deals 0 of Damage | Default: false
@@ -34,5 +34,15 @@ public class ModConfigs extends PartitioningSerializer.GlobalData {
                 Lance Weapons can Damage Tamed Entities | Default: false
                 """)
         public boolean getDamageTamedEntities = false;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @Comment("""
+                WarDart throw Cooldown | Default: 15 sec
+                """)
+        int wardartThrowCooldown = 15;
+
+        public int getWardartThrowCooldown() {
+            return Math.max(0, wardartThrowCooldown);
+        }
     }
 }

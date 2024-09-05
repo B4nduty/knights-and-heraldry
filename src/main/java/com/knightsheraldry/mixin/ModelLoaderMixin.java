@@ -62,10 +62,12 @@ public abstract class ModelLoaderMixin {
                 "polehammer_3d",
                 "bec_de_corbin_3d",
                 "morning_star_3d",
+                "bardiche_3d",
                 "warsword_3d",
                 "warsword_claymore_3d",
                 "warsword_flamberge_3d",
                 "warsword_zweihander_3d",
+                "wardart_3d",
         };
 
         for (String modelName : modelNames) {

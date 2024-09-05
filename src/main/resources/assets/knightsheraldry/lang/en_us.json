@@ -56,10 +56,14 @@
 
   "item.knightsheraldry.morning_star": "Morning Star",
 
+  "item.knightsheraldry.bardiche": "Bardiche",
+
   "item.knightsheraldry.warsword": "War Sword",
   "item.knightsheraldry.warsword_claymore": "War Sword Claymore",
   "item.knightsheraldry.warsword_flamberge": "War Sword Flamberge",
   "item.knightsheraldry.warsword_zweihander": "War Sword Zweihander",
+
+  "item.knightsheraldry.wardart": "War Dart",
 
   "item.knightsheraldry.smithing_hammer": "Smithing Hammer",
 
@@ -68,7 +72,12 @@
   "tooltip.knightsheraldry.right_click-replant": "§4Right-Click Crops §rto §lHarvest §r& §lReplant",
   "tooltip.knightsheraldry.right_click-to-charge": "§4Right-Click §rto §lCharge §rfor §l2 Seconds",
   "tooltip.knightsheraldry.on-charge": "On §4Charge §rit will §lAuto Attack",
+  "tooltip.knightsheraldry.throw-to-stun": "§lThrow §rto §4Stun §ran §lEntity §rfor §45 §lSeconds",
 
-  "text.autoconfig.knightsheraldry.option.common.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
-  "text.autoconfig.knightsheraldry.option.common.getBlocking": "Use Stamina on or while Blocking"
+  "text.autoconfig.knightsheraldry.option.configs.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
+  "text.autoconfig.knightsheraldry.option.configs.getBlocking": "Use Stamina on or while Blocking",
+  "text.autoconfig.knightsheraldry.option.configs.getDamageTamedEntities": "Lance Weapons can Damage Tamed Entities",
+  "text.autoconfig.knightsheraldry.option.configs.wardartThrowCooldown": "WarDart throw Cooldown",
+
+  "effect.knightsheraldry.pin": "Pin"
 }

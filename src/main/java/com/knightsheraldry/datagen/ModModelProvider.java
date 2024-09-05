@@ -71,10 +71,14 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.MORNING_STAR, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.BARDICHE, Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.WARSWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WARSWORD_CLAYMORE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WARSWORD_FLAMBERGE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WARSWORD_ZWEIHANDER, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.WARDART, Models.HANDHELD);
 
     }
 }

@@ -44,7 +44,7 @@ public class Lance extends SwordItem {
             }
             if (weapon != null) {
                 Entity targetedEntity = raycastEntity(player, getRange());
-                boolean damageTamedEntities = KnightsHeraldry.CONFIG.common.getDamageTamedEntities;
+                boolean damageTamedEntities = KnightsHeraldry.CONFIG.configs.getDamageTamedEntities;
                 if (damageTamedEntities && (targetedEntity instanceof TameableEntity tameableEntity
                         && tameableEntity.isOwner(player))) return;
                 if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)

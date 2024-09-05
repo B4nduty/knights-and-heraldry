@@ -81,7 +81,7 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         boolean staminaBlocked = dataSaver.knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
 
         if (ableStamina) {
-            if (isHoldingKHWeapon(playerEntity) && !staminaBlocked && !KnightsHeraldry.CONFIG.common.getBlocking
+            if (isHoldingKHWeapon(playerEntity) && !staminaBlocked && !KnightsHeraldry.CONFIG.configs.getBlocking
                     && playerEntity.isBlocking() && stamina >= 1 && playerEntity.age % 2 == 0) {
                 StaminaData.removeStamina(dataSaver, 1);
             }

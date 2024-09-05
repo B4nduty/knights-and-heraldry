@@ -3,12 +3,16 @@ package com.knightsheraldry;
 import com.knightsheraldry.client.*;
 import com.knightsheraldry.config.ModConfigs;
 import com.knightsheraldry.datagen.*;
+import com.knightsheraldry.effect.ModEffects;
+import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.event.*;
 import com.knightsheraldry.items.*;
+import com.knightsheraldry.items.custom.KHWeapons;
 import com.knightsheraldry.networking.ModMessages;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.*;
 import net.fabricmc.api.*;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.*;
 import net.fabricmc.fabric.api.datagen.v1.*;
 import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
@@ -16,9 +20,12 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.*;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.*;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.*;
 import software.bernie.geckolib.GeckoLib;
+
+import java.util.List;
 
 public class KnightsHeraldry implements ModInitializer, ClientModInitializer, DataGeneratorEntrypoint {
     public static final String MOD_ID = "knightsheraldry";
@@ -33,15 +40,18 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
         ModItemGroups.registerItemGroups();
         GeckoLib.initialize();
         ModMessages.registerC2SPackets();
+        ModEntities.registerModEntities();
+        ModEffects.registerEffects();
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
         AttackEntityCallback.EVENT.register(new AttackEntityEventHandler());
         PlayerBlockBreakEvents.AFTER.register(new PlayerBlockBreakHandler());
+        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
+            removeAttackDamage(stack, lines);
+        });
     }
 
     @Override
     public void onInitializeClient() {
-        HudRenderCallback.EVENT.register(new StaminaOverlay());
-        HudRenderCallback.EVENT.register(new DistanceCrosshairOverlay());
         ModMessages.registerS2CPackets();
         ClientPreAttackCallback.EVENT.register(new AttackCancelHandler());
         registerModelPredicate(ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE,
@@ -50,11 +60,13 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
                 ModItems.FALCHION, ModItems.SCIMITAR, ModItems.KATANA, ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE,
                 ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.LANCE,
                 ModItems.WOODEN_LANCE, ModItems.POLEAXE, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN,
-                ModItems.MORNING_STAR, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
-                ModItems.WARSWORD_ZWEIHANDER);
+                ModItems.MORNING_STAR, ModItems.BARDICHE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
+                ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER, ModItems.WARDART);
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), ModItems.WOODEN_LANCE);
+
+        EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
     }
 
     @Override
@@ -76,5 +88,11 @@ public class KnightsHeraldry implements ModInitializer, ClientModInitializer, Da
             ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
                     (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
         }
+    }
+
+    private void removeAttackDamage(ItemStack itemStack, List<Text> tooltip) {
+        if (itemStack.getItem() instanceof KHWeapons || itemStack.getItem() == ModItems.LANCE
+                || itemStack.getItem() == ModItems.WOODEN_LANCE)
+            tooltip.removeIf(line -> line.getString().contains("Attack Damage"));
     }
 }

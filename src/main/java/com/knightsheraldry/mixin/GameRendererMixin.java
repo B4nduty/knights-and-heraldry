@@ -70,7 +70,6 @@ public class GameRendererMixin {
             reachDistance = this.client.interactionManager.getReachDistance();
         }
 
-        // Check if the player is holding a KHWeapon and double the reach distance
         ItemStack mainHandStack = entity instanceof ClientPlayerEntity ? ((ClientPlayerEntity) entity).getMainHandStack() : ItemStack.EMPTY;
         if (mainHandStack.getItem() instanceof KHWeapons) {
             reachDistance *= 2;

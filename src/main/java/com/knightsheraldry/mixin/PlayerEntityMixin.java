@@ -64,7 +64,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
             int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
             int staminaCost = 20;
 
-            if (KnightsHeraldry.CONFIG.common.getBlocking) {
+            if (KnightsHeraldry.CONFIG.configs.getBlocking) {
                 StaminaData.removeStamina((IEntityDataSaver) player, Math.min(stamina, staminaCost));
             }
         }
@@ -156,7 +156,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
                     itemStack.getItem() instanceof ShovelItem ||
                     itemStack.getItem() instanceof HoeItem;
 
-            if (isWeapon && !(itemStack.getItem() instanceof KHWeapons) && KnightsHeraldry.CONFIG.common.getVanillaWeaponsDamage0) {
+            if (isWeapon && !(itemStack.getItem() instanceof KHWeapons) && KnightsHeraldry.CONFIG.configs.getVanillaWeaponsDamage0) {
                 float attackDamage = 0.0F;
                 float attackStrength = player.getAttackCooldownProgress(0.5F);
 

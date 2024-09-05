@@ -114,6 +114,9 @@ public class ModItems {
     public static final Item MORNING_STAR = registerItem("morning_star",
             new MorningStar(-3.0F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
 
+    public static final Item BARDICHE = registerItem("bardiche",
+            new Bardiche(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
     public static final Item WARSWORD = registerItem("warsword",
             new WarSword(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
 
@@ -125,6 +128,9 @@ public class ModItems {
 
     public static final Item WARSWORD_ZWEIHANDER = registerItem("warsword_zweihander",
             new WarSword(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+
+    public static final Item WARDART = registerItem("wardart",
+            new WarDart(-2.4F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
 
     private static <T extends Item> T registerItem(String name, T item, RegistryKey<ItemGroup> itemGroupKey) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);
