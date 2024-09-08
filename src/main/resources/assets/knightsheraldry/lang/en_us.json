@@ -1,5 +1,8 @@
 {
-  "itemgroup.knightsheraldry.tools_and_weapons": "K&H Tools & Weapons",
+  "itemGroup.knightsheraldry.kh_tab": "Knights & Heraldry",
+  "itemGroup.knightsheraldry.kh_tab.button.discord": "Discord",
+
+  "item.knightsheraldry.smithing_hammer": "Smithing Hammer",
 
   "item.knightsheraldry.dagger": "Dagger",
 
@@ -65,19 +68,28 @@
 
   "item.knightsheraldry.wardart": "War Dart",
 
-  "item.knightsheraldry.smithing_hammer": "Smithing Hammer",
+  "item.knightsheraldry.quilted_coif": "Quilted Coif",
+  "item.knightsheraldry.gambeson": "Gambeson",
+  "item.knightsheraldry.gambeson_breeches": "Gambeson Breeches",
+  "item.knightsheraldry.gambeson_boots": "Gambeson Boots",
+
+  "item.knightsheraldry.mail_coif": "Mail Coif",
+  "item.knightsheraldry.hauberk": "Hauberk",
+  "item.knightsheraldry.mail_breeches": "Mail Breeches",
+  "item.knightsheraldry.mail_boots": "Mail Boots",
 
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",
   "tooltip.knightsheraldry.right_click-replant": "§4Right-Click Crops §rto §lHarvest §r& §lReplant",
   "tooltip.knightsheraldry.right_click-to-charge": "§4Right-Click §rto §lCharge §rfor §l2 Seconds",
   "tooltip.knightsheraldry.on-charge": "On §4Charge §rit will §lAuto Attack",
-  "tooltip.knightsheraldry.throw-to-stun": "§lThrow §rto §4Stun §ran §lEntity §rfor §45 §lSeconds",
+  "tooltip.knightsheraldry.throw-to-pin": "§lThrow §rto §4Pin §ran §lEntity §rfor §45 §lSeconds",
 
-  "text.autoconfig.knightsheraldry.option.configs.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
-  "text.autoconfig.knightsheraldry.option.configs.getBlocking": "Use Stamina on or while Blocking",
-  "text.autoconfig.knightsheraldry.option.configs.getDamageTamedEntities": "Lance Weapons can Damage Tamed Entities",
-  "text.autoconfig.knightsheraldry.option.configs.wardartThrowCooldown": "WarDart throw Cooldown",
+  "text.config.knightsheraldry.title": "Knights & Heraldry",
+  "text.config.knightsheraldry.option.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
+  "text.config.knightsheraldry.option.getBlocking": "Use Stamina on or while Blocking",
+  "text.config.knightsheraldry.option.getDamageTamedEntities": "Lance Weapons can Damage Tamed Entities",
+  "text.config.knightsheraldry.option.wardartCooldown": "WarDart throw Cooldown",
 
   "effect.knightsheraldry.pin": "Pin"
 }

@@ -1,8 +1,7 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.KHWeapons;
-import com.knightsheraldry.items.custom.Lance;
+import com.knightsheraldry.items.custom.item.*;
 import com.knightsheraldry.util.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -64,7 +63,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
             int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
             int staminaCost = 20;
 
-            if (KnightsHeraldry.CONFIG.configs.getBlocking) {
+            if (KnightsHeraldry.config().getBlocking()) {
                 StaminaData.removeStamina((IEntityDataSaver) player, Math.min(stamina, staminaCost));
             }
         }
@@ -156,7 +155,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
                     itemStack.getItem() instanceof ShovelItem ||
                     itemStack.getItem() instanceof HoeItem;
 
-            if (isWeapon && !(itemStack.getItem() instanceof KHWeapons) && KnightsHeraldry.CONFIG.configs.getVanillaWeaponsDamage0) {
+            if (isWeapon && !(itemStack.getItem() instanceof KHWeapons) && KnightsHeraldry.config().getVanillaWeaponsDamage0()) {
                 float attackDamage = 0.0F;
                 float attackStrength = player.getAttackCooldownProgress(0.5F);
 

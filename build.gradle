@@ -18,6 +18,7 @@ repositories {
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
     maven { url "https://maven.shedaniel.me" }
+    maven { url 'https://maven.wispforest.io/releases/' }
     maven {
         name = 'GeckoLib'
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
@@ -46,10 +47,6 @@ dependencies {
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei}"
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei}"
 
-    modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config}") {
-        exclude(group: "net.fabricmc.fabric-api")
-    }
-
     modApi "dev.architectury:architectury-fabric:${project.architectury}"
 
     modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.1:${project.geckolib}"
@@ -61,6 +58,11 @@ dependencies {
     include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.4.0")))
 
     include modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${project.player_anim}")
+
+    modImplementation "io.wispforest:owo-lib:${project.owo_version}"
+    include "io.wispforest:owo-sentinel:${project.owo_version}"
+
+    annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
 }
 
 processResources {

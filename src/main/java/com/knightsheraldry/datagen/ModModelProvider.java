@@ -80,5 +80,10 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.WARDART, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.MAIL_COIF, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.HAUBERK, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.MAIL_BREECHES, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.MAIL_BOOTS, Models.HANDHELD);
+
     }
 }

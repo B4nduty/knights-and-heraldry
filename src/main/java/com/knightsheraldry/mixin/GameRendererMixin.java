@@ -1,6 +1,6 @@
 package com.knightsheraldry.mixin;
 
-import com.knightsheraldry.items.custom.KHWeapons;
+import com.knightsheraldry.items.custom.item.KHWeapons;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.GameRenderer;

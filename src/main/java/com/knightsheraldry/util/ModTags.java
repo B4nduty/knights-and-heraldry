@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 
 public class ModTags {
     public static class Items {
+        public static final TagKey<Item> KH_WEAPONS = createTag("kh_weapons");
         public static final TagKey<Item> KH_WEAPONS_3D = createTag("kh_weapons_3d");
         public static final TagKey<Item> KH_WEAPONS_SHIELD = createTag("kh_weapons_shield");
         public static final TagKey<Item> KH_WEAPONS_DAMAGE_BEHIND = createTag("kh_weapons_damage_behind");

@@ -1,48 +1,25 @@
 package com.knightsheraldry.config;
 
+import blue.endless.jankson.Comment;
 import com.knightsheraldry.KnightsHeraldry;
-import me.shedaniel.autoconfig.ConfigData;
-import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
-import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
+import io.wispforest.owo.config.Option;
+import io.wispforest.owo.config.annotation.*;
 
-@Config(name = KnightsHeraldry.MOD_ID)
-@Config.Gui.Background("minecraft:textures/block/oak_planks.png")
-public class ModConfigs extends PartitioningSerializer.GlobalData {
+@Modmenu(modId = KnightsHeraldry.MOD_ID)
+@Config(name = KnightsHeraldry.MOD_ID, wrapperName = "KHConfig")
+public class ModConfigs {
+    @Comment("Vanilla Weapons deals 0 Damage")
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    public boolean getVanillaWeaponsDamage0 = true;
 
-    @ConfigEntry.Category("common")
-    @ConfigEntry.Gui.TransitiveObject()
-    public Configs configs = new Configs();
+    @Comment("Use Stamina on or while Blocking")
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    public boolean getBlocking = true;
 
-    @Config(name = KnightsHeraldry.MOD_ID)
-    public static final class Configs implements ConfigData {
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @Comment("""
-                Vanilla Weapons deals 0 of Damage | Default: false
-                """)
-        public boolean getVanillaWeaponsDamage0 = false;
+    @Comment("Lance Weapons can Damage Tamed Entities")
+    public boolean getDamageTamedEntities = false;
 
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @Comment("""
-                Use Stamina on Blocking or use Stamina while Blocking | Default: true
-                """)
-        public boolean getBlocking = true;
-
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @Comment("""
-                Lance Weapons can Damage Tamed Entities | Default: false
-                """)
-        public boolean getDamageTamedEntities = false;
-
-        @ConfigEntry.Gui.Tooltip(count = 0)
-        @Comment("""
-                WarDart throw Cooldown | Default: 15 sec
-                """)
-        int wardartThrowCooldown = 15;
-
-        public int getWardartThrowCooldown() {
-            return Math.max(0, wardartThrowCooldown);
-        }
-    }
+    @Comment("WarDart throw Cooldown")
+    @RangeConstraint(min = 0, max = 180)
+    public int wardartCooldown = 15;
 }

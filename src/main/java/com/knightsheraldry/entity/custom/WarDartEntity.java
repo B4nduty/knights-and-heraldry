@@ -77,11 +77,11 @@ public class WarDartEntity extends PersistentProjectileEntity {
                 this.setVelocity(Vec3d.ZERO);
                 BlockPos pos = ((BlockHitResult) hitResult).getBlockPos();
                 this.setPosition(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
-                this.setNoClip(true);
                 BlockHitResult blockHitResult = (BlockHitResult)hitResult;
                 this.onBlockHit(blockHitResult);
                 BlockPos blockPos = blockHitResult.getBlockPos();
                 this.getWorld().emitGameEvent(GameEvent.PROJECTILE_LAND, blockPos, GameEvent.Emitter.of(this, this.getWorld().getBlockState(blockPos)));
+                this.setVelocity(this.getVelocity().multiply(-0.01, -0.1, -0.01));
             }
 
             if (type == HitResult.Type.ENTITY) {
@@ -90,21 +90,12 @@ public class WarDartEntity extends PersistentProjectileEntity {
                 Vec3d pos = hitResult.getPos();
                 this.getWorld().emitGameEvent(GameEvent.PROJECTILE_LAND, hitResult.getPos(), GameEvent.Emitter.of(this, null));
                 this.setPosition(pos.getX(), pos.getY(), pos.getZ());
-                this.setNoClip(true);
+                this.setVelocity(this.getVelocity().multiply(-0.01, -0.1, -0.01));
                 if (entity instanceof LivingEntity livingEntity) {
                     if (livingEntity instanceof PlayerEntity player && player.isCreative()) return;
                     this.onEntityHit((EntityHitResult)hitResult);
                 }
             }
-        }
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-
-        if (this.isNoClip()) {
-            this.setVelocity(Vec3d.ZERO);
         }
     }
 }

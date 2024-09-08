@@ -11,12 +11,12 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
 
 @Environment(EnvType.CLIENT)
-public class WarDartRenderer <T extends Entity> extends EntityRenderer<T> {
+public class WarDartRenderer extends EntityRenderer<WarDartEntity> {
     public static final Identifier TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/item/wardart_3d.png");
     private final ItemRenderer itemRenderer;
     private final float scale;
@@ -31,17 +31,17 @@ public class WarDartRenderer <T extends Entity> extends EntityRenderer<T> {
         this(context, 1.0F);
     }
 
-    public void render(T entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+    public void render(WarDartEntity warDartEntity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         matrices.push();
         matrices.scale(this.scale, this.scale, this.scale);
-        matrices.multiply(this.dispatcher.getRotation());
-        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
-        this.itemRenderer.renderItem(((WarDartEntity)entity).getStack(), ModelTransformationMode.FIXED, light, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), entity.getId());
+        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(tickDelta, warDartEntity.prevYaw, warDartEntity.getYaw()) - 90.0F));
+        matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(MathHelper.lerp(tickDelta, warDartEntity.prevPitch, warDartEntity.getPitch()) + 90.0F));
+        this.itemRenderer.renderItem(warDartEntity.getStack(), ModelTransformationMode.FIXED, light, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, warDartEntity.getWorld(), warDartEntity.getId());
         matrices.pop();
-        super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
+        super.render(warDartEntity, yaw, tickDelta, matrices, vertexConsumers, light);
     }
 
-    public Identifier getTexture(Entity entity) {
+    public Identifier getTexture(WarDartEntity entity) {
         return TEXTURE;
     }
 }

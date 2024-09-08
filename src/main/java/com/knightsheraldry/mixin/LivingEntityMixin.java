@@ -53,7 +53,7 @@ public abstract class LivingEntityMixin {
         boolean isWeaponOrInTag = mainStack.getItem() instanceof AxeItem
                 || mainStack.isIn(ModTags.Items.KH_WEAPONS_DISABLE_SHIELD);
 
-        if (KnightsHeraldry.CONFIG.configs.getVanillaWeaponsDamage0) {
+        if (KnightsHeraldry.config().getVanillaWeaponsDamage0()) {
             cir.setReturnValue(mainStack.isIn(ModTags.Items.KH_WEAPONS_DISABLE_SHIELD));
         } else {
             cir.setReturnValue(isWeaponOrInTag);

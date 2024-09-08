@@ -1,7 +1,7 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.KHWeapons;
+import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -10,6 +10,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -268,13 +269,26 @@ public class InGameHudMixin {
 
         int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
         boolean staminaBlocked = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
-        boolean ableStamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("able_stamina");
 
-        if (ableStamina && !player.isSpectator()) {
+        if (ableStamina(player) && !player.isSpectator()) {
             int x = getStaminaBarXPosition();
             int y = getStaminaBarYPosition(player);
             renderStaminaBar(context, x, y, stamina, staminaBlocked);
         }
+    }
+
+    @Unique
+    private boolean ableStamina(PlayerEntity player) {
+        boolean hasKHWeapon = player.getMainHandStack().getItem() instanceof KHWeapons ||
+                player.getOffHandStack().isIn(ModTags.Items.KH_WEAPONS);
+        boolean hasRequiredEquipment = false;
+        for (ItemStack armorStack : player.getArmorItems()) {
+            if (armorStack.isIn(ModTags.Items.KH_ARMORS)) {
+                hasRequiredEquipment = true;
+                break;
+            }
+        }
+        return hasKHWeapon || hasRequiredEquipment;
     }
 
     @Unique

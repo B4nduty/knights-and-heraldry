@@ -1,7 +1,7 @@
 package com.knightsheraldry.event;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.KHWeapons;
+import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
 import com.knightsheraldry.util.StaminaData;
@@ -81,7 +81,7 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         boolean staminaBlocked = dataSaver.knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
 
         if (ableStamina) {
-            if (isHoldingKHWeapon(playerEntity) && !staminaBlocked && !KnightsHeraldry.CONFIG.configs.getBlocking
+            if (isHoldingKHWeapon(playerEntity) && !staminaBlocked && !KnightsHeraldry.config().getBlocking()
                     && playerEntity.isBlocking() && stamina >= 1 && playerEntity.age % 2 == 0) {
                 StaminaData.removeStamina(dataSaver, 1);
             }

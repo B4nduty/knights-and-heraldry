@@ -4,10 +4,10 @@
     "item": "minecraft:netherite_ingot"
   },
   "base": {
-    "item": "knightsheraldry:warsword"
+    "item": "knightsheraldry:quilted_coif"
   },
   "result": {
-    "item": "knightsheraldry:smithing_hammer"
+    "item": "knightsheraldry:quilted_coif"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

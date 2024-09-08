@@ -13,28 +13,28 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "minecraft:example_1"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_warsword": {
+    "has_quilted_coif": {
       "conditions": {
         "items": [
           {
             "items": [
-              "knightsheraldry:warsword"
+              "knightsheraldry:quilted_coif"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:example_1"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_warsword",
+      "has_quilted_coif",
       "has_netherite_ingot",
       "has_the_recipe"
     ]

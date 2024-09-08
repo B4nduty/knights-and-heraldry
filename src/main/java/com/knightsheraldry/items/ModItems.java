@@ -1,145 +1,162 @@
 package com.knightsheraldry.items;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.*;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.*;
-import net.minecraft.registry.*;
+import com.knightsheraldry.items.custom.armor.*;
+import com.knightsheraldry.items.custom.item.*;
+import io.wispforest.owo.itemgroup.OwoItemSettings;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static final Item SMITHING_HAMMER = registerItem("smithing_hammer",
-            new SmithingHammer(new FabricItemSettings().maxCount(1)), ModItemGroups.TOOLS_AND_WEAPONS);
+            new SmithingHammer(new OwoItemSettings().maxCount(1)));
 
     public static final Item DAGGER = registerItem("dagger",
-            new Dagger(-2F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Dagger(-2F, new OwoItemSettings()));
 
     public static final Item STILETTO = registerItem("stiletto",
-            new Stiletto(-2F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Stiletto(-2F, new OwoItemSettings()));
 
     public static final Item RAPIER = registerItem("rapier",
-            new Rapier(-2.2F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Rapier(-2.2F, new OwoItemSettings()));
 
     public static final Item SWORD = registerItem("sword",
-            new Sword(-2.4F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Sword(-2.4F, new OwoItemSettings()));
 
     public static final Item V_SWORD = registerItem("v_sword",
-            new Sword(-2.4F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Sword(-2.4F, new OwoItemSettings()));
 
     public static final Item ARMING_SWORD = registerItem("arming_sword",
-            new Sword(-2.4F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Sword(-2.4F, new OwoItemSettings()));
 
     public static final Item AXE = registerItem("axe",
-            new Axe(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Axe(-2.6F, new OwoItemSettings()));
 
     public static final Item BROAD_AXE = registerItem("broad_axe",
-            new Axe(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Axe(-2.6F, new OwoItemSettings()));
 
     public static final Item CROOKED_AXE = registerItem("crooked_axe",
-            new Axe(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Axe(-2.6F, new OwoItemSettings()));
 
     public static final Item STRAIGHT_CROOKED_AXE = registerItem("straight_crooked_axe",
-            new Axe(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Axe(-2.6F, new OwoItemSettings()));
 
     public static final Item MACE = registerItem("mace",
-            new Mace(-3.0F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Mace(-3.0F, new OwoItemSettings()));
 
     public static final Item SPIKED_MACE = registerItem("spiked_mace",
-            new Mace(-3.0F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Mace(-3.0F, new OwoItemSettings()));
 
     public static final Item FLAIL = registerItem("flail",
-            new Flail(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Flail(-2.8F, new OwoItemSettings()));
 
     public static final Item BALL_FLAIL = registerItem("ball_flail",
-            new Flail(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Flail(-2.8F, new OwoItemSettings()));
 
     public static final Item HAMMER = registerItem("hammer",
-            new Hammer(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Hammer(-2.8F, new OwoItemSettings()));
 
     public static final Item WAR_HAMMER = registerItem("war_hammer",
-            new Hammer(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Hammer(-2.8F, new OwoItemSettings()));
 
     public static final Item LONGSWORD = registerItem("longsword",
-            new LongSword(-2.5F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new LongSword(-2.5F, new OwoItemSettings()));
 
     public static final Item V_LONGSWORD = registerItem("v_longsword",
-            new LongSword(-2.5F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new LongSword(-2.5F, new OwoItemSettings()));
 
     public static final Item FALCHION = registerItem("falchion",
-            new Falchion(-2.5F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Falchion(-2.5F, new OwoItemSettings()));
 
     public static final Item SCIMITAR = registerItem("scimitar",
-            new Falchion(-2.5F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Falchion(-2.5F, new OwoItemSettings()));
 
     public static final Item KATANA = registerItem("katana",
-            new Katana(-2.4F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Katana(-2.4F, new OwoItemSettings()));
 
     public static final Item PITCHFORK = registerItem("pitchfork",
-            new Pitchfork(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Pitchfork(-2.6F, new OwoItemSettings()));
 
     public static final Item SPEAR = registerItem("spear",
-            new Spear(-2.4F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Spear(-2.4F, new OwoItemSettings()));
 
     public static final Item PIKE = registerItem("pike",
-            new Pike(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Pike(-2.8F, new OwoItemSettings()));
 
     public static final Item BILLHOOK = registerItem("billhook",
-            new Billhook(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Billhook(-2.8F, new OwoItemSettings()));
 
     public static final Item GLAIVE = registerItem("glaive",
-            new Glaive(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Glaive(-2.6F, new OwoItemSettings()));
 
     public static final Item CURVED_GLAIVE = registerItem("curved_glaive",
-            new Glaive(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Glaive(-2.6F, new OwoItemSettings()));
 
     public static final Item HALBERD = registerItem("halberd",
-            new Halberd(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Halberd(-2.8F, new OwoItemSettings()));
 
     public static final Item LANCE = registerItem("lance",
-            new Lance(-3.0F, new FabricItemSettings().maxDamage(1)), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Lance(-3.0F, new OwoItemSettings().maxDamage(1)));
 
     public static final Item WOODEN_LANCE = registerItem("wooden_lance",
-            new WoodenLance(-3.0F, new FabricItemSettings().maxDamage(1)), ModItemGroups.TOOLS_AND_WEAPONS);
+            new WoodenLance(-3.0F, new OwoItemSettings().maxDamage(1)));
 
     public static final Item POLEAXE = registerItem("poleaxe",
-            new Poleaxe(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Poleaxe(-2.8F, new OwoItemSettings()));
 
     public static final Item POLEHAMMER = registerItem("polehammer",
-            new Polehammer(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Polehammer(-2.8F, new OwoItemSettings()));
 
     public static final Item BEC_DE_CORBIN = registerItem("bec_de_corbin",
-            new Polehammer(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Polehammer(-2.8F, new OwoItemSettings()));
 
     public static final Item MORNING_STAR = registerItem("morning_star",
-            new MorningStar(-3.0F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new MorningStar(-3.0F, new OwoItemSettings()));
 
     public static final Item BARDICHE = registerItem("bardiche",
-            new Bardiche(-2.8F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new Bardiche(-2.8F, new OwoItemSettings()));
 
     public static final Item WARSWORD = registerItem("warsword",
-            new WarSword(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new WarSword(-2.6F, new OwoItemSettings()));
 
     public static final Item WARSWORD_CLAYMORE = registerItem("warsword_claymore",
-            new WarSword(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new WarSword(-2.6F, new OwoItemSettings()));
 
     public static final Item WARSWORD_FLAMBERGE = registerItem("warsword_flamberge",
-            new WarSword(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new WarSword(-2.6F, new OwoItemSettings()));
 
     public static final Item WARSWORD_ZWEIHANDER = registerItem("warsword_zweihander",
-            new WarSword(-2.6F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new WarSword(-2.6F, new OwoItemSettings()));
 
     public static final Item WARDART = registerItem("wardart",
-            new WarDart(-2.4F, new FabricItemSettings()), ModItemGroups.TOOLS_AND_WEAPONS);
+            new WarDart(-2.4F, new OwoItemSettings()));
 
-    private static <T extends Item> T registerItem(String name, T item, RegistryKey<ItemGroup> itemGroupKey) {
+
+    public static final Item QUILTED_COIF = registerItem("quilted_coif",
+            new GambesonItem(ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET, new OwoItemSettings()));
+    public static final Item GAMBESON = registerItem("gambeson",
+            new GambesonItem(ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE, new OwoItemSettings()));
+    public static final Item GAMBESON_BREECHES = registerItem("gambeson_breeches",
+            new GambesonItem(ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS, new OwoItemSettings()));
+    public static final Item GAMBESON_BOOTS = registerItem("gambeson_boots",
+            new GambesonItem(ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS, new OwoItemSettings()));
+
+
+    public static final Item MAIL_COIF = registerItem("mail_coif",
+            new MailItem(ModArmorMaterials.MAIL, ArmorItem.Type.HELMET, new OwoItemSettings()));
+    public static final Item HAUBERK = registerItem("hauberk",
+            new MailItem(ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE, new OwoItemSettings()));
+    public static final Item MAIL_BREECHES = registerItem("mail_breeches",
+            new MailItem(ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS, new OwoItemSettings()));
+    public static final Item MAIL_BOOTS = registerItem("mail_boots",
+            new MailItem(ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS, new OwoItemSettings()));
+
+    private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);
-        addToItemGroup(item, itemGroupKey);
         return item;
-    }
-
-    private static void addToItemGroup(Item item, RegistryKey<ItemGroup> itemGroupKey) {
-        ItemGroupEvents.modifyEntriesEvent(itemGroupKey).register(entries -> entries.add(new ItemStack(item)));
     }
 
     public static void registerModItems() {

@@ -1,6 +1,6 @@
 package com.knightsheraldry.event;
 
-import com.knightsheraldry.items.custom.KHWeapons;
+import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.util.IEntityDataSaver;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
