@@ -1,8 +1,12 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.item.*;
-import com.knightsheraldry.util.*;
+import com.knightsheraldry.items.custom.item.KHWeapons;
+import com.knightsheraldry.items.custom.item.Lance;
+import com.knightsheraldry.util.IEntityDataSaver;
+import com.knightsheraldry.util.ModTags;
+import com.knightsheraldry.util.PlayerVelocity;
+import com.knightsheraldry.util.StaminaData;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -17,8 +21,10 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.*;
-import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)

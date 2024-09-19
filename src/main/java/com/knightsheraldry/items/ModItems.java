@@ -1,7 +1,9 @@
 package com.knightsheraldry.items;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.armor.*;
+import com.knightsheraldry.items.custom.armor.GambesonItem;
+import com.knightsheraldry.items.custom.armor.MailItem;
+import com.knightsheraldry.items.custom.armor.PauldronsTrinketsItem;
 import com.knightsheraldry.items.custom.item.*;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.minecraft.item.ArmorItem;
@@ -10,7 +12,12 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ModItems {
+    public static final List<Item> items = new ArrayList<>();
+
     public static final Item SMITHING_HAMMER = registerItem("smithing_hammer",
             new SmithingHammer(new OwoItemSettings().maxCount(1)));
 
@@ -154,8 +161,16 @@ public class ModItems {
     public static final Item MAIL_BOOTS = registerItem("mail_boots",
             new MailItem(ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS, new OwoItemSettings()));
 
+    public static final Item MAIL_PAULDRON = registerItem("mail_pauldron",
+            new PauldronsTrinketsItem(new OwoItemSettings().maxCount(1)));
+    public static final Item BRIGANDINE_PAULDRON = registerItem("brigandine_pauldron",
+            new PauldronsTrinketsItem(new OwoItemSettings().maxCount(1)));
+    public static final Item PLATE_PAULDRON = registerItem("plate_pauldron",
+            new PauldronsTrinketsItem(new OwoItemSettings().maxCount(1)));
+
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);
+        items.add(item);
         return item;
     }
 

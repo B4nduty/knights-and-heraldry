@@ -80,10 +80,15 @@ public class ModItemGroups {
                 stack(ModItems.GAMBESON),
                 stack(ModItems.GAMBESON_BREECHES),
                 stack(ModItems.GAMBESON_BOOTS),
+
                 stack(ModItems.MAIL_COIF),
                 stack(ModItems.HAUBERK),
                 stack(ModItems.MAIL_BREECHES),
-                stack(ModItems.MAIL_BOOTS)
+                stack(ModItems.MAIL_BOOTS),
+
+                stack(ModItems.MAIL_PAULDRON),
+                stack(ModItems.BRIGANDINE_PAULDRON),
+                stack(ModItems.PLATE_PAULDRON)
         ));
     }
 

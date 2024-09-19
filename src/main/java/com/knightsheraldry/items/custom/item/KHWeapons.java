@@ -2,7 +2,8 @@ package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
-import com.knightsheraldry.items.custom.armor.*;
+import com.knightsheraldry.items.custom.armor.GambesonItem;
+import com.knightsheraldry.items.custom.armor.MailItem;
 import com.knightsheraldry.util.ModTags;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.block.Block;
@@ -10,8 +11,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.SwordItem;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -131,15 +135,20 @@ public class KHWeapons extends SwordItem {
     }
 
     private void applyDamage(LivingEntity target, PlayerEntity playerEntity, ItemStack stack, float damage) {
-        if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR)) {
+        damage = applyEffectDamage(playerEntity, damage);
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - damage > 0) {
             target.setHealth(target.getHealth() - damage);
         } else {
-            playerEntity.sendMessage(Text.literal("Damage: " + damage));
             target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
         }
-        if (target.getHealth() <= 0.0F) {
-            target.onDeath(playerEntity.getDamageSources().playerAttack(playerEntity));
-        }
+    }
+
+    private float applyEffectDamage(PlayerEntity playerEntity, float damage) {
+        if (playerEntity.hasStatusEffect(StatusEffects.STRENGTH))
+            damage += (float)(3 * (playerEntity.getStatusEffect(StatusEffects.STRENGTH).getAmplifier() + 1));
+        if (playerEntity.hasStatusEffect(StatusEffects.WEAKNESS))
+            damage -= (float)(4 * (playerEntity.getStatusEffect(StatusEffects.WEAKNESS).getAmplifier() + 1));
+        return damage;
     }
 
     public float getAttackDamage(int index) {

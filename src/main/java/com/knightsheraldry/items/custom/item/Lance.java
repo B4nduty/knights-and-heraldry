@@ -2,18 +2,24 @@ package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
-import com.knightsheraldry.util.*;
+import com.knightsheraldry.util.IEntityDataSaver;
+import com.knightsheraldry.util.ModTags;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.sound.*;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.util.*;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
@@ -77,15 +83,20 @@ public class Lance extends SwordItem {
     }
 
     private void applyDamage(LivingEntity target, PlayerEntity playerEntity, ItemStack stack, float damage) {
-        if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR)) {
+        damage = applyEffectDamage(playerEntity, damage);
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - damage > 0) {
             target.setHealth(target.getHealth() - damage);
         } else {
-            playerEntity.sendMessage(Text.literal("Damage: " + damage));
             target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
         }
-        if (target.getHealth() <= 0.0F) {
-            target.onDeath(playerEntity.getDamageSources().playerAttack(playerEntity));
-        }
+    }
+
+    private float applyEffectDamage(PlayerEntity playerEntity, float damage) {
+        if (playerEntity.hasStatusEffect(StatusEffects.STRENGTH))
+            damage += (float)(3 * (playerEntity.getStatusEffect(StatusEffects.STRENGTH).getAmplifier() + 1));
+        if (playerEntity.hasStatusEffect(StatusEffects.WEAKNESS))
+            damage -= (float)(4 * (playerEntity.getStatusEffect(StatusEffects.WEAKNESS).getAmplifier() + 1));
+        return damage;
     }
 
     public static Entity raycastEntity(PlayerEntity player, double range) {

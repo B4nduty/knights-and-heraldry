@@ -70,13 +70,17 @@
 
   "item.knightsheraldry.quilted_coif": "Quilted Coif",
   "item.knightsheraldry.gambeson": "Gambeson",
-  "item.knightsheraldry.gambeson_breeches": "Gambeson Breeches",
-  "item.knightsheraldry.gambeson_boots": "Gambeson Boots",
+  "item.knightsheraldry.gambeson_breeches": "Breeches",
+  "item.knightsheraldry.gambeson_boots": "Boots",
 
   "item.knightsheraldry.mail_coif": "Mail Coif",
   "item.knightsheraldry.hauberk": "Hauberk",
   "item.knightsheraldry.mail_breeches": "Mail Breeches",
   "item.knightsheraldry.mail_boots": "Mail Boots",
+
+  "item.knightsheraldry.mail_pauldron": "Mail Pauldron",
+  "item.knightsheraldry.brigandine_pauldron": "Brigandine Pauldron",
+  "item.knightsheraldry.plate_pauldron": "Plate Pauldron",
 
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",

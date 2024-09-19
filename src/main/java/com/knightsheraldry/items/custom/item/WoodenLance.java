@@ -1,7 +1,9 @@
 package com.knightsheraldry.items.custom.item;
 
-import net.minecraft.item.*;
-import net.minecraft.nbt.*;
+import net.minecraft.item.DyeableItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 
 public class WoodenLance extends Lance implements DyeableItem {
     public WoodenLance(float attackSpeed, Settings settings) {

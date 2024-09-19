@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "knightsheraldry:item/gambeson",
-    "layer1": "knightsheraldry:item/gambeson_overlay"
-  }
-}
