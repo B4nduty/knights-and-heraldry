@@ -12,6 +12,7 @@ import com.knightsheraldry.event.StartTickHandler;
 import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.networking.ModMessages;
+import com.knightsheraldry.util.VillagerTradesModifier;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -41,6 +42,7 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
         AttackEntityCallback.EVENT.register(new AttackEntityEventHandler());
         PlayerBlockBreakEvents.AFTER.register(new PlayerBlockBreakHandler());
+        VillagerTradesModifier.registerCustomTrades();
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             ServerPlayerEntity player = handler.getPlayer();
             if (player != null) {

@@ -5,6 +5,7 @@ import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
@@ -14,6 +15,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -70,12 +72,36 @@ public abstract class LivingEntityMixin {
         }
     }
 
+    @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true)
+    private float modifyDamageAmount(float amount, DamageSource source) {
+        if (source.getAttacker() instanceof PlayerEntity playerEntity) {
+            if (amount > 1 && playerEntity.hasStatusEffect(StatusEffects.STRENGTH)) {
+                int amplifier = playerEntity.getStatusEffect(StatusEffects.STRENGTH).getAmplifier();
+                amount += (float) (3 * (amplifier + 1));
+            }
+
+            if (playerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
+                int amplifier = playerEntity.getStatusEffect(StatusEffects.WEAKNESS).getAmplifier();
+                amount -= (float) (4 * (amplifier + 1));
+            }
+
+            if (amount <= 0) amount = 0;
+        }
+
+        return amount;
+    }
+
 
     @Inject(method = "applyDamage", at = @At("TAIL"))
     private void sendDamage(DamageSource source, float amount, CallbackInfo ci) {
-        if (source.getAttacker() instanceof PlayerEntity playerAttacker
-                && playerAttacker.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS)) {
-            playerAttacker.sendMessage(Text.literal("Damage: " + amount), true);
+        if (source.getAttacker() instanceof PlayerEntity playerEntity
+                && playerEntity.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS)) {
+            if (!playerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
+                if (amount <= 0) amount = 0;
+                else amount = amount + 1;
+            }
+            int amountInt = (int) (amount * 10);
+            playerEntity.sendMessage(Text.literal("Damage: " + (((float) amountInt) / 10)), true);
         }
     }
 

@@ -20,7 +20,8 @@ public class AttackEntityEventHandler implements AttackEntityCallback {
     public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
         boolean staminaBlocked = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
         boolean isHoldingKHWeapon = player.getStackInHand(hand).getItem() instanceof KHWeapons;
-        if (isHoldingKHWeapon && player.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS) && !player.isSpectator()) {
+        if (isHoldingKHWeapon && player.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS)
+                && !player.isSpectator() && !player.isCreative()) {
             int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
 
             int staminaCost = 10;

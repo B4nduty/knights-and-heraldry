@@ -33,9 +33,20 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         IEntityDataSaver dataSaver = (IEntityDataSaver) playerEntity;
         int stamina = dataSaver.knightsheraldry$getPersistentData().getInt("stamina_int");
 
-        handleStaminaRecovery(playerEntity, stamina);
-        handleStaminaEffects(playerEntity, stamina);
-        handleStaminaUsage(playerEntity, stamina);
+        if ((playerEntity.isCreative() || playerEntity.isSpectator())) {
+            if (stamina < 200) StaminaData.addStamina((IEntityDataSaver) playerEntity, 200 - stamina);
+            removeStaminaEffects(playerEntity);
+            StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, false);
+        }
+
+        if (stamina > 200)
+            StaminaData.removeStamina((IEntityDataSaver) playerEntity, stamina - 200);
+
+        if (!playerEntity.isCreative() || !playerEntity.isSpectator()) {
+            handleStaminaRecovery(playerEntity, stamina);
+            handleStaminaEffects(playerEntity, stamina);
+            handleStaminaUsage(playerEntity, stamina);
+        }
     }
 
     private void handleStaminaRecovery(ServerPlayerEntity playerEntity, int stamina) {

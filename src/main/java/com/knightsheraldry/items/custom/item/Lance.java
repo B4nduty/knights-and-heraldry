@@ -83,20 +83,11 @@ public class Lance extends SwordItem {
     }
 
     private void applyDamage(LivingEntity target, PlayerEntity playerEntity, ItemStack stack, float damage) {
-        damage = applyEffectDamage(playerEntity, damage);
-        if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - damage > 0) {
-            target.setHealth(target.getHealth() - damage);
+        if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - (damage - 1) > 0) {
+            target.setHealth(target.getHealth() - (damage - 1));
         } else {
-            target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
+            target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage - 1);
         }
-    }
-
-    private float applyEffectDamage(PlayerEntity playerEntity, float damage) {
-        if (playerEntity.hasStatusEffect(StatusEffects.STRENGTH))
-            damage += (float)(3 * (playerEntity.getStatusEffect(StatusEffects.STRENGTH).getAmplifier() + 1));
-        if (playerEntity.hasStatusEffect(StatusEffects.WEAKNESS))
-            damage -= (float)(4 * (playerEntity.getStatusEffect(StatusEffects.WEAKNESS).getAmplifier() + 1));
-        return damage;
     }
 
     public static Entity raycastEntity(PlayerEntity player, double range) {
