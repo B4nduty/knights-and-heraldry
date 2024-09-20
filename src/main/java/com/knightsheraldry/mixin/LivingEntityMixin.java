@@ -71,8 +71,8 @@ public abstract class LivingEntityMixin {
     }
 
 
-    @Inject(method = "damage", at = @At("TAIL"))
-    private void sendDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    @Inject(method = "applyDamage", at = @At("TAIL"))
+    private void sendDamage(DamageSource source, float amount, CallbackInfo ci) {
         if (source.getAttacker() instanceof PlayerEntity playerAttacker
                 && playerAttacker.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS)) {
             playerAttacker.sendMessage(Text.literal("Damage: " + amount), true);
