@@ -22,8 +22,6 @@ public class UnderArmourChestplateModel extends BipedEntityModel<LivingEntity> {
 	private final ModelPart armorBody;
 	private final ModelPart armorRightArm;
 	private final ModelPart armorLeftArm;
-	private final ModelPart armorRightLeg;
-	private final ModelPart armorLeftLeg;
 	public UnderArmourChestplateModel(ModelPart root) {
 		super(root);
 		this.setVisible(false);
@@ -37,8 +35,6 @@ public class UnderArmourChestplateModel extends BipedEntityModel<LivingEntity> {
 		this.armorBody = root.getChild("armorBody");
 		this.armorRightArm = root.getChild("armorRightArm");
 		this.armorLeftArm = root.getChild("armorLeftArm");
-		this.armorRightLeg = root.getChild("armorRightLeg");
-		this.armorLeftLeg = root.getChild("armorLeftLeg");
 	}
 
 	@Override
@@ -49,7 +45,7 @@ public class UnderArmourChestplateModel extends BipedEntityModel<LivingEntity> {
 	@Override
 	protected Iterable<ModelPart> getBodyParts() {
 		return ImmutableList.of(this.body, this.rightArm, this.leftArm, this.rightLeg, this.leftLeg, this.hat,
-				this.armorBody, this.armorRightArm, this.armorLeftArm, this.armorRightLeg, this.armorLeftLeg);
+				this.armorBody, this.armorRightArm, this.armorLeftArm);
 	}
 
 	public static TexturedModelData getTexturedModelData() {
@@ -61,9 +57,6 @@ public class UnderArmourChestplateModel extends BipedEntityModel<LivingEntity> {
 
 		modelPartData.addChild("armorLeftArm", ModelPartBuilder.create().uv(24, 80).mirrored().cuboid(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.33F)).mirrored(false), ModelTransform.pivot(4.0F, 2.0F, 0.0F));
 
-		modelPartData.addChild("armorRightLeg", ModelPartBuilder.create().uv(0, 96).cuboid(-2.0F, -0.8F, -2.0F, 4.0F, 5.0F, 4.0F, new Dilation(0.38F)), ModelTransform.pivot(-2.0F, 12.0F, 0.0F));
-
-		modelPartData.addChild("armorLeftLeg", ModelPartBuilder.create().uv(0, 96).mirrored().cuboid(-2.0F, -0.8F, -2.0F, 4.0F, 5.0F, 4.0F, new Dilation(0.38F)).mirrored(false), ModelTransform.pivot(2.0F, 12.0F, 0.0F));
 		return TexturedModelData.of(modelData, 128, 128);
 	}
 
