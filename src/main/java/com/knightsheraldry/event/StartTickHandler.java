@@ -32,11 +32,10 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
     private void handlePlayerTick(ServerPlayerEntity playerEntity) {
         IEntityDataSaver dataSaver = (IEntityDataSaver) playerEntity;
         int stamina = dataSaver.knightsheraldry$getPersistentData().getInt("stamina_int");
-        boolean ableStamina = dataSaver.knightsheraldry$getPersistentData().getBoolean("able_stamina");
 
         handleStaminaRecovery(playerEntity, stamina);
         handleStaminaEffects(playerEntity, stamina);
-        handleStaminaUsage(playerEntity, stamina, ableStamina);
+        handleStaminaUsage(playerEntity, stamina);
     }
 
     private void handleStaminaRecovery(ServerPlayerEntity playerEntity, int stamina) {
@@ -76,34 +75,32 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         }
     }
 
-    private void handleStaminaUsage(ServerPlayerEntity playerEntity, int stamina, boolean ableStamina) {
+    private void handleStaminaUsage(ServerPlayerEntity playerEntity, int stamina) {
         IEntityDataSaver dataSaver = (IEntityDataSaver) playerEntity;
         boolean staminaBlocked = dataSaver.knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
 
-        if (ableStamina) {
-            if (isHoldingKHWeapon(playerEntity) && !staminaBlocked && !KnightsHeraldry.config().getBlocking()
-                    && playerEntity.isBlocking() && stamina >= 1 && playerEntity.age % 2 == 0) {
-                StaminaData.removeStamina(dataSaver, 1);
-            }
+        if (isHoldingKHWeapon(playerEntity) && !staminaBlocked && !KnightsHeraldry.config().getBlocking()
+                && playerEntity.isBlocking() && stamina >= 1 && playerEntity.age % 2 == 0) {
+            StaminaData.removeStamina(dataSaver, 1);
+        }
 
-            if (isWearingKHArmor(playerEntity) && !staminaBlocked && playerEntity.isSprinting() && stamina >= 1) {
-                StaminaData.removeStamina(dataSaver, 1);
-            }
+        if (isWearingKHArmor(playerEntity) && !staminaBlocked && playerEntity.isSprinting() && stamina >= 1) {
+            StaminaData.removeStamina(dataSaver, 1);
+        }
 
-            if (isWearingKHArmor(playerEntity) && !staminaBlocked && !playerEntity.isOnGround()
-                    && playerEntity.getVelocity().y > 0 && stamina >= 6 && !playerEntity.isBlocking()
-                    && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
-                StaminaData.removeStamina(dataSaver, 6);
-            } else if (isWearingKHArmor(playerEntity) && !staminaBlocked && !playerEntity.isOnGround()
-                    && playerEntity.getVelocity().y > 0 && !playerEntity.isBlocking()
-                    && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
-                StaminaData.removeStamina(dataSaver, stamina);
-            }
+        if (isWearingKHArmor(playerEntity) && !staminaBlocked && !playerEntity.isOnGround()
+                && playerEntity.getVelocity().y > 0 && stamina >= 6 && !playerEntity.isBlocking()
+                && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
+            StaminaData.removeStamina(dataSaver, 6);
+        } else if (isWearingKHArmor(playerEntity) && !staminaBlocked && !playerEntity.isOnGround()
+                && playerEntity.getVelocity().y > 0 && !playerEntity.isBlocking()
+                && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
+            StaminaData.removeStamina(dataSaver, stamina);
+        }
 
-            if (isWearingKHArmor(playerEntity) && playerEntity.isTouchingWater() && stamina >= 1
-                    && playerEntity.age % 2 == 0) {
-                StaminaData.removeStamina(dataSaver, 1);
-            }
+        if (isWearingKHArmor(playerEntity) && playerEntity.isTouchingWater() && stamina >= 1
+                && playerEntity.age % 2 == 0) {
+            StaminaData.removeStamina(dataSaver, 1);
         }
     }
 
