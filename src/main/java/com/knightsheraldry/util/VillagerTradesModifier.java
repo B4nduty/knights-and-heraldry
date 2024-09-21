@@ -63,6 +63,13 @@ public class VillagerTradesModifier {
                                     12, 5, 0.05f));
                         }
 
+                        if (finalLevel == 3) {
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 15),
+                                    new ItemStack(ModItems.BRIGANDINE, 1),
+                                    12, 10, 0.05f));
+                        }
+
                         if (finalLevel == 4) {
                             factories.add((entity, random) -> new TradeOffer(
                                     new ItemStack(Items.EMERALD, 10),
@@ -75,6 +82,18 @@ public class VillagerTradesModifier {
                                     new ItemStack(Items.EMERALD, 12),
                                     new ItemStack(ModItems.PLATE_PAULDRON, 1),
                                     12, 15, 0.05f));
+                            factories.add((entity, random) -> {
+                                Item item;
+                                int randomNumber = random.nextInt(2);
+                                if (randomNumber == 0) item = ModItems.BRIG_BREASTPLATE;
+                                else item = ModItems.BRIG_BREASTPLATE_TASSETS;
+
+                                return new TradeOffer(
+                                        new ItemStack(Items.EMERALD, 12),
+                                        new ItemStack(item, 1),
+                                        12, 15, 0.05f
+                                );
+                            });
                         }
                     });
 
@@ -103,7 +122,7 @@ public class VillagerTradesModifier {
                                 return new TradeOffer(
                                         new ItemStack(Items.EMERALD, 5),
                                         new ItemStack(item, 1),
-                                        6, 1, 0.05f
+                                        12, 1, 0.05f
                                 );
                             });
 
@@ -124,7 +143,7 @@ public class VillagerTradesModifier {
                                 return new TradeOffer(
                                         new ItemStack(Items.EMERALD, 7),
                                         new ItemStack(item, 1),
-                                        6, 5, 0.05f
+                                        12, 5, 0.05f
                                 );
                             });
 
@@ -137,7 +156,7 @@ public class VillagerTradesModifier {
                                 return new TradeOffer(
                                         new ItemStack(Items.EMERALD, 5),
                                         new ItemStack(item, 1),
-                                        6, 5, 0.05f
+                                        12, 5, 0.05f
                                 );
                             });
 
@@ -150,7 +169,7 @@ public class VillagerTradesModifier {
                                 return new TradeOffer(
                                         new ItemStack(Items.EMERALD, 6),
                                         new ItemStack(item, 1),
-                                        6, 5, 0.05f
+                                        12, 5, 0.05f
                                 );
                             });
 
@@ -163,7 +182,7 @@ public class VillagerTradesModifier {
                                 return new TradeOffer(
                                         new ItemStack(Items.EMERALD, 5),
                                         new ItemStack(item, 1),
-                                        6, 5, 0.05f
+                                        12, 5, 0.05f
                                 );
                             });
 
@@ -189,7 +208,7 @@ public class VillagerTradesModifier {
                                 return new TradeOffer(
                                         new ItemStack(Items.EMERALD, 12),
                                         new ItemStack(item, 1),
-                                        6, 10, 0.05f
+                                        12, 10, 0.05f
                                 );
                             });
 
@@ -202,7 +221,7 @@ public class VillagerTradesModifier {
                                 return new TradeOffer(
                                         new ItemStack(Items.EMERALD, 6),
                                         new ItemStack(item, 1),
-                                        6, 10, 0.05f
+                                        12, 10, 0.05f
                                 );
                             });
 
@@ -237,7 +256,7 @@ public class VillagerTradesModifier {
                                 return new TradeOffer(
                                         new ItemStack(Items.EMERALD, 9),
                                         new ItemStack(item, 1),
-                                        6, 15, 0.05f
+                                        12, 15, 0.05f
                                 );
                             });
 
@@ -252,7 +271,7 @@ public class VillagerTradesModifier {
                                 return new TradeOffer(
                                         new ItemStack(Items.EMERALD, 14),
                                         new ItemStack(item, 1),
-                                        6, 15, 0.05f
+                                        12, 15, 0.05f
                                 );
                             });
 

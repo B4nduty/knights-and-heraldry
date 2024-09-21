@@ -82,6 +82,10 @@
   "item.knightsheraldry.brigandine_pauldron": "Brigandine Pauldron",
   "item.knightsheraldry.plate_pauldron": "Plate Pauldron",
 
+  "item.knightsheraldry.brigandine": "Brigandine",
+  "item.knightsheraldry.brig_breastplate": "Brig Plate Cuirass",
+  "item.knightsheraldry.brig_breastplate_tassets": "Brig Plate Cuirass with Tassets",
+
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",
   "tooltip.knightsheraldry.right_click-replant": "§4Right-Click Crops §rto §lHarvest §r& §lReplant",

@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "knightsheraldry:mail_pauldron",
-    "knightsheraldry:brigandine_pauldron",
-    "knightsheraldry:plate_pauldron"
+    "knightsheraldry:brigandine",
+    "knightsheraldry:brig_breastplate",
+    "knightsheraldry:brig_breastplate_tassets"
   ]
 }

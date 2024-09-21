@@ -88,7 +88,10 @@ public class ModItemGroups {
 
                 stack(ModItems.MAIL_PAULDRON),
                 stack(ModItems.BRIGANDINE_PAULDRON),
-                stack(ModItems.PLATE_PAULDRON)
+                stack(ModItems.PLATE_PAULDRON),
+                stack(ModItems.BRIGANDINE),
+                stack(ModItems.BRIG_BREASTPLATE),
+                stack(ModItems.BRIG_BREASTPLATE_TASSETS)
         ));
     }
 

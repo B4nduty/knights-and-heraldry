@@ -6,6 +6,7 @@ import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.event.AttackCancelHandler;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.GambesonItem;
+import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.armor.MailItem;
 import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.networking.ModMessages;
@@ -24,6 +25,7 @@ import net.minecraft.item.DyeableItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
@@ -49,13 +51,13 @@ public class KnightsHeraldryClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
         ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
             removeAttackDamage(stack, lines);
+            onTooltip(stack, lines);
         });
 
-        TrinketRendererRegistry.registerRenderer(ModItems.MAIL_PAULDRON, (TrinketRenderer) ModItems.MAIL_PAULDRON);
-        TrinketRendererRegistry.registerRenderer(ModItems.BRIGANDINE_PAULDRON, (TrinketRenderer) ModItems.BRIGANDINE_PAULDRON);
-        TrinketRendererRegistry.registerRenderer(ModItems.PLATE_PAULDRON, (TrinketRenderer) ModItems.PLATE_PAULDRON);
-
         ModItems.items.forEach(item -> {
+            if (item instanceof KHTrinketsItem) {
+                TrinketRendererRegistry.registerRenderer(item, (TrinketRenderer) item);
+            }
             if (item instanceof MailItem) {
                 ArmorRenderer.register(new UnderArmourRenderer(), item);
             }
@@ -63,6 +65,22 @@ public class KnightsHeraldryClient implements ClientModInitializer {
                 ArmorRenderer.register(new UnderArmourRenderer(), item);
             }
         });
+    }
+
+    private void onTooltip(ItemStack itemStack, List<Text> texts) {
+        if (itemStack.getItem() instanceof KHTrinketsItem khTrinketsItem
+                && khTrinketsItem.getHungerDrainAddition() != 0.0d) {
+            double hungerDrainAddition = khTrinketsItem.getHungerDrainAddition();
+            texts.add(Text.literal("+" + ((int) (hungerDrainAddition * 100)) + "% Hunger Drain").formatted(Formatting.BLUE));
+        }
+        if (itemStack.getItem() instanceof GambesonItem) {
+            texts.add(Text.literal("+4% Slashing Resistance").formatted(Formatting.BLUE));
+            texts.add(Text.literal("+10% Bludgeoning Resistance").formatted(Formatting.BLUE));
+        }
+        if (itemStack.getItem() instanceof MailItem) {
+            texts.add(Text.literal("+10% Slashing Resistance").formatted(Formatting.BLUE));
+            texts.add(Text.literal("+4% Bludgeoning Resistance").formatted(Formatting.BLUE));
+        }
     }
 
     private void registerModelPredicate(Item... items) {

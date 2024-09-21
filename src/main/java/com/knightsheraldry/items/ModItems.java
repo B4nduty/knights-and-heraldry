@@ -3,7 +3,7 @@ package com.knightsheraldry.items;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.armor.GambesonItem;
 import com.knightsheraldry.items.custom.armor.MailItem;
-import com.knightsheraldry.items.custom.armor.PauldronsTrinketsItem;
+import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.*;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.minecraft.item.ArmorItem;
@@ -162,11 +162,18 @@ public class ModItems {
             new MailItem(ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS, new OwoItemSettings()));
 
     public static final Item MAIL_PAULDRON = registerItem("mail_pauldron",
-            new PauldronsTrinketsItem(new OwoItemSettings().maxCount(1)));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 1, 0.0d));
     public static final Item BRIGANDINE_PAULDRON = registerItem("brigandine_pauldron",
-            new PauldronsTrinketsItem(new OwoItemSettings().maxCount(1)));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 1, 1, 0.0d));
     public static final Item PLATE_PAULDRON = registerItem("plate_pauldron",
-            new PauldronsTrinketsItem(new OwoItemSettings().maxCount(1)));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 2, 2, 0.1d));
+
+    public static final Item BRIGANDINE = registerItem("brigandine",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 3, 1, 0.1d));
+    public static final Item BRIG_BREASTPLATE = registerItem("brig_breastplate",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 1, 0.2d));
+    public static final Item BRIG_BREASTPLATE_TASSETS = registerItem("brig_breastplate_tassets",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 1, 0.2d));
 
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

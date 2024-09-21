@@ -94,5 +94,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BRIGANDINE_PAULDRON, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PLATE_PAULDRON, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.BRIGANDINE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRIG_BREASTPLATE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRIG_BREASTPLATE_TASSETS, Models.HANDHELD);
+
     }
 }
