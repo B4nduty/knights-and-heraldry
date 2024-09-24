@@ -83,6 +83,15 @@
   "item.knightsheraldry.plate_pauldron": "Plate Pauldron",
 
   "item.knightsheraldry.brigandine": "Brigandine",
+
+  "item.knightsheraldry.plate_cuirass": "Plate Cuirass",
+  "item.knightsheraldry.plate_cuirass_tassets": "Plate Cuirass with Tassets",
+  "item.knightsheraldry.maximilian_cuirass": "Maximilian Cuirass",
+  "item.knightsheraldry.maximilian_cuirass_tassets": "Maximilian Cuirass with Tassets",
+  "item.knightsheraldry.xiiii_plate_cuirass": "XIIII Plate Cuirass",
+  "item.knightsheraldry.xiiii_plate_cuirass_tassets": "XIIII Plate Cuirass with Tassets",
+  "item.knightsheraldry.xiiii_plate_breastplate": "XIIII Plate Breastplate",
+
   "item.knightsheraldry.brig_breastplate": "Brig Plate Cuirass",
   "item.knightsheraldry.brig_breastplate_tassets": "Brig Plate Cuirass with Tassets",
 

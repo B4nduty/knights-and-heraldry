@@ -3,16 +3,26 @@ package com.knightsheraldry.items.custom.armor;
 
 import com.google.common.collect.Multimap;
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.model.*;
-import dev.emi.trinkets.api.*;
+import com.knightsheraldry.model.TrinketsBootsModel;
+import com.knightsheraldry.model.TrinketsChestplateModel;
+import com.knightsheraldry.model.TrinketsHelmetModel;
+import com.knightsheraldry.model.TrinketsLeggingsModel;
+import dev.emi.trinkets.api.SlotReference;
+import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.*;
-import net.minecraft.client.render.entity.model.*;
+import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.entity.model.BipedEntityModel;
+import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.*;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
@@ -60,14 +70,14 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer {
     @Environment(EnvType.CLIENT)
     private BipedEntityModel<LivingEntity> getModel() {
         if (this.model == null) {
-            switch (this.type.getName()) {
-                case "helmet" ->
+            switch (this.type) {
+                case HELMET ->
                         this.model = new TrinketsHelmetModel(TrinketsChestplateModel.getTexturedModelData().createModel());
-                case "chestplate" ->
+                case CHESTPLATE ->
                         this.model = new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel());
-                case "leggings" ->
+                case LEGGINGS ->
                         this.model = new TrinketsLeggingsModel(TrinketsChestplateModel.getTexturedModelData().createModel());
-                case "boots" ->
+                case BOOTS ->
                         this.model = new TrinketsBootsModel(TrinketsChestplateModel.getTexturedModelData().createModel());
                 default -> KnightsHeraldry.LOGGER.error("Don't specified Model or not a Valid Model");
             }

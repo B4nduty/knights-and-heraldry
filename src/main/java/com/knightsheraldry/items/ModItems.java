@@ -1,8 +1,7 @@
 package com.knightsheraldry.items;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.armor.GambesonItem;
-import com.knightsheraldry.items.custom.armor.MailItem;
+import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.*;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
@@ -143,23 +142,31 @@ public class ModItems {
 
 
     public static final Item QUILTED_COIF = registerItem("quilted_coif",
-            new GambesonItem(ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET, new OwoItemSettings()));
+            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET,
+                    4, 10, 0, "gambeson"));
     public static final Item GAMBESON = registerItem("gambeson",
-            new GambesonItem(ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE, new OwoItemSettings()));
+            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE,
+                    4, 10, 0, "gambeson"));
     public static final Item GAMBESON_BREECHES = registerItem("gambeson_breeches",
-            new GambesonItem(ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS, new OwoItemSettings()));
+            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS,
+                    4, 10, 0, "gambeson"));
     public static final Item GAMBESON_BOOTS = registerItem("gambeson_boots",
-            new GambesonItem(ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS, new OwoItemSettings()));
+            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS,
+                    4, 10, 0, "gambeson"));
 
 
     public static final Item MAIL_COIF = registerItem("mail_coif",
-            new MailItem(ModArmorMaterials.MAIL, ArmorItem.Type.HELMET, new OwoItemSettings()));
+            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.HELMET,
+                    10, 4, 0, "mail"));
     public static final Item HAUBERK = registerItem("hauberk",
-            new MailItem(ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE, new OwoItemSettings()));
+            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE,
+                    10, 4, 0, "mail"));
     public static final Item MAIL_BREECHES = registerItem("mail_breeches",
-            new MailItem(ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS, new OwoItemSettings()));
+            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS,
+                    10, 4, 0, "mail"));
     public static final Item MAIL_BOOTS = registerItem("mail_boots",
-            new MailItem(ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS, new OwoItemSettings()));
+            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS,
+                    10, 4, 0, "mail"));
 
     public static final Item MAIL_PAULDRON = registerItem("mail_pauldron",
             new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 1, 0.0d));
@@ -169,11 +176,27 @@ public class ModItems {
             new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 2, 2, 0.1d));
 
     public static final Item BRIGANDINE = registerItem("brigandine",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 3, 1, 0.1d));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 3, 1, 0d));
+
     public static final Item BRIG_BREASTPLATE = registerItem("brig_breastplate",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 1, 0.2d));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 1, 0d));
     public static final Item BRIG_BREASTPLATE_TASSETS = registerItem("brig_breastplate_tassets",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 1, 0.2d));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 1, 0d));
+
+    public static final Item PLATE_CUIRASS = registerItem("plate_cuirass",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2, 0.1d));
+    public static final Item PLATE_CUIRASS_TASSETS = registerItem("plate_cuirass_tassets",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2, 0.1d));
+    public static final Item MAXIMILIAN_CUIRASS = registerItem("maximilian_cuirass",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2, 0.1d));
+    public static final Item MAXIMILIAN_CUIRASS_TASSETS = registerItem("maximilian_cuirass_tassets",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2, 0.1d));
+    public static final Item XIIII_PLATE_CUIRASS = registerItem("xiiii_plate_cuirass",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2, 0.1d));
+    public static final Item XIIII_PLATE_CUIRASS_TASSETS = registerItem("xiiii_plate_cuirass_tassets",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2, 0.1d));
+    public static final Item XIIII_PLATE_BREASTPLATE = registerItem("xiiii_plate_breastplate",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2, 0.1d));
 
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

@@ -1,14 +1,14 @@
 	package com.knightsheraldry.model;
 
-    import com.google.common.collect.ImmutableList;
-    import net.fabricmc.api.EnvType;
-    import net.fabricmc.api.Environment;
-    import net.minecraft.client.model.*;
-    import net.minecraft.client.render.OverlayTexture;
-    import net.minecraft.client.render.VertexConsumer;
-    import net.minecraft.client.render.entity.model.BipedEntityModel;
-    import net.minecraft.client.util.math.MatrixStack;
-    import net.minecraft.entity.LivingEntity;
+	import com.google.common.collect.ImmutableList;
+	import net.fabricmc.api.EnvType;
+	import net.fabricmc.api.Environment;
+	import net.minecraft.client.model.*;
+	import net.minecraft.client.render.OverlayTexture;
+	import net.minecraft.client.render.VertexConsumer;
+	import net.minecraft.client.render.entity.model.BipedEntityModel;
+	import net.minecraft.client.util.math.MatrixStack;
+	import net.minecraft.entity.LivingEntity;
 
 	@Environment(EnvType.CLIENT)
 	public class UnderArmourHelmetModel extends BipedEntityModel<LivingEntity> {

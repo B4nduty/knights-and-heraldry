@@ -1,6 +1,7 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
+import com.knightsheraldry.items.custom.item.Lance;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
 import net.minecraft.entity.LivingEntity;
@@ -98,7 +99,7 @@ public abstract class LivingEntityMixin {
                 && playerEntity.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS)) {
             if (!playerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
                 if (amount <= 0) amount = 0;
-                else amount = amount + 1;
+                else if (!(playerEntity.getMainHandStack().getItem() instanceof Lance)) amount = amount + 1;
             }
             int amountInt = (int) (amount * 10);
             playerEntity.sendMessage(Text.literal("Damage: " + (((float) amountInt) / 10)), true);

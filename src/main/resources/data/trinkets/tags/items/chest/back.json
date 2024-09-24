@@ -3,6 +3,13 @@
   "values": [
     "knightsheraldry:brigandine",
     "knightsheraldry:brig_breastplate",
-    "knightsheraldry:brig_breastplate_tassets"
+    "knightsheraldry:brig_breastplate_tassets",
+    "knightsheraldry:plate_cuirass",
+    "knightsheraldry:plate_cuirass_tassets",
+    "knightsheraldry:maximilian_cuirass",
+    "knightsheraldry:maximilian_cuirass_tassets",
+    "knightsheraldry:xiiii_plate_cuirass",
+    "knightsheraldry:xiiii_plate_cuirass_tassets",
+    "knightsheraldry:xiiii_plate_breastplate"
   ]
 }

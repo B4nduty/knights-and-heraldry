@@ -95,8 +95,16 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PLATE_PAULDRON, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.BRIGANDINE, Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.BRIG_BREASTPLATE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.BRIG_BREASTPLATE_TASSETS, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.PLATE_CUIRASS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PLATE_CUIRASS_TASSETS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.MAXIMILIAN_CUIRASS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.MAXIMILIAN_CUIRASS_TASSETS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.XIIII_PLATE_CUIRASS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.XIIII_PLATE_CUIRASS_TASSETS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.XIIII_PLATE_BREASTPLATE, Models.HANDHELD);
     }
 }

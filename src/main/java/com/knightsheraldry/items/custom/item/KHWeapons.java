@@ -2,8 +2,7 @@ package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
-import com.knightsheraldry.items.custom.armor.GambesonItem;
-import com.knightsheraldry.items.custom.armor.MailItem;
+import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.util.ModTags;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.block.Block;
@@ -116,7 +115,7 @@ public class KHWeapons extends SwordItem {
         if (bludgeoning || stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_BLUDGEONING)) {
             return getBludgeoningDamage(livingEntity, distance);
         } else if (piercing || stack.isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_TO_PIERCING)) {
-            return getPiercingDamage(distance);
+            return getPiercingDamage(livingEntity, distance);
         } else {
             return getSlashingDamage(livingEntity, distance);
         }
@@ -189,21 +188,29 @@ public class KHWeapons extends SwordItem {
         if (livingEntity instanceof PlayerEntity player) {
             for (ItemStack armorStack : player.getArmorItems()) {
                 float resistance = 0F;
-                if (armorStack.getItem() instanceof GambesonItem) {
-                    resistance += 0.04F;
+                if (armorStack.getItem() instanceof KHArmorItem khArmorItem) {
+                    resistance += khArmorItem.getSlashingResistance();
                 }
-                if (armorStack.getItem() instanceof MailItem) {
-                    resistance += 0.1F;
-                }
-                damage *= 1 - resistance;
+                damage *= Math.max(1 - resistance, 0);
             }
             return damage;
         }
         return damage;
     }
 
-    private float getPiercingDamage(double distance) {
-        return calculateDamage(distance, 5, 9);
+    private float getPiercingDamage(LivingEntity livingEntity, double distance) {
+        float damage = calculateDamage(distance, 5, 9);
+        if (livingEntity instanceof PlayerEntity player) {
+            for (ItemStack armorStack : player.getArmorItems()) {
+                float resistance = 0F;
+                if (armorStack.getItem() instanceof KHArmorItem khArmorItem) {
+                    resistance += khArmorItem.getBludgeoningResistance();
+                }
+                damage *= Math.max(1 - resistance, 0);
+            }
+            return damage;
+        }
+        return damage;
     }
 
     private float getBludgeoningDamage(LivingEntity livingEntity, double distance) {
@@ -211,13 +218,10 @@ public class KHWeapons extends SwordItem {
         if (livingEntity instanceof PlayerEntity player) {
             for (ItemStack armorStack : player.getArmorItems()) {
                 float resistance = 0F;
-                if (armorStack.getItem() instanceof GambesonItem) {
-                    resistance += 0.1F;
+                if (armorStack.getItem() instanceof KHArmorItem khArmorItem) {
+                    resistance += khArmorItem.getBludgeoningResistance();
                 }
-                if (armorStack.getItem() instanceof MailItem) {
-                    resistance += 0.04F;
-                }
-                damage *= 1 - resistance;
+                damage *= Math.max(1 - resistance, 0);
             }
             return damage;
         }

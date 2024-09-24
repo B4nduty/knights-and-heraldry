@@ -1,8 +1,7 @@
 package com.knightsheraldry.client;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.armor.GambesonItem;
+import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.model.UnderArmourBootsModel;
 import com.knightsheraldry.model.UnderArmourChestplateModel;
 import com.knightsheraldry.model.UnderArmourHelmetModel;
@@ -18,6 +17,7 @@ import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
@@ -34,22 +34,22 @@ public class UnderArmourRenderer implements ArmorRenderer {
         BipedEntityModel<LivingEntity> model = getLivingEntityBipedEntityModel(stack);
         if (model != null) {
             contextModel.copyBipedStateTo(model);
-            VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/mail.png")));
-            if (stack.getItem() instanceof GambesonItem) vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/gambeson.png")));
-            model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
+            if (stack.getItem() instanceof KHArmorItem khArmorItem) {
+                VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
+                        RenderLayer.getArmorCutoutNoCull(new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/" + khArmorItem.getTextureName() + ".png")));
+                model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
+            }
         }
     }
 
     private @Nullable BipedEntityModel<LivingEntity> getLivingEntityBipedEntityModel(ItemStack stack) {
         BipedEntityModel<LivingEntity> model = null;
-        if (stack.isOf(ModItems.QUILTED_COIF)) model = this.getUnderArmourHelmetModel();
-        else if (stack.isOf(ModItems.GAMBESON)) model = this.getUnderArmourChestplateModel();
-        else if (stack.isOf(ModItems.GAMBESON_BREECHES)) model = this.getUnderArmourLeggingsModel();
-        else if (stack.isOf(ModItems.GAMBESON_BOOTS)) model = this.getUnderArmourBootsModel();
-        else if (stack.isOf(ModItems.MAIL_COIF)) model = this.getUnderArmourHelmetModel();
-        else if (stack.isOf(ModItems.HAUBERK)) model = this.getUnderArmourChestplateModel();
-        else if (stack.isOf(ModItems.MAIL_BREECHES)) model = this.getUnderArmourLeggingsModel();
-        else if (stack.isOf(ModItems.MAIL_BOOTS)) model = this.getUnderArmourBootsModel();
+        if (stack.getItem() instanceof KHArmorItem khArmorItem) {
+            if (khArmorItem.getSlotType() == ArmorItem.Type.HELMET.getEquipmentSlot()) model = this.getUnderArmourHelmetModel();
+            if (khArmorItem.getSlotType() == ArmorItem.Type.CHESTPLATE.getEquipmentSlot()) model = this.getUnderArmourChestplateModel();
+            if (khArmorItem.getSlotType() == ArmorItem.Type.LEGGINGS.getEquipmentSlot()) model = this.getUnderArmourLeggingsModel();
+            if (khArmorItem.getSlotType() == ArmorItem.Type.BOOTS.getEquipmentSlot()) model = this.getUnderArmourBootsModel();
+        }
         return model;
     }
 

@@ -89,7 +89,24 @@ public class VillagerTradesModifier {
                                 else item = ModItems.BRIG_BREASTPLATE_TASSETS;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 12),
+                                        new ItemStack(Items.EMERALD, 17),
+                                        new ItemStack(item, 1),
+                                        12, 15, 0.05f
+                                );
+                            });
+                            factories.add((entity, random) -> {
+                                Item item;
+                                int randomNumber = random.nextInt(2);
+                                if (randomNumber == 0) item = ModItems.PLATE_CUIRASS_TASSETS;
+                                else if (randomNumber == 1) item = ModItems.MAXIMILIAN_CUIRASS;
+                                else if (randomNumber == 2) item = ModItems.MAXIMILIAN_CUIRASS_TASSETS;
+                                else if (randomNumber == 3) item = ModItems.XIIII_PLATE_CUIRASS;
+                                else if (randomNumber == 4) item = ModItems.XIIII_PLATE_CUIRASS_TASSETS;
+                                else if (randomNumber == 5) item = ModItems.XIIII_PLATE_BREASTPLATE;
+                                else item = ModItems.PLATE_CUIRASS;
+
+                                return new TradeOffer(
+                                        new ItemStack(Items.EMERALD, 18),
                                         new ItemStack(item, 1),
                                         12, 15, 0.05f
                                 );

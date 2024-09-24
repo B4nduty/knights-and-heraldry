@@ -4,11 +4,11 @@ import com.knightsheraldry.client.UnderArmourRenderer;
 import com.knightsheraldry.client.WarDartRenderer;
 import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.event.AttackCancelHandler;
+import com.knightsheraldry.event.ItemTooltipHandler;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.armor.GambesonItem;
+import com.knightsheraldry.items.custom.armor.KHArmorItem;
+import com.knightsheraldry.items.custom.armor.KHDyeableArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
-import com.knightsheraldry.items.custom.armor.MailItem;
-import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.networking.ModMessages;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
@@ -23,14 +23,10 @@ import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
-import java.util.List;
-
 public class KnightsHeraldryClient implements ClientModInitializer {
+
     @Override
     @Environment(EnvType.CLIENT)
     public void onInitializeClient() {
@@ -49,38 +45,19 @@ public class KnightsHeraldryClient implements ClientModInitializer {
                         tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), ModItems.WOODEN_LANCE);
 
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
-        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
-            removeAttackDamage(stack, lines);
-            onTooltip(stack, lines);
-        });
+        ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
 
         ModItems.items.forEach(item -> {
             if (item instanceof KHTrinketsItem) {
                 TrinketRendererRegistry.registerRenderer(item, (TrinketRenderer) item);
             }
-            if (item instanceof MailItem) {
+            if (item instanceof KHArmorItem khArmorItem && !(item instanceof KHDyeableArmorItem) && khArmorItem.getTextureName() != null) {
                 ArmorRenderer.register(new UnderArmourRenderer(), item);
             }
-            if (item instanceof GambesonItem) {
-                ArmorRenderer.register(new UnderArmourRenderer(), item);
+            if (item instanceof KHDyeableArmorItem khDyeableArmorItem && khDyeableArmorItem.getTextureName() != null) {
+                // ArmorRenderer.register(new DyeableUnderArmourRenderer(), item);
             }
         });
-    }
-
-    private void onTooltip(ItemStack itemStack, List<Text> texts) {
-        if (itemStack.getItem() instanceof KHTrinketsItem khTrinketsItem
-                && khTrinketsItem.getHungerDrainAddition() != 0.0d) {
-            double hungerDrainAddition = khTrinketsItem.getHungerDrainAddition();
-            texts.add(Text.literal("+" + ((int) (hungerDrainAddition * 100)) + "% Hunger Drain").formatted(Formatting.BLUE));
-        }
-        if (itemStack.getItem() instanceof GambesonItem) {
-            texts.add(Text.literal("+4% Slashing Resistance").formatted(Formatting.BLUE));
-            texts.add(Text.literal("+10% Bludgeoning Resistance").formatted(Formatting.BLUE));
-        }
-        if (itemStack.getItem() instanceof MailItem) {
-            texts.add(Text.literal("+10% Slashing Resistance").formatted(Formatting.BLUE));
-            texts.add(Text.literal("+4% Bludgeoning Resistance").formatted(Formatting.BLUE));
-        }
     }
 
     private void registerModelPredicate(Item... items) {
@@ -93,11 +70,5 @@ public class KnightsHeraldryClient implements ClientModInitializer {
             ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
                     (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
         }
-    }
-
-    private void removeAttackDamage(ItemStack itemStack, List<Text> tooltip) {
-        if (itemStack.getItem() instanceof KHWeapons || itemStack.getItem() == ModItems.LANCE
-                || itemStack.getItem() == ModItems.WOODEN_LANCE)
-            tooltip.removeIf(line -> line.getString().contains("Attack Damage"));
     }
 }

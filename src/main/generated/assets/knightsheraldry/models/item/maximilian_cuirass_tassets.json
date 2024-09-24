@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "knightsheraldry:item/maximilian_cuirass_tassets"
+  }
+}
