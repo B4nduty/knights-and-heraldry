@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
@@ -12,13 +11,6 @@ import net.minecraft.entity.LivingEntity;
 
 @Environment(EnvType.CLIENT)
 public class TrinketsChestplateModel extends BipedEntityModel<LivingEntity> {
-	public final ModelPart head;
-	public final ModelPart hat;
-	public final ModelPart body;
-	public final ModelPart rightArm;
-	public final ModelPart leftArm;
-	public final ModelPart rightLeg;
-	public final ModelPart leftLeg;
 	private final ModelPart armorBody;
 	private final ModelPart armorRightArm;
 	private final ModelPart armorLeftArm;
@@ -26,32 +18,14 @@ public class TrinketsChestplateModel extends BipedEntityModel<LivingEntity> {
 	public TrinketsChestplateModel(ModelPart root) {
 		super(root);
 		this.setVisible(false);
-		this.head = root.getChild("head");
-		this.hat = root.getChild("hat");
-		this.body = root.getChild("body");
-		this.rightArm = root.getChild("right_arm");
-		this.leftArm = root.getChild("left_arm");
-		this.rightLeg = root.getChild("right_leg");
-		this.leftLeg = root.getChild("left_leg");
 		this.armorBody = root.getChild("armorBody");
 		this.armorRightArm = root.getChild("armorRightArm");
 		this.armorLeftArm = root.getChild("armorLeftArm");
 	}
 
 	@Override
-	protected Iterable<ModelPart> getHeadParts() {
-		return ImmutableList.of(this.head);
-	}
-
-	@Override
 	protected Iterable<ModelPart> getBodyParts() {
-		return ImmutableList.of(this.body, this.rightArm, this.leftArm, this.rightLeg, this.leftLeg, this.hat,
-				this.armorBody, this.armorRightArm, this.armorLeftArm);
-	}
-
-	@Override
-	public ModelPart getHead() {
-		return this.head;
+		return ImmutableList.of(this.armorBody, this.armorRightArm, this.armorLeftArm);
 	}
 
 	public static TexturedModelData getTexturedModelData() {
@@ -121,12 +95,12 @@ public class TrinketsChestplateModel extends BipedEntityModel<LivingEntity> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		this.armorBody.copyTransform(this.body);
-		this.armorBody.render(matrices, vertices, light, OverlayTexture.DEFAULT_UV);
+		this.armorBody.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 
 		this.armorRightArm.copyTransform(this.rightArm);
-		this.armorRightArm.render(matrices, vertices, light, OverlayTexture.DEFAULT_UV);
+		this.armorRightArm.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 
 		this.armorLeftArm.copyTransform(this.leftArm);
-		this.armorLeftArm.render(matrices, vertices, light, OverlayTexture.DEFAULT_UV);
+		this.armorLeftArm.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 	}
 }

@@ -82,6 +82,10 @@ public class VillagerTradesModifier {
                                     new ItemStack(Items.EMERALD, 12),
                                     new ItemStack(ModItems.PLATE_PAULDRON, 1),
                                     12, 15, 0.05f));
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 7),
+                                    new ItemStack(ModItems.SABATONS, 1),
+                                    12, 15, 0.05f));
                             factories.add((entity, random) -> {
                                 Item item;
                                 int randomNumber = random.nextInt(2);

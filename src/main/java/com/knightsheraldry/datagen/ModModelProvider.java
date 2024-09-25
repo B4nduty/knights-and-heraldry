@@ -81,7 +81,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WARDART, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.QUILTED_COIF, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GAMBESON, Models.HANDHELD);
         itemModelGenerator.register(ModItems.GAMBESON_BREECHES, Models.HANDHELD);
         itemModelGenerator.register(ModItems.GAMBESON_BOOTS, Models.HANDHELD);
 
@@ -91,13 +90,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MAIL_BOOTS, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.MAIL_PAULDRON, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BRIGANDINE_PAULDRON, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PLATE_PAULDRON, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.BRIGANDINE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.BRIG_BREASTPLATE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BRIG_BREASTPLATE_TASSETS, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.PLATE_CUIRASS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PLATE_CUIRASS_TASSETS, Models.HANDHELD);
@@ -106,5 +99,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.XIIII_PLATE_CUIRASS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.XIIII_PLATE_CUIRASS_TASSETS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.XIIII_PLATE_BREASTPLATE, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.SABATONS, Models.HANDHELD);
     }
 }

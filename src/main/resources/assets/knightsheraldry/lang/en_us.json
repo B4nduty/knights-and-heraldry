@@ -84,6 +84,9 @@
 
   "item.knightsheraldry.brigandine": "Brigandine",
 
+  "item.knightsheraldry.brig_breastplate": "Brig Plate Cuirass",
+  "item.knightsheraldry.brig_breastplate_tassets": "Brig Plate Cuirass with Tassets",
+
   "item.knightsheraldry.plate_cuirass": "Plate Cuirass",
   "item.knightsheraldry.plate_cuirass_tassets": "Plate Cuirass with Tassets",
   "item.knightsheraldry.maximilian_cuirass": "Maximilian Cuirass",
@@ -92,8 +95,7 @@
   "item.knightsheraldry.xiiii_plate_cuirass_tassets": "XIIII Plate Cuirass with Tassets",
   "item.knightsheraldry.xiiii_plate_breastplate": "XIIII Plate Breastplate",
 
-  "item.knightsheraldry.brig_breastplate": "Brig Plate Cuirass",
-  "item.knightsheraldry.brig_breastplate_tassets": "Brig Plate Cuirass with Tassets",
+  "item.knightsheraldry.sabatons": "Sabatons",
 
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",

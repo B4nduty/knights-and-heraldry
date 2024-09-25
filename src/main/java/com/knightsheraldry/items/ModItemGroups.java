@@ -98,7 +98,8 @@ public class ModItemGroups {
                 stack(ModItems.MAXIMILIAN_CUIRASS_TASSETS),
                 stack(ModItems.XIIII_PLATE_CUIRASS),
                 stack(ModItems.XIIII_PLATE_CUIRASS_TASSETS),
-                stack(ModItems.XIIII_PLATE_BREASTPLATE)
+                stack(ModItems.XIIII_PLATE_BREASTPLATE),
+                stack(ModItems.SABATONS)
         ));
     }
 

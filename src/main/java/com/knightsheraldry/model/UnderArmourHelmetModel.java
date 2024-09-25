@@ -54,6 +54,6 @@
 		@Override
 		public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 			this.armorHead.copyTransform(this.head);
-			this.armorHead.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
+			this.armorHead.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 		}
 	}

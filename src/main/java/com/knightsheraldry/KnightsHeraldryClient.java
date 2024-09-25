@@ -7,7 +7,6 @@ import com.knightsheraldry.event.AttackCancelHandler;
 import com.knightsheraldry.event.ItemTooltipHandler;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
-import com.knightsheraldry.items.custom.armor.KHDyeableArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.networking.ModMessages;
 import dev.emi.trinkets.api.client.TrinketRenderer;
@@ -42,7 +41,9 @@ public class KnightsHeraldryClient implements ClientModInitializer {
                 ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER, ModItems.WARDART);
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
-                        tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), ModItems.WOODEN_LANCE);
+                        tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), ModItems.WOODEN_LANCE,
+                ModItems.QUILTED_COIF, ModItems.GAMBESON, ModItems.GAMBESON_BREECHES, ModItems.GAMBESON_BOOTS,
+                ModItems.BRIGANDINE_PAULDRON, ModItems.BRIGANDINE, ModItems.BRIG_BREASTPLATE, ModItems.BRIG_BREASTPLATE_TASSETS);
 
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
@@ -51,11 +52,8 @@ public class KnightsHeraldryClient implements ClientModInitializer {
             if (item instanceof KHTrinketsItem) {
                 TrinketRendererRegistry.registerRenderer(item, (TrinketRenderer) item);
             }
-            if (item instanceof KHArmorItem khArmorItem && !(item instanceof KHDyeableArmorItem) && khArmorItem.getTextureName() != null) {
+            if (item instanceof KHArmorItem khArmorItem && khArmorItem.getPath() != null) {
                 ArmorRenderer.register(new UnderArmourRenderer(), item);
-            }
-            if (item instanceof KHDyeableArmorItem khDyeableArmorItem && khDyeableArmorItem.getTextureName() != null) {
-                // ArmorRenderer.register(new DyeableUnderArmourRenderer(), item);
             }
         });
     }

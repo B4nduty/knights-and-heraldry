@@ -63,12 +63,12 @@ public class UnderArmourChestplateModel extends BipedEntityModel<LivingEntity> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		this.armorBody.copyTransform(this.body);
-		this.armorBody.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
+		this.armorBody.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 
 		this.armorRightArm.copyTransform(this.rightArm);
-		this.armorRightArm.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
+		this.armorRightArm.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 
 		this.armorLeftArm.copyTransform(this.leftArm);
-		this.armorLeftArm.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
+		this.armorLeftArm.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 	}
 }

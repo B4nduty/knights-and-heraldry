@@ -1,6 +1,5 @@
 package com.knightsheraldry.client;
 
-import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.model.UnderArmourBootsModel;
 import com.knightsheraldry.model.UnderArmourChestplateModel;
@@ -20,6 +19,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @Environment(EnvType.CLIENT)
@@ -36,10 +36,38 @@ public class UnderArmourRenderer implements ArmorRenderer {
             contextModel.copyBipedStateTo(model);
             if (stack.getItem() instanceof KHArmorItem khArmorItem) {
                 VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
-                        RenderLayer.getArmorCutoutNoCull(new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/" + khArmorItem.getTextureName() + ".png")));
-                model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
+                        RenderLayer.getArmorCutoutNoCull(khArmorItem.getPath()));
+                if (khArmorItem.isDyeable()) {
+                    int color = khArmorItem.getColor(stack);
+
+                    float r = (color >> 16 & 255) / 255.0F;
+                    float g = (color >> 8 & 255) / 255.0F;
+                    float b = (color & 255) / 255.0F;
+
+                    Identifier textureOverlayPath = getIdentifier(khArmorItem);
+
+                    // Base armor render (tinted layer) - Render the armor with color tint
+                    model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
+
+                    // Overlay render (untinted layer) - Render the overlay (no tint)
+                    ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, textureOverlayPath);
+                } else model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
             }
         }
+    }
+
+    private static @NotNull Identifier getIdentifier(KHArmorItem khArmorItem) {
+        Identifier originalIdentifier = khArmorItem.getPath();
+
+        String textureOverlayString = originalIdentifier.getPath();
+
+        if (textureOverlayString.endsWith(".png")) {
+            textureOverlayString = textureOverlayString.substring(0, textureOverlayString.length() - 4);
+        }
+
+        textureOverlayString += "_overlay.png";
+
+        return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);
     }
 
     private @Nullable BipedEntityModel<LivingEntity> getLivingEntityBipedEntityModel(ItemStack stack) {

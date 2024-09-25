@@ -11,7 +11,6 @@ import com.knightsheraldry.event.PlayerBlockBreakHandler;
 import com.knightsheraldry.event.StartTickHandler;
 import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.armor.KHDyeableArmorItem;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.VillagerTradesModifier;
@@ -78,12 +77,6 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
                     player.sendMessage(Text.literal(String.format("""
                     §lWelcome §rto §4Knights & Heraldry §r§bAlpha §r%s""", modVersion)), false);
                 }
-
-                ModItems.items.forEach(item -> {
-                    if (item instanceof KHDyeableArmorItem) {
-                        KnightsHeraldry.LOGGER.error("It seems that {} is using KHDyeableArmorItem, it isn't implemented yet, remove it", item);
-                    }
-                });
             }
         });
     }
