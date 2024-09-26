@@ -94,12 +94,40 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.PLATE_CUIRASS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PLATE_CUIRASS_TASSETS, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.MAXIMILIAN_CUIRASS, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.MAXIMILIAN_CUIRASS_TASSETS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.MAXIMILLIAN_CUIRASS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.MAXIMILLIAN_CUIRASS_TASSETS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.XIIII_PLATE_CUIRASS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.XIIII_PLATE_CUIRASS_TASSETS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.XIIII_PLATE_BREASTPLATE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.SABATONS, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.BARBUTE_NO_VISOR, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BASCINET_NO_VISOR, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.KETTLE_HELM, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.NASAL_HELM, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.VIKING_HELM, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.ARMET, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ARMET_2, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BARBUTE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BASCINET, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CAGE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CAGE_2, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.FLAT_BASCINET, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GREAT_HELM, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GREAT_HELM_2, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.SALLET, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.FROGMOUTH, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GREAT_ARMET, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GREAT_ARMET_2, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GREAT_BASCINET, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GREAT_HOUNDSKUL_BASCINET, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.MAXIMILLIAN_HELMET, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.GAUNTLET, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.PLATE_REREBRACE, Models.HANDHELD);
     }
 }

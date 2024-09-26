@@ -1,5 +1,26 @@
 {
   "replace": false,
   "values": [
+    "knightsheraldry:barbute_no_visor",
+    "knightsheraldry:bascinet_no_visor",
+    "knightsheraldry:kettle_helm",
+    "knightsheraldry:nasal_helm",
+    "knightsheraldry:viking_helm",
+    "knightsheraldry:armet",
+    "knightsheraldry:armet_2",
+    "knightsheraldry:barbute",
+    "knightsheraldry:bascinet",
+    "knightsheraldry:cage",
+    "knightsheraldry:cage_2",
+    "knightsheraldry:flat_bascinet",
+    "knightsheraldry:great_helm",
+    "knightsheraldry:great_helm_2",
+    "knightsheraldry:frogmouth",
+    "knightsheraldry:great_armet",
+    "knightsheraldry:great_armet_2",
+    "knightsheraldry:great_bascinet",
+    "knightsheraldry:great_houndskul_bascinet",
+    "knightsheraldry:maximillian_helmet",
+    "knightsheraldry:sallet"
   ]
 }

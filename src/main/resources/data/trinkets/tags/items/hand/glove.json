@@ -1,5 +1,8 @@
 {
   "replace": false,
   "values": [
+    "knightsheraldry:gauntlet",
+    "knightsheraldry:brigandine_rerebrace",
+    "knightsheraldry:plate_rerebrace"
   ]
 }

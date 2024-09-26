@@ -43,7 +43,8 @@ public class KnightsHeraldryClient implements ClientModInitializer {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), ModItems.WOODEN_LANCE,
                 ModItems.QUILTED_COIF, ModItems.GAMBESON, ModItems.GAMBESON_BREECHES, ModItems.GAMBESON_BOOTS,
-                ModItems.BRIGANDINE_PAULDRON, ModItems.BRIGANDINE, ModItems.BRIG_BREASTPLATE, ModItems.BRIG_BREASTPLATE_TASSETS);
+                ModItems.BRIGANDINE_PAULDRON, ModItems.BRIGANDINE, ModItems.BRIG_BREASTPLATE,
+                ModItems.BRIG_BREASTPLATE_TASSETS, ModItems.BRIGANDINE_REREBRACE);
 
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());

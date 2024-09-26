@@ -68,6 +68,25 @@ public class VillagerTradesModifier {
                                     new ItemStack(Items.EMERALD, 15),
                                     new ItemStack(ModItems.BRIGANDINE, 1),
                                     12, 10, 0.05f));
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 7),
+                                    new ItemStack(ModItems.GAUNTLET, 1),
+                                    12, 10, 0.05f));
+                            factories.add((entity, random) -> {
+                                Item item;
+                                int randomNumber = random.nextInt(4);
+                                if (randomNumber == 0) item = ModItems.BASCINET_NO_VISOR;
+                                else if (randomNumber == 1) item = ModItems.KETTLE_HELM;
+                                else if (randomNumber == 2) item = ModItems.NASAL_HELM;
+                                else if (randomNumber == 3) item = ModItems.VIKING_HELM;
+                                else item = ModItems.BARBUTE_NO_VISOR;
+
+                                return new TradeOffer(
+                                        new ItemStack(Items.EMERALD, 6),
+                                        new ItemStack(item, 1),
+                                        12, 10, 0.05f
+                                );
+                            });
                         }
 
                         if (finalLevel == 4) {
@@ -75,6 +94,30 @@ public class VillagerTradesModifier {
                                     new ItemStack(Items.EMERALD, 10),
                                     new ItemStack(ModItems.BRIGANDINE_PAULDRON, 1),
                                     12, 15, 0.05f));
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 14),
+                                    new ItemStack(ModItems.BRIGANDINE_REREBRACE, 1),
+                                    12, 15, 0.05f));
+                            factories.add((entity, random) -> {
+                                Item item;
+                                int randomNumber = random.nextInt(9);
+                                if (randomNumber == 0) item = ModItems.ARMET_2;
+                                else if (randomNumber == 1) item = ModItems.BARBUTE;
+                                else if (randomNumber == 2) item = ModItems.BASCINET;
+                                else if (randomNumber == 3) item = ModItems.CAGE;
+                                else if (randomNumber == 4) item = ModItems.CAGE_2;
+                                else if (randomNumber == 5) item = ModItems.FLAT_BASCINET;
+                                else if (randomNumber == 6) item = ModItems.GREAT_HELM;
+                                else if (randomNumber == 7) item = ModItems.GREAT_HELM_2;
+                                else if (randomNumber == 8) item = ModItems.SALLET;
+                                else item = ModItems.ARMET;
+
+                                return new TradeOffer(
+                                        new ItemStack(Items.EMERALD, 12),
+                                        new ItemStack(item, 1),
+                                        12, 15, 0.05f
+                                );
+                            });
                         }
 
                         if (finalLevel == 5) {
@@ -86,9 +129,13 @@ public class VillagerTradesModifier {
                                     new ItemStack(Items.EMERALD, 7),
                                     new ItemStack(ModItems.SABATONS, 1),
                                     12, 15, 0.05f));
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 16),
+                                    new ItemStack(ModItems.PLATE_REREBRACE, 1),
+                                    12, 15, 0.05f));
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(2);
+                                int randomNumber = random.nextInt(1);
                                 if (randomNumber == 0) item = ModItems.BRIG_BREASTPLATE;
                                 else item = ModItems.BRIG_BREASTPLATE_TASSETS;
 
@@ -100,10 +147,10 @@ public class VillagerTradesModifier {
                             });
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(2);
+                                int randomNumber = random.nextInt(6);
                                 if (randomNumber == 0) item = ModItems.PLATE_CUIRASS_TASSETS;
-                                else if (randomNumber == 1) item = ModItems.MAXIMILIAN_CUIRASS;
-                                else if (randomNumber == 2) item = ModItems.MAXIMILIAN_CUIRASS_TASSETS;
+                                else if (randomNumber == 1) item = ModItems.MAXIMILLIAN_CUIRASS;
+                                else if (randomNumber == 2) item = ModItems.MAXIMILLIAN_CUIRASS_TASSETS;
                                 else if (randomNumber == 3) item = ModItems.XIIII_PLATE_CUIRASS;
                                 else if (randomNumber == 4) item = ModItems.XIIII_PLATE_CUIRASS_TASSETS;
                                 else if (randomNumber == 5) item = ModItems.XIIII_PLATE_BREASTPLATE;
@@ -111,6 +158,22 @@ public class VillagerTradesModifier {
 
                                 return new TradeOffer(
                                         new ItemStack(Items.EMERALD, 18),
+                                        new ItemStack(item, 1),
+                                        12, 15, 0.05f
+                                );
+                            });
+                            factories.add((entity, random) -> {
+                                Item item;
+                                int randomNumber = random.nextInt(5);
+                                if (randomNumber == 0) item = ModItems.GREAT_ARMET;
+                                else if (randomNumber == 1) item = ModItems.GREAT_ARMET_2;
+                                else if (randomNumber == 2) item = ModItems.GREAT_BASCINET;
+                                else if (randomNumber == 3) item = ModItems.GREAT_HOUNDSKUL_BASCINET;
+                                else if (randomNumber == 4) item = ModItems.MAXIMILLIAN_HELMET;
+                                else item = ModItems.FROGMOUTH;
+
+                                return new TradeOffer(
+                                        new ItemStack(Items.EMERALD, 16),
                                         new ItemStack(item, 1),
                                         12, 15, 0.05f
                                 );
@@ -134,7 +197,7 @@ public class VillagerTradesModifier {
 
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(4);
+                                int randomNumber = random.nextInt(3);
                                 if (randomNumber == 0) item = ModItems.AXE;
                                 else if (randomNumber == 1) item = ModItems.BROAD_AXE;
                                 else if (randomNumber == 2) item = ModItems.CROOKED_AXE;
@@ -156,7 +219,7 @@ public class VillagerTradesModifier {
                         if (finalLevel == 2) {
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(3);
+                                int randomNumber = random.nextInt(2);
                                 if (randomNumber == 0) item = ModItems.SWORD;
                                 else if (randomNumber == 1) item = ModItems.V_SWORD;
                                 else item = ModItems.ARMING_SWORD;
@@ -170,7 +233,7 @@ public class VillagerTradesModifier {
 
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(2);
+                                int randomNumber = random.nextInt(1);
                                 if (randomNumber == 0) item = ModItems.MACE;
                                 else item = ModItems.SPIKED_MACE;
 
@@ -183,7 +246,7 @@ public class VillagerTradesModifier {
 
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(2);
+                                int randomNumber = random.nextInt(1);
                                 if (randomNumber == 0) item = ModItems.FLAIL;
                                 else item = ModItems.BALL_FLAIL;
 
@@ -196,7 +259,7 @@ public class VillagerTradesModifier {
 
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(2);
+                                int randomNumber = random.nextInt(1);
                                 if (randomNumber == 0) item = ModItems.HAMMER;
                                 else item = ModItems.WAR_HAMMER;
 
@@ -222,7 +285,7 @@ public class VillagerTradesModifier {
 
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(2);
+                                int randomNumber = random.nextInt(1);
                                 if (randomNumber == 0) item = ModItems.LONGSWORD;
                                 else item = ModItems.V_LONGSWORD;
 
@@ -235,7 +298,7 @@ public class VillagerTradesModifier {
 
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(2);
+                                int randomNumber = random.nextInt(1);
                                 if (randomNumber == 0) item = ModItems.GLAIVE;
                                 else item = ModItems.CURVED_GLAIVE;
 
@@ -270,7 +333,7 @@ public class VillagerTradesModifier {
 
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(2);
+                                int randomNumber = random.nextInt(1);
                                 if (randomNumber == 0) item = ModItems.POLEHAMMER;
                                 else item = ModItems.BEC_DE_CORBIN;
 
@@ -283,7 +346,7 @@ public class VillagerTradesModifier {
 
                             factories.add((entity, random) -> {
                                 Item item;
-                                int randomNumber = random.nextInt(4);
+                                int randomNumber = random.nextInt(3);
                                 if (randomNumber == 0) item = ModItems.WARSWORD;
                                 else if (randomNumber == 1) item = ModItems.WARSWORD_CLAYMORE;
                                 else if (randomNumber == 2) item = ModItems.WARSWORD_FLAMBERGE;

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "knightsheraldry:item/maximilian_cuirass"
+    "layer0": "knightsheraldry:item/bascinet_no_visor"
   }
 }

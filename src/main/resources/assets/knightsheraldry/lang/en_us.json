@@ -89,11 +89,41 @@
 
   "item.knightsheraldry.plate_cuirass": "Plate Cuirass",
   "item.knightsheraldry.plate_cuirass_tassets": "Plate Cuirass with Tassets",
-  "item.knightsheraldry.maximilian_cuirass": "Maximilian Cuirass",
-  "item.knightsheraldry.maximilian_cuirass_tassets": "Maximilian Cuirass with Tassets",
+  "item.knightsheraldry.maximillian_cuirass": "Maximillian Cuirass",
+  "item.knightsheraldry.maximillian_cuirass_tassets": "Maximillian Cuirass with Tassets",
   "item.knightsheraldry.xiiii_plate_cuirass": "XIIII Plate Cuirass",
   "item.knightsheraldry.xiiii_plate_cuirass_tassets": "XIIII Plate Cuirass with Tassets",
   "item.knightsheraldry.xiiii_plate_breastplate": "XIIII Plate Breastplate",
+
+  "item.knightsheraldry.barbute_no_visor": "Barbute Helmet no Visor",
+  "item.knightsheraldry.bascinet_no_visor": "Bascinet Helmet no Visor",
+  "item.knightsheraldry.kettle_helm": "Kettle Helmet",
+  "item.knightsheraldry.nasal_helm": "Nasal Helmet",
+  "item.knightsheraldry.viking_helm": "Viking Helmet",
+
+  "item.knightsheraldry.armet": "Armet (Dual Slit Visor)",
+  "item.knightsheraldry.armet_2": "Armet (Single Slit Visor)",
+  "item.knightsheraldry.barbute": "Barbute",
+  "item.knightsheraldry.bascinet": "Bascinet",
+  "item.knightsheraldry.cage": "Cage Helmet (Slim)",
+  "item.knightsheraldry.cage_2": "Cage Helmet (Robust)",
+  "item.knightsheraldry.flat_bascinet": "Flat Bascinet",
+  "item.knightsheraldry.great_helm": "Great Helm",
+  "item.knightsheraldry.great_helm_2": "Gilded Great Helm",
+  "item.knightsheraldry.sallet": "Sallet",
+
+  "item.knightsheraldry.frogmouth": "Frogmouth",
+  "item.knightsheraldry.great_armet": "Great Armet (Dual Slit Visor)",
+  "item.knightsheraldry.great_armet_2": "Great Armet (Single Slit Visor)",
+  "item.knightsheraldry.great_bascinet": "Great Bascinet",
+  "item.knightsheraldry.great_houndskul_bascinet": "Great Houndskul Bascinet",
+  "item.knightsheraldry.maximillian_helmet": "Maximillian Helmet",
+
+  "item.knightsheraldry.gauntlet": "Gauntlet",
+
+  "item.knightsheraldry.brigandine_rerebrace": "Brigandine Rerebrace",
+
+  "item.knightsheraldry.plate_rerebrace": "Plate Rerebrace",
 
   "item.knightsheraldry.sabatons": "Sabatons",
 
