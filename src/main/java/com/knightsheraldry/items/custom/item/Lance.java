@@ -60,9 +60,9 @@ public class Lance extends SwordItem {
                     setCharged(stack, false);
                     if (livingEntity.hasVehicle()) livingEntity.stopRiding();
 
-                    player.getItemCooldownManager().set(this, 600);
                     stack.damage(1, player, p -> p.sendToolBreakStatus(livingEntity.getActiveHand()));
                     applyDamage(livingEntity, player, stack, damage);
+                    player.getItemCooldownManager().set(this, 600);
                 }
             }
         }

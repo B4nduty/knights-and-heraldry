@@ -95,7 +95,7 @@ public abstract class LivingEntityMixin {
 
     @Inject(method = "applyDamage", at = @At("TAIL"))
     private void sendDamage(DamageSource source, float amount, CallbackInfo ci) {
-        if (source.getAttacker() instanceof PlayerEntity playerEntity
+        if (KnightsHeraldry.config().getDamageIndicator() && source.getAttacker() instanceof PlayerEntity playerEntity
                 && playerEntity.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS)) {
             if (!playerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
                 if (amount <= 0) amount = 0;

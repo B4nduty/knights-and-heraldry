@@ -139,6 +139,7 @@
   "text.config.knightsheraldry.option.getBlocking": "Use Stamina on or while Blocking",
   "text.config.knightsheraldry.option.getDamageTamedEntities": "Lance Weapons can Damage Tamed Entities",
   "text.config.knightsheraldry.option.wardartCooldown": "WarDart throw Cooldown",
+  "text.config.knightsheraldry.option.getDamageIndicator": "Damage Indicator",
 
   "effect.knightsheraldry.pin": "Pin"
 }

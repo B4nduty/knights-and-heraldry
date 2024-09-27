@@ -20,9 +20,15 @@ public class ModConfigs {
     public boolean getBlocking = true;
 
     @Comment("Lance Weapons can Damage Tamed Entities")
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
     public boolean getDamageTamedEntities = false;
 
     @Comment("WarDart throw Cooldown")
     @RangeConstraint(min = 0, max = 180)
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
     public int wardartCooldown = 15;
+
+    @Comment("Damage Indicator")
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    public boolean getDamageIndicator = true;
 }
