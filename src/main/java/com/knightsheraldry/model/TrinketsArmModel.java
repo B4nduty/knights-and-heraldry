@@ -10,12 +10,12 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 
 @Environment(EnvType.CLIENT)
-public class TrinketsChestplateModel extends BipedEntityModel<LivingEntity> {
+public class TrinketsArmModel extends BipedEntityModel<LivingEntity> {
 	private final ModelPart armorBody;
 	private final ModelPart armorRightArm;
 	private final ModelPart armorLeftArm;
 
-	public TrinketsChestplateModel(ModelPart root) {
+	public TrinketsArmModel(ModelPart root) {
 		super(root);
 		this.setVisible(false);
 		this.armorBody = root.getChild("armorBody");
@@ -94,13 +94,7 @@ public class TrinketsChestplateModel extends BipedEntityModel<LivingEntity> {
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
-		this.armorBody.copyTransform(this.body);
-		this.armorBody.render(matrices, vertices, light, overlay, red, green, blue, alpha);
-
 		this.armorRightArm.copyTransform(this.rightArm);
 		this.armorRightArm.render(matrices, vertices, light, overlay, red, green, blue, alpha);
-
-		this.armorLeftArm.copyTransform(this.leftArm);
-		this.armorLeftArm.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 	}
 }
