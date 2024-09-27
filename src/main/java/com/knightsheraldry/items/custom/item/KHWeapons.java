@@ -163,7 +163,7 @@ public class KHWeapons extends SwordItem {
         for (int i = 1; i < radiusValues.length; i++) {
             if (radiusValues[i - 1] > radiusValues[i]) {
                 KnightsHeraldry.LOGGER.error("Critical error: Index {} is higher than index {}. Radius values: {}", i - 1, i, java.util.Arrays.toString(radiusValues));
-                throw new IllegalStateException("Index " + (i - 1) + " is higher than index " + i + ". Radius values: " + java.util.Arrays.toString(radiusValues));
+                throw new IndexOutOfBoundsException("Index " + (i - 1) + " is higher than index " + i + ". Radius values: " + java.util.Arrays.toString(radiusValues));
             }
         }
     }
@@ -171,7 +171,7 @@ public class KHWeapons extends SwordItem {
     private void validatePiercingValues() {
         if (getPiercingAnimation().length > 2) {
             KnightsHeraldry.LOGGER.error("Critical error: Piercing Animations Index is higher than 2");
-            throw new IllegalStateException("Critical error: Piercing Animations Index is higher than 2");
+            throw new IndexOutOfBoundsException("Critical error: Piercing Animations Index is higher than 2");
         }
     }
 

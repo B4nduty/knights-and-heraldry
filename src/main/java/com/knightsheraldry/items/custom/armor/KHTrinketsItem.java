@@ -68,8 +68,6 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
     @Override
     public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         BipedEntityModel<LivingEntity> model = this.getModel();
-        model.setAngles(entity, limbAngle, limbDistance, animationProgress, animationProgress, headPitch);
-        model.animateModel(entity, limbAngle, limbDistance, tickDelta);
         TrinketRenderer.followBodyRotations(entity, model);
         if (stack.getItem() instanceof KHTrinketsItem khTrinketsItem) {
             VertexConsumer vertexConsumer = vertexConsumers.getBuffer(

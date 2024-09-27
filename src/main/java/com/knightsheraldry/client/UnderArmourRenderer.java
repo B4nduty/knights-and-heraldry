@@ -5,6 +5,7 @@ import com.knightsheraldry.model.UnderArmourBootsModel;
 import com.knightsheraldry.model.UnderArmourChestplateModel;
 import com.knightsheraldry.model.UnderArmourHelmetModel;
 import com.knightsheraldry.model.UnderArmourLeggingsModel;
+import dev.emi.trinkets.api.client.TrinketRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
@@ -33,7 +34,7 @@ public class UnderArmourRenderer implements ArmorRenderer {
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, ItemStack stack, LivingEntity entity, EquipmentSlot slot, int light, BipedEntityModel<LivingEntity> contextModel) {
         BipedEntityModel<LivingEntity> model = getLivingEntityBipedEntityModel(stack);
         if (model != null) {
-            contextModel.copyBipedStateTo(model);
+            TrinketRenderer.followBodyRotations(entity, model);
             if (stack.getItem() instanceof KHArmorItem khArmorItem) {
                 VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
                         RenderLayer.getArmorCutoutNoCull(khArmorItem.getPath()));

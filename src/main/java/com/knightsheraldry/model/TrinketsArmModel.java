@@ -95,6 +95,7 @@ public class TrinketsArmModel extends BipedEntityModel<LivingEntity> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		this.armorRightArm.copyTransform(this.rightArm);
+		this.armorRightArm.setPivot(this.rightArm.pivotX + 1, this.rightArm.pivotY + 0.1f, this.rightArm.pivotZ);
 		this.armorRightArm.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 	}
 }
