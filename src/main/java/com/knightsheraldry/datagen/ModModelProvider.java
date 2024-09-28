@@ -102,23 +102,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.SABATONS, Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.BARBUTE_NO_VISOR, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BASCINET_NO_VISOR, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.KETTLE_HELM, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.NASAL_HELM, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.VIKING_HELM, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.ARMET, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ARMET_2, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BARBUTE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BASCINET, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CAGE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CAGE_2, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.FLAT_BASCINET, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GREAT_HELM, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GREAT_HELM_2, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.SALLET, Models.HANDHELD);
-
         itemModelGenerator.register(ModItems.FROGMOUTH, Models.HANDHELD);
         itemModelGenerator.register(ModItems.GREAT_ARMET, Models.HANDHELD);
         itemModelGenerator.register(ModItems.GREAT_ARMET_2, Models.HANDHELD);
@@ -129,5 +112,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GAUNTLET, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.PLATE_REREBRACE, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.PLATE_CHAUSSES, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.AVENTAIL, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.RIM_GUARDS, Models.HANDHELD);
     }
 }

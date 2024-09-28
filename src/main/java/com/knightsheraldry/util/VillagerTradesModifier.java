@@ -61,6 +61,11 @@ public class VillagerTradesModifier {
                                     new ItemStack(Items.EMERALD, 5),
                                     new ItemStack(ModItems.MAIL_PAULDRON, 1),
                                     12, 5, 0.05f));
+
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 6),
+                                    new ItemStack(ModItems.AVENTAIL, 1),
+                                    12, 5, 0.05f));
                         }
 
                         if (finalLevel == 3) {
@@ -98,6 +103,10 @@ public class VillagerTradesModifier {
                                     new ItemStack(Items.EMERALD, 14),
                                     new ItemStack(ModItems.BRIGANDINE_REREBRACE, 1),
                                     12, 15, 0.05f));
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 14),
+                                    new ItemStack(ModItems.BRIGANDINE_CHAUSSES, 1),
+                                    12, 15, 0.05f));
                             factories.add((entity, random) -> {
                                 Item item;
                                 int randomNumber = random.nextInt(9);
@@ -132,6 +141,14 @@ public class VillagerTradesModifier {
                             factories.add((entity, random) -> new TradeOffer(
                                     new ItemStack(Items.EMERALD, 16),
                                     new ItemStack(ModItems.PLATE_REREBRACE, 1),
+                                    12, 15, 0.05f));
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 16),
+                                    new ItemStack(ModItems.PLATE_CHAUSSES, 1),
+                                    12, 15, 0.05f));
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 5),
+                                    new ItemStack(ModItems.RIM_GUARDS, 1),
                                     12, 15, 0.05f));
                             factories.add((entity, random) -> {
                                 Item item;

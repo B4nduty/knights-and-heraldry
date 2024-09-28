@@ -296,9 +296,25 @@ public class ModItems {
             new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 2, 2,
                     0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_rerebrace.png"), false));
 
+    public static final Item BRIGANDINE_CHAUSSES = registerItem("brigandine_chausses",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.LEGGINGS, 2, 1,
+                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brigandine_chausses.png"), true));
+
+    public static final Item PLATE_CHAUSSES = registerItem("plate_chausses",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.LEGGINGS, 2, 2,
+                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_chausses.png"), false));
+
     public static final Item SABATONS = registerItem("sabatons",
             new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.BOOTS, 2, 1,
                     0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/sabatons.png"), false));
+
+    public static final Item AVENTAIL = registerItem("aventail",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.BOOTS, 0, 2,
+                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/aventail.png"), false));
+
+    public static final Item RIM_GUARDS = registerItem("rim_guards",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.BOOTS, 0, 0,
+                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"), false));
 
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

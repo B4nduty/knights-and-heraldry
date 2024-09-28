@@ -1,11 +1,15 @@
 package com.knightsheraldry.event;
 
 import com.knightsheraldry.KnightsHeraldry;
+import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
 import com.knightsheraldry.util.StaminaData;
+import dev.emi.trinkets.api.TrinketsApi;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
@@ -26,7 +30,32 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
             if (!playerEntity.isSpectator()) {
                 handlePlayerTick(playerEntity);
             }
+            if (!isWearingFullKHArmorSet(playerEntity)) {
+                TrinketsApi.getTrinketComponent(playerEntity).ifPresent(trinketComponent -> {
+                    trinketComponent.getAllEquipped().forEach(pair -> {
+                        ItemStack trinketStack = pair.getRight();
+                        playerEntity.giveItemStack(trinketStack);
+                        trinketStack.setCount(0);
+                    });
+                });
+            }
         }
+    }
+
+    private boolean isWearingFullKHArmorSet(LivingEntity entity) {
+        for (EquipmentSlot slot : EquipmentSlot.values()) {
+            if (isArmorSlot(slot)) {
+                ItemStack armorPiece = entity.getEquippedStack(slot);
+                if (!(armorPiece.getItem() instanceof KHArmorItem)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean isArmorSlot(EquipmentSlot slot) {
+        return slot == EquipmentSlot.HEAD || slot == EquipmentSlot.CHEST || slot == EquipmentSlot.LEGS || slot == EquipmentSlot.FEET;
     }
 
     private void handlePlayerTick(ServerPlayerEntity playerEntity) {

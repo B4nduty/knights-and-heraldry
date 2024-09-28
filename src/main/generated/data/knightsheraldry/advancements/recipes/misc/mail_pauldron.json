@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mail_pauldron": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:mail_pauldron"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_rim_guards": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:rim_guards"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:mail_pauldron"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_mail_pauldron",
+      "has_rim_guards",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:mail_pauldron"
+    ]
+  },
+  "sends_telemetry_event": false
+}

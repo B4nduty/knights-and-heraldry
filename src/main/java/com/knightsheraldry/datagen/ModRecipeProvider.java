@@ -194,10 +194,127 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.WARSWORD_ZWEIHANDER), conditionsFromItem(ModItems.WARSWORD_ZWEIHANDER))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.WARSWORD)));
 
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.ofItems(ModItems.QUILTED_COIF),
-                        Ingredient.ofItems(Items.NETHERITE_INGOT), RecipeCategory.MISC, ModItems.QUILTED_COIF)
-                .criterion(hasItem(ModItems.QUILTED_COIF), conditionsFromItem(ModItems.QUILTED_COIF))
-                .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
-                .offerTo(exporter, new Identifier("example_1"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ARMET, 1)
+                .input(ModItems.ARMET, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.ARMET), conditionsFromItem(ModItems.ARMET))
+                .criterion(hasItem(ModItems.WARSWORD_ZWEIHANDER), conditionsFromItem(ModItems.WARSWORD_ZWEIHANDER))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMET)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ARMET_2, 1)
+                .input(ModItems.ARMET_2, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.ARMET_2), conditionsFromItem(ModItems.ARMET_2))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMET_2)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.VIKING_HELM, 1)
+                .input(ModItems.VIKING_HELM, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.VIKING_HELM), conditionsFromItem(ModItems.VIKING_HELM))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.VIKING_HELM)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GREAT_HELM, 1)
+                .input(ModItems.GREAT_HELM, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.GREAT_HELM), conditionsFromItem(ModItems.GREAT_HELM))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GREAT_HELM)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GREAT_HELM_2, 1)
+                .input(ModItems.GREAT_HELM_2, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.GREAT_HELM_2), conditionsFromItem(ModItems.GREAT_HELM_2))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GREAT_HELM_2)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.KETTLE_HELM, 1)
+                .input(ModItems.KETTLE_HELM, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.KETTLE_HELM), conditionsFromItem(ModItems.KETTLE_HELM))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.KETTLE_HELM)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.NASAL_HELM, 1)
+                .input(ModItems.NASAL_HELM, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.NASAL_HELM), conditionsFromItem(ModItems.NASAL_HELM))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.NASAL_HELM)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SALLET, 1)
+                .input(ModItems.SALLET, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.SALLET), conditionsFromItem(ModItems.SALLET))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.SALLET)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BARBUTE, 1)
+                .input(ModItems.BARBUTE, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.BARBUTE), conditionsFromItem(ModItems.BARBUTE))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BARBUTE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BARBUTE_NO_VISOR, 1)
+                .input(ModItems.BARBUTE_NO_VISOR, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.BARBUTE_NO_VISOR), conditionsFromItem(ModItems.BARBUTE_NO_VISOR))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BARBUTE_NO_VISOR)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BASCINET, 1)
+                .input(ModItems.BASCINET, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.BASCINET), conditionsFromItem(ModItems.BASCINET))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BASCINET)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BASCINET_NO_VISOR, 1)
+                .input(ModItems.BASCINET_NO_VISOR, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.BASCINET_NO_VISOR), conditionsFromItem(ModItems.BASCINET_NO_VISOR))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BASCINET_NO_VISOR)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CAGE, 1)
+                .input(ModItems.CAGE, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.CAGE), conditionsFromItem(ModItems.CAGE))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CAGE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CAGE_2, 1)
+                .input(ModItems.CAGE_2, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.CAGE_2), conditionsFromItem(ModItems.CAGE_2))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CAGE_2)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.FLAT_BASCINET, 1)
+                .input(ModItems.FLAT_BASCINET, 1)
+                .input(ModItems.AVENTAIL, 1)
+                .criterion(hasItem(ModItems.FLAT_BASCINET), conditionsFromItem(ModItems.FLAT_BASCINET))
+                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.FLAT_BASCINET)));
+
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(), Ingredient.ofItems(ModItems.MAIL_PAULDRON),
+                        Ingredient.ofItems(ModItems.RIM_GUARDS), RecipeCategory.MISC, ModItems.MAIL_PAULDRON)
+                .criterion(hasItem(ModItems.MAIL_PAULDRON), conditionsFromItem(ModItems.MAIL_PAULDRON))
+                .criterion(hasItem(ModItems.RIM_GUARDS), conditionsFromItem(ModItems.RIM_GUARDS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MAIL_PAULDRON)));
+
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(), Ingredient.ofItems(ModItems.BRIGANDINE_PAULDRON),
+                        Ingredient.ofItems(ModItems.RIM_GUARDS), RecipeCategory.MISC, ModItems.BRIGANDINE_PAULDRON)
+                .criterion(hasItem(ModItems.BRIGANDINE_PAULDRON), conditionsFromItem(ModItems.BRIGANDINE_PAULDRON))
+                .criterion(hasItem(ModItems.RIM_GUARDS), conditionsFromItem(ModItems.RIM_GUARDS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BRIGANDINE_PAULDRON)));
+
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(), Ingredient.ofItems(ModItems.PLATE_PAULDRON),
+                        Ingredient.ofItems(ModItems.RIM_GUARDS), RecipeCategory.MISC, ModItems.PLATE_PAULDRON)
+                .criterion(hasItem(ModItems.PLATE_PAULDRON), conditionsFromItem(ModItems.PLATE_PAULDRON))
+                .criterion(hasItem(ModItems.RIM_GUARDS), conditionsFromItem(ModItems.RIM_GUARDS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.PLATE_PAULDRON)));
     }
 }

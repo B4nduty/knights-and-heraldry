@@ -26,7 +26,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -50,65 +49,66 @@ public class PlayerEntityRendererMixin {
 
     @Inject(method = "renderArm", at = @At("HEAD"))
     private void knightsheraldry$renderArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity player, ModelPart arm, ModelPart sleeve, CallbackInfo ci) {
-        BipedEntityModel<LivingEntity> model;
+        BipedEntityModel<LivingEntity> model = null;
         MinecraftClient client = MinecraftClient.getInstance();
+
+        if (client.currentScreen != null) return;
 
         ItemStack stack = player.getInventory().getArmorStack(2);
         if (stack.getItem() instanceof KHArmorItem khArmorItem && khArmorItem.getSlotType() == ArmorItem.Type.CHESTPLATE.getEquipmentSlot()) {
-            model = getLivingEntityBipedEntityModel(stack);
-            if (client.currentScreen != null) TrinketRenderer.followBodyRotations(player, model);
-            else model.setAngles(player, 0, 0, 0, 0, 0);
+            model = getUnderArmourArmModel();
+            TrinketRenderer.followBodyRotations(player, model);
             VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
                     RenderLayer.getArmorCutoutNoCull(khArmorItem.getPath()));
+            float r = 1;
+            float g = 1;
+            float b = 1;
             if (khArmorItem.isDyeable()) {
                 int color = khArmorItem.getColor(stack);
+                r = (color >> 16 & 255) / 255.0F;
+                g = (color >> 8 & 255) / 255.0F;
+                b = (color & 255) / 255.0F;
+            }
 
-                float r = (color >> 16 & 255) / 255.0F;
-                float g = (color >> 8 & 255) / 255.0F;
-                float b = (color & 255) / 255.0F;
+            Identifier textureOverlayPath = getOverlayIdentifier(stack, khArmorItem);
 
-                Identifier textureOverlayPath = getIdentifier(khArmorItem);
+            // Base armor render (tinted layer) - Render the armor with color tint
+            model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
 
-                // Base armor render (tinted layer) - Render the armor with color tint
-                model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
-
-                // Overlay render (untinted layer) - Render the overlay (no tint)
-                ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, textureOverlayPath);
-            } else model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
+            // Overlay render (untinted layer) - Render the overlay (no tint)
+            if (!textureOverlayPath.equals(new Identifier(""))) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, textureOverlayPath);
         }
 
         if (TrinketsApi.getTrinketComponent(player).isPresent()) {
             for (Pair<SlotReference, ItemStack> equipped : TrinketsApi.getTrinketComponent(player).get().getEquipped(trinketStack -> trinketStack.getItem() instanceof KHTrinketsItem)) {
                 ItemStack trinket = equipped.getRight();
-                if (trinket.getItem() instanceof KHTrinketsItem khTrinketsItem) {
-                    model = getTrinketChestplateModel();
-                    if (client.currentScreen != null) TrinketRenderer.followBodyRotations(player, model);
-                    else model.setAngles(player, 0, 0, 0, 0, 0);
+                if (stack.getItem() instanceof KHTrinketsItem khTrinketsItem) {
                     VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
                             RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
+                    float r = 1;
+                    float g = 1;
+                    float b = 1;
                     if (khTrinketsItem.isDyeable()) {
                         int color = khTrinketsItem.getColor(trinket);
+                        r = (color >> 16 & 255) / 255.0F;
+                        g = (color >> 8 & 255) / 255.0F;
+                        b = (color & 255) / 255.0F;
+                    }
 
-                        float r = (color >> 16 & 255) / 255.0F;
-                        float g = (color >> 8 & 255) / 255.0F;
-                        float b = (color & 255) / 255.0F;
+                    Identifier textureOverlayPath = getOverlayIdentifier(trinket, khTrinketsItem);
 
-                        Identifier textureOverlayPath = getIdentifier(khTrinketsItem);
+                    // Base armor render (tinted layer) - Render the armor with color tint
+                    model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
 
-                        // Base armor render (tinted layer) - Render the armor with color tint
-                        model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
-
-                        // Overlay render (untinted layer) - Render the overlay (no tint)
-                        ArmorRenderer.renderPart(matrices, vertexConsumers, light, trinket, model, textureOverlayPath);
-                    } else model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
+                    // Overlay render (untinted layer) - Render the overlay (no tint)
+                    ArmorRenderer.renderPart(matrices, vertexConsumers, light, trinket, model, textureOverlayPath);
                 }
-
             }
         }
     }
 
     @Unique
-    private static @NotNull Identifier getIdentifier(Item item) {
+    private @NotNull Identifier getOverlayIdentifier(ItemStack stack, Item item) {
         Identifier originalIdentifier = null;
         if (item instanceof KHArmorItem khArmorItem) originalIdentifier = khArmorItem.getPath();
         if (item instanceof KHTrinketsItem khTrinketsItem) originalIdentifier = khTrinketsItem.getPath();
@@ -122,22 +122,14 @@ public class PlayerEntityRendererMixin {
             textureOverlayString = textureOverlayString.substring(0, textureOverlayString.length() - 4);
         }
 
-        textureOverlayString += "_overlay.png";
+        if (item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeable()) textureOverlayString += "_overlay.png";
+        else return new Identifier("");
 
         return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);
     }
 
     @Unique
-    private @Nullable BipedEntityModel<LivingEntity> getLivingEntityBipedEntityModel(ItemStack stack) {
-        BipedEntityModel<LivingEntity> model = null;
-        if (stack.getItem() instanceof KHArmorItem khArmorItem) {
-            if (khArmorItem.getSlotType() == ArmorItem.Type.CHESTPLATE.getEquipmentSlot()) model = this.getUnderArmourChestplateModel();
-        }
-        return model;
-    }
-
-    @Unique
-    private BipedEntityModel<LivingEntity> getUnderArmourChestplateModel() {
+    private BipedEntityModel<LivingEntity> getUnderArmourArmModel() {
         if (this.chestplateModel == null) {
             this.chestplateModel = new UnderArmourArmModel(UnderArmourArmModel.getTexturedModelData().createModel());
         }
@@ -146,7 +138,7 @@ public class PlayerEntityRendererMixin {
     }
 
     @Unique
-    private BipedEntityModel<LivingEntity> getTrinketChestplateModel() {
+    private BipedEntityModel<LivingEntity> getTrinketArmModel() {
         if (this.trinketArmModel == null) {
             this.trinketArmModel = new TrinketsArmModel(TrinketsArmModel.getTexturedModelData().createModel());
         }

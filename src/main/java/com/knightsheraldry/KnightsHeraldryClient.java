@@ -31,25 +31,17 @@ public class KnightsHeraldryClient implements ClientModInitializer {
     public void onInitializeClient() {
         ModMessages.registerS2CPackets();
         ClientPreAttackCallback.EVENT.register(new AttackCancelHandler());
-        registerModelPredicate(ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE,
-                ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE,
-                ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD, ModItems.V_LONGSWORD,
-                ModItems.FALCHION, ModItems.SCIMITAR, ModItems.KATANA, ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE,
-                ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.LANCE,
-                ModItems.WOODEN_LANCE, ModItems.POLEAXE, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN,
-                ModItems.MORNING_STAR, ModItems.BARDICHE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
-                ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER, ModItems.WARDART);
-
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
-                        tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), ModItems.WOODEN_LANCE,
-                ModItems.QUILTED_COIF, ModItems.GAMBESON, ModItems.GAMBESON_BREECHES, ModItems.GAMBESON_BOOTS,
-                ModItems.BRIGANDINE_PAULDRON, ModItems.BRIGANDINE, ModItems.BRIG_BREASTPLATE,
-                ModItems.BRIG_BREASTPLATE_TASSETS, ModItems.BRIGANDINE_REREBRACE);
 
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
 
         ModItems.items.forEach(item -> {
+            registerModelPredicate(item);
+            if ((item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeable())
+                    || (item instanceof KHArmorItem khArmorItem && khArmorItem.isDyeable())) {
+                ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
+                        tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), item);
+            }
             if (item instanceof KHTrinketsItem) {
                 TrinketRendererRegistry.registerRenderer(item, (TrinketRenderer) item);
             }
@@ -64,10 +56,13 @@ public class KnightsHeraldryClient implements ClientModInitializer {
             ModelPredicateProviderRegistry.register(item, new Identifier("charged"),
                     (stack, world, entity, seed) -> entity != null
                             && (entity.getMainHandStack() == stack || entity.getOffHandStack() == stack)
-                            && stack.getNbt() != null
-                            && stack.getNbt().getBoolean("Charged") ? 1.0F : 0.0F);
+                            && stack.getOrCreateNbt() != null
+                            && stack.getOrCreateNbt().getBoolean("Charged") ? 1.0F : 0.0F);
             ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
                     (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
+            ModelPredicateProviderRegistry.register(item, new Identifier("aventail"),
+                    (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
+                            && stack.getOrCreateNbt().getBoolean("aventail") ? 1.0F : 0.0F);
         }
     }
 }

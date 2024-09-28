@@ -19,7 +19,7 @@ public class UnderArmourArmModel extends BipedEntityModel<LivingEntity> {
 	public final ModelPart rightLeg;
 	public final ModelPart leftLeg;
 	private final ModelPart armorBody;
-	private final ModelPart armorRightArm;
+	public final ModelPart armorRightArm;
 	private final ModelPart armorLeftArm;
 	public UnderArmourArmModel(ModelPart root) {
 		super(root);

@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aventail": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:aventail"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_nasal_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:nasal_helm"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:nasal_helm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_nasal_helm",
+      "has_aventail",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:nasal_helm"
+    ]
+  },
+  "sends_telemetry_event": false
+}

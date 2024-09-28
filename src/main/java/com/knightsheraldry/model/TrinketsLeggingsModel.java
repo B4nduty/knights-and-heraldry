@@ -28,13 +28,13 @@ public class TrinketsLeggingsModel extends BipedEntityModel<LivingEntity> {
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = BipedEntityModel.getModelData(Dilation.NONE, 0f);
         ModelPartData modelPartData = modelData.getRoot();
-        ModelPartData armorRightLeg = modelPartData.addChild("armorRightLeg", ModelPartBuilder.create().uv(0, 74).mirrored().cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.36F)).mirrored(false), ModelTransform.pivot(-2.0F, 12.0F, 0.0F));
+        ModelPartData armorRightLeg = modelPartData.addChild("armorRightLeg", ModelPartBuilder.create().uv(0, 74).mirrored().cuboid(-2.0F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.36F)).mirrored(false), ModelTransform.pivot(-2.0F, 12.0F, -1.0F));
 
-        armorRightLeg.addChild("right_poleyn_r1", ModelPartBuilder.create().uv(16, 82).cuboid(1.5F, 4.45F, 1.15F, 5.0F, 2.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-4.0F, 0.0F, 0.0F, -0.7854F, 0.0F, 0.0F));
+        armorRightLeg.addChild("right_poleyn_r1", ModelPartBuilder.create().uv(16, 82).cuboid(1.5F, 4.45F, 1.15F, 5.0F, 2.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-4.0F, 0.0F, 1.0F, -0.7854F, 0.0F, 0.0F));
 
-        ModelPartData armorLeftLeg = modelPartData.addChild("armorLeftLeg", ModelPartBuilder.create().uv(0, 74).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.36F)), ModelTransform.pivot(2.0F, 12.0F, 0.0F));
+        ModelPartData armorLeftLeg = modelPartData.addChild("armorLeftLeg", ModelPartBuilder.create().uv(0, 74).cuboid(-2.0F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.36F)), ModelTransform.pivot(2.0F, 12.0F, -1.0F));
 
-        armorLeftLeg.addChild("left_poleyn_r1", ModelPartBuilder.create().uv(16, 82).mirrored().cuboid(-6.5F, 4.45F, 1.15F, 5.0F, 2.0F, 2.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(4.0F, 0.0F, 0.0F, -0.7854F, 0.0F, 0.0F));
+        armorLeftLeg.addChild("left_poleyn_r1", ModelPartBuilder.create().uv(16, 82).mirrored().cuboid(-6.5F, 4.45F, 1.15F, 5.0F, 2.0F, 2.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(4.0F, 0.0F, 1.0F, -0.7854F, 0.0F, 0.0F));
         return TexturedModelData.of(modelData, 128, 128);
     }
 

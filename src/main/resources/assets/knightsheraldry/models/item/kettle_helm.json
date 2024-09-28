@@ -1,0 +1,9 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "knightsheraldry:item/kettle_helm"
+	},
+	"overrides": [
+		{ "predicate": { "aventail": 1 }, "model": "knightsheraldry:item/kettle_helm_aventail" }
+	]
+}

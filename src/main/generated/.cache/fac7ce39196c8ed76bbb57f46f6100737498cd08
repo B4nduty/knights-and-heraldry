@@ -1,4 +1,4 @@
-// 1.20.1	2024-09-26T23:12:44.2852032	Knights & Heraldry/Tags for minecraft:item
+// 1.20.1	2024-09-28T16:31:57.2791729	Knights & Heraldry/Tags for minecraft:item
 1ac8bbb29335f98d8bfec25cbd1149ac2c3e00c1 data\knightsheraldry\tags\items\kh_weapons_ignores_armor.json
 eef1316df479a2183609ec4b61fced16f97dd43e data\knightsheraldry\tags\items\kh_weapons_only_bludgeoning.json
 ba1c121e2c07133dcefa71078a4fa6e41c3a1e04 data\knightsheraldry\tags\items\kh_weapons_bludgeoning_to_piercing.json

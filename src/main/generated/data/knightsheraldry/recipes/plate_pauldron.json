@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "knightsheraldry:rim_guards"
+  },
+  "base": {
+    "item": "knightsheraldry:plate_pauldron"
+  },
+  "result": {
+    "item": "knightsheraldry:plate_pauldron"
+  },
+  "template": []
+}

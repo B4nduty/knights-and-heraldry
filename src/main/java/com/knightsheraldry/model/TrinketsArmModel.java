@@ -12,7 +12,7 @@ import net.minecraft.entity.LivingEntity;
 @Environment(EnvType.CLIENT)
 public class TrinketsArmModel extends BipedEntityModel<LivingEntity> {
 	private final ModelPart armorBody;
-	private final ModelPart armorRightArm;
+	public final ModelPart armorRightArm;
 	private final ModelPart armorLeftArm;
 
 	public TrinketsArmModel(ModelPart root) {

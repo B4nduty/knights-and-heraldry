@@ -1,0 +1,9 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "knightsheraldry:item/cage"
+	},
+	"overrides": [
+		{ "predicate": { "aventail": 1 }, "model": "knightsheraldry:item/cage_aventail" }
+	]
+}
