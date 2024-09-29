@@ -48,7 +48,7 @@ public class PlayerEntityRendererMixin {
 
     @Inject(method = "renderArm", at = @At("HEAD"))
     private void knightsheraldry$renderArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity player, ModelPart arm, ModelPart sleeve, CallbackInfo ci) {
-        BipedEntityModel<LivingEntity> model = null;
+        BipedEntityModel<LivingEntity> model;
         MinecraftClient client = MinecraftClient.getInstance();
 
         ItemStack stack = player.getInventory().getArmorStack(2);
