@@ -89,9 +89,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MAIL_BREECHES, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MAIL_BOOTS, Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.MAIL_PAULDRON, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.PLATE_PAULDRON, Models.HANDHELD);
-
         itemModelGenerator.register(ModItems.PLATE_CUIRASS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PLATE_CUIRASS_TASSETS, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MAXIMILLIAN_CUIRASS, Models.HANDHELD);
@@ -118,5 +115,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.AVENTAIL, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.RIM_GUARDS, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.BESAGEWS, Models.HANDHELD);
     }
 }

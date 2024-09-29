@@ -79,11 +79,13 @@
   "item.knightsheraldry.mail_boots": "Mail Boots",
 
   "item.knightsheraldry.mail_pauldron": "Mail Pauldron",
-  "item.knightsheraldry.mail_pauldron_rimGuards": "Mail Pauldron with Rim Guards",
+  "item.knightsheraldry.mail_pauldron_besagews": "Mail Pauldron with Besagews",
   "item.knightsheraldry.brigandine_pauldron": "Brigandine Pauldron",
-  "item.knightsheraldry.brigandine_pauldron_rimGuards": "Brigandine Pauldron with Rim Guards",
+  "item.knightsheraldry.brigandine_pauldron_besagews": "Brigandine Pauldron with Besagews",
   "item.knightsheraldry.plate_pauldron": "Plate Pauldron",
-  "item.knightsheraldry.plate_pauldron_rimGuards": "Plate Pauldron with Rim Guards",
+  "item.knightsheraldry.plate_pauldron_rimmed": "Plate Pauldron with Rim Guards",
+  "item.knightsheraldry.plate_pauldron_besagews": "Plate Pauldron with Besagews",
+  "item.knightsheraldry.plate_pauldron_rimmed_besagews": "Plate Pauldron with Rim Guards & Besagews",
 
   "item.knightsheraldry.brigandine": "Brigandine",
 
@@ -150,6 +152,10 @@
   "item.knightsheraldry.sabatons": "Sabatons",
 
   "item.knightsheraldry.aventail": "Aventail",
+
+  "item.knightsheraldry.rim_guards": "Rim Guards",
+
+  "item.knightsheraldry.besagews": "Besagews",
 
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",

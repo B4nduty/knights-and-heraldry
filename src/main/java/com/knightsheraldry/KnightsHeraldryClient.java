@@ -8,6 +8,7 @@ import com.knightsheraldry.event.ItemTooltipHandler;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
+import com.knightsheraldry.items.custom.item.WoodenLance;
 import com.knightsheraldry.networking.ModMessages;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
@@ -38,7 +39,7 @@ public class KnightsHeraldryClient implements ClientModInitializer {
         ModItems.items.forEach(item -> {
             registerModelPredicate(item);
             if ((item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeable())
-                    || (item instanceof KHArmorItem khArmorItem && khArmorItem.isDyeable())) {
+                    || (item instanceof KHArmorItem khArmorItem && khArmorItem.isDyeable()) || item instanceof WoodenLance) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), item);
             }
@@ -63,6 +64,12 @@ public class KnightsHeraldryClient implements ClientModInitializer {
             ModelPredicateProviderRegistry.register(item, new Identifier("aventail"),
                     (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
                             && stack.getOrCreateNbt().getBoolean("aventail") ? 1.0F : 0.0F);
+            ModelPredicateProviderRegistry.register(item, new Identifier("rimmed"),
+                    (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
+                            && stack.getOrCreateNbt().getBoolean("rimmed") ? 1.0F : 0.0F);
+            ModelPredicateProviderRegistry.register(item, new Identifier("besagews"),
+                    (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
+                            && stack.getOrCreateNbt().getBoolean("besagews") ? 1.0F : 0.0F);
         }
     }
 }

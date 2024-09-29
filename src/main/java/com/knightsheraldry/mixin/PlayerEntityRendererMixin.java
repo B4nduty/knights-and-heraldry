@@ -6,7 +6,6 @@ import com.knightsheraldry.model.TrinketsArmModel;
 import com.knightsheraldry.model.UnderArmourArmModel;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketsApi;
-import dev.emi.trinkets.api.client.TrinketRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.model.ModelPart;
@@ -52,12 +51,12 @@ public class PlayerEntityRendererMixin {
         BipedEntityModel<LivingEntity> model = null;
         MinecraftClient client = MinecraftClient.getInstance();
 
-        if (client.currentScreen != null) return;
-
         ItemStack stack = player.getInventory().getArmorStack(2);
         if (stack.getItem() instanceof KHArmorItem khArmorItem && khArmorItem.getSlotType() == ArmorItem.Type.CHESTPLATE.getEquipmentSlot()) {
             model = getUnderArmourArmModel();
-            TrinketRenderer.followBodyRotations(player, model);
+            if (model instanceof UnderArmourArmModel underArmourArmModel && client.currentScreen == null) {
+                underArmourArmModel.armorRightArm.copyTransform(arm);
+            }
             VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
                     RenderLayer.getArmorCutoutNoCull(khArmorItem.getPath()));
             float r = 1;
@@ -70,7 +69,7 @@ public class PlayerEntityRendererMixin {
                 b = (color & 255) / 255.0F;
             }
 
-            Identifier textureOverlayPath = getOverlayIdentifier(stack, khArmorItem);
+            Identifier textureOverlayPath = getOverlayIdentifier(khArmorItem);
 
             // Base armor render (tinted layer) - Render the armor with color tint
             model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
@@ -82,7 +81,11 @@ public class PlayerEntityRendererMixin {
         if (TrinketsApi.getTrinketComponent(player).isPresent()) {
             for (Pair<SlotReference, ItemStack> equipped : TrinketsApi.getTrinketComponent(player).get().getEquipped(trinketStack -> trinketStack.getItem() instanceof KHTrinketsItem)) {
                 ItemStack trinket = equipped.getRight();
-                if (stack.getItem() instanceof KHTrinketsItem khTrinketsItem) {
+                if (trinket.getItem() instanceof KHTrinketsItem khTrinketsItem) {
+                    model = getTrinketArmModel();
+                    if (model instanceof TrinketsArmModel trinketsArmModel && client.currentScreen == null) {
+                        trinketsArmModel.armorRightArm.copyTransform(arm);
+                    }
                     VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
                             RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
                     float r = 1;
@@ -95,20 +98,20 @@ public class PlayerEntityRendererMixin {
                         b = (color & 255) / 255.0F;
                     }
 
-                    Identifier textureOverlayPath = getOverlayIdentifier(trinket, khTrinketsItem);
+                    Identifier textureOverlayPath = getOverlayIdentifier(khTrinketsItem);
 
                     // Base armor render (tinted layer) - Render the armor with color tint
                     model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
 
                     // Overlay render (untinted layer) - Render the overlay (no tint)
-                    ArmorRenderer.renderPart(matrices, vertexConsumers, light, trinket, model, textureOverlayPath);
+                    if (!textureOverlayPath.equals(new Identifier(""))) ArmorRenderer.renderPart(matrices, vertexConsumers, light, trinket, model, textureOverlayPath);
                 }
             }
         }
     }
 
     @Unique
-    private @NotNull Identifier getOverlayIdentifier(ItemStack stack, Item item) {
+    private @NotNull Identifier getOverlayIdentifier(Item item) {
         Identifier originalIdentifier = null;
         if (item instanceof KHArmorItem khArmorItem) originalIdentifier = khArmorItem.getPath();
         if (item instanceof KHTrinketsItem khTrinketsItem) originalIdentifier = khTrinketsItem.getPath();

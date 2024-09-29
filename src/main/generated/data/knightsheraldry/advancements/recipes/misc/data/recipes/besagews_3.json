@@ -1,24 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_mail_pauldron": {
+    "has_besagews": {
       "conditions": {
         "items": [
           {
             "items": [
-              "knightsheraldry:mail_pauldron"
+              "knightsheraldry:besagews"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_rim_guards": {
+    "has_plate_pauldron": {
       "conditions": {
         "items": [
           {
             "items": [
-              "knightsheraldry:rim_guards"
+              "knightsheraldry:plate_pauldron"
             ]
           }
         ]
@@ -27,21 +27,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:mail_pauldron"
+        "recipe": "knightsheraldry:data/recipes/besagews_3"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_mail_pauldron",
-      "has_rim_guards",
+      "has_plate_pauldron",
+      "has_besagews",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:mail_pauldron"
+      "knightsheraldry:data/recipes/besagews_3"
     ]
   },
   "sends_telemetry_event": false

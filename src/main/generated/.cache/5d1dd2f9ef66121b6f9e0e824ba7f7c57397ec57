@@ -1,12 +1,12 @@
-// 1.20.1	2024-09-28T16:31:57.2771744	Knights & Heraldry/Model Definitions
+// 1.20.1	2024-09-29T03:09:14.9118908	Knights & Heraldry/Model Definitions
 58f0d4cd5e8b90f7b5f050d06de685903fe87979 assets\knightsheraldry\models\item\broad_axe.json
 202dc07dc62512d3c0df8c0b2752ef8693f062b1 assets\knightsheraldry\models\item\maximillian_cuirass.json
 86913b1e9079089c0924324b023e7fbcd3b3d5e6 assets\knightsheraldry\models\item\war_hammer.json
 08b96aa0b6291ace63429bde81c6d567d5acd6bc assets\knightsheraldry\models\item\aventail.json
 b8d7c52852d02ab207c539b7d80837e24c111e13 assets\knightsheraldry\models\item\longsword.json
 b593ead9cddb39d9bb470d76c10e3d7928ca1e2f assets\knightsheraldry\models\item\warsword_zweihander.json
-a29fde4c72892af87163caf738853b29ad2da399 assets\knightsheraldry\models\item\maximillian_helmet.json
 7290381aec7756e04b4ebcee441f881e16fb1190 assets\knightsheraldry\models\item\great_houndskul_bascinet.json
+a29fde4c72892af87163caf738853b29ad2da399 assets\knightsheraldry\models\item\maximillian_helmet.json
 d50d9def1bfd66f7a3304aca4cf94890e21536d5 assets\knightsheraldry\models\item\morning_star.json
 e8ff1a16ce20765d2b114f0947b35b5d1327ec8f assets\knightsheraldry\models\item\katana.json
 9d23affcd21c7fb36fcaee395bddc57e5b98949b assets\knightsheraldry\models\item\great_armet.json
@@ -26,7 +26,7 @@ a62fb852e96de879c2bc88bdab23b20b6e08f92b assets\knightsheraldry\models\item\v_sw
 ecff0b919f8d75bbe55643c090cf989e3853c303 assets\knightsheraldry\models\item\xiiii_plate_cuirass_tassets.json
 5d9cd19d7f8e3b34fa3feb8e0b6da44349f85f81 assets\knightsheraldry\models\item\plate_rerebrace.json
 de7f5931709a7af03dfc2763c2cf6a7fa6439e8c assets\knightsheraldry\models\item\frogmouth.json
-84c0e78b9670099e9bf30cf4545f659f09aebedf assets\knightsheraldry\models\item\plate_pauldron.json
+5bb881519973ce476014bbfe02c08fc47afdc39c assets\knightsheraldry\models\item\besagews.json
 a7812fca5c1d5210b5a1d1b34ed4ddc79a40d4c6 assets\knightsheraldry\models\item\pike.json
 60ecc4c4cfb7cd97cc1d09182eed0d694631e7c1 assets\knightsheraldry\models\item\mace.json
 52379a62ecc4a5a3f176e28be87b2f9c28dd5a44 assets\knightsheraldry\models\item\warsword_claymore.json
@@ -48,7 +48,6 @@ b7bcd6ffc485c58262a9d9f2de20f5a75a5bd499 assets\knightsheraldry\models\item\wars
 43e3eb59213521f9c49deadf7194f36701d4a681 assets\knightsheraldry\models\item\maximillian_cuirass_tassets.json
 19c03b22737e992c09662c335f47157c071b8047 assets\knightsheraldry\models\item\billhook.json
 4d45b8d5e106154ccd13d92646691287f7f0c7a8 assets\knightsheraldry\models\item\hauberk.json
-d2c84f245456d2d1f35ceb155561a71e95f36f66 assets\knightsheraldry\models\item\mail_pauldron.json
 84b2078c57c00e270e43f23e42247b535bfee7aa assets\knightsheraldry\models\item\poleaxe.json
 439bcb3f5e9e578d646eb1d47e03c58f07a050b5 assets\knightsheraldry\models\item\arming_sword.json
 90eaddce697ca2d643d9a9652b72894b6ebf0576 assets\knightsheraldry\models\item\halberd.json

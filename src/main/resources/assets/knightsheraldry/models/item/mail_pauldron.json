@@ -1,0 +1,9 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "knightsheraldry:item/mail_pauldron"
+	},
+	"overrides": [
+		{ "predicate": { "besagews": 1 }, "model": "knightsheraldry:item/mail_pauldron_besagews" }
+	]
+}

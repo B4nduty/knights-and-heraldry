@@ -309,12 +309,20 @@ public class ModItems {
                     0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/sabatons.png"), false));
 
     public static final Item AVENTAIL = registerItem("aventail",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.BOOTS, 0, 2,
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 2,
                     0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/aventail.png"), false));
 
     public static final Item RIM_GUARDS = registerItem("rim_guards",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.BOOTS, 0, 0,
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 0,
                     0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"), false));
+
+    public static final Item BESAGEWS = registerItem("besagews",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 0,
+                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"), false));
+
+    public static final Item SURCOAT = registerItem("surcoat",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 0,
+                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/surcoat.png"), false));
 
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

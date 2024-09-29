@@ -83,11 +83,11 @@ public class TrinketsChestplateModel extends BipedEntityModel<LivingEntity> {
 				.uv(60, 108).mirrored().cuboid(-1.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.55F)).mirrored(false)
 				.uv(85, 58).mirrored().cuboid(-1.5F, 3.5F, -2.5F, 5.0F, 1.0F, 5.0F, new Dilation(-0.01F)).mirrored(false), ModelTransform.pivot(4.0F, 2.0F, 0.0F));
 
-		armorLeftArm.addChild("left_plate_rim_r1", ModelPartBuilder.create().uv(112, 18).mirrored().cuboid(1.0F, -5.0F, -3.5F, 0.0F, 4.0F, 7.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(-1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.2618F));
+		armorLeftArm.addChild("left_plate_rim_r1", ModelPartBuilder.create().uv(112, 18).cuboid(1.0F, -5.0F, -3.5F, 0.0F, 4.0F, 7.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.2618F));
 
-		armorLeftArm.addChild("left_besagew_r1", ModelPartBuilder.create().uv(116, 45).mirrored().cuboid(-2.0F, 0.0F, -4.3F, 3.0F, 3.0F, 2.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(-1.0F, 0.0F, 0.0F, 0.0F, -0.3491F, 0.0F));
+		armorLeftArm.addChild("left_besagew_r1", ModelPartBuilder.create().uv(116, 45).cuboid(-2.0F, 0.0F, -4.3F, 3.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, 0.0F, 0.0F, 0.0F, -0.3491F, 0.0F));
 
-		armorLeftArm.addChild("left_couter_r1", ModelPartBuilder.create().uv(112, 25).mirrored().cuboid(4.5F, 0.1F, 1.6F, 0.0F, 4.0F, 4.0F, new Dilation(0.0F)).mirrored(false)
+		armorLeftArm.addChild("left_couter_r1", ModelPartBuilder.create().uv(112, 25).cuboid(4.5F, 0.1F, 1.6F, 0.0F, 4.0F, 4.0F, new Dilation(0.0F))
 				.uv(48, 65).mirrored().cuboid(-0.5F, 0.1F, 3.6F, 5.0F, 2.0F, 2.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(-1.0F, 0.0F, 0.0F, -0.7854F, 0.0F, 0.0F));
 		return TexturedModelData.of(modelData, 128, 128);
 	}

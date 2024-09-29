@@ -1,14 +1,13 @@
 package com.knightsheraldry.datagen;
 
+import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 
@@ -299,22 +298,32 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.FLAT_BASCINET)));
 
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(), Ingredient.ofItems(ModItems.MAIL_PAULDRON),
-                        Ingredient.ofItems(ModItems.RIM_GUARDS), RecipeCategory.MISC, ModItems.MAIL_PAULDRON)
-                .criterion(hasItem(ModItems.MAIL_PAULDRON), conditionsFromItem(ModItems.MAIL_PAULDRON))
-                .criterion(hasItem(ModItems.RIM_GUARDS), conditionsFromItem(ModItems.RIM_GUARDS))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MAIL_PAULDRON)));
-
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(), Ingredient.ofItems(ModItems.BRIGANDINE_PAULDRON),
-                        Ingredient.ofItems(ModItems.RIM_GUARDS), RecipeCategory.MISC, ModItems.BRIGANDINE_PAULDRON)
-                .criterion(hasItem(ModItems.BRIGANDINE_PAULDRON), conditionsFromItem(ModItems.BRIGANDINE_PAULDRON))
-                .criterion(hasItem(ModItems.RIM_GUARDS), conditionsFromItem(ModItems.RIM_GUARDS))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BRIGANDINE_PAULDRON)));
-
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(), Ingredient.ofItems(ModItems.PLATE_PAULDRON),
-                        Ingredient.ofItems(ModItems.RIM_GUARDS), RecipeCategory.MISC, ModItems.PLATE_PAULDRON)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PLATE_PAULDRON, 1)
+                .input(ModItems.PLATE_PAULDRON, 1)
+                .input(ModItems.RIM_GUARDS, 1)
                 .criterion(hasItem(ModItems.PLATE_PAULDRON), conditionsFromItem(ModItems.PLATE_PAULDRON))
                 .criterion(hasItem(ModItems.RIM_GUARDS), conditionsFromItem(ModItems.RIM_GUARDS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.PLATE_PAULDRON)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MAIL_PAULDRON, 1)
+                .input(ModItems.MAIL_PAULDRON, 1)
+                .input(ModItems.BESAGEWS, 1)
+                .criterion(hasItem(ModItems.MAIL_PAULDRON), conditionsFromItem(ModItems.MAIL_PAULDRON))
+                .criterion(hasItem(ModItems.BESAGEWS), conditionsFromItem(ModItems.BESAGEWS))
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "data/recipes/besagews_1"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BRIGANDINE_PAULDRON, 1)
+                .input(ModItems.BRIGANDINE_PAULDRON, 1)
+                .input(ModItems.BESAGEWS, 1)
+                .criterion(hasItem(ModItems.BRIGANDINE_PAULDRON), conditionsFromItem(ModItems.BRIGANDINE_PAULDRON))
+                .criterion(hasItem(ModItems.BESAGEWS), conditionsFromItem(ModItems.BESAGEWS))
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "data/recipes/besagews_2"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PLATE_PAULDRON, 1)
+                .input(ModItems.PLATE_PAULDRON, 1)
+                .input(ModItems.BESAGEWS, 1)
+                .criterion(hasItem(ModItems.PLATE_PAULDRON), conditionsFromItem(ModItems.PLATE_PAULDRON))
+                .criterion(hasItem(ModItems.BESAGEWS), conditionsFromItem(ModItems.BESAGEWS))
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "data/recipes/besagews_3"));
     }
 }

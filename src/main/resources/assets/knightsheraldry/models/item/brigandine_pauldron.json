@@ -3,5 +3,8 @@
 	"textures": {
 		"layer0": "knightsheraldry:item/brigandine_pauldron",
 		"layer1": "knightsheraldry:item/brigandine_pauldron_overlay"
-	}
+	},
+	"overrides": [
+		{ "predicate": { "besagews": 1 }, "model": "knightsheraldry:item/brigandine_pauldron_besagews" }
+	]
 }
