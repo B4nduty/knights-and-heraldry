@@ -1,6 +1,6 @@
 {
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "knightsheraldry:item/plate_pauldron_rimmed"
+		"layer0": "knightsheraldry:item/plate_pauldron_rimmed_besagews"
 	}
 }

@@ -1,8 +1,10 @@
 package com.knightsheraldry.mixin;
 
+import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.model.TrinketsArmModel;
+import com.knightsheraldry.model.TrinketsChestplateModel;
 import com.knightsheraldry.model.UnderArmourArmModel;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketsApi;
@@ -86,25 +88,17 @@ public class PlayerEntityRendererMixin {
                     if (model instanceof TrinketsArmModel trinketsArmModel && client.currentScreen == null) {
                         trinketsArmModel.armorRightArm.copyTransform(arm);
                     }
-                    VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
-                            RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
-                    float r = 1;
-                    float g = 1;
-                    float b = 1;
+                    float r = 1, g = 1, b = 1;
                     if (khTrinketsItem.isDyeable()) {
-                        int color = khTrinketsItem.getColor(trinket);
-                        r = (color >> 16 & 255) / 255.0F;
-                        g = (color >> 8 & 255) / 255.0F;
-                        b = (color & 255) / 255.0F;
+                        int color = khTrinketsItem.getColor(stack);
+                        r = (color >> 16 & 255) / 255.0F; g = (color >> 8 & 255) / 255.0F; b = (color & 255) / 255.0F;
                     }
-
-                    Identifier textureOverlayPath = getOverlayIdentifier(khTrinketsItem);
-
-                    // Base armor render (tinted layer) - Render the armor with color tint
-                    model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
-
-                    // Overlay render (untinted layer) - Render the overlay (no tint)
-                    if (!textureOverlayPath.equals(new Identifier(""))) ArmorRenderer.renderPart(matrices, vertexConsumers, light, trinket, model, textureOverlayPath);
+                    VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
+                    model.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
+                    if (khTrinketsItem.isDyeable() && khTrinketsItem.hasOverlay()) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getOverlayIdentifier(khTrinketsItem));
+                    if (stack.getOrCreateNbt().getBoolean("aventail")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), getAventailIdentifier(khTrinketsItem));
+                    if (stack.getOrCreateNbt().getBoolean("rimmed")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
+                    if (stack.getOrCreateNbt().getBoolean("besagews")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
                 }
             }
         }
@@ -127,6 +121,24 @@ public class PlayerEntityRendererMixin {
 
         if (item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeable()) textureOverlayString += "_overlay.png";
         else return new Identifier("");
+
+        return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);
+    }
+
+    @Unique
+    private @NotNull Identifier getAventailIdentifier(KHTrinketsItem khTrinketsItem) {
+        Identifier originalIdentifier = khTrinketsItem.getPath();
+
+        String textureOverlayString = null;
+        if (originalIdentifier != null) {
+            textureOverlayString = originalIdentifier.getPath();
+        }
+
+        if (textureOverlayString != null && textureOverlayString.endsWith(".png")) {
+            textureOverlayString = textureOverlayString.substring(0, textureOverlayString.length() - 4);
+        }
+
+        textureOverlayString += "_aventail.png";
 
         return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);
     }

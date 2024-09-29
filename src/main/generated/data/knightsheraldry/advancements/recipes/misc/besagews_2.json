@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "knightsheraldry:data/recipes/besagews_2"
+        "recipe": "knightsheraldry:besagews_2"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "knightsheraldry:data/recipes/besagews_2"
+      "knightsheraldry:besagews_2"
     ]
   },
   "sends_telemetry_event": false

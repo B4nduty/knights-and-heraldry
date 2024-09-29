@@ -14,7 +14,6 @@ import dev.emi.trinkets.api.client.TrinketRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
-import net.minecraft.block.entity.BannerPattern;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -28,11 +27,9 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BannerItem;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtList;
 import net.minecraft.screen.CraftingScreenHandler;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.screen.SmithingScreenHandler;
@@ -51,6 +48,8 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
     protected final double hungerDrainAddition;
     private final Identifier texturePath;
     private final boolean dyeable;
+    private final int defaultColor;
+    private final boolean overlay;
 
     @Override
     public boolean canEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
@@ -73,7 +72,8 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         return slot == EquipmentSlot.HEAD || slot == EquipmentSlot.CHEST || slot == EquipmentSlot.LEGS || slot == EquipmentSlot.FEET;
     }
 
-    public KHTrinketsItem(Settings settings, Type type, double armor, double toughness, double hungerDrainAddition, Identifier texturePath, boolean dyeable) {
+    public KHTrinketsItem(Settings settings, Type type, double armor, double toughness, double hungerDrainAddition,
+                          Identifier texturePath, boolean dyeable, boolean overlay) {
         super(settings);
         this.type = type;
         this.armor = armor;
@@ -81,6 +81,21 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         this.hungerDrainAddition = hungerDrainAddition;
         this.texturePath = texturePath;
         this.dyeable = dyeable;
+        this.defaultColor = 10511680;
+        this.overlay = overlay;
+    }
+
+    public KHTrinketsItem(Settings settings, Type type, double armor, double toughness, double hungerDrainAddition,
+                          Identifier texturePath, boolean dyeable, int defaultColor, boolean overlay) {
+        super(settings);
+        this.type = type;
+        this.armor = armor;
+        this.toughness = toughness;
+        this.hungerDrainAddition = hungerDrainAddition;
+        this.texturePath = texturePath;
+        this.dyeable = dyeable;
+        this.defaultColor = defaultColor;
+        this.overlay = overlay;
     }
 
     public double getHungerDrainAddition() {
@@ -96,6 +111,7 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         if (stack.getOrCreateNbt().getBoolean("aventail")){
             toughness += 2;
         }
+        if (stack.getItem() == ModItems.SURCOAT || this.armor == 0 || toughness == 0) return modifiers;
         modifiers.put(EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(uuid, KnightsHeraldry.MOD_ID + ":" + "protection", this.armor, EntityAttributeModifier.Operation.ADDITION));
         modifiers.put(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, new EntityAttributeModifier(uuid, KnightsHeraldry.MOD_ID + ":" + "toughness", toughness, EntityAttributeModifier.Operation.ADDITION));
         return modifiers;
@@ -110,32 +126,13 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         float r = 1, g = 1, b = 1;
         if (isDyeable()) {
             int color = getColor(stack);
-            r = (color >> 16 & 255) / 255.0F;
-            g = (color >> 8 & 255) / 255.0F;
-            b = (color & 255) / 255.0F;
+            r = (color >> 16 & 255) / 255.0F; g = (color >> 8 & 255) / 255.0F; b = (color & 255) / 255.0F;
         }
         model.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
-        if (isDyeable()) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getOverlayIdentifier(this));
+        if (isDyeable() && hasOverlay()) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getOverlayIdentifier(this));
         if (stack.getOrCreateNbt().getBoolean("aventail")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), getAventailIdentifier(this));
         if (stack.getOrCreateNbt().getBoolean("rimmed")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
         if (stack.getOrCreateNbt().getBoolean("besagews")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
-        NbtCompound nbt = stack.getOrCreateNbt();
-        NbtList patterns = nbt.getList("Patterns", 10);
-
-        if (stack.getOrCreateNbt().contains("Pattern") && !patterns.isEmpty()) {
-            for (int i = 0; i < patterns.size(); i++) {
-                NbtCompound patternNbt = patterns.getCompound(i);
-                String patternId = patternNbt.getString("Pattern");
-
-                BannerPattern pattern = (BannerPattern) BannerPattern.byId(patternId);
-                if (pattern != null) {
-                    Identifier patternTexture = new Identifier("minecraft", "textures/entity/banner/" + pattern.getId() + ".png");
-
-                    VertexConsumer patternConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(patternTexture));
-                    model.render(matrices, patternConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1.0F);
-                }
-            }
-        }
     }
 
     @Override
@@ -154,6 +151,8 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
     }
 
     public boolean isDyeable() {return this.dyeable;}
+
+    public boolean hasOverlay() {return this.overlay;}
 
     public Identifier getPath() {return this.texturePath;}
 
@@ -213,28 +212,21 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
     @Override
     public int getColor(ItemStack stack) {
         NbtCompound nbtCompound = stack.getSubNbt("display");
-        return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : 10511680;
+        return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : this.defaultColor;
     }
 
     @Override
     public void onCraft(ItemStack stack, World world, PlayerEntity player) {
         super.onCraft(stack, world, player);
-        boolean foundAventail = false;
-        boolean foundRimGuards = false;
-        boolean foundBesagews = false;
         if (player.currentScreenHandler instanceof CraftingScreenHandler craftingInventory) {
             for (int i = 0; i < craftingInventory.getCraftingSlotCount(); i++) {
                 ItemStack ingredient = craftingInventory.getSlot(i).getStack();
                 if (ingredient.getItem() == ModItems.AVENTAIL) {
-                    foundAventail = true;
-                    break;
+                    stack.getOrCreateNbt().putBoolean("aventail", true);
                 }
-                if (ingredient.getItem() instanceof BannerItem) {
-                    NbtCompound bannerNbt = ingredient.getSubNbt("Pattern");
-                    if (bannerNbt != null) {
-                        stack.getOrCreateNbt().put("Pattern", bannerNbt.copy());
-                    }
-                    break;
+
+                if (ingredient.getItem() == ModItems.RIM_GUARDS) {
+                    stack.getOrCreateNbt().putBoolean("rimmed", true);
                 }
             }
         } else if (player.currentScreenHandler instanceof PlayerScreenHandler playerInventoryCrafting) {
@@ -242,34 +234,17 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
                 Slot slot = playerInventoryCrafting.getSlot(i);
                 ItemStack ingredient = slot.getStack();
                 if (ingredient.getItem() == ModItems.AVENTAIL) {
-                    foundAventail = true;
-                    break;
+                    stack.getOrCreateNbt().putBoolean("aventail", true);
                 }
-            }
-        } else if (player.currentScreenHandler instanceof SmithingScreenHandler smithingInventory) {
-            for (int i = 0; i < 2; i++) {
-                ItemStack ingredient = smithingInventory.getSlot(i).getStack();
+
                 if (ingredient.getItem() == ModItems.RIM_GUARDS) {
-                    foundRimGuards = true;
-                    break;
+                    stack.getOrCreateNbt().putBoolean("rimmed", true);
                 }
+
                 if (ingredient.getItem() == ModItems.BESAGEWS) {
-                    foundBesagews = true;
-                    break;
+                    stack.getOrCreateNbt().putBoolean("besagews", true);
                 }
             }
-        }
-
-        if (foundAventail) {
-            stack.getOrCreateNbt().putBoolean("aventail", true);
-        }
-
-        if (foundRimGuards) {
-            stack.getOrCreateNbt().putBoolean("rimmed", true);
-        }
-
-        if (foundBesagews) {
-            stack.getOrCreateNbt().putBoolean("besagews", true);
         }
     }
 

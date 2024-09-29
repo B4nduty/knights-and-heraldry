@@ -66,6 +66,18 @@ public class VillagerTradesModifier {
                                     new ItemStack(Items.EMERALD, 6),
                                     new ItemStack(ModItems.AVENTAIL, 1),
                                     12, 5, 0.05f));
+                            factories.add((entity, random) -> {
+                                Item item;
+                                int randomNumber = random.nextInt(1);
+                                if (randomNumber == 0) item = ModItems.SURCOAT_SLEEVELESS;
+                                else item = ModItems.SURCOAT;
+
+                                return new TradeOffer(
+                                        new ItemStack(Items.EMERALD, 5),
+                                        new ItemStack(item, 1),
+                                        32, 5, 0.05f
+                                );
+                            });
                         }
 
                         if (finalLevel == 3) {

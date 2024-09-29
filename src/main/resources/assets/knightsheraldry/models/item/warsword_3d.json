@@ -1,17 +1,23 @@
 {
+	"credit": "Made with Blockbench",
 	"parent": "item/handheld",
 	"textures": {
 		"layer0": "knightsheraldry:item/warsword_3d"
 	},
+	"overrides": [
+		{"predicate": {"blocking": 1}, "model": "knightsheraldry:item/warsword_3d_blocking"},
+		{"predicate": {"custom_model_data": 1}, "model": "knightsheraldry:item/warsword_3d_bludgeoning"},
+		{"predicate": {"blocking": 1, "custom_model_data": 1}, "model": "knightsheraldry:item/warsword_3d_bludgeoning_blocking"}
+	],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, -90, 0],
-			"translation": [-0.25, 26, 1.75],
+			"translation": [-0.25, 20.75, 1.75],
 			"scale": [4, 4, 1]
 		},
 		"thirdperson_lefthand": {
 			"rotation": [0, -90, 0],
-			"translation": [-0.25, 26, 1.75],
+			"translation": [-0.25, 20.75, 1.75],
 			"scale": [4, 4, 1]
 		},
 		"firstperson_righthand": {
@@ -39,13 +45,5 @@
 			"translation": [-0.5, -30, -16.75],
 			"scale": [2, 2, 1]
 		}
-	},
-	"overrides": [
-		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/warsword_3d_blocking" },
-		{ "predicate": { "custom_model_data": 1 }, "model": "knightsheraldry:item/warsword_3d_bludgeoning" },
-		{ "predicate": {
-			"blocking": 1,
-			"custom_model_data": 1
-		}, "model": "knightsheraldry:item/warsword_3d_bludgeoning_blocking" }
-	]
+	}
 }

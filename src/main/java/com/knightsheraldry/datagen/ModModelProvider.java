@@ -117,5 +117,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RIM_GUARDS, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.BESAGEWS, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.SURCOAT, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.SURCOAT_SLEEVELESS, Models.HANDHELD);
     }
 }

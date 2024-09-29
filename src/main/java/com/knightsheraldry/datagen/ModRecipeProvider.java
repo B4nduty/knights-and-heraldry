@@ -310,20 +310,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModItems.BESAGEWS, 1)
                 .criterion(hasItem(ModItems.MAIL_PAULDRON), conditionsFromItem(ModItems.MAIL_PAULDRON))
                 .criterion(hasItem(ModItems.BESAGEWS), conditionsFromItem(ModItems.BESAGEWS))
-                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "data/recipes/besagews_1"));
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "besagews_1"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BRIGANDINE_PAULDRON, 1)
                 .input(ModItems.BRIGANDINE_PAULDRON, 1)
                 .input(ModItems.BESAGEWS, 1)
                 .criterion(hasItem(ModItems.BRIGANDINE_PAULDRON), conditionsFromItem(ModItems.BRIGANDINE_PAULDRON))
                 .criterion(hasItem(ModItems.BESAGEWS), conditionsFromItem(ModItems.BESAGEWS))
-                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "data/recipes/besagews_2"));
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "besagews_2"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PLATE_PAULDRON, 1)
                 .input(ModItems.PLATE_PAULDRON, 1)
                 .input(ModItems.BESAGEWS, 1)
                 .criterion(hasItem(ModItems.PLATE_PAULDRON), conditionsFromItem(ModItems.PLATE_PAULDRON))
                 .criterion(hasItem(ModItems.BESAGEWS), conditionsFromItem(ModItems.BESAGEWS))
-                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "data/recipes/besagews_3"));
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "besagews_3"));
     }
 }
