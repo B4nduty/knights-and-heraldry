@@ -1,7 +1,6 @@
 package com.knightsheraldry.util;
 
 import com.knightsheraldry.KnightsHeraldry;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
