@@ -163,7 +163,13 @@ public class ModItemGroups {
                 armorStack(ModItems.BRIGANDINE_CHAUSSES, false, false, false),
                 armorStack(ModItems.PLATE_CHAUSSES, false, false, false),
 
-                armorStack(ModItems.SABATONS, false, false, false)
+                armorStack(ModItems.SABATONS, false, false, false),
+
+                armorStack(ModItems.HOOD, false, false, false),
+                armorStack(ModItems.TORN_HOOD, false, false, false),
+
+                armorStack(ModItems.CLOAK, false, false, false),
+                armorStack(ModItems.TORN_CLOAK, false, false, false)
         ));
     }
 

@@ -328,6 +328,22 @@ public class ModItems {
             new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 0,
                     0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/surcoat_sleeveless.png"), true, 16777215, false));
 
+    public static final Item CLOAK = registerItem("cloak",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK, 0, 0,
+                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/cloak.png"), true, false));
+
+    public static final Item TORN_CLOAK = registerItem("torn_cloak",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK, 0, 0,
+                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/torn_cloak.png"), true, false));
+
+    public static final Item HOOD = registerItem("hood",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK, 0, 0,
+                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/hood.png"), true, false));
+
+    public static final Item TORN_HOOD = registerItem("torn_hood",
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK, 0, 0,
+                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/torn_hood.png"), true, false));
+
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);
         items.add(item);

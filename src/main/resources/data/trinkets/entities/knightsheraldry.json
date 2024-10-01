@@ -4,9 +4,11 @@
   ],
   "slots": [
     "head/hat",
+    "head/face",
     "chest/cape",
     "chest/necklace",
     "chest/back",
+    "chest/surcoat",
     "legs/belt",
     "feet/shoes",
     "hand/glove"

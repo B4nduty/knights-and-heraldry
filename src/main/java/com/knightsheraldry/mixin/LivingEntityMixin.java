@@ -92,7 +92,6 @@ public abstract class LivingEntityMixin {
         return amount;
     }
 
-
     @Inject(method = "applyDamage", at = @At("TAIL"))
     private void sendDamage(DamageSource source, float amount, CallbackInfo ci) {
         if (KnightsHeraldry.config().getDamageIndicator() && source.getAttacker() instanceof PlayerEntity playerEntity

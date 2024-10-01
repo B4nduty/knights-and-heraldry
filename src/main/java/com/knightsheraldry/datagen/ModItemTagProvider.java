@@ -5,6 +5,7 @@ import com.knightsheraldry.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -85,5 +86,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModTags.Items.KH_ARMORS)
                 .add(ModItems.QUILTED_COIF, ModItems.GAMBESON, ModItems.GAMBESON_BREECHES, ModItems.GAMBESON_BOOTS,
                         ModItems.MAIL_COIF, ModItems.HAUBERK, ModItems.MAIL_BREECHES, ModItems.MAIL_BOOTS);
+
+        getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
+                .add(ModItems.CLOAK, ModItems.TORN_CLOAK);
     }
 }

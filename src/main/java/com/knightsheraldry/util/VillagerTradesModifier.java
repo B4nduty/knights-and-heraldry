@@ -66,18 +66,6 @@ public class VillagerTradesModifier {
                                     new ItemStack(Items.EMERALD, 6),
                                     new ItemStack(ModItems.AVENTAIL, 1),
                                     12, 5, 0.05f));
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(1);
-                                if (randomNumber == 0) item = ModItems.SURCOAT_SLEEVELESS;
-                                else item = ModItems.SURCOAT;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 5),
-                                        new ItemStack(item, 1),
-                                        32, 5, 0.05f
-                                );
-                            });
                         }
 
                         if (finalLevel == 3) {
@@ -415,6 +403,51 @@ public class VillagerTradesModifier {
                                     12, 15, 0.05f));
                         }
                     });
+
+            TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, level,
+                    factories -> {
+                if (finalLevel == 1) {
+                    factories.add((entity, random) -> {
+                        Item item;
+                        int randomNumber = random.nextInt(1);
+                        if (randomNumber == 0) item = ModItems.CLOAK;
+                        else item = ModItems.TORN_CLOAK;
+
+                        return new TradeOffer(
+                                new ItemStack(Items.EMERALD, 4),
+                                new ItemStack(item, 1),
+                                32, 1, 0.05f
+                        );
+                    });
+                    factories.add((entity, random) -> {
+                        Item item;
+                        int randomNumber = random.nextInt(1);
+                        if (randomNumber == 0) item = ModItems.HOOD;
+                        else item = ModItems.TORN_HOOD;
+
+                        return new TradeOffer(
+                                new ItemStack(Items.EMERALD, 4),
+                                new ItemStack(item, 1),
+                                32, 1, 0.05f
+                        );
+                    });
+                }
+
+                if (finalLevel == 2) {
+                    factories.add((entity, random) -> {
+                        Item item;
+                        int randomNumber = random.nextInt(1);
+                        if (randomNumber == 0) item = ModItems.SURCOAT_SLEEVELESS;
+                        else item = ModItems.SURCOAT;
+
+                        return new TradeOffer(
+                                new ItemStack(Items.EMERALD, 5),
+                                new ItemStack(item, 1),
+                                32, 5, 0.05f
+                        );
+                    });
+                }
+            });
         }
     }
 }

@@ -4,10 +4,7 @@ package com.knightsheraldry.items.custom.armor;
 import com.google.common.collect.Multimap;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.model.TrinketsBootsModel;
-import com.knightsheraldry.model.TrinketsChestplateModel;
-import com.knightsheraldry.model.TrinketsHelmetModel;
-import com.knightsheraldry.model.TrinketsLeggingsModel;
+import com.knightsheraldry.model.*;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
@@ -110,7 +107,7 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         if (stack.getOrCreateNbt().getBoolean("aventail")){
             toughness += 2;
         }
-        if (stack.getItem() == ModItems.SURCOAT || this.armor == 0 || toughness == 0) return modifiers;
+        if (this.armor == 0 && toughness == 0) return modifiers;
         modifiers.put(EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(uuid, KnightsHeraldry.MOD_ID + ":" + "protection", this.armor, EntityAttributeModifier.Operation.ADDITION));
         modifiers.put(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, new EntityAttributeModifier(uuid, KnightsHeraldry.MOD_ID + ":" + "toughness", toughness, EntityAttributeModifier.Operation.ADDITION));
         return modifiers;
@@ -126,6 +123,9 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         if (isDyeable()) {
             int color = getColor(stack);
             r = (color >> 16 & 255) / 255.0F; g = (color >> 8 & 255) / 255.0F; b = (color & 255) / 255.0F;
+        }
+        if (model instanceof CloakHoodModel cloakHoodModel) {
+            cloakHoodModel.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
         }
         model.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
         if (isDyeable() && hasOverlay()) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getOverlayIdentifier(this));
@@ -197,6 +197,8 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
                         this.model = new TrinketsHelmetModel(TrinketsHelmetModel.getTexturedModelData().createModel());
                 case CHESTPLATE ->
                         this.model = new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel());
+                case CLOAK ->
+                        this.model = new CloakHoodModel(CloakHoodModel.getTexturedModelData().createModel());
                 case LEGGINGS ->
                         this.model = new TrinketsLeggingsModel(TrinketsLeggingsModel.getTexturedModelData().createModel());
                 case BOOTS ->
@@ -251,7 +253,8 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         HELMET("helmet"),
         CHESTPLATE("chestplate"),
         LEGGINGS("leggings"),
-        BOOTS("boots");
+        BOOTS("boots"),
+        CLOAK("cloak");
 
         private final String model;
 

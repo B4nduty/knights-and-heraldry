@@ -160,6 +160,12 @@
   "item.knightsheraldry.surcoat": "Surcoat",
   "item.knightsheraldry.surcoat_sleeveless": "Surcoat Sleeveless",
 
+  "item.knightsheraldry.hood": "Hood",
+  "item.knightsheraldry.torn_hood": "Torn Hood",
+
+  "item.knightsheraldry.cloak": "Cloak",
+  "item.knightsheraldry.torn_cloak": "Torn Cloak",
+
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",
   "tooltip.knightsheraldry.right_click-replant": "§4Right-Click Crops §rto §lHarvest §r& §lReplant",
@@ -174,5 +180,7 @@
   "text.config.knightsheraldry.option.wardartCooldown": "WarDart throw Cooldown",
   "text.config.knightsheraldry.option.getDamageIndicator": "Damage Indicator",
 
-  "effect.knightsheraldry.pin": "Pin"
+  "effect.knightsheraldry.pin": "Pin",
+
+  "trinkets.slot.chest.surcoat": "Surcoat Slot"
 }
