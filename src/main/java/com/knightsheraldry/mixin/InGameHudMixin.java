@@ -1,10 +1,12 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
+import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
 import com.mojang.blaze3d.systems.RenderSystem;
+import dev.emi.trinkets.api.TrinketsApi;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -342,5 +344,25 @@ public class InGameHudMixin {
     @Unique
     private void renderBlockedStamina(DrawContext drawContext, int x, int y) {
         drawContext.drawTexture(STAMINA_BLOCKED, x, y, 0, 0, STAMINA_BAR_WIDTH, STAMINA_BAR_HEIGHT, STAMINA_BAR_WIDTH, STAMINA_BAR_HEIGHT);
+    }
+
+    @Unique
+    private static final Identifier VISOR_HELMET = new Identifier(KnightsHeraldry.MOD_ID, "textures/overlay/visor_helmet.png");
+
+    @Inject(method = "render", at = @At("HEAD"))
+    private void renderBackgroundOverlays(DrawContext context, float tickDelta, CallbackInfo ci) {
+        ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
+            trinketComponent.getAllEquipped().forEach(pair -> {
+                ItemStack trinketStack = pair.getRight();
+                if (trinketStack.getItem() instanceof KHTrinketsItem && trinketStack.isIn(ModTags.Items.VISORED_HELMET) && KnightsHeraldry.config().getVisoredHelmet()) {
+                    int width = context.getScaledWindowWidth();
+                    int height = context.getScaledWindowHeight();
+
+                    RenderSystem.setShaderTexture(0, VISOR_HELMET);
+                    context.drawTexture(VISOR_HELMET, 0, 0, 0, 0, width, height, width, height);
+                }
+            });
+        });
     }
 }

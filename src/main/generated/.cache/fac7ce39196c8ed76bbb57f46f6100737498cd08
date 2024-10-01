@@ -1,4 +1,4 @@
-// 1.20.1	2024-10-02T00:17:19.99917	Knights & Heraldry/Tags for minecraft:item
+// 1.20.1	2024-10-02T01:15:28.4609197	Knights & Heraldry/Tags for minecraft:item
 1ac8bbb29335f98d8bfec25cbd1149ac2c3e00c1 data\knightsheraldry\tags\items\kh_weapons_ignores_armor.json
 eef1316df479a2183609ec4b61fced16f97dd43e data\knightsheraldry\tags\items\kh_weapons_only_bludgeoning.json
 ba1c121e2c07133dcefa71078a4fa6e41c3a1e04 data\knightsheraldry\tags\items\kh_weapons_bludgeoning_to_piercing.json
@@ -12,6 +12,7 @@ ec4524ac22213c5d71dca5813c48dec15672cc19 data\knightsheraldry\tags\items\kh_weap
 ef558e24a8bcd2d96cac8e8abf4713edac8fcaab data\knightsheraldry\tags\items\kh_weapons_damage_behind.json
 b97d744edfbb4e47f709b1b293436ee9bf40d98d data\knightsheraldry\tags\items\kh_armors.json
 ddefd83f8e9cfec6836621e2037144c892e1cb5c data\knightsheraldry\tags\items\kh_weapons_piercing.json
+e2961b04f35c89229ffa99de508ab7389ccb4e26 data\knightsheraldry\tags\items\visored_helmet.json
 14879d21971e5a6dcea9876710aff73d8b1efd66 data\minecraft\tags\items\freeze_immune_wearables.json
 95308deba17101a6956f4a09b124a5a9d38a9a22 data\knightsheraldry\tags\items\kh_weapons_bypass_block.json
 996ed81a8d3485c0d6ba8489a668458206af7761 data\knightsheraldry\tags\items\kh_weapons_only_piercing.json

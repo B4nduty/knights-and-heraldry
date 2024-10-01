@@ -179,6 +179,7 @@
   "text.config.knightsheraldry.option.getDamageTamedEntities": "Lance Weapons can Damage Tamed Entities",
   "text.config.knightsheraldry.option.wardartCooldown": "WarDart throw Cooldown",
   "text.config.knightsheraldry.option.getDamageIndicator": "Damage Indicator",
+  "text.config.knightsheraldry.option.getVisoredHelmet": "Visored Helmet Overlay",
 
   "effect.knightsheraldry.pin": "Pin",
 

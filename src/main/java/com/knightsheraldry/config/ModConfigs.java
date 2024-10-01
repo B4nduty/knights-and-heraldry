@@ -30,5 +30,9 @@ public class ModConfigs {
 
     @Comment("Damage Indicator")
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    public boolean getDamageIndicator = true;
+    public boolean getDamageIndicator = false;
+
+    @Comment("Visored Helmet Overlay")
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    public boolean getVisoredHelmet = true;
 }

@@ -23,6 +23,7 @@ public class ModTags {
         public static final TagKey<Item> KH_WEAPONS_HARVEST = createTag("kh_weapons_harvest");
         public static final TagKey<Item> KH_ARMORS = createTag("kh_armors");
         public static final TagKey<Item> KH_ALWAYS_WEARABLE = createTag("kh_always_wearable");
+        public static final TagKey<Item> VISORED_HELMET = createTag("visored_helmet");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name));

@@ -92,5 +92,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.KH_ALWAYS_WEARABLE)
                 .add(ModItems.HOOD, ModItems.TORN_HOOD, ModItems.CLOAK, ModItems.TORN_CLOAK);
+
+        getOrCreateTagBuilder(ModTags.Items.VISORED_HELMET)
+                .add(ModItems.ARMET, ModItems.ARMET_2, ModItems.BARBUTE, ModItems.BASCINET, ModItems.CAGE,
+                        ModItems.CAGE_2, ModItems.FLAT_BASCINET, ModItems.GREAT_HELM, ModItems.GREAT_HELM_2,
+                        ModItems.SALLET, ModItems.FROGMOUTH, ModItems.GREAT_ARMET, ModItems.GREAT_ARMET_2,
+                        ModItems.GREAT_BASCINET, ModItems.GREAT_HOUNDSKUL_BASCINET, ModItems.MAXIMILLIAN_HELMET);
     }
 }
