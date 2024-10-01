@@ -83,7 +83,7 @@ public class PlayerEntityRendererMixin {
         if (TrinketsApi.getTrinketComponent(player).isPresent()) {
             for (Pair<SlotReference, ItemStack> equipped : TrinketsApi.getTrinketComponent(player).get().getEquipped(trinketStack -> trinketStack.getItem() instanceof KHTrinketsItem)) {
                 ItemStack trinket = equipped.getRight();
-                if (trinket.getItem() instanceof KHTrinketsItem khTrinketsItem) {
+                if (trinket.getItem() instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.type == KHTrinketsItem.Type.CHESTPLATE) {
                     model = getTrinketArmModel();
                     if (model instanceof TrinketsArmModel trinketsArmModel && client.currentScreen == null) {
                         trinketsArmModel.armorRightArm.copyTransform(arm);

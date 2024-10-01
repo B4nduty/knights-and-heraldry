@@ -89,5 +89,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
                 .add(ModItems.CLOAK, ModItems.TORN_CLOAK);
+
+        getOrCreateTagBuilder(ModTags.Items.KH_ALWAYS_WEARABLE)
+                .add(ModItems.HOOD, ModItems.TORN_HOOD, ModItems.CLOAK, ModItems.TORN_CLOAK);
     }
 }

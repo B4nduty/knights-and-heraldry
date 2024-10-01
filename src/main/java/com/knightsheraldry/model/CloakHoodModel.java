@@ -25,16 +25,16 @@ public class CloakHoodModel extends BipedEntityModel<LivingEntity> {
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = BipedEntityModel.getModelData(Dilation.NONE, 0f);
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData armorHead = modelPartData.addChild("armorHead", ModelPartBuilder.create().uv(56, 0).cuboid(-4.5F, -8.5F, -8.0F, 9.0F, 9.0F, 6.0F, new Dilation(0.2F))
-				.uv(40, 15).cuboid(-4.5F, -8.5F, -1.6F, 9.0F, 9.0F, 6.0F, new Dilation(0.2F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		ModelPartData armorHead = modelPartData.addChild("armorHead", ModelPartBuilder.create().uv(56, 0).cuboid(-4.5F, -9.5F, -8.1F, 9.0F, 10.0F, 6.0F, new Dilation(0.6F))
+				.uv(40, 16).cuboid(-4.5F, -9.5F, -0.9F, 9.0F, 10.0F, 6.0F, new Dilation(0.6F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
-		armorHead.addChild("hood_tail_r1", ModelPartBuilder.create().uv(86, 0).cuboid(-4.5F, -23.95F, 19.33F, 9.0F, 9.0F, 3.0F, new Dilation(0.19F)), ModelTransform.of(0.0F, 24.0F, 0.0F, 0.6109F, 0.0F, 0.0F));
+		armorHead.addChild("hood_tail_r1", ModelPartBuilder.create().uv(86, 0).cuboid(-4.5F, -23.95F, 19.33F, 9.0F, 9.0F, 3.0F, new Dilation(0.59F)), ModelTransform.of(0.0F, 24.2F, 1.0F, 0.6109F, 0.0F, 0.0F));
 
 		modelPartData.addChild("armorBody", ModelPartBuilder.create().uv(34, 36).cuboid(-8.0F, -0.75F, -3.0F, 16.0F, 22.0F, 6.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
-		modelPartData.addChild("armorRightArm", ModelPartBuilder.create().uv(79, 36).cuboid(-5.0F, -2.75F, -3.0F, 6.0F, 22.0F, 6.0F, new Dilation(0.1F)), ModelTransform.pivot(-4.0F, 2.0F, 0.0F));
-
 		modelPartData.addChild("armorLeftArm", ModelPartBuilder.create().uv(104, 36).cuboid(-1.0F, -2.75F, -3.0F, 6.0F, 22.0F, 6.0F, new Dilation(0.1F)), ModelTransform.pivot(4.0F, 2.0F, 0.0F));
+
+		modelPartData.addChild("armorRightArm", ModelPartBuilder.create().uv(79, 36).cuboid(-5.0F, -2.75F, -3.0F, 6.0F, 22.0F, 6.0F, new Dilation(0.1F)), ModelTransform.pivot(-4.0F, 2.0F, 0.0F));
 		return TexturedModelData.of(modelData, 128, 64);
 	}
 
@@ -77,12 +77,12 @@ public class CloakHoodModel extends BipedEntityModel<LivingEntity> {
 		if (livingEntity.isSprinting() || livingEntity.isInSneakingPose()) {
 			k = 0.61086515F;
 			l = -0.1658996062F;
-			m = 2.625F;
+			m = 2.875F;
 			n = 0.01908953812F;
 		} else if (livingEntity.isOnGround() && livingEntity.getVelocity().horizontalLengthSquared() > 0 || !livingEntity.isOnGround()) {
 			k = 0.26179935F;
 			l = -0.1636246F;
-			m = 1.125F;
+			m = 2.125F;
 			n = 0.00818122875F;
 		}
 

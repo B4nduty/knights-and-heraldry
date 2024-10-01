@@ -182,5 +182,12 @@
 
   "effect.knightsheraldry.pin": "Pin",
 
-  "trinkets.slot.chest.surcoat": "Surcoat Slot"
+  "trinkets.slot.chest.surcoat": "Surcoat Slot",
+
+  "text.tooltip.knightsheraldry.hungerDrain": "+%s%% Hunger Drain",
+  "text.tooltip.knightsheraldry.freezing": "Prevents freezing",
+  "text.tooltip.knightsheraldry.hideNameTag": "Hide Name Tag",
+  "text.tooltip.knightsheraldry.slashingResistance": "+%s%% Slashing Resistance",
+  "text.tooltip.knightsheraldry.bludgeoningResistance": "+%s%% Bludgeoning Resistance",
+  "text.tooltip.knightsheraldry.piercingResistance": "+%s%% Piercing Resistance"
 }

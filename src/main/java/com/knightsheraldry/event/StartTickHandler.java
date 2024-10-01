@@ -2,6 +2,7 @@ package com.knightsheraldry.event;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
+import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.ModTags;
@@ -34,8 +35,10 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
                 TrinketsApi.getTrinketComponent(playerEntity).ifPresent(trinketComponent -> {
                     trinketComponent.getAllEquipped().forEach(pair -> {
                         ItemStack trinketStack = pair.getRight();
-                        playerEntity.giveItemStack(trinketStack);
-                        trinketStack.setCount(0);
+                        if (trinketStack.getItem() instanceof KHTrinketsItem && !trinketStack.isIn(ModTags.Items.KH_ALWAYS_WEARABLE)) {
+                            playerEntity.giveItemStack(trinketStack);
+                            trinketStack.setCount(0);
+                        }
                     });
                 });
             }

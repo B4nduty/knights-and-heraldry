@@ -1,5 +1,6 @@
 package com.knightsheraldry.event;
 
+import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.util.ModTags;
@@ -19,16 +20,19 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
         if (stack.getItem() instanceof KHTrinketsItem khTrinketsItem
                 && khTrinketsItem.getHungerDrainAddition() != 0.0d) {
             double hungerDrainAddition = khTrinketsItem.getHungerDrainAddition();
-            lines.add(Text.literal("+" + ((int) (hungerDrainAddition * 100)) + "% Hunger Drain").formatted(Formatting.BLUE));
+            lines.add(Text.translatable("text.tooltip.knightsheraldry.hungerDrain", ((int) (hungerDrainAddition * 100))).formatted(Formatting.BLUE));
         }
+
+        if (stack.getItem() == ModItems.HOOD || stack.getItem() == ModItems.TORN_HOOD) lines.add(Text.translatable("text.tooltip.knightsheraldry.hideNameTag").formatted(Formatting.BLUE));
+        if (stack.getItem() == ModItems.CLOAK || stack.getItem() == ModItems.TORN_CLOAK) lines.add(Text.translatable("text.tooltip.knightsheraldry.freezing").formatted(Formatting.BLUE));
+
         if (stack.getItem() instanceof KHArmorItem khArmorItem) {
             double slashingResistance = khArmorItem.getSlashingResistance();
             double bludgeoningResistance = khArmorItem.getBludgeoningResistance();
             double piercingResistance = khArmorItem.getPiercingResistance();
-            if (slashingResistance != 0) lines.add(Text.literal("+" + slashingResistance + "% Slashing Resistance").formatted(Formatting.BLUE));
-            if (bludgeoningResistance != 0) lines.add(Text.literal("+" + bludgeoningResistance + "% Bludgeoning Resistance").formatted(Formatting.BLUE));
-            if (piercingResistance != 0) lines.add(Text.literal("+" + piercingResistance + "% Piercing Resistance").formatted(Formatting.BLUE));
+            if (slashingResistance != 0) lines.add(Text.translatable("text.tooltip.knightsheraldry.slashingResistance", slashingResistance).formatted(Formatting.BLUE));
+            if (bludgeoningResistance != 0) lines.add(Text.translatable("text.tooltip.knightsheraldry.bludgeoningResistance", bludgeoningResistance).formatted(Formatting.BLUE));
+            if (piercingResistance != 0) lines.add(Text.translatable("text.tooltip.knightsheraldry.piercingResistance", piercingResistance).formatted(Formatting.BLUE));
         }
-
     }
 }
