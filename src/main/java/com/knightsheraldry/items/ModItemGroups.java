@@ -78,7 +78,11 @@ public class ModItemGroups {
                 weaponStack(ModItems.WARSWORD_CLAYMORE),
                 weaponStack(ModItems.WARSWORD_FLAMBERGE),
                 weaponStack(ModItems.WARSWORD_ZWEIHANDER),
-                weaponStack(ModItems.WARDART)
+                weaponStack(ModItems.WARDART),
+
+                weaponStack(ModItems.LONGBOW),
+
+                weaponStack(ModItems.SWALLOWTAIL_ARROW)
         ));
     }
 

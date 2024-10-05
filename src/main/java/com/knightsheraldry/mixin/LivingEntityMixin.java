@@ -3,13 +3,14 @@ package com.knightsheraldry.mixin;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.item.Lance;
 import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.ModTags;
+import com.knightsheraldry.util.KHTags;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,6 +24,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
+    @Unique
+    private int stuckSwallowTailArrowTimer;
+
     @Inject(method = "jump", at = @At("HEAD"), cancellable = true)
     private void onJump(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity)(Object) this;
@@ -55,10 +59,10 @@ public abstract class LivingEntityMixin {
     public void disablesShield(CallbackInfoReturnable<Boolean> cir) {
         ItemStack mainStack = ((LivingEntity) (Object) this).getMainHandStack();
         boolean isWeaponOrInTag = mainStack.getItem() instanceof AxeItem
-                || mainStack.isIn(ModTags.Items.KH_WEAPONS_DISABLE_SHIELD);
+                || mainStack.isIn(KHTags.Weapon.KH_WEAPONS_DISABLE_SHIELD);
 
         if (KnightsHeraldry.config().getVanillaWeaponsDamage0()) {
-            cir.setReturnValue(mainStack.isIn(ModTags.Items.KH_WEAPONS_DISABLE_SHIELD));
+            cir.setReturnValue(mainStack.isIn(KHTags.Weapon.KH_WEAPONS_DISABLE_SHIELD));
         } else {
             cir.setReturnValue(isWeaponOrInTag);
         }
@@ -67,7 +71,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "damage", at = @At("HEAD"))
     private void injectDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if (source.getAttacker() instanceof PlayerEntity attacker) {
-            if (attacker.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS_BYPASS_BLOCK)) {
+            if (attacker.getMainHandStack().isIn(KHTags.Weapon.KH_WEAPONS_BYPASS_BLOCK)) {
                 this.blockShield = false;
             }
         }
@@ -95,13 +99,12 @@ public abstract class LivingEntityMixin {
     @Inject(method = "applyDamage", at = @At("TAIL"))
     private void sendDamage(DamageSource source, float amount, CallbackInfo ci) {
         if (KnightsHeraldry.config().getDamageIndicator() && source.getAttacker() instanceof PlayerEntity playerEntity
-                && playerEntity.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS)) {
+                && playerEntity.getMainHandStack().isIn(KHTags.Weapon.KH_WEAPONS)) {
             if (!playerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
                 if (amount <= 0) amount = 0;
                 else if (!(playerEntity.getMainHandStack().getItem() instanceof Lance)) amount = amount + 1;
             }
-            int amountInt = (int) (amount * 10);
-            playerEntity.sendMessage(Text.literal("Damage: " + (((float) amountInt) / 10)), true);
+            playerEntity.sendMessage(Text.literal("Damage: " + (amount)), true);
         }
     }
 
@@ -111,5 +114,27 @@ public abstract class LivingEntityMixin {
     @Redirect(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;blockedByShield(Lnet/minecraft/entity/damage/DamageSource;)Z"))
     private boolean redirectBlockedByShield(LivingEntity instance, DamageSource source) {
         return blockShield && instance.blockedByShield(source);
+    }
+
+
+    @Inject(method = "tick", at = @At("HEAD"))
+    public void tick(CallbackInfo ci) {
+        LivingEntity entity = (LivingEntity)(Object) this;
+        if (entity instanceof PlayerEntity playerEntity && ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getInt("swallowtail_arrow_count") >= 0) {
+            int i = playerEntity.getStuckArrowCount();
+            if (i > 0) {
+                if (this.stuckSwallowTailArrowTimer <= 0) {
+                    this.stuckSwallowTailArrowTimer = 20 * (30 - i);
+                }
+
+                --this.stuckSwallowTailArrowTimer;
+                if (this.stuckSwallowTailArrowTimer <= 0) {
+                    NbtCompound nbt = ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData();
+                    int swallowTailArrowCount = nbt.getInt("swallowtail_arrow_count");
+                    swallowTailArrowCount = swallowTailArrowCount - 1;
+                    nbt.putInt("swallowtail_arrow_count", swallowTailArrowCount);
+                }
+            }
+        }
     }
 }

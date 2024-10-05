@@ -5,7 +5,7 @@ import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.ModTags;
+import com.knightsheraldry.util.KHTags;
 import com.knightsheraldry.util.StaminaData;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -18,12 +18,12 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class StartTickHandler implements ServerTickEvents.StartTick {
-
     private static final int TOTAL_STAMINA = 200;
     private static final int MID_STAMINA_THRESHOLD = 60;
     private static final int LOW_STAMINA_THRESHOLD = 30;
     private static final int MINING_FATIGUE_LEVEL = 3;
     private static final int SLOWNESS_LEVEL = 3;
+    private int damageTick;
 
     @Override
     public void onStartTick(MinecraftServer server) {
@@ -35,12 +35,20 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
                 TrinketsApi.getTrinketComponent(playerEntity).ifPresent(trinketComponent -> {
                     trinketComponent.getAllEquipped().forEach(pair -> {
                         ItemStack trinketStack = pair.getRight();
-                        if (trinketStack.getItem() instanceof KHTrinketsItem && !trinketStack.isIn(ModTags.Items.KH_ALWAYS_WEARABLE)) {
+                        if (trinketStack.getItem() instanceof KHTrinketsItem && !trinketStack.isIn(KHTags.Armors.KH_ALWAYS_WEARABLE)) {
                             playerEntity.giveItemStack(trinketStack);
                             trinketStack.setCount(0);
                         }
                     });
                 });
+            }
+
+            int swallowTailArrowCount = ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getInt("swallowtail_arrow_count");
+            if (swallowTailArrowCount >= 1 && !playerEntity.isCreative()) {
+                damageTick++;
+                if (damageTick % 20 == 0 && (playerEntity.isSprinting() || playerEntity.getVelocity().horizontalLengthSquared() > 0)) {
+                    playerEntity.damage(playerEntity.getDamageSources().genericKill(), 0.2f);
+                }
             }
         }
     }
@@ -177,6 +185,6 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
     }
 
     private boolean isKHArmor(ItemStack stack) {
-        return stack.isIn(ModTags.Items.KH_ARMORS);
+        return stack.isIn(KHTags.Armors.KH_UNDER_ARMORS);
     }
 }

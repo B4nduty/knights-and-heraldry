@@ -4,7 +4,7 @@ import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.items.custom.item.Lance;
 import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.ModTags;
+import com.knightsheraldry.util.KHTags;
 import com.knightsheraldry.util.PlayerVelocity;
 import com.knightsheraldry.util.StaminaData;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -58,8 +58,8 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     @Inject(method = "damageShield", at = @At("HEAD"), cancellable = true)
     private void knightsHeraldry$onDamageShield(float amount, CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.getMainHandStack().isIn(ModTags.Items.KH_WEAPONS)) {
-            if (player.getActiveItem().isIn(ModTags.Items.KH_WEAPONS_SHIELD)) {
+        if (player.getMainHandStack().isIn(KHTags.Weapon.KH_WEAPONS)) {
+            if (player.getActiveItem().isIn(KHTags.Weapon.KH_WEAPONS_SHIELD)) {
                 if (!player.getWorld().isClient) {
                     player.incrementStat(Stats.USED.getOrCreateStat(player.getActiveItem().getItem()));
                 }
@@ -87,7 +87,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
         }
 
         if (player.getRandom().nextFloat() < f) {
-            if (activeItem.isIn(ModTags.Items.KH_WEAPONS_SHIELD)) {
+            if (activeItem.isIn(KHTags.Weapon.KH_WEAPONS_SHIELD)) {
                 player.getItemCooldownManager().set(activeItem.getItem(), 100);
             } else {
                 player.getItemCooldownManager().set(Items.SHIELD, 60);

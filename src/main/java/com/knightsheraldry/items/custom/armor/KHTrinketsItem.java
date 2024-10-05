@@ -5,7 +5,7 @@ import com.google.common.collect.Multimap;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.model.*;
-import com.knightsheraldry.util.ModTags;
+import com.knightsheraldry.util.KHTags;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;
@@ -55,7 +55,7 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
 
     private boolean isWearingFullKHArmorSet(LivingEntity entity) {
         for (EquipmentSlot slot : EquipmentSlot.values()) {
-            if (!this.getDefaultStack().isIn(ModTags.Items.KH_ALWAYS_WEARABLE) && isArmorSlot(slot)) {
+            if (!this.getDefaultStack().isIn(KHTags.Armors.KH_ALWAYS_WEARABLE) && isArmorSlot(slot)) {
                 ItemStack armorPiece = entity.getEquippedStack(slot);
                 if (!(armorPiece.getItem() instanceof KHArmorItem)) {
                     return false;

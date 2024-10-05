@@ -1,6 +1,6 @@
 package com.knightsheraldry.items.custom.item;
 
-import com.knightsheraldry.util.ModTags;
+import com.knightsheraldry.util.KHTags;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -71,10 +71,10 @@ public class Billhook extends KHWeapons {
                             critical = true;
                         }
 
-                        if (target.hasVehicle()) {
-                            Entity vehicle = target.getVehicle();
-                            if (vehicle != null && critical) {
-                                target.stopRiding();
+                        if (target.hasControllingPassenger()) {
+                            Entity passenger = target.getControllingPassenger();
+                            if (passenger != null && critical) {
+                                passenger.stopRiding();
                             }
                         }
                     });
@@ -89,7 +89,7 @@ public class Billhook extends KHWeapons {
         float maxDamage = 0.0F;
         boolean piercing = false;
 
-        if (stack.isIn(ModTags.Items.KH_WEAPONS_PIERCING)) {
+        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_PIERCING)) {
             int[] piercingAnimations = getPiercingAnimation();
             for (int piercingAnimation : piercingAnimations) {
                 if (comboCount == 0 && piercingAnimation == 1) {
@@ -110,7 +110,7 @@ public class Billhook extends KHWeapons {
             if (piercingAnimations.length == getAnimation()) piercing = true;
         }
 
-        if (stack.isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
+        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
 
         int startIndex = piercing ? 5 : 0;
         int endIndex = piercing ? 9 : 4;

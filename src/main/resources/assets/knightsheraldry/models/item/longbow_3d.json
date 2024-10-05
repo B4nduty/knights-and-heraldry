@@ -1,0 +1,39 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "knightsheraldry:item/longbow_3d"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [0, -90, 0],
+      "translation": [-0.5, -1, 4.5],
+      "scale": [2.01, 2.01, 1]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [0, 90, 0],
+      "translation": [-0.5, -1, 4.5],
+      "scale": [2.01, 2.01, 1]
+    },
+    "firstperson_righthand": {
+      "rotation": [-17, -90, 0],
+      "translation": [0, -1.75, -4],
+      "scale": [3, 3, 1]
+    },
+    "firstperson_lefthand": {
+      "rotation": [-17, 90, 0],
+      "translation": [0, -1.75, -4],
+      "scale": [3, 3, 1]
+    }
+  },
+  "overrides": [
+    {"predicate": {"pulling": 1}, "model": "knightsheraldry:item/longbow_pulling_0"},
+    {"predicate": {"pulling": 1, "pull": 0.3}, "model": "knightsheraldry:item/longbow_pulling_1"},
+    {"predicate": {"pulling": 1, "pull": 0.6}, "model": "knightsheraldry:item/longbow_pulling_2"},
+    {"predicate": {"pulling": 1, "pull": 0.9}, "model": "knightsheraldry:item/longbow_pulling_2"},
+    {"predicate": {"longbow_xxxl": 1}, "model": "knightsheraldry:item/longbow_xxxl"},
+    {"predicate": {"longbow_xxxl": 1, "pulling": 1}, "model": "knightsheraldry:item/longbow_xxxl_pulling_0"},
+    {"predicate": {"longbow_xxxl": 1, "pulling": 1, "pull": 0.3}, "model": "knightsheraldry:item/longbow_xxxl_pulling_1"},
+    {"predicate": {"longbow_xxxl": 1, "pulling": 1, "pull": 0.6}, "model": "knightsheraldry:item/longbow_xxxl_pulling_2"},
+    {"predicate": {"longbow_xxxl": 1, "pulling": 1, "pull": 0.9}, "model": "knightsheraldry:item/longbow_xxxl_pulling_2"}
+  ]
+}

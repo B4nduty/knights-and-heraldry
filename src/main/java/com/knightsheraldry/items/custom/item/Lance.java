@@ -3,7 +3,7 @@ package com.knightsheraldry.items.custom.item;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.ModTags;
+import com.knightsheraldry.util.KHTags;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -82,7 +82,7 @@ public class Lance extends SwordItem {
     }
 
     private void applyDamage(LivingEntity target, PlayerEntity playerEntity, ItemStack stack, float damage) {
-        if (stack.isIn(ModTags.Items.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - (damage - 1) > 0) {
+        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - (damage - 1) > 0) {
             target.setHealth(target.getHealth() - (damage - 1));
         } else {
             target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage - 1);

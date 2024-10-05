@@ -1,5 +1,6 @@
 package com.knightsheraldry;
 
+import com.knightsheraldry.client.KHSwallowtailArrowEntityRenderer;
 import com.knightsheraldry.client.UnderArmourRenderer;
 import com.knightsheraldry.client.WarDartRenderer;
 import com.knightsheraldry.entity.ModEntities;
@@ -8,6 +9,7 @@ import com.knightsheraldry.event.ItemTooltipHandler;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
+import com.knightsheraldry.items.custom.item.KHRangeWeapons;
 import com.knightsheraldry.items.custom.item.WoodenLance;
 import com.knightsheraldry.networking.ModMessages;
 import dev.emi.trinkets.api.client.TrinketRenderer;
@@ -23,7 +25,11 @@ import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.item.Item;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import software.bernie.geckolib.animatable.GeoItem;
+
+import java.util.Objects;
 
 public class KnightsHeraldryClient implements ClientModInitializer {
 
@@ -34,10 +40,13 @@ public class KnightsHeraldryClient implements ClientModInitializer {
         ClientPreAttackCallback.EVENT.register(new AttackCancelHandler());
 
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
+        ModItems.items.forEach(item -> {
+            if (item == ModItems.SWALLOWTAIL_ARROW) EntityRendererRegistry.register(ModEntities.KH_ARROW, KHSwallowtailArrowEntityRenderer::new);
+        });
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
 
         ModItems.items.forEach(item -> {
-            registerModelPredicate(item);
+            if (!(item instanceof GeoItem)) registerModelPredicate(item);
             if ((item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeable())
                     || (item instanceof KHArmorItem khArmorItem && khArmorItem.isDyeable()) || item instanceof WoodenLance) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
@@ -70,6 +79,19 @@ public class KnightsHeraldryClient implements ClientModInitializer {
             ModelPredicateProviderRegistry.register(item, new Identifier("besagews"),
                     (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
                             && stack.getOrCreateNbt().getBoolean("besagews") ? 1.0F : 0.0F);
+            if (item instanceof KHRangeWeapons) {
+                ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {
+                    if (entity == null) {
+                        return 0.0F;
+                    } else {
+                        return entity.getActiveItem() != stack ? 0.0F : (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
+                    }
+                });
+                ModelPredicateProviderRegistry.register(item, new Identifier("pulling"), (stack, world, entity, seed) ->
+                        entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
+                ModelPredicateProviderRegistry.register(item, new Identifier("longbow_xxxl"), (stack, world, entity, seed) ->
+                        entity != null && Objects.equals(stack.getName(), Text.literal("Longbow XXXL")) ? 1.0F : 0.0F);
+            }
         }
     }
 }

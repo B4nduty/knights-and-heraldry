@@ -1,7 +1,7 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.util.ModTags;
+import com.knightsheraldry.util.KHTags;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
@@ -26,7 +26,7 @@ public abstract class ItemRendererMixin {
             at = @At("HEAD"),
             cancellable = true)
     public void onRenderItem(LivingEntity entity, ItemStack item, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci) {
-        if (item.isEmpty() || !(item.isIn(ModTags.Items.KH_WEAPONS_3D))) {
+        if (item.isEmpty() || !(item.isIn(KHTags.Weapon.KH_WEAPONS_3D))) {
             return;
         }
 

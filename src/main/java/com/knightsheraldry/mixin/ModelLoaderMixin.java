@@ -68,6 +68,7 @@ public abstract class ModelLoaderMixin {
                 "warsword_flamberge_3d",
                 "warsword_zweihander_3d",
                 "wardart_3d",
+                "longbow_3d"
         };
 
         for (String modelName : modelNames) {

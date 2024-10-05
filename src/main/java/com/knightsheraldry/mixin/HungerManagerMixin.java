@@ -31,6 +31,7 @@ public class HungerManagerMixin {
     public void onAddExhaustion(float exhaustion, CallbackInfo ci) {
         double hungerAddition = 1.0d;
 
+        if (player == null) return;
         if (TrinketsApi.getTrinketComponent(player).isPresent()) {
             for (Pair<SlotReference, ItemStack> equipped : TrinketsApi.getTrinketComponent(player).get().getEquipped(stack -> stack.getItem() instanceof KHTrinketsItem)) {
                 ItemStack trinket = equipped.getRight();

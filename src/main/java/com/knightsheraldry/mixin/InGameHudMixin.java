@@ -4,7 +4,7 @@ import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.ModTags;
+import com.knightsheraldry.util.KHTags;
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.bettercombat.logic.PlayerAttackProperties;
@@ -75,11 +75,11 @@ public class InGameHudMixin {
             if (weapon != null) {
                 boolean bludgeoning = player.getMainHandStack().getOrCreateNbt().getInt("CustomModelData") == 1 ||
                         player.getOffHandStack().getOrCreateNbt().getInt("CustomModelData") == 1;
-                if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_TO_PIERCING)) bludgeoning = !bludgeoning;
+                if (weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_BLUDGEONING_TO_PIERCING)) bludgeoning = !bludgeoning;
                 int comboCount = ((PlayerAttackProperties) player).getComboCount();
                 boolean piercing = false;
 
-                if (weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_PIERCING)) {
+                if (weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_PIERCING)) {
                     int[] piercingAnimations = weapon.getPiercingAnimation();
                     int animationLength = weapon.getAnimation();
                     for (int piercingAnimation : piercingAnimations) {
@@ -94,11 +94,11 @@ public class InGameHudMixin {
                 float[] damageValues = weapon.getDefaultAttackDamageValues();
                 double[] radiusValues = weapon.getDefaultRadiusValues();
 
-                if (bludgeoning || weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_ONLY_BLUDGEONING)) { // Bludgeoning
+                if (bludgeoning || weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_ONLY_BLUDGEONING)) { // Bludgeoning
                     renderBludgeoningOverlay(context, closestDistance, radiusValues, damageValues);
-                } else if (piercing && weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_PIERCING)
-                        || weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_BLUDGEONING_TO_PIERCING)
-                        || weapon.getDefaultStack().isIn(ModTags.Items.KH_WEAPONS_ONLY_PIERCING)) { // Piercing
+                } else if (piercing && weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_PIERCING)
+                        || weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_BLUDGEONING_TO_PIERCING)
+                        || weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_ONLY_PIERCING)) { // Piercing
                     renderPiercingOverlay(context, closestDistance, radiusValues, damageValues);
                 } else { // Slashing (default case)
                     renderSlashingOverlay(context, closestDistance, radiusValues, damageValues);
@@ -282,10 +282,10 @@ public class InGameHudMixin {
     @Unique
     private boolean ableStamina(PlayerEntity player) {
         boolean hasKHWeapon = player.getMainHandStack().getItem() instanceof KHWeapons ||
-                player.getOffHandStack().isIn(ModTags.Items.KH_WEAPONS);
+                player.getOffHandStack().isIn(KHTags.Weapon.KH_WEAPONS);
         boolean hasRequiredEquipment = false;
         for (ItemStack armorStack : player.getArmorItems()) {
-            if (armorStack.isIn(ModTags.Items.KH_ARMORS)) {
+            if (armorStack.isIn(KHTags.Armors.KH_UNDER_ARMORS)) {
                 hasRequiredEquipment = true;
                 break;
             }
@@ -355,7 +355,7 @@ public class InGameHudMixin {
         TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
             trinketComponent.getAllEquipped().forEach(pair -> {
                 ItemStack trinketStack = pair.getRight();
-                if (trinketStack.getItem() instanceof KHTrinketsItem && trinketStack.isIn(ModTags.Items.VISORED_HELMET) && KnightsHeraldry.config().getVisoredHelmet()) {
+                if (trinketStack.getItem() instanceof KHTrinketsItem && trinketStack.isIn(KHTags.Armors.VISORED_HELMET) && KnightsHeraldry.config().getVisoredHelmet()) {
                     int width = context.getScaledWindowWidth();
                     int height = context.getScaledWindowHeight();
 

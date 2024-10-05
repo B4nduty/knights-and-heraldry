@@ -166,6 +166,10 @@
   "item.knightsheraldry.cloak": "Cloak",
   "item.knightsheraldry.torn_cloak": "Torn Cloak",
 
+  "item.knightsheraldry.longbow": "Longbow",
+
+  "item.knightsheraldry.swallowtail_arrow": "Swallowtail Tipped Arrows",
+
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",
   "tooltip.knightsheraldry.right_click-replant": "§4Right-Click Crops §rto §lHarvest §r& §lReplant",
@@ -185,10 +189,10 @@
 
   "trinkets.slot.chest.surcoat": "Surcoat Slot",
 
-  "text.tooltip.knightsheraldry.hungerDrain": "+%s%% Hunger Drain",
+  "text.tooltip.knightsheraldry.hungerDrain": "Hunger Drain: +%s%%",
   "text.tooltip.knightsheraldry.freezing": "Prevents freezing",
   "text.tooltip.knightsheraldry.hideNameTag": "Hide Name Tag",
-  "text.tooltip.knightsheraldry.slashingResistance": "+%s%% Slashing Resistance",
-  "text.tooltip.knightsheraldry.bludgeoningResistance": "+%s%% Bludgeoning Resistance",
-  "text.tooltip.knightsheraldry.piercingResistance": "+%s%% Piercing Resistance"
+  "text.tooltip.knightsheraldry.slashingResistance": "Slashing Resistance: +%s%% ",
+  "text.tooltip.knightsheraldry.bludgeoningResistance": "Bludgeoning Resistance: +%s%%",
+  "text.tooltip.knightsheraldry.piercingResistance": "Piercing Resistance: +%s%%"
 }

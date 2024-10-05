@@ -1,0 +1,28 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "knightsheraldry:item/longbow_pulling_1"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [0, -90, 0],
+      "translation": [-0.25, 15.75, 1.75],
+      "scale": [4, 4, 1]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [0, -90, 0],
+      "translation": [-0.25, 15.75, 1.75],
+      "scale": [4, 4, 1]
+    },
+    "firstperson_righthand": {
+      "rotation": [-17, -90, 0],
+      "translation": [-2.25, 16.25, -3],
+      "scale": [3, 3, 1]
+    },
+    "firstperson_lefthand": {
+      "rotation": [-17, -90, 0],
+      "translation": [-2.25, 16.25, -3],
+      "scale": [3, 3, 1]
+    }
+  }
+}

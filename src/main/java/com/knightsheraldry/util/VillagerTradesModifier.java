@@ -448,6 +448,22 @@ public class VillagerTradesModifier {
                     });
                 }
             });
+            TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, level,
+                    factories -> {
+                        if (finalLevel == 2) {
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 2),
+                                    new ItemStack(ModItems.SWALLOWTAIL_ARROW, 1),
+                                    32, 5, 0.05f
+                            ));
+
+                            factories.add((entity, random) -> new TradeOffer(
+                                    new ItemStack(Items.EMERALD, 5),
+                                    new ItemStack(ModItems.LONGBOW, 1),
+                                    12, 5, 0.05f
+                            ));
+                        }
+            });
         }
     }
 }

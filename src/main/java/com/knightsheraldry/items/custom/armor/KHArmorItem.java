@@ -8,15 +8,15 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 
 public class KHArmorItem extends ArmorItem implements DyeableItem {
-    private final float slashingResistance;
-    private final float bludgeoningResistance;
-    private final float piercingResistance;
+    private final double slashingResistance;
+    private final double bludgeoningResistance;
+    private final double piercingResistance;
     private final Identifier texturePath;
     private final boolean dyeable;
 
     // If textureName isn't null, it will use the model set by Knights and Heraldry
-    public KHArmorItem(Settings settings, ArmorMaterial material, Type type, float slashingResistance,
-                       float bludgeoningResistance, float piercingResistance, Identifier texturePath, boolean dyeable) {
+    public KHArmorItem(Settings settings, ArmorMaterial material, Type type, double slashingResistance,
+                       double bludgeoningResistance, double piercingResistance, Identifier texturePath, boolean dyeable) {
         super(material, type, settings);
         this.slashingResistance = slashingResistance;
         this.bludgeoningResistance = bludgeoningResistance;
@@ -25,8 +25,8 @@ public class KHArmorItem extends ArmorItem implements DyeableItem {
         this.dyeable = dyeable;
     }
 
-    public KHArmorItem(Settings settings, ArmorMaterial material, Type type, float slashingResistance,
-                       float bludgeoningResistance, float piercingResistance) {
+    public KHArmorItem(Settings settings, ArmorMaterial material, Type type, double slashingResistance,
+                       double bludgeoningResistance, double piercingResistance) {
         super(material, type, settings);
         this.slashingResistance = slashingResistance;
         this.bludgeoningResistance = bludgeoningResistance;
@@ -35,11 +35,11 @@ public class KHArmorItem extends ArmorItem implements DyeableItem {
         this.dyeable = false;
     }
 
-    public float getSlashingResistance() {return this.slashingResistance;}
+    public double getSlashingResistance() {return this.slashingResistance;}
 
-    public float getBludgeoningResistance() {return this.bludgeoningResistance;}
+    public double getBludgeoningResistance() {return this.bludgeoningResistance;}
 
-    public float getPiercingResistance() {return this.piercingResistance;}
+    public double getPiercingResistance() {return this.piercingResistance;}
 
     public Identifier getPath() {return this.texturePath;}
 

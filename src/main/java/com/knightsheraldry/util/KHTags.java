@@ -6,8 +6,8 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
-public class ModTags {
-    public static class Items {
+public class KHTags {
+    public static class Weapon {
         public static final TagKey<Item> KH_WEAPONS = createTag("kh_weapons");
         public static final TagKey<Item> KH_WEAPONS_3D = createTag("kh_weapons_3d");
         public static final TagKey<Item> KH_WEAPONS_SHIELD = createTag("kh_weapons_shield");
@@ -21,9 +21,17 @@ public class ModTags {
         public static final TagKey<Item> KH_WEAPONS_BYPASS_BLOCK = createTag("kh_weapons_bypass_block");
         public static final TagKey<Item> KH_WEAPONS_BLUDGEONING_TO_PIERCING = createTag("kh_weapons_bludgeoning_to_piercing");
         public static final TagKey<Item> KH_WEAPONS_HARVEST = createTag("kh_weapons_harvest");
-        public static final TagKey<Item> KH_ARMORS = createTag("kh_armors");
+
+        private static TagKey<Item> createTag(String name) {
+            return TagKey.of(RegistryKeys.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name));
+        }
+    }
+
+    public static class Armors {
+        public static final TagKey<Item> KH_UNDER_ARMORS = createTag("kh_under_armors");
         public static final TagKey<Item> KH_ALWAYS_WEARABLE = createTag("kh_always_wearable");
         public static final TagKey<Item> VISORED_HELMET = createTag("visored_helmet");
+        public static final TagKey<Item> KH_DEFLECTIVE_ARMOR = createTag("kh_deflective_armor");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name));

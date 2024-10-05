@@ -13,7 +13,7 @@ import io.wispforest.owo.config.annotation.Sync;
 public class ModConfigs {
     @Comment("Vanilla Weapons deals 0 Damage")
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    public boolean getVanillaWeaponsDamage0 = true;
+    public boolean getVanillaWeaponsDamage0 = false;
 
     @Comment("Use Stamina on or while Blocking")
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
