@@ -16,65 +16,65 @@ public class VillagerTradesModifier {
                     factories -> {
                         if (finalLevel == 1) {
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 5),
+                                    new ItemStack(Items.EMERALD, 8),
                                     new ItemStack(ModItems.QUILTED_COIF, 1),
                                     12, 1, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 7),
+                                    new ItemStack(Items.EMERALD, 11),
                                     new ItemStack(ModItems.GAMBESON, 1),
                                     12, 1, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 5),
+                                    new ItemStack(Items.EMERALD, 8),
                                     new ItemStack(ModItems.GAMBESON_BREECHES, 1),
                                     12, 1, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 4),
+                                    new ItemStack(Items.EMERALD, 6),
                                     new ItemStack(ModItems.GAMBESON_BOOTS, 1),
                                     12, 1, 0.05f));
                         }
 
                         if (finalLevel == 2) {
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 6),
+                                    new ItemStack(Items.EMERALD, 9),
                                     new ItemStack(ModItems.MAIL_COIF, 1),
                                     12, 5, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 9),
+                                    new ItemStack(Items.EMERALD, 14),
                                     new ItemStack(ModItems.HAUBERK, 1),
                                     12, 5, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 7),
+                                    new ItemStack(Items.EMERALD, 11),
                                     new ItemStack(ModItems.MAIL_BREECHES, 1),
                                     12, 5, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 6),
+                                    new ItemStack(Items.EMERALD, 9),
                                     new ItemStack(ModItems.MAIL_BOOTS, 1),
                                     12, 5, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 5),
+                                    new ItemStack(Items.EMERALD, 8),
                                     new ItemStack(ModItems.MAIL_PAULDRON, 1),
                                     12, 5, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 6),
+                                    new ItemStack(Items.EMERALD, 9),
                                     new ItemStack(ModItems.AVENTAIL, 1),
                                     12, 5, 0.05f));
                         }
 
                         if (finalLevel == 3) {
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 15),
+                                    new ItemStack(Items.EMERALD, 23),
                                     new ItemStack(ModItems.BRIGANDINE, 1),
                                     12, 10, 0.05f));
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 7),
+                                    new ItemStack(Items.EMERALD, 11),
                                     new ItemStack(ModItems.GAUNTLET, 1),
                                     12, 10, 0.05f));
                             factories.add((entity, random) -> {
@@ -87,7 +87,7 @@ public class VillagerTradesModifier {
                                 else item = ModItems.BARBUTE_NO_VISOR;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 6),
+                                        new ItemStack(Items.EMERALD, 9),
                                         new ItemStack(item, 1),
                                         12, 10, 0.05f
                                 );
@@ -96,15 +96,15 @@ public class VillagerTradesModifier {
 
                         if (finalLevel == 4) {
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 10),
+                                    new ItemStack(Items.EMERALD, 15),
                                     new ItemStack(ModItems.BRIGANDINE_PAULDRON, 1),
                                     12, 15, 0.05f));
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 14),
+                                    new ItemStack(Items.EMERALD, 21),
                                     new ItemStack(ModItems.BRIGANDINE_REREBRACE, 1),
                                     12, 15, 0.05f));
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 14),
+                                    new ItemStack(Items.EMERALD, 21),
                                     new ItemStack(ModItems.BRIGANDINE_CHAUSSES, 1),
                                     12, 15, 0.05f));
                             factories.add((entity, random) -> {
@@ -122,7 +122,7 @@ public class VillagerTradesModifier {
                                 else item = ModItems.ARMET;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 12),
+                                        new ItemStack(Items.EMERALD, 18),
                                         new ItemStack(item, 1),
                                         12, 15, 0.05f
                                 );
@@ -131,27 +131,27 @@ public class VillagerTradesModifier {
 
                         if (finalLevel == 5) {
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 12),
+                                    new ItemStack(Items.EMERALD, 18),
                                     new ItemStack(ModItems.PLATE_PAULDRON, 1),
                                     12, 15, 0.05f));
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 7),
+                                    new ItemStack(Items.EMERALD, 11),
                                     new ItemStack(ModItems.SABATONS, 1),
                                     12, 15, 0.05f));
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 16),
+                                    new ItemStack(Items.EMERALD, 24),
                                     new ItemStack(ModItems.PLATE_REREBRACE, 1),
                                     12, 15, 0.05f));
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 16),
+                                    new ItemStack(Items.EMERALD, 24),
                                     new ItemStack(ModItems.PLATE_CHAUSSES, 1),
                                     12, 15, 0.05f));
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 5),
+                                    new ItemStack(Items.EMERALD, 4),
                                     new ItemStack(ModItems.RIM_GUARDS, 1),
                                     12, 15, 0.05f));
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 6),
+                                    new ItemStack(Items.EMERALD, 3),
                                     new ItemStack(ModItems.BESAGEWS, 1),
                                     12, 15, 0.05f));
                             factories.add((entity, random) -> {
@@ -161,7 +161,7 @@ public class VillagerTradesModifier {
                                 else item = ModItems.BRIG_BREASTPLATE_TASSETS;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 17),
+                                        new ItemStack(Items.EMERALD, 26),
                                         new ItemStack(item, 1),
                                         12, 15, 0.05f
                                 );
@@ -178,7 +178,7 @@ public class VillagerTradesModifier {
                                 else item = ModItems.PLATE_CUIRASS;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 18),
+                                        new ItemStack(Items.EMERALD, 27),
                                         new ItemStack(item, 1),
                                         12, 15, 0.05f
                                 );
@@ -194,7 +194,7 @@ public class VillagerTradesModifier {
                                 else item = ModItems.FROGMOUTH;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 16),
+                                        new ItemStack(Items.EMERALD, 24),
                                         new ItemStack(item, 1),
                                         12, 15, 0.05f
                                 );
@@ -206,12 +206,12 @@ public class VillagerTradesModifier {
                     factories -> {
                         if (finalLevel == 1) {
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 3),
+                                    new ItemStack(Items.EMERALD, 8),
                                     new ItemStack(ModItems.PITCHFORK, 1),
                                     12, 1, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 3),
+                                    new ItemStack(Items.EMERALD, 8),
                                     new ItemStack(ModItems.SPEAR, 1),
                                     12, 1, 0.05f));
 
@@ -225,14 +225,14 @@ public class VillagerTradesModifier {
                                 else item = ModItems.STRAIGHT_CROOKED_AXE;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 5),
+                                        new ItemStack(Items.EMERALD, 13),
                                         new ItemStack(item, 1),
                                         12, 1, 0.05f
                                 );
                             });
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 2),
+                                    new ItemStack(Items.EMERALD, 5),
                                     new ItemStack(ModItems.DAGGER, 1),
                                     12, 1, 0.05f));
                         }
@@ -246,7 +246,7 @@ public class VillagerTradesModifier {
                                 else item = ModItems.ARMING_SWORD;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 7),
+                                        new ItemStack(Items.EMERALD, 18),
                                         new ItemStack(item, 1),
                                         12, 5, 0.05f
                                 );
@@ -259,7 +259,7 @@ public class VillagerTradesModifier {
                                 else item = ModItems.SPIKED_MACE;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 5),
+                                        new ItemStack(Items.EMERALD, 13),
                                         new ItemStack(item, 1),
                                         12, 5, 0.05f
                                 );
@@ -272,7 +272,7 @@ public class VillagerTradesModifier {
                                 else item = ModItems.BALL_FLAIL;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 6),
+                                        new ItemStack(Items.EMERALD, 15),
                                         new ItemStack(item, 1),
                                         12, 5, 0.05f
                                 );
@@ -285,14 +285,14 @@ public class VillagerTradesModifier {
                                 else item = ModItems.WAR_HAMMER;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 5),
+                                        new ItemStack(Items.EMERALD, 13),
                                         new ItemStack(item, 1),
                                         12, 5, 0.05f
                                 );
                             });
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 8),
+                                    new ItemStack(Items.EMERALD, 20),
                                     new ItemStack(ModItems.WARDART, 1),
                                     12, 5, 0.05f
                             ));
@@ -300,7 +300,7 @@ public class VillagerTradesModifier {
 
                         if (finalLevel == 3) {
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 6),
+                                    new ItemStack(Items.EMERALD, 15),
                                     new ItemStack(ModItems.BILLHOOK, 1),
                                     12, 10, 0.05f));
 
@@ -311,7 +311,7 @@ public class VillagerTradesModifier {
                                 else item = ModItems.V_LONGSWORD;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 12),
+                                        new ItemStack(Items.EMERALD, 30),
                                         new ItemStack(item, 1),
                                         12, 10, 0.05f
                                 );
@@ -324,31 +324,31 @@ public class VillagerTradesModifier {
                                 else item = ModItems.CURVED_GLAIVE;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 6),
+                                        new ItemStack(Items.EMERALD, 15),
                                         new ItemStack(item, 1),
                                         12, 10, 0.05f
                                 );
                             });
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 7),
+                                    new ItemStack(Items.EMERALD, 18),
                                     new ItemStack(ModItems.KATANA, 1),
                                     12, 10, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 5),
+                                    new ItemStack(Items.EMERALD, 13),
                                     new ItemStack(ModItems.LANCE, 1),
                                     12, 10, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 2),
+                                    new ItemStack(Items.EMERALD, 5),
                                     new ItemStack(ModItems.STILETTO, 1),
                                     12, 10, 0.05f));
                         }
 
                         if (finalLevel == 4) {
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 9),
+                                    new ItemStack(Items.EMERALD, 23),
                                     new ItemStack(ModItems.POLEAXE, 1),
                                     12, 15, 0.05f));
 
@@ -359,7 +359,7 @@ public class VillagerTradesModifier {
                                 else item = ModItems.BEC_DE_CORBIN;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 9),
+                                        new ItemStack(Items.EMERALD, 23),
                                         new ItemStack(item, 1),
                                         12, 15, 0.05f
                                 );
@@ -374,31 +374,31 @@ public class VillagerTradesModifier {
                                 else item = ModItems.WARSWORD_ZWEIHANDER;
 
                                 return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 14),
+                                        new ItemStack(Items.EMERALD, 35),
                                         new ItemStack(item, 1),
                                         12, 15, 0.05f
                                 );
                             });
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 6),
+                                    new ItemStack(Items.EMERALD, 15),
                                     new ItemStack(ModItems.RAPIER, 1),
                                     12, 15, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 8),
+                                    new ItemStack(Items.EMERALD, 20),
                                     new ItemStack(ModItems.MORNING_STAR, 1),
                                     12, 15, 0.05f));
                         }
 
                         if (finalLevel == 5) {
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 7),
+                                    new ItemStack(Items.EMERALD, 18),
                                     new ItemStack(ModItems.HALBERD, 1),
                                     12, 15, 0.05f));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 7),
+                                    new ItemStack(Items.EMERALD, 18),
                                     new ItemStack(ModItems.BARDICHE, 1),
                                     12, 15, 0.05f));
                         }
@@ -414,19 +414,19 @@ public class VillagerTradesModifier {
                         else item = ModItems.TORN_CLOAK;
 
                         return new TradeOffer(
-                                new ItemStack(Items.EMERALD, 4),
+                                new ItemStack(Items.EMERALD, 6),
                                 new ItemStack(item, 1),
                                 32, 1, 0.05f
                         );
                     });
                     factories.add((entity, random) -> {
                         Item item;
-                        int randomNumber = random.nextInt(1);
+                        int randomNumber = random.nextInt(8);
                         if (randomNumber == 0) item = ModItems.HOOD;
                         else item = ModItems.TORN_HOOD;
 
                         return new TradeOffer(
-                                new ItemStack(Items.EMERALD, 4),
+                                new ItemStack(Items.EMERALD, 32),
                                 new ItemStack(item, 1),
                                 32, 1, 0.05f
                         );
@@ -441,7 +441,7 @@ public class VillagerTradesModifier {
                         else item = ModItems.SURCOAT;
 
                         return new TradeOffer(
-                                new ItemStack(Items.EMERALD, 5),
+                                new ItemStack(Items.EMERALD, 2),
                                 new ItemStack(item, 1),
                                 32, 5, 0.05f
                         );
@@ -452,13 +452,13 @@ public class VillagerTradesModifier {
                     factories -> {
                         if (finalLevel == 2) {
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 2),
+                                    new ItemStack(Items.EMERALD, 5),
                                     new ItemStack(ModItems.SWALLOWTAIL_ARROW, 1),
                                     32, 5, 0.05f
                             ));
 
                             factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 5),
+                                    new ItemStack(Items.EMERALD, 13),
                                     new ItemStack(ModItems.LONGBOW, 1),
                                     12, 5, 0.05f
                             ));

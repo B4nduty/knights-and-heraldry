@@ -2,7 +2,6 @@ package com.knightsheraldry.items;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
-import com.knightsheraldry.entity.custom.WarDartEntity;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.*;
@@ -297,12 +296,10 @@ public class ModItems {
                     0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/aventail.png"), false, false));
 
     public static final Item RIM_GUARDS = registerItem("rim_guards",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 0,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"), false, false));
+            new Item(new OwoItemSettings().maxCount(1)));
 
     public static final Item BESAGEWS = registerItem("besagews",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 0,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"), false, false));
+            new Item(new OwoItemSettings().maxCount(1)));
 
     public static final Item SURCOAT = registerItem("surcoat",
             new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 0,
@@ -326,8 +323,8 @@ public class ModItems {
                     0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/torn_hood.png"), true, false));
 
 
-    public static final Item LONGBOW = registerItem("longbow",
-            new KHRangeWeapons(new OwoItemSettings(), KHDamageCalculator.DamageType.PIERCING, 14f, 85));
+    public static final Item LONGBOW = registerItem("longbow", new KHRangeWeapons(new OwoItemSettings().maxDamage(512),
+            KHDamageCalculator.DamageType.PIERCING, 14f, 85));
 
     public static final Item SWALLOWTAIL_ARROW = registerItem("swallowtail_arrow",
             new KHArrow(new OwoItemSettings(), KHSwallowTailArrowEntity::new));

@@ -19,10 +19,10 @@ public class Pike extends KHWeapons {
         return new double[] {
                 // Values cannot be higher or equal than its next value
                 5.5d, //1st Distance
-                5.6d, //2nd Distance
-                5.8d, //3rd Distance
-                5.9d, //4th Distance
-                6.5d //5th Distance
+                6.2d, //2nd Distance
+                7.0d, //3rd Distance
+                7.8d, //4th Distance
+                8.5d  //5th Distance
         };
     }
 }

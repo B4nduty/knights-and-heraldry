@@ -19,10 +19,10 @@ public class Dagger extends KHWeapons {
         return new double[] {
                 // Values cannot be higher or equal than its next value
                 0.0d, //1st Distance
-                0.5d, //2nd Distance
-                0.8d, //3rd Distance
-                0.9d, //4th Distance
-                1.0d //5th Distance
+                0.7d, //2nd Distance
+                1.2d, //3rd Distance
+                1.7d, //4th Distance
+                2.0d  //5th Distance
         };
     }
 

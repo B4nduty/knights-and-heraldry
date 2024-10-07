@@ -30,7 +30,7 @@ import java.util.List;
 
 public class KHWeapons extends SwordItem {
     public KHWeapons(float attackSpeed, Settings settings) {
-        super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
+        super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings.maxDamage(251));
     }
 
     @Override
@@ -134,10 +134,10 @@ public class KHWeapons extends SwordItem {
     }
 
     private void applyDamage(LivingEntity target, PlayerEntity playerEntity, ItemStack stack, float damage) {
-        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - (damage - 1) > 0) {
-            target.setHealth(target.getHealth() - (damage - 1));
+        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - damage > 0) {
+            target.setHealth(target.getHealth() - damage);
         } else {
-            target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage - 1);
+            target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
         }
     }
 

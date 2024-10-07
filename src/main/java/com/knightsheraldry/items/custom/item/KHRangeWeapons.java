@@ -21,7 +21,7 @@ public class KHRangeWeapons extends Item {
     private final double blockRange;
 
     public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange) {
-        super(settings.maxCount(1));
+        super(settings.maxCount(1).maxDamage(384));
         this.damageType = damageType;
         this.damage = damage;
         this.blockRange = blockRange;

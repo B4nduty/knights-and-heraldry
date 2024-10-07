@@ -19,10 +19,10 @@ public class Hammer extends KHWeapons{
         return new double[] {
                 // Values cannot be higher or equal than its next value
                 2.0d, //1st Distance
-                2.2d, //2nd Distance
-                2.5d, //3rd Distance
-                2.8d, //4th Distance
-                3.0d //5th Distance
+                2.4d, //2nd Distance
+                2.9d, //3rd Distance
+                3.4d, //4th Distance
+                4.0d  //5th Distance
         };
     }
 }

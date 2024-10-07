@@ -72,7 +72,7 @@ public class GameRendererMixin {
 
         ItemStack mainHandStack = entity instanceof ClientPlayerEntity ? ((ClientPlayerEntity) entity).getMainHandStack() : ItemStack.EMPTY;
         if (mainHandStack.getItem() instanceof KHWeapons) {
-            reachDistance *= 2;
+            reachDistance *= 4;
         }
         return reachDistance;
     }

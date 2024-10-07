@@ -19,10 +19,10 @@ public class Rapier extends KHWeapons {
         return new double[] {
                 // Values cannot be higher or equal than its next value
                 2.5d, //1st Distance
-                2.8d, //2nd Distance
-                3.0d, //3rd Distance
-                3.5d, //4th Distance
-                3.6d //5th Distance
+                2.9d, //2nd Distance
+                3.4d, //3rd Distance
+                4.0d, //4th Distance
+                4.5d  //5th Distance
         };
     }
 }

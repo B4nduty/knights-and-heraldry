@@ -19,10 +19,10 @@ public class Spear extends KHWeapons {
         return new double[] {
                 // Values cannot be higher or equal than its next value
                 4.4d, //1st Distance
-                4.5d, //2nd Distance
-                4.7d, //3rd Distance
-                4.8d, //4th Distance
-                5.0d //5th Distance
+                5.1d, //2nd Distance
+                5.9d, //3rd Distance
+                6.7d, //4th Distance
+                7.5d  //5th Distance
         };
     }
 }

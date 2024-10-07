@@ -47,17 +47,17 @@ public class HeldItemRendererMixin {
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(45.0F));
         matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(f * -41.0F));
         matrices.translate(f * 0.3F, -1.1F, 0.45F);
-        modelLoader(matrices, vertexConsumers, light, arm, ci);
+        modelLoader(matrices, vertexConsumers, light, arm);
         matrices.pop();
     }
 
     @Inject(method = "renderArmHoldingItem", at = @At("TAIL"))
     private void renderArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, float equipProgress, float swingProgress, Arm arm, CallbackInfo ci) {
-        modelLoader(matrices, vertexConsumers, light, arm, ci);
+        modelLoader(matrices, vertexConsumers, light, arm);
     }
 
     @Unique
-    private void modelLoader(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, Arm arm, CallbackInfo ci) {
+    private void modelLoader(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, Arm arm) {
         ClientPlayerEntity player = this.client.player;
         if (player == null) return;
         ItemStack stack = player.getInventory().getArmorStack(2);

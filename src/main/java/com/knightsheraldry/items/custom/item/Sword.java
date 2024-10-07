@@ -19,10 +19,10 @@ public class Sword extends KHWeapons {
         return new double[] {
                 // Values cannot be higher or equal than its next value
                 1.0d, //1st Distance
-                2.0d, //2nd Distance
-                2.3d, //3rd Distance
-                2.5d, //4th Distance
-                3.0d //5th Distance
+                2.2d, //2nd Distance
+                2.7d, //3rd Distance
+                3.2d, //4th Distance
+                3.5d  //5th Distance
         };
     }
 
