@@ -1,8 +1,6 @@
 package com.knightsheraldry;
 
-import com.knightsheraldry.client.KHSwallowtailArrowEntityRenderer;
-import com.knightsheraldry.client.UnderArmourRenderer;
-import com.knightsheraldry.client.WarDartRenderer;
+import com.knightsheraldry.client.*;
 import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.event.AttackCancelHandler;
 import com.knightsheraldry.event.ItemTooltipHandler;
@@ -42,6 +40,8 @@ public class KnightsHeraldryClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
         ModItems.items.forEach(item -> {
             if (item == ModItems.SWALLOWTAIL_ARROW) EntityRendererRegistry.register(ModEntities.KH_ARROW, KHSwallowtailArrowEntityRenderer::new);
+            if (item == ModItems.BODKIN_ARROW) EntityRendererRegistry.register(ModEntities.KH_ARROW, KHBodkinArrowEntityRenderer::new);
+            if (item == ModItems.BROADHEAD_ARROW) EntityRendererRegistry.register(ModEntities.KH_ARROW, KHBroadheadArrowEntityRenderer::new);
         });
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
 

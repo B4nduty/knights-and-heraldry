@@ -450,19 +450,33 @@ public class VillagerTradesModifier {
             });
             TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, level,
                     factories -> {
-                        if (finalLevel == 2) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 5),
-                                    new ItemStack(ModItems.SWALLOWTAIL_ARROW, 1),
-                                    32, 5, 0.05f
-                            ));
+                if (finalLevel == 1) {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 5),
+                            new ItemStack(ModItems.BROADHEAD_ARROW, 1),
+                            32, 1, 0.05f
+                    ));
+                }
 
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 13),
-                                    new ItemStack(ModItems.LONGBOW, 1),
-                                    12, 5, 0.05f
-                            ));
-                        }
+                if (finalLevel == 2) {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 5),
+                            new ItemStack(ModItems.SWALLOWTAIL_ARROW, 1),
+                            32, 5, 0.05f
+                    ));
+
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 5),
+                            new ItemStack(ModItems.BODKIN_ARROW, 1),
+                            32, 5, 0.05f
+                    ));
+
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 13),
+                            new ItemStack(ModItems.LONGBOW, 1),
+                            12, 5, 0.05f
+                    ));
+                }
             });
         }
     }

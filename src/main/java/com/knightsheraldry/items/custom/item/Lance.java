@@ -31,7 +31,7 @@ import java.util.function.Predicate;
 public class Lance extends SwordItem {
     private boolean charged = false;
     public Lance(float attackSpeed, Settings settings) {
-        super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings.maxDamage(251));
+        super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
 
     @Override

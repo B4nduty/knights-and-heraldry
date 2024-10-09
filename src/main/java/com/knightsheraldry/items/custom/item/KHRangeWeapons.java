@@ -21,7 +21,7 @@ public class KHRangeWeapons extends Item {
     private final double blockRange;
 
     public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange) {
-        super(settings.maxCount(1).maxDamage(384));
+        super(settings);
         this.damageType = damageType;
         this.damage = damage;
         this.blockRange = blockRange;
@@ -64,6 +64,7 @@ public class KHRangeWeapons extends Item {
                 if (khArrowEntity instanceof KHArrowEntity arrowEntity) {
                     arrowEntity.setDamageAmount(this.damage);
                     arrowEntity.setDamageType(this.damageType);
+                    arrowEntity.setShooter(user);
 
                     float velocityMultiplier = (float) (this.blockRange / 18.0d);
                     arrowEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, pullProgress * velocityMultiplier, 1.0F);

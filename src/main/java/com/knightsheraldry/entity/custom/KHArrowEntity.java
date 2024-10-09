@@ -8,11 +8,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
+import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
 public class KHArrowEntity extends PersistentProjectileEntity {
     private KHDamageCalculator.DamageType damageType;
     private float damage;
+    private LivingEntity shooter;
 
     public KHArrowEntity(EntityType<? extends PersistentProjectileEntity> type, World world) {
         super(type, world);
@@ -26,8 +28,24 @@ public class KHArrowEntity extends PersistentProjectileEntity {
         this.damage = damage;
     }
 
+    public float getDamageAmount() {
+        return this.damage;
+    }
+
+    public void setShooter(LivingEntity shooter) {
+        this.shooter = shooter;
+    }
+
+    public LivingEntity getShooter() {
+        return this.shooter;
+    }
+
     public void setDamageType(KHDamageCalculator.DamageType damageType) {
         this.damageType = damageType;
+    }
+
+    public KHDamageCalculator.DamageType getDamageType() {
+        return this.damageType;
     }
 
     @Override
@@ -40,8 +58,14 @@ public class KHArrowEntity extends PersistentProjectileEntity {
         return null;
     }
 
-    public void applyDamage(LivingEntity target) {
+    @Override
+    protected void onEntityHit(EntityHitResult entityHitResult) {
+        super.onEntityHit(entityHitResult);
+        this.remove(RemovalReason.DISCARDED);
+    }
+
+    public void applyDamage(LivingEntity target, LivingEntity attacker) {
         float damageDealt = new KHDamageCalculator().getKHDamage(target, damage, damageType);
-        target.damage(this.getDamageSources().genericKill(), damageDealt);
+        target.damage(this.getDamageSources().arrow(this, attacker), damageDealt);
     }
 }

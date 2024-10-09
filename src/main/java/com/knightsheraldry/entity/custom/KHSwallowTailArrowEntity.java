@@ -49,7 +49,7 @@ public class KHSwallowTailArrowEntity extends KHArrowEntity {
                 currentSwallowTailArrowCount = currentSwallowTailArrowCount + 1;
                 nbt.putInt("swallowtail_arrow_count", currentSwallowTailArrowCount);
             }
-            applyDamage(target);
+            applyDamage(target, getShooter());
         }
         super.onEntityHit(entityHitResult);
     }

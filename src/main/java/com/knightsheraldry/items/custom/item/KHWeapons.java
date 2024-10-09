@@ -30,7 +30,7 @@ import java.util.List;
 
 public class KHWeapons extends SwordItem {
     public KHWeapons(float attackSpeed, Settings settings) {
-        super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings.maxDamage(251));
+        super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
 
     @Override

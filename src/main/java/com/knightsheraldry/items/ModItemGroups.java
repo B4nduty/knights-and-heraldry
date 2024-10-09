@@ -82,7 +82,9 @@ public class ModItemGroups {
 
                 weaponStack(ModItems.LONGBOW),
 
-                weaponStack(ModItems.SWALLOWTAIL_ARROW)
+                weaponStack(ModItems.SWALLOWTAIL_ARROW),
+                weaponStack(ModItems.BODKIN_ARROW),
+                weaponStack(ModItems.BROADHEAD_ARROW)
         ));
     }
 

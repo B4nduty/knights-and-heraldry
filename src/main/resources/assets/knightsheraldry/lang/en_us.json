@@ -168,7 +168,9 @@
 
   "item.knightsheraldry.longbow": "Longbow",
 
-  "item.knightsheraldry.swallowtail_arrow": "Swallowtail Tipped Arrows",
+  "item.knightsheraldry.swallowtail_arrow": "Swallowtail Tipped Arrow",
+  "item.knightsheraldry.bodkin_arrow": "Bodkin Tipped Arrow",
+  "item.knightsheraldry.broadhead_arrow": "Broadhead Tipped Arrow",
 
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",
