@@ -14,7 +14,7 @@ public class KHArmorItem extends ArmorItem implements DyeableItem {
     private final Identifier texturePath;
     private final boolean dyeable;
 
-    // If textureName isn't null, it will use the model set by Knights and Heraldry
+    // If texturePath is null, it won't use the model set by Knights and Heraldry
     public KHArmorItem(Settings settings, ArmorMaterial material, Type type, double slashingResistance,
                        double bludgeoningResistance, double piercingResistance, Identifier texturePath, boolean dyeable) {
         super(material, type, settings);

@@ -21,6 +21,7 @@ public class KHTags {
         public static final TagKey<Item> KH_WEAPONS_BYPASS_BLOCK = createTag("kh_weapons_bypass_block");
         public static final TagKey<Item> KH_WEAPONS_BLUDGEONING_TO_PIERCING = createTag("kh_weapons_bludgeoning_to_piercing");
         public static final TagKey<Item> KH_WEAPONS_HARVEST = createTag("kh_weapons_harvest");
+        public static final TagKey<Item> KH_GEO_2D_ITEMS = createTag("kh_geo_2d_items");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name));

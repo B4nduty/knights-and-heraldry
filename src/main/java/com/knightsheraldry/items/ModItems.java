@@ -3,6 +3,7 @@ package com.knightsheraldry.items;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.entity.custom.KHBodkinArrowEntity;
 import com.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
+import com.knightsheraldry.entity.custom.KHClothArrowEntity;
 import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
@@ -14,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.UseAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -326,7 +328,9 @@ public class ModItems {
 
 
     public static final Item LONGBOW = registerItem("longbow", new KHRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.PIERCING, 14f, 85));
+            KHDamageCalculator.DamageType.PIERCING, 14f, 85, UseAction.BOW, 72000));
+    public static final Item HEAVY_CROSSBOW = registerItem("heavy_crossbow", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
+            KHDamageCalculator.DamageType.PIERCING, 16f, 70, UseAction.CROSSBOW, 72000, 100));
 
     public static final Item SWALLOWTAIL_ARROW = registerItem("swallowtail_arrow",
             new KHArrow(new OwoItemSettings(), KHSwallowTailArrowEntity::new));
@@ -334,6 +338,8 @@ public class ModItems {
             new KHArrow(new OwoItemSettings(), KHBodkinArrowEntity::new));
     public static final Item BROADHEAD_ARROW = registerItem("broadhead_arrow",
             new KHArrow(new OwoItemSettings(), KHBroadheadArrowEntity::new));
+    public static final Item CLOTH_ARROW = registerItem("cloth_arrow",
+            new KHArrow(new OwoItemSettings(), KHClothArrowEntity::new));
 
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

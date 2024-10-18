@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 public class KHArrowEntity extends PersistentProjectileEntity {
     private KHDamageCalculator.DamageType damageType;
     private float damage;
-    private LivingEntity shooter;
 
     public KHArrowEntity(EntityType<? extends PersistentProjectileEntity> type, World world) {
         super(type, world);
@@ -32,14 +31,6 @@ public class KHArrowEntity extends PersistentProjectileEntity {
         return this.damage;
     }
 
-    public void setShooter(LivingEntity shooter) {
-        this.shooter = shooter;
-    }
-
-    public LivingEntity getShooter() {
-        return this.shooter;
-    }
-
     public void setDamageType(KHDamageCalculator.DamageType damageType) {
         this.damageType = damageType;
     }
@@ -55,7 +46,7 @@ public class KHArrowEntity extends PersistentProjectileEntity {
 
     @Override
     protected ItemStack asItemStack() {
-        return null;
+        return ItemStack.EMPTY;
     }
 
     @Override

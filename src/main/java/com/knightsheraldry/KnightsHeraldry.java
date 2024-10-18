@@ -29,7 +29,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import software.bernie.geckolib.GeckoLib;
 
 public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint {
     public static final String MOD_ID = "knightsheraldry";
@@ -41,7 +40,6 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
     public void onInitialize() {
         ModItems.registerModItems();
         ModItemGroups.registerItemGroups();
-        GeckoLib.initialize();
         ModMessages.registerC2SPackets();
         ModEntities.registerModEntities();
         ModEffects.registerEffects();

@@ -1,0 +1,77 @@
+package com.knightsheraldry.entity.custom;
+
+import com.knightsheraldry.entity.ModEntities;
+import com.knightsheraldry.items.ModItems;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.world.World;
+
+import java.util.List;
+
+public class KHClothArrowEntity extends KHArrowEntity {
+    private final ItemStack clothArrowStack;
+
+    public KHClothArrowEntity(LivingEntity shooter, World world) {
+        super(ModEntities.KH_ARROW, shooter, world);
+        this.clothArrowStack = new ItemStack(ModItems.CLOTH_ARROW);
+    }
+
+    @Override
+    protected ItemStack asItemStack() {
+        return this.clothArrowStack;
+    }
+
+    @Override
+    protected void onEntityHit(EntityHitResult entityHitResult) {
+        if (entityHitResult.getEntity() instanceof LivingEntity target) {
+            applyDamage(target, (LivingEntity) getOwner());
+        }
+        super.onEntityHit(entityHitResult);
+    }
+
+    @Override
+    protected void onBlockHit(BlockHitResult blockHitResult) {
+        World world = this.getWorld();
+
+        if (this.isOnFire() && world instanceof ServerWorld serverWorld) {
+            spawnSmokeParticles(serverWorld, blockHitResult);
+            applyWitherEffectToNearbyEntities(world);
+        }
+
+        super.onBlockHit(blockHitResult);
+    }
+
+    private void spawnSmokeParticles(ServerWorld serverWorld, BlockHitResult blockHitResult) {
+        for (int i = 0; i < 20; i++) {
+            double xOffset = (random.nextDouble() - 0.5) * 0.5;
+            double yOffset = random.nextDouble() * 0.5;
+            double zOffset = (random.nextDouble() - 0.5) * 0.5;
+
+            serverWorld.spawnParticles(
+                    ParticleTypes.CAMPFIRE_COSY_SMOKE,
+                    blockHitResult.getPos().x,
+                    blockHitResult.getPos().y + 0.5,
+                    blockHitResult.getPos().z,
+                    1, xOffset, yOffset, zOffset, 0.01
+            );
+        }
+    }
+
+    private void applyWitherEffectToNearbyEntities(World world) {
+        List<LivingEntity> entitiesInRange = world.getEntitiesByClass(
+                LivingEntity.class,
+                this.getBoundingBox().expand(5.0),
+                entity -> entity.isAlive() && entity != this.getOwner()
+        );
+
+        for (LivingEntity entity : entitiesInRange) {
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 100, 1));
+        }
+    }
+}

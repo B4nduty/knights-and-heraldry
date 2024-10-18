@@ -110,5 +110,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.GREAT_ARMET, ModItems.GREAT_ARMET_2, ModItems.GREAT_BASCINET, ModItems.GREAT_HOUNDSKUL_BASCINET,
                         ModItems.MAXIMILLIAN_HELMET, ModItems.GAUNTLET, ModItems.PLATE_REREBRACE, ModItems.PLATE_CHAUSSES,
                         ModItems.SABATONS);
+
+        getOrCreateTagBuilder(KHTags.Weapon.KH_GEO_2D_ITEMS)
+                .add(ModItems.HEAVY_CROSSBOW);
     }
 }

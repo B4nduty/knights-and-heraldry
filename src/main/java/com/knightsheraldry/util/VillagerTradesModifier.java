@@ -3,481 +3,170 @@ package com.knightsheraldry.util;
 import com.knightsheraldry.items.ModItems;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffer;
+import net.minecraft.village.TradeOffers;
 import net.minecraft.village.VillagerProfession;
+
+import java.util.List;
 
 public class VillagerTradesModifier {
     public static void registerCustomTrades() {
+
         for (int level = 1; level <= 5; level++) {
-            int finalLevel = level;
-            TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, level,
-                    factories -> {
-                        if (finalLevel == 1) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 8),
-                                    new ItemStack(ModItems.QUILTED_COIF, 1),
-                                    12, 1, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 11),
-                                    new ItemStack(ModItems.GAMBESON, 1),
-                                    12, 1, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 8),
-                                    new ItemStack(ModItems.GAMBESON_BREECHES, 1),
-                                    12, 1, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 6),
-                                    new ItemStack(ModItems.GAMBESON_BOOTS, 1),
-                                    12, 1, 0.05f));
-                        }
-
-                        if (finalLevel == 2) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 9),
-                                    new ItemStack(ModItems.MAIL_COIF, 1),
-                                    12, 5, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 14),
-                                    new ItemStack(ModItems.HAUBERK, 1),
-                                    12, 5, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 11),
-                                    new ItemStack(ModItems.MAIL_BREECHES, 1),
-                                    12, 5, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 9),
-                                    new ItemStack(ModItems.MAIL_BOOTS, 1),
-                                    12, 5, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 8),
-                                    new ItemStack(ModItems.MAIL_PAULDRON, 1),
-                                    12, 5, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 9),
-                                    new ItemStack(ModItems.AVENTAIL, 1),
-                                    12, 5, 0.05f));
-                        }
-
-                        if (finalLevel == 3) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 23),
-                                    new ItemStack(ModItems.BRIGANDINE, 1),
-                                    12, 10, 0.05f));
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 11),
-                                    new ItemStack(ModItems.GAUNTLET, 1),
-                                    12, 10, 0.05f));
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(4);
-                                if (randomNumber == 0) item = ModItems.BASCINET_NO_VISOR;
-                                else if (randomNumber == 1) item = ModItems.KETTLE_HELM;
-                                else if (randomNumber == 2) item = ModItems.NASAL_HELM;
-                                else if (randomNumber == 3) item = ModItems.VIKING_HELM;
-                                else item = ModItems.BARBUTE_NO_VISOR;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 9),
-                                        new ItemStack(item, 1),
-                                        12, 10, 0.05f
-                                );
-                            });
-                        }
-
-                        if (finalLevel == 4) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 15),
-                                    new ItemStack(ModItems.BRIGANDINE_PAULDRON, 1),
-                                    12, 15, 0.05f));
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 21),
-                                    new ItemStack(ModItems.BRIGANDINE_REREBRACE, 1),
-                                    12, 15, 0.05f));
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 21),
-                                    new ItemStack(ModItems.BRIGANDINE_CHAUSSES, 1),
-                                    12, 15, 0.05f));
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(9);
-                                if (randomNumber == 0) item = ModItems.ARMET_2;
-                                else if (randomNumber == 1) item = ModItems.BARBUTE;
-                                else if (randomNumber == 2) item = ModItems.BASCINET;
-                                else if (randomNumber == 3) item = ModItems.CAGE;
-                                else if (randomNumber == 4) item = ModItems.CAGE_2;
-                                else if (randomNumber == 5) item = ModItems.FLAT_BASCINET;
-                                else if (randomNumber == 6) item = ModItems.GREAT_HELM;
-                                else if (randomNumber == 7) item = ModItems.GREAT_HELM_2;
-                                else if (randomNumber == 8) item = ModItems.SALLET;
-                                else item = ModItems.ARMET;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 18),
-                                        new ItemStack(item, 1),
-                                        12, 15, 0.05f
-                                );
-                            });
-                        }
-
-                        if (finalLevel == 5) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 18),
-                                    new ItemStack(ModItems.PLATE_PAULDRON, 1),
-                                    12, 15, 0.05f));
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 11),
-                                    new ItemStack(ModItems.SABATONS, 1),
-                                    12, 15, 0.05f));
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 24),
-                                    new ItemStack(ModItems.PLATE_REREBRACE, 1),
-                                    12, 15, 0.05f));
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 24),
-                                    new ItemStack(ModItems.PLATE_CHAUSSES, 1),
-                                    12, 15, 0.05f));
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 4),
-                                    new ItemStack(ModItems.RIM_GUARDS, 1),
-                                    12, 15, 0.05f));
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 3),
-                                    new ItemStack(ModItems.BESAGEWS, 1),
-                                    12, 15, 0.05f));
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(1);
-                                if (randomNumber == 0) item = ModItems.BRIG_BREASTPLATE;
-                                else item = ModItems.BRIG_BREASTPLATE_TASSETS;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 26),
-                                        new ItemStack(item, 1),
-                                        12, 15, 0.05f
-                                );
-                            });
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(6);
-                                if (randomNumber == 0) item = ModItems.PLATE_CUIRASS_TASSETS;
-                                else if (randomNumber == 1) item = ModItems.MAXIMILLIAN_CUIRASS;
-                                else if (randomNumber == 2) item = ModItems.MAXIMILLIAN_CUIRASS_TASSETS;
-                                else if (randomNumber == 3) item = ModItems.XIIII_PLATE_CUIRASS;
-                                else if (randomNumber == 4) item = ModItems.XIIII_PLATE_CUIRASS_TASSETS;
-                                else if (randomNumber == 5) item = ModItems.XIIII_PLATE_BREASTPLATE;
-                                else item = ModItems.PLATE_CUIRASS;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 27),
-                                        new ItemStack(item, 1),
-                                        12, 15, 0.05f
-                                );
-                            });
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(5);
-                                if (randomNumber == 0) item = ModItems.GREAT_ARMET;
-                                else if (randomNumber == 1) item = ModItems.GREAT_ARMET_2;
-                                else if (randomNumber == 2) item = ModItems.GREAT_BASCINET;
-                                else if (randomNumber == 3) item = ModItems.GREAT_HOUNDSKUL_BASCINET;
-                                else if (randomNumber == 4) item = ModItems.MAXIMILLIAN_HELMET;
-                                else item = ModItems.FROGMOUTH;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 24),
-                                        new ItemStack(item, 1),
-                                        12, 15, 0.05f
-                                );
-                            });
-                        }
-                    });
-
-            TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH, level,
-                    factories -> {
-                        if (finalLevel == 1) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 8),
-                                    new ItemStack(ModItems.PITCHFORK, 1),
-                                    12, 1, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 8),
-                                    new ItemStack(ModItems.SPEAR, 1),
-                                    12, 1, 0.05f));
-
-
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(3);
-                                if (randomNumber == 0) item = ModItems.AXE;
-                                else if (randomNumber == 1) item = ModItems.BROAD_AXE;
-                                else if (randomNumber == 2) item = ModItems.CROOKED_AXE;
-                                else item = ModItems.STRAIGHT_CROOKED_AXE;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 13),
-                                        new ItemStack(item, 1),
-                                        12, 1, 0.05f
-                                );
-                            });
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 5),
-                                    new ItemStack(ModItems.DAGGER, 1),
-                                    12, 1, 0.05f));
-                        }
-
-                        if (finalLevel == 2) {
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(2);
-                                if (randomNumber == 0) item = ModItems.SWORD;
-                                else if (randomNumber == 1) item = ModItems.V_SWORD;
-                                else item = ModItems.ARMING_SWORD;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 18),
-                                        new ItemStack(item, 1),
-                                        12, 5, 0.05f
-                                );
-                            });
-
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(1);
-                                if (randomNumber == 0) item = ModItems.MACE;
-                                else item = ModItems.SPIKED_MACE;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 13),
-                                        new ItemStack(item, 1),
-                                        12, 5, 0.05f
-                                );
-                            });
-
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(1);
-                                if (randomNumber == 0) item = ModItems.FLAIL;
-                                else item = ModItems.BALL_FLAIL;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 15),
-                                        new ItemStack(item, 1),
-                                        12, 5, 0.05f
-                                );
-                            });
-
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(1);
-                                if (randomNumber == 0) item = ModItems.HAMMER;
-                                else item = ModItems.WAR_HAMMER;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 13),
-                                        new ItemStack(item, 1),
-                                        12, 5, 0.05f
-                                );
-                            });
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 20),
-                                    new ItemStack(ModItems.WARDART, 1),
-                                    12, 5, 0.05f
-                            ));
-                        }
-
-                        if (finalLevel == 3) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 15),
-                                    new ItemStack(ModItems.BILLHOOK, 1),
-                                    12, 10, 0.05f));
-
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(1);
-                                if (randomNumber == 0) item = ModItems.LONGSWORD;
-                                else item = ModItems.V_LONGSWORD;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 30),
-                                        new ItemStack(item, 1),
-                                        12, 10, 0.05f
-                                );
-                            });
-
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(1);
-                                if (randomNumber == 0) item = ModItems.GLAIVE;
-                                else item = ModItems.CURVED_GLAIVE;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 15),
-                                        new ItemStack(item, 1),
-                                        12, 10, 0.05f
-                                );
-                            });
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 18),
-                                    new ItemStack(ModItems.KATANA, 1),
-                                    12, 10, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 13),
-                                    new ItemStack(ModItems.LANCE, 1),
-                                    12, 10, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 5),
-                                    new ItemStack(ModItems.STILETTO, 1),
-                                    12, 10, 0.05f));
-                        }
-
-                        if (finalLevel == 4) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 23),
-                                    new ItemStack(ModItems.POLEAXE, 1),
-                                    12, 15, 0.05f));
-
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(1);
-                                if (randomNumber == 0) item = ModItems.POLEHAMMER;
-                                else item = ModItems.BEC_DE_CORBIN;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 23),
-                                        new ItemStack(item, 1),
-                                        12, 15, 0.05f
-                                );
-                            });
-
-                            factories.add((entity, random) -> {
-                                Item item;
-                                int randomNumber = random.nextInt(3);
-                                if (randomNumber == 0) item = ModItems.WARSWORD;
-                                else if (randomNumber == 1) item = ModItems.WARSWORD_CLAYMORE;
-                                else if (randomNumber == 2) item = ModItems.WARSWORD_FLAMBERGE;
-                                else item = ModItems.WARSWORD_ZWEIHANDER;
-
-                                return new TradeOffer(
-                                        new ItemStack(Items.EMERALD, 35),
-                                        new ItemStack(item, 1),
-                                        12, 15, 0.05f
-                                );
-                            });
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 15),
-                                    new ItemStack(ModItems.RAPIER, 1),
-                                    12, 15, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 20),
-                                    new ItemStack(ModItems.MORNING_STAR, 1),
-                                    12, 15, 0.05f));
-                        }
-
-                        if (finalLevel == 5) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 18),
-                                    new ItemStack(ModItems.HALBERD, 1),
-                                    12, 15, 0.05f));
-
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new ItemStack(Items.EMERALD, 18),
-                                    new ItemStack(ModItems.BARDICHE, 1),
-                                    12, 15, 0.05f));
-                        }
-                    });
-
-            TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, level,
-                    factories -> {
-                if (finalLevel == 1) {
-                    factories.add((entity, random) -> {
-                        Item item;
-                        int randomNumber = random.nextInt(1);
-                        if (randomNumber == 0) item = ModItems.CLOAK;
-                        else item = ModItems.TORN_CLOAK;
-
-                        return new TradeOffer(
-                                new ItemStack(Items.EMERALD, 6),
-                                new ItemStack(item, 1),
-                                32, 1, 0.05f
-                        );
-                    });
-                    factories.add((entity, random) -> {
-                        Item item;
-                        int randomNumber = random.nextInt(8);
-                        if (randomNumber == 0) item = ModItems.HOOD;
-                        else item = ModItems.TORN_HOOD;
-
-                        return new TradeOffer(
-                                new ItemStack(Items.EMERALD, 32),
-                                new ItemStack(item, 1),
-                                32, 1, 0.05f
-                        );
-                    });
-                }
-
-                if (finalLevel == 2) {
-                    factories.add((entity, random) -> {
-                        Item item;
-                        int randomNumber = random.nextInt(1);
-                        if (randomNumber == 0) item = ModItems.SURCOAT_SLEEVELESS;
-                        else item = ModItems.SURCOAT;
-
-                        return new TradeOffer(
-                                new ItemStack(Items.EMERALD, 2),
-                                new ItemStack(item, 1),
-                                32, 5, 0.05f
-                        );
-                    });
-                }
-            });
-            TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, level,
-                    factories -> {
-                if (finalLevel == 1) {
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 5),
-                            new ItemStack(ModItems.BROADHEAD_ARROW, 1),
-                            32, 1, 0.05f
-                    ));
-                }
-
-                if (finalLevel == 2) {
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 5),
-                            new ItemStack(ModItems.SWALLOWTAIL_ARROW, 1),
-                            32, 5, 0.05f
-                    ));
-
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 5),
-                            new ItemStack(ModItems.BODKIN_ARROW, 1),
-                            32, 5, 0.05f
-                    ));
-
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 13),
-                            new ItemStack(ModItems.LONGBOW, 1),
-                            12, 5, 0.05f
-                    ));
-                }
-            });
+            registerArmorTrades(level);
+            registerWeaponTrades(level);
+            registerClothsTrades(level);
+            registerRangedWeaponsTrades(level);
         }
+    }
+
+    private static void addTradeOffer(List<TradeOffers.Factory> factories, int emeraldCount, int maxUses, int merchantExperience, Item item) {
+        factories.add((entity, random) -> new TradeOffer(
+                new ItemStack(Items.EMERALD, emeraldCount), new ItemStack(item, 1), maxUses, merchantExperience, 0.05f));
+    }
+
+    private static void addRandomTradeOffer(List<TradeOffers.Factory> factories, int emeraldCount, int maxUses, int merchantExperience, Item... items) {
+        factories.add((entity, random) -> {
+            for (ItemConvertible item : items) {
+                return new TradeOffer(new ItemStack(Items.EMERALD, emeraldCount), new ItemStack(item, 1), maxUses, merchantExperience, 0.05f);
+            }
+            return null;
+        });
+    }
+
+    private static void registerArmorTrades(int level) {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, level, factories -> {
+            if (level == 1) {
+                addTradeOffer(factories, 8, 12, 1, ModItems.QUILTED_COIF);
+                addTradeOffer(factories, 11, 12, 1, ModItems.GAMBESON);
+                addTradeOffer(factories, 8, 12, 1, ModItems.GAMBESON_BREECHES);
+                addTradeOffer(factories, 6, 12, 1, ModItems.GAMBESON_BOOTS);
+            }
+
+            if (level == 2) {
+                addTradeOffer(factories, 9, 12, 5, ModItems.MAIL_COIF);
+                addTradeOffer(factories, 14, 12, 5, ModItems.HAUBERK);
+                addTradeOffer(factories, 11, 12, 5, ModItems.MAIL_BREECHES);
+                addTradeOffer(factories, 9, 12, 5, ModItems.MAIL_BOOTS);
+                addTradeOffer(factories, 8, 12, 5, ModItems.MAIL_PAULDRON);
+                addTradeOffer(factories, 9, 12, 5, ModItems.AVENTAIL);
+            }
+
+            if (level == 3) {
+                addTradeOffer(factories, 23, 12, 10, ModItems.BRIGANDINE);
+                addTradeOffer(factories, 11, 12, 10, ModItems.GAUNTLET);
+                addRandomTradeOffer(factories, 9, 12, 10,
+                        ModItems.BASCINET_NO_VISOR, ModItems.KETTLE_HELM, ModItems.NASAL_HELM, ModItems.VIKING_HELM,
+                        ModItems.BARBUTE_NO_VISOR);
+            }
+
+            if (level == 4) {
+                addTradeOffer(factories, 15, 12, 15, ModItems.BRIGANDINE_PAULDRON);
+                addTradeOffer(factories, 21, 12, 15, ModItems.BRIGANDINE_REREBRACE);
+                addTradeOffer(factories, 21, 12, 15, ModItems.BRIGANDINE_CHAUSSES);
+                addRandomTradeOffer(factories, 24, 12, 15,
+                        ModItems.ARMET_2, ModItems.BARBUTE, ModItems.BASCINET, ModItems.CAGE,
+                        ModItems.CAGE_2, ModItems.FLAT_BASCINET, ModItems.GREAT_HELM, ModItems.GREAT_HELM_2,
+                        ModItems.SALLET, ModItems.ARMET);
+            }
+
+            if (level == 5) {
+                addTradeOffer(factories, 18, 12, 15, ModItems.PLATE_PAULDRON);
+                addTradeOffer(factories, 11, 12, 15, ModItems.SABATONS);
+                addTradeOffer(factories, 24, 12, 15, ModItems.PLATE_REREBRACE);
+                addTradeOffer(factories, 24, 12, 15, ModItems.PLATE_CHAUSSES);
+                addTradeOffer(factories, 4, 12, 15, ModItems.RIM_GUARDS);
+                addTradeOffer(factories, 3, 12, 15, ModItems.BESAGEWS);
+                addRandomTradeOffer(factories, 26, 12, 15,
+                        ModItems.BRIG_BREASTPLATE, ModItems.BRIG_BREASTPLATE_TASSETS);
+                addRandomTradeOffer(factories, 26, 12, 15,
+                        ModItems.PLATE_CUIRASS_TASSETS, ModItems.MAXIMILLIAN_CUIRASS,
+                        ModItems.MAXIMILLIAN_CUIRASS_TASSETS, ModItems.XIIII_PLATE_CUIRASS,
+                        ModItems.XIIII_PLATE_CUIRASS_TASSETS, ModItems.XIIII_PLATE_BREASTPLATE);
+            }
+        });
+    }
+
+    private static void registerWeaponTrades(int level) {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH, level, factories -> {
+            if (level == 1) {
+                addTradeOffer(factories, 8, 12, 1, ModItems.PITCHFORK);
+                addTradeOffer(factories, 8, 12, 1, ModItems.SPEAR);
+                addRandomTradeOffer(factories, 13, 12, 1,
+                        ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE);
+                addTradeOffer(factories, 5, 12, 1, ModItems.DAGGER);
+            }
+
+            if (level == 2) {
+                addRandomTradeOffer(factories, 18, 12, 5,
+                        ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD);
+                addRandomTradeOffer(factories, 13, 12, 5,
+                        ModItems.MACE, ModItems.SPIKED_MACE);
+                addRandomTradeOffer(factories, 15, 12, 5,
+                        ModItems.FLAIL, ModItems.BALL_FLAIL);
+                addRandomTradeOffer(factories, 13, 12, 5,
+                        ModItems.HAMMER, ModItems.WAR_HAMMER);
+                addTradeOffer(factories, 20, 12, 5, ModItems.WARDART);
+            }
+
+            if (level == 3) {
+                addTradeOffer(factories, 15, 12, 10, ModItems.BILLHOOK);
+                addRandomTradeOffer(factories, 30, 12, 10, ModItems.LONGSWORD, ModItems.V_LONGSWORD);
+                addRandomTradeOffer(factories, 15, 12, 10, ModItems.GLAIVE, ModItems.CURVED_GLAIVE);
+                addTradeOffer(factories, 18, 12, 10, ModItems.KATANA);
+                addTradeOffer(factories, 13, 12, 10, ModItems.LANCE);
+                addTradeOffer(factories, 5, 12, 10, ModItems.STILETTO);
+            }
+
+            if (level == 4) {
+                addTradeOffer(factories, 23, 12, 15, ModItems.POLEAXE);
+                addRandomTradeOffer(factories, 23, 12, 15,
+                        ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN);
+                addRandomTradeOffer(factories, 35, 12, 15,
+                        ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
+                        ModItems.WARSWORD_ZWEIHANDER);
+                addTradeOffer(factories, 15, 12, 15, ModItems.RAPIER);
+                addTradeOffer(factories, 20, 12, 15, ModItems.MORNING_STAR);
+            }
+
+            if (level == 5) {
+                addTradeOffer(factories, 18, 12, 15, ModItems.HALBERD);
+                addTradeOffer(factories, 18, 12, 15, ModItems.BARDICHE);
+            }
+        });
+    }
+
+    private static void registerClothsTrades(int level) {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, level, factories -> {
+            if (level == 1) {
+                addRandomTradeOffer(factories, 6, 32, 1,
+                        ModItems.CLOAK, ModItems.TORN_CLOAK);
+                addRandomTradeOffer(factories, 32, 32, 1,
+                        ModItems.HOOD, ModItems.TORN_HOOD);
+            }
+
+            if (level == 2) {
+                addRandomTradeOffer(factories, 6, 32, 1,
+                        ModItems.SURCOAT, ModItems.SURCOAT_SLEEVELESS);
+            }
+        });
+    }
+
+    private static void registerRangedWeaponsTrades(int level) {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, level, factories -> {
+            if (level == 1) {
+                addTradeOffer(factories, 5, 32, 1, ModItems.BROADHEAD_ARROW);
+            }
+
+            if (level == 2) {
+                addTradeOffer(factories, 5, 32, 1, ModItems.SWALLOWTAIL_ARROW);
+                addTradeOffer(factories, 5, 32, 1, ModItems.BODKIN_ARROW);
+                addTradeOffer(factories, 5, 32, 1, ModItems.CLOTH_ARROW);
+                addTradeOffer(factories, 13, 12, 1, ModItems.LONGBOW);
+            }
+        });
     }
 }

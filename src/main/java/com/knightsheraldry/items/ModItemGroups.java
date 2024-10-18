@@ -80,11 +80,13 @@ public class ModItemGroups {
                 weaponStack(ModItems.WARSWORD_ZWEIHANDER),
                 weaponStack(ModItems.WARDART),
 
-                weaponStack(ModItems.LONGBOW),
-
                 weaponStack(ModItems.SWALLOWTAIL_ARROW),
                 weaponStack(ModItems.BODKIN_ARROW),
-                weaponStack(ModItems.BROADHEAD_ARROW)
+                weaponStack(ModItems.BROADHEAD_ARROW),
+                weaponStack(ModItems.CLOTH_ARROW),
+
+                weaponStack(ModItems.LONGBOW),
+                weaponStack(ModItems.HEAVY_CROSSBOW)
         ));
     }
 

@@ -167,10 +167,12 @@
   "item.knightsheraldry.torn_cloak": "Torn Cloak",
 
   "item.knightsheraldry.longbow": "Longbow",
+  "item.knightsheraldry.heavy_crossbow": "Heavy Crossbow",
 
   "item.knightsheraldry.swallowtail_arrow": "Swallowtail Tipped Arrow",
   "item.knightsheraldry.bodkin_arrow": "Bodkin Tipped Arrow",
   "item.knightsheraldry.broadhead_arrow": "Broadhead Tipped Arrow",
+  "item.knightsheraldry.cloth_arrow": "Cloth Tipped Arrow",
 
   "tooltip.knightsheraldry.shift-right_click-bludgeoning": "§4Shift + Right-Click §rto change between §lSlashing §r& §lBludgeoning §rDamage Type",
   "tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing": "§4Shift + Right-Click §rto change between §lBludgeoning §r& §lPiercing §rDamage Type",
@@ -194,6 +196,7 @@
   "text.tooltip.knightsheraldry.hungerDrain": "Hunger Drain: +%s%%",
   "text.tooltip.knightsheraldry.freezing": "Prevents freezing",
   "text.tooltip.knightsheraldry.hideNameTag": "Hide Name Tag",
+  "text.tooltip.knightsheraldry.baseDamage": "%s Base Damage",
   "text.tooltip.knightsheraldry.slashingResistance": "Slashing Resistance: +%s%% ",
   "text.tooltip.knightsheraldry.bludgeoningResistance": "Bludgeoning Resistance: +%s%%",
   "text.tooltip.knightsheraldry.piercingResistance": "Piercing Resistance: +%s%%"

@@ -3,6 +3,7 @@ package com.knightsheraldry.event;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
+import com.knightsheraldry.items.custom.item.KHRangeWeapons;
 import com.knightsheraldry.util.KHTags;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.item.TooltipContext;
@@ -26,6 +27,10 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
 
         if (stack.getItem() == ModItems.HOOD || stack.getItem() == ModItems.TORN_HOOD) lines.add(Text.translatable("text.tooltip.knightsheraldry.hideNameTag").formatted(Formatting.BLUE));
         if (stack.getItem() == ModItems.CLOAK || stack.getItem() == ModItems.TORN_CLOAK) lines.add(Text.translatable("text.tooltip.knightsheraldry.freezing").formatted(Formatting.BLUE));
+
+        if (stack.getItem() instanceof KHRangeWeapons khRangeWeapons) {
+            lines.add(Text.translatable("text.tooltip.knightsheraldry.baseDamage", (int) khRangeWeapons.getDamage()).formatted(Formatting.GREEN));
+        }
 
         if (stack.getItem() instanceof KHArmorItem khArmorItem) {
             double slashingResistance = khArmorItem.getSlashingResistance() * 100;

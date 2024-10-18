@@ -1,4 +1,4 @@
-package com.knightsheraldry.client;
+package com.knightsheraldry.client.entity;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.entity.custom.WarDartEntity;
