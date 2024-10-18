@@ -35,9 +35,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.SPIKED_MACE, Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.FLAIL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BALL_FLAIL, Models.HANDHELD);
-
         itemModelGenerator.register(ModItems.HAMMER, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WAR_HAMMER, Models.HANDHELD);
 

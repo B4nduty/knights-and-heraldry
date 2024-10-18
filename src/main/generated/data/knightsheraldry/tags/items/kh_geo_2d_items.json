@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "knightsheraldry:flail",
+    "knightsheraldry:ball_flail",
     "knightsheraldry:heavy_crossbow"
   ]
 }

@@ -1,6 +1,6 @@
 package com.knightsheraldry.items.custom.item;
 
-import com.knightsheraldry.client.item.KHGeoRangeWeaponsRenderer;
+import com.knightsheraldry.client.item.KHGeoRangeWeaponsModel;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.util.UseAction;
 import software.bernie.geckolib.animatable.GeoItem;
@@ -10,6 +10,7 @@ import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.renderer.GeoItemRenderer;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
@@ -34,12 +35,12 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
     @Override
     public void createRenderer(Consumer<Object> consumer) {
         consumer.accept(new RenderProvider() {
-            private KHGeoRangeWeaponsRenderer renderer;
+            private GeoItemRenderer<KHGeoRangeWeapons> renderer;
 
             @Override
-            public KHGeoRangeWeaponsRenderer getCustomRenderer() {
+            public GeoItemRenderer<KHGeoRangeWeapons> getCustomRenderer() {
                 if (this.renderer == null)
-                    this.renderer = new KHGeoRangeWeaponsRenderer();
+                    this.renderer = new GeoItemRenderer<>(new KHGeoRangeWeaponsModel());
 
                 return this.renderer;
             }
