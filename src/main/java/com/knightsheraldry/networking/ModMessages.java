@@ -14,9 +14,11 @@ public class ModMessages {
     public static final Identifier PREVIOUS_BLOCK_POS_ID = new Identifier(KnightsHeraldry.MOD_ID, "previous_block_pos");
     public static final Identifier ATTACK_ID = new Identifier(KnightsHeraldry.MOD_ID, "attack");
     public static final Identifier VELOCITY_UPDATE_ID = new Identifier(KnightsHeraldry.MOD_ID, "velocity_update");
+    public static final Identifier RELOAD_PACKET_ID = new Identifier(KnightsHeraldry.MOD_ID, "reload_packet");
 
     public static void registerC2SPackets() {
         ServerPlayNetworking.registerGlobalReceiver(ATTACK_ID, AttackC2SPacket::receive);
+        ServerPlayNetworking.registerGlobalReceiver(RELOAD_PACKET_ID, ReloadC2SPacket::receive);
     }
 
     public static void registerS2CPackets() {

@@ -112,6 +112,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.SABATONS);
 
         getOrCreateTagBuilder(KHTags.Weapon.KH_GEO_2D_ITEMS)
-                .add(ModItems.FLAIL, ModItems.BALL_FLAIL, ModItems.HEAVY_CROSSBOW);
+                .add(ModItems.FLAIL, ModItems.BALL_FLAIL, ModItems.HEAVY_CROSSBOW, ModItems.ARQUEBUS);
     }
 }

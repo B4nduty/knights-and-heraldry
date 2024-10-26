@@ -1,6 +1,7 @@
 package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.entity.custom.KHArrowEntity;
+import com.knightsheraldry.entity.custom.KHBulletEntity;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,29 +23,29 @@ public class KHRangeWeapons extends Item {
     private final float damage;
     private final double blockRange;
     private final UseAction useAction;
-    private final int maxUseTime;
-    private final int animationTime;
+    private final int rechargeTime;
+    private final boolean oneShot;
 
     public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                          UseAction useAction, int maxUseTime) {
+                          UseAction useAction) {
         super(settings);
         this.damageType = damageType;
         this.damage = damage;
         this.blockRange = blockRange;
         this.useAction = useAction;
-        this.maxUseTime = maxUseTime;
-        this.animationTime = 0;
+        this.rechargeTime = 0;
+        this.oneShot = false;
     }
 
     public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                          UseAction useAction, int maxUseTime, int animationTime) {
+                          UseAction useAction, int rechargeTime, boolean oneShot) {
         super(settings);
         this.damageType = damageType;
         this.damage = damage;
         this.blockRange = blockRange;
         this.useAction = useAction;
-        this.maxUseTime = maxUseTime;
-        this.animationTime = animationTime;
+        this.rechargeTime = Math.min(0, rechargeTime);
+        this.oneShot = oneShot;
     }
 
     @Override
@@ -55,6 +56,13 @@ public class KHRangeWeapons extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
+        if (this.oneShot) {
+            if (isCharged(itemStack)) {
+                user.setCurrentHand(hand);
+                return TypedActionResult.consume(itemStack);
+            }
+            return TypedActionResult.fail(itemStack);
+        }
         boolean hasArrow = getArrowFromInventory(user).isPresent();
 
         if (useAction == UseAction.BOW && hasArrow) {
@@ -71,12 +79,13 @@ public class KHRangeWeapons extends Item {
 
     @Override
     public int getMaxUseTime(ItemStack stack) {
-        return maxUseTime;
+        return 72000;
     }
 
     @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (world.isClient || !(user instanceof PlayerEntity player)) return;
+        if (this.oneShot) return;
         int useTime = getMaxUseTime(stack) - remainingUseTicks;
         float crossbowPullProgress = getCrossbowPullProgress(useTime);
 
@@ -90,8 +99,15 @@ public class KHRangeWeapons extends Item {
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         if (world.isClient || !(user instanceof PlayerEntity player)) return;
-
         int useTime = getMaxUseTime(stack) - remainingUseTicks;
+        if (this.oneShot) {
+            if (useTime >= 5 && isCharged(stack)) {
+                shootBullet(world, stack, player);
+                setShooting(stack, true);
+                setCharged(stack, false);
+            }
+            return;
+        }
 
         getArrowFromInventory(player).ifPresent(arrowStack -> {
             float bowPullProgress = getBowPullProgress(useTime);
@@ -134,19 +150,36 @@ public class KHRangeWeapons extends Item {
         arrowEntity.setDamageAmount(this.damage);
         arrowEntity.setDamageType(this.damageType);
 
-        float velocityMultiplier = (float) (this.blockRange / 18.0d);
+        float velocityMultiplier = (float) blockRange / 32f;
         arrowEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, pullProgress * velocityMultiplier, 1.0F);
 
         if (player.getAbilities().creativeMode) {
-            stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
             arrowEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
         }
 
         world.spawnEntity(arrowEntity);
-        world.playSoundFromEntity(null, arrowEntity, SoundEvents.ITEM_TRIDENT_THROW, SoundCategory.PLAYERS, 1.0F, 1.0F);
+        world.playSoundFromEntity(null, arrowEntity, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
         if (!player.getAbilities().creativeMode) {
+            stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
             player.getInventory().removeStack(getArrowSlot(player), 1);
+        }
+    }
+
+    private void shootBullet(World world, ItemStack stack, PlayerEntity player) {
+        KHBulletEntity ballEntity = new KHBulletEntity(player, world);
+        ballEntity.setDamageAmount(this.damage);
+        ballEntity.setDamageType(this.damageType);
+
+        float velocityMultiplier = (float) blockRange / 32f;
+        ballEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, velocityMultiplier, 1.0F);
+
+
+        world.spawnEntity(ballEntity);
+        world.playSoundFromEntity(null, ballEntity, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+
+        if (!player.getAbilities().creativeMode) {
+            stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
         }
     }
 
@@ -180,7 +213,7 @@ public class KHRangeWeapons extends Item {
     }
 
     public float getCrossbowPullProgress(int useTicks) {
-        float f = (float)useTicks / this.animationTime;
+        float f = (float)useTicks / this.rechargeTime;
         if (f > 1.0F) {
             f = 1.0F;
         }
@@ -188,49 +221,53 @@ public class KHRangeWeapons extends Item {
         return f;
     }
 
-    private static void setBooleanTag(ItemStack stack, String key, boolean value) {
+    public boolean isOneShot() {
+        return this.oneShot;
+    }
+
+    private void setBooleanTag(ItemStack stack, String key, boolean value) {
         NbtCompound nbt = stack.getOrCreateNbt();
         nbt.putBoolean(key, value);
     }
 
-    private static boolean getBooleanTag(ItemStack stack, String key) {
+    private boolean getBooleanTag(ItemStack stack, String key) {
         NbtCompound nbt = stack.getNbt();
         return nbt != null && nbt.getBoolean(key);
     }
 
-    public static boolean isReloading(ItemStack stack) {
+    public boolean isReloading(ItemStack stack) {
         return getBooleanTag(stack, "Reload");
     }
 
-    public static void setReload(ItemStack stack, boolean reload) {
+    public void setReload(ItemStack stack, boolean reload) {
         setBooleanTag(stack, "Reload", reload);
     }
 
-    public static boolean isCharged(ItemStack stack) {
+    public boolean isCharged(ItemStack stack) {
         return getBooleanTag(stack, "Charged");
     }
 
-    public static void setCharged(ItemStack stack, boolean charged) {
+    public void setCharged(ItemStack stack, boolean charged) {
         setBooleanTag(stack, "Charged", charged);
     }
 
-    public static boolean isShooting(ItemStack stack) {
+    public boolean isShooting(ItemStack stack) {
         return getBooleanTag(stack, "Shoot");
     }
 
-    public static void setShooting(ItemStack stack, boolean shoot) {
+    public void setShooting(ItemStack stack, boolean shoot) {
         setBooleanTag(stack, "Shoot", shoot);
     }
 
-    public static void loadProjectiles(ItemStack itemStack, KHArrowEntity arrowEntity) {
+    public void loadProjectiles(ItemStack itemStack, KHArrowEntity arrowEntity) {
         itemStack.getOrCreateNbt().putInt(arrowEntity.getEntityName(), 1);
     }
 
-    public static void unloadProjectiles(ItemStack itemStack, KHArrowEntity arrowEntity) {
+    public void unloadProjectiles(ItemStack itemStack, KHArrowEntity arrowEntity) {
         itemStack.getOrCreateNbt().putInt(arrowEntity.getEntityName(), 0);
     }
 
-    public static boolean isLoaded(ItemStack stack, KHArrowEntity arrowEntity) {
+    public boolean isLoaded(ItemStack stack, KHArrowEntity arrowEntity) {
         return stack.getNbt() != null && stack.getNbt().getInt(arrowEntity.getEntityName()) == 1;
     }
 

@@ -3,8 +3,10 @@ package com.knightsheraldry;
 import com.knightsheraldry.client.*;
 import com.knightsheraldry.client.entity.*;
 import com.knightsheraldry.entity.ModEntities;
+import com.knightsheraldry.entity.custom.KHArrowEntity;
 import com.knightsheraldry.event.AttackCancelHandler;
 import com.knightsheraldry.event.ItemTooltipHandler;
+import com.knightsheraldry.event.KeyInputHandler;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
@@ -37,6 +39,7 @@ public class KnightsHeraldryClient implements ClientModInitializer {
     public void onInitializeClient() {
         ModMessages.registerS2CPackets();
         ClientPreAttackCallback.EVENT.register(new AttackCancelHandler());
+        KeyInputHandler.register();
 
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
         ModItems.items.forEach(item -> {
@@ -44,6 +47,7 @@ public class KnightsHeraldryClient implements ClientModInitializer {
             if (item == ModItems.BODKIN_ARROW) EntityRendererRegistry.register(ModEntities.KH_ARROW, KHBodkinArrowEntityRenderer::new);
             if (item == ModItems.BROADHEAD_ARROW) EntityRendererRegistry.register(ModEntities.KH_ARROW, KHBroadheadArrowEntityRenderer::new);
             if (item == ModItems.CLOTH_ARROW) EntityRendererRegistry.register(ModEntities.KH_ARROW, KHClothArrowEntityRenderer::new);
+            if (item == ModItems.BLACK_POWDER) EntityRendererRegistry.register(ModEntities.KH_ARROW, KHBulletEntityRenderer::new);
         });
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
 

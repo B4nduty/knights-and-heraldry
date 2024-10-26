@@ -69,7 +69,8 @@ public abstract class ModelLoaderMixin {
                 "warsword_zweihander_3d",
                 "wardart_3d",
                 "longbow_3d",
-                "heavy_crossbow_icon"
+                "heavy_crossbow_icon",
+                "arquebus_icon"
         };
 
         for (String modelName : modelNames) {

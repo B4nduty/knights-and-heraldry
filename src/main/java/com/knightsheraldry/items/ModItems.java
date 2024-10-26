@@ -1,10 +1,7 @@
 package com.knightsheraldry.items;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.entity.custom.KHBodkinArrowEntity;
-import com.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
-import com.knightsheraldry.entity.custom.KHClothArrowEntity;
-import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
+import com.knightsheraldry.entity.custom.*;
 import com.knightsheraldry.items.custom.armor.KHArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.*;
@@ -328,9 +325,11 @@ public class ModItems {
 
 
     public static final Item LONGBOW = registerItem("longbow", new KHRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.PIERCING, 14f, 85, UseAction.BOW, 72000));
+            KHDamageCalculator.DamageType.PIERCING, 14f, 85, UseAction.BOW));
     public static final Item HEAVY_CROSSBOW = registerItem("heavy_crossbow", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.PIERCING, 16f, 70, UseAction.CROSSBOW, 72000, 100));
+            KHDamageCalculator.DamageType.PIERCING, 16f, 70, UseAction.CROSSBOW, 100, false));
+    public static final Item ARQUEBUS = registerItem("arquebus", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
+            KHDamageCalculator.DamageType.BLUDGEONING, 18f, 65, UseAction.BOW, 0, true));
 
     public static final Item SWALLOWTAIL_ARROW = registerItem("swallowtail_arrow",
             new KHArrow(new OwoItemSettings(), KHSwallowTailArrowEntity::new));
@@ -340,6 +339,9 @@ public class ModItems {
             new KHArrow(new OwoItemSettings(), KHBroadheadArrowEntity::new));
     public static final Item CLOTH_ARROW = registerItem("cloth_arrow",
             new KHArrow(new OwoItemSettings(), KHClothArrowEntity::new));
+
+    public static final Item BLACK_POWDER = registerItem("black_powder",
+            new Item(new OwoItemSettings()));
 
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

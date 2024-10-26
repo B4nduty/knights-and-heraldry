@@ -14,12 +14,12 @@ import java.util.List;
 
 public class VillagerTradesModifier {
     public static void registerCustomTrades() {
-
         for (int level = 1; level <= 5; level++) {
             registerArmorTrades(level);
             registerWeaponTrades(level);
             registerClothsTrades(level);
             registerRangedWeaponsTrades(level);
+            registerClericTrades(level);
         }
     }
 
@@ -135,6 +135,7 @@ public class VillagerTradesModifier {
             if (level == 5) {
                 addTradeOffer(factories, 18, 12, 15, ModItems.HALBERD);
                 addTradeOffer(factories, 18, 12, 15, ModItems.BARDICHE);
+                addTradeOffer(factories, 25, 12, 15, ModItems.ARQUEBUS);
             }
         });
     }
@@ -162,10 +163,22 @@ public class VillagerTradesModifier {
             }
 
             if (level == 2) {
-                addTradeOffer(factories, 5, 32, 1, ModItems.SWALLOWTAIL_ARROW);
-                addTradeOffer(factories, 5, 32, 1, ModItems.BODKIN_ARROW);
-                addTradeOffer(factories, 5, 32, 1, ModItems.CLOTH_ARROW);
-                addTradeOffer(factories, 13, 12, 1, ModItems.LONGBOW);
+                addTradeOffer(factories, 5, 32, 5, ModItems.SWALLOWTAIL_ARROW);
+                addTradeOffer(factories, 5, 32, 5, ModItems.BODKIN_ARROW);
+                addTradeOffer(factories, 5, 32, 5, ModItems.CLOTH_ARROW);
+                addTradeOffer(factories, 13, 12, 5, ModItems.LONGBOW);
+            }
+
+            if (level == 3) {
+                addTradeOffer(factories, 15, 12, 10, ModItems.HEAVY_CROSSBOW);
+            }
+        });
+    }
+
+    private static void registerClericTrades(int level) {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, level, factories -> {
+            if (level == 5) {
+                addTradeOffer(factories, 10, 32, 15, ModItems.BLACK_POWDER);
             }
         });
     }

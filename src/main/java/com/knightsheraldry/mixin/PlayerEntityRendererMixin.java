@@ -13,7 +13,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PlayerEntityRendererMixin {
     @Inject(method = "getArmPose", at = @At("RETURN"), cancellable = true)
     private static void knightsheraldry$getArmPose(AbstractClientPlayerEntity player, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> callbackInfoReturnable) {
-        if (player.getStackInHand(hand).getNbt() != null && player.getStackInHand(hand).getNbt().getBoolean("Charged")) {
+        if (player.getStackInHand(hand).getNbt() != null && (player.getStackInHand(hand).getNbt().getBoolean("Charged")
+                || player.getStackInHand(hand).getNbt().getBoolean("Shoot"))) {
             callbackInfoReturnable.setReturnValue(BipedEntityModel.ArmPose.BOW_AND_ARROW);
         }
     }

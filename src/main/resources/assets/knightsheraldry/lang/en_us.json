@@ -168,6 +168,8 @@
 
   "item.knightsheraldry.longbow": "Longbow",
   "item.knightsheraldry.heavy_crossbow": "Heavy Crossbow",
+  "item.knightsheraldry.arquebus": "Arquebus",
+  "item.knightsheraldry.black_powder": "Black Powder",
 
   "item.knightsheraldry.swallowtail_arrow": "Swallowtail Tipped Arrow",
   "item.knightsheraldry.bodkin_arrow": "Bodkin Tipped Arrow",
@@ -180,6 +182,7 @@
   "tooltip.knightsheraldry.right_click-to-charge": "§4Right-Click §rto §lCharge §rfor §l2 Seconds",
   "tooltip.knightsheraldry.on-charge": "On §4Charge §rit will §lAuto Attack",
   "tooltip.knightsheraldry.throw-to-pin": "§lThrow §rto §4Pin §ran §lEntity §rfor §45 §lSeconds",
+  "tooltip.knightsheraldry.need_to_hold": "§1Hold §r[ %s ] §1to Recharge",
 
   "text.config.knightsheraldry.title": "Knights & Heraldry",
   "text.config.knightsheraldry.option.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
@@ -199,5 +202,11 @@
   "text.tooltip.knightsheraldry.baseDamage": "%s Base Damage",
   "text.tooltip.knightsheraldry.slashingResistance": "Slashing Resistance: +%s%% ",
   "text.tooltip.knightsheraldry.bludgeoningResistance": "Bludgeoning Resistance: +%s%%",
-  "text.tooltip.knightsheraldry.piercingResistance": "Piercing Resistance: +%s%%"
+  "text.tooltip.knightsheraldry.piercingResistance": "Piercing Resistance: +%s%%",
+
+  "event.knightsheraldry.recharge_time": "Recharge Time: %s sec",
+  "event.knightsheraldry.recharged": "Has been Recharged",
+
+  "key.category.knightsheraldry": "Knights & Heraldry",
+  "key.knightsheraldry.reload": "Reload"
 }

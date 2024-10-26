@@ -58,5 +58,6 @@ public class KHArrowEntity extends PersistentProjectileEntity {
     public void applyDamage(LivingEntity target, LivingEntity attacker) {
         float damageDealt = new KHDamageCalculator().getKHDamage(target, damage, damageType);
         target.damage(this.getDamageSources().arrow(this, attacker), damageDealt);
+        if (this.isOnFire()) target.setOnFireFor(5);
     }
 }

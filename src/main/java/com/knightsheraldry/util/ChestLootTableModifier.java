@@ -18,7 +18,7 @@ public class ChestLootTableModifier {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
 
             if (LootTables.VILLAGE_WEAPONSMITH_CHEST.equals(id)) {
-                tableBuilder.pool(createLootPool(0.1f, 1, ModItems.SMITHING_HAMMER));
+                tableBuilder.pool(createLootPool(0.1f, ModItems.SMITHING_HAMMER));
                 tableBuilder.pool(createWeaponLootPool());
             }
 
@@ -27,26 +27,26 @@ public class ChestLootTableModifier {
             }
 
             if (LootTables.VILLAGE_SHEPARD_CHEST.equals(id)) {
-                tableBuilder.pool(createLootPool(0.15f, 0.16f,
+                tableBuilder.pool(createLootPool(0.15f,
                         ModItems.SURCOAT, ModItems.SURCOAT_SLEEVELESS, ModItems.CLOAK, ModItems.TORN_CLOAK,
                         ModItems.HOOD, ModItems.TORN_HOOD));
             }
 
             if (LootTables.VILLAGE_FLETCHER_CHEST.equals(id)) {
-                tableBuilder.pool(createLootPool(0.15f, 0.2f,
+                tableBuilder.pool(createLootPool(0.15f,
                         ModItems.LONGBOW, ModItems.SWALLOWTAIL_ARROW, ModItems.BODKIN_ARROW, ModItems.BROADHEAD_ARROW,
-                        ModItems.CLOTH_ARROW));
+                        ModItems.CLOTH_ARROW, ModItems.HEAVY_CROSSBOW));
             }
         });
     }
 
-    private static LootPool createLootPool(float mainChance, float itemChance, Item... items) {
+    private static LootPool createLootPool(float mainChance, Item... items) {
         LootPool.Builder poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))
                 .conditionally(RandomChanceLootCondition.builder(mainChance));
 
         for (ItemConvertible item : items) {
-            poolBuilder.with(ItemEntry.builder(item).conditionally(RandomChanceLootCondition.builder(itemChance)));
+            poolBuilder.with(ItemEntry.builder(item).conditionally(RandomChanceLootCondition.builder((float) 1 / items.length)));
         }
 
         poolBuilder.apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
@@ -54,7 +54,7 @@ public class ChestLootTableModifier {
     }
 
     private static LootPool createWeaponLootPool() {
-        return createLootPool(0.15f, 0.025f,
+        return createLootPool(0.15f,
                 ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD,
                 ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE,
                 ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE, ModItems.SPIKED_MACE, ModItems.FLAIL,
@@ -68,7 +68,7 @@ public class ChestLootTableModifier {
     }
 
     private static LootPool createArmorLootPool() {
-        return createLootPool(0.15f, 0.02f,
+        return createLootPool(0.15f,
                 ModItems.QUILTED_COIF, ModItems.GAMBESON, ModItems.GAMBESON_BREECHES, ModItems.GAMBESON_BOOTS,
                 ModItems.MAIL_COIF, ModItems.HAUBERK, ModItems.MAIL_BREECHES, ModItems.MAIL_BOOTS,
                 ModItems.MAIL_PAULDRON, ModItems.BRIGANDINE_PAULDRON, ModItems.PLATE_PAULDRON,
