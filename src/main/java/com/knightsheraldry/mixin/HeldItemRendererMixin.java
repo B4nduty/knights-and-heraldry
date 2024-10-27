@@ -1,7 +1,7 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.armor.KHArmorItem;
+import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.model.TrinketsArmModel;
 import com.knightsheraldry.model.TrinketsChestplateModel;
@@ -40,7 +40,7 @@ public class HeldItemRendererMixin {
     private MinecraftClient client;
 
     @Inject(method = "renderArm", at = @At("TAIL"))
-    private void renderArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, Arm arm, CallbackInfo ci) {
+    private void knightsheraldry$renderArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, Arm arm, CallbackInfo ci) {
         matrices.push();
         float f = arm == Arm.RIGHT ? 1.0F : -1.0F;
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(92.0F));
@@ -52,7 +52,7 @@ public class HeldItemRendererMixin {
     }
 
     @Inject(method = "renderArmHoldingItem", at = @At("TAIL"))
-    private void renderArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, float equipProgress, float swingProgress, Arm arm, CallbackInfo ci) {
+    private void knightsheraldry$renderArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, float equipProgress, float swingProgress, Arm arm, CallbackInfo ci) {
         modelLoader(matrices, vertexConsumers, light, arm);
     }
 
@@ -61,7 +61,7 @@ public class HeldItemRendererMixin {
         ClientPlayerEntity player = this.client.player;
         if (player == null) return;
         ItemStack stack = player.getInventory().getArmorStack(2);
-        if (stack.getItem() instanceof KHArmorItem khArmorItem && khArmorItem.getSlotType() == ArmorItem.Type.CHESTPLATE.getEquipmentSlot()) {
+        if (stack.getItem() instanceof KHUnderArmorItem khArmorItem && khArmorItem.getSlotType() == ArmorItem.Type.CHESTPLATE.getEquipmentSlot()) {
             UnderArmourArmModel model = new UnderArmourArmModel(UnderArmourArmModel.getTexturedModelData().createModel());
             VertexConsumer baseConsumer = vertexConsumers.getBuffer(
                     RenderLayer.getArmorCutoutNoCull(khArmorItem.getPath()));
@@ -110,7 +110,7 @@ public class HeldItemRendererMixin {
     @Unique
     private @NotNull Identifier getOverlayIdentifier(Item item) {
         Identifier originalIdentifier = null;
-        if (item instanceof KHArmorItem khArmorItem) originalIdentifier = khArmorItem.getPath();
+        if (item instanceof KHUnderArmorItem khArmorItem) originalIdentifier = khArmorItem.getPath();
         if (item instanceof KHTrinketsItem khTrinketsItem) originalIdentifier = khTrinketsItem.getPath();
 
         String textureOverlayString = null;

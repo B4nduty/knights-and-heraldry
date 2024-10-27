@@ -6,8 +6,8 @@
   },
   "overrides": [
     {"predicate": {"blocking": 1}, "model": "knightsheraldry:item/warsword_zweihander_3d_blocking"},
-    {"predicate": {"custom_model_data": 1}, "model": "knightsheraldry:item/warsword_zweihander_3d_bludgeoning"},
-    {"predicate": {"blocking": 1, "custom_model_data": 1}, "model": "knightsheraldry:item/warsword_zweihander_3d_bludgeoning_blocking"}
+    {"predicate": {"bludgeoning": 1}, "model": "knightsheraldry:item/warsword_zweihander_3d_bludgeoning"},
+    {"predicate": {"blocking": 1, "bludgeoning": 1}, "model": "knightsheraldry:item/warsword_zweihander_3d_bludgeoning_blocking"}
   ],
   "display": {
     "thirdperson_righthand": {

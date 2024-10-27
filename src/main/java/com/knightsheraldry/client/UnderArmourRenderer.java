@@ -1,6 +1,6 @@
 package com.knightsheraldry.client;
 
-import com.knightsheraldry.items.custom.armor.KHArmorItem;
+import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.model.UnderArmourBootsModel;
 import com.knightsheraldry.model.UnderArmourChestplateModel;
 import com.knightsheraldry.model.UnderArmourHelmetModel;
@@ -35,7 +35,7 @@ public class UnderArmourRenderer implements ArmorRenderer {
         BipedEntityModel<LivingEntity> model = getLivingEntityBipedEntityModel(stack);
         if (model != null) {
             TrinketRenderer.followBodyRotations(entity, model);
-            if (stack.getItem() instanceof KHArmorItem khArmorItem) {
+            if (stack.getItem() instanceof KHUnderArmorItem khArmorItem) {
                 VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
                         RenderLayer.getArmorCutoutNoCull(khArmorItem.getPath()));
                 if (khArmorItem.isDyeable()) {
@@ -57,7 +57,7 @@ public class UnderArmourRenderer implements ArmorRenderer {
         }
     }
 
-    private static @NotNull Identifier getIdentifier(KHArmorItem khArmorItem) {
+    private static @NotNull Identifier getIdentifier(KHUnderArmorItem khArmorItem) {
         Identifier originalIdentifier = khArmorItem.getPath();
 
         String textureOverlayString = originalIdentifier.getPath();
@@ -73,7 +73,7 @@ public class UnderArmourRenderer implements ArmorRenderer {
 
     private @Nullable BipedEntityModel<LivingEntity> getLivingEntityBipedEntityModel(ItemStack stack) {
         BipedEntityModel<LivingEntity> model = null;
-        if (stack.getItem() instanceof KHArmorItem khArmorItem) {
+        if (stack.getItem() instanceof KHUnderArmorItem khArmorItem) {
             if (khArmorItem.getSlotType() == ArmorItem.Type.HELMET.getEquipmentSlot()) model = this.getUnderArmourHelmetModel();
             if (khArmorItem.getSlotType() == ArmorItem.Type.CHESTPLATE.getEquipmentSlot()) model = this.getUnderArmourChestplateModel();
             if (khArmorItem.getSlotType() == ArmorItem.Type.LEGGINGS.getEquipmentSlot()) model = this.getUnderArmourLeggingsModel();

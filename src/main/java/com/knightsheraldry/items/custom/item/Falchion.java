@@ -1,8 +1,10 @@
 package com.knightsheraldry.items.custom.item;
 
+import com.knightsheraldry.util.KHDamageCalculator;
+
 public class Falchion extends KHWeapons {
-    public Falchion(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public Falchion(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
     }
 
     @Override
@@ -17,7 +19,6 @@ public class Falchion extends KHWeapons {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher or equal than its next value
                 1.0d, //1st Distance
                 1.9d, //2nd Distance
                 2.6d, //3rd Distance

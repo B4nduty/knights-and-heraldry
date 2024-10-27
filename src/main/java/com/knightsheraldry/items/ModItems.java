@@ -1,10 +1,14 @@
 package com.knightsheraldry.items;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.entity.custom.*;
-import com.knightsheraldry.items.custom.armor.KHArmorItem;
+import com.knightsheraldry.entity.custom.KHBodkinArrowEntity;
+import com.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
+import com.knightsheraldry.entity.custom.KHClothArrowEntity;
+import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
+import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.*;
+import com.knightsheraldry.sounds.ModSounds;
 import com.knightsheraldry.util.KHDamageCalculator;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.minecraft.item.ArmorItem;
@@ -12,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.UseAction;
 
@@ -25,141 +30,141 @@ public class ModItems {
             new SmithingHammer(new OwoItemSettings().maxCount(1)));
 
     public static final Item DAGGER = registerItem("dagger",
-            new Dagger(-2F, new OwoItemSettings().maxDamage(251)));
+            new Dagger(-2F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item STILETTO = registerItem("stiletto",
-            new Stiletto(-2F, new OwoItemSettings().maxDamage(251)));
+            new Stiletto(-2F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.PIERCING));
 
     public static final Item RAPIER = registerItem("rapier",
-            new Rapier(-2.2F, new OwoItemSettings().maxDamage(251)));
+            new Rapier(-2.2F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.PIERCING));
 
     public static final Item SWORD = registerItem("sword",
-            new Sword(-2.4F, new OwoItemSettings().maxDamage(251)));
+            new Sword(-2.4F, new OwoItemSettings().maxDamage(251), null));
     public static final Item V_SWORD = registerItem("v_sword",
-            new Sword(-2.4F, new OwoItemSettings().maxDamage(251)));
+            new Sword(-2.4F, new OwoItemSettings().maxDamage(251), null));
     public static final Item ARMING_SWORD = registerItem("arming_sword",
-            new Sword(-2.4F, new OwoItemSettings().maxDamage(251)));
+            new Sword(-2.4F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item AXE = registerItem("axe",
-            new Axe(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new Axe(-2.6F, new OwoItemSettings().maxDamage(251), null));
     public static final Item BROAD_AXE = registerItem("broad_axe",
-            new Axe(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new Axe(-2.6F, new OwoItemSettings().maxDamage(251), null));
     public static final Item CROOKED_AXE = registerItem("crooked_axe",
-            new Axe(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new Axe(-2.6F, new OwoItemSettings().maxDamage(251), null));
     public static final Item STRAIGHT_CROOKED_AXE = registerItem("straight_crooked_axe",
-            new Axe(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new Axe(-2.6F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item MACE = registerItem("mace",
-            new Mace(-3.0F, new OwoItemSettings().maxDamage(251)));
+            new Mace(-3.0F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.BLUDGEONING));
     public static final Item SPIKED_MACE = registerItem("spiked_mace",
-            new Mace(-3.0F, new OwoItemSettings().maxDamage(251)));
+            new Mace(-3.0F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.BLUDGEONING));
 
     public static final Item FLAIL = registerItem("flail",
-            new Flail(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Flail(-2.8F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.BLUDGEONING));
     public static final Item BALL_FLAIL = registerItem("ball_flail",
-            new Flail(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Flail(-2.8F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.BLUDGEONING));
 
     public static final Item HAMMER = registerItem("hammer",
-            new Hammer(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Hammer(-2.8F, new OwoItemSettings().maxDamage(251), null));
     public static final Item WAR_HAMMER = registerItem("war_hammer",
-            new Hammer(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Hammer(-2.8F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item LONGSWORD = registerItem("longsword",
-            new LongSword(-2.5F, new OwoItemSettings().maxDamage(251)));
+            new LongSword(-2.5F, new OwoItemSettings().maxDamage(251), null));
     public static final Item V_LONGSWORD = registerItem("v_longsword",
-            new LongSword(-2.5F, new OwoItemSettings().maxDamage(251)));
+            new LongSword(-2.5F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item FALCHION = registerItem("falchion",
-            new Falchion(-2.5F, new OwoItemSettings().maxDamage(251)));
+            new Falchion(-2.5F, new OwoItemSettings().maxDamage(251), null));
     public static final Item SCIMITAR = registerItem("scimitar",
-            new Falchion(-2.5F, new OwoItemSettings().maxDamage(251)));
+            new Falchion(-2.5F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item KATANA = registerItem("katana",
-            new Katana(-2.4F, new OwoItemSettings().maxDamage(251)));
+            new Katana(-2.4F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item PITCHFORK = registerItem("pitchfork",
-            new Pitchfork(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new Pitchfork(-2.6F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.PIERCING));
 
     public static final Item SPEAR = registerItem("spear",
-            new Spear(-2.4F, new OwoItemSettings().maxDamage(251)));
+            new Spear(-2.4F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.PIERCING));
 
     public static final Item PIKE = registerItem("pike",
-            new Pike(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Pike(-2.8F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.PIERCING));
 
     public static final Item BILLHOOK = registerItem("billhook",
-            new Billhook(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Billhook(-2.8F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item GLAIVE = registerItem("glaive",
-            new Glaive(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new Glaive(-2.6F, new OwoItemSettings().maxDamage(251), null));
     public static final Item CURVED_GLAIVE = registerItem("curved_glaive",
-            new Glaive(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new Glaive(-2.6F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item HALBERD = registerItem("halberd",
-            new Halberd(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Halberd(-2.8F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item LANCE = registerItem("lance",
-            new Lance(-3.0F, new OwoItemSettings().maxDamage(251)));
+            new Lance(-3.0F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.PIERCING));
     public static final Item WOODEN_LANCE = registerItem("wooden_lance",
-            new WoodenLance(-3.0F, new OwoItemSettings()));
+            new WoodenLance(-3.0F, new OwoItemSettings().maxDamage(1), KHDamageCalculator.DamageType.PIERCING));
 
     public static final Item POLEAXE = registerItem("poleaxe",
-            new Poleaxe(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Poleaxe(-2.8F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item POLEHAMMER = registerItem("polehammer",
-            new Polehammer(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Polehammer(-2.8F, new OwoItemSettings().maxDamage(251), null));
     public static final Item BEC_DE_CORBIN = registerItem("bec_de_corbin",
-            new Polehammer(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Polehammer(-2.8F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item MORNING_STAR = registerItem("morning_star",
-            new MorningStar(-3.0F, new OwoItemSettings().maxDamage(251)));
+            new MorningStar(-3.0F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.BLUDGEONING));
 
     public static final Item BARDICHE = registerItem("bardiche",
-            new Bardiche(-2.8F, new OwoItemSettings().maxDamage(251)));
+            new Bardiche(-2.8F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item WARSWORD = registerItem("warsword",
-            new WarSword(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new WarSword(-2.6F, new OwoItemSettings().maxDamage(251), null));
     public static final Item WARSWORD_CLAYMORE = registerItem("warsword_claymore",
-            new WarSword(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new WarSword(-2.6F, new OwoItemSettings().maxDamage(251), null));
     public static final Item WARSWORD_FLAMBERGE = registerItem("warsword_flamberge",
-            new WarSword(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new WarSword(-2.6F, new OwoItemSettings().maxDamage(251), null));
     public static final Item WARSWORD_ZWEIHANDER = registerItem("warsword_zweihander",
-            new WarSword(-2.6F, new OwoItemSettings().maxDamage(251)));
+            new WarSword(-2.6F, new OwoItemSettings().maxDamage(251), null));
 
     public static final Item WARDART = registerItem("wardart",
-            new WarDart(-2.4F, new OwoItemSettings().maxDamage(251)));
+            new WarDart(-2.4F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.PIERCING));
 
 
     public static final Item QUILTED_COIF = registerItem("quilted_coif",
-            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET,
+            new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET,
                     0.04d, 0.1d, 0,
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/gambeson.png"), true));
     public static final Item GAMBESON = registerItem("gambeson",
-            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE,
+            new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE,
                     0.04d, 0.1d, 0,
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/gambeson.png"), true));
     public static final Item GAMBESON_BREECHES = registerItem("gambeson_breeches",
-            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS,
+            new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS,
                     0.04d, 0.1d, 0,
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/gambeson.png"), true));
     public static final Item GAMBESON_BOOTS = registerItem("gambeson_boots",
-            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS,
+            new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS,
                     0.04d, 0.1d, 0,
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/gambeson.png"), true));
 
     public static final Item MAIL_COIF = registerItem("mail_coif",
-            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.HELMET,
+            new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.HELMET,
                     0.1d, 0.04d, 0,
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/mail.png"), false));
     public static final Item HAUBERK = registerItem("hauberk",
-            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE,
+            new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE,
                     0.1d, 0.04d, 0,
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/mail.png"), false));
     public static final Item MAIL_BREECHES = registerItem("mail_breeches",
-            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS,
+            new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS,
                     0.1d, 0.04d, 0,
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/mail.png"), false));
     public static final Item MAIL_BOOTS = registerItem("mail_boots",
-            new KHArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS,
+            new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS,
                     0.1d, 0.04d, 0,
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/mail.png"), false));
 
@@ -328,12 +333,13 @@ public class ModItems {
             new Item(new OwoItemSettings()));
 
     public static final Item LONGBOW = registerItem("longbow", new KHRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.PIERCING, 14f, 85, UseAction.BOW));
+            KHDamageCalculator.DamageType.PIERCING, 14f, 85, UseAction.BOW, SoundEvents.ENTITY_ARROW_SHOOT));
     public static final Item HEAVY_CROSSBOW = registerItem("heavy_crossbow", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.PIERCING, 16f, 70, UseAction.CROSSBOW, 5));
+            KHDamageCalculator.DamageType.PIERCING, 16f, 70, UseAction.CROSSBOW, 5, SoundEvents.ENTITY_ARROW_SHOOT));
     public static final Item ARQUEBUS = registerItem("arquebus", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
             KHDamageCalculator.DamageType.BLUDGEONING, 18f, 65, UseAction.BOW, 15,
-            ModItems.BLACK_POWDER, null, Items.IRON_NUGGET, Items.GRAVEL, Items.PAPER, Items.GRASS));
+            ModItems.BLACK_POWDER, null, Items.IRON_NUGGET, Items.GRAVEL, Items.PAPER, Items.GRASS,
+            ModSounds.ARQUEBUS_CLOSE_1, ModSounds.ARQUEBUS_CLOSE_2, ModSounds.ARQUEBUS_CLOSE_3));
 
     public static final Item SWALLOWTAIL_ARROW = registerItem("swallowtail_arrow",
             new KHArrow(new OwoItemSettings(), KHSwallowTailArrowEntity::new));
@@ -350,7 +356,7 @@ public class ModItems {
         return item;
     }
 
-    public static void registerModItems() {
+    public static void registerItems() {
         KnightsHeraldry.LOGGER.info("Registering Mod Items for " + KnightsHeraldry.MOD_ID);
     }
 }

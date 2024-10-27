@@ -42,14 +42,14 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
-    protected void injectWriteMethod(NbtCompound nbt, CallbackInfo ci) {
+    protected void knightsheraldry$injectWriteMethod(NbtCompound nbt, CallbackInfo ci) {
         if (persistentData != null) {
             nbt.put("knightsheraldry.data", persistentData);
         }
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
-    protected void injectReadMethod(NbtCompound nbt, CallbackInfo info) {
+    protected void knightsheraldry$injectReadMethod(NbtCompound nbt, CallbackInfo info) {
         if (nbt.contains("knightsheraldry.data", 10)) {
             persistentData = nbt.getCompound("knightsheraldry.data");
         }
@@ -99,7 +99,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     }
 
     @Inject(method = "tick", at = @At("HEAD"))
-    private void onTick(CallbackInfo ci) {
+    private void knightsheraldry$onTick(CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
         ItemStack mainHandStack = player.getMainHandStack();
         ItemStack offHandStack = player.getOffHandStack();
@@ -151,7 +151,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     }
 
     @Inject(method = "attack", at = @At("HEAD"), cancellable = true)
-    public void onAttack(Entity target, CallbackInfo ci) {
+    public void knightsheraldry$onAttack(Entity target, CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
 
         if (target.isAttackable()) {

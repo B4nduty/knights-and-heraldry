@@ -1,8 +1,10 @@
 package com.knightsheraldry.items.custom.item;
 
+import com.knightsheraldry.util.KHDamageCalculator;
+
 public class Stiletto extends KHWeapons {
-    public Stiletto(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public Stiletto(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
     }
 
     @Override
@@ -17,7 +19,6 @@ public class Stiletto extends KHWeapons {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher or equal than its next value
                 0.0d, //1st Distance
                 0.7d, //2nd Distance
                 1.2d, //3rd Distance

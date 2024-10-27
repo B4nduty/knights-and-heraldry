@@ -5,6 +5,7 @@ import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.BlockHitResult;
@@ -32,7 +33,9 @@ public class KHBulletEntity extends PersistentProjectileEntity {
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
-            applyDamage(target, (LivingEntity) getOwner());
+            damage = KHDamageCalculator.getKHDamage(target, this.damage, this.damageType);
+            KHDamageCalculator.applyDamage(target, (PlayerEntity) getOwner(), bulletStack, damage);
+            if (this.isOnFire()) target.setOnFireFor(5);
         }
         super.onEntityHit(entityHitResult);
         this.discard();
@@ -50,11 +53,5 @@ public class KHBulletEntity extends PersistentProjectileEntity {
 
     public void setDamageType(KHDamageCalculator.DamageType damageType) {
         this.damageType = damageType;
-    }
-
-    public void applyDamage(LivingEntity target, LivingEntity attacker) {
-        float damageDealt = new KHDamageCalculator().getKHDamage(target, damage, damageType);
-        target.damage(this.getDamageSources().arrow(this, attacker), damageDealt);
-        if (this.isOnFire()) target.setOnFireFor(5);
     }
 }

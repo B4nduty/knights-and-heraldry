@@ -1,7 +1,7 @@
 package com.knightsheraldry.event;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.armor.KHArmorItem;
+import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.util.IEntityDataSaver;
@@ -57,7 +57,7 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             if (isArmorSlot(slot)) {
                 ItemStack armorPiece = entity.getEquippedStack(slot);
-                if (!(armorPiece.getItem() instanceof KHArmorItem)) {
+                if (!(armorPiece.getItem() instanceof KHUnderArmorItem)) {
                     return false;
                 }
             }
@@ -185,6 +185,6 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
     }
 
     private boolean isKHArmor(ItemStack stack) {
-        return stack.isIn(KHTags.Armors.KH_UNDER_ARMORS);
+        return stack.getItem() instanceof KHUnderArmorItem;
     }
 }

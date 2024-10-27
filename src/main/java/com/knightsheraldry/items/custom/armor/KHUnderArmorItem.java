@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 
-public class KHArmorItem extends ArmorItem implements DyeableItem {
+public class KHUnderArmorItem extends ArmorItem implements DyeableItem {
     private final double slashingResistance;
     private final double bludgeoningResistance;
     private final double piercingResistance;
@@ -15,8 +15,8 @@ public class KHArmorItem extends ArmorItem implements DyeableItem {
     private final boolean dyeable;
 
     // If texturePath is null, it won't use the model set by Knights and Heraldry
-    public KHArmorItem(Settings settings, ArmorMaterial material, Type type, double slashingResistance,
-                       double bludgeoningResistance, double piercingResistance, Identifier texturePath, boolean dyeable) {
+    public KHUnderArmorItem(Settings settings, ArmorMaterial material, Type type, double slashingResistance,
+                            double bludgeoningResistance, double piercingResistance, Identifier texturePath, boolean dyeable) {
         super(material, type, settings);
         this.slashingResistance = slashingResistance;
         this.bludgeoningResistance = bludgeoningResistance;
@@ -25,8 +25,8 @@ public class KHArmorItem extends ArmorItem implements DyeableItem {
         this.dyeable = dyeable;
     }
 
-    public KHArmorItem(Settings settings, ArmorMaterial material, Type type, double slashingResistance,
-                       double bludgeoningResistance, double piercingResistance) {
+    public KHUnderArmorItem(Settings settings, ArmorMaterial material, Type type, double slashingResistance,
+                            double bludgeoningResistance, double piercingResistance) {
         super(material, type, settings);
         this.slashingResistance = slashingResistance;
         this.bludgeoningResistance = bludgeoningResistance;

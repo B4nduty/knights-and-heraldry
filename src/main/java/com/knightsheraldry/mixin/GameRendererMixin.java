@@ -24,7 +24,7 @@ public class GameRendererMixin {
     private final MinecraftClient client = MinecraftClient.getInstance();
 
     @Inject(method = "updateTargetedEntity", at = @At("HEAD"), cancellable = true)
-    private void updateTargetedEntity(float tickDelta, CallbackInfo ci) {
+    private void knightsheraldry$updateTargetedEntity(float tickDelta, CallbackInfo ci) {
         Entity entity = this.client.getCameraEntity();
         if (entity != null) {
             if (this.client.world != null) {

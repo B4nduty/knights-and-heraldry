@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {
     @Inject(method = "doAttack", at = @At("HEAD"), cancellable = true)
-    private void pre_doAttack(CallbackInfoReturnable<Boolean> info) {
+    private void knightsheraldry$pre_doAttack(CallbackInfoReturnable<Boolean> info) {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         if (player != null && ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("stamina_blocked")) {
             info.setReturnValue(false);

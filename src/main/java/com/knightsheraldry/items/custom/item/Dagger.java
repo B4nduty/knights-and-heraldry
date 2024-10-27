@@ -1,8 +1,10 @@
 package com.knightsheraldry.items.custom.item;
 
+import com.knightsheraldry.util.KHDamageCalculator;
+
 public class Dagger extends KHWeapons {
-    public Dagger(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public Dagger(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
     }
 
     @Override
@@ -17,7 +19,6 @@ public class Dagger extends KHWeapons {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher or equal than its next value
                 0.0d, //1st Distance
                 0.7d, //2nd Distance
                 1.2d, //3rd Distance
@@ -28,15 +29,11 @@ public class Dagger extends KHWeapons {
 
     @Override
     public int getAnimation() {
-        // How many animations has your item
         return 3;
     }
 
     @Override
     public int[] getPiercingAnimation() {
-        // In which animation is Piercing Damage applied
-        // Item needs to have Tag KH_WEAPONS_PIERCING
-        // Max length of index is 2
         return new int[] {
                 3
         };

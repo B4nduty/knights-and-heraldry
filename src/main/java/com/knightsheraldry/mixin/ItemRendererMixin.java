@@ -32,7 +32,7 @@ public abstract class ItemRendererMixin {
     @Inject(method = "renderItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformationMode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/world/World;III)V",
             at = @At("HEAD"),
             cancellable = true)
-    public void onRenderItem(LivingEntity entity, ItemStack item, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci) {
+    public void knightsheraldry$onRenderItem(LivingEntity entity, ItemStack item, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci) {
         if (item.isEmpty() || !(item.isIn(KHTags.Weapon.KH_WEAPONS_3D))) {
             return;
         }
@@ -70,7 +70,7 @@ public abstract class ItemRendererMixin {
 
     @Inject(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformationMode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V",
             at = @At("HEAD"), cancellable = true)
-    public void renderGUIItem(ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo ci) {
+    public void knightsheraldry$renderGUIItem(ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo ci) {
         if (stack.isIn(KHTags.Weapon.KH_GEO_2D_ITEMS) && renderMode == ModelTransformationMode.GUI) {
             String modelPath = stack.getItem() + "_icon";
             MinecraftClient client = MinecraftClient.getInstance();

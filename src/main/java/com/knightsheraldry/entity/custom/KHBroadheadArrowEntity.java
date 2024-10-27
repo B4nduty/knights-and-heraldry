@@ -23,7 +23,7 @@ public class KHBroadheadArrowEntity extends KHArrowEntity {
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
-            applyDamage(target, (LivingEntity) getOwner());
+            hitKHEntity(target, broadheadArrowStack, getDamageAmount());
         }
         super.onEntityHit(entityHitResult);
     }

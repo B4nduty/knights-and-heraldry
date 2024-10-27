@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class EntityRendererMixin<T extends Entity> {
 
     @Inject(method = "renderLabelIfPresent", at = @At("HEAD"), cancellable = true)
-    private void onRenderLabelIfPresent(T entity, Text text, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
+    private void knightsheraldry$onRenderLabelIfPresent(T entity, Text text, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
         if (entity instanceof PlayerEntity player) {
             TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
                 trinketComponent.getAllEquipped().forEach(pair -> {

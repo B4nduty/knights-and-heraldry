@@ -1,8 +1,10 @@
 package com.knightsheraldry.items.custom.item;
 
+import com.knightsheraldry.util.KHDamageCalculator;
+
 public class Rapier extends KHWeapons {
-    public Rapier(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public Rapier(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
     }
 
     @Override
@@ -17,7 +19,6 @@ public class Rapier extends KHWeapons {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher or equal than its next value
                 2.5d, //1st Distance
                 2.9d, //2nd Distance
                 3.4d, //3rd Distance

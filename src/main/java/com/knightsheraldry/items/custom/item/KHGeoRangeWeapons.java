@@ -7,6 +7,7 @@ import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
@@ -30,22 +31,22 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
 
     public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                             UseAction useAction) {
-        super(settings, damageType, damage, blockRange, useAction);
+                             UseAction useAction, SoundEvent... soundEvents) {
+        super(settings, damageType, damage, blockRange, useAction, soundEvents);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
     public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                             UseAction useAction, int rechargeTime) {
-        super(settings, damageType, damage, blockRange, useAction, rechargeTime);
+                             UseAction useAction, int rechargeTime, SoundEvent... soundEvents) {
+        super(settings, damageType, damage, blockRange, useAction, rechargeTime, soundEvents);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
     public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
                              UseAction useAction, int rechargeTime, Item firstItem, Item firstItem2nOption, Item secondItem,
-                             Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption) {
+                             Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption, SoundEvent... soundEvents) {
         super(settings, damageType, damage, blockRange, useAction, rechargeTime, firstItem, firstItem2nOption, secondItem,
-                secondItem2nOption, thirdItem, thirdItem2nOption);
+                secondItem2nOption, thirdItem, thirdItem2nOption, soundEvents);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 

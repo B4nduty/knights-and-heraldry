@@ -26,14 +26,13 @@ public class KHBodkinArrowEntity extends KHArrowEntity {
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
-            applyDamage(target, (LivingEntity) getOwner());
+            applyDamage(target);
         }
         super.onEntityHit(entityHitResult);
     }
 
-    @Override
-    public void applyDamage(LivingEntity target, LivingEntity attacker) {
-        float damageDealt = new KHDamageCalculator().getKHDamage(target, getDamageAmount() - 4, getDamageType());
+    public void applyDamage(LivingEntity target) {
+        float damageDealt = KHDamageCalculator.getKHDamage(target, getDamageAmount() - 4, getDamageType());
 
         float armor = Math.max(0, target.getArmor() - 10);
         float armorToughness = Math.max(0, (float) target.getAttributeValue(EntityAttributes.GENERIC_ARMOR_TOUGHNESS) - 5);

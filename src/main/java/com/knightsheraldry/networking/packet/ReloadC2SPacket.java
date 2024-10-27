@@ -18,8 +18,7 @@ public class ReloadC2SPacket {
         server.execute(() -> {
             ItemStack itemStack = player.getMainHandStack();
 
-            if(itemStack.getItem() instanceof KHRangeWeapons khRangeWeapons && (khRangeWeapons.getFirstItem() != null ||
-                    khRangeWeapons.getFirstItem2nOption() != null)) {
+            if(itemStack.getItem() instanceof KHRangeWeapons khRangeWeapons && khRangeWeapons.getFirstItem() != null) {
                 if (khRangeWeapons.isCharged(itemStack)) {
                     return;
                 }

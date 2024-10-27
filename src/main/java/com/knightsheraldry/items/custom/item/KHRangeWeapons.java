@@ -10,13 +10,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
+import java.util.Objects;
 import java.util.Optional;
+import java.util.Random;
 
 public class KHRangeWeapons extends Item {
     private final KHDamageCalculator.DamageType damageType;
@@ -30,9 +33,11 @@ public class KHRangeWeapons extends Item {
     private final Item secondItem2nOption;
     private final Item thirdItem;
     private final Item thirdItem2nOption;
+    private final SoundEvent[] soundEvents;
+    private final Random random = new Random();
 
     public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                          UseAction useAction) {
+                          UseAction useAction, SoundEvent... soundEvents) {
         super(settings);
         this.damageType = damageType;
         this.damage = damage;
@@ -45,10 +50,11 @@ public class KHRangeWeapons extends Item {
         this.secondItem2nOption = null;
         this.thirdItem = null;
         this.thirdItem2nOption = null;
+        this.soundEvents = soundEvents;
     }
 
     public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                          UseAction useAction, int rechargeTime) {
+                          UseAction useAction, int rechargeTime, SoundEvent... soundEvents) {
         super(settings);
         this.damageType = damageType;
         this.damage = damage;
@@ -61,23 +67,25 @@ public class KHRangeWeapons extends Item {
         this.secondItem2nOption = null;
         this.thirdItem = null;
         this.thirdItem2nOption = null;
+        this.soundEvents = soundEvents;
     }
 
     public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
                           UseAction useAction, int rechargeTime, Item firstItem, Item firstItem2nOption, Item secondItem,
-                          Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption) {
+                          Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption, SoundEvent... soundEvents) {
         super(settings);
         this.damageType = damageType;
         this.damage = damage;
         this.blockRange = blockRange;
         this.useAction = useAction;
         this.rechargeTime = Math.max(0, rechargeTime);
-        this.firstItem = firstItem;
+        this.firstItem = Objects.requireNonNull(firstItem);
         this.firstItem2nOption = firstItem2nOption;
         this.secondItem = secondItem;
         this.secondItem2nOption = secondItem2nOption;
         this.thirdItem = thirdItem;
         this.thirdItem2nOption = thirdItem2nOption;
+        this.soundEvents = soundEvents;
     }
 
     @Override
@@ -190,7 +198,8 @@ public class KHRangeWeapons extends Item {
         }
 
         world.spawnEntity(arrowEntity);
-        world.playSoundFromEntity(null, arrowEntity, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+        SoundEvent selectedSound = soundEvents.length > 0 ? soundEvents[random.nextInt(soundEvents.length)] : null;
+        if (selectedSound != null) world.playSoundFromEntity(null, arrowEntity, selectedSound, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
         if (!player.getAbilities().creativeMode) {
             stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
@@ -208,7 +217,9 @@ public class KHRangeWeapons extends Item {
 
 
         world.spawnEntity(bulletEntity);
-        world.playSoundFromEntity(null, bulletEntity, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+        SoundEvent selectedSound = soundEvents.length > 0 ? soundEvents[random.nextInt(soundEvents.length)] : null;
+        if (selectedSound != null) world.playSound(null, player.getBlockPos(), selectedSound,
+                    SoundCategory.PLAYERS, 1f, 1f);
 
         if (!player.getAbilities().creativeMode) {
             stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));

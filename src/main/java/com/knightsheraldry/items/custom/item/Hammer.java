@@ -1,8 +1,10 @@
 package com.knightsheraldry.items.custom.item;
 
+import com.knightsheraldry.util.KHDamageCalculator;
+
 public class Hammer extends KHWeapons{
-    public Hammer(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public Hammer(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
     }
 
     @Override
@@ -17,7 +19,6 @@ public class Hammer extends KHWeapons{
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher or equal than its next value
                 2.0d, //1st Distance
                 2.4d, //2nd Distance
                 2.9d, //3rd Distance

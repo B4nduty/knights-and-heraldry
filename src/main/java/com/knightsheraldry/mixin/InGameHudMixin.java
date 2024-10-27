@@ -2,8 +2,10 @@ package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
+import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.util.IEntityDataSaver;
+import com.knightsheraldry.util.KHDamageCalculator;
 import com.knightsheraldry.util.KHTags;
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.emi.trinkets.api.TrinketsApi;
@@ -73,8 +75,8 @@ public class InGameHudMixin {
             }
 
             if (weapon != null) {
-                boolean bludgeoning = player.getMainHandStack().getOrCreateNbt().getInt("CustomModelData") == 1 ||
-                        player.getOffHandStack().getOrCreateNbt().getInt("CustomModelData") == 1;
+                boolean bludgeoning = player.getMainHandStack().getOrCreateNbt().getBoolean("Bludgeoning") ||
+                        player.getOffHandStack().getOrCreateNbt().getBoolean("Bludgeoning");
                 if (weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_BLUDGEONING_TO_PIERCING)) bludgeoning = !bludgeoning;
                 int comboCount = ((PlayerAttackProperties) player).getComboCount();
                 boolean piercing = false;
@@ -94,11 +96,11 @@ public class InGameHudMixin {
                 float[] damageValues = weapon.getDefaultAttackDamageValues();
                 double[] radiusValues = weapon.getDefaultRadiusValues();
 
-                if (bludgeoning || weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_ONLY_BLUDGEONING)) { // Bludgeoning
+                if (bludgeoning || weapon.getOnlyDamageType() == KHDamageCalculator.DamageType.BLUDGEONING) { // Bludgeoning
                     renderBludgeoningOverlay(context, closestDistance, radiusValues, damageValues);
                 } else if (piercing && weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_PIERCING)
                         || weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_BLUDGEONING_TO_PIERCING)
-                        || weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_ONLY_PIERCING)) { // Piercing
+                        || weapon.getOnlyDamageType() == KHDamageCalculator.DamageType.PIERCING) { // Piercing
                     renderPiercingOverlay(context, closestDistance, radiusValues, damageValues);
                 } else { // Slashing (default case)
                     renderSlashingOverlay(context, closestDistance, radiusValues, damageValues);
@@ -285,7 +287,7 @@ public class InGameHudMixin {
                 player.getOffHandStack().isIn(KHTags.Weapon.KH_WEAPONS);
         boolean hasRequiredEquipment = false;
         for (ItemStack armorStack : player.getArmorItems()) {
-            if (armorStack.isIn(KHTags.Armors.KH_UNDER_ARMORS)) {
+            if (armorStack.getItem() instanceof KHUnderArmorItem) {
                 hasRequiredEquipment = true;
                 break;
             }
@@ -350,7 +352,7 @@ public class InGameHudMixin {
     private static final Identifier VISOR_HELMET = new Identifier(KnightsHeraldry.MOD_ID, "textures/overlay/visor_helmet.png");
 
     @Inject(method = "render", at = @At("HEAD"))
-    private void renderBackgroundOverlays(DrawContext context, float tickDelta, CallbackInfo ci) {
+    private void knightsheraldry$renderBackgroundOverlays(DrawContext context, float tickDelta, CallbackInfo ci) {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
             trinketComponent.getAllEquipped().forEach(pair -> {

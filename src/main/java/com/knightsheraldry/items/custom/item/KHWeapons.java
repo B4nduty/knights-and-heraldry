@@ -29,8 +29,62 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class KHWeapons extends SwordItem {
-    public KHWeapons(float attackSpeed, Settings settings) {
+
+    /**
+     * Class Example:
+     * <pre>
+     * {@code
+     * public class ExampleWeapon extends KHWeapons {
+     *     public ExampleWeapon(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+     *         super(attackSpeed, settings, onlyDamageType);
+     *     }
+     *
+     *     @Override
+     *     public float[] getDefaultAttackDamageValues() {
+     *         return new float[] {
+     *                 0.0F, 7.0F, 10.5F, 7.0F, 3.5F, //Slashing
+     *                 0.0F, 4.0F, 6.0F, 4.0F, 2.0F, //Piercing
+     *                 0.0F, 5.0F, 7.5F, 5.0F, 2.5F //Bludgeoning
+     *         };
+     *     }
+     *
+     *     // Values cannot be higher or equal than its next value
+     *     @Override
+     *     public double[] getDefaultRadiusValues() {
+     *         return new double[] {
+     *                 1.0d, //1st Distance
+     *                 2.3d, //2nd Distance
+     *                 2.8d, //3rd Distance
+     *                 3.1d, //4th Distance
+     *                 4.0d  //5th Distance
+     *         };
+     *     }
+     *
+     *     // How many animations has your item
+     *     @Override
+     *     public int getAnimation() {
+     *         return 3;
+     *     }
+     *
+     *     // In which animation is Piercing Damage applied
+     *     //
+     *     // Item needs to have Tag KH_WEAPONS_PIERCING
+     *     //
+     *     // Max length of index is 2
+     *     @Override
+     *     public int[] getPiercingAnimation() {
+     *         return new int[] {
+     *                 2
+     *         };
+     *     }
+     * }
+     *</pre>
+     */
+    
+    private final KHDamageCalculator.DamageType onlyDamageType;
+    public KHWeapons(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
+        this.onlyDamageType = onlyDamageType;
     }
 
     @Override
@@ -44,9 +98,8 @@ public class KHWeapons extends SwordItem {
         if (!world.isClient) {
             if ((itemStack.isIn(KHTags.Weapon.KH_WEAPONS_BLUDGEONING)
                     || itemStack.isIn(KHTags.Weapon.KH_WEAPONS_BLUDGEONING_TO_PIERCING)) && user.isSneaking()) {
-                int currentVariant = itemStack.getOrCreateNbt().getInt("CustomModelData");
-                int newVariant = (currentVariant + 1) % 2;
-                itemStack.getOrCreateNbt().putInt("CustomModelData", newVariant);
+                boolean currentVariant = itemStack.getOrCreateNbt().getBoolean("Bludgeoning");
+                itemStack.getOrCreateNbt().putBoolean("Bludgeoning", !currentVariant);
                 return TypedActionResult.success(itemStack);
             }
         }
@@ -83,18 +136,20 @@ public class KHWeapons extends SwordItem {
                         entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1))
                 .forEach(entity -> {
                     double distance = playerPos.distanceTo(target.getPos());
-                    float damage = calculateDamageBasedOnWeaponType(target, stack, distance, ((PlayerAttackProperties) playerEntity).getComboCount());
+                    KHDamageCalculator.DamageType damageType = calculateDamageType(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
+                    float damage = KHDamageCalculator.getKHDamage(playerEntity, calculateDamage(distance,
+                            damageType.getIndex() - 4, damageType.getIndex()), damageType);
 
                     if (stack.isIn(KHTags.Weapon.KH_WEAPONS_DAMAGE_BEHIND)) {
                         damage = adjustDamageForBackstab(target, playerPos, damage);
                     }
 
-                    applyDamage(target, playerEntity, stack, damage);
+                    KHDamageCalculator.applyDamage(target, playerEntity, stack, damage);
                 });
     }
 
-    public float calculateDamageBasedOnWeaponType(LivingEntity livingEntity, ItemStack stack, double distance, int comboCount) {
-        boolean bludgeoning = stack.getOrCreateNbt().getInt("CustomModelData") == 1;
+    public KHDamageCalculator.DamageType calculateDamageType(ItemStack stack, int comboCount) {
+        boolean bludgeoning = stack.getOrCreateNbt().getBoolean("Bludgeoning");
         if (stack.isIn(KHTags.Weapon.KH_WEAPONS_BLUDGEONING_TO_PIERCING)) bludgeoning = !bludgeoning;
         boolean piercing = false;
         if (stack.isIn(KHTags.Weapon.KH_WEAPONS_PIERCING)) {
@@ -110,15 +165,14 @@ public class KHWeapons extends SwordItem {
 
             if (piercingAnimations.length == animationLength) piercing = true;
         }
-        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
+        if (getOnlyDamageType() == KHDamageCalculator.DamageType.PIERCING) piercing = true;
 
-        KHDamageCalculator calculator = new KHDamageCalculator();
-        if (bludgeoning || stack.isIn(KHTags.Weapon.KH_WEAPONS_ONLY_BLUDGEONING)) {
-            return calculator.getKHDamage(livingEntity, calculateDamage(distance, 10, 14), KHDamageCalculator.DamageType.BLUDGEONING);
+        if (bludgeoning || getOnlyDamageType() == KHDamageCalculator.DamageType.BLUDGEONING) {
+            return KHDamageCalculator.DamageType.BLUDGEONING;
         } else if (piercing || stack.isIn(KHTags.Weapon.KH_WEAPONS_BLUDGEONING_TO_PIERCING)) {
-            return calculator.getKHDamage(livingEntity, calculateDamage(distance, 5, 9), KHDamageCalculator.DamageType.PIERCING);
+            return KHDamageCalculator.DamageType.PIERCING;
         } else {
-            return calculator.getKHDamage(livingEntity, calculateDamage(distance, 0, 4), KHDamageCalculator.DamageType.SLASHING);
+            return KHDamageCalculator.DamageType.SLASHING;
         }
     }
 
@@ -131,14 +185,6 @@ public class KHWeapons extends SwordItem {
             damage *= 2;
         }
         return damage;
-    }
-
-    private void applyDamage(LivingEntity target, PlayerEntity playerEntity, ItemStack stack, float damage) {
-        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - damage > 0) {
-            target.setHealth(target.getHealth() - damage);
-        } else {
-            target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage);
-        }
     }
 
     public float getAttackDamage(int index) {
@@ -184,7 +230,7 @@ public class KHWeapons extends SwordItem {
         return 0;
     }
 
-    private float calculateDamage(double distance, int startIndex, int endIndex) {
+    public float calculateDamage(double distance, int startIndex, int endIndex) {
         for (int i = startIndex; i <= endIndex; i++) {
             if (distance < getRadius(i - startIndex) + 0.25F) {
                 return getAttackDamage(i);
@@ -225,5 +271,9 @@ public class KHWeapons extends SwordItem {
                 seedStack.decrement(1);
             }
         }
+    }
+
+    public KHDamageCalculator.DamageType getOnlyDamageType() {
+        return this.onlyDamageType;
     }
 }

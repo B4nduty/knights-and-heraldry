@@ -3,6 +3,9 @@
 	"textures": {
 		"layer0": "knightsheraldry:item/crooked_axe_3d"
 	},
+	"overrides": [
+		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/crooked_axe_3d_blocking" }
+	],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, -90, 0],
@@ -38,8 +41,5 @@
 			"translation": [0, -32, -16.75],
 			"scale": [2, 2, 1]
 		}
-	},
-	"overrides": [
-		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/crooked_axe_3d_blocking" }
-	]
+	}
 }

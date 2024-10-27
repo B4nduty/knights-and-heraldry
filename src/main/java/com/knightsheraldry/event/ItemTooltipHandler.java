@@ -1,7 +1,7 @@
 package com.knightsheraldry.event;
 
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.armor.KHArmorItem;
+import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.KHRangeWeapons;
 import com.knightsheraldry.util.KHTags;
@@ -32,7 +32,7 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
             lines.add(Text.translatable("text.tooltip.knightsheraldry.baseDamage", (int) khRangeWeapons.getDamage()).formatted(Formatting.GREEN));
         }
 
-        if (stack.getItem() instanceof KHArmorItem khArmorItem) {
+        if (stack.getItem() instanceof KHUnderArmorItem khArmorItem) {
             double slashingResistance = khArmorItem.getSlashingResistance() * 100;
             double bludgeoningResistance = khArmorItem.getBludgeoningResistance() * 100;
             double piercingResistance = khArmorItem.getPiercingResistance() * 100;

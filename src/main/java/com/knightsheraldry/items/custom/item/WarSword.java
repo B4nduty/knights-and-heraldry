@@ -1,8 +1,10 @@
 package com.knightsheraldry.items.custom.item;
 
+import com.knightsheraldry.util.KHDamageCalculator;
+
 public class WarSword extends KHWeapons {
-    public WarSword(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public WarSword(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
     }
 
     @Override
@@ -17,7 +19,6 @@ public class WarSword extends KHWeapons {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher than its next value
                 1.0d, //1st Distance
                 2.2d, //2nd Distance
                 2.9d, //3rd Distance
@@ -28,15 +29,11 @@ public class WarSword extends KHWeapons {
 
     @Override
     public int getAnimation() {
-        // How many animations has your item
         return 3;
     }
 
     @Override
     public int[] getPiercingAnimation() {
-        // In which animation is Piercing Damage applied
-        // Item needs to have Tag KH_WEAPONS_PIERCING
-        // Max length of index is 2
         return new int[] {
                 2
         };

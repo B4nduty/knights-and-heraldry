@@ -1,6 +1,7 @@
 package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.client.item.FlailModel;
+import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.client.MinecraftClient;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
@@ -17,8 +18,8 @@ import java.util.function.Supplier;
 public class Flail extends KHWeapons implements GeoItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
-    public Flail(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public Flail(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
@@ -34,7 +35,6 @@ public class Flail extends KHWeapons implements GeoItem {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher or equal than its next value
                 2.0d, //1st Distance
                 2.4d, //2nd Distance
                 2.9d, //3rd Distance

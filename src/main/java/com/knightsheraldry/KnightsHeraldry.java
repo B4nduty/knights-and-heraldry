@@ -12,6 +12,7 @@ import com.knightsheraldry.event.StartTickHandler;
 import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.networking.ModMessages;
+import com.knightsheraldry.sounds.ModSounds;
 import com.knightsheraldry.util.ChestLootTableModifier;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.VillagerTradesModifier;
@@ -38,11 +39,12 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
 
     @Override
     public void onInitialize() {
-        ModItems.registerModItems();
+        ModEntities.registerEntities();
+        ModEffects.registerEffects();
+        ModSounds.registerSounds();
+        ModItems.registerItems();
         ModItemGroups.registerItemGroups();
         ModMessages.registerC2SPackets();
-        ModEntities.registerModEntities();
-        ModEffects.registerEffects();
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
         AttackEntityCallback.EVENT.register(new AttackEntityEventHandler());
         PlayerBlockBreakEvents.AFTER.register(new PlayerBlockBreakHandler());

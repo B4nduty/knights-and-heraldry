@@ -2,6 +2,7 @@ package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.entity.custom.WarDartEntity;
+import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,8 +20,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class WarDart extends KHWeapons {
-    public WarDart(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public WarDart(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
     }
 
     @Override
@@ -35,7 +36,6 @@ public class WarDart extends KHWeapons {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher or equal than its next value
                 3.4d, //1st Distance
                 3.8d, //2nd Distance
                 4.3d, //3rd Distance

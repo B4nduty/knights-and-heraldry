@@ -3,7 +3,7 @@ package com.knightsheraldry.items.custom.item;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.KHTags;
+import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -30,7 +30,7 @@ import java.util.function.Predicate;
 
 public class Lance extends SwordItem {
     private boolean charged = false;
-    public Lance(float attackSpeed, Settings settings) {
+    public Lance(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
 
@@ -54,14 +54,15 @@ public class Lance extends SwordItem {
                         && tameableEntity.isOwner(player))) return;
                 if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)
                         && !player.getItemCooldownManager().isCoolingDown(this)) {
-                    float damage = getLanceDamage() * ((IEntityDataSaver) player)
-                            .knightsheraldry$getPersistentData().getFloat("speedHistory") * 10;
+                    float damage = KHDamageCalculator.getKHDamage(livingEntity, getLanceDamage() *
+                            ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getFloat("speedHistory") * 10,
+                            KHDamageCalculator.DamageType.PIERCING);
 
                     setCharged(stack, false);
                     if (livingEntity.hasVehicle()) livingEntity.stopRiding();
 
                     stack.damage(1, player, p -> p.sendToolBreakStatus(livingEntity.getActiveHand()));
-                    applyDamage(livingEntity, player, stack, damage);
+                    KHDamageCalculator.applyDamage(livingEntity, player, stack, damage);
                     player.getItemCooldownManager().set(this, 600);
                 }
             }
@@ -79,14 +80,6 @@ public class Lance extends SwordItem {
 
     public float getLanceDamage() {
         return 7.0f;
-    }
-
-    private void applyDamage(LivingEntity target, PlayerEntity playerEntity, ItemStack stack, float damage) {
-        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - (damage - 1) > 0) {
-            target.setHealth(target.getHealth() - (damage - 1));
-        } else {
-            target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage - 1);
-        }
     }
 
     public static Entity raycastEntity(PlayerEntity player, double range) {

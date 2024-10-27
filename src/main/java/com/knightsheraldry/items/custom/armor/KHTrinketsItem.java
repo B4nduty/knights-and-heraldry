@@ -50,14 +50,10 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
 
     @Override
     public boolean canEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        return isWearingFullKHArmorSet(entity);
-    }
-
-    private boolean isWearingFullKHArmorSet(LivingEntity entity) {
-        for (EquipmentSlot slot : EquipmentSlot.values()) {
-            if (!this.getDefaultStack().isIn(KHTags.Armors.KH_ALWAYS_WEARABLE) && isArmorSlot(slot)) {
-                ItemStack armorPiece = entity.getEquippedStack(slot);
-                if (!(armorPiece.getItem() instanceof KHArmorItem)) {
+        for (EquipmentSlot slots : EquipmentSlot.values()) {
+            if (!this.getDefaultStack().isIn(KHTags.Armors.KH_ALWAYS_WEARABLE) && isArmorSlot(slots)) {
+                ItemStack armorPiece = entity.getEquippedStack(slots);
+                if (!(armorPiece.getItem() instanceof KHUnderArmorItem)) {
                     return false;
                 }
             }

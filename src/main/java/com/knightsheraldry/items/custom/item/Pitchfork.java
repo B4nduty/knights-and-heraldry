@@ -1,8 +1,10 @@
 package com.knightsheraldry.items.custom.item;
 
+import com.knightsheraldry.util.KHDamageCalculator;
+
 public class Pitchfork extends KHWeapons {
-    public Pitchfork(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public Pitchfork(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
     }
 
     @Override
@@ -17,7 +19,6 @@ public class Pitchfork extends KHWeapons {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher or equal than its next value
                 3.3d, //1st Distance
                 4.0d, //2nd Distance
                 4.7d, //3rd Distance

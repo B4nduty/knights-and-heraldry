@@ -1,13 +1,13 @@
 package com.knightsheraldry;
 
-import com.knightsheraldry.client.*;
+import com.knightsheraldry.client.UnderArmourRenderer;
 import com.knightsheraldry.client.entity.*;
 import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.event.AttackCancelHandler;
 import com.knightsheraldry.event.ItemTooltipHandler;
 import com.knightsheraldry.event.KeyInputHandler;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.armor.KHArmorItem;
+import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.KHRangeWeapons;
 import com.knightsheraldry.items.custom.item.WoodenLance;
@@ -53,14 +53,14 @@ public class KnightsHeraldryClient implements ClientModInitializer {
         ModItems.items.forEach(item -> {
             if (!(item instanceof GeoItem)) registerModelPredicate(item);
             if ((item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeable())
-                    || (item instanceof KHArmorItem khArmorItem && khArmorItem.isDyeable()) || item instanceof WoodenLance) {
+                    || (item instanceof KHUnderArmorItem khArmorItem && khArmorItem.isDyeable()) || item instanceof WoodenLance) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), item);
             }
             if (item instanceof KHTrinketsItem) {
                 TrinketRendererRegistry.registerRenderer(item, (TrinketRenderer) item);
             }
-            if (item instanceof KHArmorItem khArmorItem && khArmorItem.getPath() != null) {
+            if (item instanceof KHUnderArmorItem khArmorItem && khArmorItem.getPath() != null) {
                 ArmorRenderer.register(new UnderArmourRenderer(), item);
             }
         });
@@ -75,6 +75,9 @@ public class KnightsHeraldryClient implements ClientModInitializer {
                             && stack.getOrCreateNbt().getBoolean("Charged") ? 1.0F : 0.0F);
             ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
                     (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
+            ModelPredicateProviderRegistry.register(item, new Identifier("bludgeoning"),
+                    (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
+                            && stack.getOrCreateNbt().getBoolean("Bludgeoning") ? 1.0F : 0.0F);
             ModelPredicateProviderRegistry.register(item, new Identifier("aventail"),
                     (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
                             && stack.getOrCreateNbt().getBoolean("aventail") ? 1.0F : 0.0F);

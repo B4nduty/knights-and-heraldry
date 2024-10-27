@@ -23,12 +23,12 @@ public class HungerManagerMixin {
     private PlayerEntity player;
 
     @Inject(method = "update", at = @At("HEAD"))
-    public void update(PlayerEntity player, CallbackInfo ci) {
+    public void knightsheraldry$update(PlayerEntity player, CallbackInfo ci) {
         this.player = player;
     }
 
     @Inject(method = "addExhaustion", at = @At("HEAD"), cancellable = true)
-    public void onAddExhaustion(float exhaustion, CallbackInfo ci) {
+    public void knightsheraldry$onAddExhaustion(float exhaustion, CallbackInfo ci) {
         double hungerAddition = 1.0d;
 
         if (player == null) return;

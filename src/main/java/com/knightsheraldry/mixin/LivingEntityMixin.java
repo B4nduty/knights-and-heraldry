@@ -28,7 +28,7 @@ public abstract class LivingEntityMixin {
     private int stuckSwallowTailArrowTimer;
 
     @Inject(method = "jump", at = @At("HEAD"), cancellable = true)
-    private void onJump(CallbackInfo ci) {
+    private void knightsheraldry$onJump(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity)(Object) this;
         if (entity instanceof PlayerEntity playerEntity
                 && ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getBoolean("stamina_blocked")) {
@@ -37,7 +37,7 @@ public abstract class LivingEntityMixin {
     }
 
     @Inject(method = "setSprinting", at = @At("HEAD"), cancellable = true)
-    private void onSprinting(CallbackInfo ci) {
+    private void knightsheraldry$onSprinting(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity)(Object) this;
         if (entity instanceof PlayerEntity playerEntity
                 && ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getBoolean("stamina_blocked")) {
@@ -46,7 +46,7 @@ public abstract class LivingEntityMixin {
     }
 
     @Inject(method = "setCurrentHand", at = @At("HEAD"), cancellable = true)
-    private void onSetCurrentHand(Hand hand, CallbackInfo ci) {
+    private void knightsheraldry$onSetCurrentHand(Hand hand, CallbackInfo ci) {
         LivingEntity entity = (LivingEntity)(Object) this;
         if (entity instanceof PlayerEntity playerEntity
                 && ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getBoolean("stamina_blocked")) {
@@ -56,7 +56,7 @@ public abstract class LivingEntityMixin {
 
 
     @Inject(method = "disablesShield", at = @At("HEAD"), cancellable = true)
-    public void disablesShield(CallbackInfoReturnable<Boolean> cir) {
+    public void knightsheraldry$disablesShield(CallbackInfoReturnable<Boolean> cir) {
         ItemStack mainStack = ((LivingEntity) (Object) this).getMainHandStack();
         boolean isWeaponOrInTag = mainStack.getItem() instanceof AxeItem
                 || mainStack.isIn(KHTags.Weapon.KH_WEAPONS_DISABLE_SHIELD);
@@ -69,7 +69,7 @@ public abstract class LivingEntityMixin {
     }
 
     @Inject(method = "damage", at = @At("HEAD"))
-    private void injectDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    private void knightsheraldry$injectDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if (source.getAttacker() instanceof PlayerEntity attacker) {
             if (attacker.getMainHandStack().isIn(KHTags.Weapon.KH_WEAPONS_BYPASS_BLOCK)) {
                 this.blockShield = false;
@@ -78,7 +78,7 @@ public abstract class LivingEntityMixin {
     }
 
     @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true)
-    private float modifyDamageAmount(float amount, DamageSource source) {
+    private float knightsheraldry$modifyDamageAmount(float amount, DamageSource source) {
         if (source.getAttacker() instanceof PlayerEntity playerEntity) {
             if (amount > 1 && playerEntity.hasStatusEffect(StatusEffects.STRENGTH)) {
                 int amplifier = playerEntity.getStatusEffect(StatusEffects.STRENGTH).getAmplifier();
@@ -97,7 +97,7 @@ public abstract class LivingEntityMixin {
     }
 
     @Inject(method = "applyDamage", at = @At("TAIL"))
-    private void sendDamage(DamageSource source, float amount, CallbackInfo ci) {
+    private void knightsheraldry$sendDamage(DamageSource source, float amount, CallbackInfo ci) {
         if (KnightsHeraldry.config().getDamageIndicator() && source.getAttacker() instanceof PlayerEntity playerEntity
                 && playerEntity.getMainHandStack().isIn(KHTags.Weapon.KH_WEAPONS)) {
             if (!playerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
@@ -112,13 +112,13 @@ public abstract class LivingEntityMixin {
     private boolean blockShield = true;
 
     @Redirect(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;blockedByShield(Lnet/minecraft/entity/damage/DamageSource;)Z"))
-    private boolean redirectBlockedByShield(LivingEntity instance, DamageSource source) {
+    private boolean knightsheraldry$redirectBlockedByShield(LivingEntity instance, DamageSource source) {
         return blockShield && instance.blockedByShield(source);
     }
 
 
     @Inject(method = "tick", at = @At("HEAD"))
-    public void tick(CallbackInfo ci) {
+    public void knightsheraldry$tick(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity)(Object) this;
         if (entity instanceof PlayerEntity playerEntity && ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getInt("swallowtail_arrow_count") >= 0) {
             int i = playerEntity.getStuckArrowCount();

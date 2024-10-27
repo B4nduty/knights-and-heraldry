@@ -3,6 +3,7 @@ package com.knightsheraldry.entity.custom;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.listener.ClientPlayPacketListener;
@@ -55,9 +56,9 @@ public class KHArrowEntity extends PersistentProjectileEntity {
         this.remove(RemovalReason.DISCARDED);
     }
 
-    public void applyDamage(LivingEntity target, LivingEntity attacker) {
-        float damageDealt = new KHDamageCalculator().getKHDamage(target, damage, damageType);
-        target.damage(this.getDamageSources().arrow(this, attacker), damageDealt);
+    public void hitKHEntity(LivingEntity target, ItemStack stack, float damage) {
+        damage = KHDamageCalculator.getKHDamage(target, damage, getDamageType());
+        KHDamageCalculator.applyDamage(target, (PlayerEntity) getOwner(), stack, damage);
         if (this.isOnFire()) target.setOnFireFor(5);
     }
 }

@@ -3,6 +3,9 @@
 	"textures": {
 		"layer0": "knightsheraldry:item/morning_star_3d"
 	},
+	"overrides": [
+		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/morning_star_3d_blocking" }
+	],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, -90, 0],
@@ -39,8 +42,5 @@
 			"translation": [-0.5, -30, -16.75],
 			"scale": [2, 2, 1]
 		}
-	},
-	"overrides": [
-		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/morning_star_3d_blocking" }
-	]
+	}
 }

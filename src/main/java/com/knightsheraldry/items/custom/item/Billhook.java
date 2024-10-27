@@ -1,5 +1,6 @@
 package com.knightsheraldry.items.custom.item;
 
+import com.knightsheraldry.util.KHDamageCalculator;
 import com.knightsheraldry.util.KHTags;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.entity.Entity;
@@ -10,8 +11,8 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 
 public class Billhook extends KHWeapons {
-    public Billhook(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public Billhook(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
     }
 
     @Override
@@ -26,7 +27,6 @@ public class Billhook extends KHWeapons {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher or equal than its next value
                 4.0d, //1st Distance
                 4.8d, //2nd Distance
                 5.6d, //3rd Distance
@@ -37,15 +37,11 @@ public class Billhook extends KHWeapons {
 
     @Override
     public int getAnimation() {
-        // How many animations has your item
         return 2;
     }
 
     @Override
     public int[] getPiercingAnimation() {
-        // In which animation is Piercing Damage applied
-        // Item needs to have Tag KH_WEAPONS_PIERCING
-        // Max length of index is 2
         return new int[] {
                 2
         };
@@ -64,7 +60,9 @@ public class Billhook extends KHWeapons {
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.getPos());
-                        float damage = calculateDamageBasedOnWeaponType(playerEntity, stack, distance, ((PlayerAttackProperties) playerEntity).getComboCount());
+                        KHDamageCalculator.DamageType damageType = calculateDamageType(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
+                        float damage = KHDamageCalculator.getKHDamage(playerEntity, calculateDamage(distance,
+                                damageType.getIndex() - 4, damageType.getIndex()), damageType);
                         float maxDamage = getMaxValueDamage(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
 
                         if (damage >= maxDamage) {
@@ -110,7 +108,7 @@ public class Billhook extends KHWeapons {
             if (piercingAnimations.length == getAnimation()) piercing = true;
         }
 
-        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_ONLY_PIERCING)) piercing = true;
+        if (getOnlyDamageType() == KHDamageCalculator.DamageType.PIERCING) piercing = true;
 
         int startIndex = piercing ? 5 : 0;
         int endIndex = piercing ? 9 : 4;

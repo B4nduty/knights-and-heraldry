@@ -2,7 +2,7 @@ package com.knightsheraldry.entity.custom;
 
 import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.armor.KHArmorItem;
+import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.util.IEntityDataSaver;
 import com.knightsheraldry.util.KHTags;
@@ -44,7 +44,7 @@ public class KHSwallowTailArrowEntity extends KHArrowEntity {
             updateSwallowTailArrowCount(player);
         }
 
-        applyDamage(target, (LivingEntity) getOwner());
+        hitKHEntity(target, swallowTailArrowStack, getDamageAmount());
         super.onEntityHit(entityHitResult);
     }
 
@@ -72,7 +72,7 @@ public class KHSwallowTailArrowEntity extends KHArrowEntity {
         );
 
         for (ItemStack armor : player.getArmorItems()) {
-            if (armor.getItem() instanceof KHArmorItem
+            if (armor.getItem() instanceof KHUnderArmorItem
                     && armor.isIn(KHTags.Armors.KH_DEFLECTIVE_ARMOR)) {
                 deflectChance[0] += 0.25f;
             }

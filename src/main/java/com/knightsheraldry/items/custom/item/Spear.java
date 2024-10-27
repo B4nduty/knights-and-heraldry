@@ -1,8 +1,10 @@
 package com.knightsheraldry.items.custom.item;
 
+import com.knightsheraldry.util.KHDamageCalculator;
+
 public class Spear extends KHWeapons {
-    public Spear(float attackSpeed, Settings settings) {
-        super(attackSpeed, settings);
+    public Spear(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, settings, onlyDamageType);
     }
 
     @Override
@@ -17,7 +19,6 @@ public class Spear extends KHWeapons {
     @Override
     public double[] getDefaultRadiusValues() {
         return new double[] {
-                // Values cannot be higher or equal than its next value
                 4.4d, //1st Distance
                 5.1d, //2nd Distance
                 5.9d, //3rd Distance

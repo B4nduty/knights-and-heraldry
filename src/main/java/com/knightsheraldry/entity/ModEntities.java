@@ -1,7 +1,9 @@
 package com.knightsheraldry.entity;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.entity.custom.*;
+import com.knightsheraldry.entity.custom.KHArrowEntity;
+import com.knightsheraldry.entity.custom.KHBulletEntity;
+import com.knightsheraldry.entity.custom.WarDartEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
@@ -22,7 +24,7 @@ public class ModEntities {
         );
     }
 
-    public static void registerModEntities() {
+    public static void registerEntities() {
         KnightsHeraldry.LOGGER.info("Registering Entities for " + KnightsHeraldry.MOD_ID);
     }
 }
