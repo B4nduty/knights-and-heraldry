@@ -5,6 +5,7 @@ import com.knightsheraldry.event.KeyInputHandler;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.UseAction;
@@ -27,20 +28,25 @@ import java.util.function.Supplier;
 public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
-    private final int rechargeTime;
 
     public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
                              UseAction useAction) {
         super(settings, damageType, damage, blockRange, useAction);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
-        this.rechargeTime = 0;
     }
 
     public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                             UseAction useAction, int rechargeTime, boolean reload) {
-        super(settings, damageType, damage, blockRange, useAction, rechargeTime, reload);
+                             UseAction useAction, int rechargeTime) {
+        super(settings, damageType, damage, blockRange, useAction, rechargeTime);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
-        this.rechargeTime = Math.min(0, rechargeTime);
+    }
+
+    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
+                             UseAction useAction, int rechargeTime, Item firstItem, Item firstItem2nOption, Item secondItem,
+                             Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption) {
+        super(settings, damageType, damage, blockRange, useAction, rechargeTime, firstItem, firstItem2nOption, secondItem,
+                secondItem2nOption, thirdItem, thirdItem2nOption);
+        SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
     @Override
@@ -70,7 +76,9 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
 
     private PlayState predicate(AnimationState<KHGeoRangeWeapons> animationState) {
         ItemStack itemStack = animationState.getData(DataTickets.ITEMSTACK);
-        if (isReloading(itemStack) && animationState.getController().hasAnimationFinished()) setShooting(itemStack, false);
+        if (isShooting(itemStack) && animationState.getController().getAnimationState() == AnimationController.State.PAUSED) {
+            setShooting(itemStack, false);
+        }
         if (isReloading(itemStack)) animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
         else if (isCharged(itemStack)) animationState.getController().setAnimation(RawAnimation.begin().then("charged", Animation.LoopType.HOLD_ON_LAST_FRAME));
         else if (isShooting(itemStack)) animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));

@@ -36,6 +36,20 @@ public class ModItemGroups {
         return armorStack;
     }
 
+    private static ItemStack ammoStack(ItemConvertible item) {
+        return new ItemStack(item);
+    }
+
+    private static void ammo(ItemGroup.DisplayContext ctx, ItemGroup.Entries stacks) {
+        stacks.addAll(List.of(
+                ammoStack(ModItems.SWALLOWTAIL_ARROW),
+                ammoStack(ModItems.BODKIN_ARROW),
+                ammoStack(ModItems.BROADHEAD_ARROW),
+                ammoStack(ModItems.CLOTH_ARROW),
+                ammoStack(ModItems.BLACK_POWDER)
+        ));
+    }
+
     private static void toolsAndWeapons(ItemGroup.DisplayContext ctx, ItemGroup.Entries stacks) {
         stacks.addAll(List.of(
                 weaponStack(ModItems.SMITHING_HAMMER),
@@ -80,16 +94,9 @@ public class ModItemGroups {
                 weaponStack(ModItems.WARSWORD_ZWEIHANDER),
                 weaponStack(ModItems.WARDART),
 
-                weaponStack(ModItems.SWALLOWTAIL_ARROW),
-                weaponStack(ModItems.BODKIN_ARROW),
-                weaponStack(ModItems.BROADHEAD_ARROW),
-                weaponStack(ModItems.CLOTH_ARROW),
-
                 weaponStack(ModItems.LONGBOW),
                 weaponStack(ModItems.HEAVY_CROSSBOW),
-                weaponStack(ModItems.ARQUEBUS),
-
-                weaponStack(ModItems.BLACK_POWDER)
+                weaponStack(ModItems.ARQUEBUS)
         ));
     }
 
@@ -194,6 +201,14 @@ public class ModItemGroups {
             true
     );
 
+    public static final ItemGroupTab KH_AMMO_TAB = new ItemGroupTab(
+            Icon.of(ModItems.BLACK_POWDER),
+            Text.literal("KH Ammo").formatted(Formatting.WHITE),
+            ModItemGroups::ammo,
+            TABS,
+            true
+    );
+
     public static final ItemGroupTab KH_ARMORS_TAB = new ItemGroupTab(
             Icon.of(ModItems.QUILTED_COIF),
             Text.literal("KH Armors").formatted(Formatting.WHITE),
@@ -213,6 +228,7 @@ public class ModItemGroups {
     private static void initializeGroup(OwoItemGroup group) {
         group.tabs.add(KH_TOOLS_WEAPONS_TAB);
         group.tabs.add(KH_ARMORS_TAB);
+        group.tabs.add(KH_AMMO_TAB);
         group.addButton(LinkButton.discord("https://discord.gg/AbtCqntN9S"));
     }
     

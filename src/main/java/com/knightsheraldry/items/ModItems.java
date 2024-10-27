@@ -9,6 +9,7 @@ import com.knightsheraldry.util.KHDamageCalculator;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -323,13 +324,16 @@ public class ModItems {
             new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK, 0, 0,
                     0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/torn_hood.png"), true, false));
 
+    public static final Item BLACK_POWDER = registerItem("black_powder",
+            new Item(new OwoItemSettings()));
 
     public static final Item LONGBOW = registerItem("longbow", new KHRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
             KHDamageCalculator.DamageType.PIERCING, 14f, 85, UseAction.BOW));
     public static final Item HEAVY_CROSSBOW = registerItem("heavy_crossbow", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.PIERCING, 16f, 70, UseAction.CROSSBOW, 100, false));
+            KHDamageCalculator.DamageType.PIERCING, 16f, 70, UseAction.CROSSBOW, 5));
     public static final Item ARQUEBUS = registerItem("arquebus", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.BLUDGEONING, 18f, 65, UseAction.BOW, 0, true));
+            KHDamageCalculator.DamageType.BLUDGEONING, 18f, 65, UseAction.BOW, 15,
+            ModItems.BLACK_POWDER, null, Items.IRON_NUGGET, Items.GRAVEL, Items.PAPER, Items.GRASS));
 
     public static final Item SWALLOWTAIL_ARROW = registerItem("swallowtail_arrow",
             new KHArrow(new OwoItemSettings(), KHSwallowTailArrowEntity::new));
@@ -339,9 +343,6 @@ public class ModItems {
             new KHArrow(new OwoItemSettings(), KHBroadheadArrowEntity::new));
     public static final Item CLOTH_ARROW = registerItem("cloth_arrow",
             new KHArrow(new OwoItemSettings(), KHClothArrowEntity::new));
-
-    public static final Item BLACK_POWDER = registerItem("black_powder",
-            new Item(new OwoItemSettings()));
 
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

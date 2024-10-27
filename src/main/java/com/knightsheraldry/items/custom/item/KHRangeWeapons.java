@@ -24,7 +24,12 @@ public class KHRangeWeapons extends Item {
     private final double blockRange;
     private final UseAction useAction;
     private final int rechargeTime;
-    private final boolean oneShot;
+    private final Item firstItem;
+    private final Item firstItem2nOption;
+    private final Item secondItem;
+    private final Item secondItem2nOption;
+    private final Item thirdItem;
+    private final Item thirdItem2nOption;
 
     public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
                           UseAction useAction) {
@@ -34,18 +39,45 @@ public class KHRangeWeapons extends Item {
         this.blockRange = blockRange;
         this.useAction = useAction;
         this.rechargeTime = 0;
-        this.oneShot = false;
+        this.firstItem = null;
+        this.firstItem2nOption = null;
+        this.secondItem = null;
+        this.secondItem2nOption = null;
+        this.thirdItem = null;
+        this.thirdItem2nOption = null;
     }
 
     public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                          UseAction useAction, int rechargeTime, boolean oneShot) {
+                          UseAction useAction, int rechargeTime) {
         super(settings);
         this.damageType = damageType;
         this.damage = damage;
         this.blockRange = blockRange;
         this.useAction = useAction;
         this.rechargeTime = Math.min(0, rechargeTime);
-        this.oneShot = oneShot;
+        this.firstItem = null;
+        this.firstItem2nOption = null;
+        this.secondItem = null;
+        this.secondItem2nOption = null;
+        this.thirdItem = null;
+        this.thirdItem2nOption = null;
+    }
+
+    public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
+                          UseAction useAction, int rechargeTime, Item firstItem, Item firstItem2nOption, Item secondItem,
+                          Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption) {
+        super(settings);
+        this.damageType = damageType;
+        this.damage = damage;
+        this.blockRange = blockRange;
+        this.useAction = useAction;
+        this.rechargeTime = Math.max(0, rechargeTime);
+        this.firstItem = firstItem;
+        this.firstItem2nOption = firstItem2nOption;
+        this.secondItem = secondItem;
+        this.secondItem2nOption = secondItem2nOption;
+        this.thirdItem = thirdItem;
+        this.thirdItem2nOption = thirdItem2nOption;
     }
 
     @Override
@@ -56,7 +88,7 @@ public class KHRangeWeapons extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        if (this.oneShot) {
+        if (firstItem != null) {
             if (isCharged(itemStack)) {
                 user.setCurrentHand(hand);
                 return TypedActionResult.consume(itemStack);
@@ -85,7 +117,7 @@ public class KHRangeWeapons extends Item {
     @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (world.isClient || !(user instanceof PlayerEntity player)) return;
-        if (this.oneShot) return;
+        if (firstItem != null) return;
         int useTime = getMaxUseTime(stack) - remainingUseTicks;
         float crossbowPullProgress = getCrossbowPullProgress(useTime);
 
@@ -100,7 +132,7 @@ public class KHRangeWeapons extends Item {
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         if (world.isClient || !(user instanceof PlayerEntity player)) return;
         int useTime = getMaxUseTime(stack) - remainingUseTicks;
-        if (this.oneShot) {
+        if (firstItem != null) {
             if (useTime >= 5 && isCharged(stack)) {
                 shootBullet(world, stack, player);
                 setShooting(stack, true);
@@ -167,16 +199,16 @@ public class KHRangeWeapons extends Item {
     }
 
     private void shootBullet(World world, ItemStack stack, PlayerEntity player) {
-        KHBulletEntity ballEntity = new KHBulletEntity(player, world);
-        ballEntity.setDamageAmount(this.damage);
-        ballEntity.setDamageType(this.damageType);
+        KHBulletEntity bulletEntity = new KHBulletEntity(player, world);
+        bulletEntity.setDamageAmount(this.damage);
+        bulletEntity.setDamageType(this.damageType);
 
         float velocityMultiplier = (float) blockRange / 32f;
-        ballEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, velocityMultiplier, 1.0F);
+        bulletEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, velocityMultiplier, 1.0F);
 
 
-        world.spawnEntity(ballEntity);
-        world.playSoundFromEntity(null, ballEntity, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+        world.spawnEntity(bulletEntity);
+        world.playSoundFromEntity(null, bulletEntity, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
         if (!player.getAbilities().creativeMode) {
             stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
@@ -213,7 +245,7 @@ public class KHRangeWeapons extends Item {
     }
 
     public float getCrossbowPullProgress(int useTicks) {
-        float f = (float)useTicks / this.rechargeTime;
+        float f = (float)useTicks / (getRechargeTime() * 20);
         if (f > 1.0F) {
             f = 1.0F;
         }
@@ -221,8 +253,32 @@ public class KHRangeWeapons extends Item {
         return f;
     }
 
-    public boolean isOneShot() {
-        return this.oneShot;
+    public Item getFirstItem() {
+        return this.firstItem;
+    }
+
+    public Item getFirstItem2nOption() {
+        return this.firstItem2nOption;
+    }
+
+    public Item getSecondItem() {
+        return this.secondItem;
+    }
+
+    public Item getSecondItem2nOption() {
+        return this.secondItem2nOption;
+    }
+
+    public Item getThirdItem() {
+        return this.thirdItem;
+    }
+
+    public Item getThirdItem2nOption() {
+        return this.thirdItem2nOption;
+    }
+
+    public int getRechargeTime() {
+        return this.rechargeTime;
     }
 
     private void setBooleanTag(ItemStack stack, String key, boolean value) {

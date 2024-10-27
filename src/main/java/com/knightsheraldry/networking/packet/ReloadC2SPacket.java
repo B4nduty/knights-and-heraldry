@@ -1,11 +1,9 @@
 package com.knightsheraldry.networking.packet;
 
-import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.item.KHRangeWeapons;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.MinecraftServer;
@@ -20,7 +18,8 @@ public class ReloadC2SPacket {
         server.execute(() -> {
             ItemStack itemStack = player.getMainHandStack();
 
-            if(itemStack.getItem() instanceof KHRangeWeapons khRangeWeapons && khRangeWeapons.isOneShot()) {
+            if(itemStack.getItem() instanceof KHRangeWeapons khRangeWeapons && (khRangeWeapons.getFirstItem() != null ||
+                    khRangeWeapons.getFirstItem2nOption() != null)) {
                 if (khRangeWeapons.isCharged(itemStack)) {
                     return;
                 }
@@ -28,16 +27,17 @@ public class ReloadC2SPacket {
                 int reloadSec = nbt.getInt("ReloadSec");
                 if (khRangeWeapons.isReloading(itemStack)) reloadTick++;
                 if (!khRangeWeapons.isReloading(itemStack)) {
-                    ItemStack blackPowder = getItemFromInventory(player, ModItems.BLACK_POWDER);
-                    ItemStack ironNugget = getItemFromInventory(player, Items.IRON_NUGGET);
-                    if (ironNugget == null) ironNugget = getItemFromInventory(player, Items.GRAVEL);
-                    ItemStack paper = getItemFromInventory(player, Items.PAPER);
-                    if (paper == null) paper = getItemFromInventory(player, Items.GRASS);
-                    if (areItemsInInventory(blackPowder, ironNugget, paper)) {
+                    ItemStack firstItem = getItemFromInventory(player, khRangeWeapons.getFirstItem());
+                    if (firstItem == null) firstItem = getItemFromInventory(player, khRangeWeapons.getFirstItem2nOption());
+                    ItemStack secondItem = getItemFromInventory(player, khRangeWeapons.getSecondItem());
+                    if (secondItem == null) secondItem = getItemFromInventory(player, khRangeWeapons.getSecondItem2nOption());
+                    ItemStack thirdItem = getItemFromInventory(player, khRangeWeapons.getThirdItem());
+                    if (thirdItem == null) thirdItem = getItemFromInventory(player, khRangeWeapons.getThirdItem2nOption());
+                    if (areItemsInInventory(firstItem, secondItem, thirdItem)) {
                         khRangeWeapons.setShooting(itemStack, false);
-                        player.getInventory().removeStack(getItemSlot(player, blackPowder), 1);
-                        player.getInventory().removeStack(getItemSlot(player, ironNugget), 1);
-                        player.getInventory().removeStack(getItemSlot(player, paper), 1);
+                        player.getInventory().removeStack(getItemSlot(player, firstItem), 1);
+                        player.getInventory().removeStack(getItemSlot(player, secondItem), 1);
+                        player.getInventory().removeStack(getItemSlot(player, thirdItem), 1);
                         khRangeWeapons.setReload(itemStack, true);
                         reloadTick++;
                     }
@@ -45,10 +45,10 @@ public class ReloadC2SPacket {
 
                 if (reloadTick % 20 == 0 && reloadTick != 0) {
                     nbt.putInt("ReloadSec", reloadSec + 1);
-                    if (reloadSec < 14) player.sendMessage(Text.translatable("event.knightsheraldry.recharge_time", reloadSec + 1), true);
+                    if (reloadSec < khRangeWeapons.getRechargeTime() - 1) player.sendMessage(Text.translatable("event.knightsheraldry.recharge_time", reloadSec + 1), true);
                 }
 
-                if (reloadSec >= 15) {
+                if (reloadSec >= khRangeWeapons.getRechargeTime()) {
                     player.sendMessage(Text.translatable("event.knightsheraldry.recharged"), true);
                     khRangeWeapons.setReload(itemStack, false);
                     khRangeWeapons.setCharged(itemStack, true);
@@ -76,7 +76,7 @@ public class ReloadC2SPacket {
                 .orElse(-1);
     }
 
-    private static boolean areItemsInInventory(ItemStack blackPowder, ItemStack ironNugget, ItemStack paper) {
-        return blackPowder != null && ironNugget != null && paper != null;
+    private static boolean areItemsInInventory(ItemStack firstItem, ItemStack secondItem, ItemStack thirdItem) {
+        return firstItem != null && secondItem != null && thirdItem != null;
     }
 }
