@@ -7,12 +7,14 @@
     "HungerManagerMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
+    "ServerPlayNetworkHandlerMixin",
     "StatusEffectsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
+    "ClientPlayerInteractionManagerMixin",
     "EntityRendererMixin",
     "GameRendererMixin",
     "HeldItemRendererMixin",

@@ -52,11 +52,10 @@ public class Billhook extends KHWeapons {
         super.postHit(stack, target, attacker);
 
         if (attacker instanceof PlayerEntity playerEntity) {
-            double maxDistance = getRadius(4);
-            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
+            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(getMaxDistance());
             Vec3d playerPos = playerEntity.getPos();
             playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
-                            entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1))
+                            entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), getMaxDistance() + 1))
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.getPos());

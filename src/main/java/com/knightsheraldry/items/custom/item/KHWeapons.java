@@ -129,11 +129,10 @@ public class KHWeapons extends SwordItem {
 
     private void handlePostHit(ItemStack stack, LivingEntity target, PlayerEntity playerEntity) {
         Vec3d playerPos = playerEntity.getPos();
-        double maxDistance = getRadius(4);
-        Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
+        Box detectionBox = new Box(playerEntity.getBlockPos()).expand(getMaxDistance());
 
         playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
-                        entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1))
+                        entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), getMaxDistance() + 1))
                 .forEach(entity -> {
                     double distance = playerPos.distanceTo(target.getPos());
                     KHDamageCalculator.DamageType damageType = calculateDamageType(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
@@ -194,6 +193,10 @@ public class KHWeapons extends SwordItem {
 
     public float[] getDefaultAttackDamageValues() {
         return new float[0];
+    }
+
+    public double getMaxDistance() {
+        return getRadius(4);
     }
 
     protected double getRadius(int index) {
