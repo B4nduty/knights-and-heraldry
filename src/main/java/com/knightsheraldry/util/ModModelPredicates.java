@@ -1,6 +1,5 @@
 package com.knightsheraldry.util;
 
-import com.knightsheraldry.items.custom.item.KHRangeWeapons;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.text.Text;
