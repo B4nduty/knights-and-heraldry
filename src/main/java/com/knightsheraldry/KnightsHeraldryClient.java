@@ -9,7 +9,6 @@ import com.knightsheraldry.event.KeyInputHandler;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
-import com.knightsheraldry.items.custom.item.KHRangeWeapons;
 import com.knightsheraldry.items.custom.item.WoodenLance;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.util.ModModelPredicates;
@@ -24,7 +23,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
 import net.minecraft.item.DyeableItem;
-import software.bernie.geckolib.animatable.GeoItem;
 
 public class KnightsHeraldryClient implements ClientModInitializer {
 
@@ -43,13 +41,12 @@ public class KnightsHeraldryClient implements ClientModInitializer {
             if (item == ModItems.BROADHEAD_ARROW) EntityRendererRegistry.register(ModEntities.KH_ARROW, KHBroadheadArrowEntityRenderer::new);
             if (item == ModItems.CLOTH_ARROW) EntityRendererRegistry.register(ModEntities.KH_ARROW, KHClothArrowEntityRenderer::new);
         });
+
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
 
+        ModItems.items.forEach(ModModelPredicates::registerModelPredicates);
+
         ModItems.items.forEach(item -> {
-            if (!(item instanceof GeoItem)) {
-                ModModelPredicates.registerModelPredicates(item);
-                if (item instanceof KHRangeWeapons) ModModelPredicates.registerBowPredicates(item);
-            }
             if ((item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeable())
                     || (item instanceof KHUnderArmorItem khArmorItem && khArmorItem.isDyeable()) || item instanceof WoodenLance) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) ->

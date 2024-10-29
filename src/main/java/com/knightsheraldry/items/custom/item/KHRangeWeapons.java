@@ -23,6 +23,7 @@ import java.util.Random;
 
 public class KHRangeWeapons extends Item {
     private final KHDamageCalculator.DamageType damageType;
+    private final int maxUseTime;
     private final float damage;
     private final double blockRange;
     private final UseAction useAction;
@@ -36,10 +37,16 @@ public class KHRangeWeapons extends Item {
     private final SoundEvent[] soundEvents;
     private final Random random = new Random();
 
-    public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
+    /**
+     * <p><b>Warning:</b>
+     * This class is made for use of KnightsHeraldry, you can use it, but it isn't made to use by external people.
+     * It is a class made only to reduce files and storage space.
+     */
+    public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage, double blockRange,
                           UseAction useAction, SoundEvent... soundEvents) {
         super(settings);
         this.damageType = damageType;
+        this.maxUseTime = maxUseTime;
         this.damage = damage;
         this.blockRange = blockRange;
         this.useAction = useAction;
@@ -53,14 +60,15 @@ public class KHRangeWeapons extends Item {
         this.soundEvents = soundEvents;
     }
 
-    public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
+    public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage, double blockRange,
                           UseAction useAction, int rechargeTime, SoundEvent... soundEvents) {
         super(settings);
         this.damageType = damageType;
+        this.maxUseTime = maxUseTime;
         this.damage = damage;
         this.blockRange = blockRange;
         this.useAction = useAction;
-        this.rechargeTime = Math.min(0, rechargeTime);
+        this.rechargeTime = Math.max(0, rechargeTime);
         this.firstItem = null;
         this.firstItem2nOption = null;
         this.secondItem = null;
@@ -70,11 +78,12 @@ public class KHRangeWeapons extends Item {
         this.soundEvents = soundEvents;
     }
 
-    public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
+    public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage, double blockRange,
                           UseAction useAction, int rechargeTime, Item firstItem, Item firstItem2nOption, Item secondItem,
                           Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption, SoundEvent... soundEvents) {
         super(settings);
         this.damageType = damageType;
+        this.maxUseTime = maxUseTime;
         this.damage = damage;
         this.blockRange = blockRange;
         this.useAction = useAction;
@@ -99,10 +108,14 @@ public class KHRangeWeapons extends Item {
         if (firstItem != null) {
             if (isCharged(itemStack)) {
                 user.setCurrentHand(hand);
+                shootBullet(world, itemStack, user);
+                setShooting(itemStack, true);
+                setCharged(itemStack, false);
                 return TypedActionResult.consume(itemStack);
             }
             return TypedActionResult.fail(itemStack);
         }
+
         boolean hasArrow = getArrowFromInventory(user).isPresent();
 
         if (useAction == UseAction.BOW && hasArrow) {
@@ -119,7 +132,7 @@ public class KHRangeWeapons extends Item {
 
     @Override
     public int getMaxUseTime(ItemStack stack) {
-        return 72000;
+        return this.maxUseTime;
     }
 
     @Override
@@ -140,14 +153,6 @@ public class KHRangeWeapons extends Item {
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         if (world.isClient || !(user instanceof PlayerEntity player)) return;
         int useTime = getMaxUseTime(stack) - remainingUseTicks;
-        if (firstItem != null) {
-            if (useTime >= 5 && isCharged(stack)) {
-                shootBullet(world, stack, player);
-                setShooting(stack, true);
-                setCharged(stack, false);
-            }
-            return;
-        }
 
         getArrowFromInventory(player).ifPresent(arrowStack -> {
             float bowPullProgress = getBowPullProgress(useTime);
@@ -340,5 +345,9 @@ public class KHRangeWeapons extends Item {
 
     public float getDamage() {
         return this.damage;
+    }
+
+    public double getBlockRange() {
+        return this.blockRange;
     }
 }

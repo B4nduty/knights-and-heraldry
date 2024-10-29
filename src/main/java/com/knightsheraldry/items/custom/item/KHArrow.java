@@ -10,6 +10,11 @@ import java.util.function.BiFunction;
 public class KHArrow extends Item {
     private final BiFunction<PlayerEntity, World, Entity> arrowEntityFactory;
 
+    /**
+     * <p><b>Warning:</b>
+     * This class is made for use of KnightsHeraldry, you can use it, but it isn't made to use by external people.
+     * It is a class made only to reduce files and storage space.
+     */
     public KHArrow(Settings settings, BiFunction<PlayerEntity, World, Entity> arrowEntityFactory) {
         super(settings);
         this.arrowEntityFactory = arrowEntityFactory;

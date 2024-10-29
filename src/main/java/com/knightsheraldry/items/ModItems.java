@@ -333,11 +333,11 @@ public class ModItems {
             new Item(new OwoItemSettings()));
 
     public static final Item LONGBOW = registerItem("longbow", new KHRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.PIERCING, 14f, 85, UseAction.BOW, SoundEvents.ENTITY_ARROW_SHOOT));
+            KHDamageCalculator.DamageType.PIERCING, 72000, 14f, 85, UseAction.BOW, SoundEvents.ENTITY_ARROW_SHOOT));
     public static final Item HEAVY_CROSSBOW = registerItem("heavy_crossbow", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.PIERCING, 16f, 70, UseAction.CROSSBOW, 5, SoundEvents.ENTITY_ARROW_SHOOT));
+            KHDamageCalculator.DamageType.PIERCING, 72000, 16f, 70, UseAction.CROSSBOW, 5, SoundEvents.ENTITY_ARROW_SHOOT));
     public static final Item ARQUEBUS = registerItem("arquebus", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.BLUDGEONING, 18f, 65, UseAction.BOW, 15,
+            KHDamageCalculator.DamageType.BLUDGEONING, 1, 18f, 65, UseAction.BOW, 15,
             ModItems.BLACK_POWDER, null, Items.IRON_NUGGET, Items.GRAVEL, Items.PAPER, Items.GRASS,
             ModSounds.ARQUEBUS_CLOSE_1, ModSounds.ARQUEBUS_CLOSE_2, ModSounds.ARQUEBUS_CLOSE_3));
 

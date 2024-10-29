@@ -30,6 +30,7 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
 
         if (stack.getItem() instanceof KHRangeWeapons khRangeWeapons) {
             lines.add(Text.translatable("text.tooltip.knightsheraldry.baseDamage", (int) khRangeWeapons.getDamage()).formatted(Formatting.GREEN));
+            lines.add(Text.translatable("text.tooltip.knightsheraldry.blockRange", (int) khRangeWeapons.getBlockRange()).formatted(Formatting.GREEN));
         }
 
         if (stack.getItem() instanceof KHUnderArmorItem khArmorItem) {

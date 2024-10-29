@@ -200,6 +200,7 @@
   "text.tooltip.knightsheraldry.freezing": "Prevents freezing",
   "text.tooltip.knightsheraldry.hideNameTag": "Hide Name Tag",
   "text.tooltip.knightsheraldry.baseDamage": "%s Base Damage",
+  "text.tooltip.knightsheraldry.blockRange": "%s Block Range",
   "text.tooltip.knightsheraldry.slashingResistance": "Slashing Resistance: +%s%% ",
   "text.tooltip.knightsheraldry.bludgeoningResistance": "Bludgeoning Resistance: +%s%%",
   "text.tooltip.knightsheraldry.piercingResistance": "Piercing Resistance: +%s%%",

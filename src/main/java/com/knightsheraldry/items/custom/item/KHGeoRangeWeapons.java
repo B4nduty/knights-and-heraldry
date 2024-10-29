@@ -30,23 +30,28 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
 
-    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                             UseAction useAction, SoundEvent... soundEvents) {
-        super(settings, damageType, damage, blockRange, useAction, soundEvents);
+    /**
+     * <p><b>Warning:</b>
+     * This class is made for use of KnightsHeraldry, you can use it, but it isn't made to use by external people.
+     * It is a class made only to reduce files and storage space.
+     */
+    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage,
+                             double blockRange, UseAction useAction, SoundEvent... soundEvents) {
+        super(settings, damageType, maxUseTime, damage, blockRange, useAction, soundEvents);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
-    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                             UseAction useAction, int rechargeTime, SoundEvent... soundEvents) {
-        super(settings, damageType, damage, blockRange, useAction, rechargeTime, soundEvents);
+    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage,
+                             double blockRange, UseAction useAction, int rechargeTime, SoundEvent... soundEvents) {
+        super(settings, damageType, maxUseTime, damage, blockRange, useAction, rechargeTime, soundEvents);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
-    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, float damage, double blockRange,
-                             UseAction useAction, int rechargeTime, Item firstItem, Item firstItem2nOption, Item secondItem,
-                             Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption, SoundEvent... soundEvents) {
-        super(settings, damageType, damage, blockRange, useAction, rechargeTime, firstItem, firstItem2nOption, secondItem,
-                secondItem2nOption, thirdItem, thirdItem2nOption, soundEvents);
+    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage,
+                             double blockRange, UseAction useAction, int rechargeTime, Item firstItem, Item firstItem2nOption,
+                             Item secondItem, Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption, SoundEvent... soundEvents) {
+        super(settings, damageType, maxUseTime, damage, blockRange, useAction, rechargeTime, firstItem, firstItem2nOption,
+                secondItem, secondItem2nOption, thirdItem, thirdItem2nOption, soundEvents);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
@@ -77,9 +82,7 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
 
     private PlayState predicate(AnimationState<KHGeoRangeWeapons> animationState) {
         ItemStack itemStack = animationState.getData(DataTickets.ITEMSTACK);
-        if (isShooting(itemStack) && animationState.getController().getAnimationState() == AnimationController.State.PAUSED) {
-            setShooting(itemStack, false);
-        }
+        if (getFirstItem() != null && isShooting(itemStack) && animationState.getController().getAnimationState() == AnimationController.State.PAUSED) setShooting(itemStack, false);
         if (isReloading(itemStack)) animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
         else if (isCharged(itemStack)) animationState.getController().setAnimation(RawAnimation.begin().then("charged", Animation.LoopType.HOLD_ON_LAST_FRAME));
         else if (isShooting(itemStack)) animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));
