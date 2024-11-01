@@ -2,7 +2,6 @@ package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.entity.custom.KHArrowEntity;
 import com.knightsheraldry.entity.custom.KHBulletEntity;
-import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
