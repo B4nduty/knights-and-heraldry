@@ -1,6 +1,6 @@
 package com.knightsheraldry.event;
 
-import com.knightsheraldry.util.IEntityDataSaver;
+import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;

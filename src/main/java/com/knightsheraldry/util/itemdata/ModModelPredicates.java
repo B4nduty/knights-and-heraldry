@@ -1,4 +1,4 @@
-package com.knightsheraldry.util;
+package com.knightsheraldry.util.itemdata;
 
 import com.knightsheraldry.items.ModItems;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;

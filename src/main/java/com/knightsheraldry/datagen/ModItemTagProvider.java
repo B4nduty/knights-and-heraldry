@@ -1,7 +1,7 @@
 package com.knightsheraldry.datagen;
 
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.util.KHTags;
+import com.knightsheraldry.util.itemdata.KHTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -103,6 +103,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.SABATONS);
 
         getOrCreateTagBuilder(KHTags.Weapon.KH_GEO_2D_ITEMS)
-                .add(ModItems.FLAIL, ModItems.BALL_FLAIL, ModItems.HEAVY_CROSSBOW, ModItems.ARQUEBUS);
+                .add(ModItems.FLAIL, ModItems.BALL_FLAIL, ModItems.HEAVY_CROSSBOW, ModItems.ARQUEBUS, ModItems.HANDGONNE);
     }
 }

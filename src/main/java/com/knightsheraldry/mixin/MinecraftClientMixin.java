@@ -1,6 +1,6 @@
 package com.knightsheraldry.mixin;
 
-import com.knightsheraldry.util.IEntityDataSaver;
+import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;

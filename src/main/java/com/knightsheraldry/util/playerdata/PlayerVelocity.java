@@ -1,4 +1,4 @@
-package com.knightsheraldry.util;
+package com.knightsheraldry.util.playerdata;
 
 import com.knightsheraldry.networking.ModMessages;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;

@@ -1,4 +1,4 @@
-package com.knightsheraldry.util;
+package com.knightsheraldry.util.itemdata;
 
 import com.knightsheraldry.KnightsHeraldry;
 import net.minecraft.item.Item;

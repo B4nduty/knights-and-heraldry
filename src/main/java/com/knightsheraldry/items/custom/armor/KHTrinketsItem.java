@@ -5,7 +5,7 @@ import com.google.common.collect.Multimap;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.model.*;
-import com.knightsheraldry.util.KHTags;
+import com.knightsheraldry.util.itemdata.KHTags;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.client.TrinketRenderer;

@@ -1,4 +1,4 @@
-package com.knightsheraldry.util;
+package com.knightsheraldry.util.playerdata;
 
 import net.minecraft.nbt.NbtCompound;
 

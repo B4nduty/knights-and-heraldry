@@ -1,4 +1,4 @@
-package com.knightsheraldry.util;
+package com.knightsheraldry.util.loottable;
 
 import com.knightsheraldry.items.ModItems;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;

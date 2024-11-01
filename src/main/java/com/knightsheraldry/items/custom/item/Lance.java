@@ -2,7 +2,7 @@ package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
-import com.knightsheraldry.util.IEntityDataSaver;
+import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;

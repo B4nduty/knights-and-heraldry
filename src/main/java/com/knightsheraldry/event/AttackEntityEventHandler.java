@@ -2,8 +2,8 @@ package com.knightsheraldry.event;
 
 import com.knightsheraldry.items.custom.item.KHWeapons;
 import com.knightsheraldry.networking.ModMessages;
-import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.KHTags;
+import com.knightsheraldry.util.playerdata.IEntityDataSaver;
+import com.knightsheraldry.util.itemdata.KHTags;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;

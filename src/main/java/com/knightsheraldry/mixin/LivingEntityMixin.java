@@ -2,8 +2,8 @@ package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.item.Lance;
-import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.KHTags;
+import com.knightsheraldry.util.playerdata.IEntityDataSaver;
+import com.knightsheraldry.util.itemdata.KHTags;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffects;

@@ -1,4 +1,4 @@
-package com.knightsheraldry.util;
+package com.knightsheraldry.util.loottable;
 
 import com.knightsheraldry.items.ModItems;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
@@ -130,6 +130,7 @@ public class VillagerTradesModifier {
                         ModItems.WARSWORD_ZWEIHANDER);
                 addTradeOffer(factories, 15, 12, 15, ModItems.RAPIER);
                 addTradeOffer(factories, 20, 12, 15, ModItems.MORNING_STAR);
+                addTradeOffer(factories, 18, 12, 15, ModItems.HANDGONNE);
             }
 
             if (level == 5) {

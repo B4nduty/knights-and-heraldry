@@ -2,7 +2,6 @@ package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.client.item.KHGeoRangeWeaponsModel;
 import com.knightsheraldry.event.KeyInputHandler;
-import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
@@ -48,10 +47,11 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
     }
 
     public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage,
-                             double blockRange, UseAction useAction, int rechargeTime, Item firstItem, Item firstItem2nOption,
-                             Item secondItem, Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption, SoundEvent... soundEvents) {
-        super(settings, damageType, maxUseTime, damage, blockRange, useAction, rechargeTime, firstItem, firstItem2nOption,
-                secondItem, secondItem2nOption, thirdItem, thirdItem2nOption, soundEvents);
+                             double blockRange, UseAction useAction, int rechargeTime, int amountFirstItem, Item firstItem, Item firstItem2nOption, int amountSecondItem,
+                             Item secondItem, Item secondItem2nOption, int amountThirdItem, Item thirdItem, Item thirdItem2nOption, boolean needsFlintAndSteel, int cooldown, SoundEvent... soundEvents) {
+        super(settings, damageType, maxUseTime, damage, blockRange, useAction, rechargeTime, amountFirstItem, firstItem,
+                firstItem2nOption, amountSecondItem, secondItem, secondItem2nOption, amountThirdItem, thirdItem,
+                thirdItem2nOption, needsFlintAndSteel, cooldown, soundEvents);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
@@ -98,7 +98,7 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        if (stack.getItem() == ModItems.ARQUEBUS)
+        if (getFirstItem() != null)
             tooltip.add(Text.translatable("tooltip.knightsheraldry.need_to_hold", KeyInputHandler.reload.getBoundKeyLocalizedText()));
     }
 }

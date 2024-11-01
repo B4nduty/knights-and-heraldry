@@ -3,7 +3,7 @@ package com.knightsheraldry.items.custom.item;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.util.KHDamageCalculator;
-import com.knightsheraldry.util.KHTags;
+import com.knightsheraldry.util.itemdata.KHTags;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

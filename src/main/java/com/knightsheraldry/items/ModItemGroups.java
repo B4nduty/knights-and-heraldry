@@ -96,7 +96,8 @@ public class ModItemGroups {
 
                 weaponStack(ModItems.LONGBOW),
                 weaponStack(ModItems.HEAVY_CROSSBOW),
-                weaponStack(ModItems.ARQUEBUS)
+                weaponStack(ModItems.ARQUEBUS),
+                weaponStack(ModItems.HANDGONNE)
         ));
     }
 

@@ -1,7 +1,7 @@
 package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.util.KHDamageCalculator;
-import com.knightsheraldry.util.KHTags;
+import com.knightsheraldry.util.itemdata.KHTags;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;

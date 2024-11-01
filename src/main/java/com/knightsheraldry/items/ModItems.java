@@ -337,8 +337,12 @@ public class ModItems {
     public static final Item HEAVY_CROSSBOW = registerItem("heavy_crossbow", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
             KHDamageCalculator.DamageType.PIERCING, 72000, 16f, 70, UseAction.CROSSBOW, 5, SoundEvents.ENTITY_ARROW_SHOOT));
     public static final Item ARQUEBUS = registerItem("arquebus", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.BLUDGEONING, 1, 18f, 65, UseAction.BOW, 15,
-            ModItems.BLACK_POWDER, null, Items.IRON_NUGGET, Items.GRAVEL, Items.PAPER, Items.GRASS,
+            KHDamageCalculator.DamageType.BLUDGEONING, 1, 18f, 65, UseAction.BOW, 15, 1,
+            ModItems.BLACK_POWDER, null, 1, Items.IRON_NUGGET, Items.GRAVEL, 1, Items.PAPER, Items.GRASS, false, 0,
+            ModSounds.ARQUEBUS_CLOSE_1, ModSounds.ARQUEBUS_CLOSE_2, ModSounds.ARQUEBUS_CLOSE_3));
+    public static final Item HANDGONNE = registerItem("handgonne", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
+            KHDamageCalculator.DamageType.BLUDGEONING, 1, 26f, 45, UseAction.BOW, 15, 2,
+            ModItems.BLACK_POWDER, null, 1, Items.IRON_NUGGET, Items.GRAVEL, 1, Items.PAPER, Items.GRASS, true, 15,
             ModSounds.ARQUEBUS_CLOSE_1, ModSounds.ARQUEBUS_CLOSE_2, ModSounds.ARQUEBUS_CLOSE_3));
 
     public static final Item SWALLOWTAIL_ARROW = registerItem("swallowtail_arrow",

@@ -1,6 +1,7 @@
 package com.knightsheraldry.util;
 
 import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
+import com.knightsheraldry.util.itemdata.KHTags;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

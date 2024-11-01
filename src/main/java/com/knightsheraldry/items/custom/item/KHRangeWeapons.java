@@ -2,13 +2,16 @@ package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.entity.custom.KHArrowEntity;
 import com.knightsheraldry.entity.custom.KHBulletEntity;
+import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -28,13 +31,19 @@ public class KHRangeWeapons extends Item {
     private final double blockRange;
     private final UseAction useAction;
     private final int rechargeTime;
+    private final int amountFirstItem;
     private final Item firstItem;
     private final Item firstItem2nOption;
+    private final int amountSecondItem;
     private final Item secondItem;
     private final Item secondItem2nOption;
+    private final int amountThirdItem;
     private final Item thirdItem;
     private final Item thirdItem2nOption;
+    private final boolean needsFlintAndSteel;
+    private final int cooldown;
     private final SoundEvent[] soundEvents;
+
     private final Random random = new Random();
 
     /**
@@ -51,12 +60,17 @@ public class KHRangeWeapons extends Item {
         this.blockRange = blockRange;
         this.useAction = useAction;
         this.rechargeTime = 0;
+        this.amountFirstItem = 0;
         this.firstItem = null;
         this.firstItem2nOption = null;
+        this.amountSecondItem = 0;
         this.secondItem = null;
         this.secondItem2nOption = null;
+        this.amountThirdItem = 0;
         this.thirdItem = null;
         this.thirdItem2nOption = null;
+        this.needsFlintAndSteel = false;
+        this.cooldown = 0;
         this.soundEvents = soundEvents;
     }
 
@@ -69,18 +83,23 @@ public class KHRangeWeapons extends Item {
         this.blockRange = blockRange;
         this.useAction = useAction;
         this.rechargeTime = Math.max(0, rechargeTime);
+        this.amountFirstItem = 0;
         this.firstItem = null;
         this.firstItem2nOption = null;
+        this.amountSecondItem = 0;
         this.secondItem = null;
         this.secondItem2nOption = null;
+        this.amountThirdItem = 0;
         this.thirdItem = null;
         this.thirdItem2nOption = null;
+        this.needsFlintAndSteel = false;
+        this.cooldown = 0;
         this.soundEvents = soundEvents;
     }
 
     public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage, double blockRange,
-                          UseAction useAction, int rechargeTime, Item firstItem, Item firstItem2nOption, Item secondItem,
-                          Item secondItem2nOption, Item thirdItem, Item thirdItem2nOption, SoundEvent... soundEvents) {
+                          UseAction useAction, int rechargeTime, int amountFirstItem, Item firstItem, Item firstItem2nOption, int amountSecondItem, Item secondItem,
+                          Item secondItem2nOption, int amountThirdItem, Item thirdItem, Item thirdItem2nOption, boolean needsFlintAndSteel, int cooldown, SoundEvent... soundEvents) {
         super(settings);
         this.damageType = damageType;
         this.maxUseTime = maxUseTime;
@@ -88,12 +107,17 @@ public class KHRangeWeapons extends Item {
         this.blockRange = blockRange;
         this.useAction = useAction;
         this.rechargeTime = Math.max(0, rechargeTime);
+        this.amountFirstItem = amountFirstItem;
         this.firstItem = Objects.requireNonNull(firstItem);
         this.firstItem2nOption = firstItem2nOption;
+        this.amountSecondItem = amountSecondItem;
         this.secondItem = secondItem;
         this.secondItem2nOption = secondItem2nOption;
+        this.amountThirdItem = amountThirdItem;
         this.thirdItem = thirdItem;
         this.thirdItem2nOption = thirdItem2nOption;
+        this.needsFlintAndSteel = needsFlintAndSteel;
+        this.cooldown = cooldown;
         this.soundEvents = soundEvents;
     }
 
@@ -105,12 +129,24 @@ public class KHRangeWeapons extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
+        ItemStack offHandStack = user.getOffHandStack();
         if (firstItem != null) {
             if (isCharged(itemStack)) {
+                if (isNeededFlintAndSteel() && offHandStack.getItem() != Items.FLINT_AND_STEEL) {
+                    return TypedActionResult.fail(itemStack);
+                }
+
                 user.setCurrentHand(hand);
                 shootBullet(world, itemStack, user);
                 setShooting(itemStack, true);
                 setCharged(itemStack, false);
+
+                if (!user.getAbilities().creativeMode) {
+                    user.getItemCooldownManager().set(this, this.cooldown * 20);
+                    if (isNeededFlintAndSteel() && user instanceof ServerPlayerEntity serverPlayerEntity)
+                        offHandStack.damage(1, null, serverPlayerEntity);
+                }
+
                 return TypedActionResult.consume(itemStack);
             }
             return TypedActionResult.fail(itemStack);
@@ -198,18 +234,15 @@ public class KHRangeWeapons extends Item {
         float velocityMultiplier = (float) blockRange / 32f;
         arrowEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, pullProgress * velocityMultiplier, 1.0F);
 
-        if (player.getAbilities().creativeMode) {
+        if (player.isCreative()) {
             arrowEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
+            stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
+            player.getInventory().removeStack(getArrowSlot(player), 1);
         }
 
         world.spawnEntity(arrowEntity);
         SoundEvent selectedSound = soundEvents.length > 0 ? soundEvents[random.nextInt(soundEvents.length)] : null;
         if (selectedSound != null) world.playSoundFromEntity(null, arrowEntity, selectedSound, SoundCategory.PLAYERS, 1.0F, 1.0F);
-
-        if (!player.getAbilities().creativeMode) {
-            stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
-            player.getInventory().removeStack(getArrowSlot(player), 1);
-        }
     }
 
     private void shootBullet(World world, ItemStack stack, PlayerEntity player) {
@@ -226,7 +259,7 @@ public class KHRangeWeapons extends Item {
         if (selectedSound != null) world.playSound(null, player.getBlockPos(), selectedSound,
                     SoundCategory.PLAYERS, 1f, 1f);
 
-        if (!player.getAbilities().creativeMode) {
+        if (!player.isCreative()) {
             stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
         }
     }
@@ -240,6 +273,9 @@ public class KHRangeWeapons extends Item {
         SoundCategory soundCategory = player instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
         world.playSound(null, player.getX(), player.getY(), player.getZ(),
                 SoundEvents.ITEM_CROSSBOW_LOADING_END, soundCategory, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+        if (!player.getAbilities().creativeMode) {
+            stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
+        }
     }
 
     private Optional<ItemStack> getArrowFromInventory(PlayerEntity player) {
@@ -269,12 +305,20 @@ public class KHRangeWeapons extends Item {
         return f;
     }
 
+    public int getAmountFirstItem() {
+        return this.amountFirstItem;
+    }
+
     public Item getFirstItem() {
         return this.firstItem;
     }
 
     public Item getFirstItem2nOption() {
         return this.firstItem2nOption;
+    }
+
+    public int getAmountSecondItem() {
+        return this.amountSecondItem;
     }
 
     public Item getSecondItem() {
@@ -285,12 +329,20 @@ public class KHRangeWeapons extends Item {
         return this.secondItem2nOption;
     }
 
+    public int getAmountThirdItem() {
+        return this.amountThirdItem;
+    }
+
     public Item getThirdItem() {
         return this.thirdItem;
     }
 
     public Item getThirdItem2nOption() {
         return this.thirdItem2nOption;
+    }
+
+    public boolean isNeededFlintAndSteel() {
+        return this.needsFlintAndSteel;
     }
 
     public int getRechargeTime() {

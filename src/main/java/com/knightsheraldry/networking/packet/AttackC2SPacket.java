@@ -1,7 +1,7 @@
 package com.knightsheraldry.networking.packet;
 
-import com.knightsheraldry.util.IEntityDataSaver;
-import com.knightsheraldry.util.StaminaData;
+import com.knightsheraldry.util.playerdata.IEntityDataSaver;
+import com.knightsheraldry.util.playerdata.StaminaData;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.MinecraftServer;
