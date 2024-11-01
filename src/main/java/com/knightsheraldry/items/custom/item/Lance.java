@@ -30,8 +30,10 @@ import java.util.function.Predicate;
 
 public class Lance extends SwordItem {
     private boolean charged = false;
+    private KHDamageCalculator.DamageType onlyDamageType;
     public Lance(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
+        this.onlyDamageType = onlyDamageType;
     }
 
     @Override
@@ -56,7 +58,7 @@ public class Lance extends SwordItem {
                         && !player.getItemCooldownManager().isCoolingDown(this)) {
                     float damage = KHDamageCalculator.getKHDamage(livingEntity, getLanceDamage() *
                             ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getFloat("speedHistory") * 10,
-                            KHDamageCalculator.DamageType.PIERCING);
+                            this.onlyDamageType);
 
                     setCharged(stack, false);
                     if (livingEntity.hasVehicle()) livingEntity.stopRiding();
