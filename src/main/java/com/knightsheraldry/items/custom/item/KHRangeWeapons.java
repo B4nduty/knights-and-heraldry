@@ -295,7 +295,7 @@ public class KHRangeWeapons extends Item {
         return Math.min((f * f + f * 2.0F) / 3.0F, 1.0F);
     }
 
-    public float getCrossbowPullProgress(int useTicks) {
+    private float getCrossbowPullProgress(int useTicks) {
         float f = (float)useTicks / (getRechargeTime() * 20);
         if (f > 1.0F) {
             f = 1.0F;
@@ -304,47 +304,47 @@ public class KHRangeWeapons extends Item {
         return f;
     }
 
-    public int getAmountFirstItem() {
+    public final int getAmountFirstItem() {
         return this.amountFirstItem;
     }
 
-    public Item getFirstItem() {
+    public final Item getFirstItem() {
         return this.firstItem;
     }
 
-    public Item getFirstItem2nOption() {
+    public final Item getFirstItem2nOption() {
         return this.firstItem2nOption;
     }
 
-    public int getAmountSecondItem() {
+    public final int getAmountSecondItem() {
         return this.amountSecondItem;
     }
 
-    public Item getSecondItem() {
+    public final Item getSecondItem() {
         return this.secondItem;
     }
 
-    public Item getSecondItem2nOption() {
+    public final Item getSecondItem2nOption() {
         return this.secondItem2nOption;
     }
 
-    public int getAmountThirdItem() {
+    public final int getAmountThirdItem() {
         return this.amountThirdItem;
     }
 
-    public Item getThirdItem() {
+    public final Item getThirdItem() {
         return this.thirdItem;
     }
 
-    public Item getThirdItem2nOption() {
+    public final Item getThirdItem2nOption() {
         return this.thirdItem2nOption;
     }
 
-    public boolean isNeededFlintAndSteel() {
+    public final boolean isNeededFlintAndSteel() {
         return this.needsFlintAndSteel;
     }
 
-    public int getRechargeTime() {
+    public final int getRechargeTime() {
         return this.rechargeTime;
     }
 
@@ -358,47 +358,47 @@ public class KHRangeWeapons extends Item {
         return nbt != null && nbt.getBoolean(key);
     }
 
-    public boolean isReloading(ItemStack stack) {
+    public final boolean isReloading(ItemStack stack) {
         return getBooleanTag(stack, "Reload");
     }
 
-    public void setReload(ItemStack stack, boolean reload) {
+    public final void setReload(ItemStack stack, boolean reload) {
         setBooleanTag(stack, "Reload", reload);
     }
 
-    public boolean isCharged(ItemStack stack) {
+    public final boolean isCharged(ItemStack stack) {
         return getBooleanTag(stack, "Charged");
     }
 
-    public void setCharged(ItemStack stack, boolean charged) {
+    public final void setCharged(ItemStack stack, boolean charged) {
         setBooleanTag(stack, "Charged", charged);
     }
 
-    public boolean isShooting(ItemStack stack) {
+    public final boolean isShooting(ItemStack stack) {
         return getBooleanTag(stack, "Shoot");
     }
 
-    public void setShooting(ItemStack stack, boolean shoot) {
+    public final void setShooting(ItemStack stack, boolean shoot) {
         setBooleanTag(stack, "Shoot", shoot);
     }
 
-    public void loadProjectiles(ItemStack itemStack, KHArrowEntity arrowEntity) {
+    public final void loadProjectiles(ItemStack itemStack, KHArrowEntity arrowEntity) {
         itemStack.getOrCreateNbt().putInt(arrowEntity.getEntityName(), 1);
     }
 
-    public void unloadProjectiles(ItemStack itemStack, KHArrowEntity arrowEntity) {
+    public final void unloadProjectiles(ItemStack itemStack, KHArrowEntity arrowEntity) {
         itemStack.getOrCreateNbt().putInt(arrowEntity.getEntityName(), 0);
     }
 
-    public boolean isLoaded(ItemStack stack, KHArrowEntity arrowEntity) {
+    public final boolean isLoaded(ItemStack stack, KHArrowEntity arrowEntity) {
         return stack.getNbt() != null && stack.getNbt().getInt(arrowEntity.getEntityName()) == 1;
     }
 
-    public float getDamage() {
+    public final float getDamage() {
         return this.damage;
     }
 
-    public double getBlockRange() {
+    public final double getBlockRange() {
         return this.blockRange;
     }
 }

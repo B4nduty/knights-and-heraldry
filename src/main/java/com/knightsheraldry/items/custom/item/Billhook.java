@@ -86,7 +86,7 @@ public class Billhook extends KHWeapons {
         float maxDamage = 0.0F;
         boolean piercing = false;
 
-        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_PIERCING)) {
+        if (stack.isIn(KHTags.WEAPONS_PIERCING.getTag())) {
             int[] piercingAnimations = getPiercingAnimation();
             for (int piercingAnimation : piercingAnimations) {
                 if (comboCount == 0 && piercingAnimation == 1) {

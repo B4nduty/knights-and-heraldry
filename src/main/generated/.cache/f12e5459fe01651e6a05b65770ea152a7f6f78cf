@@ -1,4 +1,4 @@
-// 1.20.1	2024-10-30T12:19:52.000971	Knights & Heraldry/Recipes
+// 1.20.1	2024-11-02T23:33:01.9821754	Knights & Heraldry/Recipes
 9ddaaffd00cdb035657ca683d1d60a2735e23d8a data\knightsheraldry\advancements\recipes\misc\bascinet_no_visor.json
 94fa46371a08c7f25c36ddf7ba43e57300401041 data\knightsheraldry\advancements\recipes\misc\cage_2.json
 4f557ca060e7be405e7941ea52fa35ed0a3a3e5f data\knightsheraldry\advancements\recipes\misc\mace.json
@@ -41,8 +41,8 @@ c0f36b1ea08076eb008dba6a88bcd057ac8821ff data\knightsheraldry\advancements\recip
 9f7bdecc5c77c789163167578bdd050e0e417c84 data\knightsheraldry\advancements\recipes\misc\polehammer.json
 4a01c90e0a85d3d77da1ba7a37fc52fe050d4cfb data\knightsheraldry\recipes\v_sword.json
 c1a0dce0ab1d02a872b475c8cfb5786692015dcf data\knightsheraldry\recipes\polehammer.json
-4ea365431a75ca0b9dc3bc43f1032e80ff93e562 data\knightsheraldry\advancements\recipes\misc\armet.json
 35b5b0ec63b0808fc7d2249511df7dd7733d8d11 data\knightsheraldry\advancements\recipes\misc\kettle_helm.json
+4ea365431a75ca0b9dc3bc43f1032e80ff93e562 data\knightsheraldry\advancements\recipes\misc\armet.json
 80bd9fd87ce20c0990d5d39da752db26d3556e8f data\knightsheraldry\advancements\recipes\misc\smithing_hammer.json
 c46feb9c18edd78af267fdd244f400c11a41ccc0 data\knightsheraldry\advancements\recipes\misc\warsword.json
 f28f109a036927ef2d490c2ae86f70f771258014 data\knightsheraldry\advancements\recipes\misc\warsword_claymore.json
@@ -71,8 +71,8 @@ fe13a01514adb3ec066731eb8988c35e1507e4f0 data\knightsheraldry\advancements\recip
 bb1517975ac8d879aae95bb814bab4ce63fd9a2b data\knightsheraldry\recipes\war_hammer.json
 3fa0d00bca00660055d24c2e8cb637978bc64629 data\knightsheraldry\recipes\armet_2.json
 6d3f7c06e46d171ebe44ca8845802b9c4ef966ce data\knightsheraldry\recipes\bascinet_no_visor.json
-de23e6419f729ff78238aab04c3b81a1f03290b4 data\knightsheraldry\advancements\recipes\misc\barbute_no_visor.json
 ecfec0a0776ac994a5bb59aa600fc5f6a2053136 data\knightsheraldry\recipes\plate_pauldron.json
+de23e6419f729ff78238aab04c3b81a1f03290b4 data\knightsheraldry\advancements\recipes\misc\barbute_no_visor.json
 838a956fe0713d34e49e295bfd06820df91e3031 data\knightsheraldry\recipes\arming_sword.json
 9df780cd1095919dece5ef44f8c754d51f8f94ab data\knightsheraldry\recipes\hammer.json
 46528fdeeeeacb073a259344b3332faf6a279e2c data\knightsheraldry\advancements\recipes\misc\v_sword.json

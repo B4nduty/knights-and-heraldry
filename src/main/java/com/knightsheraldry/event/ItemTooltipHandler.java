@@ -17,7 +17,7 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
     @Override
     public void getTooltip(ItemStack stack, TooltipContext context, List<Text> lines) {
         Text attackDamage = Text.translatable("attribute.name.generic.attack_damage");
-        if (stack.isIn(KHTags.Weapon.KH_WEAPONS)) lines.removeIf(line -> line.contains(attackDamage));
+        if (stack.isIn(KHTags.WEAPONS.getTag())) lines.removeIf(line -> line.contains(attackDamage));
 
         if (stack.getItem() instanceof KHTrinketsItem khTrinketsItem
                 && khTrinketsItem.getHungerDrainAddition() != 0.0d) {

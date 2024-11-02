@@ -59,10 +59,10 @@ public abstract class LivingEntityMixin {
     public void knightsheraldry$disablesShield(CallbackInfoReturnable<Boolean> cir) {
         ItemStack mainStack = ((LivingEntity) (Object) this).getMainHandStack();
         boolean isWeaponOrInTag = mainStack.getItem() instanceof AxeItem
-                || mainStack.isIn(KHTags.Weapon.KH_WEAPONS_DISABLE_SHIELD);
+                || mainStack.isIn(KHTags.WEAPONS_DISABLE_SHIELD.getTag());
 
         if (KnightsHeraldry.config().getVanillaWeaponsDamage0()) {
-            cir.setReturnValue(mainStack.isIn(KHTags.Weapon.KH_WEAPONS_DISABLE_SHIELD));
+            cir.setReturnValue(mainStack.isIn(KHTags.WEAPONS_DISABLE_SHIELD.getTag()));
         } else {
             cir.setReturnValue(isWeaponOrInTag);
         }
@@ -71,7 +71,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "damage", at = @At("HEAD"))
     private void knightsheraldry$injectDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if (source.getAttacker() instanceof PlayerEntity attacker) {
-            if (attacker.getMainHandStack().isIn(KHTags.Weapon.KH_WEAPONS_BYPASS_BLOCK)) {
+            if (attacker.getMainHandStack().isIn(KHTags.WEAPONS_BYPASS_BLOCK.getTag())) {
                 this.blockShield = false;
             }
         }
@@ -99,7 +99,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "applyDamage", at = @At("TAIL"))
     private void knightsheraldry$sendDamage(DamageSource source, float amount, CallbackInfo ci) {
         if (KnightsHeraldry.config().getDamageIndicator() && source.getAttacker() instanceof PlayerEntity playerEntity
-                && playerEntity.getMainHandStack().isIn(KHTags.Weapon.KH_WEAPONS)) {
+                && playerEntity.getMainHandStack().isIn(KHTags.WEAPONS.getTag())) {
             if (!playerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
                 if (amount <= 0) amount = 0;
                 else if (!(playerEntity.getMainHandStack().getItem() instanceof Lance)) amount = amount + 1;

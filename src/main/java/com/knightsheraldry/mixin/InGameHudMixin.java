@@ -77,11 +77,11 @@ public class InGameHudMixin {
             if (weapon != null) {
                 boolean bludgeoning = player.getMainHandStack().getOrCreateNbt().getBoolean("Bludgeoning") ||
                         player.getOffHandStack().getOrCreateNbt().getBoolean("Bludgeoning");
-                if (weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_BLUDGEONING_TO_PIERCING)) bludgeoning = !bludgeoning;
+                if (weapon.getDefaultStack().isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())) bludgeoning = !bludgeoning;
                 int comboCount = ((PlayerAttackProperties) player).getComboCount();
                 boolean piercing = false;
 
-                if (weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_PIERCING)) {
+                if (weapon.getDefaultStack().isIn(KHTags.WEAPONS_PIERCING.getTag())) {
                     int[] piercingAnimations = weapon.getPiercingAnimation();
                     int animationLength = weapon.getAnimation();
                     for (int piercingAnimation : piercingAnimations) {
@@ -98,8 +98,8 @@ public class InGameHudMixin {
 
                 if (bludgeoning || weapon.getOnlyDamageType() == KHDamageCalculator.DamageType.BLUDGEONING) { // Bludgeoning
                     renderBludgeoningOverlay(context, closestDistance, radiusValues, damageValues);
-                } else if (piercing && weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_PIERCING)
-                        || weapon.getDefaultStack().isIn(KHTags.Weapon.KH_WEAPONS_BLUDGEONING_TO_PIERCING)
+                } else if (piercing && weapon.getDefaultStack().isIn(KHTags.WEAPONS_PIERCING.getTag())
+                        || weapon.getDefaultStack().isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())
                         || weapon.getOnlyDamageType() == KHDamageCalculator.DamageType.PIERCING) { // Piercing
                     renderPiercingOverlay(context, closestDistance, radiusValues, damageValues);
                 } else { // Slashing (default case)
@@ -284,7 +284,7 @@ public class InGameHudMixin {
     @Unique
     private boolean ableStamina(PlayerEntity player) {
         boolean hasKHWeapon = player.getMainHandStack().getItem() instanceof KHWeapons ||
-                player.getOffHandStack().isIn(KHTags.Weapon.KH_WEAPONS);
+                player.getOffHandStack().isIn(KHTags.WEAPONS.getTag());
         boolean hasRequiredEquipment = false;
         for (ItemStack armorStack : player.getArmorItems()) {
             if (armorStack.getItem() instanceof KHUnderArmorItem) {
@@ -357,7 +357,7 @@ public class InGameHudMixin {
         TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
             trinketComponent.getAllEquipped().forEach(pair -> {
                 ItemStack trinketStack = pair.getRight();
-                if (trinketStack.getItem() instanceof KHTrinketsItem && trinketStack.isIn(KHTags.Armors.VISORED_HELMET) && KnightsHeraldry.config().getVisoredHelmet()) {
+                if (trinketStack.getItem() instanceof KHTrinketsItem && trinketStack.isIn(KHTags.VISORED_HELMET.getTag()) && KnightsHeraldry.config().getVisoredHelmet()) {
                     int width = context.getScaledWindowWidth();
                     int height = context.getScaledWindowHeight();
 

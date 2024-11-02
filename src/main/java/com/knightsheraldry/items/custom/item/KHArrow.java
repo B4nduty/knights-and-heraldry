@@ -20,7 +20,7 @@ public class KHArrow extends Item {
         this.arrowEntityFactory = arrowEntityFactory;
     }
 
-    public Entity createArrowEntity(PlayerEntity playerEntity, World world) {
-        return this.arrowEntityFactory.apply(playerEntity, world);
+    public final Entity createArrowEntity(PlayerEntity playerEntity, World world) {
+        return arrowEntityFactory.apply(playerEntity, world);
     }
 }

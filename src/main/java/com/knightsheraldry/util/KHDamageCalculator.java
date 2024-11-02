@@ -33,7 +33,7 @@ public class KHDamageCalculator {
     public static void applyDamage(LivingEntity target, PlayerEntity playerEntity, ItemStack stack, float damage) {
         float enchantmentBonusDamage = EnchantmentHelper.getAttackDamage(stack, target.getGroup());
         damage += enchantmentBonusDamage;
-        if (stack.isIn(KHTags.Weapon.KH_WEAPONS_IGNORES_ARMOR) && target.getHealth() - (damage - 1) > 0) {
+        if (stack.isIn(KHTags.WEAPONS_IGNORES_ARMOR.getTag()) && target.getHealth() - (damage - 1) > 0) {
             target.setHealth(target.getHealth() - (damage - 1));
         } else {
             target.damage(playerEntity.getWorld().getDamageSources().playerAttack(playerEntity), damage - 1);

@@ -65,7 +65,7 @@ public class KHSwallowTailArrowEntity extends KHArrowEntity {
         TrinketsApi.getTrinketComponent(player).ifPresent(trinkets ->
                 trinkets.getAllEquipped().forEach(pair -> {
                     if (pair.getRight().getItem() instanceof KHTrinketsItem trinket
-                            && pair.getRight().isIn(KHTags.Armors.KH_DEFLECTIVE_ARMOR)) {
+                            && pair.getRight().isIn(KHTags.DEFLECTIVE_ARMOR.getTag())) {
                         deflectChance[0] += 0.25f;
                     }
                 })
@@ -73,7 +73,7 @@ public class KHSwallowTailArrowEntity extends KHArrowEntity {
 
         for (ItemStack armor : player.getArmorItems()) {
             if (armor.getItem() instanceof KHUnderArmorItem
-                    && armor.isIn(KHTags.Armors.KH_DEFLECTIVE_ARMOR)) {
+                    && armor.isIn(KHTags.DEFLECTIVE_ARMOR.getTag())) {
                 deflectChance[0] += 0.25f;
             }
         }

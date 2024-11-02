@@ -62,8 +62,8 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
 
     @Inject(method = "damageShield", at = @At("HEAD"), cancellable = true)
     private void knightsHeraldry$onDamageShield(float amount, CallbackInfo ci) {
-        if (playerEntity.getMainHandStack().isIn(KHTags.Weapon.KH_WEAPONS)) {
-            if (playerEntity.getActiveItem().isIn(KHTags.Weapon.KH_WEAPONS_SHIELD)) {
+        if (playerEntity.getMainHandStack().isIn(KHTags.WEAPONS.getTag())) {
+            if (playerEntity.getActiveItem().isIn(KHTags.WEAPONS_SHIELD.getTag())) {
                 if (!playerEntity.getWorld().isClient) {
                     playerEntity.incrementStat(Stats.USED.getOrCreateStat(playerEntity.getActiveItem().getItem()));
                 }
@@ -90,7 +90,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
         }
 
         if (playerEntity.getRandom().nextFloat() < f) {
-            if (activeItem.isIn(KHTags.Weapon.KH_WEAPONS_SHIELD)) {
+            if (activeItem.isIn(KHTags.WEAPONS_SHIELD.getTag())) {
                 playerEntity.getItemCooldownManager().set(activeItem.getItem(), 100);
             } else {
                 playerEntity.getItemCooldownManager().set(Items.SHIELD, 60);

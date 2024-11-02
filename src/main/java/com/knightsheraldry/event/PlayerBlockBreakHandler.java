@@ -19,7 +19,7 @@ public class PlayerBlockBreakHandler implements PlayerBlockBreakEvents.After {
     public void afterBlockBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity) {
         ItemStack heldItem = player.getStackInHand(Hand.MAIN_HAND);
 
-        if (heldItem.isIn(KHTags.Weapon.KH_WEAPONS_HARVEST)) {
+        if (heldItem.isIn(KHTags.WEAPONS_HARVEST.getTag())) {
             Block block = state.getBlock();
 
             if (block instanceof CropBlock) {

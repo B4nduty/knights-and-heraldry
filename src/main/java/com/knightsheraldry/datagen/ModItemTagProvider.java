@@ -16,7 +16,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS)
+        getOrCreateTagBuilder(KHTags.WEAPONS.getTag())
                 .add(ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER, ModItems.SWORD,  ModItems.V_SWORD,
                         ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE,
                         ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE, ModItems.SPIKED_MACE, ModItems.FLAIL,
@@ -28,7 +28,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER,
                         ModItems.WARDART);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS_3D)
+        getOrCreateTagBuilder(KHTags.WEAPONS_3D.getTag())
             .add(ModItems.SMITHING_HAMMER, ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER, ModItems.SWORD,
                     ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE,
                     ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE, ModItems.SPIKED_MACE, ModItems.HAMMER,
@@ -39,7 +39,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                     ModItems.BARDICHE,  ModItems.WARDART, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
                     ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER, ModItems.LONGBOW);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS_SHIELD)
+        getOrCreateTagBuilder(KHTags.WEAPONS_SHIELD.getTag())
                 .add(ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE,
                         ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE,
                         ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD,
@@ -49,48 +49,49 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.BARDICHE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
                         ModItems.WARSWORD_ZWEIHANDER);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS_DAMAGE_BEHIND)
+        getOrCreateTagBuilder(KHTags.WEAPONS_DAMAGE_BEHIND.getTag())
                 .add(ModItems.DAGGER);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS_IGNORES_ARMOR)
+        getOrCreateTagBuilder(KHTags.WEAPONS_IGNORES_ARMOR.getTag())
                 .add(ModItems.STILETTO);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS_BLUDGEONING)
+        getOrCreateTagBuilder(KHTags.WEAPONS_BLUDGEONING.getTag())
                 .add(ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.LONGSWORD, ModItems.V_LONGSWORD,
                         ModItems.POLEAXE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
                         ModItems.WARSWORD_ZWEIHANDER);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS_PIERCING)
+        getOrCreateTagBuilder(KHTags.WEAPONS_PIERCING.getTag())
                 .add(ModItems.DAGGER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.LONGSWORD,
                         ModItems.V_LONGSWORD, ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE,
                         ModItems.HALBERD, ModItems.POLEAXE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
                         ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS_DISABLE_SHIELD)
+        getOrCreateTagBuilder(KHTags.WEAPONS_DISABLE_SHIELD.getTag())
                 .add(ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS_BYPASS_BLOCK)
+        getOrCreateTagBuilder(KHTags.WEAPONS_BYPASS_BLOCK.getTag())
                 .add(ModItems.FLAIL, ModItems.BALL_FLAIL);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS_BLUDGEONING_TO_PIERCING)
+        getOrCreateTagBuilder(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())
                 .add(ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_WEAPONS_HARVEST)
+        getOrCreateTagBuilder(KHTags.WEAPONS_HARVEST.getTag())
                 .add(ModItems.PITCHFORK);
 
-        getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
-                .add(ModItems.CLOAK, ModItems.TORN_CLOAK);
+        getOrCreateTagBuilder(KHTags.GEO_2D_ITEMS.getTag())
+                .add(ModItems.FLAIL, ModItems.BALL_FLAIL, ModItems.HEAVY_CROSSBOW, ModItems.ARQUEBUS, ModItems.HANDGONNE);
 
-        getOrCreateTagBuilder(KHTags.Armors.KH_ALWAYS_WEARABLE)
+
+        getOrCreateTagBuilder(KHTags.ALWAYS_WEARABLE.getTag())
                 .add(ModItems.HOOD, ModItems.TORN_HOOD, ModItems.CLOAK, ModItems.TORN_CLOAK);
 
-        getOrCreateTagBuilder(KHTags.Armors.VISORED_HELMET)
+        getOrCreateTagBuilder(KHTags.VISORED_HELMET.getTag())
                 .add(ModItems.ARMET, ModItems.ARMET_2, ModItems.BARBUTE, ModItems.BASCINET, ModItems.CAGE,
                         ModItems.CAGE_2, ModItems.FLAT_BASCINET, ModItems.GREAT_HELM, ModItems.GREAT_HELM_2,
                         ModItems.SALLET, ModItems.FROGMOUTH, ModItems.GREAT_ARMET, ModItems.GREAT_ARMET_2,
                         ModItems.GREAT_BASCINET, ModItems.GREAT_HOUNDSKUL_BASCINET, ModItems.MAXIMILLIAN_HELMET);
 
-        getOrCreateTagBuilder(KHTags.Armors.KH_DEFLECTIVE_ARMOR)
+        getOrCreateTagBuilder(KHTags.DEFLECTIVE_ARMOR.getTag())
                 .add(ModItems.MAIL_COIF, ModItems.HAUBERK, ModItems.MAIL_BREECHES, ModItems.MAIL_BOOTS,
                         ModItems.MAIL_PAULDRON, ModItems.PLATE_PAULDRON, ModItems.PLATE_CUIRASS, ModItems.PLATE_CUIRASS_TASSETS,
                         ModItems.MAXIMILLIAN_CUIRASS, ModItems.MAXIMILLIAN_CUIRASS_TASSETS, ModItems.XIIII_PLATE_CUIRASS,
@@ -102,7 +103,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.MAXIMILLIAN_HELMET, ModItems.GAUNTLET, ModItems.PLATE_REREBRACE, ModItems.PLATE_CHAUSSES,
                         ModItems.SABATONS);
 
-        getOrCreateTagBuilder(KHTags.Weapon.KH_GEO_2D_ITEMS)
-                .add(ModItems.FLAIL, ModItems.BALL_FLAIL, ModItems.HEAVY_CROSSBOW, ModItems.ARQUEBUS, ModItems.HANDGONNE);
+        getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
+                .add(ModItems.CLOAK, ModItems.TORN_CLOAK);
     }
 }

@@ -35,7 +35,7 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
                 TrinketsApi.getTrinketComponent(playerEntity).ifPresent(trinketComponent -> {
                     trinketComponent.getAllEquipped().forEach(pair -> {
                         ItemStack trinketStack = pair.getRight();
-                        if (trinketStack.getItem() instanceof KHTrinketsItem && !trinketStack.isIn(KHTags.Armors.KH_ALWAYS_WEARABLE)) {
+                        if (trinketStack.getItem() instanceof KHTrinketsItem && !trinketStack.isIn(KHTags.ALWAYS_WEARABLE.getTag())) {
                             playerEntity.giveItemStack(trinketStack);
                             trinketStack.setCount(0);
                         }
