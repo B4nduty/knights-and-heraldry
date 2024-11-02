@@ -35,15 +35,15 @@ public class KHUnderArmorItem extends ArmorItem implements DyeableItem {
         this.dyeable = false;
     }
 
-    public double getSlashingResistance() {return this.slashingResistance;}
+    public final double getSlashingResistance() {return this.slashingResistance;}
 
-    public double getBludgeoningResistance() {return this.bludgeoningResistance;}
+    public final double getBludgeoningResistance() {return this.bludgeoningResistance;}
 
-    public double getPiercingResistance() {return this.piercingResistance;}
+    public final double getPiercingResistance() {return this.piercingResistance;}
 
-    public Identifier getPath() {return this.texturePath;}
+    public final Identifier getPath() {return this.texturePath;}
 
-    public boolean isDyeable() {return this.dyeable;}
+    public final boolean isDyeable() {return this.dyeable;}
 
     @Override
     public int getColor(ItemStack stack) {

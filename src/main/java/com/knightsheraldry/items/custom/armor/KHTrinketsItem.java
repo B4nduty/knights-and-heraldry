@@ -91,7 +91,7 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         this.overlay = overlay;
     }
 
-    public double getHungerDrainAddition() {
+    public final double getHungerDrainAddition() {
         return this.hungerDrainAddition;
     }
 
@@ -146,11 +146,11 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         return Text.translatable(text);
     }
 
-    public boolean isDyeable() {return this.dyeable;}
+    public final boolean isDyeable() {return this.dyeable;}
 
-    public boolean hasOverlay() {return this.overlay;}
+    public final boolean hasOverlay() {return this.overlay;}
 
-    public Identifier getPath() {return this.texturePath;}
+    public final Identifier getPath() {return this.texturePath;}
 
     private @NotNull Identifier getOverlayIdentifier(KHTrinketsItem khTrinketsItem) {
         Identifier originalIdentifier = khTrinketsItem.getPath();
@@ -187,7 +187,7 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
     }
 
     @Environment(EnvType.CLIENT)
-    public BipedEntityModel<LivingEntity> getModel() {
+    public final BipedEntityModel<LivingEntity> getModel() {
         if (this.model == null) {
             switch (this.type) {
                 case HELMET ->
