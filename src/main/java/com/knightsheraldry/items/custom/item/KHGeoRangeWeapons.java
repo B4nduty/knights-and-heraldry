@@ -2,13 +2,10 @@ package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.client.item.KHGeoRangeWeaponsModel;
 import com.knightsheraldry.event.KeyInputHandler;
-import com.knightsheraldry.util.KHDamageCalculator;
+import com.knightsheraldry.util.itemdata.RangeWeaponConfig;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
-import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoItem;
@@ -34,24 +31,8 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
      * This class is made for use of KnightsHeraldry, you can use it, but it isn't made to use by external people.
      * It is a class made only to reduce files and storage space.
      */
-    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage,
-                             double blockRange, UseAction useAction, SoundEvent... soundEvents) {
-        super(settings, damageType, maxUseTime, damage, blockRange, useAction, soundEvents);
-        SingletonGeoAnimatable.registerSyncedAnimatable(this);
-    }
-
-    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage,
-                             double blockRange, UseAction useAction, int rechargeTime, SoundEvent... soundEvents) {
-        super(settings, damageType, maxUseTime, damage, blockRange, useAction, rechargeTime, soundEvents);
-        SingletonGeoAnimatable.registerSyncedAnimatable(this);
-    }
-
-    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage,
-                             double blockRange, UseAction useAction, int rechargeTime, int amountFirstItem, Item firstItem, Item firstItem2nOption, int amountSecondItem,
-                             Item secondItem, Item secondItem2nOption, int amountThirdItem, Item thirdItem, Item thirdItem2nOption, boolean needsFlintAndSteel, int cooldown, SoundEvent... soundEvents) {
-        super(settings, damageType, maxUseTime, damage, blockRange, useAction, rechargeTime, amountFirstItem, firstItem,
-                firstItem2nOption, amountSecondItem, secondItem, secondItem2nOption, amountThirdItem, thirdItem,
-                thirdItem2nOption, needsFlintAndSteel, cooldown, soundEvents);
+    public KHGeoRangeWeapons(Settings settings, RangeWeaponConfig config) {
+        super(settings, config);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
@@ -82,7 +63,7 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
 
     private PlayState predicate(AnimationState<KHGeoRangeWeapons> animationState) {
         ItemStack itemStack = animationState.getData(DataTickets.ITEMSTACK);
-        if (getFirstItem() != null && isShooting(itemStack) && animationState.getController().getAnimationState() == AnimationController.State.PAUSED) setShooting(itemStack, false);
+        if (config.ammoRequirement() != null && isShooting(itemStack) && animationState.getController().getAnimationState() == AnimationController.State.PAUSED) setShooting(itemStack, false);
         if (isReloading(itemStack)) animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
         else if (isCharged(itemStack)) animationState.getController().setAnimation(RawAnimation.begin().then("charged", Animation.LoopType.HOLD_ON_LAST_FRAME));
         else if (isShooting(itemStack)) animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));
@@ -93,12 +74,5 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
-    }
-
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        super.appendTooltip(stack, world, tooltip, context);
-        if (getFirstItem() != null)
-            tooltip.add(Text.translatable("tooltip.knightsheraldry.need_to_hold", KeyInputHandler.reload.getBoundKeyLocalizedText()));
     }
 }

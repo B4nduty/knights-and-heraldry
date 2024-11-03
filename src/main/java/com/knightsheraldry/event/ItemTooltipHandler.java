@@ -29,8 +29,8 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
         if (stack.getItem() == ModItems.CLOAK || stack.getItem() == ModItems.TORN_CLOAK) lines.add(Text.translatable("text.tooltip.knightsheraldry.freezing").formatted(Formatting.BLUE));
 
         if (stack.getItem() instanceof KHRangeWeapons khRangeWeapons) {
-            lines.add(Text.translatable("text.tooltip.knightsheraldry.baseDamage", (int) khRangeWeapons.getDamage()).formatted(Formatting.GREEN));
-            lines.add(Text.translatable("text.tooltip.knightsheraldry.blockRange", (int) khRangeWeapons.getBlockRange()).formatted(Formatting.GREEN));
+            lines.add(Text.translatable("text.tooltip.knightsheraldry.baseDamage", (int) khRangeWeapons.config.damageSettings().damage()).formatted(Formatting.GREEN));
+            lines.add(Text.translatable("text.tooltip.knightsheraldry.blockRange", (int) khRangeWeapons.config.damageSettings().blockRange()).formatted(Formatting.GREEN));
         }
 
         if (stack.getItem() instanceof KHUnderArmorItem khArmorItem) {

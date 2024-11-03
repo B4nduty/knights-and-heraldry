@@ -96,16 +96,14 @@ public abstract class KHWeapons extends SwordItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
-            if ((itemStack.isIn(KHTags.WEAPONS_BLUDGEONING.getTag())
-                    || itemStack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())) && user.isSneaking()) {
-                boolean currentVariant = itemStack.getOrCreateNbt().getBoolean("Bludgeoning");
-                itemStack.getOrCreateNbt().putBoolean("Bludgeoning", !currentVariant);
+            if (user.isSneaking() && (itemStack.isIn(KHTags.WEAPONS_BLUDGEONING.getTag()) ||
+                    itemStack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag()))) {
+                itemStack.getOrCreateNbt().putBoolean("Bludgeoning", !itemStack.getOrCreateNbt().getBoolean("Bludgeoning"));
                 return TypedActionResult.success(itemStack);
             }
         }
         user.setCurrentHand(hand);
-        if (!itemStack.isIn(KHTags.WEAPONS_SHIELD.getTag())) return TypedActionResult.fail(itemStack);
-        return TypedActionResult.consume(itemStack);
+        return itemStack.isIn(KHTags.WEAPONS_SHIELD.getTag()) ? TypedActionResult.consume(itemStack) : TypedActionResult.fail(itemStack);
     }
 
     @Override
@@ -121,69 +119,52 @@ public abstract class KHWeapons extends SwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (attacker instanceof PlayerEntity playerEntity) {
-            handlePostHit(stack, target, playerEntity);
+            Vec3d playerPos = playerEntity.getPos();
+            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(getMaxDistance());
+            playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
+                            entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), getMaxDistance() + 1))
+                    .forEach(entity -> {
+                        double distance = playerPos.distanceTo(target.getPos());
+                        KHDamageCalculator.DamageType damageType = calculateDamageType(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
+                        float damage = KHDamageCalculator.getKHDamage(playerEntity, calculateDamage(distance, damageType.getIndex() - 4, damageType.getIndex()), damageType);
+
+                        if (stack.isIn(KHTags.WEAPONS_DAMAGE_BEHIND.getTag()))
+                            damage = adjustDamageForBackstab(target, playerPos, damage);
+
+                        KHDamageCalculator.applyDamage(target, playerEntity, stack, damage);
+                    });
             stack.damage(1, playerEntity, p -> p.sendToolBreakStatus(playerEntity.getActiveHand()));
         }
         return true;
     }
 
-    private void handlePostHit(ItemStack stack, LivingEntity target, PlayerEntity playerEntity) {
-        Vec3d playerPos = playerEntity.getPos();
-        Box detectionBox = new Box(playerEntity.getBlockPos()).expand(getMaxDistance());
-
-        playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
-                        entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), getMaxDistance() + 1))
-                .forEach(entity -> {
-                    double distance = playerPos.distanceTo(target.getPos());
-                    KHDamageCalculator.DamageType damageType = calculateDamageType(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
-                    float damage = KHDamageCalculator.getKHDamage(playerEntity, calculateDamage(distance,
-                            damageType.getIndex() - 4, damageType.getIndex()), damageType);
-
-                    if (stack.isIn(KHTags.WEAPONS_DAMAGE_BEHIND.getTag())) {
-                        damage = adjustDamageForBackstab(target, playerPos, damage);
-                    }
-
-                    KHDamageCalculator.applyDamage(target, playerEntity, stack, damage);
-                });
-    }
-
     public final KHDamageCalculator.DamageType calculateDamageType(ItemStack stack, int comboCount) {
         boolean bludgeoning = stack.getOrCreateNbt().getBoolean("Bludgeoning");
         if (stack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())) bludgeoning = !bludgeoning;
-        boolean piercing = false;
-        if (stack.isIn(KHTags.WEAPONS_PIERCING.getTag())) {
-            int[] piercingAnimations = getPiercingAnimation();
-            validatePiercingValues();
-            int animationLength = getAnimation();
-            for (int piercingAnimation : piercingAnimations) {
-                if (comboCount % animationLength == piercingAnimation - 1) {
-                    piercing = true;
-                    break;
-                }
-            }
 
-            if (piercingAnimations.length == animationLength) piercing = true;
-        }
-        if (getOnlyDamageType() == KHDamageCalculator.DamageType.PIERCING) piercing = true;
+        boolean piercing = (stack.isIn(KHTags.WEAPONS_PIERCING.getTag()) && isComboCountPiercing(comboCount)) ||
+                getOnlyDamageType() == KHDamageCalculator.DamageType.PIERCING;
 
-        if (bludgeoning || getOnlyDamageType() == KHDamageCalculator.DamageType.BLUDGEONING) {
-            return KHDamageCalculator.DamageType.BLUDGEONING;
-        } else if (piercing || stack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())) {
-            return KHDamageCalculator.DamageType.PIERCING;
-        } else {
-            return KHDamageCalculator.DamageType.SLASHING;
+        return (bludgeoning || getOnlyDamageType() == KHDamageCalculator.DamageType.BLUDGEONING) ?
+                KHDamageCalculator.DamageType.BLUDGEONING :
+                (piercing || stack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())) ?
+                        KHDamageCalculator.DamageType.PIERCING :
+                        KHDamageCalculator.DamageType.SLASHING;
+    }
+
+    private boolean isComboCountPiercing(int comboCount) {
+        int[] piercingAnimations = getPiercingAnimation();
+        validatePiercingValues();
+        int animationLength = getAnimation();
+        for (int piercingAnimation : piercingAnimations) {
+            if (comboCount % animationLength == piercingAnimation - 1) return true;
         }
+        return piercingAnimations.length == animationLength;
     }
 
     private float adjustDamageForBackstab(LivingEntity target, Vec3d playerPos, float damage) {
-        Vec3d targetToAttacker = playerPos.subtract(target.getPos()).normalize();
-        Vec3d targetFacing = target.getRotationVec(1.0F).normalize();
-        boolean isBehind = targetFacing.dotProduct(targetToAttacker) < -0.5;
-
-        if (isBehind) {
-            damage *= 2;
-        }
-        return damage;
+        boolean isBehind = target.getRotationVec(1.0F).normalize().dotProduct(playerPos.subtract(target.getPos()).normalize()) < -0.5;
+        return isBehind ? damage * 2 : damage;
     }
 
     public final float getAttackDamage(int index) {
@@ -249,12 +230,10 @@ public abstract class KHWeapons extends SwordItem {
             ItemStack stack = context.getStack();
             Block block = state.getBlock();
 
-            if (block instanceof CropBlock cropBlock) {
-                if (cropBlock.isMature(state) && world.breakBlock(pos, true, player)) {
-                    replantCrop(world, pos, cropBlock, player);
-                    stack.damage(1, player, p -> p.sendToolBreakStatus(context.getHand()));
-                    return ActionResult.SUCCESS;
-                }
+            if (block instanceof CropBlock cropBlock && cropBlock.isMature(state) && world.breakBlock(pos, true, player)) {
+                replantCrop(world, pos, cropBlock, player);
+                stack.damage(1, player, p -> p.sendToolBreakStatus(context.getHand()));
+                return ActionResult.SUCCESS;
             }
         }
         return ActionResult.PASS;
@@ -262,13 +241,13 @@ public abstract class KHWeapons extends SwordItem {
 
     private void replantCrop(World world, BlockPos pos, CropBlock cropBlock, PlayerEntity player) {
         ItemStack seedStack = new ItemStack(cropBlock.asItem());
-
         if (!seedStack.isEmpty()) {
-            world.setBlockState(pos, cropBlock.getDefaultState());
-            world.emitGameEvent(GameEvent.BLOCK_PLACE, pos, GameEvent.Emitter.of(player, cropBlock.getDefaultState()));
-            if (!player.isCreative()) {
-                seedStack.decrement(1);
+            world.setBlockState(pos, cropBlock.getDefaultState(), Block.NOTIFY_ALL);
+            world.emitGameEvent(player, GameEvent.BLOCK_PLACE, pos);
+            if (player.getAbilities().creativeMode) {
+                return;
             }
+            seedStack.decrement(1);
         }
     }
 

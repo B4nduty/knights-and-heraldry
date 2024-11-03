@@ -8,7 +8,6 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class PlayerVelocity {
-
     public static void updateSpeedHistory(IEntityDataSaver player, float velocity) {
         NbtCompound nbt = player.knightsheraldry$getPersistentData();
         nbt.putFloat("speedHistory", velocity);

@@ -19,7 +19,7 @@ public class ReloadC2SPacket {
         server.execute(() -> {
             ItemStack itemStack = player.getMainHandStack();
 
-            if (!(itemStack.getItem() instanceof KHRangeWeapons khRangeWeapons) || khRangeWeapons.getFirstItem() == null) {
+            if (!(itemStack.getItem() instanceof KHRangeWeapons khRangeWeapons) || khRangeWeapons.config.ammoRequirement() == null) {
                 reloadTick = 0;
                 return;
             }
@@ -41,12 +41,24 @@ public class ReloadC2SPacket {
             if (khRangeWeapons.isReloading(itemStack)) {
                 reloadTick++;
             } else {
-                ItemStack firstItem = KHInventoryItemFinder.getItemFromInventory(player, khRangeWeapons.getFirstItem(), khRangeWeapons.getFirstItem2nOption());
-                ItemStack secondItem = KHInventoryItemFinder.getItemFromInventory(player, khRangeWeapons.getSecondItem(), khRangeWeapons.getSecondItem2nOption());
-                ItemStack thirdItem = KHInventoryItemFinder.getItemFromInventory(player, khRangeWeapons.getThirdItem(), khRangeWeapons.getThirdItem2nOption());
+                ItemStack firstItem = KHInventoryItemFinder.getItemFromInventory(
+                        player, khRangeWeapons.config.ammoRequirement().firstItem(),
+                        khRangeWeapons.config.ammoRequirement().firstItem2nOption()
+                );
+                ItemStack secondItem = KHInventoryItemFinder.getItemFromInventory(
+                        player, khRangeWeapons.config.ammoRequirement().secondItem(),
+                        khRangeWeapons.config.ammoRequirement().secondItem2nOption()
+                );
+                ItemStack thirdItem = KHInventoryItemFinder.getItemFromInventory(player,
+                        khRangeWeapons.config.ammoRequirement().thirdItem(),
+                        khRangeWeapons.config.ammoRequirement().thirdItem2nOption()
+                );
 
                 if (KHInventoryItemFinder.areItemsInInventory(new ItemStack[]{firstItem, secondItem, thirdItem},
-                        new int[]{khRangeWeapons.getAmountFirstItem(), khRangeWeapons.getAmountSecondItem(), khRangeWeapons.getAmountThirdItem()})) {
+                        new int[]{
+                                khRangeWeapons.config.ammoRequirement().amountFirstItem(),
+                                khRangeWeapons.config.ammoRequirement().amountSecondItem(),
+                                khRangeWeapons.config.ammoRequirement().amountThirdItem()})) {
                     startReload(player, khRangeWeapons, itemStack, firstItem, secondItem, thirdItem);
                 }
             }
@@ -70,12 +82,12 @@ public class ReloadC2SPacket {
 
         if (reloadTick % 20 == 0 && reloadTick != 0) {
             nbt.putInt("ReloadSec", reloadSec + 1);
-            if (reloadSec < khRangeWeapons.getRechargeTime() - 1) {
+            if (reloadSec < khRangeWeapons.config.rechargeTime() - 1) {
                 player.sendMessage(Text.translatable("event.knightsheraldry.recharge_time", reloadSec + 1), true);
             }
         }
 
-        if (reloadSec >= khRangeWeapons.getRechargeTime()) {
+        if (reloadSec >= khRangeWeapons.config.rechargeTime()) {
             completeReload(player, khRangeWeapons, itemStack, nbt);
         }
     }
