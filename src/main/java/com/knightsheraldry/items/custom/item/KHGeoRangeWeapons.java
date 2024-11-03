@@ -1,13 +1,8 @@
 package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.client.item.KHGeoRangeWeaponsModel;
-import com.knightsheraldry.event.KeyInputHandler;
 import com.knightsheraldry.util.itemdata.RangeWeaponConfig;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.animatable.client.RenderProvider;
@@ -18,7 +13,6 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.renderer.GeoItemRenderer;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
