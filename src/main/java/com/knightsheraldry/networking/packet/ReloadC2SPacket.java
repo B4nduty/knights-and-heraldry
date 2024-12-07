@@ -26,19 +26,17 @@ public class ReloadC2SPacket {
 
             if (player.isCreative()){
                 player.sendMessage(Text.translatable("event.knightsheraldry.recharged"), true);
-                khRangeWeapons.setShooting(itemStack, false);
-                khRangeWeapons.setReload(itemStack, false);
-                khRangeWeapons.setCharged(itemStack, true);
+                khRangeWeapons.setWeaponState(itemStack, new KHRangeWeapons.WeaponState(false, true, false));
                 reloadTick = 0;
                 return;
             } else if (player.getItemCooldownManager().isCoolingDown(khRangeWeapons)) return;
 
-            if (khRangeWeapons.isCharged(itemStack)) return;
+            if (khRangeWeapons.getWeaponState(itemStack).isCharged()) return;
 
             NbtCompound nbt = itemStack.getOrCreateNbt();
             int reloadSec = nbt.getInt("ReloadSec");
 
-            if (khRangeWeapons.isReloading(itemStack)) {
+            if (khRangeWeapons.getWeaponState(itemStack).isReloading()) {
                 reloadTick++;
             } else {
                 ItemStack firstItem = KHInventoryItemFinder.getItemFromInventory(
@@ -69,11 +67,10 @@ public class ReloadC2SPacket {
 
     private static void startReload(ServerPlayerEntity player, KHRangeWeapons khRangeWeapons, ItemStack itemStack,
                                     ItemStack firstItem, ItemStack secondItem, ItemStack thirdItem) {
-        khRangeWeapons.setShooting(itemStack, false);
         player.getInventory().removeStack(KHInventoryItemFinder.getItemSlot(player, firstItem), 1);
         player.getInventory().removeStack(KHInventoryItemFinder.getItemSlot(player, secondItem), 1);
         player.getInventory().removeStack(KHInventoryItemFinder.getItemSlot(player, thirdItem), 1);
-        khRangeWeapons.setReload(itemStack, true);
+        khRangeWeapons.setWeaponState(itemStack, new KHRangeWeapons.WeaponState(true, khRangeWeapons.getWeaponState(itemStack).isCharged(), false));
         reloadTick++;
     }
 
@@ -94,8 +91,7 @@ public class ReloadC2SPacket {
 
     private static void completeReload(ServerPlayerEntity player, KHRangeWeapons khRangeWeapons, ItemStack itemStack, NbtCompound nbt) {
         player.sendMessage(Text.translatable("event.knightsheraldry.recharged"), true);
-        khRangeWeapons.setReload(itemStack, false);
-        khRangeWeapons.setCharged(itemStack, true);
+        khRangeWeapons.setWeaponState(itemStack, new KHRangeWeapons.WeaponState(false, true, khRangeWeapons.getWeaponState(itemStack).isShooting()));
         nbt.putInt("ReloadSec", 0);
         reloadTick = 0;
     }

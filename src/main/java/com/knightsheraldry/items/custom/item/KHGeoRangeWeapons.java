@@ -57,19 +57,10 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
 
     private PlayState predicate(AnimationState<KHGeoRangeWeapons> animationState) {
         ItemStack itemStack = animationState.getData(DataTickets.ITEMSTACK);
-        if (isShooting(itemStack)) {
-            animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));
-            System.out.println("Shooting");
-        } else if (isReloading(itemStack)) {
-            animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
-            System.out.println("Reloading");
-        } else if (isCharged(itemStack)) {
-            animationState.getController().setAnimation(RawAnimation.begin().then("charged", Animation.LoopType.HOLD_ON_LAST_FRAME));
-            System.out.println("Charged");
-        } else {
-            animationState.getController().setAnimation(RawAnimation.begin().then("unloaded", Animation.LoopType.HOLD_ON_LAST_FRAME));
-            System.out.println("Unloaded");
-        }
+        if (getWeaponState(itemStack).isShooting()) animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));
+        else if (getWeaponState(itemStack).isReloading()) animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
+        else if (getWeaponState(itemStack).isCharged()) animationState.getController().setAnimation(RawAnimation.begin().then("charged", Animation.LoopType.HOLD_ON_LAST_FRAME));
+        else animationState.getController().setAnimation(RawAnimation.begin().then("unloaded", Animation.LoopType.HOLD_ON_LAST_FRAME));
         return PlayState.CONTINUE;
     }
 

@@ -140,5 +140,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SHEPHERD_FACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.FLETCHER_FACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CLERIC_FACE, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.BLUDGEONING_ICON, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DISTANCE_ICON, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DAMAGE_ICON, Models.HANDHELD);
     }
 }

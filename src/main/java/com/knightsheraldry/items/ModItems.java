@@ -566,6 +566,13 @@ public class ModItems {
     public static final Item CLERIC_FACE = registerItem("cleric_face",
             new Item(new OwoItemSettings()));
 
+    public static final Item BLUDGEONING_ICON = registerItem("bludgeoning_icon",
+            new Item(new OwoItemSettings()));
+    public static final Item DISTANCE_ICON = registerItem("distance_icon",
+            new Item(new OwoItemSettings()));
+    public static final Item DAMAGE_ICON = registerItem("damage_icon",
+            new Item(new OwoItemSettings()));
+
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);
         items.add(item);

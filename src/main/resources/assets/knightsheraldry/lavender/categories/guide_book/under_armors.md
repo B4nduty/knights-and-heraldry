@@ -1,7 +1,7 @@
 ```json
 { 
   "title": "Under Armors",
-  "icon": "knightsheraldry:warsword_zweihander"
+  "icon": "knightsheraldry:mail_coif"
 }
 ```
 

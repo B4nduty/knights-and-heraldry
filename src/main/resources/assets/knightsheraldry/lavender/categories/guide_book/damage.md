@@ -1,7 +1,7 @@
 ```json
 { 
   "title": "Damage",
-  "icon": "knightsheraldry:warsword_zweihander"
+  "icon": "knightsheraldry:damage_icon"
 }
 ```
 

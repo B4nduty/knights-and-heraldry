@@ -51,15 +51,14 @@ public class KHRangeWeapons extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
         ItemStack offHandStack = user.getOffHandStack();
         if (config.ammoRequirement() != null) {
-            if (isCharged(itemStack)) {
+            if (getWeaponState(itemStack).isCharged()) {
                 if (config.needsFlintAndSteel() && offHandStack.getItem() != Items.FLINT_AND_STEEL && !user.isCreative()) {
                     return TypedActionResult.fail(itemStack);
                 }
 
                 user.setCurrentHand(hand);
                 shootBullet(world, itemStack, user);
-                setShooting(itemStack, true);
-                setCharged(itemStack, false);
+                setWeaponState(itemStack, new WeaponState(getWeaponState(itemStack).isReloading(), false, true));
 
                 if (!user.getAbilities().creativeMode) {
                     if (config.needsFlintAndSteel() && user instanceof ServerPlayerEntity serverPlayerEntity)
@@ -97,7 +96,7 @@ public class KHRangeWeapons extends Item {
         int useTime = getMaxUseTime(stack) - remainingUseTicks;
         float crossbowPullProgress = getCrossbowPullProgress(useTime);
 
-        if (config.useAction() == UseAction.CROSSBOW && crossbowPullProgress >= 1.0F && !isCharged(stack)) {
+        if (config.useAction() == UseAction.CROSSBOW && crossbowPullProgress >= 1.0F && !getWeaponState(stack).isCharged()) {
             getArrowFromInventory(player).ifPresent(arrowStack -> loadAndPlayCrossbowSound(world, stack, player, arrowStack));
         }
     }
@@ -115,7 +114,7 @@ public class KHRangeWeapons extends Item {
 
             float crossbowPullProgress = getCrossbowPullProgress(useTime);
             if (config.useAction() == UseAction.CROSSBOW && crossbowPullProgress < 1.0F) {
-                setReload(stack, false);
+                setWeaponState(stack, new WeaponState(false, getWeaponState(stack).isCharged(), getWeaponState(stack).isShooting()));
             }
         });
     }
@@ -125,15 +124,13 @@ public class KHRangeWeapons extends Item {
         if (arrowStackOpt.isPresent() && arrowStackOpt.get().getItem() instanceof KHArrow khArrow) {
             KHArrowEntity arrowEntity = (KHArrowEntity) khArrow.createArrowEntity(user, world);
 
-            if (isCharged(itemStack)) {
-                setCharged(itemStack, false);
-                setShooting(itemStack, true);
-                unloadProjectiles(itemStack, arrowEntity);
+            if (getWeaponState(itemStack).isCharged()) {
+                setWeaponState(itemStack, new WeaponState(getWeaponState(itemStack).isReloading(), false, true));
+                Projectiles.fromNbt(itemStack.getOrCreateNbt(), arrowEntity).unloadProjectile();
                 shootArrow(world, itemStack, user, khArrow.getDefaultStack(), 1f);
                 return TypedActionResult.consume(itemStack);
-            } else if (!isLoaded(itemStack, arrowEntity)) {
-                setShooting(itemStack, false);
-                setReload(itemStack, true);
+            } else if (Projectiles.fromNbt(itemStack.getOrCreateNbt(), arrowEntity).getArrowCount() < 1) {
+                setWeaponState(itemStack, new WeaponState(true, getWeaponState(itemStack).isCharged(), false));
                 user.setCurrentHand(hand);
                 return TypedActionResult.consume(itemStack);
             } else {
@@ -181,9 +178,8 @@ public class KHRangeWeapons extends Item {
 
     private void loadAndPlayCrossbowSound(World world, ItemStack stack, PlayerEntity player, ItemStack arrowStack) {
         KHArrowEntity arrowEntity = (KHArrowEntity) ((KHArrow) arrowStack.getItem()).createArrowEntity(player, world);
-        loadProjectiles(stack, arrowEntity);
-        setReload(stack, false);
-        setCharged(stack, true);
+        Projectiles.fromNbt(stack.getOrCreateNbt(), arrowEntity).loadProjectile();
+        setWeaponState(stack, new WeaponState(false, true, getWeaponState(stack).isShooting()));
 
         SoundCategory soundCategory = player instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
         world.playSound(null, player.getX(), player.getY(), player.getZ(),
@@ -227,49 +223,49 @@ public class KHRangeWeapons extends Item {
             tooltip.add(Text.translatable("tooltip.knightsheraldry.need_to_hold", KeyInputHandler.reload.getBoundKeyLocalizedText()));
     }
 
-    private void setBooleanTag(ItemStack stack, String key, boolean value) {
+    public WeaponState getWeaponState(ItemStack stack) {
         NbtCompound nbt = stack.getOrCreateNbt();
-        nbt.putBoolean(key, value);
+        return WeaponState.fromNbt(nbt);
     }
 
-    private boolean getBooleanTag(ItemStack stack, String key) {
-        NbtCompound nbt = stack.getNbt();
-        return nbt != null && nbt.getBoolean(key);
+    public void setWeaponState(ItemStack stack, WeaponState state) {
+        NbtCompound nbt = stack.getOrCreateNbt();
+        state.applyToNbt(nbt);
     }
 
-    public final boolean isReloading(ItemStack stack) {
-        return getBooleanTag(stack, "Reload");
+    public record Projectiles(KHArrowEntity khArrowEntity, int arrowCount) {
+
+        public static Projectiles fromNbt(NbtCompound nbt, KHArrowEntity khArrowEntity) {
+            int count = nbt.contains(khArrowEntity.getEntityName()) ? nbt.getInt(khArrowEntity.getEntityName()) : 0;
+            return new Projectiles(khArrowEntity, count);
+        }
+
+        public void loadProjectile() {
+            new Projectiles(khArrowEntity, arrowCount + 1);
+        }
+
+        public void unloadProjectile() {
+            new Projectiles(khArrowEntity, Math.max(arrowCount - 1, 0));
+        }
+
+        public int getArrowCount() {
+            return arrowCount;
+        }
     }
 
-    public final void setReload(ItemStack stack, boolean reload) {
-        setBooleanTag(stack, "Reload", reload);
-    }
+    public record WeaponState(boolean isReloading, boolean isCharged, boolean isShooting) {
+        public static WeaponState fromNbt(NbtCompound nbt) {
+            return new WeaponState(
+                    nbt.getBoolean("Reload"),
+                    nbt.getBoolean("Charged"),
+                    nbt.getBoolean("Shoot")
+            );
+        }
 
-    public final boolean isCharged(ItemStack stack) {
-        return getBooleanTag(stack, "Charged");
-    }
-
-    public final void setCharged(ItemStack stack, boolean charged) {
-        setBooleanTag(stack, "Charged", charged);
-    }
-
-    public final boolean isShooting(ItemStack stack) {
-        return getBooleanTag(stack, "Shoot");
-    }
-
-    public final void setShooting(ItemStack stack, boolean shoot) {
-        setBooleanTag(stack, "Shoot", shoot);
-    }
-
-    public final void loadProjectiles(ItemStack itemStack, KHArrowEntity arrowEntity) {
-        itemStack.getOrCreateNbt().putInt(arrowEntity.getEntityName(), 1);
-    }
-
-    public final void unloadProjectiles(ItemStack itemStack, KHArrowEntity arrowEntity) {
-        itemStack.getOrCreateNbt().putInt(arrowEntity.getEntityName(), 0);
-    }
-
-    public final boolean isLoaded(ItemStack stack, KHArrowEntity arrowEntity) {
-        return stack.getNbt() != null && stack.getNbt().getInt(arrowEntity.getEntityName()) == 1;
+        public void applyToNbt(NbtCompound nbt) {
+            nbt.putBoolean("Reload", isReloading);
+            nbt.putBoolean("Charged", isCharged);
+            nbt.putBoolean("Shoot", isShooting);
+        }
     }
 }
