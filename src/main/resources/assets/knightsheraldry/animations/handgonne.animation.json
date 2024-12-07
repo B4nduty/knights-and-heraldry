@@ -2,51 +2,40 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"shoot": {
-			"animation_length": 0.1667,
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
 			"bones": {
 				"main": {
 					"rotation": {
-						"0.0": {
+						"0.0417": {
 							"vector": [0, 0, 0],
 							"easing": "linear"
 						},
-						"0.0833": {
+						"0.125": {
 							"vector": [-7.5, 0, 0],
 							"easing": "linear"
 						},
-						"0.1667": {
+						"0.2083": {
 							"vector": [0, 0, 0],
 							"easing": "linear"
 						}
 					},
 					"position": {
 						"0.0": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						},
+						"0.0417": {
 							"vector": [0, 0, 2],
 							"easing": "linear"
 						},
-						"0.1667": {
+						"0.2083": {
 							"vector": [0, 0, 0],
 							"easing": "linear"
 						}
 					}
 				},
 				"muzzleflash": {
-					"scale": {
-						"0.0": {
-							"vector": [0, 0, 0],
-							"easing": "linear"
-						},
-						"0.0417": {
-							"vector": [1, 1, 1],
-							"easing": "linear"
-						},
-						"0.0833": {
-							"vector": [0, 0, 0],
-							"easing": "linear"
-						}
-					}
-				},
-				"muzzleflash2": {
 					"scale": {
 						"0.0417": {
 							"vector": [0, 0, 0],
@@ -62,10 +51,32 @@
 						}
 					}
 				},
+				"muzzleflash2": {
+					"scale": {
+						"0.0833": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						},
+						"0.125": {
+							"vector": [1, 1, 1],
+							"easing": "linear"
+						},
+						"0.1667": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						}
+					}
+				},
 				"string": {
 					"scale": {
-						"vector": [0, 0, 0],
-						"easing": "linear"
+						"0.0": {
+							"vector": [1, 1, 1],
+							"easing": "linear"
+						},
+						"0.0417": {
+							"vector": [0, 0, 0],
+							"easing": "linear"
+						}
 					}
 				}
 			}
@@ -95,6 +106,32 @@
 					"scale": {
 						"vector": ["linear", "linear", "linear"],
 						"easing": "linear"
+					}
+				}
+			}
+		},
+		"charged": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"string": {
+					"position": {
+						"0.0": {
+							"vector": [0, -3, 0]
+						},
+						"0.25": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"muzzleflash": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"muzzleflash2": {
+					"scale": {
+						"vector": [0, 0, 0]
 					}
 				}
 			}

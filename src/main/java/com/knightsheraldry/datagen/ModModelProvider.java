@@ -132,5 +132,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CLOTH_ARROW, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.BLACK_POWDER, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.GUIDE_BOOK, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.ARMORER_FACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WEAPONSMITH_FACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.SHEPHERD_FACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.FLETCHER_FACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CLERIC_FACE, Models.HANDHELD);
     }
 }

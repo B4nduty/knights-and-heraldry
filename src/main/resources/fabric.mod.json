@@ -32,6 +32,7 @@
         "owo-lib": ">=0.11.2+1.20",
         "bettercombat": ">=1.8.5+1.20.1",
         "trinkets": ">=3.7.2",
+        "lavender": ">=0.1.9+1.20",
         "fabric": "*",
         "minecraft": "${minecraft_version}"
     }

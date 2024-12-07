@@ -52,7 +52,7 @@ public class KHRangeWeapons extends Item {
         ItemStack offHandStack = user.getOffHandStack();
         if (config.ammoRequirement() != null) {
             if (isCharged(itemStack)) {
-                if (config.needsFlintAndSteel() && offHandStack.getItem() != Items.FLINT_AND_STEEL) {
+                if (config.needsFlintAndSteel() && offHandStack.getItem() != Items.FLINT_AND_STEEL && !user.isCreative()) {
                     return TypedActionResult.fail(itemStack);
                 }
 
@@ -62,7 +62,6 @@ public class KHRangeWeapons extends Item {
                 setCharged(itemStack, false);
 
                 if (!user.getAbilities().creativeMode) {
-                    user.getItemCooldownManager().set(this, config.cooldown() * 20);
                     if (config.needsFlintAndSteel() && user instanceof ServerPlayerEntity serverPlayerEntity)
                         offHandStack.damage(1, null, serverPlayerEntity);
                 }
@@ -99,9 +98,7 @@ public class KHRangeWeapons extends Item {
         float crossbowPullProgress = getCrossbowPullProgress(useTime);
 
         if (config.useAction() == UseAction.CROSSBOW && crossbowPullProgress >= 1.0F && !isCharged(stack)) {
-            getArrowFromInventory(player).ifPresent(arrowStack -> {
-                loadAndPlayCrossbowSound(world, stack, player, arrowStack);
-            });
+            getArrowFromInventory(player).ifPresent(arrowStack -> loadAndPlayCrossbowSound(world, stack, player, arrowStack));
         }
     }
 
@@ -155,6 +152,7 @@ public class KHRangeWeapons extends Item {
 
         if (player.isCreative()) {
             arrowEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
+        } else {
             stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
             player.getInventory().removeStack(getArrowSlot(player), 1);
         }

@@ -24,9 +24,9 @@ public class KHDamageCalculator {
 
     protected static double getResistance(KHUnderArmorItem armorItem, DamageType damageType) {
         return switch (damageType) {
-            case SLASHING -> armorItem.getSlashingResistance();
-            case PIERCING -> armorItem.getPiercingResistance();
-            case BLUDGEONING -> armorItem.getBludgeoningResistance();
+            case SLASHING -> armorItem.getResistance(KHUnderArmorItem.ResistanceType.SLASHING);
+            case PIERCING -> armorItem.getResistance(KHUnderArmorItem.ResistanceType.PIERCING);
+            case BLUDGEONING -> armorItem.getResistance(KHUnderArmorItem.ResistanceType.BLUDGEONING);
         } * 100;
     }
 

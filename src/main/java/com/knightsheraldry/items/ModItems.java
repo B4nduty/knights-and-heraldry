@@ -11,6 +11,7 @@ import com.knightsheraldry.items.custom.item.*;
 import com.knightsheraldry.sounds.ModSounds;
 import com.knightsheraldry.util.KHDamageCalculator;
 import com.knightsheraldry.util.itemdata.RangeWeaponConfig;
+import io.wispforest.lavender.book.LavenderBookItem;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
@@ -137,171 +138,306 @@ public class ModItems {
 
     public static final Item QUILTED_COIF = registerItem("quilted_coif",
             new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET,
-                    0.04d, 0.1d, 0,
+                    new KHUnderArmorItem.ResistanceValues(0.04d, 0.1d, 0),
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/gambeson.png"), true));
     public static final Item GAMBESON = registerItem("gambeson",
             new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE,
-                    0.04d, 0.1d, 0,
+                    new KHUnderArmorItem.ResistanceValues(0.04d, 0.1d, 0),
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/gambeson.png"), true));
     public static final Item GAMBESON_BREECHES = registerItem("gambeson_breeches",
             new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS,
-                    0.04d, 0.1d, 0,
+                    new KHUnderArmorItem.ResistanceValues(0.04d, 0.1d, 0),
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/gambeson.png"), true));
     public static final Item GAMBESON_BOOTS = registerItem("gambeson_boots",
             new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS,
-                    0.04d, 0.1d, 0,
+                    new KHUnderArmorItem.ResistanceValues(0.04d, 0.1d, 0),
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/gambeson.png"), true));
 
     public static final Item MAIL_COIF = registerItem("mail_coif",
             new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.HELMET,
-                    0.1d, 0.04d, 0,
+                    new KHUnderArmorItem.ResistanceValues(0.1d, 0.04d, 0),
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/mail.png"), false));
     public static final Item HAUBERK = registerItem("hauberk",
             new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE,
-                    0.1d, 0.04d, 0,
+                    new KHUnderArmorItem.ResistanceValues(0.1d, 0.04d, 0),
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/mail.png"), false));
     public static final Item MAIL_BREECHES = registerItem("mail_breeches",
             new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS,
-                    0.1d, 0.04d, 0,
+                    new KHUnderArmorItem.ResistanceValues(0.1d, 0.04d, 0),
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/mail.png"), false));
     public static final Item MAIL_BOOTS = registerItem("mail_boots",
             new KHUnderArmorItem(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS,
-                    0.1d, 0.04d, 0,
+                    new KHUnderArmorItem.ResistanceValues(0.1d, 0.04d, 0),
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/models/armor/mail.png"), false));
 
     public static final Item MAIL_PAULDRON = registerItem("mail_pauldron",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/mail_pauldron.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            0, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/mail_pauldron.png"),
+                            null)));
     public static final Item BRIGANDINE_PAULDRON = registerItem("brigandine_pauldron",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 1, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brigandine_pauldron.png"), true, true));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            1, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brigandine_pauldron.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    10511680, true
+                            ))));
     public static final Item PLATE_PAULDRON = registerItem("plate_pauldron",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 2, 2,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_pauldron.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_pauldron.png"),
+                            null)));
 
     public static final Item BRIGANDINE = registerItem("brigandine",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 3, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brigandine.png"), true, true));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            3, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brigandine.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    10511680, true
+                            ))));
 
     public static final Item BRIG_BREASTPLATE = registerItem("brig_breastplate",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brig_breastplate.png"), true, true));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            4, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brig_breastplate.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    10511680, true
+                            ))));
     public static final Item BRIG_BREASTPLATE_TASSETS = registerItem("brig_breastplate_tassets",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brig_breastplate_tassets.png"), true, true));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            4, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brig_breastplate_tassets.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    10511680, true
+                            ))));
 
     public static final Item PLATE_CUIRASS = registerItem("plate_cuirass",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_cuirass.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            4, 2, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_cuirass.png"),
+                            null)));
     public static final Item PLATE_CUIRASS_TASSETS = registerItem("plate_cuirass_tassets",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_cuirass_tassets.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            4, 2, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_cuirass_tassets.png"),
+                            null)));
     public static final Item MAXIMILLIAN_CUIRASS = registerItem("maximillian_cuirass",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/maximillian_cuirass.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            4, 2, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/maximillian_cuirass.png"),
+                            null)));
     public static final Item MAXIMILLIAN_CUIRASS_TASSETS = registerItem("maximillian_cuirass_tassets",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/maximillian_cuirass_tassets.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            4, 2, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/maximillian_cuirass_tassets.png"),
+                            null)));
     public static final Item XIIII_PLATE_CUIRASS = registerItem("xiiii_plate_cuirass",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/xiiii_plate_cuirass.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            4, 2, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/xiiii_plate_cuirass.png"),
+                            null)));
     public static final Item XIIII_PLATE_CUIRASS_TASSETS = registerItem("xiiii_plate_cuirass_tassets",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/xiiii_plate_cuirass_tassets.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            4, 2, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/xiiii_plate_cuirass_tassets.png"),
+                            null)));
     public static final Item XIIII_PLATE_BREASTPLATE = registerItem("xiiii_plate_breastplate",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 4, 2,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/xiiii_plate_breastplate.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            4, 2, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/xiiii_plate_breastplate.png"),
+                            null)));
 
     public static final Item BARBUTE_NO_VISOR = registerItem("barbute_no_visor",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 1, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/barbute_no_visor.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            1, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/barbute_no_visor.png"),
+                            null)));
     public static final Item BASCINET_NO_VISOR = registerItem("bascinet_no_visor",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 1, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/bascinet_no_visor.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            1, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/bascinet_no_visor.png"),
+                            null)));
     public static final Item KETTLE_HELM = registerItem("kettle_helm",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 1, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/kettle_helm.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            1, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/kettle_helm.png"),
+                            null)));
     public static final Item NASAL_HELM = registerItem("nasal_helm",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 1, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/nasal_helm.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            1, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/nasal_helm.png"),
+                            null)));
     public static final Item VIKING_HELM = registerItem("viking_helm",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 1, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/viking_helm.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            1, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/viking_helm.png"),
+                            null)));
 
     public static final Item ARMET = registerItem("armet",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 2, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/armet.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/armet.png"),
+                            null)));
     public static final Item ARMET_2 = registerItem("armet_2",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 2, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/armet_2.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/armet_2.png"),
+                            null)));
     public static final Item BARBUTE = registerItem("barbute",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 2, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/barbute.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/barbute.png"),
+                            null)));
     public static final Item BASCINET = registerItem("bascinet",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 2, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/bascinet.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/bascinet.png"),
+                            null)));
     public static final Item CAGE = registerItem("cage",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 2, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/cage.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/cage.png"),
+                            null)));
     public static final Item CAGE_2 = registerItem("cage_2",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 2, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/cage_2.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/cage_2.png"),
+                            null)));
     public static final Item FLAT_BASCINET = registerItem("flat_bascinet",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 2, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/flat_bascinet.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/flat_bascinet.png"),
+                            null)));
     public static final Item GREAT_HELM = registerItem("great_helm",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 2, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_helm.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_helm.png"),
+                            null)));
     public static final Item GREAT_HELM_2 = registerItem("great_helm_2",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 2, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_helm_2.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_helm_2.png"),
+                            null)));
     public static final Item SALLET = registerItem("sallet",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 2, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/sallet.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/sallet.png"),
+                            null)));
 
     public static final Item FROGMOUTH = registerItem("frogmouth",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 3, 3,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/frogmouth.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            3, 3, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/frogmouth.png"),
+                            null)));
     public static final Item GREAT_ARMET = registerItem("great_armet",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 3, 3,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_armet.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            3, 3, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_armet.png"),
+                            null)));
     public static final Item GREAT_ARMET_2 = registerItem("great_armet_2",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 3, 3,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_armet_2.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            3, 3, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_armet_2.png"),
+                            null)));
     public static final Item GREAT_BASCINET = registerItem("great_bascinet",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 3, 3,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_bascinet.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            3, 3, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_bascinet.png"),
+                            null)));
     public static final Item GREAT_HOUNDSKUL_BASCINET = registerItem("great_houndskul_bascinet",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 3, 3,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_houndskul_bascinet.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            3, 3, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/great_houndskul_bascinet.png"),
+                            null)));
     public static final Item MAXIMILLIAN_HELMET = registerItem("maximillian_helmet",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET, 3, 3,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/maximillian_helmet.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+                    new KHTrinketsItem.TrinketAttributes(
+                            3, 3, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/maximillian_helmet.png"),
+                            null)));
 
     public static final Item GAUNTLET = registerItem("gauntlet",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 2, 0,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/gauntlet.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 0, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/gauntlet.png"),
+                            null)));
     public static final Item BRIGANDINE_REREBRACE = registerItem("brigandine_rerebrace",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 2, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brigandine_rerebrace.png"), true, true));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brigandine_rerebrace.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    10511680, true
+                            ))));
     public static final Item PLATE_REREBRACE = registerItem("plate_rerebrace",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 2, 2,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_rerebrace.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_rerebrace.png"),
+                            null)));
 
     public static final Item BRIGANDINE_CHAUSSES = registerItem("brigandine_chausses",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.LEGGINGS, 2, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brigandine_chausses.png"), true, true));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.LEGGINGS,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/brigandine_chausses.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    10511680, true
+                            ))));
     public static final Item PLATE_CHAUSSES = registerItem("plate_chausses",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.LEGGINGS, 2, 2,
-                    0.1d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_chausses.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.LEGGINGS,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 2, 0.1d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plate_chausses.png"),
+                            null)));
 
     public static final Item SABATONS = registerItem("sabatons",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.BOOTS, 2, 1,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/sabatons.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.BOOTS,
+                    new KHTrinketsItem.TrinketAttributes(
+                            2, 1, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/sabatons.png"),
+                            null)));
 
     public static final Item AVENTAIL = registerItem("aventail",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 2,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/aventail.png"), false, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            0, 2, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/aventail.png"),
+                            null)));
 
     public static final Item RIM_GUARDS = registerItem("rim_guards",
             new Item(new OwoItemSettings().maxCount(1)));
@@ -310,25 +446,55 @@ public class ModItems {
             new Item(new OwoItemSettings().maxCount(1)));
 
     public static final Item SURCOAT = registerItem("surcoat",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 0,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/surcoat.png"), true, 16777215, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            0, 0, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/surcoat.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    16777215, false
+                            ))));
     public static final Item SURCOAT_SLEEVELESS = registerItem("surcoat_sleeveless",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE, 0, 0,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/surcoat_sleeveless.png"), true, 16777215, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
+                    new KHTrinketsItem.TrinketAttributes(
+                            0, 0, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/surcoat_sleeveless.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    16777215, false
+                            ))));
 
     public static final Item CLOAK = registerItem("cloak",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK, 0, 0,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/cloak.png"), true, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK,
+                    new KHTrinketsItem.TrinketAttributes(
+                            0, 0, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/cloak.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    10511680, false
+                            ))));
     public static final Item TORN_CLOAK = registerItem("torn_cloak",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK, 0, 0,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/torn_cloak.png"), true, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK,
+                    new KHTrinketsItem.TrinketAttributes(
+                            0, 0, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/torn_cloak.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    10511680, false
+                            ))));
 
     public static final Item HOOD = registerItem("hood",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK, 0, 0,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/hood.png"), true, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK,
+                    new KHTrinketsItem.TrinketAttributes(
+                            0, 0, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/hood.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    10511680, false
+                            ))));
     public static final Item TORN_HOOD = registerItem("torn_hood",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK, 0, 0,
-                    0.0d, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/torn_hood.png"), true, false));
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CLOAK,
+                    new KHTrinketsItem.TrinketAttributes(
+                            0, 0, 0.0d,
+                            new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/torn_hood.png"),
+                            new KHTrinketsItem.TrinketAttributes.Dyeable(
+                                    10511680, false
+                            ))));
 
     public static final Item BLACK_POWDER = registerItem("black_powder",
             new Item(new OwoItemSettings()));
@@ -338,7 +504,7 @@ public class ModItems {
                     new RangeWeaponConfig.DamageSettings(KHDamageCalculator.DamageType.PIERCING, 72000, 14f, 85),
                     null,
                     new RangeWeaponConfig.SoundSettings(SoundEvents.ENTITY_ARROW_SHOOT),
-                    UseAction.BOW, 0, false, 0
+                    UseAction.BOW, 0, false
             )
     ));
 
@@ -347,7 +513,7 @@ public class ModItems {
                     new RangeWeaponConfig.DamageSettings(KHDamageCalculator.DamageType.PIERCING, 72000, 16f, 70),
                     null,
                     new RangeWeaponConfig.SoundSettings(SoundEvents.ENTITY_ARROW_SHOOT),
-                    UseAction.CROSSBOW, 5, false, 0
+                    UseAction.CROSSBOW, 5, false
             )
     ));
 
@@ -360,7 +526,7 @@ public class ModItems {
                             1, Items.PAPER, Items.GRASS
                     ),
                     new RangeWeaponConfig.SoundSettings(ModSounds.ARQUEBUS_CLOSE_1, ModSounds.ARQUEBUS_CLOSE_2, ModSounds.ARQUEBUS_CLOSE_3),
-                    UseAction.BOW, 15, false, 0
+                    UseAction.BOW, 15, false
             )
     ));
 
@@ -373,7 +539,7 @@ public class ModItems {
                             1, Items.PAPER, Items.GRASS
                     ),
                     new RangeWeaponConfig.SoundSettings(ModSounds.ARQUEBUS_CLOSE_1, ModSounds.ARQUEBUS_CLOSE_2, ModSounds.ARQUEBUS_CLOSE_3),
-                    UseAction.BOW, 15, true, 15
+                    UseAction.BOW, 15, true
             )
     ));
 
@@ -385,6 +551,20 @@ public class ModItems {
             new KHArrow(new OwoItemSettings(), KHBroadheadArrowEntity::new));
     public static final Item CLOTH_ARROW = registerItem("cloth_arrow",
             new KHArrow(new OwoItemSettings(), KHClothArrowEntity::new));
+
+    public static final Item GUIDE_BOOK = LavenderBookItem.registerForBook(
+            new Identifier(KnightsHeraldry.MOD_ID, "guide_book"), new OwoItemSettings().maxCount(1));
+
+    public static final Item ARMORER_FACE = registerItem("armorer_face",
+            new Item(new OwoItemSettings()));
+    public static final Item WEAPONSMITH_FACE = registerItem("weaponsmith_face",
+            new Item(new OwoItemSettings()));
+    public static final Item SHEPHERD_FACE = registerItem("shepherd_face",
+            new Item(new OwoItemSettings()));
+    public static final Item FLETCHER_FACE = registerItem("fletcher_face",
+            new Item(new OwoItemSettings()));
+    public static final Item CLERIC_FACE = registerItem("cleric_face",
+            new Item(new OwoItemSettings()));
 
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

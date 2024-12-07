@@ -52,6 +52,7 @@ public class ModItemGroups {
 
     private static void toolsAndWeapons(ItemGroup.DisplayContext ctx, ItemGroup.Entries stacks) {
         stacks.addAll(List.of(
+                weaponStack(ModItems.GUIDE_BOOK),
                 weaponStack(ModItems.SMITHING_HAMMER),
                 weaponStack(ModItems.DAGGER),
                 weaponStack(ModItems.STILETTO),

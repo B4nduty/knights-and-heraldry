@@ -2,6 +2,8 @@
   "itemGroup.knightsheraldry.kh_tab": "Knights & Heraldry",
   "itemGroup.knightsheraldry.kh_tab.button.discord": "Discord",
 
+  "item.knightsheraldry.guide_book": "Guide Book",
+
   "item.knightsheraldry.smithing_hammer": "Smithing Hammer",
 
   "item.knightsheraldry.dagger": "Dagger",
@@ -125,10 +127,10 @@
   "item.knightsheraldry.cage_2_aventail": "Cage Helmet with Aventail (Robust)",
   "item.knightsheraldry.flat_bascinet": "Flat Bascinet",
   "item.knightsheraldry.flat_bascinet_aventail": "Flat Bascinet with Aventail",
-  "item.knightsheraldry.great_helm": "Great Helm",
-  "item.knightsheraldry.great_helm_aventail": "Great Helm with Aventail",
-  "item.knightsheraldry.great_helm_2": "Gilded Great Helm",
-  "item.knightsheraldry.great_helm_2_aventail": "Gilded Great Helm with Aventail",
+  "item.knightsheraldry.great_helm": "Great Helmet",
+  "item.knightsheraldry.great_helm_aventail": "Great Helmet with Aventail",
+  "item.knightsheraldry.great_helm_2": "Gilded Great Helmet",
+  "item.knightsheraldry.great_helm_2_aventail": "Gilded Great Helmet with Aventail",
   "item.knightsheraldry.sallet": "Sallet",
   "item.knightsheraldry.sallet_aventail": "Sallet with Aventail",
 

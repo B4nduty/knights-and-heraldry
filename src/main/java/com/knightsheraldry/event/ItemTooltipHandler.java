@@ -34,9 +34,9 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
         }
 
         if (stack.getItem() instanceof KHUnderArmorItem khArmorItem) {
-            double slashingResistance = khArmorItem.getSlashingResistance() * 100;
-            double bludgeoningResistance = khArmorItem.getBludgeoningResistance() * 100;
-            double piercingResistance = khArmorItem.getPiercingResistance() * 100;
+            double slashingResistance = khArmorItem.getResistance(KHUnderArmorItem.ResistanceType.SLASHING) * 100;
+            double bludgeoningResistance = khArmorItem.getResistance(KHUnderArmorItem.ResistanceType.BLUDGEONING) * 100;
+            double piercingResistance = khArmorItem.getResistance(KHUnderArmorItem.ResistanceType.PIERCING) * 100;
             if (slashingResistance != 0) lines.add(Text.translatable("text.tooltip.knightsheraldry.slashingResistance", (int) slashingResistance).formatted(Formatting.BLUE));
             if (bludgeoningResistance != 0) lines.add(Text.translatable("text.tooltip.knightsheraldry.bludgeoningResistance", (int) bludgeoningResistance).formatted(Formatting.BLUE));
             if (piercingResistance != 0) lines.add(Text.translatable("text.tooltip.knightsheraldry.piercingResistance", (int) piercingResistance).formatted(Formatting.BLUE));

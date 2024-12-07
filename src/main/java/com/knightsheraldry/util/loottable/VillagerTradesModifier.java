@@ -158,7 +158,7 @@ public class VillagerTradesModifier {
     }
 
     private static void registerRangedWeaponsTrades(int level) {
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, level, factories -> {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.FLETCHER, level, factories -> {
             if (level == 1) {
                 addTradeOffer(factories, 5, 32, 1, ModItems.BROADHEAD_ARROW);
             }
