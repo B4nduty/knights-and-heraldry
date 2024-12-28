@@ -9,11 +9,7 @@ import net.minecraft.item.ItemStack;
 
 public class KHDamageCalculator {
     public static float getKHDamage(LivingEntity livingEntity, float initialDamage, DamageType damageType) {
-        if (!(livingEntity instanceof PlayerEntity player)) {
-            return initialDamage;
-        }
-
-        for (ItemStack armorStack : player.getArmorItems()) {
+        for (ItemStack armorStack : livingEntity.getArmorItems()) {
             if (armorStack.getItem() instanceof KHUnderArmorItem khArmorItem) {
                 float resistance = (float) getResistance(khArmorItem, damageType);
                 initialDamage *= Math.max(1 - resistance, 0);

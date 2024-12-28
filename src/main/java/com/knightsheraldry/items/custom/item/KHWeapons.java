@@ -126,7 +126,7 @@ public abstract class KHWeapons extends SwordItem {
                     .forEach(entity -> {
                         double distance = playerPos.distanceTo(target.getPos());
                         KHDamageCalculator.DamageType damageType = calculateDamageType(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
-                        float damage = KHDamageCalculator.getKHDamage(playerEntity, calculateDamage(distance, damageType.getIndex() - 4, damageType.getIndex()), damageType);
+                        float damage = KHDamageCalculator.getKHDamage(target, calculateDamage(distance, damageType.getIndex() - 4, damageType.getIndex()), damageType);
 
                         if (stack.isIn(KHTags.WEAPONS_DAMAGE_BEHIND.getTag()))
                             damage = adjustDamageForBackstab(target, playerPos, damage);

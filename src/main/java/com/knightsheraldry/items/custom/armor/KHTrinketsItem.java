@@ -41,7 +41,7 @@ import java.util.UUID;
 public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, DyeableItem {
     public final TrinketAttributes attributes;
     public final Type type;
-    @Environment(EnvType.CLIENT) private BipedEntityModel<LivingEntity> model;
+    private BipedEntityModel<LivingEntity> model;
 
     public KHTrinketsItem(Settings settings, Type type, TrinketAttributes attributes) {
         super(settings);
@@ -92,6 +92,10 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         BipedEntityModel<LivingEntity> model = this.getModel();
         TrinketRenderer.followBodyRotations(entity, model);
 
+        if (model instanceof CloakHoodModel cloakHoodModel) {
+            cloakHoodModel.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
+        }
+
         VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(getPath()));
         float[] color = getDyeColor(stack);
 
@@ -101,7 +105,7 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
 
     @Environment(EnvType.CLIENT)
     private void renderOverlayAndAdditions(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, BipedEntityModel<LivingEntity> model) {
-        if (attributes.dyeable() != null)
+        if (attributes.dyeable() != null && attributes.dyeable.overlay())
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getIdentifierWithSuffix("_overlay"));
         if (stack.getOrCreateNbt().getBoolean("aventail"))
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), getIdentifierWithSuffix("_aventail"));
@@ -156,7 +160,7 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
     @Override
     public int getColor(ItemStack stack) {
         NbtCompound nbtCompound = stack.getSubNbt("display");
-        return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : attributes.dyeable().defaultColor();
+        return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : attributes.dyeable() != null ? attributes.dyeable().defaultColor() : 0xFFFFFF;
     }
 
     @Override
