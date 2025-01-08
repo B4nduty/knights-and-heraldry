@@ -90,10 +90,12 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
         }
 
         if (playerEntity.getRandom().nextFloat() < f) {
-            if (activeItem.isIn(KHTags.WEAPONS_SHIELD.getTag())) {
-                playerEntity.getItemCooldownManager().set(activeItem.getItem(), 100);
-            } else {
-                playerEntity.getItemCooldownManager().set(Items.SHIELD, 60);
+            if (!playerEntity.isCreative()) {
+                if (activeItem.isIn(KHTags.WEAPONS_SHIELD.getTag())) {
+                    playerEntity.getItemCooldownManager().set(activeItem.getItem(), 100);
+                } else {
+                    playerEntity.getItemCooldownManager().set(Items.SHIELD, 60);
+                }
             }
             playerEntity.clearActiveItem();
             world.sendEntityStatus(playerEntity, (byte) 30);

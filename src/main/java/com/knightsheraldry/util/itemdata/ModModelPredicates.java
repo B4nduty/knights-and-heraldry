@@ -5,18 +5,15 @@ import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import software.bernie.geckolib.animatable.GeoItem;
 
 import java.util.Objects;
 
 public class ModModelPredicates {
     public static void registerModelPredicates(Item item) {
-        if (item instanceof GeoItem) {
-            registerEasterEggPredicates(item);
-            registerArmorPredicates(item);
-            registerWeaponPredicates(item);
-            registerBowPredicates(item);
-        }
+        registerEasterEggPredicates(item);
+        registerArmorPredicates(item);
+        registerWeaponPredicates(item);
+        registerBowPredicates(item);
     }
 
     private static void registerBowPredicates(Item item) {
@@ -33,7 +30,7 @@ public class ModModelPredicates {
 
     private static void registerEasterEggPredicates(Item item) {
         if (item == ModItems.LONGBOW) ModelPredicateProviderRegistry.register(item, new Identifier("longbow_xxxl"), (stack, world, entity, seed) ->
-                entity != null && Objects.equals(stack.getName(), Text.literal("Longbow XXXL")) ? 1.0F : 0.0F);
+                Objects.equals(stack.getName(), Text.literal("Longbow XXXL")) ? 1.0F : 0.0F);
     }
 
     private static void registerArmorPredicates(Item item) {
@@ -56,6 +53,7 @@ public class ModModelPredicates {
                         && stack.getOrCreateNbt().getBoolean("Charged") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
                 (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
+
         ModelPredicateProviderRegistry.register(item, new Identifier("bludgeoning"),
                 (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
                         && stack.getOrCreateNbt().getBoolean("Bludgeoning") ? 1.0F : 0.0F);

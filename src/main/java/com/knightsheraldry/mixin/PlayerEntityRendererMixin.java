@@ -1,5 +1,6 @@
 package com.knightsheraldry.mixin;
 
+import com.knightsheraldry.util.itemdata.KHTags;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
@@ -16,6 +17,10 @@ public class PlayerEntityRendererMixin {
         if (player.getStackInHand(hand).getNbt() != null && (player.getStackInHand(hand).getNbt().getBoolean("Charged")
                 || player.getStackInHand(hand).getNbt().getBoolean("Shoot"))) {
             callbackInfoReturnable.setReturnValue(BipedEntityModel.ArmPose.BOW_AND_ARROW);
+        }
+
+        if (player.isUsingItem() && player.getActiveItem() == player.getStackInHand(hand) && player.getStackInHand(hand).isIn(KHTags.WEAPONS_SHIELD.getTag())) {
+            callbackInfoReturnable.setReturnValue(BipedEntityModel.ArmPose.BLOCK);
         }
     }
 }

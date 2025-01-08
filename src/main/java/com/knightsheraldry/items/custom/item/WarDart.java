@@ -75,7 +75,7 @@ public class WarDart extends KHWeapons {
 
                 world.spawnEntity(wardartEntity);
                 world.playSoundFromEntity(null, wardartEntity, SoundEvents.ITEM_TRIDENT_THROW, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                if (!playerEntity.getAbilities().creativeMode) {
+                if (!playerEntity.isCreative())  {
                     playerEntity.getInventory().removeOne(stack);
                     playerEntity.getItemCooldownManager().set(this, KnightsHeraldry.config().wardartCooldown() * 20);
                 }

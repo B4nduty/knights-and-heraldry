@@ -30,7 +30,7 @@ import java.util.function.Predicate;
 
 public class Lance extends SwordItem {
     private boolean charged = false;
-    private KHDamageCalculator.DamageType onlyDamageType;
+    private final KHDamageCalculator.DamageType onlyDamageType;
     public Lance(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
         this.onlyDamageType = onlyDamageType;
@@ -65,7 +65,7 @@ public class Lance extends SwordItem {
 
                     stack.damage(1, player, p -> p.sendToolBreakStatus(livingEntity.getActiveHand()));
                     KHDamageCalculator.applyDamage(livingEntity, player, stack, damage);
-                    player.getItemCooldownManager().set(this, 600);
+                    if (!player.isCreative()) player.getItemCooldownManager().set(this, 600);
                 }
             }
         }
