@@ -1,8 +1,11 @@
 package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.client.item.KHGeoRangeWeaponsModel;
+import com.knightsheraldry.util.KHDamageCalculator;
 import com.knightsheraldry.util.itemdata.RangeWeaponConfig;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.UseAction;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.animatable.client.RenderProvider;
@@ -25,8 +28,8 @@ public class KHGeoRangeWeapons extends KHRangeWeapons implements GeoItem {
      * This class is made for use of KnightsHeraldry, you can use it, but it isn't made to use by external people.
      * It is a class made only to reduce files and storage space.
      */
-    public KHGeoRangeWeapons(Settings settings, RangeWeaponConfig config) {
-        super(settings, config);
+    public KHGeoRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage, float speed, RangeWeaponConfig.AmmoRequirement ammoRequirement, UseAction useAction, int rechargeTime, boolean needsFlintAndSteel, SoundEvent... soundEvents) {
+        super(settings, damageType, maxUseTime, damage, speed, ammoRequirement, useAction, rechargeTime, needsFlintAndSteel, soundEvents);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 

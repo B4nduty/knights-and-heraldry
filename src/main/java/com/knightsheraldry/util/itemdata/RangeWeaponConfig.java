@@ -13,10 +13,7 @@ public record RangeWeaponConfig(
         int rechargeTime,
         boolean needsFlintAndSteel
 ) {
-    public record DamageSettings(KHDamageCalculator.DamageType damageType, int maxUseTime, float damage, double blockRange) {
-        public float velocity () {
-            return (float) (blockRange() / 32f);
-        }}
+    public record DamageSettings(KHDamageCalculator.DamageType damageType, int maxUseTime, float damage, float speed) { }
 
     public record AmmoRequirement(
             int amountFirstItem, Item firstItem, Item firstItem2nOption,

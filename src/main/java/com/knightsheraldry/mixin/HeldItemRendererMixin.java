@@ -1,11 +1,14 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
+import com.knightsheraldry.items.custom.armor.KHDyeableTrinketsItem;
+import com.knightsheraldry.items.custom.armor.KHDyeableUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.model.TrinketsArmModel;
 import com.knightsheraldry.model.TrinketsChestplateModel;
 import com.knightsheraldry.model.UnderArmourArmModel;
+import com.knightsheraldry.util.DyeUtil;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
@@ -65,21 +68,19 @@ public class HeldItemRendererMixin {
             UnderArmourArmModel model = new UnderArmourArmModel(UnderArmourArmModel.getTexturedModelData().createModel());
             VertexConsumer baseConsumer = vertexConsumers.getBuffer(
                     RenderLayer.getArmorCutoutNoCull(khArmorItem.getPath()));
-            float r = 1;
-            float g = 1;
-            float b = 1;
-            if (khArmorItem.isDyeable()) {
-                int color = khArmorItem.getColor(stack);
-                r = (color >> 16 & 255) / 255.0F;
-                g = (color >> 8 & 255) / 255.0F;
-                b = (color & 255) / 255.0F;
+            float[] color = new float[3];
+            color[0] = 1;
+            color[1] = 1;
+            color[2] = 1;
+            if (khArmorItem instanceof KHDyeableUnderArmorItem) {
+                color = DyeUtil.getDyeColor(stack);
             }
 
             Identifier textureOverlayPath = getOverlayIdentifier(khArmorItem);
 
             // Base armor render (tinted layer) - Render the armor with color tint
-            if (arm == Arm.RIGHT) model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
-            if (arm == Arm.LEFT) model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
+            if (arm == Arm.RIGHT) model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
+            if (arm == Arm.LEFT) model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
 
             // Overlay render (untinted layer) - Render the overlay (no tint)
             if (!textureOverlayPath.equals(new Identifier(""))) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, textureOverlayPath);
@@ -90,15 +91,17 @@ public class HeldItemRendererMixin {
                 ItemStack trinket = equipped.getRight();
                 if (trinket.getItem() instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.type == KHTrinketsItem.Type.CHESTPLATE) {
                     TrinketsArmModel model = new TrinketsArmModel(TrinketsArmModel.getTexturedModelData().createModel());
-                    float r = 1, g = 1, b = 1;
-                    if (khTrinketsItem.isDyeable()) {
-                        int color = khTrinketsItem.getColor(stack);
-                        r = (color >> 16 & 255) / 255.0F; g = (color >> 8 & 255) / 255.0F; b = (color & 255) / 255.0F;
+                    float[] color = new float[3];
+                    color[0] = 1;
+                    color[1] = 1;
+                    color[2] = 1;
+                    if (khTrinketsItem instanceof KHDyeableTrinketsItem) {
+                        color = DyeUtil.getDyeColor(stack);
                     }
                     VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
-                    if (arm == Arm.RIGHT) model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
-                    if (arm == Arm.LEFT) model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
-                    if (khTrinketsItem.isDyeable() && khTrinketsItem.attributes.dyeable().overlay()) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getOverlayIdentifier(khTrinketsItem));
+                    if (arm == Arm.RIGHT) model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
+                    if (arm == Arm.LEFT) model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
+                    if (khTrinketsItem instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getOverlayIdentifier(khTrinketsItem));
                     if (stack.getOrCreateNbt().getBoolean("aventail")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), getAventailIdentifier(khTrinketsItem));
                     if (stack.getOrCreateNbt().getBoolean("rimmed")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
                     if (stack.getOrCreateNbt().getBoolean("besagews")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
@@ -122,7 +125,7 @@ public class HeldItemRendererMixin {
             textureOverlayString = textureOverlayString.substring(0, textureOverlayString.length() - 4);
         }
 
-        if (item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeable()) textureOverlayString += "_overlay.png";
+        if (item instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) textureOverlayString += "_overlay.png";
         else return new Identifier("");
 
         return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);

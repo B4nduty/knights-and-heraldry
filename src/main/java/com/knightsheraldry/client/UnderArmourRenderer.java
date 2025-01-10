@@ -1,10 +1,12 @@
 package com.knightsheraldry.client;
 
+import com.knightsheraldry.items.custom.armor.KHDyeableUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.model.UnderArmourBootsModel;
 import com.knightsheraldry.model.UnderArmourChestplateModel;
 import com.knightsheraldry.model.UnderArmourHelmetModel;
 import com.knightsheraldry.model.UnderArmourLeggingsModel;
+import com.knightsheraldry.util.DyeUtil;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -38,17 +40,13 @@ public class UnderArmourRenderer implements ArmorRenderer {
             if (stack.getItem() instanceof KHUnderArmorItem khArmorItem) {
                 VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
                         RenderLayer.getArmorCutoutNoCull(khArmorItem.getPath()));
-                if (khArmorItem.isDyeable()) {
-                    int color = khArmorItem.getColor(stack);
-
-                    float r = (color >> 16 & 255) / 255.0F;
-                    float g = (color >> 8 & 255) / 255.0F;
-                    float b = (color & 255) / 255.0F;
+                if (khArmorItem instanceof KHDyeableUnderArmorItem) {
+                    float[] color = DyeUtil.getDyeColor(stack);
 
                     Identifier textureOverlayPath = getIdentifier(khArmorItem);
 
                     // Base armor render (tinted layer) - Render the armor with color tint
-                    model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, r, g, b, 1.0F);
+                    model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
 
                     // Overlay render (untinted layer) - Render the overlay (no tint)
                     ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, textureOverlayPath);

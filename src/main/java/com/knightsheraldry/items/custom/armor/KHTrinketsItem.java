@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.model.*;
+import com.knightsheraldry.util.DyeUtil;
 import com.knightsheraldry.util.itemdata.KHTags;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
@@ -26,9 +27,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.DyeableItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.CraftingScreenHandler;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.screen.slot.Slot;
@@ -36,29 +35,26 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
+import java.util.Arrays;
 import java.util.UUID;
 
-public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, DyeableItem {
+public class KHTrinketsItem extends TrinketItem implements TrinketRenderer {
     public final TrinketAttributes attributes;
     public final Type type;
     private BipedEntityModel<LivingEntity> model;
 
-    public KHTrinketsItem(Settings settings, Type type, TrinketAttributes attributes) {
+    public KHTrinketsItem(Settings settings, Type type, double armor, double toughness, double hungerDrainAddition, Identifier texturePath) {
         super(settings);
         this.type = type;
-        this.attributes = attributes;
+        this.attributes = new TrinketAttributes(armor, toughness, hungerDrainAddition, texturePath);
     }
 
     @Override
     public boolean canEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        for (EquipmentSlot equipmentSlot : EquipmentSlot.values()) {
-            if (!this.getDefaultStack().isIn(KHTags.ALWAYS_WEARABLE.getTag()) && isArmorSlot(equipmentSlot)) {
-                if (!(entity.getEquippedStack(equipmentSlot).getItem() instanceof KHUnderArmorItem)) {
-                    return false;
-                }
-            }
-        }
-        return true;
+        return Arrays.stream(EquipmentSlot.values())
+                .filter(this::isArmorSlot)
+                .allMatch(slotType -> stack.isIn(KHTags.ALWAYS_WEARABLE.getTag()) ||
+                        entity.getEquippedStack(slotType).getItem() instanceof KHUnderArmorItem);
     }
 
     private boolean isArmorSlot(EquipmentSlot slot) {
@@ -77,19 +73,19 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
         double toughness = this.attributes.toughness() + (stack.getOrCreateNbt().getBoolean("aventail") ? 2 : 0);
 
-        if (attributes.armor() == 0 && toughness == 0) return modifiers;
-
-        modifiers.put(EntityAttributes.GENERIC_ARMOR,
-                new EntityAttributeModifier(uuid, KnightsHeraldry.MOD_ID + ":protection", attributes.armor(), EntityAttributeModifier.Operation.ADDITION));
-        modifiers.put(EntityAttributes.GENERIC_ARMOR_TOUGHNESS,
-                new EntityAttributeModifier(uuid, KnightsHeraldry.MOD_ID + ":toughness", toughness, EntityAttributeModifier.Operation.ADDITION));
+        if (attributes.armor() > 0 || toughness > 0) {
+            modifiers.put(EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(uuid,
+                    KnightsHeraldry.MOD_ID + ":protection", attributes.armor(), EntityAttributeModifier.Operation.ADDITION));
+            modifiers.put(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, new EntityAttributeModifier(uuid,
+                    KnightsHeraldry.MOD_ID + ":toughness", toughness, EntityAttributeModifier.Operation.ADDITION));
+        }
         return modifiers;
     }
 
     @Environment(EnvType.CLIENT)
     @Override
     public void render(ItemStack stack, SlotReference slotReference, EntityModel<? extends LivingEntity> contextModel, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, LivingEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-        BipedEntityModel<LivingEntity> model = this.getModel();
+        BipedEntityModel<LivingEntity> model = getModel();
         TrinketRenderer.followBodyRotations(entity, model);
 
         if (model instanceof CloakHoodModel cloakHoodModel) {
@@ -97,7 +93,7 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
         }
 
         VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(getPath()));
-        float[] color = getDyeColor(stack);
+        float[] color = DyeUtil.getDyeColor(stack);
 
         model.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
         renderOverlayAndAdditions(stack, matrices, vertexConsumers, light, model);
@@ -105,28 +101,33 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
 
     @Environment(EnvType.CLIENT)
     private void renderOverlayAndAdditions(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, BipedEntityModel<LivingEntity> model) {
-        if (attributes.dyeable() != null && attributes.dyeable.overlay())
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "aventail", getIdentifierWithSuffix("_aventail"));
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "rimmed", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "besagews", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
+
+        if (stack.getItem() instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) {
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getIdentifierWithSuffix("_overlay"));
-        if (stack.getOrCreateNbt().getBoolean("aventail"))
-            ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), getIdentifierWithSuffix("_aventail"));
-        if (stack.getOrCreateNbt().getBoolean("rimmed"))
-            ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
-        if (stack.getOrCreateNbt().getBoolean("besagews"))
-            ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
+        }
+    }
+
+    private void renderPartIfNeeded(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, BipedEntityModel<LivingEntity> model, String key, Identifier identifier) {
+        if (stack.getOrCreateNbt().getBoolean(key)) {
+            ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, identifier);
+        }
     }
 
     @Override
     public Text getName(ItemStack stack) {
-        String text = stack.getTranslationKey();
-        if (stack.getOrCreateNbt().getBoolean("aventail")) text += "_aventail";
-        if (stack.getOrCreateNbt().getBoolean("rimmed")) text += "_rimmed";
-        if (stack.getOrCreateNbt().getBoolean("besagews")) text += "_besagews";
-        return Text.translatable(text);
+        StringBuilder translationKey = new StringBuilder(stack.getTranslationKey());
+        if (stack.getOrCreateNbt().getBoolean("aventail")) translationKey.append("_aventail");
+        if (stack.getOrCreateNbt().getBoolean("rimmed")) translationKey.append("_rimmed");
+        if (stack.getOrCreateNbt().getBoolean("besagews")) translationKey.append("_besagews");
+        return Text.translatable(translationKey.toString());
     }
 
-    public final boolean isDyeable() { return attributes.dyeable() != null; }
-
-    public final Identifier getPath() { return attributes.texturePath(); }
+    public Identifier getPath() {
+        return attributes.texturePath();
+    }
 
     private Identifier getIdentifierWithSuffix(String suffix) {
         String texturePath = attributes.texturePath().getPath().replace(".png", "") + suffix + ".png";
@@ -134,33 +135,17 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
     }
 
     @Environment(EnvType.CLIENT)
-    public final BipedEntityModel<LivingEntity> getModel() {
+    public BipedEntityModel<LivingEntity> getModel() {
         if (this.model == null && FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
-            switch (this.type) {
-                case HELMET ->
-                        this.model = new TrinketsHelmetModel(TrinketsHelmetModel.getTexturedModelData().createModel());
-                case CHESTPLATE ->
-                        this.model = new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel());
-                case CLOAK -> this.model = new CloakHoodModel(CloakHoodModel.getTexturedModelData().createModel());
-                case LEGGINGS ->
-                        this.model = new TrinketsLeggingsModel(TrinketsLeggingsModel.getTexturedModelData().createModel());
-                case BOOTS ->
-                        this.model = new TrinketsBootsModel(TrinketsBootsModel.getTexturedModelData().createModel());
-                default -> KnightsHeraldry.LOGGER.error("Don't specified Model or not a Valid Model");
-            }
+            this.model = switch (this.type) {
+                case HELMET -> new TrinketsHelmetModel(TrinketsHelmetModel.getTexturedModelData().createModel());
+                case CHESTPLATE -> new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel());
+                case CLOAK -> new CloakHoodModel(CloakHoodModel.getTexturedModelData().createModel());
+                case LEGGINGS -> new TrinketsLeggingsModel(TrinketsLeggingsModel.getTexturedModelData().createModel());
+                case BOOTS -> new TrinketsBootsModel(TrinketsBootsModel.getTexturedModelData().createModel());
+            };
         }
         return this.model;
-    }
-
-    private float[] getDyeColor(ItemStack stack) {
-        int color = getColor(stack);
-        return new float[]{(color >> 16 & 255) / 255.0F, (color >> 8 & 255) / 255.0F, (color & 255) / 255.0F};
-    }
-
-    @Override
-    public int getColor(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getSubNbt("display");
-        return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : attributes.dyeable() != null ? attributes.dyeable().defaultColor() : 0xFFFFFF;
     }
 
     @Override
@@ -183,24 +168,8 @@ public class KHTrinketsItem extends TrinketItem implements TrinketRenderer, Dyea
     }
 
     public enum Type {
-        HELMET("helmet"),
-        CHESTPLATE("chestplate"),
-        LEGGINGS("leggings"),
-        BOOTS("boots"),
-        CLOAK("cloak");
-
-        private final String model;
-
-        Type(String model) {
-            this.model = model;
-        }
-
-        public String getName() {
-            return this.model;
-        }
+        HELMET, CHESTPLATE, LEGGINGS, BOOTS, CLOAK
     }
 
-    public record TrinketAttributes(double armor, double toughness, double hungerDrainAddition, Identifier texturePath, Dyeable dyeable) {
-        public record Dyeable(int defaultColor, boolean overlay) {}
-    }
+    public record TrinketAttributes(double armor, double toughness, double hungerDrainAddition, Identifier texturePath) { }
 }

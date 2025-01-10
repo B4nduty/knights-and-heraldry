@@ -7,10 +7,13 @@ import com.knightsheraldry.event.AttackCancelHandler;
 import com.knightsheraldry.event.ItemTooltipHandler;
 import com.knightsheraldry.event.KeyInputHandler;
 import com.knightsheraldry.items.ModItems;
+import com.knightsheraldry.items.custom.armor.KHDyeableTrinketsItem;
+import com.knightsheraldry.items.custom.armor.KHDyeableUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.WoodenLance;
 import com.knightsheraldry.networking.ModMessages;
+import com.knightsheraldry.util.DyeUtil;
 import com.knightsheraldry.util.itemdata.ModModelPredicates;
 import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
@@ -22,7 +25,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
-import net.minecraft.item.DyeableItem;
 
 public class KnightsHeraldryClient implements ClientModInitializer {
 
@@ -47,10 +49,9 @@ public class KnightsHeraldryClient implements ClientModInitializer {
         ModItems.items.forEach(ModModelPredicates::registerModelPredicates);
 
         ModItems.items.forEach(item -> {
-            if ((item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeable())
-                    || (item instanceof KHUnderArmorItem khArmorItem && khArmorItem.isDyeable()) || item instanceof WoodenLance) {
+            if ((item instanceof KHDyeableTrinketsItem) || (item instanceof KHDyeableUnderArmorItem) || item instanceof WoodenLance) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
-                        tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), item);
+                        tintIndex > 0 ? -1 : DyeUtil.getColor(stack), item);
             }
             if (item instanceof KHTrinketsItem) {
                 TrinketRendererRegistry.registerRenderer(item, (TrinketRenderer) item);

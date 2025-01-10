@@ -3,6 +3,7 @@ package com.knightsheraldry.items.custom.item;
 import com.knightsheraldry.entity.custom.KHArrowEntity;
 import com.knightsheraldry.entity.custom.KHBulletEntity;
 import com.knightsheraldry.event.KeyInputHandler;
+import com.knightsheraldry.util.KHDamageCalculator;
 import com.knightsheraldry.util.itemdata.RangeWeaponConfig;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
@@ -36,9 +37,15 @@ public class KHRangeWeapons extends Item {
      * This class is made for use of KnightsHeraldry, you can use it, but it isn't made to use by external people.
      * It is a class made only to reduce files and storage space.
      */
-    public KHRangeWeapons(Settings settings, RangeWeaponConfig config) {
+    public KHRangeWeapons(Settings settings, KHDamageCalculator.DamageType damageType, int maxUseTime, float damage,
+                          float speed, RangeWeaponConfig.AmmoRequirement ammoRequirement, UseAction useAction,
+                          int rechargeTime, boolean needsFlintAndSteel, SoundEvent... soundEvents) {
         super(settings);
-        this.config = config;
+        this.config = new RangeWeaponConfig(
+                new RangeWeaponConfig.DamageSettings(damageType, maxUseTime, damage, speed),
+                ammoRequirement,
+                new RangeWeaponConfig.SoundSettings(soundEvents),
+                useAction, rechargeTime, needsFlintAndSteel);
     }
 
     @Override
@@ -145,7 +152,7 @@ public class KHRangeWeapons extends Item {
         arrowEntity.setDamageAmount(config.damageSettings().damage());
         arrowEntity.setDamageType(config.damageSettings().damageType());
 
-        arrowEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, pullProgress * config.damageSettings().velocity(), 1.0F);
+        arrowEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, pullProgress * config.damageSettings().speed(), 1.0F);
 
         if (player.isCreative()) {
             arrowEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
@@ -164,7 +171,7 @@ public class KHRangeWeapons extends Item {
         bulletEntity.setDamageAmount(config.damageSettings().damage());
         bulletEntity.setDamageType(config.damageSettings().damageType());
 
-        bulletEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, config.damageSettings().velocity(), 1.0F);
+        bulletEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0F, config.damageSettings().speed(), 1.0F);
 
         world.spawnEntity(bulletEntity);
         SoundEvent selectedSound = config.soundSettings().soundEvents().length > 0 ? config.soundSettings().soundEvents()[random.nextInt(config.soundSettings().soundEvents().length)] : null;
