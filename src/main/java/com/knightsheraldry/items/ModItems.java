@@ -501,7 +501,7 @@ public class ModItems {
 
     public static final Item LONGBOW = registerItem("longbow", new KHRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
             new RangeWeaponConfig(
-                    new RangeWeaponConfig.DamageSettings(KHDamageCalculator.DamageType.PIERCING, 72000, 14f, 85),
+                    new RangeWeaponConfig.DamageSettings(KHDamageCalculator.DamageType.PIERCING, 72000, 14f, 170),
                     null,
                     new RangeWeaponConfig.SoundSettings(SoundEvents.ENTITY_ARROW_SHOOT),
                     UseAction.BOW, 0, false
@@ -510,7 +510,7 @@ public class ModItems {
 
     public static final Item HEAVY_CROSSBOW = registerItem("heavy_crossbow", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
             new RangeWeaponConfig(
-                    new RangeWeaponConfig.DamageSettings(KHDamageCalculator.DamageType.PIERCING, 72000, 16f, 70),
+                    new RangeWeaponConfig.DamageSettings(KHDamageCalculator.DamageType.PIERCING, 72000, 16f, 140),
                     null,
                     new RangeWeaponConfig.SoundSettings(SoundEvents.ENTITY_ARROW_SHOOT),
                     UseAction.CROSSBOW, 5, false
@@ -519,7 +519,7 @@ public class ModItems {
 
     public static final Item ARQUEBUS = registerItem("arquebus", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
             new RangeWeaponConfig(
-                    new RangeWeaponConfig.DamageSettings(KHDamageCalculator.DamageType.BLUDGEONING, 1, 18f, 65),
+                    new RangeWeaponConfig.DamageSettings(KHDamageCalculator.DamageType.BLUDGEONING, 1, 18f, 130),
                     new RangeWeaponConfig.AmmoRequirement(
                             1, ModItems.BLACK_POWDER, null,
                             1, Items.IRON_NUGGET, Items.GRAVEL,
@@ -532,7 +532,7 @@ public class ModItems {
 
     public static final Item HANDGONNE = registerItem("handgonne", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
             new RangeWeaponConfig(
-                    new RangeWeaponConfig.DamageSettings(KHDamageCalculator.DamageType.BLUDGEONING, 1, 26f, 45),
+                    new RangeWeaponConfig.DamageSettings(KHDamageCalculator.DamageType.BLUDGEONING, 1, 26f, 90),
                     new RangeWeaponConfig.AmmoRequirement(
                             2, ModItems.BLACK_POWDER, null,
                             1, Items.IRON_NUGGET, Items.GRAVEL,

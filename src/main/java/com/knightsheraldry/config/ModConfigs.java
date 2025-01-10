@@ -29,7 +29,6 @@ public class ModConfigs {
     public int wardartCooldown = 15;
 
     @Comment("Damage Indicator")
-    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
     public boolean getDamageIndicator = false;
 
     @Comment("Visored Helmet Overlay")
