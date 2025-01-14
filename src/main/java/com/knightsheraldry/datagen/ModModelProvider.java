@@ -19,6 +19,8 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ModItems.SMITHING_HAMMER, Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.DAGGER, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STILETTO, Models.HANDHELD);
         itemModelGenerator.register(ModItems.RAPIER, Models.HANDHELD);
@@ -132,17 +134,5 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CLOTH_ARROW, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.BLACK_POWDER, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.GUIDE_BOOK, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.ARMORER_FACE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.WEAPONSMITH_FACE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.SHEPHERD_FACE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.FLETCHER_FACE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CLERIC_FACE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.BLUDGEONING_ICON, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.DISTANCE_ICON, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.DAMAGE_ICON, Models.HANDHELD);
     }
 }

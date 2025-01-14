@@ -7,15 +7,11 @@ import com.knightsheraldry.event.AttackCancelHandler;
 import com.knightsheraldry.event.ItemTooltipHandler;
 import com.knightsheraldry.event.KeyInputHandler;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.armor.KHDyeableTrinketsItem;
-import com.knightsheraldry.items.custom.armor.KHDyeableUnderArmorItem;
-import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
-import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
+import com.knightsheraldry.items.custom.armor.*;
 import com.knightsheraldry.items.custom.item.WoodenLance;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.util.DyeUtil;
 import com.knightsheraldry.util.itemdata.ModModelPredicates;
-import dev.emi.trinkets.api.client.TrinketRenderer;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -54,7 +50,7 @@ public class KnightsHeraldryClient implements ClientModInitializer {
                         tintIndex > 0 ? -1 : DyeUtil.getColor(stack), item);
             }
             if (item instanceof KHTrinketsItem) {
-                TrinketRendererRegistry.registerRenderer(item, (TrinketRenderer) item);
+                TrinketRendererRegistry.registerRenderer(item, new KHTrinketsItemRenderer());
             }
             if (item instanceof KHUnderArmorItem khArmorItem && khArmorItem.getPath() != null) {
                 ArmorRenderer.register(new UnderArmourRenderer(), item);

@@ -118,6 +118,7 @@ public abstract class KHWeapons extends SwordItem {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        super.postHit(stack, target, attacker);
         if (attacker instanceof PlayerEntity playerEntity) {
             Vec3d playerPos = playerEntity.getPos();
             Box detectionBox = new Box(playerEntity.getBlockPos()).expand(getMaxDistance());
@@ -133,7 +134,6 @@ public abstract class KHWeapons extends SwordItem {
 
                         KHDamageCalculator.applyDamage(target, playerEntity, stack, damage);
                     });
-            stack.damage(1, playerEntity, p -> p.sendToolBreakStatus(playerEntity.getActiveHand()));
         }
         return true;
     }

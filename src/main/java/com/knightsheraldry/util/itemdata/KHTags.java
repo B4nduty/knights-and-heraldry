@@ -13,6 +13,7 @@ public enum KHTags {
     /**
      * If you want to have your Weapon act as a KH Weapon
      * It is highly recommended to put this in your Melee Weapons
+     * <p>
      * Don't use it for Ranged Weapons
      */
     WEAPONS("weapons"),
@@ -40,8 +41,11 @@ public enum KHTags {
     WEAPONS_3D("weapons_3d"),
     /**
      * If you want to have your Weapon act as a Shield
-     * If you want to change the position of the Weapon in First Person,
+     * <p>
+     * If you want to change the position of the Weapon,
+     * <p>
      * you will need to add in your 3D Model file the predicate "blocking"
+     * <p>
      * It's compatible with "bludgeoning" predicate
      */
     WEAPONS_SHIELD("weapons_shield"),
@@ -55,8 +59,10 @@ public enum KHTags {
     WEAPONS_IGNORES_ARMOR("weapons_ignores_armor"),
     /**
      * If you want your Weapon deal Bludgeoning Damage
-     * If you want to change the position of the Weapon in First Person,
+     * <p>
+     * If you want to change the position of the Weapon,
      * you will need to add in your 3D Model file the predicate "bludgeoning"
+     * <p>
      * It's compatible with "blocking" predicate
      */
     WEAPONS_BLUDGEONING("weapons_bludgeoning"),

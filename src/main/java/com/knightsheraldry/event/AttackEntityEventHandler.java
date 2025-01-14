@@ -18,19 +18,26 @@ import org.jetbrains.annotations.Nullable;
 public class AttackEntityEventHandler implements AttackEntityCallback {
     @Override
     public ActionResult interact(PlayerEntity player, World world, Hand hand, Entity entity, @Nullable EntityHitResult hitResult) {
-        boolean staminaBlocked = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
-        boolean isHoldingKHWeapon = player.getStackInHand(hand).getItem() instanceof KHWeapons;
-        if (isHoldingKHWeapon && player.getMainHandStack().isIn(KHTags.WEAPONS.getTag())
-                && !player.isSpectator() && !player.isCreative()) {
-            int stamina = ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getInt("stamina_int");
+        IEntityDataSaver dataSaver = (IEntityDataSaver) player;
+        var persistentData = dataSaver.knightsheraldry$getPersistentData();
 
-            int staminaCost = 10;
-            if (stamina >= staminaCost && !staminaBlocked) {
-                ClientPlayNetworking.send(ModMessages.ATTACK_ID, PacketByteBufs.create());
-            } else {
-                return ActionResult.FAIL;
-            }
+        boolean isHoldingWeapon = player.getStackInHand(hand).getItem() instanceof KHWeapons;
+        boolean isTaggedWeapon = player.getStackInHand(hand).isIn(KHTags.WEAPONS.getTag());
+        boolean isValidWeapon = isHoldingWeapon && isTaggedWeapon;
+
+        if (!isValidWeapon || player.isCreative()) {
+            return ActionResult.PASS;
         }
+
+        boolean staminaBlocked = persistentData.getBoolean("stamina_blocked");
+        int stamina = persistentData.getInt("stamina_int");
+        int staminaCost = 10;
+
+        if (stamina < staminaCost || staminaBlocked) {
+            return ActionResult.FAIL;
+        }
+
+        ClientPlayNetworking.send(ModMessages.ATTACK_ID, PacketByteBufs.create());
         return ActionResult.PASS;
     }
 }

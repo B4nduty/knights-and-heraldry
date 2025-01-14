@@ -32,15 +32,14 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
                 handlePlayerTick(playerEntity);
             }
             if (!isWearingFullKHArmorSet(playerEntity)) {
-                TrinketsApi.getTrinketComponent(playerEntity).ifPresent(trinketComponent -> {
-                    trinketComponent.getAllEquipped().forEach(pair -> {
-                        ItemStack trinketStack = pair.getRight();
-                        if (trinketStack.getItem() instanceof KHTrinketsItem && !trinketStack.isIn(KHTags.ALWAYS_WEARABLE.getTag())) {
-                            playerEntity.giveItemStack(trinketStack);
-                            trinketStack.setCount(0);
-                        }
-                    });
-                });
+                TrinketsApi.getTrinketComponent(playerEntity).ifPresent(trinketComponent ->
+                        trinketComponent.getAllEquipped().forEach(pair -> {
+                            ItemStack trinketStack = pair.getRight();
+                            if (trinketStack.getItem() instanceof KHTrinketsItem && !trinketStack.isIn(KHTags.ALWAYS_WEARABLE.getTag())) {
+                                playerEntity.giveItemStack(trinketStack);
+                                trinketStack.setCount(0);
+                            }
+                }));
             }
 
             int swallowTailArrowCount = ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getInt("swallowtail_arrow_count");
@@ -74,13 +73,13 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         int stamina = dataSaver.knightsheraldry$getPersistentData().getInt("stamina_int");
 
         if ((playerEntity.isCreative() || playerEntity.isSpectator())) {
-            if (stamina < 200) StaminaData.addStamina((IEntityDataSaver) playerEntity, 200 - stamina);
+            if (stamina < TOTAL_STAMINA) StaminaData.addStamina((IEntityDataSaver) playerEntity, TOTAL_STAMINA - stamina);
             removeStaminaEffects(playerEntity);
             StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, false);
         }
 
-        if (stamina > 200)
-            StaminaData.removeStamina((IEntityDataSaver) playerEntity, stamina - 200);
+        if (stamina > TOTAL_STAMINA)
+            StaminaData.removeStamina((IEntityDataSaver) playerEntity, stamina - TOTAL_STAMINA);
 
         if (!playerEntity.isCreative() || !playerEntity.isSpectator()) {
             handleStaminaRecovery(playerEntity, stamina);
@@ -140,13 +139,9 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         }
 
         if (isWearingKHArmor(playerEntity) && !staminaBlocked && !playerEntity.isOnGround()
-                && playerEntity.getVelocity().y > 0 && stamina >= 6 && !playerEntity.isBlocking()
-                && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
-            StaminaData.removeStamina(dataSaver, 6);
-        } else if (isWearingKHArmor(playerEntity) && !staminaBlocked && !playerEntity.isOnGround()
                 && playerEntity.getVelocity().y > 0 && !playerEntity.isBlocking()
                 && !playerEntity.hasVehicle() && !playerEntity.isTouchingWater()) {
-            StaminaData.removeStamina(dataSaver, stamina);
+            StaminaData.removeStamina(dataSaver, Math.min(stamina, 6));
         }
 
         if (isWearingKHArmor(playerEntity) && playerEntity.isTouchingWater() && stamina >= 1

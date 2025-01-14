@@ -104,7 +104,7 @@ public abstract class LivingEntityMixin {
                 if (amount <= 0) amount = 0;
                 else if (!(playerEntity.getMainHandStack().getItem() instanceof Lance)) amount = amount + 1;
             }
-            playerEntity.sendMessage(Text.literal("Damage: " + (amount)), true);
+            playerEntity.sendMessage(Text.literal("Damage: " + (int) (amount)), true);
         }
     }
 

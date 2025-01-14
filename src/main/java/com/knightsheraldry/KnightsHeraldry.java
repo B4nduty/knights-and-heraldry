@@ -2,7 +2,7 @@ package com.knightsheraldry;
 
 import com.knightsheraldry.config.KHConfig;
 import com.knightsheraldry.datagen.ModItemTagProvider;
-import com.knightsheraldry.datagen.ModModelProvider;
+    import com.knightsheraldry.datagen.ModModelProvider;
 import com.knightsheraldry.datagen.ModRecipeProvider;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.entity.ModEntities;
@@ -20,14 +20,13 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.ClickEvent;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +45,7 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
         ModItemGroups.registerItemGroups();
         ModMessages.registerC2SPackets();
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
-        AttackEntityCallback.EVENT.register(new AttackEntityEventHandler());
+        AttackEntityEventHandler.EVENT.register(new AttackEntityEventHandler());
         PlayerBlockBreakEvents.AFTER.register(new PlayerBlockBreakHandler());
         VillagerTradesModifier.registerCustomTrades();
         ChestLootTableModifier.modifyChestLootTables();
@@ -56,28 +55,24 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
                 NbtCompound playerData = ((IEntityDataSaver) player).knightsheraldry$getPersistentData();
                 if (!playerData.getBoolean(FIRST_JOIN_TAG)) {
                     player.sendMessage(Text.literal("""
-                        §4Knights & Heraldry §ris in §bAlpha
+                        §4Knights & Heraldry §ris in §6Beta
                         §fMany things you see here can change in future updates.
                         
-                        By playing in the §bAlpha §fstate,
-                        you indicate that you agree not to distribute this project.
-                        Non-distribution includes builds and information.
+                        If you want to help improving this mod,
+                        send your feedback in the KH Discord Server.
                         
-                        Thanks for playing this mod,
-                        §4The Knights Heraldry Team"""), false);
-
-                    if (!FabricLoader.getInstance().isModLoaded("overloadedarmorbar")) {
-                        player.sendMessage(Text.literal("""
-                            §lTry §r§4Overloaded Armor Bar §rfor a §lbetter experience"""), false);
-                    }
+                        """)
+                                    .append(Text.literal("§n§9Click here to join the KH Discord Server")
+                                            .styled(style -> style
+                                                    .withColor(Formatting.BLUE)
+                                                    .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.gg/NvXG4ZWFXc"))))
+                                    .append(Text.literal("""
+                                            
+                                            Thanks for playing this mod,
+                                            §4The Knights Heraldry Team""")),
+                            false);
 
                     playerData.putBoolean(FIRST_JOIN_TAG, true);
-                } else if (playerData.getBoolean(FIRST_JOIN_TAG)) {
-                    ModContainer modContainer = FabricLoader.getInstance().getModContainer("knightsheraldry").orElse(null);
-                    String modVersion = modContainer != null ? modContainer.getMetadata().getVersion().getFriendlyString() : "unknown";
-
-                    player.sendMessage(Text.literal(String.format("""
-                    §lWelcome §rto §4Knights & Heraldry §r§bAlpha §r%s""", modVersion)), false);
                 }
             }
         });

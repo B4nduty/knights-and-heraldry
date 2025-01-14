@@ -20,12 +20,11 @@ public class EntityRendererMixin<T extends Entity> {
     @Inject(method = "renderLabelIfPresent", at = @At("HEAD"), cancellable = true)
     private void knightsheraldry$onRenderLabelIfPresent(T entity, Text text, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
         if (entity instanceof PlayerEntity player) {
-            TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
-                trinketComponent.getAllEquipped().forEach(pair -> {
-                    ItemStack trinketStack = pair.getRight();
-                    if (trinketStack.getItem() == ModItems.HOOD || trinketStack.getItem() == ModItems.TORN_HOOD) ci.cancel();
-                });
-            });
+            TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent ->
+                    trinketComponent.getAllEquipped().forEach(pair -> {
+                        ItemStack trinketStack = pair.getRight();
+                        if (trinketStack.getItem() == ModItems.HOOD || trinketStack.getItem() == ModItems.TORN_HOOD) ci.cancel();
+            }));
         }
     }
 }

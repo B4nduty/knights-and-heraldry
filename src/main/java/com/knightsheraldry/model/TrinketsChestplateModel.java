@@ -95,6 +95,7 @@ public class TrinketsChestplateModel extends BipedEntityModel<LivingEntity> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		this.armorBody.copyTransform(this.body);
+		this.armorBody.pivotZ += 0.25F;
 		this.armorBody.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 
 		this.armorRightArm.copyTransform(this.rightArm);
