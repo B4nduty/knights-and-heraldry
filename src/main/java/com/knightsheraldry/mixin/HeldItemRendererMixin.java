@@ -1,12 +1,10 @@
 package com.knightsheraldry.mixin;
 
-import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.armor.KHDyeableTrinketsItem;
 import com.knightsheraldry.items.custom.armor.KHDyeableUnderArmorItem;
-import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
+import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.model.TrinketsArmModel;
-import com.knightsheraldry.model.TrinketsChestplateModel;
 import com.knightsheraldry.model.UnderArmourArmModel;
 import com.knightsheraldry.util.DyeUtil;
 import dev.emi.trinkets.api.SlotReference;
@@ -99,12 +97,19 @@ public class HeldItemRendererMixin {
                         color = DyeUtil.getDyeColor(stack);
                     }
                     VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
-                    if (arm == Arm.RIGHT) model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-                    if (arm == Arm.LEFT) model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-                    if (khTrinketsItem instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getOverlayIdentifier(khTrinketsItem));
-                    if (stack.getOrCreateNbt().getBoolean("aventail")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), getAventailIdentifier(khTrinketsItem));
-                    if (stack.getOrCreateNbt().getBoolean("rimmed")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
-                    if (stack.getOrCreateNbt().getBoolean("besagews")) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
+                    if (arm == Arm.RIGHT) {
+                        model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
+                        if (khTrinketsItem instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) {
+                            VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
+                            model.armorRightArm.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
+                        }
+                    } else if (arm == Arm.LEFT) {
+                        model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
+                        if (khTrinketsItem instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) {
+                            VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
+                            model.armorLeftArm.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
+                        }
+                    }
                 }
             }
         }
@@ -127,24 +132,6 @@ public class HeldItemRendererMixin {
 
         if (item instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) textureOverlayString += "_overlay.png";
         else return new Identifier("");
-
-        return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);
-    }
-
-    @Unique
-    private @NotNull Identifier getAventailIdentifier(KHTrinketsItem khTrinketsItem) {
-        Identifier originalIdentifier = khTrinketsItem.getPath();
-
-        String textureOverlayString = null;
-        if (originalIdentifier != null) {
-            textureOverlayString = originalIdentifier.getPath();
-        }
-
-        if (textureOverlayString != null && textureOverlayString.endsWith(".png")) {
-            textureOverlayString = textureOverlayString.substring(0, textureOverlayString.length() - 4);
-        }
-
-        textureOverlayString += "_aventail.png";
 
         return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);
     }

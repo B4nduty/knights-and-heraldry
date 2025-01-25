@@ -1,6 +1,7 @@
 package com.knightsheraldry.util.playerdata;
 
 import com.knightsheraldry.networking.ModMessages;
+import com.knightsheraldry.util.SharedParameters;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.nbt.NbtCompound;
@@ -17,9 +18,8 @@ public class StaminaData {
     public static void addStamina(IEntityDataSaver player, int amount) {
         NbtCompound nbt = player.knightsheraldry$getPersistentData();
         int currentStamina = nbt.getInt("stamina_int");
-        int maxStamina = 200;
 
-        currentStamina = Math.min(currentStamina + amount, maxStamina);
+        currentStamina = Math.min(currentStamina + amount, SharedParameters.TOTAL_STAMINA);
 
         nbt.putInt("stamina_int", currentStamina);
         if (player instanceof ServerPlayerEntity) {

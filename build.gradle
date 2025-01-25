@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'fabric-loom' version '1.9-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -33,6 +33,13 @@ repositories {
         url = 'https://maven.ladysnake.org/releases'
     }
     maven { url 'https://maven.wispforest.io' }
+
+    maven {
+        url "https://maven.jamieswhiteshirt.com/libs-release"
+        content {
+            includeGroup "com.jamieswhiteshirt"
+        }
+    }
 }
 
 fabricApi {
@@ -59,8 +66,6 @@ dependencies {
 
     modImplementation "maven.modrinth:better-combat:${project.bettercombat}-fabric"
 
-    include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.4.0")))
-
     include modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${project.player_anim}")
 
     modImplementation "io.wispforest:owo-lib:${project.owo_version}"
@@ -69,6 +74,8 @@ dependencies {
     annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
 
     modImplementation "dev.emi:trinkets:${project.trinkets}"
+
+    include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_version}")
 }
 
 processResources {

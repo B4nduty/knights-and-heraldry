@@ -3,7 +3,8 @@ package com.knightsheraldry.event;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
-import com.knightsheraldry.items.custom.item.KHWeapons;
+import com.knightsheraldry.items.custom.item.KHWeapon;
+import com.knightsheraldry.util.SharedParameters;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.itemdata.KHTags;
 import com.knightsheraldry.util.playerdata.StaminaData;
@@ -18,11 +19,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class StartTickHandler implements ServerTickEvents.StartTick {
-    private static final int TOTAL_STAMINA = 200;
-    private static final int MID_STAMINA_THRESHOLD = 60;
-    private static final int LOW_STAMINA_THRESHOLD = 30;
-    private static final int MINING_FATIGUE_LEVEL = 3;
-    private static final int SLOWNESS_LEVEL = 3;
     private int damageTick;
 
     @Override
@@ -73,13 +69,13 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         int stamina = dataSaver.knightsheraldry$getPersistentData().getInt("stamina_int");
 
         if ((playerEntity.isCreative() || playerEntity.isSpectator())) {
-            if (stamina < TOTAL_STAMINA) StaminaData.addStamina((IEntityDataSaver) playerEntity, TOTAL_STAMINA - stamina);
+            if (stamina < SharedParameters.TOTAL_STAMINA) StaminaData.addStamina((IEntityDataSaver) playerEntity, SharedParameters.TOTAL_STAMINA - stamina);
             removeStaminaEffects(playerEntity);
             StaminaData.setStaminaBlocked((IEntityDataSaver) playerEntity, false);
         }
 
-        if (stamina > TOTAL_STAMINA)
-            StaminaData.removeStamina((IEntityDataSaver) playerEntity, stamina - TOTAL_STAMINA);
+        if (stamina > SharedParameters.TOTAL_STAMINA)
+            StaminaData.removeStamina((IEntityDataSaver) playerEntity, stamina - SharedParameters.TOTAL_STAMINA);
 
         if (!playerEntity.isCreative() || !playerEntity.isSpectator()) {
             handleStaminaRecovery(playerEntity, stamina);
@@ -95,31 +91,33 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         int roundOff = (int) (10 - Math.round(ticksPerRecovery));
 
         StaminaData.addStamina((IEntityDataSaver) playerEntity, 0);
-        if (ticksPerRecovery != 0 && playerEntity.age % roundOff == 0 && stamina < TOTAL_STAMINA
+        if (ticksPerRecovery != 0 && playerEntity.age % roundOff == 0 && stamina < SharedParameters.TOTAL_STAMINA
                 && !playerEntity.isTouchingWater()) {
-            StaminaData.addStamina((IEntityDataSaver) playerEntity, Math.min(1, TOTAL_STAMINA - stamina));
+            StaminaData.addStamina((IEntityDataSaver) playerEntity, Math.min(1, SharedParameters.TOTAL_STAMINA - stamina));
         }
     }
 
     private void handleStaminaEffects(ServerPlayerEntity playerEntity, int stamina) {
         IEntityDataSaver dataSaver = (IEntityDataSaver) playerEntity;
         boolean staminaBlocked = dataSaver.knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
+        long firstLevel = Math.absExact((int) (SharedParameters.TOTAL_STAMINA * 0.3f));
+        long secondLevel = Math.absExact((int) (SharedParameters.TOTAL_STAMINA * 0.15f));
 
-        if (stamina < MID_STAMINA_THRESHOLD && stamina > LOW_STAMINA_THRESHOLD) {
+        if (stamina < firstLevel && stamina > secondLevel) {
             applyStaminaEffects(playerEntity, 0, 0);
         }
 
         if (stamina == 0) {
             StaminaData.setStaminaBlocked(dataSaver, true);
-            applyStaminaEffects(playerEntity, MINING_FATIGUE_LEVEL, SLOWNESS_LEVEL);
+            applyStaminaEffects(playerEntity, 3, 3);
         }
 
-        if (staminaBlocked && stamina == LOW_STAMINA_THRESHOLD) {
+        if (staminaBlocked && stamina == secondLevel) {
             StaminaData.setStaminaBlocked(dataSaver, false);
             removeStaminaEffects(playerEntity);
         }
 
-        if (stamina == MID_STAMINA_THRESHOLD) {
+        if (stamina == firstLevel) {
             StaminaData.setStaminaBlocked(dataSaver, false);
             removeStaminaEffects(playerEntity);
         }
@@ -167,7 +165,7 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
     }
 
     private boolean isKHWeapon(ItemStack stack) {
-        return stack.getItem() instanceof KHWeapons;
+        return stack.getItem() instanceof KHWeapon;
     }
 
     private boolean isWearingKHArmor(ServerPlayerEntity playerEntity) {

@@ -1,31 +1,34 @@
 package com.knightsheraldry.items.custom.item;
 
+import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.util.KHDamageCalculator;
-import com.knightsheraldry.util.itemdata.KHTags;
+import com.knightsheraldry.util.weaponutil.KHWeaponUtil;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 
-public class Halberd extends KHWeapons {
-    public Halberd(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
-        super(attackSpeed, settings, onlyDamageType);
+public class Halberd extends SwordItem implements KHWeapon {
+    public Halberd(float attackSpeed, Settings settings) {
+        super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
 
     @Override
-    public float[] getDefaultAttackDamageValues() {
-        return new float[] {
-                0.0F, 6.0F, 9.0F, 6.0F, 3.0F, //Slashing
-                0.0F, 7.0F, 10.5F, 7.0F, 3.5F, //Piercing
-                0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
-        };
+    public int getAnimation() {
+        return 2;
     }
 
     @Override
-    public double[] getDefaultRadiusValues() {
+    public KHDamageCalculator.DamageType getOnlyDamageType() {
+        return null;
+    }
+
+    @Override
+    public double[] getRadiusValues() {
         return new double[] {
                 4.0d, //1st Distance
                 4.7d, //2nd Distance
@@ -36,8 +39,12 @@ public class Halberd extends KHWeapons {
     }
 
     @Override
-    public int getAnimation() {
-        return 2;
+    public float[] getAttackDamageValues() {
+        return new float[] {
+                0.0F, 6.0F, 9.0F, 6.0F, 3.0F, //Slashing
+                0.0F, 7.0F, 10.5F, 7.0F, 3.5F, //Piercing
+                0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
+        };
     }
 
     @Override
@@ -52,17 +59,17 @@ public class Halberd extends KHWeapons {
         super.postHit(stack, target, attacker);
 
         if (attacker instanceof PlayerEntity playerEntity) {
-            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(getMaxDistance());
+            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(KHWeaponUtil.getMaxDistance(this));
             Vec3d playerPos = playerEntity.getPos();
             playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
-                            entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), getMaxDistance() + 1))
+                            entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), KHWeaponUtil.getMaxDistance(this) + 1))
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.getPos());
-                        KHDamageCalculator.DamageType damageType = calculateDamageType(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
-                        float damage = KHDamageCalculator.getKHDamage(playerEntity, calculateDamage(distance,
+                        KHDamageCalculator.DamageType damageType = KHWeaponUtil.calculateDamageType(stack, this, ((PlayerAttackProperties) playerEntity).getComboCount());
+                        float damage = KHDamageCalculator.getKHDamage(playerEntity, KHWeaponUtil.calculateDamage(this, distance,
                                 damageType.getIndex() - 4, damageType.getIndex()), damageType);
-                        float maxDamage = getMaxValueDamage(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
+                        float maxDamage = getMaxValueDamage(((PlayerAttackProperties) playerEntity).getComboCount());
 
                         if (damage >= maxDamage) {
                             critical = true;
@@ -81,12 +88,12 @@ public class Halberd extends KHWeapons {
         return false;
     }
 
-    private float getMaxValueDamage(ItemStack stack, int comboCount) {
-        float[] damageValues = getDefaultAttackDamageValues();
+    private float getMaxValueDamage(int comboCount) {
+        float[] damageValues = getAttackDamageValues();
         float maxDamage = 0.0F;
         boolean piercing = false;
 
-        if (stack.isIn(KHTags.WEAPONS_PIERCING.getTag())) {
+        if (getAnimation() > 0) {
             int[] piercingAnimations = getPiercingAnimation();
             for (int piercingAnimation : piercingAnimations) {
                 if (comboCount == 0 && piercingAnimation == 1) {

@@ -7,8 +7,9 @@
     "HungerManagerMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
-    "ServerPlayNetworkHandlerMixin",
-    "StatusEffectsMixin"
+    "ReachEntityAttributesMixin",
+    "StatusEffectsMixin",
+    "SwordItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -16,9 +17,7 @@
   "client": [
     "AbstractClientPlayerEntityMixin",
     "CapeFeatureRendererMixin",
-    "ClientPlayerInteractionManagerMixin",
     "EntityRendererMixin",
-    "GameRendererMixin",
     "HeldItemRendererMixin",
     "InGameHudMixin",
     "ItemRendererMixin",

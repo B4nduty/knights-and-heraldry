@@ -209,19 +209,15 @@ public class KHRangeWeapons extends Item {
                 .findFirst().orElse(-1);
     }
 
-    public static float getBowPullProgress(int useTicks) {
-        float f = useTicks / 20.0F;
-        return Math.min((f * f + f * 2.0F) / 3.0F, 1.0F);
+    private float getBowPullProgress(int useTicks) {
+        float progress = useTicks / 20.0F;
+        return Math.min((progress * progress + progress * 2.0F) / 3.0F, 1.0F);
     }
 
     private float getCrossbowPullProgress(int useTicks) {
-        float f = (float)useTicks / (config.rechargeTime() * 20);
-        if (f > 1.0F) {
-            f = 1.0F;
-        }
-
-        return f;
+        return Math.min((float) useTicks / config.rechargeTime(), 1.0F);
     }
+
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {

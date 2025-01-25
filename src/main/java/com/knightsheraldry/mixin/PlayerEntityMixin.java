@@ -1,10 +1,10 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.item.KHWeapons;
+import com.knightsheraldry.items.custom.item.KHWeapon;
 import com.knightsheraldry.items.custom.item.Lance;
-import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.itemdata.KHTags;
+import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.playerdata.PlayerVelocity;
 import com.knightsheraldry.util.playerdata.StaminaData;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -20,14 +20,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
@@ -62,7 +59,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
 
     @Inject(method = "damageShield", at = @At("HEAD"), cancellable = true)
     private void knightsHeraldry$onDamageShield(float amount, CallbackInfo ci) {
-        if (playerEntity.getMainHandStack().isIn(KHTags.WEAPONS.getTag())) {
+        if (playerEntity.getMainHandStack().getItem() instanceof KHWeapon) {
             if (playerEntity.getActiveItem().isIn(KHTags.WEAPONS_SHIELD.getTag())) {
                 if (!playerEntity.getWorld().isClient) {
                     playerEntity.incrementStat(Stats.USED.getOrCreateStat(playerEntity.getActiveItem().getItem()));
@@ -163,7 +160,7 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
                     itemStack.getItem() instanceof ShovelItem ||
                     itemStack.getItem() instanceof HoeItem;
 
-            if (isWeapon && !(itemStack.getItem() instanceof KHWeapons) && KnightsHeraldry.config().getVanillaWeaponsDamage0()) {
+            if (isWeapon && !(itemStack.getItem() instanceof KHWeapon) && KnightsHeraldry.config().getVanillaWeaponsDamage0()) {
                 float attackDamage = 0.0F;
                 float attackStrength = playerEntity.getAttackCooldownProgress(0.5F);
 
@@ -180,11 +177,5 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
                 ci.cancel();
             }
         }
-    }
-
-    @ModifyConstant(method = "attack", constant = @Constant(doubleValue = 9.0))
-    public double knightsheraldry$attackReach(double constant) {
-        return playerEntity != null && playerEntity.getMainHandStack().getItem() instanceof KHWeapons khWeapons ?
-                MathHelper.square(khWeapons.getMaxDistance()) : constant;
     }
 }

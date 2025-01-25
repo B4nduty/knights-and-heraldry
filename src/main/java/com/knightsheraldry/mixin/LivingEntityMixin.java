@@ -1,9 +1,10 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
+import com.knightsheraldry.items.custom.item.KHWeapon;
 import com.knightsheraldry.items.custom.item.Lance;
-import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.itemdata.KHTags;
+import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffects;
@@ -99,7 +100,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "applyDamage", at = @At("TAIL"))
     private void knightsheraldry$sendDamage(DamageSource source, float amount, CallbackInfo ci) {
         if (KnightsHeraldry.config().getDamageIndicator() && source.getAttacker() instanceof PlayerEntity playerEntity
-                && playerEntity.getMainHandStack().isIn(KHTags.WEAPONS.getTag())) {
+                && playerEntity.getMainHandStack().getItem() instanceof KHWeapon) {
             if (!playerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
                 if (amount <= 0) amount = 0;
                 else if (!(playerEntity.getMainHandStack().getItem() instanceof Lance)) amount = amount + 1;
