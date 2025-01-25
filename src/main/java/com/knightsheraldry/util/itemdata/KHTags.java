@@ -11,13 +11,6 @@ public enum KHTags {
 
     // Weapon Tags
     /**
-     * If you want to have your Weapon act as a KH Weapon
-     * It is highly recommended to put this in your Melee Weapons
-     * <p>
-     * Don't use it for Ranged Weapons
-     */
-    WEAPONS("weapons"),
-    /**
      * If you want to have your Weapon 3D
      * <p>
      * You will need to make another model file with the name "your_item_3d.json",
@@ -66,10 +59,6 @@ public enum KHTags {
      * It's compatible with "blocking" predicate
      */
     WEAPONS_BLUDGEONING("weapons_bludgeoning"),
-    /**
-     * If you want your Weapon deal Piercing Damage
-     */
-    WEAPONS_PIERCING("weapons_piercing"),
     /**
      * If you want your Weapon disable the Shield/Parrying of another Weapon as Axes with the Shield
      */

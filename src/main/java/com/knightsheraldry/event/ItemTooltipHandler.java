@@ -4,7 +4,7 @@ import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.KHRangeWeapons;
-import com.knightsheraldry.util.itemdata.KHTags;
+import com.knightsheraldry.items.custom.item.KHWeapon;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
@@ -17,7 +17,7 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
     @Override
     public void getTooltip(ItemStack stack, TooltipContext context, List<Text> lines) {
         Text attackDamage = Text.translatable("attribute.name.generic.attack_damage");
-        if (stack.isIn(KHTags.WEAPONS.getTag())) lines.removeIf(line -> line.contains(attackDamage));
+        if (stack.getItem() instanceof KHWeapon) lines.removeIf(line -> line.contains(attackDamage));
 
         if (stack.getItem() instanceof KHTrinketsItem khTrinketsItem
                 && khTrinketsItem.getHungerDrainAddition() != 0.0d) {

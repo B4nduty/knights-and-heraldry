@@ -2,12 +2,14 @@ package com.knightsheraldry.items.custom.item;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.entity.custom.WarDartEntity;
+import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -19,29 +21,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class WarDart extends KHWeapons {
-    public WarDart(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
-        super(attackSpeed, settings, onlyDamageType);
-    }
-
-    @Override
-    public float[] getDefaultAttackDamageValues() {
-        return new float[] {
-                0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Slashing
-                0.0F, 9.0F, 13.5F, 9.0F, 4.5F, //Piercing
-                0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
-        };
-    }
-
-    @Override
-    public double[] getDefaultRadiusValues() {
-        return new double[] {
-                3.4d, //1st Distance
-                3.8d, //2nd Distance
-                4.3d, //3rd Distance
-                4.6d, //4th Distance
-                5.0d  //5th Distance
-        };
+public class WarDart extends SwordItem implements KHWeapon {
+    public WarDart(float attackSpeed, Settings settings) {
+        super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
 
     @Override
@@ -86,5 +68,40 @@ public class WarDart extends KHWeapons {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.translatable("tooltip.knightsheraldry.throw-to-pin"));
+    }
+
+    @Override
+    public double[] getRadiusValues() {
+        return new double[] {
+                3.4d, //1st Distance
+                3.8d, //2nd Distance
+                4.3d, //3rd Distance
+                4.6d, //4th Distance
+                5.0d  //5th Distance
+        };
+    }
+
+    @Override
+    public float[] getAttackDamageValues() {
+        return new float[] {
+                0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Slashing
+                0.0F, 9.0F, 13.5F, 9.0F, 4.5F, //Piercing
+                0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
+        };
+    }
+
+    @Override
+    public int[] getPiercingAnimation() {
+        return new int[0];
+    }
+
+    @Override
+    public int getAnimation() {
+        return 0;
+    }
+
+    @Override
+    public KHDamageCalculator.DamageType getOnlyDamageType() {
+        return KHDamageCalculator.DamageType.PIERCING;
     }
 }

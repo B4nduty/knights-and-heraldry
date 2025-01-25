@@ -40,17 +40,17 @@ public class KHTrinketsItemRenderer implements TrinketRenderer {
         float[] color = DyeUtil.getDyeColor(stack);
 
         model.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-        renderOverlayAndAdditions(stack, matrices, vertexConsumers, light, model);
+        renderOverlayAndAdditions(stack, matrices, vertexConsumers, light);
     }
 
     @Environment(EnvType.CLIENT)
-    private void renderOverlayAndAdditions(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, BipedEntityModel<LivingEntity> model) {
-        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "aventail", getIdentifierWithSuffix("_aventail", (KHTrinketsItem) stack.getItem()));
-        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "rimmed", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
-        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "besagews", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
+    private void renderOverlayAndAdditions(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), "aventail", getIdentifierWithSuffix("_aventail", (KHTrinketsItem) stack.getItem()));
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), "rimmed", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), "besagews", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
 
         if (stack.getItem() instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) {
-            ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getIdentifierWithSuffix("_overlay", khDyeableTrinketsItem));
+            ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, new CloakHoodModel(CloakHoodModel.getTexturedModelData().createModel()), getIdentifierWithSuffix("_overlay", khDyeableTrinketsItem));
         }
     }
     

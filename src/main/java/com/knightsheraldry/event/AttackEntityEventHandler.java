@@ -1,9 +1,8 @@
 package com.knightsheraldry.event;
 
-import com.knightsheraldry.items.custom.item.KHWeapons;
+import com.knightsheraldry.items.custom.item.KHWeapon;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
-import com.knightsheraldry.util.itemdata.KHTags;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
@@ -21,11 +20,9 @@ public class AttackEntityEventHandler implements AttackEntityCallback {
         IEntityDataSaver dataSaver = (IEntityDataSaver) player;
         var persistentData = dataSaver.knightsheraldry$getPersistentData();
 
-        boolean isHoldingWeapon = player.getStackInHand(hand).getItem() instanceof KHWeapons;
-        boolean isTaggedWeapon = player.getStackInHand(hand).isIn(KHTags.WEAPONS.getTag());
-        boolean isValidWeapon = isHoldingWeapon && isTaggedWeapon;
+        boolean isHoldingWeapon = player.getStackInHand(hand).getItem() instanceof KHWeapon;
 
-        if (!isValidWeapon || player.isCreative()) {
+        if (!isHoldingWeapon || player.isCreative()) {
             return ActionResult.PASS;
         }
 
