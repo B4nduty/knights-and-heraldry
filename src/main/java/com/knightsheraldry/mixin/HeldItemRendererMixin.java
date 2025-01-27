@@ -99,13 +99,13 @@ public class HeldItemRendererMixin {
                     VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
                     if (arm == Arm.RIGHT) {
                         model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-                        if (khTrinketsItem instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) {
+                        if (khTrinketsItem instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.hasOverlay()) {
                             VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
                             model.armorRightArm.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
                         }
                     } else if (arm == Arm.LEFT) {
                         model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-                        if (khTrinketsItem instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) {
+                        if (khTrinketsItem instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.hasOverlay()) {
                             VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
                             model.armorLeftArm.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
                         }
@@ -130,7 +130,7 @@ public class HeldItemRendererMixin {
             textureOverlayString = textureOverlayString.substring(0, textureOverlayString.length() - 4);
         }
 
-        if (item instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.getOverlay()) textureOverlayString += "_overlay.png";
+        if (item instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.hasOverlay()) textureOverlayString += "_overlay.png";
         else return new Identifier("");
 
         return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);

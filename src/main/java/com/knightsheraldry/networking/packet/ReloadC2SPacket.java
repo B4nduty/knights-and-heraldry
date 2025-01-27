@@ -1,8 +1,10 @@
 package com.knightsheraldry.networking.packet;
 
-import com.knightsheraldry.items.custom.item.KHRangeWeapons;
+import com.knightsheraldry.items.custom.item.KHRangeWeapon;
 import com.knightsheraldry.util.KHInventoryItemFinder;
+import com.knightsheraldry.util.weaponutil.KHRangeWeaponUtil;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
@@ -19,44 +21,44 @@ public class ReloadC2SPacket {
         server.execute(() -> {
             ItemStack itemStack = player.getMainHandStack();
 
-            if (!(itemStack.getItem() instanceof KHRangeWeapons khRangeWeapons) || khRangeWeapons.config.ammoRequirement() == null) {
+            if (!(itemStack.getItem() instanceof KHRangeWeapon khRangeWeapons) || khRangeWeapons.ammoRequirement() == null) {
                 reloadTick = 0;
                 return;
             }
 
             if (player.isCreative()){
                 player.sendMessage(Text.translatable("event.knightsheraldry.recharged"), true);
-                khRangeWeapons.setWeaponState(itemStack, new KHRangeWeapons.WeaponState(false, true, false));
+                KHRangeWeaponUtil.setWeaponState(itemStack, new KHRangeWeaponUtil.WeaponState(false, true, false));
                 reloadTick = 0;
                 return;
-            } else if (player.getItemCooldownManager().isCoolingDown(khRangeWeapons)) return;
+            } else if (player.getItemCooldownManager().isCoolingDown((Item) khRangeWeapons)) return;
 
-            if (khRangeWeapons.getWeaponState(itemStack).isCharged()) return;
+            if (KHRangeWeaponUtil.getWeaponState(itemStack).isCharged()) return;
 
             NbtCompound nbt = itemStack.getOrCreateNbt();
             int reloadSec = nbt.getInt("ReloadSec");
 
-            if (khRangeWeapons.getWeaponState(itemStack).isReloading()) {
+            if (KHRangeWeaponUtil.getWeaponState(itemStack).isReloading()) {
                 reloadTick++;
             } else {
                 ItemStack firstItem = KHInventoryItemFinder.getItemFromInventory(
-                        player, khRangeWeapons.config.ammoRequirement().firstItem(),
-                        khRangeWeapons.config.ammoRequirement().firstItem2nOption()
+                        player, khRangeWeapons.ammoRequirement().firstItem(),
+                        khRangeWeapons.ammoRequirement().firstItem2nOption()
                 );
                 ItemStack secondItem = KHInventoryItemFinder.getItemFromInventory(
-                        player, khRangeWeapons.config.ammoRequirement().secondItem(),
-                        khRangeWeapons.config.ammoRequirement().secondItem2nOption()
+                        player, khRangeWeapons.ammoRequirement().secondItem(),
+                        khRangeWeapons.ammoRequirement().secondItem2nOption()
                 );
                 ItemStack thirdItem = KHInventoryItemFinder.getItemFromInventory(player,
-                        khRangeWeapons.config.ammoRequirement().thirdItem(),
-                        khRangeWeapons.config.ammoRequirement().thirdItem2nOption()
+                        khRangeWeapons.ammoRequirement().thirdItem(),
+                        khRangeWeapons.ammoRequirement().thirdItem2nOption()
                 );
 
                 if (KHInventoryItemFinder.areItemsInInventory(new ItemStack[]{firstItem, secondItem, thirdItem},
                         new int[]{
-                                khRangeWeapons.config.ammoRequirement().amountFirstItem(),
-                                khRangeWeapons.config.ammoRequirement().amountSecondItem(),
-                                khRangeWeapons.config.ammoRequirement().amountThirdItem()})) {
+                                khRangeWeapons.ammoRequirement().amountFirstItem(),
+                                khRangeWeapons.ammoRequirement().amountSecondItem(),
+                                khRangeWeapons.ammoRequirement().amountThirdItem()})) {
                     startReload(player, khRangeWeapons, itemStack, firstItem, secondItem, thirdItem);
                 }
             }
@@ -65,33 +67,33 @@ public class ReloadC2SPacket {
         });
     }
 
-    private static void startReload(ServerPlayerEntity player, KHRangeWeapons khRangeWeapons, ItemStack itemStack,
+    private static void startReload(ServerPlayerEntity player, KHRangeWeapon khRangeWeapons, ItemStack itemStack,
                                     ItemStack firstItem, ItemStack secondItem, ItemStack thirdItem) {
         player.getInventory().removeStack(KHInventoryItemFinder.getItemSlot(player, firstItem), 1);
         player.getInventory().removeStack(KHInventoryItemFinder.getItemSlot(player, secondItem), 1);
         player.getInventory().removeStack(KHInventoryItemFinder.getItemSlot(player, thirdItem), 1);
-        khRangeWeapons.setWeaponState(itemStack, new KHRangeWeapons.WeaponState(true, khRangeWeapons.getWeaponState(itemStack).isCharged(), false));
+        KHRangeWeaponUtil.setWeaponState(itemStack, new KHRangeWeaponUtil.WeaponState(true, KHRangeWeaponUtil.getWeaponState(itemStack).isCharged(), false));
         reloadTick++;
     }
 
-    private static void handleReloadProgress(ServerPlayerEntity player, KHRangeWeapons khRangeWeapons, ItemStack itemStack, int reloadSec) {
+    private static void handleReloadProgress(ServerPlayerEntity player, KHRangeWeapon khRangeWeapons, ItemStack itemStack, int reloadSec) {
         NbtCompound nbt = itemStack.getOrCreateNbt();
 
         if (reloadTick % 20 == 0 && reloadTick != 0) {
             nbt.putInt("ReloadSec", reloadSec + 1);
-            if (reloadSec < khRangeWeapons.config.rechargeTime() - 1) {
+            if (reloadSec < khRangeWeapons.rechargeTime() - 1) {
                 player.sendMessage(Text.translatable("event.knightsheraldry.recharge_time", reloadSec + 1), true);
             }
         }
 
-        if (reloadSec >= khRangeWeapons.config.rechargeTime()) {
+        if (reloadSec >= khRangeWeapons.rechargeTime()) {
             completeReload(player, khRangeWeapons, itemStack, nbt);
         }
     }
 
-    private static void completeReload(ServerPlayerEntity player, KHRangeWeapons khRangeWeapons, ItemStack itemStack, NbtCompound nbt) {
+    private static void completeReload(ServerPlayerEntity player, KHRangeWeapon khRangeWeapons, ItemStack itemStack, NbtCompound nbt) {
         player.sendMessage(Text.translatable("event.knightsheraldry.recharged"), true);
-        khRangeWeapons.setWeaponState(itemStack, new KHRangeWeapons.WeaponState(false, true, khRangeWeapons.getWeaponState(itemStack).isShooting()));
+        KHRangeWeaponUtil.setWeaponState(itemStack, new KHRangeWeaponUtil.WeaponState(false, true, KHRangeWeaponUtil.getWeaponState(itemStack).isShooting()));
         nbt.putInt("ReloadSec", 0);
         reloadTick = 0;
     }
