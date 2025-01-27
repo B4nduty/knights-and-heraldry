@@ -1,7 +1,6 @@
 package com.knightsheraldry.items.custom.item.khrangeweapon;
 
 import com.knightsheraldry.client.item.ArquebusModel;
-import com.knightsheraldry.client.item.HeavyCrossbowModel;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.item.KHRangeWeapon;
 import com.knightsheraldry.sounds.ModSounds;
