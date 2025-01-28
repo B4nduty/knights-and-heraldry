@@ -338,21 +338,46 @@ public class InGameHudMixin {
 
     @Unique
     private static final Identifier VISOR_HELMET = new Identifier(KnightsHeraldry.MOD_ID, "textures/overlay/visor_helmet.png");
+    @Unique
+    private static final Identifier LOW_STAMINA = new Identifier(KnightsHeraldry.MOD_ID, "textures/overlay/low_stamina.png");
 
     @Inject(method = "render", at = @At("HEAD"))
     private void knightsheraldry$renderBackgroundOverlays(DrawContext context, float tickDelta, CallbackInfo ci) {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        if (player != null && player.isCreative()) return;
+        RenderSystem.disableDepthTest();
+        RenderSystem.depthMask(false);
+        RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
+        int width = context.getScaledWindowWidth();
+        int height = context.getScaledWindowHeight();
         TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
             trinketComponent.getAllEquipped().forEach(pair -> {
                 ItemStack trinketStack = pair.getRight();
                 if (trinketStack.getItem() instanceof KHTrinketsItem && trinketStack.isIn(KHTags.VISORED_HELMET.getTag()) && KnightsHeraldry.config().getVisoredHelmet()) {
-                    int width = context.getScaledWindowWidth();
-                    int height = context.getScaledWindowHeight();
-
                     RenderSystem.setShaderTexture(0, VISOR_HELMET);
                     context.drawTexture(VISOR_HELMET, 0, 0, 0, 0, width, height, width, height);
                 }
             });
         });
+
+        IEntityDataSaver dataSaver = (IEntityDataSaver) player;
+        var persistentData = dataSaver.knightsheraldry$getPersistentData();
+
+        int stamina = persistentData.getInt("stamina_int");
+
+        long firstLevel = Math.absExact((int) (SharedParameters.TOTAL_STAMINA * 0.3f));
+        if (stamina <= firstLevel && KnightsHeraldry.config().getLowStaminaIndicator()) {
+            float opacity = Math.max(0.0f, Math.min(1.0f, (float) (firstLevel - stamina) / (firstLevel)));
+
+            RenderSystem.setShaderTexture(0, LOW_STAMINA);
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, opacity);
+            context.drawTexture(LOW_STAMINA, 0, 0, 0, 0, width, height, width, height);
+        }
+
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.depthMask(true);
+        RenderSystem.enableDepthTest();
+        RenderSystem.disableBlend();
     }
 }

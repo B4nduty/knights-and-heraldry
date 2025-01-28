@@ -34,4 +34,8 @@ public class ModConfigs {
     @Comment("Visored Helmet Overlay")
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
     public boolean getVisoredHelmet = true;
+
+    @Sync(Option.SyncMode.NONE)
+    @Comment("Low Stamina Indicator [Experimental]")
+    public boolean getLowStaminaIndicator = true;
 }
