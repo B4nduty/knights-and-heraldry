@@ -6,7 +6,7 @@ import com.knightsheraldry.datagen.ModItemTagProvider;
 import com.knightsheraldry.datagen.ModRecipeProvider;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.entity.ModEntities;
-import com.knightsheraldry.event.AttackEntityEventHandler;
+import com.knightsheraldry.event.PlayerAttackHit;
 import com.knightsheraldry.event.PlayerBlockBreakHandler;
 import com.knightsheraldry.event.StartTickHandler;
 import com.knightsheraldry.items.ModItemGroups;
@@ -16,6 +16,7 @@ import com.knightsheraldry.sounds.ModSounds;
 import com.knightsheraldry.util.loottable.ChestLootTableModifier;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.loottable.VillagerTradesModifier;
+import net.bettercombat.api.client.BetterCombatClientEvents;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -45,8 +46,8 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
         ModItemGroups.registerItemGroups();
         ModMessages.registerC2SPackets();
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
-        AttackEntityEventHandler.EVENT.register(new AttackEntityEventHandler());
         PlayerBlockBreakEvents.AFTER.register(new PlayerBlockBreakHandler());
+        BetterCombatClientEvents.ATTACK_HIT.register(new PlayerAttackHit());
         VillagerTradesModifier.registerCustomTrades();
         ChestLootTableModifier.modifyChestLootTables();
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {

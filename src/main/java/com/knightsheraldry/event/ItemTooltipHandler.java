@@ -3,8 +3,9 @@ package com.knightsheraldry.event;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
-import com.knightsheraldry.items.custom.item.KHRangeWeapons;
+import com.knightsheraldry.items.custom.item.KHRangeWeapon;
 import com.knightsheraldry.items.custom.item.KHWeapon;
+import com.knightsheraldry.items.custom.item.Lance;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
@@ -17,7 +18,7 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
     @Override
     public void getTooltip(ItemStack stack, TooltipContext context, List<Text> lines) {
         Text attackDamage = Text.translatable("attribute.name.generic.attack_damage");
-        if (stack.getItem() instanceof KHWeapon) lines.removeIf(line -> line.contains(attackDamage));
+        if (stack.getItem() instanceof KHWeapon || stack.getItem() instanceof Lance) lines.removeIf(line -> line.contains(attackDamage));
 
         if (stack.getItem() instanceof KHTrinketsItem khTrinketsItem
                 && khTrinketsItem.getHungerDrainAddition() != 0.0d) {
@@ -28,8 +29,8 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
         if (stack.getItem() == ModItems.HOOD || stack.getItem() == ModItems.TORN_HOOD) lines.add(Text.translatable("text.tooltip.knightsheraldry.hideNameTag").formatted(Formatting.BLUE));
         if (stack.getItem() == ModItems.CLOAK || stack.getItem() == ModItems.TORN_CLOAK) lines.add(Text.translatable("text.tooltip.knightsheraldry.freezing").formatted(Formatting.BLUE));
 
-        if (stack.getItem() instanceof KHRangeWeapons khRangeWeapons) {
-            lines.add(Text.translatable("text.tooltip.knightsheraldry.baseDamage", (int) khRangeWeapons.config.damageSettings().damage()).formatted(Formatting.GREEN));
+        if (stack.getItem() instanceof KHRangeWeapon khRangeWeapons) {
+            lines.add(Text.translatable("text.tooltip.knightsheraldry.baseDamage", (int) khRangeWeapons.baseDamage()).formatted(Formatting.GREEN));
         }
 
         if (stack.getItem() instanceof KHUnderArmorItem khArmorItem) {

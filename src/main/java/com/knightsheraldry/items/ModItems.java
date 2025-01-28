@@ -10,18 +10,18 @@ import com.knightsheraldry.items.custom.armor.KHDyeableUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.*;
-import com.knightsheraldry.sounds.ModSounds;
+import com.knightsheraldry.items.custom.item.khrangeweapon.Arquebus;
+import com.knightsheraldry.items.custom.item.khrangeweapon.Handgonne;
+import com.knightsheraldry.items.custom.item.khrangeweapon.HeavyCrossbow;
+import com.knightsheraldry.items.custom.item.khrangeweapon.Longbow;
+import com.knightsheraldry.items.custom.item.khweapon.*;
 import com.knightsheraldry.util.KHDamageCalculator;
-import com.knightsheraldry.util.itemdata.RangeWeaponConfig;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.UseAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -394,41 +394,17 @@ public class ModItems {
     public static final Item BLACK_POWDER = registerItem("black_powder",
             new Item(new OwoItemSettings()));
 
-    public static final Item LONGBOW = registerItem("longbow", new KHRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.PIERCING, 72000, 14f, 3.7f,
-            null,
-            UseAction.BOW, 0, false,
-            SoundEvents.ENTITY_ARROW_SHOOT
-    ));
+    public static final Item LONGBOW = registerItem("longbow",
+            new Longbow(new OwoItemSettings().maxCount(1).maxDamage(512)));
 
-    public static final Item HEAVY_CROSSBOW = registerItem("heavy_crossbow", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.PIERCING, 72000, 16f, 3f,
-            null,
-            UseAction.CROSSBOW, 5, false,
-            SoundEvents.ENTITY_ARROW_SHOOT
-    ));
+    public static final Item HEAVY_CROSSBOW = registerItem("heavy_crossbow",
+            new HeavyCrossbow(new OwoItemSettings().maxCount(1).maxDamage(512)));
 
-    public static final Item ARQUEBUS = registerItem("arquebus", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.BLUDGEONING, 1, 18f, 2.8f,
-            new RangeWeaponConfig.AmmoRequirement(
-                    1, ModItems.BLACK_POWDER, null,
-                    1, Items.IRON_NUGGET, Items.GRAVEL,
-                    1, Items.PAPER, Items.GRASS
-            ),
-            UseAction.BOW, 15, false,
-            ModSounds.ARQUEBUS_CLOSE_1, ModSounds.ARQUEBUS_CLOSE_2, ModSounds.ARQUEBUS_CLOSE_3
-    ));
+    public static final Item ARQUEBUS = registerItem("arquebus",
+            new Arquebus(new OwoItemSettings().maxCount(1).maxDamage(512)));
 
-    public static final Item HANDGONNE = registerItem("handgonne", new KHGeoRangeWeapons(new OwoItemSettings().maxCount(1).maxDamage(512),
-            KHDamageCalculator.DamageType.BLUDGEONING, 1, 26f, 1.9f,
-            new RangeWeaponConfig.AmmoRequirement(
-                    2, ModItems.BLACK_POWDER, null,
-                    1, Items.IRON_NUGGET, Items.GRAVEL,
-                    1, Items.PAPER, Items.GRASS
-            ),
-            UseAction.BOW, 15, true,
-            ModSounds.ARQUEBUS_CLOSE_1, ModSounds.ARQUEBUS_CLOSE_2, ModSounds.ARQUEBUS_CLOSE_3
-    ));
+    public static final Item HANDGONNE = registerItem("handgonne",
+            new Handgonne(new OwoItemSettings().maxCount(1).maxDamage(512)));
 
     public static final Item SWALLOWTAIL_ARROW = registerItem("swallowtail_arrow",
             new KHArrow(new OwoItemSettings(), KHSwallowTailArrowEntity::new));

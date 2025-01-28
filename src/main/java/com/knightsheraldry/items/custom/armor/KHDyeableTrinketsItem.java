@@ -17,7 +17,7 @@ public class KHDyeableTrinketsItem extends KHTrinketsItem implements DyeableItem
         return defaultColor;
     }
 
-    public boolean getOverlay() {
+    public boolean hasOverlay() {
         return overlay;
     }
 }

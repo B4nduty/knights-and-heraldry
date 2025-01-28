@@ -1,5 +1,6 @@
 package com.knightsheraldry;
 
+import com.knightsheraldry.client.KHTrinketsItemRenderer;
 import com.knightsheraldry.client.UnderArmourRenderer;
 import com.knightsheraldry.client.entity.*;
 import com.knightsheraldry.entity.ModEntities;
