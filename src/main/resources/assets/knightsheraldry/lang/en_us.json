@@ -194,6 +194,7 @@
   "text.config.knightsheraldry.option.wardartCooldown": "WarDart throw Cooldown",
   "text.config.knightsheraldry.option.getDamageIndicator": "Damage Indicator",
   "text.config.knightsheraldry.option.getVisoredHelmet": "Visored Helmet Overlay",
+  "text.config.knightsheraldry.option.getLowStaminaIndicator": "Low Stamina Indicator [Experimental]",
 
   "effect.knightsheraldry.pin": "Pin",
 

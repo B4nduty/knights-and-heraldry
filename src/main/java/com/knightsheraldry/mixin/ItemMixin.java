@@ -143,10 +143,9 @@ public class ItemMixin {
             if (stack.isIn(KHTags.WEAPONS_HARVEST.getTag()))
                 tooltip.add(Text.translatable("tooltip.knightsheraldry.right_click-replant"));
         }
-        if (stack.getItem() instanceof KHRangeWeapon khRangeWeapon) {
-            if (khRangeWeapon.ammoRequirement() != null)
-                tooltip.add(Text.translatable("tooltip.knightsheraldry.need_to_hold", KeyInputHandler.reload.getBoundKeyLocalizedText()));
-        }
+        if (stack.getItem() instanceof KHRangeWeapon khRangeWeapon
+                && khRangeWeapon.ammoRequirement() != null)
+            tooltip.add(Text.translatable("tooltip.knightsheraldry.need_to_hold", KeyInputHandler.reload.getBoundKeyLocalizedText()));
     }
 
     @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
