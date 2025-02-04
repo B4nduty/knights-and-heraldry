@@ -64,7 +64,7 @@ public class Handgonne extends Item implements KHRangeWeapon, GeoItem {
 
     @Override
     public int rechargeTime() {
-        return 15 * 20;
+        return 15;
     }
 
     @Override
@@ -112,7 +112,6 @@ public class Handgonne extends Item implements KHRangeWeapon, GeoItem {
     private PlayState predicate(AnimationState<Handgonne> animationState) {
         ItemStack itemStack = animationState.getData(DataTickets.ITEMSTACK);
         if (KHRangeWeaponUtil.getWeaponState(itemStack).isShooting()) animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));
-        else if (KHRangeWeaponUtil.getWeaponState(itemStack).isReloading()) animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
         else if (KHRangeWeaponUtil.getWeaponState(itemStack).isCharged()) animationState.getController().setAnimation(RawAnimation.begin().then("charged", Animation.LoopType.HOLD_ON_LAST_FRAME));
         else animationState.getController().setAnimation(RawAnimation.begin().then("unloaded", Animation.LoopType.HOLD_ON_LAST_FRAME));
         return PlayState.CONTINUE;

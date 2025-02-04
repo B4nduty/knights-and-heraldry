@@ -48,14 +48,13 @@ public class KHTrinketsItemRenderer implements TrinketRenderer {
 
     @Environment(EnvType.CLIENT)
     private void renderOverlayAndAdditions(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
-        if (stack.getItem() == ModItems.AVENTAIL) {
-            ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/aventail.png"));
-            return;
-        }
-
-        if (stack.getItem() instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.type == KHTrinketsItem.Type.HELMET) renderPartIfNeeded(stack, matrices, vertexConsumers, light, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), "aventail", getIdentifierWithSuffix("_aventail", khTrinketsItem));
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), "aventail", getIdentifierWithSuffix("_aventail", (KHTrinketsItem) stack.getItem()));
         renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "rimmed", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
         renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "besagews", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
+
+        if (stack.getItem() == ModItems.SURCOAT || stack.getItem() == ModItems.SURCOAT_SLEEVELESS) {
+            ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/surcoat_overlay.png"));
+        }
 
         if (stack.getItem() instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.hasOverlay()) {
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, getIdentifierWithSuffix("_overlay", khDyeableTrinketsItem));

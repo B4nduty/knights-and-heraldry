@@ -11,6 +11,9 @@ import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.*;
 import com.knightsheraldry.items.custom.item.WoodenLance;
 import com.knightsheraldry.networking.ModMessages;
+import com.knightsheraldry.particle.ModParticles;
+import com.knightsheraldry.particle.MuzzlesFlashParticle;
+import com.knightsheraldry.particle.MuzzlesSmokeParticle;
 import com.knightsheraldry.util.DyeUtil;
 import com.knightsheraldry.util.itemdata.ModModelPredicates;
 import dev.emi.trinkets.api.client.TrinketRendererRegistry;
@@ -18,6 +21,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -44,6 +48,9 @@ public class KnightsHeraldryClient implements ClientModInitializer {
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
 
         ModItems.items.forEach(ModModelPredicates::registerModelPredicates);
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.MUZZLES_SMOKE_PARTICLE, MuzzlesSmokeParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.MUZZLES_FLASH_PARTICLE, MuzzlesFlashParticle.Factory::new);
 
         ModItems.items.forEach(item -> {
             if ((item instanceof KHDyeableTrinketsItem) || (item instanceof KHDyeableUnderArmorItem) || item instanceof WoodenLance) {

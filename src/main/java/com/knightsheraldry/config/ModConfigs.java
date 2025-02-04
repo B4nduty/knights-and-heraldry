@@ -3,10 +3,7 @@ package com.knightsheraldry.config;
 import blue.endless.jankson.Comment;
 import com.knightsheraldry.KnightsHeraldry;
 import io.wispforest.owo.config.Option;
-import io.wispforest.owo.config.annotation.Config;
-import io.wispforest.owo.config.annotation.Modmenu;
-import io.wispforest.owo.config.annotation.RangeConstraint;
-import io.wispforest.owo.config.annotation.Sync;
+import io.wispforest.owo.config.annotation.*;
 
 @Modmenu(modId = KnightsHeraldry.MOD_ID)
 @Config(name = KnightsHeraldry.MOD_ID, wrapperName = "KHConfig")
@@ -38,4 +35,9 @@ public class ModConfigs {
     @Sync(Option.SyncMode.NONE)
     @Comment("Low Stamina Indicator [Experimental]")
     public boolean getLowStaminaIndicator = true;
+
+    @RestartRequired
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    @Comment("Muzzles Smoke Particles Time Active (In Seconds)")
+    public int getMuzzlesSmokeParticlesTime = 60;
 }

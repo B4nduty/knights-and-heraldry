@@ -30,7 +30,7 @@ public class ModModelPredicates {
 
     private static void registerEasterEggPredicates(Item item) {
         if (item == ModItems.LONGBOW) ModelPredicateProviderRegistry.register(item, new Identifier("longbow_xxxl"), (stack, world, entity, seed) ->
-                Objects.equals(stack.getName(), Text.literal("Longbow XXXL")) ? 1.0F : 0.0F);
+                Objects.equals(stack.getName(), Text.translatable("item.knightsheraldry.easter_egg.longbow_xxxl")) ? 1.0F : 0.0F);
     }
 
     private static void registerArmorPredicates(Item item) {

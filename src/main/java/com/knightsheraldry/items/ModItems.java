@@ -348,7 +348,7 @@ public class ModItems {
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/sabatons.png")));
 
     public static final Item AVENTAIL = registerItem("aventail",
-            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.HELMET,
+            new KHTrinketsItem(new OwoItemSettings().maxCount(1), KHTrinketsItem.Type.CHESTPLATE,
                     0, 2, 0.0d,
                     new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/aventail.png")));
 

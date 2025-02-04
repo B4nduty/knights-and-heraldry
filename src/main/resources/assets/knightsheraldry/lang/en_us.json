@@ -213,5 +213,9 @@
   "event.knightsheraldry.recharged": "Has been Recharged",
 
   "key.category.knightsheraldry": "Knights & Heraldry",
-  "key.knightsheraldry.reload": "Reload"
+  "key.knightsheraldry.reload": "Reload",
+
+  "item.knightsheraldry.easter_egg.longbow_xxxl": "Longbow XXXL",
+  "item.knightsheraldry.easter_egg.legacy_handgonne": "Legacy Handgonne",
+  "item.knightsheraldry.easter_egg.legacy_arquebus": "Legacy Arquebus"
 }

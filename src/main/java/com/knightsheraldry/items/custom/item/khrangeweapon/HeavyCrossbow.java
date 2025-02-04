@@ -58,7 +58,7 @@ public class HeavyCrossbow extends Item implements KHRangeWeapon, GeoItem {
 
     @Override
     public int rechargeTime() {
-        return 5 * 20;
+        return 5;
     }
 
     @Override

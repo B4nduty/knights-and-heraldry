@@ -4,17 +4,22 @@ import com.knightsheraldry.entity.custom.KHArrowEntity;
 import com.knightsheraldry.entity.custom.KHBulletEntity;
 import com.knightsheraldry.items.custom.item.KHArrow;
 import com.knightsheraldry.items.custom.item.KHRangeWeapon;
+import com.knightsheraldry.particle.ModParticles;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -78,6 +83,52 @@ public class KHRangeWeaponUtil {
         if (!player.isCreative()) {
             stack.damage(1, player, p -> p.sendToolBreakStatus(player.getActiveHand()));
         }
+
+        if (world instanceof ServerWorld serverWorld) {
+            spawnSmokeTrail(serverWorld, player, player.getActiveHand());
+            spawnFlashTrail(serverWorld, player, player.getActiveHand());
+        }
+    }
+
+    private static void spawnSmokeTrail(ServerWorld world, PlayerEntity player, Hand hand) {
+        Vec3d handPos = getHandPosition(player, hand);
+        Vec3d lookDir = player.getRotationVec(1.0F);
+
+        List<Vec3d> trailPositions = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            trailPositions.add(handPos.add(lookDir.multiply(i)));
+        }
+
+        for (Vec3d pos : trailPositions) {
+            world.spawnParticles(ModParticles.MUZZLES_SMOKE_PARTICLE, pos.x, pos.y, pos.z, 200, 0, 0, 0, 0.05);
+        }
+    }
+
+    private static void spawnFlashTrail(ServerWorld world, PlayerEntity player, Hand hand) {
+        Vec3d handPos = getHandPosition(player, hand);
+        Vec3d lookDir = player.getRotationVec(1.0F);
+
+        List<Vec3d> trailPositions = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            trailPositions.add(handPos.add(lookDir.multiply(i)));
+        }
+
+        for (Vec3d pos : trailPositions) {
+            world.spawnParticles(ModParticles.MUZZLES_FLASH_PARTICLE, pos.x, pos.y, pos.z, 1, 0, 0, 0, 0.1);
+        }
+    }
+
+    private static Vec3d getHandPosition(PlayerEntity player, Hand hand) {
+        boolean isMainHand = hand == Hand.MAIN_HAND;
+
+        double xOffset = isMainHand ? 0.1 : -0.1;
+        double yOffset = 1.5;
+        double zOffset = 1.5;
+
+        Vec3d basePos = player.getPos().add(0, yOffset, 0);
+        Vec3d sideOffset = player.getRotationVec(1.0F).crossProduct(new Vec3d(0, 1, 0)).multiply(xOffset);
+
+        return basePos.add(sideOffset).add(player.getRotationVec(1.0F).multiply(zOffset));
     }
 
     public static void loadAndPlayCrossbowSound(World world, ItemStack stack, PlayerEntity player, ItemStack arrowStack) {

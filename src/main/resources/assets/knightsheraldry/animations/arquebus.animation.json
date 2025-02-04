@@ -2,236 +2,65 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"shoot": {
-			"animation_length": 0.3333,
+			"animation_length": 0.25,
 			"bones": {
-				"main": {
+				"body": {
 					"rotation": {
+						"0.0": {
+							"vector": [-10, 0, 0]
+						},
 						"0.125": {
-							"vector": [
-								0,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.2083": {
-							"vector": [
-								-7.5,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.2917": {
-							"vector": [
-								0,
-								0,
-								0
-							],
-							"easing": "linear"
+							"vector": [0, 0, 0]
 						}
 					},
 					"position": {
+						"0.0": {
+							"vector": [0, 0, 2]
+						},
 						"0.0833": {
-							"vector": [
-								0,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.125": {
-							"vector": [
-								0,
-								0,
-								2
-							],
-							"easing": "linear"
-						},
-						"0.2917": {
-							"vector": [
-								0,
-								0,
-								0
-							],
-							"easing": "linear"
+							"vector": [0, 0, 0]
 						}
 					}
 				},
-				"muzzleflash": {
-					"scale": {
-						"0.0833": {
-							"vector": [
-								0,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.125": {
-							"vector": [
-								1,
-								1,
-								1
-							],
-							"easing": "linear"
-						},
-						"0.1667": {
-							"vector": [
-								0,
-								0,
-								0
-							],
-							"easing": "linear"
-						}
-					}
-				},
-				"muzzleflash2": {
-					"scale": {
-						"0.125": {
-							"vector": [
-								0,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.1667": {
-							"vector": [
-								1,
-								1,
-								1
-							],
-							"easing": "linear"
-						},
-						"0.2083": {
-							"vector": [
-								0,
-								0,
-								0
-							],
-							"easing": "linear"
-						}
-					}
-				},
-				"hammer": {
+				"flint": {
 					"rotation": {
 						"0.0": {
-							"vector": [
-								-35,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.125": {
-							"vector": [
-								25,
-								0,
-								0
-							],
-							"easing": "linear"
-						}
-					}
-				},
-				"string": {
-					"rotation": {
-						"0.0": {
-							"vector": [
-								25,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.0833": {
-							"vector": [
-								-17.5,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.125": {
-							"vector": [
-								-35,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.2917": {
-							"vector": [
-								-20,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.3333": {
-							"vector": [
-								-25,
-								0,
-								0
-							],
-							"easing": "linear"
-						}
-					}
-				},
-				"matchend": {
-					"rotation": {
-						"0.0": {
-							"vector": [
-								55,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.0833": {
-							"vector": [
-								37.5,
-								0,
-								0
-							],
-							"easing": "linear"
-						}
-					}
-				},
-				"muzzleflash3": {
-					"rotation": {
-						"vector": [
-							0,
-							90,
-							0
-						],
-						"easing": "linear"
-					},
-					"scale": {
-						"0.0833": {
-							"vector": [
-								0,
-								0,
-								0
-							],
-							"easing": "linear"
-						},
-						"0.125": {
-							"vector": [
-								0.5,
-								0.5,
-								0.5
-							],
-							"easing": "linear"
+							"vector": [-45, 0, 0]
 						},
 						"0.1667": {
-							"vector": [
-								0,
-								0,
-								0
-							],
-							"easing": "linear"
+							"vector": [-45, 0, 0]
+						},
+						"0.25": {
+							"vector": [25, 0, 0]
 						}
+					}
+				},
+				"lever": {
+					"rotation": {
+						"0.0": {
+							"vector": [25, 0, 0]
+						},
+						"0.1667": {
+							"vector": [25, 0, 0]
+						},
+						"0.25": {
+							"vector": [-10, 0, 0]
+						}
+					}
+				}
+			}
+		},
+		"unloaded": {
+			"loop": true,
+			"bones": {
+				"flint": {
+					"rotation": {
+						"vector": [25, 0, 0]
+					}
+				},
+				"lever": {
+					"rotation": {
+						"vector": [-10, 0, 0]
 					}
 				}
 			}
@@ -239,157 +68,14 @@
 		"charged": {
 			"loop": true,
 			"bones": {
-				"main": {
-					"position": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
-					}
-				},
-				"muzzleflash": {
-					"scale": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
-					}
-				},
-				"muzzleflash2": {
-					"scale": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
-					}
-				},
-				"hammer": {
+				"flint": {
 					"rotation": {
-						"vector": [
-							-35,
-							0,
-							0
-						],
-						"easing": "linear"
+						"vector": [-45, 0, 0]
 					}
 				},
-				"string": {
+				"lever": {
 					"rotation": {
-						"vector": [
-							25,
-							0,
-							0
-						],
-						"easing": "linear"
-					}
-				},
-				"matchend": {
-					"rotation": {
-						"vector": [
-							55,
-							0,
-							0
-						],
-						"easing": "linear"
-					}
-				},
-				"muzzleflash3": {
-					"scale": {
-						"vector": [
-							0,
-							0,
-							0
-						],
-						"easing": "linear"
-					}
-				}
-			}
-		},
-		"unloaded": {
-			"animation_length": 0.5,
-			"bones": {
-				"main": {
-					"rotation": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
-					},
-					"position": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
-					}
-				},
-				"hammer": {
-					"rotation": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
-					}
-				},
-				"muzzleflash": {
-					"scale": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
-					}
-				},
-				"muzzleflash2": {
-					"scale": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
-					}
-				},
-				"string": {
-					"rotation": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
-					}
-				},
-				"matchend": {
-					"rotation": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
-					}
-				},
-				"muzzleflash3": {
-					"scale": {
-						"vector": [
-							"linear",
-							"linear",
-							"linear"
-						],
-						"easing": "linear"
+						"vector": [10, 0, 0]
 					}
 				}
 			}

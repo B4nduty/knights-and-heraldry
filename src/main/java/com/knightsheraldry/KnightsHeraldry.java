@@ -12,6 +12,7 @@ import com.knightsheraldry.event.StartTickHandler;
 import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.networking.ModMessages;
+import com.knightsheraldry.particle.ModParticles;
 import com.knightsheraldry.sounds.ModSounds;
 import com.knightsheraldry.util.loottable.ChestLootTableModifier;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
@@ -50,6 +51,7 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
         BetterCombatClientEvents.ATTACK_HIT.register(new PlayerAttackHit());
         VillagerTradesModifier.registerCustomTrades();
         ChestLootTableModifier.modifyChestLootTables();
+        ModParticles.registerParticles();
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             ServerPlayerEntity player = handler.getPlayer();
             if (player != null) {

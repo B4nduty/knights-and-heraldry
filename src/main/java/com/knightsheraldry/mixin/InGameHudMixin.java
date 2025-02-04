@@ -370,8 +370,13 @@ public class InGameHudMixin {
         if (stamina <= firstLevel && KnightsHeraldry.config().getLowStaminaIndicator()) {
             float opacity = Math.max(0.0f, Math.min(1.0f, (float) (firstLevel - stamina) / (firstLevel)));
 
+            float red = 1.0F;
+            float green = (float) stamina / firstLevel;
+            if (persistentData.getBoolean("stamina_blocked")) green = 0;
+            float blue = 0.0F;
+
             RenderSystem.setShaderTexture(0, LOW_STAMINA);
-            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, opacity);
+            RenderSystem.setShaderColor(red, green, blue, opacity);
             context.drawTexture(LOW_STAMINA, 0, 0, 0, 0, width, height, width, height);
         }
 
