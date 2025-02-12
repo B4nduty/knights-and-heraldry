@@ -82,9 +82,6 @@ public class ModItems {
     public static final Item SCIMITAR = registerItem("scimitar",
             new Falchion(-2.5F, new OwoItemSettings().maxDamage(251)));
 
-    public static final Item KATANA = registerItem("katana",
-            new Katana(-2.4F, new OwoItemSettings().maxDamage(251)));
-
     public static final Item PITCHFORK = registerItem("pitchfork",
             new Pitchfork(-2.6F, new OwoItemSettings().maxDamage(251)));
 

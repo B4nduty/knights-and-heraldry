@@ -1,45 +1,112 @@
 {
-	"parent": "item/handheld",
+	"credit": "Made with Blockbench",
 	"textures": {
-		"layer0": "knightsheraldry:item/mace_3d"
+		"0": "knightsheraldry:item/mace_3d",
+		"particle": "knightsheraldry:item/mace_3d"
 	},
-	"overrides": [
-		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/mace_3d_blocking" }
+	"elements": [
+		{
+			"from": [7.5, -8, 7.5],
+			"to": [8.5, 8, 8.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [8, 8, 8.5, 16], "texture": "#0"},
+				"east": {"uv": [8, 8, 8.5, 16], "texture": "#0"},
+				"south": {"uv": [8, 8, 8.5, 16], "texture": "#0"},
+				"west": {"uv": [8, 8, 8.5, 16], "texture": "#0"},
+				"up": {"uv": [8, 8, 8.5, 16], "texture": "#0"},
+				"down": {"uv": [8, 15.5, 8.5, 16], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.5, 8, 7.5],
+			"to": [8.5, 11, 8.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [8, 6.5, 8.5, 8], "texture": "#0"},
+				"east": {"uv": [8, 6.5, 8.5, 8], "texture": "#0"},
+				"south": {"uv": [8, 6.5, 8.5, 8], "texture": "#0"},
+				"west": {"uv": [8, 6.5, 8.5, 8], "texture": "#0"},
+				"up": {"uv": [8, 6.5, 8.5, 7], "texture": "#0"},
+				"down": {"uv": [8, 6.5, 8.5, 8], "texture": "#0"}
+			}
+		},
+		{
+			"from": [8, 5, 4.5],
+			"to": [8, 10, 7.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 5], "texture": "#missing"},
+				"east": {"uv": [8.5, 7, 10, 9.5], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 5], "texture": "#missing"},
+				"west": {"uv": [6.5, 7, 8, 9.5], "texture": "#0"},
+				"up": {"uv": [0, 0, 0, 3], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 3], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [8, 5, 8.5],
+			"to": [8, 10, 11.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 5], "texture": "#missing"},
+				"east": {"uv": [6.5, 7, 8, 9.5], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 5], "texture": "#missing"},
+				"west": {"uv": [8.5, 7, 10, 9.5], "texture": "#0"},
+				"up": {"uv": [0, 0, 0, 3], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 3], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [8.5, 5, 8],
+			"to": [11.5, 10, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [6.5, 7, 8, 9.5], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 5], "texture": "#missing"},
+				"south": {"uv": [8.5, 7, 10, 9.5], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 5], "texture": "#missing"},
+				"up": {"uv": [0, 0, 3, 0], "texture": "#missing"},
+				"down": {"uv": [0, 0, 3, 0], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [4.5, 5, 8],
+			"to": [7.5, 10, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [8.5, 7, 10, 9.5], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 5], "texture": "#missing"},
+				"south": {"uv": [6.5, 7, 8, 9.5], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 5], "texture": "#missing"},
+				"up": {"uv": [0, 0, 3, 0], "texture": "#missing"},
+				"down": {"uv": [0, 0, 3, 0], "texture": "#missing"}
+			}
+		}
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [0, -90, 0],
-			"translation": [-0.25, 10, 1.75],
-			"scale": [2, 2, 1]
+			"translation": [0, 10, 1.75]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [0, -90, 0],
-			"translation": [-0.25, 10, 1.75],
-			"scale": [2, 2, 1]
+			"translation": [0, 10, 1.75]
 		},
 		"firstperson_righthand": {
-			"rotation": [-17, -90, 0],
-			"translation": [-1.25, 10, 1.75],
-			"scale": [2, 2, 1]
+			"translation": [0, 10, 0.75]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-17, -90, 0],
-			"translation": [-1.25, 10, 1.75],
-			"scale": [2, 2, 1]
-		},
-		"ground": {
-			"rotation": [-180, 0, 0],
-			"translation": [0, -12.5, -16]
-		},
-		"gui": {
-			"rotation": [-180, 0, 45],
-			"translation": [-22.5, -22.5, 0],
-			"scale": [2, 2, 1]
-		},
-		"fixed": {
-			"rotation": [-180, 0, 0],
-			"translation": [0, -32, -16.75],
-			"scale": [2, 2, 1]
+			"translation": [0, 10, 0.75]
 		}
-	}
+	},
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3, 4, 5]
+		}
+	],
+	"overrides": [
+		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/mace_3d_blocking" }
+	]
 }

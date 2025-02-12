@@ -40,4 +40,8 @@ public class ModConfigs {
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
     @Comment("Muzzles Smoke Particles Time Active (In Seconds)")
     public int getMuzzlesSmokeParticlesTime = 60;
+
+    @Sync(Option.SyncMode.NONE)
+    @Comment("Parry [Experimental]")
+    public boolean getParry = true;
 }

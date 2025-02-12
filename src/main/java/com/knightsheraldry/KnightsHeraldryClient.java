@@ -9,7 +9,7 @@ import com.knightsheraldry.event.ItemTooltipHandler;
 import com.knightsheraldry.event.KeyInputHandler;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.custom.armor.*;
-import com.knightsheraldry.items.custom.item.WoodenLance;
+import com.knightsheraldry.items.custom.item.khweapon.WoodenLance;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.particle.ModParticles;
 import com.knightsheraldry.particle.MuzzlesFlashParticle;

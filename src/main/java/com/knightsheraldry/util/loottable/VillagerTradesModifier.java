@@ -116,7 +116,6 @@ public class VillagerTradesModifier {
                 addTradeOffer(factories, 15, 12, 10, ModItems.BILLHOOK);
                 addRandomTradeOffer(factories, 30, 12, 10, ModItems.LONGSWORD, ModItems.V_LONGSWORD);
                 addRandomTradeOffer(factories, 15, 12, 10, ModItems.GLAIVE, ModItems.CURVED_GLAIVE);
-                addTradeOffer(factories, 18, 12, 10, ModItems.KATANA);
                 addTradeOffer(factories, 13, 12, 10, ModItems.LANCE);
                 addTradeOffer(factories, 5, 12, 10, ModItems.STILETTO);
             }

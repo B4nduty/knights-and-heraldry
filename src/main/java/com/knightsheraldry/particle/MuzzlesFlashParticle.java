@@ -16,7 +16,7 @@ public class MuzzlesFlashParticle extends SpriteBillboardParticle {
         this.velocityY = yd;
         this.velocityZ = zd;
 
-        this.scale *= 1f;
+        this.scale *= 2f;
         this.maxAge = 10;
         this.spriteProvider = spriteSet;
         this.setSpriteForAge(spriteSet);

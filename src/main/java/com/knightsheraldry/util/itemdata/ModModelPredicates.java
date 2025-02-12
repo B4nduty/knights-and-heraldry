@@ -36,13 +36,13 @@ public class ModModelPredicates {
     private static void registerArmorPredicates(Item item) {
         ModelPredicateProviderRegistry.register(item, new Identifier("aventail"),
                 (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
-                        && stack.getOrCreateNbt().getBoolean("aventail") ? 1.0F : 0.0F);
+                        && stack.getOrCreateNbt().getBoolean("kh_aventail") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("rimmed"),
                 (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
-                        && stack.getOrCreateNbt().getBoolean("rimmed") ? 1.0F : 0.0F);
+                        && stack.getOrCreateNbt().getBoolean("kh_rimmed") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("besagews"),
                 (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
-                        && stack.getOrCreateNbt().getBoolean("besagews") ? 1.0F : 0.0F);
+                        && stack.getOrCreateNbt().getBoolean("kh_besagews") ? 1.0F : 0.0F);
     }
 
     private static void registerWeaponPredicates(Item item) {
@@ -50,12 +50,12 @@ public class ModModelPredicates {
                 (stack, world, entity, seed) -> entity != null
                         && (entity.getMainHandStack() == stack || entity.getOffHandStack() == stack)
                         && stack.getOrCreateNbt() != null
-                        && stack.getOrCreateNbt().getBoolean("Charged") ? 1.0F : 0.0F);
+                        && stack.getOrCreateNbt().getBoolean("kh_charged") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
                 (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
 
         ModelPredicateProviderRegistry.register(item, new Identifier("bludgeoning"),
                 (stack, world, entity, seed) -> stack.getOrCreateNbt() != null
-                        && stack.getOrCreateNbt().getBoolean("Bludgeoning") ? 1.0F : 0.0F);
+                        && stack.getOrCreateNbt().getBoolean("kh_bludgeoning") ? 1.0F : 0.0F);
     }
 }

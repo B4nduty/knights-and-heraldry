@@ -1,7 +1,7 @@
 package com.knightsheraldry.event;
 
 import com.knightsheraldry.items.custom.item.KHWeapon;
-import com.knightsheraldry.items.custom.item.Lance;
+import com.knightsheraldry.items.custom.item.khweapon.Lance;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import net.bettercombat.api.AttackHand;

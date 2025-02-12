@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-23T00:23:49.749021	Knights & Heraldry/Recipes
+// 1.20.1	2025-02-10T02:27:44.0430972	Knights & Heraldry/Recipes
 9ddaaffd00cdb035657ca683d1d60a2735e23d8a data\knightsheraldry\advancements\recipes\misc\bascinet_no_visor.json
 94fa46371a08c7f25c36ddf7ba43e57300401041 data\knightsheraldry\advancements\recipes\misc\cage_2.json
 4f557ca060e7be405e7941ea52fa35ed0a3a3e5f data\knightsheraldry\advancements\recipes\misc\mace.json
@@ -23,8 +23,8 @@ f10286813a999f0e54136aed20d0f077937e66d9 data\knightsheraldry\recipes\ball_flail
 e0610eff1ba1dccd3de79824f69dd4f58103a8ab data\knightsheraldry\recipes\spiked_mace.json
 907d849f5907202b0e42b75f078ccd516496911d data\knightsheraldry\recipes\falchion.json
 6b874a29c21f70eeea37c8bd87dc1d9d33cfcfdf data\knightsheraldry\recipes\besagews_3.json
-d0f3a77707b0bf21815d4152db855f2c80156b96 data\knightsheraldry\recipes\scimitar.json
 3fab8eb6549235bdc2b19ca084df74da81748446 data\knightsheraldry\advancements\recipes\misc\warsword_zweihander.json
+d0f3a77707b0bf21815d4152db855f2c80156b96 data\knightsheraldry\recipes\scimitar.json
 1a31ea0e28cf879f7f694e755a0120d3bdb7ebb6 data\knightsheraldry\advancements\recipes\misc\besagews_3.json
 65752a7e9d36480c419afb357e1047641cc984f0 data\knightsheraldry\advancements\recipes\misc\flail.json
 c9575295210f35025b7d58b3266d0639e96f91d3 data\knightsheraldry\recipes\v_longsword.json

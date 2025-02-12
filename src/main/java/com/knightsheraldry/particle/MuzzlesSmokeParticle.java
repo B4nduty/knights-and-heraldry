@@ -12,12 +12,16 @@ public class MuzzlesSmokeParticle extends SpriteBillboardParticle {
                                 SpriteProvider spriteSet, double xd, double yd, double zd) {
         super(world, xCoord, yCoord, zCoord, xd, yd, zd);
 
-        this.velocityMultiplier = 0.85f;
+        this.velocityMultiplier = Math.max(0.99f + (KnightsHeraldry.config().getMuzzlesSmokeParticlesTime() / 20000f), 0.997f);
         this.velocityX = xd;
         this.velocityY = yd;
         this.velocityZ = zd;
 
-        this.scale *= 0.75f;
+        this.velocityX += (world.random.nextDouble() - 0.5) * 0.02;
+        this.velocityY += world.random.nextDouble() * 0.02;
+        this.velocityZ += (world.random.nextDouble() - 0.5) * 0.02;
+
+        this.scale *= 0.6f;
         this.maxAge = KnightsHeraldry.config().getMuzzlesSmokeParticlesTime() * 20;
         this.spriteProvider = spriteSet;
         this.setSpriteForAge(spriteSet);

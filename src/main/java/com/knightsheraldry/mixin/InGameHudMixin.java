@@ -72,7 +72,7 @@ public class InGameHudMixin {
             }
 
             if (weapon != null) {
-                boolean bludgeoning = player.getMainHandStack().getOrCreateNbt().getBoolean("Bludgeoning");
+                boolean bludgeoning = player.getMainHandStack().getOrCreateNbt().getBoolean("kh_bludgeoning");
                 if (mainHandStack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())) bludgeoning = !bludgeoning;
                 boolean piercing = isPiercing((PlayerAttackProperties) player, weapon);
                 float[] damageValues = weapon.getAttackDamageValues();

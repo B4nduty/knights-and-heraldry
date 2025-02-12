@@ -56,7 +56,7 @@ public class KHTrinketsItem extends TrinketItem {
     @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
-        double toughness = this.attributes.toughness() + (stack.getOrCreateNbt().getBoolean("aventail") ? 2 : 0);
+        double toughness = this.attributes.toughness() + (stack.getOrCreateNbt().getBoolean("kh_aventail") ? 2 : 0);
 
         if (attributes.armor() > 0 || toughness > 0) {
             modifiers.put(EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(uuid,
@@ -70,9 +70,9 @@ public class KHTrinketsItem extends TrinketItem {
     @Override
     public Text getName(ItemStack stack) {
         StringBuilder translationKey = new StringBuilder(stack.getTranslationKey());
-        if (stack.getOrCreateNbt().getBoolean("aventail")) translationKey.append("_aventail");
-        if (stack.getOrCreateNbt().getBoolean("rimmed")) translationKey.append("_rimmed");
-        if (stack.getOrCreateNbt().getBoolean("besagews")) translationKey.append("_besagews");
+        if (stack.getOrCreateNbt().getBoolean("kh_aventail")) translationKey.append("_aventail");
+        if (stack.getOrCreateNbt().getBoolean("kh_rimmed")) translationKey.append("_rimmed");
+        if (stack.getOrCreateNbt().getBoolean("kh_besagews")) translationKey.append("_besagews");
         return Text.translatable(translationKey.toString());
     }
 
@@ -93,9 +93,9 @@ public class KHTrinketsItem extends TrinketItem {
     private void applyCraftingModifiers(ItemStack stack, int slotCount, java.util.function.IntFunction<Slot> slotSupplier) {
         for (int i = 0; i < slotCount; i++) {
             ItemStack ingredient = slotSupplier.apply(i).getStack();
-            if (ingredient.getItem() == ModItems.AVENTAIL) stack.getOrCreateNbt().putBoolean("aventail", true);
-            if (ingredient.getItem() == ModItems.RIM_GUARDS) stack.getOrCreateNbt().putBoolean("rimmed", true);
-            if (ingredient.getItem() == ModItems.BESAGEWS) stack.getOrCreateNbt().putBoolean("besagews", true);
+            if (ingredient.getItem() == ModItems.AVENTAIL) stack.getOrCreateNbt().putBoolean("kh_aventail", true);
+            if (ingredient.getItem() == ModItems.RIM_GUARDS) stack.getOrCreateNbt().putBoolean("kh_rimmed", true);
+            if (ingredient.getItem() == ModItems.BESAGEWS) stack.getOrCreateNbt().putBoolean("kh_besagews", true);
         }
     }
 

@@ -30,9 +30,9 @@ public class ModItemGroups {
 
     private static ItemStack armorStack(ItemConvertible item, boolean aventail, boolean rimmed, boolean besagews) {
         ItemStack armorStack = new ItemStack(item);
-        armorStack.getOrCreateNbt().putBoolean("aventail", aventail);
-        armorStack.getOrCreateNbt().putBoolean("rimmed", rimmed);
-        armorStack.getOrCreateNbt().putBoolean("besagews", besagews);
+        armorStack.getOrCreateNbt().putBoolean("kh_aventail", aventail);
+        armorStack.getOrCreateNbt().putBoolean("kh_rimmed", rimmed);
+        armorStack.getOrCreateNbt().putBoolean("kh_besagews", besagews);
         return armorStack;
     }
 
@@ -73,7 +73,6 @@ public class ModItemGroups {
                 weaponStack(ModItems.V_LONGSWORD),
                 weaponStack(ModItems.FALCHION),
                 weaponStack(ModItems.SCIMITAR),
-                weaponStack(ModItems.KATANA),
                 weaponStack(ModItems.PITCHFORK),
                 weaponStack(ModItems.SPEAR),
                 weaponStack(ModItems.PIKE),

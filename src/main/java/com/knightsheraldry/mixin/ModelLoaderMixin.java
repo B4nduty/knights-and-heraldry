@@ -46,7 +46,6 @@ public abstract class ModelLoaderMixin {
                 "v_longsword_3d",
                 "falchion_3d",
                 "scimitar_3d",
-                "katana_3d",
                 "pitchfork_3d",
                 "spear_3d",
                 "pike_3d",

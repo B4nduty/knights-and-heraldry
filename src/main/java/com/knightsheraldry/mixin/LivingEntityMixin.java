@@ -1,8 +1,9 @@
 package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
+import com.knightsheraldry.event.custom.LivingEntityDamageEvents;
 import com.knightsheraldry.items.custom.item.KHWeapon;
-import com.knightsheraldry.items.custom.item.Lance;
+import com.knightsheraldry.items.custom.item.khweapon.Lance;
 import com.knightsheraldry.util.itemdata.KHTags;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import net.minecraft.entity.LivingEntity;
@@ -28,33 +29,37 @@ public abstract class LivingEntityMixin {
     @Unique
     private int stuckSwallowTailArrowTimer;
 
+    @Unique
+    private boolean blockShield = true;
+
+    @Unique
+    private static final int SWALLOWTAIL_ARROW_COOLDOWN = 20 * 30;
+    @Unique
+    private static final int SWALLOWTAIL_ARROW_DECREMENT = 1;
+
     @Inject(method = "jump", at = @At("HEAD"), cancellable = true)
     private void knightsheraldry$onJump(CallbackInfo ci) {
-        LivingEntity entity = (LivingEntity)(Object) this;
-        if (entity instanceof PlayerEntity playerEntity
-                && ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getBoolean("stamina_blocked")) {
+        LivingEntity entity = (LivingEntity) (Object) this;
+        if (entity instanceof PlayerEntity player && isStaminaBlocked(player)) {
             ci.cancel();
         }
     }
 
     @Inject(method = "setSprinting", at = @At("HEAD"), cancellable = true)
     private void knightsheraldry$onSprinting(CallbackInfo ci) {
-        LivingEntity entity = (LivingEntity)(Object) this;
-        if (entity instanceof PlayerEntity playerEntity
-                && ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getBoolean("stamina_blocked")) {
+        LivingEntity entity = (LivingEntity) (Object) this;
+        if (entity instanceof PlayerEntity player && isStaminaBlocked(player)) {
             ci.cancel();
         }
     }
 
     @Inject(method = "setCurrentHand", at = @At("HEAD"), cancellable = true)
     private void knightsheraldry$onSetCurrentHand(Hand hand, CallbackInfo ci) {
-        LivingEntity entity = (LivingEntity)(Object) this;
-        if (entity instanceof PlayerEntity playerEntity
-                && ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getBoolean("stamina_blocked")) {
+        LivingEntity entity = (LivingEntity) (Object) this;
+        if (entity instanceof PlayerEntity player && isStaminaBlocked(player)) {
             ci.cancel();
         }
     }
-
 
     @Inject(method = "disablesShield", at = @At("HEAD"), cancellable = true)
     public void knightsheraldry$disablesShield(CallbackInfoReturnable<Boolean> cir) {
@@ -80,60 +85,54 @@ public abstract class LivingEntityMixin {
 
     @ModifyVariable(method = "damage", at = @At("HEAD"), argsOnly = true)
     private float knightsheraldry$modifyDamageAmount(float amount, DamageSource source) {
-        if (source.getAttacker() instanceof PlayerEntity playerEntity) {
-            if (amount > 1 && playerEntity.hasStatusEffect(StatusEffects.STRENGTH)) {
-                int amplifier = playerEntity.getStatusEffect(StatusEffects.STRENGTH).getAmplifier();
-                amount += (float) (3 * (amplifier + 1));
-            }
-
-            if (playerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
-                int amplifier = playerEntity.getStatusEffect(StatusEffects.WEAKNESS).getAmplifier();
-                amount -= (float) (4 * (amplifier + 1));
-            }
-
-            if (amount <= 0) amount = 0;
-        }
-
-        return amount;
+        return LivingEntityDamageEvents.EVENT.invoker().onDamage((LivingEntity) (Object) this, source, amount);
     }
 
     @Inject(method = "applyDamage", at = @At("TAIL"))
     private void knightsheraldry$sendDamage(DamageSource source, float amount, CallbackInfo ci) {
-        if (KnightsHeraldry.config().getDamageIndicator() && source.getAttacker() instanceof PlayerEntity playerEntity
-                && playerEntity.getMainHandStack().getItem() instanceof KHWeapon) {
-            if (!playerEntity.hasStatusEffect(StatusEffects.WEAKNESS)) {
+        if (KnightsHeraldry.config().getDamageIndicator() && source.getAttacker() instanceof PlayerEntity player) {
+            ItemStack mainHandStack = player.getMainHandStack();
+            if (mainHandStack.getItem() instanceof KHWeapon && !player.hasStatusEffect(StatusEffects.WEAKNESS)) {
                 if (amount <= 0) amount = 0;
-                else if (!(playerEntity.getMainHandStack().getItem() instanceof Lance)) amount = amount + 1;
+                else if (!(mainHandStack.getItem() instanceof Lance)) amount += 1;
+                player.sendMessage(Text.literal("Damage: " + (int) amount), true);
             }
-            playerEntity.sendMessage(Text.literal("Damage: " + (int) (amount)), true);
         }
     }
-
-    @Unique
-    private boolean blockShield = true;
 
     @Redirect(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;blockedByShield(Lnet/minecraft/entity/damage/DamageSource;)Z"))
     private boolean knightsheraldry$redirectBlockedByShield(LivingEntity instance, DamageSource source) {
         return blockShield && instance.blockedByShield(source);
     }
 
-
     @Inject(method = "tick", at = @At("HEAD"))
     public void knightsheraldry$tick(CallbackInfo ci) {
-        LivingEntity entity = (LivingEntity)(Object) this;
-        if (entity instanceof PlayerEntity playerEntity && ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getInt("swallowtail_arrow_count") >= 0) {
-            int i = playerEntity.getStuckArrowCount();
-            if (i > 0) {
+        LivingEntity entity = (LivingEntity) (Object) this;
+        if (entity instanceof PlayerEntity player) {
+            handleSwallowtailArrowTimer(player);
+        }
+    }
+
+    @Unique
+    private boolean isStaminaBlocked(PlayerEntity player) {
+        NbtCompound persistentData = ((IEntityDataSaver) player).knightsheraldry$getPersistentData();
+        return persistentData.getBoolean("stamina_blocked");
+    }
+
+    @Unique
+    private void handleSwallowtailArrowTimer(PlayerEntity player) {
+        NbtCompound nbt = ((IEntityDataSaver) player).knightsheraldry$getPersistentData();
+        int swallowtailArrowCount = nbt.getInt("swallowtail_arrow_count");
+
+        if (swallowtailArrowCount >= 0) {
+            int stuckArrows = player.getStuckArrowCount();
+            if (stuckArrows > 0) {
                 if (this.stuckSwallowTailArrowTimer <= 0) {
-                    this.stuckSwallowTailArrowTimer = 20 * (30 - i);
+                    this.stuckSwallowTailArrowTimer = SWALLOWTAIL_ARROW_COOLDOWN - (20 * stuckArrows);
                 }
 
-                --this.stuckSwallowTailArrowTimer;
-                if (this.stuckSwallowTailArrowTimer <= 0) {
-                    NbtCompound nbt = ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData();
-                    int swallowTailArrowCount = nbt.getInt("swallowtail_arrow_count");
-                    swallowTailArrowCount = swallowTailArrowCount - 1;
-                    nbt.putInt("swallowtail_arrow_count", swallowTailArrowCount);
+                if (--this.stuckSwallowTailArrowTimer <= 0) {
+                    nbt.putInt("swallowtail_arrow_count", swallowtailArrowCount - SWALLOWTAIL_ARROW_DECREMENT);
                 }
             }
         }

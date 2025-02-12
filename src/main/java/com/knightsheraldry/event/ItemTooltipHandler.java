@@ -5,7 +5,7 @@ import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
 import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
 import com.knightsheraldry.items.custom.item.KHRangeWeapon;
 import com.knightsheraldry.items.custom.item.KHWeapon;
-import com.knightsheraldry.items.custom.item.Lance;
+import com.knightsheraldry.items.custom.item.khweapon.Lance;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;

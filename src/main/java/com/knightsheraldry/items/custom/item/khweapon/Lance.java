@@ -1,4 +1,4 @@
-package com.knightsheraldry.items.custom.item;
+package com.knightsheraldry.items.custom.item.khweapon;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
@@ -150,11 +150,11 @@ public class Lance extends SwordItem {
 
     public static boolean isCharged(ItemStack stack) {
         NbtCompound nbtCompound = stack.getNbt();
-        return nbtCompound != null && nbtCompound.getBoolean("Charged");
+        return nbtCompound != null && nbtCompound.getBoolean("kh_charged");
     }
 
     public static void setCharged(ItemStack stack, boolean charged) {
         NbtCompound nbtCompound = stack.getOrCreateNbt();
-        nbtCompound.putBoolean("Charged", charged);
+        nbtCompound.putBoolean("kh_charged", charged);
     }
 }

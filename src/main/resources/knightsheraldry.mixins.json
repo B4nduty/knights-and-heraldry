@@ -9,8 +9,7 @@
     "LivingEntityMixin",
     "PlayerEntityMixin",
     "ReachEntityAttributesMixin",
-    "StatusEffectsMixin",
-    "SwordItemMixin"
+    "StatusEffectsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

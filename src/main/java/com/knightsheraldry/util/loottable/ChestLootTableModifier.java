@@ -58,7 +58,7 @@ public class ChestLootTableModifier {
                 ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE,
                 ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE, ModItems.SPIKED_MACE, ModItems.FLAIL,
                 ModItems.BALL_FLAIL, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD, ModItems.V_LONGSWORD,
-                ModItems.FALCHION, ModItems.SCIMITAR, ModItems.KATANA, ModItems.PITCHFORK, ModItems.SPEAR,
+                ModItems.FALCHION, ModItems.SCIMITAR, ModItems.PITCHFORK, ModItems.SPEAR,
                 ModItems.PIKE, ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD,
                 ModItems.LANCE, ModItems.WOODEN_LANCE, ModItems.POLEAXE, ModItems.POLEHAMMER,
                 ModItems.BEC_DE_CORBIN, ModItems.MORNING_STAR, ModItems.BARDICHE, ModItems.WARSWORD,

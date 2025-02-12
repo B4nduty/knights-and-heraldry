@@ -46,8 +46,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FALCHION, Models.HANDHELD);
         itemModelGenerator.register(ModItems.SCIMITAR, Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.KATANA, Models.HANDHELD);
-
         itemModelGenerator.register(ModItems.PITCHFORK, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.SPEAR, Models.HANDHELD);

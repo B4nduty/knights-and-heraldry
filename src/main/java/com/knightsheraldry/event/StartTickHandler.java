@@ -15,6 +15,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 
@@ -26,6 +27,7 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         for (ServerPlayerEntity playerEntity : server.getPlayerManager().getPlayerList()) {
             if (!playerEntity.isSpectator()) {
                 handlePlayerTick(playerEntity);
+                if (KnightsHeraldry.config().getParry()) handleParry(playerEntity);
             }
             if (!isWearingFullKHArmorSet(playerEntity)) {
                 TrinketsApi.getTrinketComponent(playerEntity).ifPresent(trinketComponent ->
@@ -45,6 +47,23 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
                     playerEntity.damage(playerEntity.getDamageSources().genericKill(), 0.2f);
                 }
             }
+        }
+    }
+
+    private void handleParry(ServerPlayerEntity player) {
+        boolean isBlocking = player.isBlocking();
+        ItemStack activeItem = player.getActiveItem();
+        boolean usingCustomShield = activeItem.isIn(KHTags.WEAPONS_SHIELD.getTag());
+
+        NbtCompound persistentData = ((IEntityDataSaver) player).knightsheraldry$getPersistentData();
+        boolean wasBlocking = persistentData.contains("BlockStartTick");
+
+        if (isBlocking && usingCustomShield) {
+            if (!wasBlocking) {
+                persistentData.putInt("BlockStartTick", (int) player.getWorld().getTime());
+            }
+        } else {
+            persistentData.remove("BlockStartTick");
         }
     }
 

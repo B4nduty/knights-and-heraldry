@@ -1,4 +1,4 @@
-package com.knightsheraldry.items.custom.item;
+package com.knightsheraldry.items.custom.item.khweapon;
 
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.item.DyeableItem;

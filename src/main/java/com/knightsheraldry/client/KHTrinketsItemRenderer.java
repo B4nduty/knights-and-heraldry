@@ -43,14 +43,20 @@ public class KHTrinketsItemRenderer implements TrinketRenderer {
         float[] color = DyeUtil.getDyeColor(stack);
 
         model.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-        renderOverlayAndAdditions(stack, matrices, vertexConsumers, light);
+        renderOverlayAndAdditions(entity, stack, matrices, vertexConsumers, light);
     }
 
     @Environment(EnvType.CLIENT)
-    private void renderOverlayAndAdditions(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
-        renderPartIfNeeded(stack, matrices, vertexConsumers, light, new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel()), "aventail", getIdentifierWithSuffix("_aventail", (KHTrinketsItem) stack.getItem()));
-        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "rimmed", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
-        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "besagews", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
+    private void renderOverlayAndAdditions(LivingEntity entity, ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+        if (stack.getOrCreateNbt().getBoolean("kh_aventail")) {
+            BipedEntityModel<LivingEntity> model = new TrinketsChestplateModel(TrinketsChestplateModel.getTexturedModelData().createModel());
+            VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(getIdentifierWithSuffix("_aventail", (KHTrinketsItem) stack.getItem())));
+
+            TrinketRenderer.followBodyRotations(entity, model);
+            model.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
+        }
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "kh_rimmed", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png"));
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "kh_besagews", new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png"));
 
         if (stack.getItem() == ModItems.SURCOAT || stack.getItem() == ModItems.SURCOAT_SLEEVELESS) {
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/surcoat_overlay.png"));

@@ -2,7 +2,7 @@ package com.knightsheraldry.mixin;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.item.KHWeapon;
-import com.knightsheraldry.items.custom.item.Lance;
+import com.knightsheraldry.items.custom.item.khweapon.Lance;
 import com.knightsheraldry.util.itemdata.KHTags;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.playerdata.PlayerVelocity;
@@ -35,6 +35,18 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     @Unique
     private NbtCompound persistentData;
 
+    // Constants for configuration
+    @Unique
+    private static final int STAMINA_COST_ON_SHIELD_DAMAGE = 20;
+    @Unique
+    private static final float SHIELD_DISABLE_CHANCE_BASE = 0.25F;
+    @Unique
+    private static final float SHIELD_DISABLE_CHANCE_SPRINT_BONUS = 0.75F;
+    @Unique
+    private static final int SHIELD_COOLDOWN_TICKS = 100;
+    @Unique
+    private static final int VANILLA_SHIELD_COOLDOWN_TICKS = 60;
+
     @Override
     public NbtCompound knightsheraldry$getPersistentData() {
         if (persistentData == null) {
@@ -57,42 +69,42 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
         }
     }
 
+    /**
+     * Handles shield damage logic for KHWeapons.
+     */
     @Inject(method = "damageShield", at = @At("HEAD"), cancellable = true)
     private void knightsHeraldry$onDamageShield(float amount, CallbackInfo ci) {
-        if (playerEntity.getMainHandStack().getItem() instanceof KHWeapon) {
-            if (playerEntity.getActiveItem().isIn(KHTags.WEAPONS_SHIELD.getTag())) {
-                if (!playerEntity.getWorld().isClient) {
-                    playerEntity.incrementStat(Stats.USED.getOrCreateStat(playerEntity.getActiveItem().getItem()));
-                }
-                ci.cancel();
+        ItemStack mainHandStack = playerEntity.getMainHandStack();
+        if (mainHandStack.getItem() instanceof KHWeapon && playerEntity.getActiveItem().isIn(KHTags.WEAPONS_SHIELD.getTag())) {
+            if (!playerEntity.getWorld().isClient) {
+                playerEntity.incrementStat(Stats.USED.getOrCreateStat(playerEntity.getActiveItem().getItem()));
             }
-
-            int stamina = ((IEntityDataSaver) playerEntity).knightsheraldry$getPersistentData().getInt("stamina_int");
-            int staminaCost = 20;
+            ci.cancel();
 
             if (KnightsHeraldry.config().getBlocking()) {
-                StaminaData.removeStamina((IEntityDataSaver) playerEntity, Math.min(stamina, staminaCost));
+                int stamina = knightsheraldry$getPersistentData().getInt("stamina_int");
+                StaminaData.removeStamina(this, Math.min(stamina, STAMINA_COST_ON_SHIELD_DAMAGE));
             }
         }
     }
 
+    /**
+     * Handles shield disable logic.
+     */
     @Inject(method = "disableShield", at = @At("HEAD"), cancellable = true)
     public void knightsHeraldry$disableShield(boolean sprinting, CallbackInfo ci) {
         ItemStack activeItem = playerEntity.getActiveItem();
         World world = playerEntity.getWorld();
 
-        float f = 0.25F + (float) EnchantmentHelper.getEfficiency(playerEntity) * 0.05F;
+        float disableChance = SHIELD_DISABLE_CHANCE_BASE + (float) EnchantmentHelper.getEfficiency(playerEntity) * 0.05F;
         if (sprinting) {
-            f += 0.75F;
+            disableChance += SHIELD_DISABLE_CHANCE_SPRINT_BONUS;
         }
 
-        if (playerEntity.getRandom().nextFloat() < f) {
+        if (playerEntity.getRandom().nextFloat() < disableChance) {
             if (!playerEntity.isCreative()) {
-                if (activeItem.isIn(KHTags.WEAPONS_SHIELD.getTag())) {
-                    playerEntity.getItemCooldownManager().set(activeItem.getItem(), 100);
-                } else {
-                    playerEntity.getItemCooldownManager().set(Items.SHIELD, 60);
-                }
+                int cooldownTicks = activeItem.isIn(KHTags.WEAPONS_SHIELD.getTag()) ? SHIELD_COOLDOWN_TICKS : VANILLA_SHIELD_COOLDOWN_TICKS;
+                playerEntity.getItemCooldownManager().set(activeItem.getItem(), cooldownTicks);
             }
             playerEntity.clearActiveItem();
             world.sendEntityStatus(playerEntity, (byte) 30);
@@ -100,82 +112,116 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
         }
     }
 
+    /**
+     * Handles velocity and sprinting logic for Lance weapons.
+     */
     @Inject(method = "tick", at = @At("HEAD"))
     private void knightsheraldry$onTick(CallbackInfo ci) {
-        ItemStack mainHandStack = playerEntity.getMainHandStack();
-        ItemStack offHandStack = playerEntity.getOffHandStack();
-        ItemStack weapon = null;
+        ItemStack lanceStack = getLanceStack(playerEntity);
+        if (lanceStack != null && lanceStack.getNbt() != null && lanceStack.getNbt().getBoolean("kh_charged")
+                && playerEntity instanceof ServerPlayerEntity serverPlayer) {
 
-        if (mainHandStack.getItem() instanceof Lance) weapon = mainHandStack;
-        else if (offHandStack.getItem() instanceof Lance) weapon = offHandStack;
-
-        if (weapon != null && weapon.getNbt() != null && weapon.getNbt().getBoolean("Charged")
-                && playerEntity instanceof ServerPlayerEntity serverPlayerEntity) {
-
-            NbtCompound nbt = ((IEntityDataSaver) serverPlayerEntity).knightsheraldry$getPersistentData();
+            NbtCompound nbt = knightsheraldry$getPersistentData();
             int nonSprintingTicks = nbt.getInt("nonSprintingTicks");
 
             BlockPos previousBlockPos = BlockPos.fromLong(nbt.getLong("previousBlockPos"));
-            BlockPos currentBlockPos = serverPlayerEntity.getBlockPos();
+            BlockPos currentBlockPos = serverPlayer.getBlockPos();
 
             boolean staying = currentBlockPos.equals(previousBlockPos);
 
-            float velocity = serverPlayerEntity.getMovementSpeed();
+            float velocity = calculateVelocity(serverPlayer, nonSprintingTicks, staying);
 
-            if (serverPlayerEntity.isSprinting()) {
-                velocity *= 1.3f;
-                nonSprintingTicks = 0;
-            } else {
-                nonSprintingTicks++;
-                if (nonSprintingTicks >= 3) {
-                    if (nonSprintingTicks >= 5 && staying) {
-                        velocity *= 0.1f;
-                        nonSprintingTicks = 0;
-                    } else if (serverPlayerEntity.isSneaking()) {
-                        velocity *= 0.3f;
-                        nonSprintingTicks = 0;
-                    } else if (serverPlayerEntity.hasVehicle()) {
-                        if (serverPlayerEntity.getVehicle() instanceof MinecartEntity minecartEntity)
-                            velocity = (float) minecartEntity.getVelocity().length();
-                        else if (serverPlayerEntity.getVehicle() instanceof BoatEntity boatEntity)
-                            velocity = (float) boatEntity.getVelocity().length();
-                        else if (serverPlayerEntity.getVehicle() instanceof AbstractHorseEntity abstractHorseEntity)
-                            velocity = (float) abstractHorseEntity.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
-                    }
-                    PlayerVelocity.updatePreviousBlockPos((IEntityDataSaver) serverPlayerEntity, currentBlockPos.asLong());
-                } else velocity = nbt.getFloat("speedHistory");
-            }
-
-            PlayerVelocity.updateSpeedHistory((IEntityDataSaver) serverPlayerEntity, velocity);
-            PlayerVelocity.updateNonSprintingTicks((IEntityDataSaver) serverPlayerEntity, nonSprintingTicks);
+            PlayerVelocity.updatePreviousBlockPos(this, currentBlockPos.asLong());
+            PlayerVelocity.updateSpeedHistory(this, velocity);
+            PlayerVelocity.updateNonSprintingTicks(this, nonSprintingTicks);
         }
     }
 
+    /**
+     * Handles attack logic for vanilla weapons when configured to deal no damage.
+     */
     @Inject(method = "attack", at = @At("HEAD"), cancellable = true)
     public void knightsheraldry$onAttack(Entity target, CallbackInfo ci) {
         if (target.isAttackable()) {
             ItemStack itemStack = playerEntity.getMainHandStack();
-            boolean isWeapon = itemStack.getItem() instanceof SwordItem ||
-                    itemStack.getItem() instanceof AxeItem ||
-                    itemStack.getItem() instanceof ShovelItem ||
-                    itemStack.getItem() instanceof HoeItem;
-
-            if (isWeapon && !(itemStack.getItem() instanceof KHWeapon) && KnightsHeraldry.config().getVanillaWeaponsDamage0()) {
-                float attackDamage = 0.0F;
-                float attackStrength = playerEntity.getAttackCooldownProgress(0.5F);
-
-                if (attackStrength > 0.9F) {
-                    playerEntity.getWorld().playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
-                            SoundEvents.ENTITY_PLAYER_ATTACK_KNOCKBACK, playerEntity.getSoundCategory(), 1.0F, 1.0F);
-                }
-
-                boolean damageApplied = target.damage(playerEntity.getDamageSources().playerAttack(playerEntity), attackDamage);
-
-                if (damageApplied) {
-                    playerEntity.addExhaustion(0.1F);
-                }
+            if (isVanillaWeapon(itemStack) && KnightsHeraldry.config().getVanillaWeaponsDamage0()) {
+                handleVanillaWeaponAttack(target);
                 ci.cancel();
             }
+        }
+    }
+
+    /**
+     * Helper method to get the Lance item stack from the player's hands.
+     */
+    @Unique
+    private ItemStack getLanceStack(PlayerEntity player) {
+        ItemStack mainHandStack = player.getMainHandStack();
+        ItemStack offHandStack = player.getOffHandStack();
+        return mainHandStack.getItem() instanceof Lance ? mainHandStack :
+                offHandStack.getItem() instanceof Lance ? offHandStack : null;
+    }
+
+    @Unique
+    private float calculateVelocity(ServerPlayerEntity player, int nonSprintingTicks, boolean staying) {
+        float velocity = player.getMovementSpeed();
+
+        if (player.isSprinting()) {
+            velocity *= 1.3f;
+            knightsheraldry$getPersistentData().putInt("nonSprintingTicks", 0);
+        } else {
+            nonSprintingTicks++;
+            if (nonSprintingTicks >= 3) {
+                if (nonSprintingTicks >= 5 && staying) {
+                    velocity *= 0.1f;
+                    knightsheraldry$getPersistentData().putInt("nonSprintingTicks", 0);
+                } else if (player.isSneaking()) {
+                    velocity *= 0.3f;
+                    knightsheraldry$getPersistentData().putInt("nonSprintingTicks", 0);
+                } else if (player.hasVehicle()) {
+                    velocity = getVehicleVelocity(player);
+                    knightsheraldry$getPersistentData().putInt("nonSprintingTicks", 0);
+                }
+            }
+        }
+
+        return velocity;
+    }
+
+    @Unique
+    private float getVehicleVelocity(ServerPlayerEntity player) {
+        Entity vehicle = player.getVehicle();
+        if (vehicle instanceof MinecartEntity minecart) {
+            return (float) minecart.getVelocity().length();
+        } else if (vehicle instanceof BoatEntity boat) {
+            return (float) boat.getVelocity().length();
+        } else if (vehicle instanceof AbstractHorseEntity horse) {
+            return (float) horse.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
+        }
+        return player.getMovementSpeed();
+    }
+
+    @Unique
+    private boolean isVanillaWeapon(ItemStack itemStack) {
+        Item item = itemStack.getItem();
+        return item instanceof SwordItem || item instanceof AxeItem ||
+                item instanceof ShovelItem || item instanceof HoeItem;
+    }
+
+    @Unique
+    private void handleVanillaWeaponAttack(Entity target) {
+        float attackDamage = 0.0F;
+        float attackStrength = playerEntity.getAttackCooldownProgress(0.5F);
+
+        if (attackStrength > 0.9F) {
+            playerEntity.getWorld().playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
+                    SoundEvents.ENTITY_PLAYER_ATTACK_KNOCKBACK, playerEntity.getSoundCategory(), 1.0F, 1.0F);
+        }
+
+        boolean damageApplied = target.damage(playerEntity.getDamageSources().playerAttack(playerEntity), attackDamage);
+
+        if (damageApplied) {
+            playerEntity.addExhaustion(0.1F);
         }
     }
 }

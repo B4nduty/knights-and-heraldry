@@ -23,21 +23,32 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-public class KHRangeWeaponUtil {
+public final class KHRangeWeaponUtil {
     private static final Random random = new Random();
 
+    private KHRangeWeaponUtil() {
+        throw new UnsupportedOperationException("Utility class should not be instantiated");
+    }
+
     public static TypedActionResult<ItemStack> handleCrossbowUse(World world, PlayerEntity user, Hand hand, KHRangeWeapon khRangeWeapon, ItemStack itemStack) {
+        if (world == null || user == null || khRangeWeapon == null || itemStack == null) {
+            return TypedActionResult.fail(ItemStack.EMPTY);
+        }
+
         Optional<ItemStack> arrowStackOpt = getArrowFromInventory(user);
         if (arrowStackOpt.isPresent() && arrowStackOpt.get().getItem() instanceof KHArrow khArrow) {
             KHArrowEntity arrowEntity = (KHArrowEntity) khArrow.createArrowEntity(user, world);
+            WeaponState weaponState = getWeaponState(itemStack);
+            NbtCompound nbt = itemStack.getOrCreateNbt();
+            Projectiles projectiles = Projectiles.fromNbt(nbt, arrowEntity);
 
-            if (getWeaponState(itemStack).isCharged()) {
-                setWeaponState(itemStack, new WeaponState(getWeaponState(itemStack).isReloading(), false, true));
-                Projectiles.fromNbt(itemStack.getOrCreateNbt(), arrowEntity).unloadProjectile();
+            if (weaponState.isCharged()) {
+                setWeaponState(itemStack, new WeaponState(weaponState.isReloading(), false, true));
+                projectiles.unloadProjectile();
                 shootArrow(world, itemStack, khRangeWeapon, user, khArrow.getDefaultStack(), 1f);
                 return TypedActionResult.consume(itemStack);
-            } else if (Projectiles.fromNbt(itemStack.getOrCreateNbt(), arrowEntity).getArrowCount() < 1) {
-                setWeaponState(itemStack, new WeaponState(true, getWeaponState(itemStack).isCharged(), false));
+            } else if (projectiles.getArrowCount() < 1) {
+                setWeaponState(itemStack, new WeaponState(true, false, false));
                 user.setCurrentHand(hand);
                 return TypedActionResult.consume(itemStack);
             } else {
@@ -100,7 +111,8 @@ public class KHRangeWeaponUtil {
         }
 
         for (Vec3d pos : trailPositions) {
-            world.spawnParticles(ModParticles.MUZZLES_SMOKE_PARTICLE, pos.x, pos.y, pos.z, 200, 0, 0, 0, 0.05);
+            world.spawnParticles(ModParticles.MUZZLES_SMOKE_PARTICLE, pos.x, pos.y, pos.z, 100,
+                    0.2, 0.1, 0.2, 0.0005f);
         }
     }
 
@@ -163,7 +175,7 @@ public class KHRangeWeaponUtil {
     }
 
     public static float getCrossbowPullProgress(int useTicks, KHRangeWeapon khRangeWeapon) {
-        return Math.min((float) useTicks / khRangeWeapon.rechargeTime(), 1.0F);
+        return Math.min((float) useTicks / (khRangeWeapon.rechargeTime() * 20), 1.0F);
     }
 
     public static WeaponState getWeaponState(ItemStack stack) {
@@ -199,16 +211,16 @@ public class KHRangeWeaponUtil {
     public record WeaponState(boolean isReloading, boolean isCharged, boolean isShooting) {
         public static WeaponState fromNbt(NbtCompound nbt) {
             return new WeaponState(
-                    nbt.getBoolean("Reload"),
-                    nbt.getBoolean("Charged"),
-                    nbt.getBoolean("Shoot")
+                    nbt.getBoolean("kh_reload"),
+                    nbt.getBoolean("kh_charged"),
+                    nbt.getBoolean("kh_shoot")
             );
         }
 
         public void applyToNbt(NbtCompound nbt) {
-            nbt.putBoolean("Reload", isReloading);
-            nbt.putBoolean("Charged", isCharged);
-            nbt.putBoolean("Shoot", isShooting);
+            nbt.putBoolean("kh_reload", isReloading);
+            nbt.putBoolean("kh_charged", isCharged);
+            nbt.putBoolean("kh_shoot", isShooting);
         }
     }
 }
