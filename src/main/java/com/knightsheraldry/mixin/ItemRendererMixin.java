@@ -57,7 +57,7 @@ public abstract class ItemRendererMixin {
             if (guiBakedModel != null) {
                 matrices.translate(-0.5F, -0.5F, -0.5F);
                 VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getCutout());
-                renderBakedItemModel(guiBakedModel, stack, light, overlay, matrices, vertexConsumer);
+                renderBakedItemModel(guiBakedModel, light, overlay, matrices, vertexConsumer);
                 ci.cancel();
             }
         }
@@ -91,19 +91,19 @@ public abstract class ItemRendererMixin {
     }
 
     @Unique
-    private void renderBakedItemModel(BakedModel model, ItemStack stack, int light, int overlay, MatrixStack matrices, VertexConsumer vertices) {
+    private void renderBakedItemModel(BakedModel model, int light, int overlay, MatrixStack matrices, VertexConsumer vertices) {
         Random random = Random.create();
         for (Direction direction : Direction.values()) {
             random.setSeed(42L);
-            renderBakedItemQuads(matrices, vertices, model.getQuads(null, direction, random), stack, light, overlay);
+            renderBakedItemQuads(matrices, vertices, model.getQuads(null, direction, random), light, overlay);
         }
 
         random.setSeed(42L);
-        renderBakedItemQuads(matrices, vertices, model.getQuads(null, null, random), stack, light, overlay);
+        renderBakedItemQuads(matrices, vertices, model.getQuads(null, null, random), light, overlay);
     }
 
     @Unique
-    private void renderBakedItemQuads(MatrixStack matrices, VertexConsumer vertices, List<BakedQuad> quads, ItemStack stack, int light, int overlay) {
+    private void renderBakedItemQuads(MatrixStack matrices, VertexConsumer vertices, List<BakedQuad> quads, int light, int overlay) {
         MatrixStack.Entry entry = matrices.peek();
         for (BakedQuad bakedQuad : quads) {
             int color = -1;
