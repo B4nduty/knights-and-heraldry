@@ -2,7 +2,7 @@ package com.knightsheraldry;
 
 import com.knightsheraldry.config.KHConfig;
 import com.knightsheraldry.datagen.ModItemTagProvider;
-    import com.knightsheraldry.datagen.ModModelProvider;
+import com.knightsheraldry.datagen.ModModelProvider;
 import com.knightsheraldry.datagen.ModRecipeProvider;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.entity.ModEntities;
@@ -91,7 +91,7 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
         pack.addProvider(ModModelProvider::new);
     }
 
-    public static KHConfig config() {
+    public static KHConfig getConfig() {
         return CONFIG;
     }
 }

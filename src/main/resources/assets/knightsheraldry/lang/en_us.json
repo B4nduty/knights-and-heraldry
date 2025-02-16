@@ -186,13 +186,100 @@
   "tooltip.knightsheraldry.need_to_hold": "§1Hold §r[ %s ] §1to Recharge",
 
   "text.config.knightsheraldry.title": "Knights & Heraldry",
+  "text.config.knightsheraldry.section.common": "Common",
   "text.config.knightsheraldry.option.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
   "text.config.knightsheraldry.option.getBlocking": "Use Stamina on or while Blocking",
   "text.config.knightsheraldry.option.getDamageTamedEntities": "Lance Weapons can Damage Tamed Entities",
-  "text.config.knightsheraldry.option.wardartCooldown": "WarDart throw Cooldown",
+  "text.config.knightsheraldry.option.getWardartCooldown": "WarDart throw Cooldown",
   "text.config.knightsheraldry.option.getDamageIndicator": "Damage Indicator",
   "text.config.knightsheraldry.option.getVisoredHelmet": "Visored Helmet Overlay",
   "text.config.knightsheraldry.option.getLowStaminaIndicator": "Low Stamina Indicator [Experimental]",
+  "text.config.knightsheraldry.option.getMuzzlesSmokeParticlesTime": "Muzzles Smoke Particles Time Active",
+  "text.config.knightsheraldry.option.getParry": "Parry [Experimental]",
+  "text.config.knightsheraldry.option.getStaminaBarYOffset": "Stamina Bar Y Offset",
+
+  "text.config.knightsheraldry.section.dagger": "Dagger",
+  "text.config.knightsheraldry.option.getDaggerDamageSlashing": "Damage Slashing",
+  "text.config.knightsheraldry.option.getDaggerDamagePiercing": "Damage Piercing",
+
+  "text.config.knightsheraldry.section.stiletto": "Stiletto",
+  "text.config.knightsheraldry.option.getStilettoDamagePiercing": "Damage Piercing",
+
+  "text.config.knightsheraldry.section.rapier": "Rapier",
+  "text.config.knightsheraldry.option.getRapierDamagePiercing": "Damage Piercing",
+
+  "text.config.knightsheraldry.section.sword": "Sword",
+  "text.config.knightsheraldry.option.getSwordDamageSlashing": "Damage Slashing",
+  "text.config.knightsheraldry.option.getSwordDamagePiercing": "Damage Piercing",
+  "text.config.knightsheraldry.option.getSwordDamageBludgeoning": "Damage Bludgeoning",
+
+  "text.config.knightsheraldry.section.axe": "Axe",
+  "text.config.knightsheraldry.option.getAxeDamageSlashing": "Damage Slashing",
+
+  "text.config.knightsheraldry.section.mace": "Mace",
+  "text.config.knightsheraldry.option.getMaceDamageBludgeoning": "Damage Bludgeoning",
+
+  "text.config.knightsheraldry.section.flail": "Flail",
+  "text.config.knightsheraldry.option.getFlailDamageBludgeoning": "Damage Bludgeoning",
+
+  "text.config.knightsheraldry.section.hammer": "Hammer",
+  "text.config.knightsheraldry.option.getHammerDamagePiercing": "Damage Piercing",
+  "text.config.knightsheraldry.option.getHammerDamageBludgeoning": "Damage Bludgeoning",
+
+  "text.config.knightsheraldry.section.longSword": "LongSword",
+  "text.config.knightsheraldry.option.getLongSwordDamageSlashing": "Damage Slashing",
+  "text.config.knightsheraldry.option.getLongSwordDamagePiercing": "Damage Piercing",
+  "text.config.knightsheraldry.option.getLongSwordDamageBludgeoning": "Damage Bludgeoning",
+
+  "text.config.knightsheraldry.section.falchion": "Falchion",
+  "text.config.knightsheraldry.option.getFalchionDamageSlashing": "Damage Slashing",
+
+  "text.config.knightsheraldry.section.pitchfork": "Pitchfork",
+  "text.config.knightsheraldry.option.getPitchforkDamagePiercing": "Damage Piercing",
+
+  "text.config.knightsheraldry.section.spear": "Spear",
+  "text.config.knightsheraldry.option.getSpearDamagePiercing": "Damage Piercing",
+
+  "text.config.knightsheraldry.section.pike": "pike",
+  "text.config.knightsheraldry.option.getPikeDamagePiercing": "Damage Piercing",
+
+  "text.config.knightsheraldry.section.billhook": "Billhook",
+  "text.config.knightsheraldry.option.getBillhookDamageSlashing": "Damage Slashing",
+  "text.config.knightsheraldry.option.getBillhookDamagePiercing": "Damage Piercing",
+
+  "text.config.knightsheraldry.section.glaive": "Glaive",
+  "text.config.knightsheraldry.option.getGlaiveDamageSlashing": "Damage Slashing",
+  "text.config.knightsheraldry.option.getGlaiveDamagePiercing": "Damage Piercing",
+
+  "text.config.knightsheraldry.section.halberd": "Halberd",
+  "text.config.knightsheraldry.option.getHalberdDamageSlashing": "Damage Slashing",
+  "text.config.knightsheraldry.option.getHalberdDamagePiercing": "Damage Piercing",
+
+  "text.config.knightsheraldry.section.lance": "Lance",
+  "text.config.knightsheraldry.option.getLanceCooldown": "Cooldown",
+
+  "text.config.knightsheraldry.section.poleAxe": "PoleAxe",
+  "text.config.knightsheraldry.option.getPoleAxeDamageSlashing": "Damage Slashing",
+  "text.config.knightsheraldry.option.getPoleAxeDamagePiercing": "Damage Piercing",
+  "text.config.knightsheraldry.option.getPoleAxeDamageBludgeoning": "Damage Bludgeoning",
+
+  "text.config.knightsheraldry.section.poleHammer": "PoleHammer",
+  "text.config.knightsheraldry.option.getPoleHammerDamagePiercing": "Damage Piercing",
+  "text.config.knightsheraldry.option.getPoleHammerDamageBludgeoning": "Damage Bludgeoning",
+
+  "text.config.knightsheraldry.section.morningStar": "MorningStar",
+  "text.config.knightsheraldry.option.getMorningStarDamageBludgeoning": "Damage Bludgeoning",
+
+  "text.config.knightsheraldry.section.bardiche": "Bardiche",
+  "text.config.knightsheraldry.option.getBardicheDamageSlashing": "Damage Bludgeoning",
+
+  "text.config.knightsheraldry.section.warSword": "WarSword",
+  "text.config.knightsheraldry.option.getWarSwordDamageSlashing": "Damage Slashing",
+  "text.config.knightsheraldry.option.getWarSwordDamagePiercing": "Damage Piercing",
+  "text.config.knightsheraldry.option.getWarSwordDamageBludgeoning": "Damage Bludgeoning",
+
+  "text.config.knightsheraldry.section.warDart": "WarDart",
+  "text.config.knightsheraldry.option.getWarDartDamagePiercing": "Damage Piercing",
 
   "effect.knightsheraldry.pin": "Pin",
 

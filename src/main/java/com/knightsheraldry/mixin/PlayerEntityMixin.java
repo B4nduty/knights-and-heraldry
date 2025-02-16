@@ -35,7 +35,6 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     @Unique
     private NbtCompound persistentData;
 
-    // Constants for configuration
     @Unique
     private static final int STAMINA_COST_ON_SHIELD_DAMAGE = 20;
     @Unique
@@ -69,9 +68,6 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
         }
     }
 
-    /**
-     * Handles shield damage logic for KHWeapons.
-     */
     @Inject(method = "damageShield", at = @At("HEAD"), cancellable = true)
     private void knightsHeraldry$onDamageShield(float amount, CallbackInfo ci) {
         ItemStack mainHandStack = playerEntity.getMainHandStack();
@@ -81,16 +77,13 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
             }
             ci.cancel();
 
-            if (KnightsHeraldry.config().getBlocking()) {
+            if (KnightsHeraldry.getConfig().getBlocking()) {
                 int stamina = knightsheraldry$getPersistentData().getInt("stamina_int");
                 StaminaData.removeStamina(this, Math.min(stamina, STAMINA_COST_ON_SHIELD_DAMAGE));
             }
         }
     }
 
-    /**
-     * Handles shield disable logic.
-     */
     @Inject(method = "disableShield", at = @At("HEAD"), cancellable = true)
     public void knightsHeraldry$disableShield(boolean sprinting, CallbackInfo ci) {
         ItemStack activeItem = playerEntity.getActiveItem();
@@ -112,9 +105,6 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
         }
     }
 
-    /**
-     * Handles velocity and sprinting logic for Lance weapons.
-     */
     @Inject(method = "tick", at = @At("HEAD"))
     private void knightsheraldry$onTick(CallbackInfo ci) {
         ItemStack lanceStack = getLanceStack(playerEntity);
@@ -137,23 +127,17 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
         }
     }
 
-    /**
-     * Handles attack logic for vanilla weapons when configured to deal no damage.
-     */
     @Inject(method = "attack", at = @At("HEAD"), cancellable = true)
     public void knightsheraldry$onAttack(Entity target, CallbackInfo ci) {
         if (target.isAttackable()) {
             ItemStack itemStack = playerEntity.getMainHandStack();
-            if (isVanillaWeapon(itemStack) && KnightsHeraldry.config().getVanillaWeaponsDamage0()) {
+            if (isVanillaWeapon(itemStack) && KnightsHeraldry.getConfig().getVanillaWeaponsDamage0()) {
                 handleVanillaWeaponAttack(target);
                 ci.cancel();
             }
         }
     }
 
-    /**
-     * Helper method to get the Lance item stack from the player's hands.
-     */
     @Unique
     private ItemStack getLanceStack(PlayerEntity player) {
         ItemStack mainHandStack = player.getMainHandStack();

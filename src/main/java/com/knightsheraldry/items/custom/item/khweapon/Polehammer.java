@@ -1,5 +1,6 @@
 package com.knightsheraldry.items.custom.item.khweapon;
 
+import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.items.custom.item.KHWeapon;
 import com.knightsheraldry.util.KHDamageCalculator;
@@ -24,9 +25,9 @@ public class Polehammer extends SwordItem implements KHWeapon {
     @Override
     public float[] getAttackDamageValues() {
         return new float[] {
-                0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Slashing
-                0.0F, 5.0F, 7.5F, 5.0F, 2.5F, //Piercing
-                0.0F, 7.0F, 10.5F, 7.0F, 3.5F //Bludgeoning
+                0.0F, //Slashing
+                KnightsHeraldry.getConfig().getPoleHammerDamagePiercing(),
+                KnightsHeraldry.getConfig().getPoleHammerDamageBludgeoning()
         };
     }
 

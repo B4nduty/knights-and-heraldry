@@ -67,7 +67,7 @@ public abstract class LivingEntityMixin {
         boolean isWeaponOrInTag = mainStack.getItem() instanceof AxeItem
                 || mainStack.isIn(KHTags.WEAPONS_DISABLE_SHIELD.getTag());
 
-        if (KnightsHeraldry.config().getVanillaWeaponsDamage0()) {
+        if (KnightsHeraldry.getConfig().getVanillaWeaponsDamage0()) {
             cir.setReturnValue(mainStack.isIn(KHTags.WEAPONS_DISABLE_SHIELD.getTag()));
         } else {
             cir.setReturnValue(isWeaponOrInTag);
@@ -90,7 +90,7 @@ public abstract class LivingEntityMixin {
 
     @Inject(method = "applyDamage", at = @At("TAIL"))
     private void knightsheraldry$sendDamage(DamageSource source, float amount, CallbackInfo ci) {
-        if (KnightsHeraldry.config().getDamageIndicator() && source.getAttacker() instanceof PlayerEntity player) {
+        if (KnightsHeraldry.getConfig().getDamageIndicator() && source.getAttacker() instanceof PlayerEntity player) {
             ItemStack mainHandStack = player.getMainHandStack();
             if (mainHandStack.getItem() instanceof KHWeapon && !player.hasStatusEffect(StatusEffects.WEAKNESS)) {
                 if (amount <= 0) amount = 0;

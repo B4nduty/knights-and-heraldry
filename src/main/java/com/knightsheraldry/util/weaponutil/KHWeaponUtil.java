@@ -72,13 +72,14 @@ public final class KHWeaponUtil {
         return isValidIndex(index, damageValues.length) ? damageValues[index] : 0.0F;
     }
 
-    public static double getMaxDistance(KHWeapon khWeapon) {
-        return getRadius(khWeapon, 4);
+    public static double getMaxDistance(KHWeapon khWeapon, KHDamageCalculator.DamageType damageType) {
+        return getRadius(khWeapon, (damageType.getIndex() + 1) * 4);
     }
 
-    private static double getRadius(KHWeapon khWeapon, int index) {
+    public static double getRadius(KHWeapon khWeapon, int index) {
         double[] radiusValues = khWeapon.getRadiusValues();
         validateRadiusValues(radiusValues);
+
         return isValidIndex(index, radiusValues.length) ? radiusValues[index] : 0.0;
     }
 
@@ -105,14 +106,26 @@ public final class KHWeaponUtil {
         }
     }
 
-    public static float calculateDamage(KHWeapon khWeapon, double distance, int startIndex, int endIndex) {
-        for (int i = startIndex; i <= endIndex; i++) {
-            double radius = getRadius(khWeapon, i - startIndex);
+    public static float calculateDamage(KHWeapon khWeapon, double distance, KHDamageCalculator.DamageType damageType) {
+        for (int i = damageType.getIndex() * 5; i <= (1 + damageType.getIndex()) * 4; i++) {
+            double radius = getRadius(khWeapon, i);
             if (distance < radius + RADIUS_TOLERANCE) {
-                return getAttackDamage(khWeapon, i);
+                int i2 = i - damageType.getIndex() * 5;
+                float attackDamage = getAttackDamage(khWeapon, damageType.getIndex());
+                float percentage = calculatePercentageForIndex(i2);
+                return attackDamage * percentage;
             }
         }
         return 0.0F;
+    }
+
+    private static float calculatePercentageForIndex(int index) {
+        return switch (index) {
+            case 4 -> (1f/3f);
+            case 3, 1 -> (2f/3f);
+            case 2 -> 1.0f;
+            default -> 0f;
+        };
     }
 
     public static void replantCrop(World world, BlockPos pos, CropBlock cropBlock, PlayerEntity player, ItemStack stack, Hand hand) {

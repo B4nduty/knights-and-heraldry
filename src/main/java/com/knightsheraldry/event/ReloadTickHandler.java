@@ -26,7 +26,7 @@ public class ReloadTickHandler implements ServerTickEvents.StartTick {
 
         if (currentItem != lastItemStack) {
             if (lastItemStack != null) {
-                lastItemStack.getOrCreateNbt().putBoolean("kh_recharge", false);
+                if (lastItemStack.getItem() instanceof KHRangeWeapon) lastItemStack.getOrCreateNbt().putBoolean("kh_recharge", false);
                 resetWeaponState(player, lastItemStack);
             }
             lastItemStack = currentItem;

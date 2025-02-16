@@ -33,7 +33,7 @@ public abstract class ItemRendererMixin {
             at = @At("HEAD"),
             cancellable = true)
     public void knightsheraldry$onRenderItem(LivingEntity entity, ItemStack item, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci) {
-        if (item.isEmpty() || !(item.isIn(KHTags.WEAPONS_3D.getTag()))) {
+        if (item.isEmpty() || !item.isIn(KHTags.WEAPONS_3D.getTag())) {
             return;
         }
 
@@ -41,6 +41,30 @@ public abstract class ItemRendererMixin {
             return;
         }
 
+        BakedModel bakedModel = getCustomBakedModel(item, entity, seed);
+        if (bakedModel != null) {
+            ItemRenderer itemRenderer = (ItemRenderer) (Object) this;
+            itemRenderer.renderItem(item, renderMode, leftHanded, matrices, vertexConsumers, light, overlay, bakedModel);
+            ci.cancel();
+        }
+    }
+
+    @Inject(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformationMode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V",
+            at = @At("HEAD"), cancellable = true)
+    public void knightsheraldry$renderGUIItem(ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo ci) {
+        if (stack.isIn(KHTags.GEO_2D_ITEMS.getTag()) && renderMode == ModelTransformationMode.GUI) {
+            BakedModel guiBakedModel = getCustomBakedModel(stack, null, 0);
+            if (guiBakedModel != null) {
+                matrices.translate(-0.5F, -0.5F, -0.5F);
+                VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getCutout());
+                renderBakedItemModel(guiBakedModel, stack, light, overlay, matrices, vertexConsumer);
+                ci.cancel();
+            }
+        }
+    }
+
+    @Unique
+    private BakedModel getCustomBakedModel(ItemStack item, LivingEntity entity, int seed) {
         MinecraftClient client = MinecraftClient.getInstance();
         BakedModelManager modelManager = client.getItemRenderer().getModels().getModelManager();
         BakedModel bakedModel = modelManager.getMissingModel();
@@ -50,46 +74,26 @@ public abstract class ItemRendererMixin {
             bakedModel = modelManager.getModel(new ModelIdentifier(KnightsHeraldry.MOD_ID, modelPath, "inventory"));
         }
 
-        ClientWorld clientWorld = entity != null ? entity.getWorld() instanceof ClientWorld ? (ClientWorld) entity.getWorld() : null : null;
-        BakedModel overrideModel = bakedModel.getOverrides().apply(bakedModel, item, clientWorld, entity, seed);
-
-        if (overrideModel != null) {
-            bakedModel = overrideModel;
+        if (entity != null) {
+            ClientWorld clientWorld = entity.getWorld() instanceof ClientWorld ? (ClientWorld) entity.getWorld() : null;
+            BakedModel overrideModel = bakedModel.getOverrides().apply(bakedModel, item, clientWorld, entity, seed);
+            if (overrideModel != null) {
+                bakedModel = overrideModel;
+            }
         }
 
-        ItemRenderer itemRenderer = (ItemRenderer) (Object) this;
-        itemRenderer.renderItem(item, renderMode, leftHanded, matrices, vertexConsumers, light, overlay, bakedModel);
-
-        ci.cancel();
+        return bakedModel;
     }
 
     @Unique
     private String determineModelPath(ItemStack stack) {
-        return stack.getItem() + "_3d";
-    }
-
-    @Inject(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformationMode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V",
-            at = @At("HEAD"), cancellable = true)
-    public void knightsheraldry$renderGUIItem(ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo ci) {
-        if (stack.isIn(KHTags.GEO_2D_ITEMS.getTag()) && renderMode == ModelTransformationMode.GUI) {
-            String modelPath = stack.getItem() + "_icon";
-            MinecraftClient client = MinecraftClient.getInstance();
-            BakedModelManager modelManager = client.getItemRenderer().getModels().getModelManager();
-            BakedModel guiBakedModel = modelManager.getModel(new ModelIdentifier(KnightsHeraldry.MOD_ID, modelPath, "inventory"));
-            matrices.translate(-0.5F, -0.5F, -0.5F);
-            VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getCutout());
-            renderBakedItemModel(guiBakedModel, stack, light, overlay, matrices, vertexConsumer);
-
-            ci.cancel();
-        }
+        return stack.getItem() + (stack.isIn(KHTags.GEO_2D_ITEMS.getTag()) ? "_icon" : "_3d");
     }
 
     @Unique
     private void renderBakedItemModel(BakedModel model, ItemStack stack, int light, int overlay, MatrixStack matrices, VertexConsumer vertices) {
         Random random = Random.create();
-        Direction[] var10 = Direction.values();
-
-        for (Direction direction : var10) {
+        for (Direction direction : Direction.values()) {
             random.setSeed(42L);
             renderBakedItemQuads(matrices, vertices, model.getQuads(null, direction, random), stack, light, overlay);
         }
@@ -101,15 +105,12 @@ public abstract class ItemRendererMixin {
     @Unique
     private void renderBakedItemQuads(MatrixStack matrices, VertexConsumer vertices, List<BakedQuad> quads, ItemStack stack, int light, int overlay) {
         MatrixStack.Entry entry = matrices.peek();
-
         for (BakedQuad bakedQuad : quads) {
-            int i = -1;
-
-            float f = (float) (i >> 16 & 255) / 255.0F;
-            float g = (float) (i >> 8 & 255) / 255.0F;
-            float h = (float) (i & 255) / 255.0F;
-            vertices.quad(entry, bakedQuad, f, g, h, light, overlay);
+            int color = -1;
+            float r = (float) (color >> 16 & 255) / 255.0F;
+            float g = (float) (color >> 8 & 255) / 255.0F;
+            float b = (float) (color & 255) / 255.0F;
+            vertices.quad(entry, bakedQuad, r, g, b, light, overlay);
         }
-
     }
 }

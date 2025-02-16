@@ -51,7 +51,7 @@ public class Lance extends SwordItem {
             }
             if (weapon != null) {
                 Entity targetedEntity = raycastEntity(player, getRange());
-                boolean damageTamedEntities = KnightsHeraldry.config().getDamageTamedEntities();
+                boolean damageTamedEntities = KnightsHeraldry.getConfig().getDamageTamedEntities();
                 if (damageTamedEntities && (targetedEntity instanceof TameableEntity tameableEntity
                         && tameableEntity.isOwner(player))) return;
                 if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)
@@ -65,7 +65,7 @@ public class Lance extends SwordItem {
 
                     stack.damage(1, player, p -> p.sendToolBreakStatus(livingEntity.getActiveHand()));
                     KHDamageCalculator.applyDamage(livingEntity, player, stack, damage);
-                    if (!player.isCreative()) player.getItemCooldownManager().set(this, 600);
+                    if (!player.isCreative()) player.getItemCooldownManager().set(this, KnightsHeraldry.getConfig().getLanceCooldown() * 20);
                 }
             }
         }

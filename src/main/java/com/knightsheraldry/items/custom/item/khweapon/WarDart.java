@@ -60,7 +60,7 @@ public class WarDart extends SwordItem implements KHWeapon {
                 world.playSoundFromEntity(null, wardartEntity, SoundEvents.ITEM_TRIDENT_THROW, SoundCategory.PLAYERS, 1.0F, 1.0F);
                 if (!playerEntity.isCreative())  {
                     playerEntity.getInventory().removeOne(stack);
-                    playerEntity.getItemCooldownManager().set(this, KnightsHeraldry.config().wardartCooldown() * 20);
+                    playerEntity.getItemCooldownManager().set(this, KnightsHeraldry.getConfig().getWardartCooldown() * 20);
                 }
             }
         }
@@ -85,9 +85,9 @@ public class WarDart extends SwordItem implements KHWeapon {
     @Override
     public float[] getAttackDamageValues() {
         return new float[] {
-                0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Slashing
-                0.0F, 9.0F, 13.5F, 9.0F, 4.5F, //Piercing
-                0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
+                0.0F, //Slashing
+                KnightsHeraldry.getConfig().getWarDartDamagePiercing(),
+                0.0F //Bludgeoning
         };
     }
 

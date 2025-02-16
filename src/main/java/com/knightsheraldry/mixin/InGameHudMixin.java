@@ -8,6 +8,7 @@ import com.knightsheraldry.util.KHDamageCalculator;
 import com.knightsheraldry.util.SharedParameters;
 import com.knightsheraldry.util.itemdata.KHTags;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
+import com.knightsheraldry.util.weaponutil.KHWeaponUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.bettercombat.logic.PlayerAttackProperties;
@@ -24,8 +25,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.Arrays;
 
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
@@ -75,16 +74,14 @@ public class InGameHudMixin {
                 boolean bludgeoning = player.getMainHandStack().getOrCreateNbt().getBoolean("kh_bludgeoning");
                 if (mainHandStack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())) bludgeoning = !bludgeoning;
                 boolean piercing = isPiercing((PlayerAttackProperties) player, weapon);
-                float[] damageValues = weapon.getAttackDamageValues();
-                double[] radiusValues = weapon.getRadiusValues();
 
                 if (bludgeoning || weapon.getOnlyDamageType() == KHDamageCalculator.DamageType.BLUDGEONING) {
-                    renderBludgeoningOverlay(context, closestDistance, radiusValues, damageValues);
+                    renderBludgeoningOverlay(weapon, context, closestDistance);
                 } else if (piercing || mainHandStack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())
                         || weapon.getOnlyDamageType() == KHDamageCalculator.DamageType.PIERCING) {
-                    renderPiercingOverlay(context, closestDistance, radiusValues, damageValues);
+                    renderPiercingOverlay(weapon,context, closestDistance);
                 } else {
-                    renderSlashingOverlay(context, closestDistance, radiusValues, damageValues);
+                    renderSlashingOverlay(weapon,context, closestDistance);
                 }
             }
             ci.cancel();
@@ -115,21 +112,21 @@ public class InGameHudMixin {
     }
 
     @Unique
-    private void renderBludgeoningOverlay(DrawContext drawContext, double distance, double[] radiusValues, float[] damageValues) {
+    private void renderBludgeoningOverlay(KHWeapon khWeapon, DrawContext drawContext, double distance) {
         int x = MinecraftClient.getInstance().getWindow().getScaledWidth() / 2;
         int y = MinecraftClient.getInstance().getWindow().getScaledHeight();
-        Integer[] indices = {10, 11, 12, 13, 14};
-        Arrays.sort(indices, (i1, i2) -> Float.compare(damageValues[i2], damageValues[i1]));
+        Integer[] indices = {0, 1, 2, 3, 4};
 
-        Identifier[] textures = new Identifier[radiusValues.length];
-        textures[indices[0] - 10] = BLUDGEONING_CRITICAL;
-        textures[indices[1] - 10] = BLUDGEONING_EFFECTIVE;
-        textures[indices[2] - 10] = BLUDGEONING_EFFECTIVE;
-        textures[indices[3] - 10] = BLUDGEONING_MAXIMUM;
-        textures[indices[4] - 10] = TOO_FAR_CLOSE;
+        Identifier[] textures = new Identifier[5];
+        textures[indices[0]] = TOO_FAR_CLOSE;
+        textures[indices[1]] = BLUDGEONING_EFFECTIVE;
+        textures[indices[2]] = BLUDGEONING_CRITICAL;
+        textures[indices[3]] = BLUDGEONING_EFFECTIVE;
+        textures[indices[4]] = BLUDGEONING_MAXIMUM;
 
-        for (int i = 0; i < radiusValues.length; i++) {
-            if (distance <= radiusValues[i] + 0.25F) {
+        for (int i = 10; i < 14; i++) {
+            if (distance <= KHWeaponUtil.getRadius(khWeapon, i) + 0.25F) {
+                i -= 10;
                 Identifier texture = textures[i];
                 int width, height, xT, yT;
                 if (texture == BLUDGEONING_CRITICAL) {
@@ -158,21 +155,21 @@ public class InGameHudMixin {
     }
 
     @Unique
-    private void renderPiercingOverlay(DrawContext drawContext, double distance, double[] radiusValues, float[] damageValues) {
+    private void renderPiercingOverlay(KHWeapon khWeapon, DrawContext drawContext, double distance) {
         int x = MinecraftClient.getInstance().getWindow().getScaledWidth() / 2;
         int y = MinecraftClient.getInstance().getWindow().getScaledHeight();
-        Integer[] indices = {5, 6, 7, 8, 9};
-        Arrays.sort(indices, (i1, i2) -> Float.compare(damageValues[i2], damageValues[i1]));
+        Integer[] indices = {0, 1, 2, 3, 4};
 
-        Identifier[] textures = new Identifier[radiusValues.length];
-        textures[indices[0] - 5] = PIERCING_CRITICAL;
-        textures[indices[1] - 5] = PIERCING_EFFECTIVE;
-        textures[indices[2] - 5] = PIERCING_EFFECTIVE;
-        textures[indices[3] - 5] = PIERCING_MAXIMUM;
-        textures[indices[4] - 5] = TOO_FAR_CLOSE;
+        Identifier[] textures = new Identifier[5];
+        textures[indices[0]] = TOO_FAR_CLOSE;
+        textures[indices[1]] = PIERCING_EFFECTIVE;
+        textures[indices[2]] = PIERCING_CRITICAL;
+        textures[indices[3]] = PIERCING_EFFECTIVE;
+        textures[indices[4]] = PIERCING_MAXIMUM;
 
-        for (int i = 0; i < radiusValues.length; i++) {
-            if (distance <= radiusValues[i] + 0.25F) {
+        for (int i = 5; i < 9; i++) {
+            if (distance <= KHWeaponUtil.getRadius(khWeapon, i) + 0.25F) {
+                i -= 5;
                 Identifier texture = textures[i];
                 int width, height, xT, yT;
                 if (texture == PIERCING_CRITICAL) {
@@ -201,22 +198,21 @@ public class InGameHudMixin {
     }
 
     @Unique
-    private void renderSlashingOverlay(DrawContext drawContext, double distance, double[] radiusValues, float[] damageValues) {
+    private void renderSlashingOverlay(KHWeapon khWeapon, DrawContext drawContext, double distance) {
         int x = MinecraftClient.getInstance().getWindow().getScaledWidth() / 2;
         int y = MinecraftClient.getInstance().getWindow().getScaledHeight();
         Integer[] indices = {0, 1, 2, 3, 4};
-        Arrays.sort(indices, (i1, i2) -> Float.compare(damageValues[i2], damageValues[i1]));
 
-        Identifier[] textures = new Identifier[radiusValues.length];
-        textures[indices[0]] = SLASHING_CRITICAL;
+        Identifier[] textures = new Identifier[5];
+        textures[indices[0]] = TOO_FAR_CLOSE;
         textures[indices[1]] = SLASHING_EFFECTIVE;
-        textures[indices[2]] = SLASHING_EFFECTIVE;
-        textures[indices[3]] = SLASHING_MAXIMUM;
-        textures[indices[4]] = TOO_FAR_CLOSE;
+        textures[indices[2]] = SLASHING_CRITICAL;
+        textures[indices[3]] = SLASHING_EFFECTIVE;
+        textures[indices[4]] = SLASHING_MAXIMUM;
 
         boolean textureFound = false;
-        for (int i = 0; i < radiusValues.length; i++) {
-            if (distance <= radiusValues[i] + 0.25F) {
+        for (int i = 0; i < 4; i++) {
+            if (distance <= KHWeaponUtil.getRadius(khWeapon, i) + 0.25F) {
                 Identifier texture = textures[i];
                 int width, height, xT, yT;
                 if (texture == SLASHING_CRITICAL) {
@@ -310,14 +306,14 @@ public class InGameHudMixin {
     @Unique
     private void renderStaminaBar(DrawContext drawContext, int x, int y, int stamina, boolean staminaBlocked) {
         for (int i = 0; i < 10; i++) {
-            renderEmptyStamina(drawContext, x + 82 - (i * STAMINA_UNIT_SIZE), y);
+            renderEmptyStamina(drawContext, x + 82 - (i * STAMINA_UNIT_SIZE), y - KnightsHeraldry.getConfig().getStaminaBarYOffset());
         }
 
         for (int i = 0; i < SharedParameters.TOTAL_STAMINA; i++) {
             if (stamina < i) break;
             int x1 = x + 82 - (i / (SharedParameters.TOTAL_STAMINA / 10) * STAMINA_UNIT_SIZE);
-            if (staminaBlocked) renderBlockedStamina(drawContext, x1, y);
-            else renderFilledStamina(drawContext, x1, y);
+            if (staminaBlocked) renderBlockedStamina(drawContext, x1, y - KnightsHeraldry.getConfig().getStaminaBarYOffset());
+            else renderFilledStamina(drawContext, x1, y - KnightsHeraldry.getConfig().getStaminaBarYOffset());
         }
     }
 
@@ -354,7 +350,7 @@ public class InGameHudMixin {
         TrinketsApi.getTrinketComponent(player).ifPresent(trinketComponent -> {
             trinketComponent.getAllEquipped().forEach(pair -> {
                 ItemStack trinketStack = pair.getRight();
-                if (trinketStack.getItem() instanceof KHTrinketsItem && trinketStack.isIn(KHTags.VISORED_HELMET.getTag()) && KnightsHeraldry.config().getVisoredHelmet()) {
+                if (trinketStack.getItem() instanceof KHTrinketsItem && trinketStack.isIn(KHTags.VISORED_HELMET.getTag()) && KnightsHeraldry.getConfig().getVisoredHelmet()) {
                     RenderSystem.setShaderTexture(0, VISOR_HELMET);
                     context.drawTexture(VISOR_HELMET, 0, 0, 0, 0, width, height, width, height);
                 }
@@ -367,7 +363,7 @@ public class InGameHudMixin {
         int stamina = persistentData.getInt("stamina_int");
 
         long firstLevel = Math.absExact((int) (SharedParameters.TOTAL_STAMINA * 0.3f));
-        if (stamina <= firstLevel && KnightsHeraldry.config().getLowStaminaIndicator()) {
+        if (stamina <= firstLevel && KnightsHeraldry.getConfig().getLowStaminaIndicator()) {
             float opacity = Math.max(0.0f, Math.min(1.0f, (float) (firstLevel - stamina) / (firstLevel)));
 
             float red = 1.0F;

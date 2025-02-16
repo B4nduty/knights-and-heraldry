@@ -27,7 +27,7 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         for (ServerPlayerEntity playerEntity : server.getPlayerManager().getPlayerList()) {
             if (!playerEntity.isSpectator()) {
                 handlePlayerTick(playerEntity);
-                if (KnightsHeraldry.config().getParry()) handleParry(playerEntity);
+                if (KnightsHeraldry.getConfig().getParry()) handleParry(playerEntity);
             }
             if (!isWearingFullKHArmorSet(playerEntity)) {
                 TrinketsApi.getTrinketComponent(playerEntity).ifPresent(trinketComponent ->
@@ -146,7 +146,7 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         IEntityDataSaver dataSaver = (IEntityDataSaver) playerEntity;
         boolean staminaBlocked = dataSaver.knightsheraldry$getPersistentData().getBoolean("stamina_blocked");
 
-        if (isHoldingKHWeapon(playerEntity) && !staminaBlocked && !KnightsHeraldry.config().getBlocking()
+        if (isHoldingKHWeapon(playerEntity) && !staminaBlocked && !KnightsHeraldry.getConfig().getBlocking()
                 && playerEntity.isBlocking() && stamina >= 1 && playerEntity.age % 2 == 0) {
             StaminaData.removeStamina(dataSaver, 1);
         }

@@ -1,5 +1,6 @@
 package com.knightsheraldry.items.custom.item.khweapon;
 
+import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.items.custom.item.KHWeapon;
 import com.knightsheraldry.util.KHDamageCalculator;
@@ -42,9 +43,9 @@ public class Halberd extends SwordItem implements KHWeapon {
     @Override
     public float[] getAttackDamageValues() {
         return new float[] {
-                0.0F, 6.0F, 9.0F, 6.0F, 3.0F, //Slashing
-                0.0F, 7.0F, 10.5F, 7.0F, 3.5F, //Piercing
-                0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
+                KnightsHeraldry.getConfig().getHalberdDamageSlashing(),
+                KnightsHeraldry.getConfig().getHalberdDamagePiercing(),
+                0.0F //Bludgeoning
         };
     }
 
@@ -60,16 +61,17 @@ public class Halberd extends SwordItem implements KHWeapon {
         super.postHit(stack, target, attacker);
 
         if (attacker instanceof PlayerEntity playerEntity) {
-            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(KHWeaponUtil.getMaxDistance(this));
+            KHDamageCalculator.DamageType damageType = KHWeaponUtil.calculateDamageType(stack, this, ((PlayerAttackProperties) playerEntity).getComboCount());
+            double maxDistance = KHWeaponUtil.getMaxDistance(this, damageType);
+            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
             Vec3d playerPos = playerEntity.getPos();
             playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
-                            entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), KHWeaponUtil.getMaxDistance(this) + 1))
+                            entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1))
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.getPos());
-                        KHDamageCalculator.DamageType damageType = KHWeaponUtil.calculateDamageType(stack, this, ((PlayerAttackProperties) playerEntity).getComboCount());
                         float damage = KHDamageCalculator.getKHDamage(playerEntity, KHWeaponUtil.calculateDamage(this, distance,
-                                damageType.getIndex() - 4, damageType.getIndex()), damageType);
+                                damageType), damageType);
                         float maxDamage = getMaxValueDamage(((PlayerAttackProperties) playerEntity).getComboCount());
 
                         if (damage >= maxDamage) {

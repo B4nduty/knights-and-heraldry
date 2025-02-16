@@ -1,5 +1,6 @@
 package com.knightsheraldry.items.custom.item.khweapon;
 
+import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.items.custom.item.KHWeapon;
 import com.knightsheraldry.util.KHDamageCalculator;
@@ -24,9 +25,9 @@ public class Falchion extends SwordItem implements KHWeapon {
     @Override
     public float[] getAttackDamageValues() {
         return new float[] {
-                0.0F, 8.0F, 12.0F, 8.0F, 4.0F, //Slashing
-                0.0F, 0.0F, 0.0F, 0.0F, 0.0F, //Piercing
-                0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
+                KnightsHeraldry.getConfig().getFalchionDamageSlashing(),
+                0.0F, //Piercing
+                0.0F //Bludgeoning
         };
     }
 

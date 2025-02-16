@@ -1,5 +1,6 @@
 package com.knightsheraldry.items.custom.item.khweapon;
 
+import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
 import com.knightsheraldry.items.custom.item.KHWeapon;
 import com.knightsheraldry.util.KHDamageCalculator;
@@ -34,9 +35,9 @@ public class Dagger extends SwordItem implements KHWeapon {
     @Override
     public float[] getAttackDamageValues() {
         return new float[] {
-                0.0F, 6.0F, 9.0F, 6.0F, 3.0F, //Slashing
-                0.0F, 3.0F, 4.5F, 3.0F, 1.5F, //Piercing
-                0.0F, 0.0F, 0.0F, 0.0F, 0.0F //Bludgeoning
+                KnightsHeraldry.getConfig().getDaggerDamageSlashing(),
+                KnightsHeraldry.getConfig().getDaggerDamagePiercing(),
+                0.0F //Bludgeoning
         };
     }
 

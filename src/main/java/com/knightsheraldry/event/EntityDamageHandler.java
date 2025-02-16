@@ -51,7 +51,7 @@ public class EntityDamageHandler implements LivingEntityDamageEvents {
     }
 
     private boolean handleParry(LivingEntity target, LivingEntity attacker) {
-        if (!KnightsHeraldry.config().getParry() || !(target instanceof PlayerEntity player)) {
+        if (!KnightsHeraldry.getConfig().getParry() || !(target instanceof PlayerEntity player)) {
             return false;
         }
 
@@ -91,18 +91,18 @@ public class EntityDamageHandler implements LivingEntityDamageEvents {
 
     private float calculateWeaponDamage(PlayerEntity player, LivingEntity target,
                                         KHWeapon weapon, ItemStack stack, float originalDamage) {
-        double maxDistance = KHWeaponUtil.getMaxDistance(weapon);
+        int comboCount = ((PlayerAttackProperties) player).getComboCount();
+
+        KHDamageCalculator.DamageType damageType = KHWeaponUtil.calculateDamageType(stack, weapon, comboCount);
+
+        double maxDistance = KHWeaponUtil.getMaxDistance(weapon, damageType);
         double actualDistance = player.getPos().distanceTo(target.getPos());
 
         if (actualDistance > maxDistance + 1) {
             return originalDamage;
         }
 
-        int comboCount = ((PlayerAttackProperties) player).getComboCount();
-        KHDamageCalculator.DamageType damageType = KHWeaponUtil.calculateDamageType(stack, weapon, comboCount);
-
-        float baseDamage = KHWeaponUtil.calculateDamage(weapon, actualDistance,
-                damageType.getIndex() - 4, damageType.getIndex());
+        float baseDamage = KHWeaponUtil.calculateDamage(weapon, actualDistance, damageType);
 
         float calculatedDamage = KHDamageCalculator.getKHDamage(target, baseDamage, damageType);
 

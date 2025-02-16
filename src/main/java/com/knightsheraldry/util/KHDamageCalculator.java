@@ -37,9 +37,9 @@ public class KHDamageCalculator {
     }
 
     public enum DamageType {
-        SLASHING("slashing", 4),
-        PIERCING("piercing", 9),
-        BLUDGEONING("bludgeoning", 14);
+        SLASHING("slashing", 0),
+        PIERCING("piercing", 1),
+        BLUDGEONING("bludgeoning", 2);
 
         private final String name;
         private final int index;
