@@ -51,15 +51,6 @@ public enum KHTags {
      */
     WEAPONS_IGNORES_ARMOR("weapons_ignores_armor"),
     /**
-     * If you want your Weapon deal Bludgeoning Damage
-     * <p>
-     * If you want to change the position of the Weapon,
-     * you will need to add in your 3D Model file the predicate "bludgeoning"
-     * <p>
-     * It's compatible with "blocking" predicate
-     */
-    WEAPONS_BLUDGEONING("weapons_bludgeoning"),
-    /**
      * If you want your Weapon disable the Shield/Parrying of another Weapon as Axes with the Shield
      */
     WEAPONS_DISABLE_SHIELD("weapons_disable_shield"),
@@ -67,10 +58,6 @@ public enum KHTags {
      * If you want your Weapon bypass Shield/Parrying
      */
     WEAPONS_BYPASS_BLOCK("weapons_bypass_block"),
-    /**
-     * If you want your Weapon change bludgeoning to piercing and the other way back
-     */
-    WEAPONS_BLUDGEONING_TO_PIERCING("weapons_bludgeoning_to_piercing"),
     /**
      * If you want your Weapon can Harvest
      */

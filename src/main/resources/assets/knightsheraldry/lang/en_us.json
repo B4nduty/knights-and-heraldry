@@ -293,6 +293,9 @@
   "text.tooltip.knightsheraldry.slashingResistance": "Slashing Resistance: +%s%% ",
   "text.tooltip.knightsheraldry.bludgeoningResistance": "Bludgeoning Resistance: +%s%%",
   "text.tooltip.knightsheraldry.piercingResistance": "Piercing Resistance: +%s%%",
+  "text.tooltip.knightsheraldry.slashingDamage": "Slashing Damage: %s",
+  "text.tooltip.knightsheraldry.bludgeoningDamage": "Bludgeoning Damage: %s",
+  "text.tooltip.knightsheraldry.piercingDamage": "Piercing Damage: %s",
 
   "event.knightsheraldry.recharge_time": "Recharge Time: %s sec",
   "event.knightsheraldry.recharged": "Has been Recharged",

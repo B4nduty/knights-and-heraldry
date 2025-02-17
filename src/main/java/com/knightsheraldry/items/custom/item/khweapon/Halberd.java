@@ -62,7 +62,7 @@ public class Halberd extends SwordItem implements KHWeapon {
 
         if (attacker instanceof PlayerEntity playerEntity) {
             KHDamageCalculator.DamageType damageType = KHWeaponUtil.calculateDamageType(stack, this, ((PlayerAttackProperties) playerEntity).getComboCount());
-            double maxDistance = KHWeaponUtil.getMaxDistance(this, damageType);
+            double maxDistance = KHWeaponUtil.getMaxDistance(this);
             Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
             Vec3d playerPos = playerEntity.getPos();
             playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->

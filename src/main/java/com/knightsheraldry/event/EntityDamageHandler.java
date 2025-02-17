@@ -95,7 +95,7 @@ public class EntityDamageHandler implements LivingEntityDamageEvents {
 
         KHDamageCalculator.DamageType damageType = KHWeaponUtil.calculateDamageType(stack, weapon, comboCount);
 
-        double maxDistance = KHWeaponUtil.getMaxDistance(weapon, damageType);
+        double maxDistance = KHWeaponUtil.getMaxDistance(weapon);
         double actualDistance = player.getPos().distanceTo(target.getPos());
 
         if (actualDistance > maxDistance + 1) {

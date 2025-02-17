@@ -64,24 +64,18 @@ public class InGameHudMixin {
             }
 
             ItemStack mainHandStack = player.getMainHandStack();
-            KHWeapon weapon = null;
-
-            if (mainHandStack.getItem() instanceof KHWeapon) {
-                weapon = (KHWeapon) mainHandStack.getItem();
-            }
-
-            if (weapon != null) {
+            if (mainHandStack.getItem() instanceof KHWeapon khWeapon) {
                 boolean bludgeoning = player.getMainHandStack().getOrCreateNbt().getBoolean("kh_bludgeoning");
-                if (mainHandStack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())) bludgeoning = !bludgeoning;
-                boolean piercing = isPiercing((PlayerAttackProperties) player, weapon);
+                boolean bludgeoningToPiercing = khWeapon.getAttackDamageValues()[0] == 0
+                        && khWeapon.getAttackDamageValues()[1] > 0 && khWeapon.getAttackDamageValues()[2] > 0;
+                boolean piercing = isPiercing((PlayerAttackProperties) player, khWeapon);
 
-                if (bludgeoning || weapon.getOnlyDamageType() == KHDamageCalculator.DamageType.BLUDGEONING) {
-                    renderBludgeoningOverlay(weapon, context, closestDistance);
-                } else if (piercing || mainHandStack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())
-                        || weapon.getOnlyDamageType() == KHDamageCalculator.DamageType.PIERCING) {
-                    renderPiercingOverlay(weapon,context, closestDistance);
+                if (bludgeoning || khWeapon.getOnlyDamageType() == KHDamageCalculator.DamageType.BLUDGEONING) {
+                    renderBludgeoningOverlay(khWeapon, context, closestDistance);
+                } else if (piercing || bludgeoningToPiercing || khWeapon.getOnlyDamageType() == KHDamageCalculator.DamageType.PIERCING) {
+                    renderPiercingOverlay(khWeapon,context, closestDistance);
                 } else {
-                    renderSlashingOverlay(weapon,context, closestDistance);
+                    renderSlashingOverlay(khWeapon,context, closestDistance);
                 }
             }
             ci.cancel();
@@ -124,9 +118,8 @@ public class InGameHudMixin {
         textures[indices[3]] = BLUDGEONING_EFFECTIVE;
         textures[indices[4]] = BLUDGEONING_MAXIMUM;
 
-        for (int i = 10; i < 14; i++) {
+        for (int i = 0; i < 4; i++) {
             if (distance <= KHWeaponUtil.getRadius(khWeapon, i) + 0.25F) {
-                i -= 10;
                 Identifier texture = textures[i];
                 int width, height, xT, yT;
                 if (texture == BLUDGEONING_CRITICAL) {
@@ -167,9 +160,8 @@ public class InGameHudMixin {
         textures[indices[3]] = PIERCING_EFFECTIVE;
         textures[indices[4]] = PIERCING_MAXIMUM;
 
-        for (int i = 5; i < 9; i++) {
+        for (int i = 0; i < 4; i++) {
             if (distance <= KHWeaponUtil.getRadius(khWeapon, i) + 0.25F) {
-                i -= 5;
                 Identifier texture = textures[i];
                 int width, height, xT, yT;
                 if (texture == PIERCING_CRITICAL) {

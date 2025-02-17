@@ -3,7 +3,6 @@ package com.knightsheraldry.util.weaponutil;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.custom.item.KHWeapon;
 import com.knightsheraldry.util.KHDamageCalculator;
-import com.knightsheraldry.util.itemdata.KHTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.CropBlock;
 import net.minecraft.entity.LivingEntity;
@@ -25,21 +24,18 @@ public final class KHWeaponUtil {
     }
 
     public static KHDamageCalculator.DamageType calculateDamageType(ItemStack stack, KHWeapon khWeapon, int comboCount) {
-        boolean isBludgeoning = isBludgeoningWeapon(stack);
+        boolean bludgeoningToPiercing = khWeapon.getAttackDamageValues()[0] == 0
+                && khWeapon.getAttackDamageValues()[1] > 0 && khWeapon.getAttackDamageValues()[2] > 0;
+        boolean isBludgeoning = stack.getOrCreateNbt().getBoolean("kh_bludgeoning");
         boolean isPiercing = isPiercingWeapon(khWeapon, comboCount);
 
         if (isBludgeoning || khWeapon.getOnlyDamageType() == KHDamageCalculator.DamageType.BLUDGEONING) {
             return KHDamageCalculator.DamageType.BLUDGEONING;
         }
-        if (isPiercing || stack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())) {
+        if (isPiercing || bludgeoningToPiercing) {
             return KHDamageCalculator.DamageType.PIERCING;
         }
         return KHDamageCalculator.DamageType.SLASHING;
-    }
-
-    private static boolean isBludgeoningWeapon(ItemStack stack) {
-        boolean isBludgeoning = stack.getOrCreateNbt().getBoolean("kh_bludgeoning");
-        return stack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag()) != isBludgeoning;
     }
 
     private static boolean isPiercingWeapon(KHWeapon khWeapon, int comboCount) {
@@ -72,8 +68,8 @@ public final class KHWeaponUtil {
         return isValidIndex(index, damageValues.length) ? damageValues[index] : 0.0F;
     }
 
-    public static double getMaxDistance(KHWeapon khWeapon, KHDamageCalculator.DamageType damageType) {
-        return getRadius(khWeapon, (damageType.getIndex() + 1) * 4);
+    public static double getMaxDistance(KHWeapon khWeapon) {
+        return getRadius(khWeapon, 4);
     }
 
     public static double getRadius(KHWeapon khWeapon, int index) {
@@ -107,12 +103,11 @@ public final class KHWeaponUtil {
     }
 
     public static float calculateDamage(KHWeapon khWeapon, double distance, KHDamageCalculator.DamageType damageType) {
-        for (int i = damageType.getIndex() * 5; i <= (1 + damageType.getIndex()) * 4; i++) {
+        for (int i = 0; i <= 4; i++) {
             double radius = getRadius(khWeapon, i);
             if (distance < radius + RADIUS_TOLERANCE) {
-                int i2 = i - damageType.getIndex() * 5;
                 float attackDamage = getAttackDamage(khWeapon, damageType.getIndex());
-                float percentage = calculatePercentageForIndex(i2);
+                float percentage = calculatePercentageForIndex(i);
                 return attackDamage * percentage;
             }
         }

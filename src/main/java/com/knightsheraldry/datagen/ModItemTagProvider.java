@@ -43,19 +43,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(KHTags.WEAPONS_IGNORES_ARMOR.getTag())
                 .add(ModItems.STILETTO);
 
-        getOrCreateTagBuilder(KHTags.WEAPONS_BLUDGEONING.getTag())
-                .add(ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.LONGSWORD, ModItems.V_LONGSWORD,
-                        ModItems.POLEAXE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
-                        ModItems.WARSWORD_ZWEIHANDER);
-
         getOrCreateTagBuilder(KHTags.WEAPONS_DISABLE_SHIELD.getTag())
                 .add(ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE);
 
         getOrCreateTagBuilder(KHTags.WEAPONS_BYPASS_BLOCK.getTag())
                 .add(ModItems.FLAIL, ModItems.BALL_FLAIL);
-
-        getOrCreateTagBuilder(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())
-                .add(ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN);
 
         getOrCreateTagBuilder(KHTags.WEAPONS_HARVEST.getTag())
                 .add(ModItems.PITCHFORK);

@@ -18,10 +18,7 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.UseAction;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -87,8 +84,8 @@ public class ItemMixin {
                                     CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
         ItemStack stack = user.getStackInHand(hand);
 
-        if (stack.getItem() instanceof KHWeapon) {
-            handleKHWeaponUse(world, user, hand, stack, cir);
+        if (stack.getItem() instanceof KHWeapon khWeapon) {
+            handleKHWeaponUse(world, user, hand, stack, khWeapon, cir);
         } else if (stack.getItem() instanceof KHRangeWeapon khRangeWeapon) {
             handleRangeWeaponUse(world, user, hand, stack, khRangeWeapon, cir);
         }
@@ -96,8 +93,8 @@ public class ItemMixin {
 
     @Unique
     private void handleKHWeaponUse(World world, PlayerEntity user, Hand hand, ItemStack stack,
-                                   CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
-        if (!world.isClient && user.isSneaking() && isBludgeoningWeapon(stack)) {
+                                   KHWeapon khWeapon, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
+        if (!world.isClient && user.isSneaking() && isBludgeoningWeapon(khWeapon)) {
             toggleBludgeoningMode(stack);
             cir.setReturnValue(TypedActionResult.success(stack));
             return;
@@ -110,9 +107,8 @@ public class ItemMixin {
     }
 
     @Unique
-    private boolean isBludgeoningWeapon(ItemStack stack) {
-        return stack.isIn(KHTags.WEAPONS_BLUDGEONING.getTag())
-                || stack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag());
+    private boolean isBludgeoningWeapon(KHWeapon khWeapon) {
+        return khWeapon.getAttackDamageValues()[2] > 0;
     }
 
     @Unique
@@ -226,20 +222,30 @@ public class ItemMixin {
     @Inject(method = "appendTooltip", at = @At("HEAD"))
     public void knightsheraldry$appendTooltip(ItemStack stack, World world, List<Text> tooltip,
                                               TooltipContext context, CallbackInfo ci) {
-        if (stack.getItem() instanceof KHWeapon) {
-            if (stack.isIn(KHTags.WEAPONS_BLUDGEONING.getTag())) {
+        if (stack.getItem() instanceof KHWeapon khWeapon) {
+            float[] attackDamageValues = khWeapon.getAttackDamageValues();
+            float slashingDamage = attackDamageValues[0];
+            float piercingDamage = attackDamageValues[1];
+            float bludgeoningDamage = attackDamageValues[2];
+
+            if (slashingDamage > 0 && bludgeoningDamage > 0 && piercingDamage == 0) {
                 tooltip.add(Text.translatable("tooltip.knightsheraldry.shift-right_click-bludgeoning"));
             }
-            if (stack.isIn(KHTags.WEAPONS_BLUDGEONING_TO_PIERCING.getTag())) {
+
+            if (slashingDamage == 0 && bludgeoningDamage > 0 && piercingDamage > 0) {
                 tooltip.add(Text.translatable("tooltip.knightsheraldry.shift-right_click-bludgeoning-piercing"));
             }
+
             if (stack.isIn(KHTags.WEAPONS_HARVEST.getTag())) {
                 tooltip.add(Text.translatable("tooltip.knightsheraldry.right_click-replant"));
             }
+
+            if (slashingDamage != 0) tooltip.add(Text.translatable("text.tooltip.knightsheraldry.slashingDamage", (int) slashingDamage).formatted(Formatting.GREEN));
+            if (bludgeoningDamage != 0) tooltip.add(Text.translatable("text.tooltip.knightsheraldry.bludgeoningDamage", (int) bludgeoningDamage).formatted(Formatting.GREEN));
+            if (piercingDamage != 0) tooltip.add(Text.translatable("text.tooltip.knightsheraldry.piercingDamage", (int) piercingDamage).formatted(Formatting.GREEN));
         }
 
-        if (stack.getItem() instanceof KHRangeWeapon khRangeWeapon
-                && khRangeWeapon.ammoRequirement() != null) {
+        if (stack.getItem() instanceof KHRangeWeapon khRangeWeapon && khRangeWeapon.ammoRequirement() != null) {
             tooltip.add(Text.translatable("tooltip.knightsheraldry.need_to_hold",
                     KeyInputHandler.reload.getBoundKeyLocalizedText()));
         }
