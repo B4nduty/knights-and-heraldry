@@ -17,7 +17,6 @@ public class ReachEntityAttributesMixin  {
     @Inject(method = "getReachDistance", at = @At("HEAD"), cancellable = true)
     private static void knightsheraldry$getReachDistance(LivingEntity entity, double baseReachDistance, CallbackInfoReturnable<Double> cir) {
         if (entity.getMainHandStack().getItem() instanceof KHWeapon khWeapon && entity instanceof PlayerEntity player) {
-            KHDamageCalculator.DamageType damageType = KHWeaponUtil.calculateDamageType(entity.getMainHandStack(), khWeapon, ((PlayerAttackProperties) player).getComboCount());
             var reachDistance = KHWeaponUtil.getMaxDistance(khWeapon);
             cir.setReturnValue(reachDistance);
         }
