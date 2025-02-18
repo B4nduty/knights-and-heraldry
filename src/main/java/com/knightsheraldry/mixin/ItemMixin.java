@@ -1,11 +1,11 @@
 package com.knightsheraldry.mixin;
 
-import com.knightsheraldry.event.KeyInputHandler;
 import com.knightsheraldry.items.custom.item.KHRangeWeapon;
 import com.knightsheraldry.items.custom.item.KHWeapon;
 import com.knightsheraldry.util.itemdata.KHTags;
 import com.knightsheraldry.util.weaponutil.KHRangeWeaponUtil;
 import com.knightsheraldry.util.weaponutil.KHWeaponUtil;
+import com.knightsheraldry.util.weaponutil.TooltipClientSide;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
@@ -245,9 +245,8 @@ public class ItemMixin {
             if (piercingDamage != 0) tooltip.add(Text.translatable("text.tooltip.knightsheraldry.piercingDamage", (int) piercingDamage).formatted(Formatting.GREEN));
         }
 
-        if (stack.getItem() instanceof KHRangeWeapon khRangeWeapon && khRangeWeapon.ammoRequirement() != null) {
-            tooltip.add(Text.translatable("tooltip.knightsheraldry.need_to_hold",
-                    KeyInputHandler.reload.getBoundKeyLocalizedText()));
+        if (stack.getItem() instanceof KHRangeWeapon khRangeWeapon && khRangeWeapon.ammoRequirement() != null && world.isClient()) {
+            TooltipClientSide.setTooltip(tooltip);
         }
     }
 

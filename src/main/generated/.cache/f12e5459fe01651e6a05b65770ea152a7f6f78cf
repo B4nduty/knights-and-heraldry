@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-17T00:00:18.1186775	Knights & Heraldry/Recipes
+// 1.20.1	2025-02-18T22:39:25.144592	Knights & Heraldry/Recipes
 9ddaaffd00cdb035657ca683d1d60a2735e23d8a data\knightsheraldry\advancements\recipes\misc\bascinet_no_visor.json
 94fa46371a08c7f25c36ddf7ba43e57300401041 data\knightsheraldry\advancements\recipes\misc\cage_2.json
 4f557ca060e7be405e7941ea52fa35ed0a3a3e5f data\knightsheraldry\advancements\recipes\misc\mace.json
@@ -70,8 +70,8 @@ fe13a01514adb3ec066731eb8988c35e1507e4f0 data\knightsheraldry\advancements\recip
 4fd9a937f0896d980e3d08a102edcb0e83c180fc data\knightsheraldry\recipes\viking_helm.json
 bb1517975ac8d879aae95bb814bab4ce63fd9a2b data\knightsheraldry\recipes\war_hammer.json
 3fa0d00bca00660055d24c2e8cb637978bc64629 data\knightsheraldry\recipes\armet_2.json
-6d3f7c06e46d171ebe44ca8845802b9c4ef966ce data\knightsheraldry\recipes\bascinet_no_visor.json
 de23e6419f729ff78238aab04c3b81a1f03290b4 data\knightsheraldry\advancements\recipes\misc\barbute_no_visor.json
+6d3f7c06e46d171ebe44ca8845802b9c4ef966ce data\knightsheraldry\recipes\bascinet_no_visor.json
 ecfec0a0776ac994a5bb59aa600fc5f6a2053136 data\knightsheraldry\recipes\plate_pauldron.json
 838a956fe0713d34e49e295bfd06820df91e3031 data\knightsheraldry\recipes\arming_sword.json
 9df780cd1095919dece5ef44f8c754d51f8f94ab data\knightsheraldry\recipes\hammer.json
