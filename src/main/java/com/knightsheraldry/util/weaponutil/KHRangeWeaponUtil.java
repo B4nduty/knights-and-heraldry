@@ -2,8 +2,8 @@ package com.knightsheraldry.util.weaponutil;
 
 import com.knightsheraldry.entity.custom.KHArrowEntity;
 import com.knightsheraldry.entity.custom.KHBulletEntity;
-import com.knightsheraldry.items.custom.item.KHArrow;
-import com.knightsheraldry.items.custom.item.KHRangeWeapon;
+import com.knightsheraldry.items.item.KHArrow;
+import com.knightsheraldry.items.item.KHRangeWeapon;
 import com.knightsheraldry.particle.ModParticles;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;

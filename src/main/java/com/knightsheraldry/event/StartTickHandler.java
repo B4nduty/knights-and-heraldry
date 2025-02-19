@@ -1,9 +1,9 @@
 package com.knightsheraldry.event;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
-import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
-import com.knightsheraldry.items.custom.item.KHWeapon;
+import com.knightsheraldry.items.armor.KHTrinketsItem;
+import com.knightsheraldry.items.armor.KHUnderArmorItem;
+import com.knightsheraldry.items.item.KHWeapon;
 import com.knightsheraldry.util.SharedParameters;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.itemdata.KHTags;

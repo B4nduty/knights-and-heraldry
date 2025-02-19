@@ -1,7 +1,8 @@
 package com.knightsheraldry.util;
 
-import com.knightsheraldry.items.custom.armor.KHDyeableTrinketsItem;
-import com.knightsheraldry.items.custom.armor.KHDyeableUnderArmorItem;
+import com.knightsheraldry.items.armor.KHTrinketsItem;
+import com.knightsheraldry.items.armor.KHUnderArmorItem;
+import net.minecraft.item.DyeableItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 
@@ -12,13 +13,13 @@ public class DyeUtil {
     }
 
     public static int getColor(ItemStack stack) {
-        if (stack.getItem() instanceof KHDyeableTrinketsItem khDyeableTrinketsItem) {
+        if (stack.getItem() instanceof KHTrinketsItem khTrinketsItem && stack.getItem() instanceof DyeableItem) {
             NbtCompound nbtCompound = stack.getSubNbt("display");
-            return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : khDyeableTrinketsItem.getDefaultColor();
+            return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : khTrinketsItem.getDefaultColor();
         }
-        if (stack.getItem() instanceof KHDyeableTrinketsItem || stack.getItem() instanceof KHDyeableUnderArmorItem) {
+        if (stack.getItem() instanceof KHUnderArmorItem khUnderArmorItem && khUnderArmorItem.isDyeable()) {
             NbtCompound nbtCompound = stack.getSubNbt("display");
-            return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : 10511680;
+            return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : khUnderArmorItem.getDefaultColor();
         }
         return 0xFFFFFF;
     }

@@ -2,7 +2,7 @@ package com.knightsheraldry.client.item;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.item.khweapon.Flail;
+import com.knightsheraldry.items.item.khweapon.Flail;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.model.GeoModel;
 

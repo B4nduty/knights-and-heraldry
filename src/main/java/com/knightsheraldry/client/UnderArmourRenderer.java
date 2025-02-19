@@ -1,7 +1,6 @@
 package com.knightsheraldry.client;
 
-import com.knightsheraldry.items.custom.armor.KHDyeableUnderArmorItem;
-import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
+import com.knightsheraldry.items.armor.KHUnderArmorItem;
 import com.knightsheraldry.model.*;
 import com.knightsheraldry.util.DyeUtil;
 import dev.emi.trinkets.api.client.TrinketRenderer;
@@ -17,6 +16,7 @@ import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
@@ -28,14 +28,14 @@ public class UnderArmourRenderer implements ArmorRenderer {
 
     @Override
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, ItemStack stack, LivingEntity entity, EquipmentSlot slot, int light, BipedEntityModel<LivingEntity> contextModel) {
-        if (stack.getItem() instanceof KHUnderArmorItem khArmorItem) {
-            BipedEntityModel<LivingEntity> model = getModel(khArmorItem);
+        if (stack.getItem() instanceof KHUnderArmorItem khArmorItem && stack.getItem() instanceof ArmorItem armorItem) {
+            BipedEntityModel<LivingEntity> model = getModel(armorItem);
             if (model != null) {
                 TrinketRenderer.followBodyRotations(entity, model);
 
                 VertexConsumer vertexConsumer = vertexConsumers.getBuffer(
-                        RenderLayer.getArmorCutoutNoCull(khArmorItem.getPath()));
-                if (khArmorItem instanceof KHDyeableUnderArmorItem) {
+                        RenderLayer.getArmorCutoutNoCull(khArmorItem.getTexturePath()));
+                if (khArmorItem.isDyeable()) {
                     float[] color = DyeUtil.getDyeColor(stack);
 
                     Identifier textureOverlayPath = getIdentifier(khArmorItem);
@@ -49,7 +49,7 @@ public class UnderArmourRenderer implements ArmorRenderer {
     }
 
     private static @NotNull Identifier getIdentifier(KHUnderArmorItem khArmorItem) {
-        Identifier originalIdentifier = khArmorItem.getPath();
+        Identifier originalIdentifier = khArmorItem.getTexturePath();
 
         String textureOverlayString = originalIdentifier.getPath();
 
@@ -62,14 +62,14 @@ public class UnderArmourRenderer implements ArmorRenderer {
         return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);
     }
 
-    public @Nullable BipedEntityModel<LivingEntity> getModel(KHUnderArmorItem khArmorItem) {
+    public @Nullable BipedEntityModel<LivingEntity> getModel(ArmorItem armorItem) {
         if (this.model == null && FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
-            this.model = switch (khArmorItem.getSlotType()) {
+            this.model = switch (armorItem.getSlotType()) {
                 case HEAD -> new UnderArmourHelmetModel(UnderArmourHelmetModel.getTexturedModelData().createModel());
                 case CHEST -> new UnderArmourChestplateModel(UnderArmourChestplateModel.getTexturedModelData().createModel());
                 case LEGS -> new UnderArmourLeggingsModel(UnderArmourLeggingsModel.getTexturedModelData().createModel());
                 case FEET -> new UnderArmourBootsModel(UnderArmourBootsModel.getTexturedModelData().createModel());
-                default -> throw new IllegalArgumentException("Unsupported slot type: " + khArmorItem.getSlotType());
+                default -> throw new IllegalArgumentException("Unsupported slot type: " + armorItem.getSlotType());
             };
         }
         return this.model;

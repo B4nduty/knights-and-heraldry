@@ -12,11 +12,9 @@ import net.minecraft.entity.LivingEntity;
 @Environment(EnvType.CLIENT)
 public class UnderArmourArmModel extends BipedEntityModel<LivingEntity> {
 	public final ModelPart armorRightArm;
-	public final ModelPart armorLeftArm;
 	public UnderArmourArmModel(ModelPart root) {
 		super(root);
 		this.armorRightArm = root.getChild("armorRightArm");
-		this.armorLeftArm = root.getChild("armorLeftArm");
 	}
 
 	@Override
@@ -26,7 +24,7 @@ public class UnderArmourArmModel extends BipedEntityModel<LivingEntity> {
 
 	@Override
 	protected Iterable<ModelPart> getBodyParts() {
-		return ImmutableList.of(this.armorRightArm, this.armorLeftArm);
+		return ImmutableList.of(this.armorRightArm);
 	}
 
 	public static TexturedModelData getTexturedModelData() {
@@ -34,13 +32,11 @@ public class UnderArmourArmModel extends BipedEntityModel<LivingEntity> {
 		ModelPartData modelPartData = modelData.getRoot();
 		modelPartData.addChild("armorRightArm", ModelPartBuilder.create().uv(24, 80).cuboid(-5.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.33F)), ModelTransform.pivot(-4.0F, 2.0F, 0.0F));
 
-		modelPartData.addChild("armorLeftArm", ModelPartBuilder.create().uv(24, 80).mirrored().cuboid(1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.33F)).mirrored(false), ModelTransform.pivot(4.0F, 2.0F, 0.0F));
 		return TexturedModelData.of(modelData, 128, 128);
 	}
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		this.armorRightArm.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-		this.armorLeftArm.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 	}
 }

@@ -1,6 +1,6 @@
 package com.knightsheraldry.networking.packet;
 
-import com.knightsheraldry.items.custom.item.KHRangeWeapon;
+import com.knightsheraldry.items.item.KHRangeWeapon;
 import com.knightsheraldry.util.weaponutil.KHRangeWeaponUtil;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.item.ItemStack;

@@ -1,10 +1,6 @@
 package com.knightsheraldry.mixin;
 
-import com.knightsheraldry.items.custom.armor.KHDyeableTrinketsItem;
-import com.knightsheraldry.items.custom.armor.KHDyeableUnderArmorItem;
-import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
-import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
-import com.knightsheraldry.model.TrinketsArmModel;
+import com.knightsheraldry.items.armor.*;
 import com.knightsheraldry.model.UnderArmourArmModel;
 import com.knightsheraldry.util.DyeUtil;
 import dev.emi.trinkets.api.SlotReference;
@@ -16,8 +12,10 @@ import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.render.item.HeldItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -62,52 +60,44 @@ public class HeldItemRendererMixin {
         ClientPlayerEntity player = this.client.player;
         if (player == null) return;
         ItemStack stack = player.getInventory().getArmorStack(2);
-        if (stack.getItem() instanceof KHUnderArmorItem khArmorItem && khArmorItem.getSlotType() == ArmorItem.Type.CHESTPLATE.getEquipmentSlot()) {
+        if (stack.getItem() instanceof KHUnderArmorItem khArmorItem &&
+                stack.getItem() instanceof ArmorItem armorItem && armorItem.getSlotType() == ArmorItem.Type.CHESTPLATE.getEquipmentSlot()) {
             UnderArmourArmModel model = new UnderArmourArmModel(UnderArmourArmModel.getTexturedModelData().createModel());
             VertexConsumer baseConsumer = vertexConsumers.getBuffer(
-                    RenderLayer.getArmorCutoutNoCull(khArmorItem.getPath()));
+                    RenderLayer.getArmorCutoutNoCull(khArmorItem.getTexturePath()));
             float[] color = new float[3];
             color[0] = 1;
             color[1] = 1;
             color[2] = 1;
-            if (khArmorItem instanceof KHDyeableUnderArmorItem) {
+            if (khArmorItem.isDyeable()) {
                 color = DyeUtil.getDyeColor(stack);
             }
 
-            Identifier textureOverlayPath = getOverlayIdentifier(khArmorItem);
+            Identifier textureOverlayPath = getOverlayIdentifier(stack.getItem());
 
-            // Base armor render (tinted layer) - Render the armor with color tint
-            if (arm == Arm.RIGHT) model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-            if (arm == Arm.LEFT) model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
+            if (arm == Arm.RIGHT) model.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
 
-            // Overlay render (untinted layer) - Render the overlay (no tint)
             if (!textureOverlayPath.equals(new Identifier(""))) ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, textureOverlayPath);
         }
 
         if (TrinketsApi.getTrinketComponent(player).isPresent()) {
             for (Pair<SlotReference, ItemStack> equipped : TrinketsApi.getTrinketComponent(player).get().getEquipped(trinketStack -> trinketStack.getItem() instanceof KHTrinketsItem)) {
                 ItemStack trinket = equipped.getRight();
-                if (trinket.getItem() instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.type == KHTrinketsItem.Type.CHESTPLATE) {
-                    TrinketsArmModel model = new TrinketsArmModel(TrinketsArmModel.getTexturedModelData().createModel());
+                if (trinket.getItem() instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.getFirstPersonModel() != null) {
+                    BipedEntityModel<LivingEntity> model = khTrinketsItem.getFirstPersonModel();
                     float[] color = new float[3];
                     color[0] = 1;
                     color[1] = 1;
                     color[2] = 1;
-                    if (khTrinketsItem instanceof KHDyeableTrinketsItem) {
+                    if (khTrinketsItem.isDyeable()) {
                         color = DyeUtil.getDyeColor(stack);
                     }
-                    VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
+                    VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getTexturePath()));
                     if (arm == Arm.RIGHT) {
-                        model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-                        if (khTrinketsItem instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.hasOverlay()) {
-                            VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
-                            model.armorRightArm.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-                        }
-                    } else if (arm == Arm.LEFT) {
-                        model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-                        if (khTrinketsItem instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.hasOverlay()) {
-                            VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(khTrinketsItem.getPath()));
-                            model.armorLeftArm.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
+                        model.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
+                        if (khTrinketsItem.isDyeableWithOverlay()) {
+                            VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(getOverlayIdentifier(trinket.getItem())));
+                            model.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1.0F);
                         }
                     }
                 }
@@ -118,8 +108,8 @@ public class HeldItemRendererMixin {
     @Unique
     private @NotNull Identifier getOverlayIdentifier(Item item) {
         Identifier originalIdentifier = null;
-        if (item instanceof KHUnderArmorItem khArmorItem) originalIdentifier = khArmorItem.getPath();
-        if (item instanceof KHTrinketsItem khTrinketsItem) originalIdentifier = khTrinketsItem.getPath();
+        if (item instanceof KHUnderArmorItem khArmorItem) originalIdentifier = khArmorItem.getTexturePath();
+        if (item instanceof KHTrinketsItem khTrinketsItem) originalIdentifier = khTrinketsItem.getTexturePath();
 
         String textureOverlayString = null;
         if (originalIdentifier != null) {
@@ -130,7 +120,7 @@ public class HeldItemRendererMixin {
             textureOverlayString = textureOverlayString.substring(0, textureOverlayString.length() - 4);
         }
 
-        if (item instanceof KHDyeableTrinketsItem khDyeableTrinketsItem && khDyeableTrinketsItem.hasOverlay()) textureOverlayString += "_overlay.png";
+        if (item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeableWithOverlay()) textureOverlayString += "_overlay.png";
         else return new Identifier("");
 
         return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);

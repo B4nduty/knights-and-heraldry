@@ -1,7 +1,7 @@
 package com.knightsheraldry.client.item;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.item.khrangeweapon.Handgonne;
+import com.knightsheraldry.items.item.khrangeweapon.Handgonne;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib.model.GeoModel;
 

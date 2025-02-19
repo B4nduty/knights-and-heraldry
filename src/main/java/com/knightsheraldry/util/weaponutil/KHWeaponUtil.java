@@ -1,7 +1,7 @@
 package com.knightsheraldry.util.weaponutil;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.custom.item.KHWeapon;
+import com.knightsheraldry.items.item.KHWeapon;
 import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.block.Block;
 import net.minecraft.block.CropBlock;

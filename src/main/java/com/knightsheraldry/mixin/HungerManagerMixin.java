@@ -1,6 +1,6 @@
 package com.knightsheraldry.mixin;
 
-import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
+import com.knightsheraldry.items.armor.KHTrinketsItem;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.entity.player.HungerManager;
@@ -36,7 +36,7 @@ public class HungerManagerMixin {
             for (Pair<SlotReference, ItemStack> equipped : TrinketsApi.getTrinketComponent(player).get().getEquipped(stack -> stack.getItem() instanceof KHTrinketsItem)) {
                 ItemStack trinket = equipped.getRight();
                 KHTrinketsItem khTrinketsItem = (KHTrinketsItem) trinket.getItem();
-                hungerAddition += khTrinketsItem.getHungerDrainAddition();
+                hungerAddition += khTrinketsItem.hungerDrainAddition();
             }
         }
 

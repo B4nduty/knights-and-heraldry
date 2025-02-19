@@ -1,6 +1,6 @@
 package com.knightsheraldry.event;
 
-import com.knightsheraldry.items.custom.item.KHRangeWeapon;
+import com.knightsheraldry.items.item.KHRangeWeapon;
 import com.knightsheraldry.util.KHInventoryItemFinder;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.weaponutil.KHRangeWeaponUtil;

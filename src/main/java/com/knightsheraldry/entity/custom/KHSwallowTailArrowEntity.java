@@ -2,8 +2,8 @@ package com.knightsheraldry.entity.custom;
 
 import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
-import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
+import com.knightsheraldry.items.armor.KHTrinketsItem;
+import com.knightsheraldry.items.armor.KHUnderArmorItem;
 import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.itemdata.KHTags;
 import dev.emi.trinkets.api.TrinketsApi;

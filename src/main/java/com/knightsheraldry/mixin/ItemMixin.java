@@ -1,7 +1,9 @@
 package com.knightsheraldry.mixin;
 
-import com.knightsheraldry.items.custom.item.KHRangeWeapon;
-import com.knightsheraldry.items.custom.item.KHWeapon;
+import com.knightsheraldry.items.ModItems;
+import com.knightsheraldry.items.armor.KHTrinketsItem;
+import com.knightsheraldry.items.item.KHRangeWeapon;
+import com.knightsheraldry.items.item.KHWeapon;
 import com.knightsheraldry.util.itemdata.KHTags;
 import com.knightsheraldry.util.weaponutil.KHRangeWeaponUtil;
 import com.knightsheraldry.util.weaponutil.KHWeaponUtil;
@@ -16,6 +18,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.Items;
+import net.minecraft.screen.CraftingScreenHandler;
+import net.minecraft.screen.PlayerScreenHandler;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
@@ -222,6 +227,7 @@ public class ItemMixin {
     @Inject(method = "appendTooltip", at = @At("HEAD"))
     public void knightsheraldry$appendTooltip(ItemStack stack, World world, List<Text> tooltip,
                                               TooltipContext context, CallbackInfo ci) {
+        if (world == null) return;
         if (stack.getItem() instanceof KHWeapon khWeapon) {
             float[] attackDamageValues = khWeapon.getAttackDamageValues();
             float slashingDamage = attackDamageValues[0];
@@ -274,6 +280,38 @@ public class ItemMixin {
         if (block instanceof CropBlock crop && crop.isMature(state) && world.breakBlock(pos, true, player)) {
             KHWeaponUtil.replantCrop(world, pos, crop, player, stack, hand);
             cir.setReturnValue(ActionResult.SUCCESS);
+        }
+    }
+
+    @Inject(method = "getName(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/text/Text;", at = @At("HEAD"), cancellable = true)
+    public void canEquip(ItemStack stack, CallbackInfoReturnable<Text> cir) {
+        if (!(stack.getItem() instanceof KHTrinketsItem)) return;
+
+        StringBuilder translationKey = new StringBuilder(stack.getTranslationKey());
+        if (stack.getOrCreateNbt().getBoolean("kh_aventail")) translationKey.append("_aventail");
+        if (stack.getOrCreateNbt().getBoolean("kh_rimmed")) translationKey.append("_rimmed");
+        if (stack.getOrCreateNbt().getBoolean("kh_besagews")) translationKey.append("_besagews");
+        cir.setReturnValue(Text.translatable(translationKey.toString()));
+    }
+
+    @Inject(method = "onCraft", at = @At("TAIL"))
+    public void onCraft(ItemStack stack, World world, PlayerEntity player, CallbackInfo ci) {
+        if (!(stack.getItem() instanceof KHTrinketsItem)) return;
+
+        if (player.currentScreenHandler instanceof CraftingScreenHandler craftingInventory) {
+            applyCraftingModifiers(stack, craftingInventory.getCraftingSlotCount(), craftingInventory::getSlot);
+        } else if (player.currentScreenHandler instanceof PlayerScreenHandler playerInventory) {
+            applyCraftingModifiers(stack, 4, playerInventory::getSlot);
+        }
+    }
+
+    @Unique
+    private void applyCraftingModifiers(ItemStack stack, int slotCount, java.util.function.IntFunction<Slot> slotSupplier) {
+        for (int i = 0; i < slotCount; i++) {
+            ItemStack ingredient = slotSupplier.apply(i).getStack();
+            if (ingredient.getItem() == ModItems.AVENTAIL) stack.getOrCreateNbt().putBoolean("kh_aventail", true);
+            if (ingredient.getItem() == ModItems.RIM_GUARDS) stack.getOrCreateNbt().putBoolean("kh_rimmed", true);
+            if (ingredient.getItem() == ModItems.BESAGEWS) stack.getOrCreateNbt().putBoolean("kh_besagews", true);
         }
     }
 }

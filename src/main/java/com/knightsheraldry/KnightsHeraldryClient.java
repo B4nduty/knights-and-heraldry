@@ -8,8 +8,8 @@ import com.knightsheraldry.event.AttackCancelHandler;
 import com.knightsheraldry.event.ItemTooltipHandler;
 import com.knightsheraldry.event.KeyInputHandler;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.armor.*;
-import com.knightsheraldry.items.custom.item.khweapon.WoodenLance;
+import com.knightsheraldry.items.armor.*;
+import com.knightsheraldry.items.item.khweapon.WoodenLance;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.particle.ModParticles;
 import com.knightsheraldry.particle.MuzzlesFlashParticle;
@@ -53,14 +53,16 @@ public class KnightsHeraldryClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.MUZZLES_FLASH_PARTICLE, MuzzlesFlashParticle.Factory::new);
 
         ModItems.items.forEach(item -> {
-            if ((item instanceof KHDyeableTrinketsItem) || (item instanceof KHDyeableUnderArmorItem) || item instanceof WoodenLance) {
+            if ((item instanceof KHTrinketsItem khTrinketsItem && khTrinketsItem.isDyeable()) ||
+                    (item instanceof KHUnderArmorItem khUnderArmorItem && khUnderArmorItem.isDyeable()) ||
+                    item instanceof WoodenLance) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : DyeUtil.getColor(stack), item);
             }
             if (item instanceof KHTrinketsItem) {
                 TrinketRendererRegistry.registerRenderer(item, new KHTrinketsItemRenderer());
             }
-            if (item instanceof KHUnderArmorItem khArmorItem && khArmorItem.getPath() != null) {
+            if (item instanceof KHUnderArmorItem) {
                 ArmorRenderer.register(new UnderArmourRenderer(), item);
             }
         });

@@ -1,7 +1,8 @@
 package com.knightsheraldry.util;
 
-import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
+import com.knightsheraldry.items.armor.KHUnderArmorItem;
 import com.knightsheraldry.util.itemdata.KHTags;
+import com.knightsheraldry.util.weaponutil.KHArmorUtil;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,19 +11,19 @@ import net.minecraft.item.ItemStack;
 public class KHDamageCalculator {
     public static float getKHDamage(LivingEntity livingEntity, float initialDamage, DamageType damageType) {
         for (ItemStack armorStack : livingEntity.getArmorItems()) {
-            if (armorStack.getItem() instanceof KHUnderArmorItem khArmorItem) {
-                float resistance = (float) getResistance(khArmorItem, damageType);
+            if (armorStack.getItem() instanceof KHUnderArmorItem khUnderArmorItem) {
+                float resistance = (float) getResistance(khUnderArmorItem, damageType);
                 initialDamage *= Math.max(1 - resistance, 0);
             }
         }
         return initialDamage;
     }
 
-    protected static double getResistance(KHUnderArmorItem armorItem, DamageType damageType) {
+    protected static double getResistance(KHUnderArmorItem khUnderArmorItem, DamageType damageType) {
         return switch (damageType) {
-            case SLASHING -> armorItem.getResistance(KHUnderArmorItem.ResistanceType.SLASHING);
-            case PIERCING -> armorItem.getResistance(KHUnderArmorItem.ResistanceType.PIERCING);
-            case BLUDGEONING -> armorItem.getResistance(KHUnderArmorItem.ResistanceType.BLUDGEONING);
+            case SLASHING -> KHArmorUtil.getResistance(KHArmorUtil.ResistanceType.SLASHING, khUnderArmorItem);
+            case PIERCING -> KHArmorUtil.getResistance(KHArmorUtil.ResistanceType.PIERCING, khUnderArmorItem);
+            case BLUDGEONING -> KHArmorUtil.getResistance(KHArmorUtil.ResistanceType.BLUDGEONING, khUnderArmorItem);
         } * 100;
     }
 

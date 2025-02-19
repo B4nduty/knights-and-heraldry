@@ -1,7 +1,7 @@
 package com.knightsheraldry.mixin;
 
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
-import com.knightsheraldry.items.custom.item.KHWeapon;
+import com.knightsheraldry.items.item.KHWeapon;
 import com.knightsheraldry.util.weaponutil.KHWeaponUtil;
 import net.minecraft.entity.LivingEntity;
 import org.spongepowered.asm.mixin.Mixin;

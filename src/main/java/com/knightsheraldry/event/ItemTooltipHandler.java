@@ -1,11 +1,12 @@
 package com.knightsheraldry.event;
 
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.custom.armor.KHUnderArmorItem;
-import com.knightsheraldry.items.custom.armor.KHTrinketsItem;
-import com.knightsheraldry.items.custom.item.KHRangeWeapon;
-import com.knightsheraldry.items.custom.item.KHWeapon;
-import com.knightsheraldry.items.custom.item.khweapon.Lance;
+import com.knightsheraldry.items.armor.KHTrinketsItem;
+import com.knightsheraldry.items.armor.KHUnderArmorItem;
+import com.knightsheraldry.items.item.KHRangeWeapon;
+import com.knightsheraldry.items.item.KHWeapon;
+import com.knightsheraldry.items.item.khweapon.Lance;
+import com.knightsheraldry.util.weaponutil.KHArmorUtil;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
@@ -21,8 +22,8 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
         if (stack.getItem() instanceof KHWeapon || stack.getItem() instanceof Lance) lines.removeIf(line -> line.contains(attackDamage));
 
         if (stack.getItem() instanceof KHTrinketsItem khTrinketsItem
-                && khTrinketsItem.getHungerDrainAddition() != 0.0d) {
-            double hungerDrainAddition = khTrinketsItem.getHungerDrainAddition();
+                && khTrinketsItem.hungerDrainAddition() != 0.0d) {
+            double hungerDrainAddition = khTrinketsItem.hungerDrainAddition();
             lines.add(Text.translatable("text.tooltip.knightsheraldry.hungerDrain", ((int) (hungerDrainAddition * 100))).formatted(Formatting.BLUE));
         }
 
@@ -33,10 +34,10 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
             lines.add(Text.translatable("text.tooltip.knightsheraldry.baseDamage", (int) khRangeWeapons.baseDamage()).formatted(Formatting.GREEN));
         }
 
-        if (stack.getItem() instanceof KHUnderArmorItem khArmorItem) {
-            double slashingResistance = khArmorItem.getResistance(KHUnderArmorItem.ResistanceType.SLASHING) * 100;
-            double bludgeoningResistance = khArmorItem.getResistance(KHUnderArmorItem.ResistanceType.BLUDGEONING) * 100;
-            double piercingResistance = khArmorItem.getResistance(KHUnderArmorItem.ResistanceType.PIERCING) * 100;
+        if (stack.getItem() instanceof KHUnderArmorItem khUnderArmorItem) {
+            double slashingResistance = KHArmorUtil.getResistance(KHArmorUtil.ResistanceType.SLASHING, khUnderArmorItem) * 100;
+            double bludgeoningResistance = KHArmorUtil.getResistance(KHArmorUtil.ResistanceType.BLUDGEONING, khUnderArmorItem) * 100;
+            double piercingResistance = KHArmorUtil.getResistance(KHArmorUtil.ResistanceType.PIERCING, khUnderArmorItem) * 100;
             if (slashingResistance != 0) lines.add(Text.translatable("text.tooltip.knightsheraldry.slashingResistance", (int) slashingResistance).formatted(Formatting.BLUE));
             if (bludgeoningResistance != 0) lines.add(Text.translatable("text.tooltip.knightsheraldry.bludgeoningResistance", (int) bludgeoningResistance).formatted(Formatting.BLUE));
             if (piercingResistance != 0) lines.add(Text.translatable("text.tooltip.knightsheraldry.piercingResistance", (int) piercingResistance).formatted(Formatting.BLUE));
