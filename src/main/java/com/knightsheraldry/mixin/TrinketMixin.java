@@ -31,7 +31,7 @@ import java.util.UUID;
 @Mixin(TrinketItem.class)
 public class TrinketMixin implements Trinket {
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
-        var modifiers = this.getTrinketsModifiers(stack, slot, entity, uuid);
+        var modifiers = this.getTrinketsModifiers(stack, slot);
 
         if (!(stack.getItem() instanceof KHTrinketsItem khTrinketsItem)) return modifiers;
         double toughness = khTrinketsItem.toughness() + (stack.getOrCreateNbt().getBoolean("kh_aventail") ? 2 : 0);
@@ -46,7 +46,7 @@ public class TrinketMixin implements Trinket {
     }
 
     @Unique
-    Multimap<EntityAttribute, EntityAttributeModifier> getTrinketsModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
+    Multimap<EntityAttribute, EntityAttributeModifier> getTrinketsModifiers(ItemStack stack, SlotReference slot) {
         Multimap<EntityAttribute, EntityAttributeModifier> map = Multimaps.newMultimap(Maps.newLinkedHashMap(), ArrayList::new);
         if (stack.hasNbt() && stack.getNbt().contains("TrinketAttributeModifiers", 9)) {
             NbtList list = stack.getNbt().getList("TrinketAttributeModifiers", 10);
