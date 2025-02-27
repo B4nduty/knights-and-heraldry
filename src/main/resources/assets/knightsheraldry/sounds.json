@@ -16,11 +16,5 @@
     "sounds": [
       "knightsheraldry:arquebus_close_3"
     ]
-  },
-  "bullet_crack": {
-    "subtitle": "sounds.knightsheraldry.bullet_crack",
-    "sounds": [
-      "knightsheraldry:bullet_crack"
-    ]
   }
 }

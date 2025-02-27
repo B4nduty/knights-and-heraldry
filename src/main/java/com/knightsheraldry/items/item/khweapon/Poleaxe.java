@@ -1,12 +1,12 @@
 package com.knightsheraldry.items.item.khweapon;
 
+import banduty.stoneycore.items.item.SCWeapon;
+import banduty.stoneycore.util.SCDamageCalculator;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
-import com.knightsheraldry.items.item.KHWeapon;
-import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.item.SwordItem;
 
-public class Poleaxe extends SwordItem implements KHWeapon {
+public class Poleaxe extends SwordItem implements SCWeapon {
     public Poleaxe(float attackSpeed, Settings settings) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
@@ -17,7 +17,7 @@ public class Poleaxe extends SwordItem implements KHWeapon {
     }
 
     @Override
-    public KHDamageCalculator.DamageType getOnlyDamageType() {
+    public SCDamageCalculator.DamageType getOnlyDamageType() {
         return null;
     }
 

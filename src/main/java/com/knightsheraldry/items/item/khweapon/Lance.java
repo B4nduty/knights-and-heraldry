@@ -1,9 +1,9 @@
 package com.knightsheraldry.items.item.khweapon;
 
+import banduty.stoneycore.util.SCDamageCalculator;
+import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
-import com.knightsheraldry.util.playerdata.IEntityDataSaver;
-import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -30,8 +30,8 @@ import java.util.function.Predicate;
 
 public class Lance extends SwordItem {
     private boolean charged = false;
-    private final KHDamageCalculator.DamageType onlyDamageType;
-    public Lance(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+    private final SCDamageCalculator.DamageType onlyDamageType;
+    public Lance(float attackSpeed, Settings settings, SCDamageCalculator.DamageType onlyDamageType) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
         this.onlyDamageType = onlyDamageType;
     }
@@ -56,15 +56,15 @@ public class Lance extends SwordItem {
                         && tameableEntity.isOwner(player))) return;
                 if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)
                         && !player.getItemCooldownManager().isCoolingDown(this)) {
-                    float damage = KHDamageCalculator.getKHDamage(livingEntity, getLanceDamage() *
-                            ((IEntityDataSaver) player).knightsheraldry$getPersistentData().getFloat("speedHistory") * 10,
+                    float damage = SCDamageCalculator.getSCDamage(livingEntity, getLanceDamage() *
+                            ((IEntityDataSaver) player).stoneycore$getPersistentData().getFloat("speedHistory") * 10,
                             this.onlyDamageType);
 
                     setCharged(stack, false);
                     if (livingEntity.hasVehicle()) livingEntity.stopRiding();
 
                     stack.damage(1, player, p -> p.sendToolBreakStatus(livingEntity.getActiveHand()));
-                    KHDamageCalculator.applyDamage(livingEntity, player, stack, damage);
+                    SCDamageCalculator.applyDamage(livingEntity, player, stack, damage);
                     if (!player.isCreative()) player.getItemCooldownManager().set(this, KnightsHeraldry.getConfig().getLanceCooldown() * 20);
                 }
             }

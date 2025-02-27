@@ -10,7 +10,6 @@ public class ModSounds {
     public static final SoundEvent ARQUEBUS_CLOSE_1 = registerSoundEvent("arquebus_close_1");
     public static final SoundEvent ARQUEBUS_CLOSE_2 = registerSoundEvent("arquebus_close_2");
     public static final SoundEvent ARQUEBUS_CLOSE_3 = registerSoundEvent("arquebus_close_3");
-    public static final SoundEvent BULLET_CRACK = registerSoundEvent("bullet_crack");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(KnightsHeraldry.MOD_ID, name);

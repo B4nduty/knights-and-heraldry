@@ -1,9 +1,9 @@
 package com.knightsheraldry.items.item.khrangeweapon;
 
+import banduty.stoneycore.items.item.SCRangeWeapon;
+import banduty.stoneycore.util.SCDamageCalculator;
+import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
 import com.knightsheraldry.client.item.HeavyCrossbowModel;
-import com.knightsheraldry.items.item.KHRangeWeapon;
-import com.knightsheraldry.util.KHDamageCalculator;
-import com.knightsheraldry.util.weaponutil.KHRangeWeaponUtil;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -23,7 +23,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class HeavyCrossbow extends Item implements KHRangeWeapon, GeoItem {
+public class HeavyCrossbow extends Item implements SCRangeWeapon, GeoItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
 
@@ -32,8 +32,8 @@ public class HeavyCrossbow extends Item implements KHRangeWeapon, GeoItem {
     }
 
     @Override
-    public @NotNull KHDamageCalculator.DamageType getDamageType() {
-        return KHDamageCalculator.DamageType.PIERCING;
+    public @NotNull SCDamageCalculator.DamageType getDamageType() {
+        return SCDamageCalculator.DamageType.PIERCING;
     }
 
     @Override
@@ -103,9 +103,9 @@ public class HeavyCrossbow extends Item implements KHRangeWeapon, GeoItem {
 
     private PlayState predicate(AnimationState<HeavyCrossbow> animationState) {
         ItemStack itemStack = animationState.getData(DataTickets.ITEMSTACK);
-        if (KHRangeWeaponUtil.getWeaponState(itemStack).isShooting()) animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));
-        else if (KHRangeWeaponUtil.getWeaponState(itemStack).isReloading()) animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
-        else if (KHRangeWeaponUtil.getWeaponState(itemStack).isCharged()) animationState.getController().setAnimation(RawAnimation.begin().then("charged", Animation.LoopType.HOLD_ON_LAST_FRAME));
+        if (SCRangeWeaponUtil.getWeaponState(itemStack).isShooting()) animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));
+        else if (SCRangeWeaponUtil.getWeaponState(itemStack).isReloading()) animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
+        else if (SCRangeWeaponUtil.getWeaponState(itemStack).isCharged()) animationState.getController().setAnimation(RawAnimation.begin().then("charged", Animation.LoopType.HOLD_ON_LAST_FRAME));
         else animationState.getController().setAnimation(RawAnimation.begin().then("unloaded", Animation.LoopType.HOLD_ON_LAST_FRAME));
         return PlayState.CONTINUE;
     }

@@ -1,10 +1,9 @@
 package com.knightsheraldry.entity.custom;
 
-import com.knightsheraldry.entity.ModEntities;
+import banduty.stoneycore.entity.ModEntities;
+import banduty.stoneycore.entity.custom.SCArrowEntity;
+import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.items.armor.KHTrinketsItem;
-import com.knightsheraldry.items.armor.KHUnderArmorItem;
-import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.itemdata.KHTags;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.entity.LivingEntity;
@@ -16,13 +15,13 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class KHSwallowTailArrowEntity extends KHArrowEntity {
+public class KHSwallowTailArrowEntity extends SCArrowEntity {
     private final Random random = new Random();
     private final ItemStack swallowTailArrowStack;
     private PlayerEntity stuckPlayer;
 
     public KHSwallowTailArrowEntity(LivingEntity shooter, World world) {
-        super(ModEntities.KH_ARROW, shooter, world);
+        super(ModEntities.SC_ARROW, shooter, world);
         this.swallowTailArrowStack = new ItemStack(ModItems.SWALLOWTAIL_ARROW);
     }
 
@@ -54,7 +53,7 @@ public class KHSwallowTailArrowEntity extends KHArrowEntity {
     }
 
     private void updateSwallowTailArrowCount(PlayerEntity player) {
-        NbtCompound nbt = ((IEntityDataSaver) player).knightsheraldry$getPersistentData();
+        NbtCompound nbt = ((IEntityDataSaver) player).stoneycore$getPersistentData();
         int currentCount = nbt.getInt("swallowtail_arrow_count");
         nbt.putInt("swallowtail_arrow_count", currentCount + 1);
     }
@@ -64,16 +63,14 @@ public class KHSwallowTailArrowEntity extends KHArrowEntity {
 
         TrinketsApi.getTrinketComponent(player).ifPresent(trinkets ->
                 trinkets.getAllEquipped().forEach(pair -> {
-                    if (pair.getRight().getItem() instanceof KHTrinketsItem
-                            && pair.getRight().isIn(KHTags.DEFLECTIVE_ARMOR.getTag())) {
+                    if (pair.getRight().isIn(KHTags.DEFLECTIVE_ARMOR.getTag())) {
                         deflectChance[0] += 0.25f;
                     }
                 })
         );
 
         for (ItemStack armor : player.getArmorItems()) {
-            if (armor.getItem() instanceof KHUnderArmorItem
-                    && armor.isIn(KHTags.DEFLECTIVE_ARMOR.getTag())) {
+            if (armor.isIn(KHTags.DEFLECTIVE_ARMOR.getTag())) {
                 deflectChance[0] += 0.25f;
             }
         }

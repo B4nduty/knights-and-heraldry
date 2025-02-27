@@ -1,7 +1,6 @@
 package com.knightsheraldry.model;
 
 import net.minecraft.client.model.*;
-import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
@@ -70,35 +69,29 @@ public class CloakHoodModel extends BipedEntityModel<LivingEntity> {
 
 	@Override
 	public void setAngles(LivingEntity livingEntity, float f, float g, float h, float i, float j) {
-		float k = 0.1636246F;
+		float k = 0.0836246F;
 		float l = -0.0710998125F;
 		float m = 0.0F;
 		float n = 0.0F;
 		if (livingEntity.isSprinting() || livingEntity.isInSneakingPose()) {
-			k = 0.61086515F;
+			k = 0.1636246F;
 			l = -0.1658996062F;
-			m = 2.875F;
+			m = 3.125F;
 			n = 0.01908953812F;
 		} else if (livingEntity.isOnGround() && livingEntity.getVelocity().horizontalLengthSquared() > 0 || !livingEntity.isOnGround()) {
-			k = 0.26179935F;
+			k = 0.1236246F;
 			l = -0.1636246F;
 			m = 2.125F;
 			n = 0.00818122875F;
 		}
 
-		this.armorLeftArm.pivotY = m;
-		if (livingEntity instanceof AbstractClientPlayerEntity) {
-			this.cloakPitch += (k - this.cloakPitch) * 0.1F;
-			this.cloakYaw += (n - this.cloakYaw) * 0.1F;
-			this.cloakRoll += (l - this.cloakRoll) * 0.1F;
-			this.armorLeftArm.pitch = this.cloakPitch;
-			this.armorLeftArm.yaw = this.cloakYaw;
-			this.armorLeftArm.roll = this.cloakRoll;
-		} else {
-			this.armorLeftArm.pitch = k;
-			this.armorLeftArm.roll = l;
-			this.armorLeftArm.yaw = n;
-		}
+		this.armorLeftArm.pivotY = m * 2;
+		this.cloakPitch += (k * 2 - this.cloakPitch);
+		this.cloakYaw += (n * 2 - this.cloakYaw) * 0.5F;
+		this.cloakRoll += (l * 2 - this.cloakRoll) * 0.5F;
+		this.armorLeftArm.pitch = this.cloakPitch;
+		this.armorLeftArm.yaw = this.cloakYaw;
+		this.armorLeftArm.roll = this.cloakRoll;
 
 		this.armorRightArm.yaw = -this.armorLeftArm.yaw;
 		this.armorRightArm.pivotY = this.armorLeftArm.pivotY;

@@ -1,27 +1,23 @@
 package com.knightsheraldry;
 
+import banduty.stoneycore.event.custom.TrinketsModifiersEvents;
+import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.config.KHConfig;
 import com.knightsheraldry.datagen.ModItemTagProvider;
 import com.knightsheraldry.datagen.ModModelProvider;
 import com.knightsheraldry.datagen.ModRecipeProvider;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.entity.ModEntities;
-import com.knightsheraldry.event.*;
-import com.knightsheraldry.event.custom.LivingEntityDamageEvents;
+import com.knightsheraldry.event.TrinketsModifiersHandler;
 import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.networking.ModMessages;
-import com.knightsheraldry.particle.ModParticles;
 import com.knightsheraldry.sounds.ModSounds;
 import com.knightsheraldry.util.loottable.ChestLootTableModifier;
-import com.knightsheraldry.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.util.loottable.VillagerTradesModifier;
-import net.bettercombat.api.client.BetterCombatClientEvents;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -45,18 +41,13 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
         ModItems.registerItems();
         ModItemGroups.registerItemGroups();
         ModMessages.registerC2SPackets();
-        LivingEntityDamageEvents.EVENT.register(new EntityDamageHandler());
-        ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
-        ServerTickEvents.START_SERVER_TICK.register(new ReloadTickHandler());
-        PlayerBlockBreakEvents.AFTER.register(new PlayerBlockBreakHandler());
-        BetterCombatClientEvents.ATTACK_HIT.register(new PlayerAttackHit());
         VillagerTradesModifier.registerCustomTrades();
         ChestLootTableModifier.modifyChestLootTables();
-        ModParticles.registerParticles();
+        TrinketsModifiersEvents.EVENT.register(new TrinketsModifiersHandler());
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             ServerPlayerEntity player = handler.getPlayer();
             if (player != null) {
-                NbtCompound playerData = ((IEntityDataSaver) player).knightsheraldry$getPersistentData();
+                NbtCompound playerData = ((IEntityDataSaver) player).stoneycore$getPersistentData();
                 if (!playerData.getBoolean(FIRST_JOIN_TAG)) {
                     player.sendMessage(Text.literal("""
                         §4Knights & Heraldry §ris in §6Beta

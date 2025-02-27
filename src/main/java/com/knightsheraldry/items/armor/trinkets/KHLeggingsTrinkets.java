@@ -1,14 +1,16 @@
 package com.knightsheraldry.items.armor.trinkets;
 
+import banduty.stoneycore.items.armor.SCTrinketsItem;
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.armor.KHTrinketsItem;
 import com.knightsheraldry.model.TrinketsLeggingsModel;
 import dev.emi.trinkets.api.TrinketItem;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
 
-public class KHLeggingsTrinkets extends TrinketItem implements KHTrinketsItem {
+public class KHLeggingsTrinkets extends TrinketItem implements SCTrinketsItem {
     double armor;
     double toughness;
     double hungerDrainAddition;
@@ -35,6 +37,7 @@ public class KHLeggingsTrinkets extends TrinketItem implements KHTrinketsItem {
         return hungerDrainAddition;
     }
 
+    @Environment(EnvType.CLIENT)
     @Override
     public BipedEntityModel<LivingEntity> getModel() {
         return new TrinketsLeggingsModel(TrinketsLeggingsModel.getTexturedModelData().createModel());

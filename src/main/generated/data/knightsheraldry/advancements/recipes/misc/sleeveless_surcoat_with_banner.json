@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_surcoat_sleeveless": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:surcoat_sleeveless"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:sleeveless_surcoat_with_banner"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_banner": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:white_banner"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_surcoat_sleeveless",
+      "has_white_banner",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:sleeveless_surcoat_with_banner"
+    ]
+  },
+  "sends_telemetry_event": false
+}

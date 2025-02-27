@@ -1,7 +1,7 @@
 package com.knightsheraldry.items.item.khrangeweapon;
 
-import com.knightsheraldry.items.item.KHRangeWeapon;
-import com.knightsheraldry.util.KHDamageCalculator;
+import banduty.stoneycore.items.item.SCRangeWeapon;
+import banduty.stoneycore.util.SCDamageCalculator;
 import net.minecraft.item.Item;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -9,14 +9,14 @@ import net.minecraft.util.UseAction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class Longbow extends Item implements KHRangeWeapon {
+public class Longbow extends Item implements SCRangeWeapon {
     public Longbow(Settings settings) {
         super(settings);
     }
 
     @Override
-    public @NotNull KHDamageCalculator.DamageType getDamageType() {
-        return KHDamageCalculator.DamageType.PIERCING;
+    public @NotNull SCDamageCalculator.DamageType getDamageType() {
+        return SCDamageCalculator.DamageType.PIERCING;
     }
 
     @Override

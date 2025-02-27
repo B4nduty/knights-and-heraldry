@@ -1,13 +1,13 @@
 package com.knightsheraldry.items.item.khweapon;
 
-import com.knightsheraldry.util.KHDamageCalculator;
+import banduty.stoneycore.util.SCDamageCalculator;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 
 public class WoodenLance extends Lance implements DyeableItem {
-    public WoodenLance(float attackSpeed, Settings settings, KHDamageCalculator.DamageType onlyDamageType) {
+    public WoodenLance(float attackSpeed, Settings settings, SCDamageCalculator.DamageType onlyDamageType) {
         super(attackSpeed, settings, onlyDamageType);
     }
 

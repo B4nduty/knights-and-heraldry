@@ -1,12 +1,12 @@
 package com.knightsheraldry.items.item.khweapon;
 
+import banduty.stoneycore.items.item.SCWeapon;
+import banduty.stoneycore.util.SCDamageCalculator;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
-import com.knightsheraldry.items.item.KHWeapon;
-import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.item.SwordItem;
 
-public class Rapier extends SwordItem implements KHWeapon {
+public class Rapier extends SwordItem implements SCWeapon {
     public Rapier(float attackSpeed, Settings settings) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
@@ -42,7 +42,7 @@ public class Rapier extends SwordItem implements KHWeapon {
     }
 
     @Override
-    public KHDamageCalculator.DamageType getOnlyDamageType() {
-        return KHDamageCalculator.DamageType.PIERCING;
+    public SCDamageCalculator.DamageType getOnlyDamageType() {
+        return SCDamageCalculator.DamageType.PIERCING;
     }
 }

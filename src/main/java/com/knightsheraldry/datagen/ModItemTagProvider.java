@@ -1,5 +1,6 @@
 package com.knightsheraldry.datagen;
 
+import banduty.stoneycore.util.itemdata.SCTags;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.util.itemdata.KHTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -16,7 +17,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(KHTags.WEAPONS_3D.getTag())
+        getOrCreateTagBuilder(SCTags.WEAPONS_3D.getTag())
             .add(ModItems.SMITHING_HAMMER, ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER, ModItems.SWORD,
                     ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE,
                     ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE, ModItems.SPIKED_MACE, ModItems.HAMMER,
@@ -27,7 +28,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                     ModItems.BARDICHE,  ModItems.WARDART, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
                     ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER, ModItems.LONGBOW);
 
-        getOrCreateTagBuilder(KHTags.WEAPONS_SHIELD.getTag())
+        getOrCreateTagBuilder(SCTags.WEAPONS_SHIELD.getTag())
                 .add(ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE,
                         ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE,
                         ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD,
@@ -37,29 +38,29 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.BARDICHE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
                         ModItems.WARSWORD_ZWEIHANDER);
 
-        getOrCreateTagBuilder(KHTags.WEAPONS_DAMAGE_BEHIND.getTag())
+        getOrCreateTagBuilder(SCTags.WEAPONS_DAMAGE_BEHIND.getTag())
                 .add(ModItems.DAGGER);
 
-        getOrCreateTagBuilder(KHTags.WEAPONS_IGNORES_ARMOR.getTag())
+        getOrCreateTagBuilder(SCTags.WEAPONS_IGNORES_ARMOR.getTag())
                 .add(ModItems.STILETTO);
 
-        getOrCreateTagBuilder(KHTags.WEAPONS_DISABLE_SHIELD.getTag())
+        getOrCreateTagBuilder(SCTags.WEAPONS_DISABLE_SHIELD.getTag())
                 .add(ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE);
 
-        getOrCreateTagBuilder(KHTags.WEAPONS_BYPASS_BLOCK.getTag())
+        getOrCreateTagBuilder(SCTags.WEAPONS_BYPASS_BLOCK.getTag())
                 .add(ModItems.FLAIL, ModItems.BALL_FLAIL);
 
-        getOrCreateTagBuilder(KHTags.WEAPONS_HARVEST.getTag())
+        getOrCreateTagBuilder(SCTags.WEAPONS_HARVEST.getTag())
                 .add(ModItems.PITCHFORK);
 
-        getOrCreateTagBuilder(KHTags.GEO_2D_ITEMS.getTag())
+        getOrCreateTagBuilder(SCTags.GEO_2D_ITEMS.getTag())
                 .add(ModItems.FLAIL, ModItems.BALL_FLAIL, ModItems.HEAVY_CROSSBOW, ModItems.ARQUEBUS, ModItems.HANDGONNE);
 
 
-        getOrCreateTagBuilder(KHTags.ALWAYS_WEARABLE.getTag())
+        getOrCreateTagBuilder(SCTags.ALWAYS_WEARABLE.getTag())
                 .add(ModItems.HOOD, ModItems.TORN_HOOD, ModItems.CLOAK, ModItems.TORN_CLOAK);
 
-        getOrCreateTagBuilder(KHTags.VISORED_HELMET.getTag())
+        getOrCreateTagBuilder(SCTags.VISORED_HELMET.getTag())
                 .add(ModItems.ARMET, ModItems.ARMET_2, ModItems.BARBUTE, ModItems.BASCINET, ModItems.CAGE,
                         ModItems.CAGE_2, ModItems.FLAT_BASCINET, ModItems.GREAT_HELM, ModItems.GREAT_HELM_2,
                         ModItems.SALLET, ModItems.FROGMOUTH, ModItems.GREAT_ARMET, ModItems.GREAT_ARMET_2,
@@ -78,6 +79,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.SABATONS);
 
         getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
+                .add(ModItems.CLOAK, ModItems.TORN_CLOAK);
+
+        getOrCreateTagBuilder(SCTags.BANNER_COMPATIBLE.getTag())
+                .add(ModItems.SURCOAT, ModItems.SURCOAT_SLEEVELESS);
+
+        getOrCreateTagBuilder(SCTags.HIDE_NAME_TAG.getTag())
                 .add(ModItems.CLOAK, ModItems.TORN_CLOAK);
     }
 }

@@ -1,6 +1,6 @@
 package com.knightsheraldry.networking.packet;
 
-import com.knightsheraldry.util.playerdata.IEntityDataSaver;
+import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
@@ -10,7 +10,7 @@ public class NonTickS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler,
                                PacketByteBuf buf, PacketSender responseSender) {
         if (client.player != null) {
-            ((IEntityDataSaver) client.player).knightsheraldry$getPersistentData().putInt("nonSprintingTicks", buf.readInt());
+            ((IEntityDataSaver) client.player).stoneycore$getPersistentData().putInt("nonSprintingTicks", buf.readInt());
         }
     }
 }

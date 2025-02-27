@@ -9,6 +9,7 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Consumer;
@@ -325,5 +326,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.PLATE_PAULDRON), conditionsFromItem(ModItems.PLATE_PAULDRON))
                 .criterion(hasItem(ModItems.BESAGEWS), conditionsFromItem(ModItems.BESAGEWS))
                 .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "besagews_3"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SURCOAT, 1)
+                .input(ModItems.SURCOAT)
+                .input(ItemTags.BANNERS)
+                .criterion(hasItem(ModItems.SURCOAT), conditionsFromItem(ModItems.SURCOAT))
+                .criterion(hasItem(Items.WHITE_BANNER), conditionsFromItem(Items.WHITE_BANNER))
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "surcoat_with_banner"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SURCOAT_SLEEVELESS, 1)
+                .input(ModItems.SURCOAT_SLEEVELESS)
+                .input(ItemTags.BANNERS)
+                .criterion(hasItem(ModItems.SURCOAT_SLEEVELESS), conditionsFromItem(ModItems.SURCOAT_SLEEVELESS))
+                .criterion(hasItem(Items.WHITE_BANNER), conditionsFromItem(Items.WHITE_BANNER))
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "sleeveless_surcoat_with_banner"));
     }
 }

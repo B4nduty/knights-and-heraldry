@@ -1,20 +1,21 @@
 package com.knightsheraldry.items;
 
+import banduty.stoneycore.items.armor.underarmor.SCDyeableUnderArmor;
+import banduty.stoneycore.items.armor.underarmor.SCUnderArmor;
+import banduty.stoneycore.items.item.SCArrow;
+import banduty.stoneycore.util.SCDamageCalculator;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.entity.custom.KHBodkinArrowEntity;
 import com.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
 import com.knightsheraldry.entity.custom.KHClothArrowEntity;
 import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import com.knightsheraldry.items.armor.trinkets.*;
-import com.knightsheraldry.items.armor.underarmor.KHDyeableUnderArmor;
-import com.knightsheraldry.items.armor.underarmor.KHUnderArmor;
-import com.knightsheraldry.items.item.*;
+import com.knightsheraldry.items.item.SmithingHammer;
 import com.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import com.knightsheraldry.items.item.khrangeweapon.Handgonne;
 import com.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import com.knightsheraldry.items.item.khrangeweapon.Longbow;
 import com.knightsheraldry.items.item.khweapon.*;
-import com.knightsheraldry.util.KHDamageCalculator;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
@@ -102,9 +103,9 @@ public class ModItems {
             new Halberd(-2.8F, new OwoItemSettings().maxDamage(251)));
 
     public static final Item LANCE = registerItem("lance",
-            new Lance(-3.0F, new OwoItemSettings().maxDamage(251), KHDamageCalculator.DamageType.PIERCING));
+            new Lance(-3.0F, new OwoItemSettings().maxDamage(251), SCDamageCalculator.DamageType.PIERCING));
     public static final Item WOODEN_LANCE = registerItem("wooden_lance",
-            new WoodenLance(-3.0F, new OwoItemSettings().maxDamage(1), KHDamageCalculator.DamageType.PIERCING));
+            new WoodenLance(-3.0F, new OwoItemSettings().maxDamage(1), SCDamageCalculator.DamageType.PIERCING));
 
     public static final Item POLEAXE = registerItem("poleaxe",
             new Poleaxe(-2.8F, new OwoItemSettings().maxDamage(251)));
@@ -134,29 +135,29 @@ public class ModItems {
 
 
     public static final Item QUILTED_COIF = registerItem("quilted_coif",
-            new KHDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET,
+            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET,
                     0.04d, 0.1d, 0, 10511680));
     public static final Item GAMBESON = registerItem("gambeson",
-            new KHDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE,
+            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE,
                     0.04d, 0.1d, 0, 10511680));
     public static final Item GAMBESON_BREECHES = registerItem("gambeson_breeches",
-            new KHDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS,
+            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS,
                     0.04d, 0.1d, 0, 10511680));
     public static final Item GAMBESON_BOOTS = registerItem("gambeson_boots",
-            new KHDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS,
+            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS,
                     0.04d, 0.1d, 0, 10511680));
 
     public static final Item MAIL_COIF = registerItem("mail_coif",
-            new KHUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.HELMET,
+            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.HELMET,
                     0.1d, 0.04d, 0));
     public static final Item HAUBERK = registerItem("hauberk",
-            new KHUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE,
+            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE,
                     0.1d, 0.04d, 0));
     public static final Item MAIL_BREECHES = registerItem("mail_breeches",
-            new KHUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS,
+            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS,
                     0.1d, 0.04d, 0));
     public static final Item MAIL_BOOTS = registerItem("mail_boots",
-            new KHUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS,
+            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS,
                     0.1d, 0.04d, 0));
 
     public static final Item MAIL_PAULDRON = registerItem("mail_pauldron",
@@ -253,7 +254,7 @@ public class ModItems {
             new KHLeggingsTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.1d));
 
     public static final Item SABATONS = registerItem("sabatons",
-            new KHLeggingsTrinkets(new OwoItemSettings().maxCount(1), 2, 1, 0.0d));
+            new KHBootsTrinkets(new OwoItemSettings().maxCount(1), 2, 1, 0.0d));
 
     public static final Item AVENTAIL = registerItem("aventail",
             new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 0, 2, 0.0d));
@@ -265,11 +266,9 @@ public class ModItems {
             new Item(new OwoItemSettings().maxCount(1)));
 
     public static final Item SURCOAT = registerItem("surcoat",
-            new KHDyeableChestplateTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
-                    false, 16777215));
+            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d));
     public static final Item SURCOAT_SLEEVELESS = registerItem("surcoat_sleeveless",
-            new KHDyeableChestplateTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
-                    false, 16777215));
+            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d));
 
     public static final Item CLOAK = registerItem("cloak",
             new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
@@ -301,13 +300,13 @@ public class ModItems {
             new Handgonne(new OwoItemSettings().maxCount(1).maxDamage(512)));
 
     public static final Item SWALLOWTAIL_ARROW = registerItem("swallowtail_arrow",
-            new KHArrow(new OwoItemSettings(), KHSwallowTailArrowEntity::new));
+            new SCArrow(new OwoItemSettings(), KHSwallowTailArrowEntity::new));
     public static final Item BODKIN_ARROW = registerItem("bodkin_arrow",
-            new KHArrow(new OwoItemSettings(), KHBodkinArrowEntity::new));
+            new SCArrow(new OwoItemSettings(), KHBodkinArrowEntity::new));
     public static final Item BROADHEAD_ARROW = registerItem("broadhead_arrow",
-            new KHArrow(new OwoItemSettings(), KHBroadheadArrowEntity::new));
+            new SCArrow(new OwoItemSettings(), KHBroadheadArrowEntity::new));
     public static final Item CLOTH_ARROW = registerItem("cloth_arrow",
-            new KHArrow(new OwoItemSettings(), KHClothArrowEntity::new));
+            new SCArrow(new OwoItemSettings(), KHClothArrowEntity::new));
 
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

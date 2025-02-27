@@ -1,6 +1,7 @@
 package com.knightsheraldry.entity.custom;
 
-import com.knightsheraldry.entity.ModEntities;
+import banduty.stoneycore.entity.ModEntities;
+import banduty.stoneycore.entity.custom.SCArrowEntity;
 import com.knightsheraldry.items.ModItems;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -14,11 +15,11 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class KHClothArrowEntity extends KHArrowEntity {
+public class KHClothArrowEntity extends SCArrowEntity {
     private final ItemStack clothArrowStack;
 
     public KHClothArrowEntity(LivingEntity shooter, World world) {
-        super(ModEntities.KH_ARROW, shooter, world);
+        super(ModEntities.SC_ARROW, shooter, world);
         this.clothArrowStack = new ItemStack(ModItems.CLOTH_ARROW);
     }
 

@@ -1,15 +1,17 @@
 package com.knightsheraldry.items.armor.trinkets;
 
+import banduty.stoneycore.items.armor.SCTrinketsItem;
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.items.armor.KHTrinketsItem;
 import com.knightsheraldry.model.CloakHoodModel;
 import dev.emi.trinkets.api.TrinketItem;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.util.Identifier;
 
-public class KHCloakTrinkets extends TrinketItem implements KHTrinketsItem, DyeableItem {
+public class KHCloakTrinkets extends TrinketItem implements SCTrinketsItem, DyeableItem {
     double armor;
     double toughness;
     double hungerDrainAddition;
@@ -41,11 +43,13 @@ public class KHCloakTrinkets extends TrinketItem implements KHTrinketsItem, Dyea
         return hungerDrainAddition;
     }
 
+    @Environment(EnvType.CLIENT)
     @Override
     public BipedEntityModel<LivingEntity> getModel() {
         return new CloakHoodModel(CloakHoodModel.getTexturedModelData().createModel());
     }
 
+    @Environment(EnvType.CLIENT)
     @Override
     public Identifier getTexturePath() {
         return new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/" + this + ".png");
@@ -61,5 +65,10 @@ public class KHCloakTrinkets extends TrinketItem implements KHTrinketsItem, Dyea
 
     public int getDefaultColor() {
         return defaultColor;
+    }
+
+    @Override
+    public boolean unrenderCapeFeature() {
+        return true;
     }
 }

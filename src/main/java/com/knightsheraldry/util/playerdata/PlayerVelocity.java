@@ -1,5 +1,6 @@
 package com.knightsheraldry.util.playerdata;
 
+import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.networking.ModMessages;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -9,19 +10,19 @@ import net.minecraft.server.network.ServerPlayerEntity;
 
 public class PlayerVelocity {
     public static void updateSpeedHistory(IEntityDataSaver player, float velocity) {
-        NbtCompound nbt = player.knightsheraldry$getPersistentData();
+        NbtCompound nbt = player.stoneycore$getPersistentData();
         nbt.putFloat("speedHistory", velocity);
         syncSpeedHistory(velocity, (ServerPlayerEntity) player);
     }
 
     public static void updateNonSprintingTicks(IEntityDataSaver player, int nonSprintingTicks) {
-        NbtCompound nbt = player.knightsheraldry$getPersistentData();
+        NbtCompound nbt = player.stoneycore$getPersistentData();
         nbt.putInt("nonSprintingTicks", nonSprintingTicks);
         syncNonSprintingTicks(nonSprintingTicks, (ServerPlayerEntity) player);
     }
 
     public static void updatePreviousBlockPos(IEntityDataSaver player, long previousBlockPos) {
-        NbtCompound nbt = player.knightsheraldry$getPersistentData();
+        NbtCompound nbt = player.stoneycore$getPersistentData();
         nbt.putLong("previousBlockPos", previousBlockPos);
         syncPreviousBlockPos(previousBlockPos, (ServerPlayerEntity) player);
     }

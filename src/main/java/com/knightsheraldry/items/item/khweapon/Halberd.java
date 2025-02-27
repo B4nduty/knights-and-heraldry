@@ -1,10 +1,10 @@
 package com.knightsheraldry.items.item.khweapon;
 
+import banduty.stoneycore.items.item.SCWeapon;
+import banduty.stoneycore.util.SCDamageCalculator;
+import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
-import com.knightsheraldry.items.item.KHWeapon;
-import com.knightsheraldry.util.KHDamageCalculator;
-import com.knightsheraldry.util.weaponutil.KHWeaponUtil;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -14,7 +14,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 
-public class Halberd extends SwordItem implements KHWeapon {
+public class Halberd extends SwordItem implements SCWeapon {
     public Halberd(float attackSpeed, Settings settings) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
@@ -25,7 +25,7 @@ public class Halberd extends SwordItem implements KHWeapon {
     }
 
     @Override
-    public KHDamageCalculator.DamageType getOnlyDamageType() {
+    public SCDamageCalculator.DamageType getOnlyDamageType() {
         return null;
     }
 
@@ -61,8 +61,8 @@ public class Halberd extends SwordItem implements KHWeapon {
         super.postHit(stack, target, attacker);
 
         if (attacker instanceof PlayerEntity playerEntity) {
-            KHDamageCalculator.DamageType damageType = KHWeaponUtil.calculateDamageType(stack, this, ((PlayerAttackProperties) playerEntity).getComboCount());
-            double maxDistance = KHWeaponUtil.getMaxDistance(this);
+            SCDamageCalculator.DamageType damageType = SCWeaponUtil.calculateDamageType(stack, this, ((PlayerAttackProperties) playerEntity).getComboCount());
+            double maxDistance = SCWeaponUtil.getMaxDistance(this);
             Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
             Vec3d playerPos = playerEntity.getPos();
             playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
@@ -70,7 +70,7 @@ public class Halberd extends SwordItem implements KHWeapon {
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.getPos());
-                        float damage = KHDamageCalculator.getKHDamage(playerEntity, KHWeaponUtil.calculateDamage(this, distance,
+                        float damage = SCDamageCalculator.getSCDamage(playerEntity, SCWeaponUtil.calculateDamage(this, distance,
                                 damageType), damageType);
                         float maxDamage = getMaxValueDamage(((PlayerAttackProperties) playerEntity).getComboCount());
 
@@ -117,7 +117,7 @@ public class Halberd extends SwordItem implements KHWeapon {
             if (piercingAnimations.length == getAnimation()) piercing = true;
         }
 
-        if (getOnlyDamageType() == KHDamageCalculator.DamageType.PIERCING) piercing = true;
+        if (getOnlyDamageType() == SCDamageCalculator.DamageType.PIERCING) piercing = true;
 
         int startIndex = piercing ? 5 : 0;
         int endIndex = piercing ? 9 : 4;

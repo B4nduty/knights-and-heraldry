@@ -186,18 +186,6 @@
   "tooltip.knightsheraldry.need_to_hold": "§1Hold §r[ %s ] §1to Recharge",
 
   "text.config.knightsheraldry.title": "Knights & Heraldry",
-  "text.config.knightsheraldry.section.common": "Common",
-  "text.config.knightsheraldry.option.getVanillaWeaponsDamage0": "Vanilla Weapons deals 0 Damage",
-  "text.config.knightsheraldry.option.getBlocking": "Use Stamina on or while Blocking",
-  "text.config.knightsheraldry.option.getDamageTamedEntities": "Lance Weapons can Damage Tamed Entities",
-  "text.config.knightsheraldry.option.getWardartCooldown": "WarDart throw Cooldown",
-  "text.config.knightsheraldry.option.getDamageIndicator": "Damage Indicator",
-  "text.config.knightsheraldry.option.getVisoredHelmet": "Visored Helmet Overlay",
-  "text.config.knightsheraldry.option.getLowStaminaIndicator": "Low Stamina Indicator [Experimental]",
-  "text.config.knightsheraldry.option.getMuzzlesSmokeParticlesTime": "Muzzles Smoke Particles Time Active",
-  "text.config.knightsheraldry.option.getParry": "Parry [Experimental]",
-  "text.config.knightsheraldry.option.getStaminaBarYOffset": "Stamina Bar Y Offset",
-
   "text.config.knightsheraldry.section.dagger": "Dagger",
   "text.config.knightsheraldry.option.getDaggerDamageSlashing": "Damage Slashing",
   "text.config.knightsheraldry.option.getDaggerDamagePiercing": "Damage Piercing",
@@ -257,6 +245,7 @@
 
   "text.config.knightsheraldry.section.lance": "Lance",
   "text.config.knightsheraldry.option.getLanceCooldown": "Cooldown",
+  "text.config.knightsheraldry.option.getDamageTamedEntities": "Damage Tamed Entities",
 
   "text.config.knightsheraldry.section.poleAxe": "PoleAxe",
   "text.config.knightsheraldry.option.getPoleAxeDamageSlashing": "Damage Slashing",
@@ -285,23 +274,8 @@
 
   "trinkets.slot.chest.surcoat": "Surcoat Slot",
 
-  "text.tooltip.knightsheraldry.hungerDrain": "Hunger Drain: +%s%%",
-  "text.tooltip.knightsheraldry.freezing": "Prevents freezing",
-  "text.tooltip.knightsheraldry.hideNameTag": "Hide Name Tag",
-  "text.tooltip.knightsheraldry.baseDamage": "%s Base Damage",
-  "text.tooltip.knightsheraldry.blockRange": "%s Block Range",
-  "text.tooltip.knightsheraldry.slashingResistance": "Slashing Resistance: +%s%% ",
-  "text.tooltip.knightsheraldry.bludgeoningResistance": "Bludgeoning Resistance: +%s%%",
-  "text.tooltip.knightsheraldry.piercingResistance": "Piercing Resistance: +%s%%",
-  "text.tooltip.knightsheraldry.slashingDamage": "Slashing Damage: %s",
-  "text.tooltip.knightsheraldry.bludgeoningDamage": "Bludgeoning Damage: %s",
-  "text.tooltip.knightsheraldry.piercingDamage": "Piercing Damage: %s",
-
   "event.knightsheraldry.recharge_time": "Recharge Time: %s sec",
   "event.knightsheraldry.recharged": "Has been Recharged",
-
-  "key.category.knightsheraldry": "Knights & Heraldry",
-  "key.knightsheraldry.reload": "Reload",
 
   "item.knightsheraldry.easter_egg.longbow_xxxl": "Longbow XXXL",
   "item.knightsheraldry.easter_egg.legacy_handgonne": "Legacy Handgonne",

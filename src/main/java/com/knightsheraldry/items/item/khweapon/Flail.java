@@ -1,10 +1,10 @@
 package com.knightsheraldry.items.item.khweapon;
 
+import banduty.stoneycore.items.item.SCWeapon;
+import banduty.stoneycore.util.SCDamageCalculator;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.client.item.FlailModel;
 import com.knightsheraldry.items.ModToolMaterials;
-import com.knightsheraldry.items.item.KHWeapon;
-import com.knightsheraldry.util.KHDamageCalculator;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.SwordItem;
 import software.bernie.geckolib.animatable.GeoItem;
@@ -19,7 +19,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class Flail extends SwordItem implements GeoItem, KHWeapon {
+public class Flail extends SwordItem implements GeoItem, SCWeapon {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
     public Flail(float attackSpeed, Settings settings) {
@@ -102,7 +102,7 @@ public class Flail extends SwordItem implements GeoItem, KHWeapon {
     }
 
     @Override
-    public KHDamageCalculator.DamageType getOnlyDamageType() {
-        return KHDamageCalculator.DamageType.BLUDGEONING;
+    public SCDamageCalculator.DamageType getOnlyDamageType() {
+        return SCDamageCalculator.DamageType.BLUDGEONING;
     }
 }

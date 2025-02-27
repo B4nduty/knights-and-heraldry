@@ -1,6 +1,6 @@
 package com.knightsheraldry.items;
 
-import com.knightsheraldry.KnightsHeraldry;
+import banduty.stoneycore.StoneyCore;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
@@ -63,7 +63,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     @Override
     public String getName() {
-        return KnightsHeraldry.MOD_ID + ":" + "a";
+        return StoneyCore.MOD_ID + ":" + "a";
     }
 
     @Override

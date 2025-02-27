@@ -8,43 +8,6 @@ import io.wispforest.owo.config.annotation.*;
 @Modmenu(modId = KnightsHeraldry.MOD_ID)
 @Config(name = KnightsHeraldry.MOD_ID, wrapperName = "KHConfig")
 public class KHConfigs {
-    @SectionHeader("common")
-    @Comment("Vanilla Weapons deals 0 Damage")
-    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    public boolean getVanillaWeaponsDamage0 = false;
-
-    @Comment("Use Stamina on or while Blocking")
-    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    public boolean getBlocking = true;
-
-    @Comment("Lance Weapons can Damage Tamed Entities")
-    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    public boolean getDamageTamedEntities = false;
-
-    @Comment("Damage Indicator")
-    public boolean getDamageIndicator = false;
-
-    @Comment("Visored Helmet Overlay")
-    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    public boolean getVisoredHelmet = true;
-
-    @Sync(Option.SyncMode.NONE)
-    @Comment("Low Stamina Indicator [Experimental]")
-    public boolean getLowStaminaIndicator = true;
-
-    @RestartRequired
-    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    @Comment("Muzzles Smoke Particles Time Active (In Seconds)")
-    public int getMuzzlesSmokeParticlesTime = 60;
-
-    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    @Comment("Parry [Experimental]")
-    public boolean getParry = true;
-
-    @Sync(Option.SyncMode.NONE)
-    @Comment("Stamina Bar Y Offset")
-    public int getStaminaBarYOffset = 0;
-
     @SectionHeader("dagger")
     @Comment("Dagger Damage Slashing")
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
@@ -157,6 +120,9 @@ public class KHConfigs {
     @RangeConstraint(min = 0, max = 180)
     @Sync(Option.SyncMode.OVERRIDE_CLIENT)
     public int getLanceCooldown = 30;
+    @Comment("Damage Tamed Entities")
+    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
+    public boolean getDamageTamedEntities = false;
 
     @SectionHeader("poleAxe")
     @Comment("PoleAxe Damage Slashing")
