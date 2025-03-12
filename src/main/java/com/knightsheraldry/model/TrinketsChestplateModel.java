@@ -51,7 +51,7 @@ public class TrinketsChestplateModel extends BipedEntityModel<LivingEntity> {
 
 		ModelPartData surcoat = armorBody.addChild("surcoat", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, -0.1F));
 
-		surcoat.addChild("back_surcoat_r1", ModelPartBuilder.create().uv(40, 97).cuboid(-4.5F, 0.0F, -0.45F, 9.0F, 5.0F, 3.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.1309F, 0.0F, 0.0F));
+		surcoat.addChild("back_surcoat_r1", ModelPartBuilder.create().uv(40, 97).cuboid(-4.5F, 0.0F, -0.45F, 9.0F, 5.0F, 3.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, -0.7F, 1.8F, 3.0107F, 0.0F, -3.1416F));
 
 		surcoat.addChild("front_surcoat_r1", ModelPartBuilder.create().uv(40, 97).cuboid(-4.5F, 0.0F, -2.65F, 9.0F, 5.0F, 3.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, 0.0F, -0.2F, -0.2618F, 0.0F, 0.0F));
 

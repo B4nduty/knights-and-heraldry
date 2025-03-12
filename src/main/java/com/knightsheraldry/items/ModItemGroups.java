@@ -30,9 +30,9 @@ public class ModItemGroups {
 
     private static ItemStack armorStack(ItemConvertible item, boolean aventail, boolean rimmed, boolean besagews) {
         ItemStack armorStack = new ItemStack(item);
-        armorStack.getOrCreateNbt().putBoolean("kh_aventail", aventail);
-        armorStack.getOrCreateNbt().putBoolean("kh_rimmed", rimmed);
-        armorStack.getOrCreateNbt().putBoolean("kh_besagews", besagews);
+        if (aventail) armorStack.getOrCreateNbt().putBoolean("kh_aventail", true);
+        if (rimmed) armorStack.getOrCreateNbt().putBoolean("kh_rimmed", true);
+        if (besagews) armorStack.getOrCreateNbt().putBoolean("kh_besagews", true);
         return armorStack;
     }
 
