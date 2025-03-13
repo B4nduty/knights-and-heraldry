@@ -43,7 +43,7 @@ public class KHSwallowTailArrowEntity extends SCArrowEntity {
             updateSwallowTailArrowCount(player);
         }
 
-        hitKHEntity(target, swallowTailArrowStack, getDamageAmount());
+        scHitEntity(target, swallowTailArrowStack, getDamageAmount());
         super.onEntityHit(entityHitResult);
     }
 

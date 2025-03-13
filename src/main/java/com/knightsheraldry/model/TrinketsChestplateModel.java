@@ -39,7 +39,7 @@ public class TrinketsChestplateModel extends BipedEntityModel<LivingEntity> {
 		armorBody.addChild("breastplate_1_r1", ModelPartBuilder.create().uv(72, 16).cuboid(-4.5F, 0.0F, -2.65F, 9.0F, 5.0F, 3.0F, new Dilation(0.1F))
 				.uv(0, 65).cuboid(-4.5F, 9.0F, -0.1F, 9.0F, 3.0F, 4.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.2618F, 0.0F, 0.0F));
 
-		armorBody.addChild("backfauld_r1", ModelPartBuilder.create().uv(26, 65).cuboid(-4.5F, 9.0F, -3.85F, 9.0F, 3.0F, 4.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.2618F, 0.0F, 0.0F));
+		armorBody.addChild("backfauld_r1", ModelPartBuilder.create().uv(26, 65).cuboid(-4.5F, 9.0F, -4.15F, 9.0F, 3.0F, 4.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.2618F, 0.0F, 0.0F));
 
 		armorBody.addChild("leftTasset", ModelPartBuilder.create().uv(16, 74).mirrored().cuboid(-2.5F, 0.0F, 0.1F, 4.0F, 4.0F, 4.0F, new Dilation(0.1F)).mirrored(false), ModelTransform.pivot(3.0F, 11.5F, -3.5F));
 
@@ -51,20 +51,22 @@ public class TrinketsChestplateModel extends BipedEntityModel<LivingEntity> {
 
 		ModelPartData surcoat = armorBody.addChild("surcoat", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, -0.1F));
 
-		surcoat.addChild("back_surcoat_r1", ModelPartBuilder.create().uv(40, 97).cuboid(-4.5F, 0.0F, -0.45F, 9.0F, 5.0F, 3.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, -0.7F, 1.8F, 3.0107F, 0.0F, -3.1416F));
+		surcoat.addChild("back_surcoat_r1", ModelPartBuilder.create().uv(40, 97).cuboid(-4.5F, 0.0F, -0.45F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -0.7F, 1.8F, 3.0107F, 0.0F, -3.1416F));
 
-		surcoat.addChild("front_surcoat_r1", ModelPartBuilder.create().uv(40, 97).cuboid(-4.5F, 0.0F, -2.65F, 9.0F, 5.0F, 3.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, 0.0F, -0.2F, -0.2618F, 0.0F, 0.0F));
+		surcoat.addChild("front_surcoat_r1", ModelPartBuilder.create().uv(40, 97).cuboid(-4.5F, 0.0F, -2.45F, 9.0F, 5.0F, 3.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, 0.0F, -0.2F, -0.2618F, 0.0F, 0.0F));
 
 		surcoat.addChild("belt", ModelPartBuilder.create().uv(0, 123).cuboid(-5.0F, 8.75F, -3.25F, 10.0F, 1.0F, 4.0F, new Dilation(0.1F))
 				.uv(28, 123).cuboid(-5.0F, 8.75F, -0.75F, 10.0F, 1.0F, 4.0F, new Dilation(0.1F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
-		ModelPartData top_back_surcoat = surcoat.addChild("top_back_surcoat", ModelPartBuilder.create().uv(40, 105).cuboid(-4.5F, -0.2F, 0.0F, 9.0F, 5.0F, 0.0F, new Dilation(0.1F)), ModelTransform.pivot(0.0F, 4.5F, 3.1F));
+		ModelPartData top_back_surcoat = surcoat.addChild("top_back_surcoat", ModelPartBuilder.create().uv(40, 105).cuboid(-4.5F, -0.3F, -0.2F, 9.0F, 5.0F, 0.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 4.5F, 3.1F));
 
-		top_back_surcoat.addChild("bottom_back_surcoat", ModelPartBuilder.create().uv(40, 110).cuboid(-4.5F, 0.0F, 0.0F, 9.0F, 8.0F, 0.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, 4.8F, 0.0F, 0.0873F, 0.0F, 0.0F));
+		ModelPartData bottom_back_surcoat = top_back_surcoat.addChild("bottom_back_surcoat", ModelPartBuilder.create(), ModelTransform.of(0.0F, 4.8F, 0.0F, 0.0873F, 0.0F, 0.0F));
 
-		ModelPartData top_front_surcoat = surcoat.addChild("top_front_surcoat", ModelPartBuilder.create().uv(40, 105).cuboid(-4.5F, -0.1F, 0.0F, 9.0F, 5.0F, 0.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, 4.2F, -3.9F, 0.2182F, 0.0F, 0.0F));
+		bottom_back_surcoat.addChild("bottom_surcoat_r1", ModelPartBuilder.create().uv(40, 110).cuboid(-4.5F, 0.0F, 0.0F, 9.0F, 8.0F, 0.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, -0.2F, 0.1745F, 0.0F, 0.0F));
 
-		top_front_surcoat.addChild("bottom_front_surcoat", ModelPartBuilder.create().uv(40, 110).cuboid(-4.5F, 0.0F, 0.0F, 9.0F, 8.0F, 0.0F, new Dilation(0.1F)), ModelTransform.of(0.0F, 4.8913F, 0.0004F, -0.5236F, 0.0F, 0.0F));
+		ModelPartData top_front_surcoat = surcoat.addChild("top_front_surcoat", ModelPartBuilder.create().uv(40, 105).cuboid(-4.5F, -0.1F, 0.0F, 9.0F, 5.0F, 0.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 4.2F, -3.9F, 0.2182F, 0.0F, 0.0F));
+
+		top_front_surcoat.addChild("bottom_front_surcoat", ModelPartBuilder.create().uv(40, 110).cuboid(-4.5F, 0.0F, 0.0F, 9.0F, 8.0F, 0.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 4.8913F, 0.0004F, -0.5236F, 0.0F, 0.0F));
 
 		ModelPartData armorRightArm = modelPartData.addChild("armorRightArm", ModelPartBuilder.create().uv(96, 16).cuboid(-4.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.35F))
 				.uv(112, 15).cuboid(-4.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.45F))
