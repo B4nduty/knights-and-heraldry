@@ -1,0 +1,16 @@
+{
+  "damage": {
+    "slashing": 10.5,
+    "piercing": 6.0,
+    "bludgeoning": 7.5
+  },
+  "radius": {
+    "level_0": 1.0,
+    "level_1": 2.3,
+    "level_2": 2.8,
+    "level_3": 3.1,
+    "level_4": 4.0
+  },
+  "animation": 3,
+  "piercingAnimation": 2
+}

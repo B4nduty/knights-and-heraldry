@@ -1,7 +1,5 @@
 package com.knightsheraldry.items.item.khweapon;
 
-import banduty.stoneycore.items.item.SCWeapon;
-import banduty.stoneycore.util.SCDamageCalculator;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.entity.custom.WarDartEntity;
 import com.knightsheraldry.items.ModToolMaterials;
@@ -22,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class WarDart extends SwordItem implements SCWeapon {
+public class WarDart extends SwordItem {
     public WarDart(float attackSpeed, Settings settings) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
     }
@@ -68,41 +66,6 @@ public class WarDart extends SwordItem implements SCWeapon {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.knightsheraldry.throw-to-pin"));
-    }
-
-    @Override
-    public double[] getRadiusValues() {
-        return new double[] {
-                3.4d, //1st Distance
-                3.8d, //2nd Distance
-                4.3d, //3rd Distance
-                4.6d, //4th Distance
-                5.0d  //5th Distance
-        };
-    }
-
-    @Override
-    public float[] getAttackDamageValues() {
-        return new float[] {
-                0.0F, //Slashing
-                KnightsHeraldry.getConfig().getWarDartDamagePiercing(),
-                0.0F //Bludgeoning
-        };
-    }
-
-    @Override
-    public int[] getPiercingAnimation() {
-        return new int[0];
-    }
-
-    @Override
-    public int getAnimation() {
-        return 0;
-    }
-
-    @Override
-    public SCDamageCalculator.DamageType getOnlyDamageType() {
-        return SCDamageCalculator.DamageType.PIERCING;
+        tooltip.add(Text.translatable("text.tooltip.knightsheraldry.throw-to-pin"));
     }
 }

@@ -1,18 +1,9 @@
 package com.knightsheraldry.items.item.khrangeweapon;
 
-import banduty.stoneycore.items.item.SCRangeWeapon;
-import banduty.stoneycore.util.SCDamageCalculator;
 import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
 import com.knightsheraldry.client.item.HandgonneModel;
-import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.sounds.ModSounds;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.UseAction;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.RenderProvider;
 import software.bernie.geckolib.constant.DataTickets;
@@ -25,63 +16,12 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class Handgonne extends Item implements SCRangeWeapon, GeoItem {
+public class Handgonne extends Item implements GeoItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
 
     public Handgonne(Settings settings) {
         super(settings);
-    }
-
-    @Override
-    public @NotNull SCDamageCalculator.DamageType getDamageType() {
-        return SCDamageCalculator.DamageType.BLUDGEONING;
-    }
-
-    @Override
-    public int maxUseTime() {
-        return 1;
-    }
-
-    @Override
-    public float baseDamage() {
-        return 26f;
-    }
-
-    @Override
-    public float speed() {
-        return 1.9f;
-    }
-
-    @Override
-    public @Nullable AmmoRequirement ammoRequirement() {
-        return new AmmoRequirement(
-                2, ModItems.BLACK_POWDER, null,
-                1, Items.IRON_NUGGET, Items.GRAVEL,
-                1, Items.PAPER, Items.GRASS
-        );
-    }
-
-    @Override
-    public int rechargeTime() {
-        return 15;
-    }
-
-    @Override
-    public boolean needsFlintAndSteel() {
-        return true;
-    }
-
-    @Override
-    public @Nullable SoundEvent[] soundEvents() {
-        return new SoundEvent[]{
-                ModSounds.ARQUEBUS_CLOSE_1, ModSounds.ARQUEBUS_CLOSE_2, ModSounds.ARQUEBUS_CLOSE_3
-        };
-    }
-
-    @Override
-    public UseAction useAction() {
-        return UseAction.BOW;
     }
 
     @Override

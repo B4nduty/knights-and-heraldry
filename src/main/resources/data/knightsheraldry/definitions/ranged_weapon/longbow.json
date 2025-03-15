@@ -1,0 +1,12 @@
+{
+  "baseDamage": 14,
+  "speed": 3.7,
+  "maxUseTime": 72000,
+  "rechargeTime": 0,
+  "needsFlintAndSteel": false,
+  "damageType": "piercing",
+  "useAction": "bow",
+  "soundEvents": [
+    "minecraft:entity.arrow.shoot"
+  ]
+}

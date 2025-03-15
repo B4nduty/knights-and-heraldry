@@ -1,8 +1,5 @@
 package com.knightsheraldry.items.item.khweapon;
 
-import banduty.stoneycore.items.item.SCWeapon;
-import banduty.stoneycore.util.SCDamageCalculator;
-import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.client.item.FlailModel;
 import com.knightsheraldry.items.ModToolMaterials;
 import net.minecraft.client.MinecraftClient;
@@ -19,7 +16,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class Flail extends SwordItem implements GeoItem, SCWeapon {
+public class Flail extends SwordItem implements GeoItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
     public Flail(float attackSpeed, Settings settings) {
@@ -69,40 +66,5 @@ public class Flail extends SwordItem implements GeoItem, SCWeapon {
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
-    }
-
-    @Override
-    public double[] getRadiusValues() {
-        return new double[] {
-                2.0d, //1st Distance
-                2.4d, //2nd Distance
-                2.9d, //3rd Distance
-                3.4d, //4th Distance
-                4.0d  //5th Distance
-        };
-    }
-
-    @Override
-    public float[] getAttackDamageValues() {
-        return new float[] {
-                0.0F, //Slashing
-                0.0F, //Piercing
-                KnightsHeraldry.getConfig().getFlailDamageBludgeoning()
-        };
-    }
-
-    @Override
-    public int[] getPiercingAnimation() {
-        return new int[0];
-    }
-
-    @Override
-    public int getAnimation() {
-        return 0;
-    }
-
-    @Override
-    public SCDamageCalculator.DamageType getOnlyDamageType() {
-        return SCDamageCalculator.DamageType.BLUDGEONING;
     }
 }

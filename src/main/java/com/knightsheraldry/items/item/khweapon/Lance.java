@@ -98,8 +98,8 @@ public class Lance extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.knightsheraldry.right_click-to-charge"));
-        tooltip.add(Text.translatable("tooltip.knightsheraldry.on-charge"));
+        tooltip.add(Text.translatable("text.tooltip.knightsheraldry.right_click-to-charge"));
+        tooltip.add(Text.translatable("text.tooltip.knightsheraldry.on-charge"));
     }
 
     @Override

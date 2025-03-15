@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-23T20:46:19.3428842	Knights & Heraldry/Recipes
+// 1.20.1	2025-03-15T01:38:18.8701774	Knights & Heraldry/Recipes
 9ddaaffd00cdb035657ca683d1d60a2735e23d8a data\knightsheraldry\advancements\recipes\misc\bascinet_no_visor.json
 94fa46371a08c7f25c36ddf7ba43e57300401041 data\knightsheraldry\advancements\recipes\misc\cage_2.json
 4f557ca060e7be405e7941ea52fa35ed0a3a3e5f data\knightsheraldry\advancements\recipes\misc\mace.json
@@ -48,8 +48,8 @@ c1a0dce0ab1d02a872b475c8cfb5786692015dcf data\knightsheraldry\recipes\polehammer
 be22a9de4b373e77284bf046cb6614d75a55ab30 data\knightsheraldry\recipes\sleeveless_surcoat_with_banner.json
 80bd9fd87ce20c0990d5d39da752db26d3556e8f data\knightsheraldry\advancements\recipes\misc\smithing_hammer.json
 c46feb9c18edd78af267fdd244f400c11a41ccc0 data\knightsheraldry\advancements\recipes\misc\warsword.json
-1421d94a10d0f3f9e6a97eff5ec9a0ebf3e5b687 data\knightsheraldry\advancements\recipes\misc\nasal_helm.json
 f28f109a036927ef2d490c2ae86f70f771258014 data\knightsheraldry\advancements\recipes\misc\warsword_claymore.json
+1421d94a10d0f3f9e6a97eff5ec9a0ebf3e5b687 data\knightsheraldry\advancements\recipes\misc\nasal_helm.json
 04f5cd3260e9627b6cdfe062273d35c1f53d3dee data\knightsheraldry\recipes\great_helm.json
 f33ef379f5ce60c1beb5939750e6a1a9dfd8737b data\knightsheraldry\advancements\recipes\misc\great_helm_2.json
 247f244dc18f0e74bad4dd0635503f11d040074e data\knightsheraldry\advancements\recipes\misc\straight_crooked_axe.json
