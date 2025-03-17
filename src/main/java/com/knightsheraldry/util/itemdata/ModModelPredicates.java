@@ -49,12 +49,12 @@ public class ModModelPredicates {
         ModelPredicateProviderRegistry.register(item, new Identifier("charged"),
                 (stack, world, entity, seed) -> entity != null
                         && (entity.getMainHandStack() == stack || entity.getOffHandStack() == stack) &&
-                        stack.hasNbt() && stack.getNbt().getBoolean("kh_charged") ? 1.0F : 0.0F);
+                        stack.hasNbt() && stack.getNbt().getBoolean("sc_charged") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
                 (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
 
         ModelPredicateProviderRegistry.register(item, new Identifier("bludgeoning"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
-                        stack.getNbt().getBoolean("kh_bludgeoning") ? 1.0F : 0.0F);
+                        stack.getNbt().getBoolean("sc_bludgeoning") ? 1.0F : 0.0F);
     }
 }

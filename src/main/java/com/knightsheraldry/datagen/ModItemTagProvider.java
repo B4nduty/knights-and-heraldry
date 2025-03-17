@@ -86,19 +86,5 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(SCTags.HIDE_NAME_TAG.getTag())
                 .add(ModItems.CLOAK, ModItems.TORN_CLOAK);
-
-        getOrCreateTagBuilder(SCTags.MELEE_COMBAT_MECHANICS.getTag())
-                .add(ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD,
-                        ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE,
-                        ModItems.MACE, ModItems.SPIKED_MACE, ModItems.FLAIL, ModItems.BALL_FLAIL, ModItems.HAMMER,
-                        ModItems.WAR_HAMMER, ModItems.LONGSWORD, ModItems.V_LONGSWORD, ModItems.FALCHION,
-                        ModItems.SCIMITAR, ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE, ModItems.BILLHOOK,
-                        ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.POLEAXE, ModItems.POLEHAMMER,
-                        ModItems.BEC_DE_CORBIN, ModItems.MORNING_STAR, ModItems.BARDICHE, ModItems.WARSWORD,
-                        ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER,
-                        ModItems.WARDART);
-
-        getOrCreateTagBuilder(SCTags.RANGED_WEAPON_COMBAT_MECHANICS.getTag())
-                .add(ModItems.LONGBOW, ModItems.HEAVY_CROSSBOW, ModItems.ARQUEBUS, ModItems.HANDGONNE);
     }
 }
