@@ -1,0 +1,7 @@
+{
+  "damageResistance": {
+    "slashing": 0.04,
+    "bludgeoning": 0.1,
+    "piercing": 0
+  }
+}

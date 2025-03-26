@@ -17,7 +17,7 @@ public class TrinketsModifiersHandler implements TrinketsModifiersEvents {
     @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(Multimap<EntityAttribute, EntityAttributeModifier> multimap, ItemStack itemStack, SlotReference slotReference, LivingEntity livingEntity, UUID uuid) {
         if (!(itemStack.getItem() instanceof SCTrinketsItem scTrinketsItem)) return multimap;
-        double toughness = scTrinketsItem.toughness() + (itemStack.getOrCreateNbt().getBoolean("sc_aventail") ? 2 : 0);
+        double toughness = scTrinketsItem.toughness() + (itemStack.getOrCreateNbt().getBoolean("kh_aventail") ? 2 : 0);
 
         if (scTrinketsItem.armor() > 0 || toughness > 0) {
             multimap.put(EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(uuid,

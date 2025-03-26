@@ -135,30 +135,22 @@ public class ModItems {
 
 
     public static final Item QUILTED_COIF = registerItem("quilted_coif",
-            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET,
-                    0.04d, 0.1d, 0, 10511680));
+            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET, 10511680));
     public static final Item GAMBESON = registerItem("gambeson",
-            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE,
-                    0.04d, 0.1d, 0, 10511680));
+            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE, 10511680));
     public static final Item GAMBESON_BREECHES = registerItem("gambeson_breeches",
-            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS,
-                    0.04d, 0.1d, 0, 10511680));
+            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS, 10511680));
     public static final Item GAMBESON_BOOTS = registerItem("gambeson_boots",
-            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS,
-                    0.04d, 0.1d, 0, 10511680));
+            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS, 10511680));
 
     public static final Item MAIL_COIF = registerItem("mail_coif",
-            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.HELMET,
-                    0.1d, 0.04d, 0));
+            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.HELMET));
     public static final Item HAUBERK = registerItem("hauberk",
-            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE,
-                    0.1d, 0.04d, 0));
+            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE));
     public static final Item MAIL_BREECHES = registerItem("mail_breeches",
-            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS,
-                    0.1d, 0.04d, 0));
+            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS));
     public static final Item MAIL_BOOTS = registerItem("mail_boots",
-            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS,
-                    0.1d, 0.04d, 0));
+            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS));
 
     public static final Item MAIL_PAULDRON = registerItem("mail_pauldron",
             new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 0, 1, 0.0d));
