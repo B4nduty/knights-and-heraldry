@@ -32,8 +32,8 @@
         "owo-lib": ">=0.11.2+1.20",
         "bettercombat": ">=1.8.5+1.20.1",
         "trinkets": ">=3.7.2",
-        "stoneycore": ">=0.2.4",
-        "streq": ">=1.0.7",
+        "stoneycore": ">=0.2.5",
+        "streq": ">=1.0.9",
         "fabric": "*",
         "minecraft": "${minecraft_version}"
     }
