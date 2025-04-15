@@ -32,7 +32,7 @@ public class RenderFirstPersonTrinketsArmorHandler implements RenderFirstPersonT
             model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
             if (scTrinketsItem.isDyeableWithOverlay()) {
                 VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(getOverlayIdentifier(scTrinketsItem)));
-                model.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1.0F);
+                model.armorRightArm.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1.0F);
             }
         }
 
@@ -40,7 +40,7 @@ public class RenderFirstPersonTrinketsArmorHandler implements RenderFirstPersonT
             model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
             if (scTrinketsItem.isDyeableWithOverlay()) {
                 VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(getOverlayIdentifier(scTrinketsItem)));
-                model.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1.0F);
+                model.armorLeftArm.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1.0F);
             }
         }
     }
