@@ -1,15 +1,15 @@
-// 1.20.1	2025-03-25T03:12:27.2067925	Knights & Heraldry/Tags for minecraft:item
+// 1.20.1	2025-04-25T08:54:59.5439644	Knights & Heraldry/Tags for minecraft:item
 ef558e24a8bcd2d96cac8e8abf4713edac8fcaab data\stoneycore\tags\items\weapons_damage_behind.json
 717476cbe3cfe8b558518cdfc8259d99f7fa8c34 data\stoneycore\tags\items\weapons_disable_shield.json
 cbd5ec61d1b71da9eb5c055abf0605a1d7296471 data\stoneycore\tags\items\always_wearable.json
-14879d21971e5a6dcea9876710aff73d8b1efd66 data\stoneycore\tags\items\hide_name_tag.json
+17add4eb7fbb88a03e744ca51ad9e4b19700680e data\stoneycore\tags\items\hide_name_tag.json
 a77f0e56413a539be8079ce888aa773ec94bafb4 data\stoneycore\tags\items\weapons_harvest.json
-95308deba17101a6956f4a09b124a5a9d38a9a22 data\stoneycore\tags\items\weapons_bypass_block.json
 f075d59f36f2cd0c0633d4e1643528256272496a data\stoneycore\tags\items\weapons_3d.json
+95308deba17101a6956f4a09b124a5a9d38a9a22 data\stoneycore\tags\items\weapons_bypass_block.json
 1ac8bbb29335f98d8bfec25cbd1149ac2c3e00c1 data\stoneycore\tags\items\weapons_ignores_armor.json
 ec8682e803ec39dec3c18f2988f0156e9fbdc7be data\stoneycore\tags\items\geo_2d_items.json
 c7df8e721a4a7f8fa8067e866409165eef843b03 data\stoneycore\tags\items\weapons_shield.json
 14879d21971e5a6dcea9876710aff73d8b1efd66 data\minecraft\tags\items\freeze_immune_wearables.json
 e2961b04f35c89229ffa99de508ab7389ccb4e26 data\stoneycore\tags\items\visored_helmet.json
-391bb8bb7c54a26bf2bbbe4fcb5d1ecd76d9f6c6 data\knightsheraldry\tags\items\deflective_armor.json
 ee26d9c524a53aaddd7b55c20c51762286bad789 data\stoneycore\tags\items\banner_compatible.json
+391bb8bb7c54a26bf2bbbe4fcb5d1ecd76d9f6c6 data\knightsheraldry\tags\items\deflective_armor.json

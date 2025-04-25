@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "knightsheraldry:cloak",
-    "knightsheraldry:torn_cloak"
+    "knightsheraldry:hood",
+    "knightsheraldry:torn_hood"
   ]
 }

@@ -85,6 +85,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.SURCOAT, ModItems.SURCOAT_SLEEVELESS);
 
         getOrCreateTagBuilder(SCTags.HIDE_NAME_TAG.getTag())
-                .add(ModItems.CLOAK, ModItems.TORN_CLOAK);
+                .add(ModItems.HOOD, ModItems.TORN_HOOD);
     }
 }
