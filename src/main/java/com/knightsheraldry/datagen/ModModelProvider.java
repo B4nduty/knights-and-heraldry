@@ -6,6 +6,10 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.data.client.TextureMap;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -132,5 +136,69 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CLOTH_ARROW, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.BLACK_POWDER, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.PLUME, Models.HANDHELD);
+
+        generateBannerPatternModels(ModItems.SURCOAT, itemModelGenerator);
+        generateBannerPatternModels(ModItems.SURCOAT_SLEEVELESS, itemModelGenerator);
+
+        itemModelGenerator.register(ModItems.CHAPERON, Models.HANDHELD);
+    }
+
+    public void generateBannerPatternModels(Item item, ItemModelGenerator itemModelGenerator) {
+        Identifier itemId = Registries.ITEM.getId(item);
+
+        String[] bannerPatternNames = {
+                "bl",
+                "bo",
+                "br",
+                "bri",
+                "bs",
+                "bt",
+                "bts",
+                "cbo",
+                "cr",
+                "cre",
+                "cs",
+                "dls",
+                "drs",
+                "flo",
+                "glb",
+                "gra",
+                "gru",
+                "hh",
+                "hhb",
+                "ld",
+                "ls",
+                "lud",
+                "mc",
+                "moj",
+                "mr",
+                "ms",
+                "pig",
+                "rd",
+                "rs",
+                "rud",
+                "sc",
+                "sku",
+                "ss",
+                "tl",
+                "tr",
+                "ts",
+                "tt",
+                "tts",
+                "vh",
+                "vhr"
+        };
+
+        for (String pattern : bannerPatternNames) {
+            Identifier modelId = new Identifier(itemId.getNamespace(), "item/" + itemId.getPath() + "/" + pattern);
+
+            TextureMap textures = TextureMap.layer0(
+                    new Identifier(itemId.getNamespace(), "item/" + itemId.getPath() + "/" + pattern)
+            );
+
+            Models.HANDHELD.upload(modelId, textures, itemModelGenerator.writer);
+        }
     }
 }

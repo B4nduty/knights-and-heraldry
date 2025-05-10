@@ -152,6 +152,11 @@ public class ModItemGroups {
                 armorStack(ModItems.GREAT_HOUNDSKUL_BASCINET, false, false, false),
                 armorStack(ModItems.MAXIMILLIAN_HELMET, false, false, false),
 
+                armorStack(ModItems.CHAPERON, false, false, false),
+                armorStack(ModItems.GILDED_CHAPERON, false, false, false),
+
+                armorStack(ModItems.PLUME, false, false, false),
+
                 armorStack(ModItems.BRIGANDINE, false, false, false),
                 armorStack(ModItems.BRIG_BREASTPLATE, false, false, false),
                 armorStack(ModItems.BRIG_BREASTPLATE_TASSETS, false, false, false),
@@ -187,9 +192,12 @@ public class ModItemGroups {
 
                 armorStack(ModItems.HOOD, false, false, false),
                 armorStack(ModItems.TORN_HOOD, false, false, false),
+                armorStack(ModItems.JESTER_HOOD, false, false, false),
 
                 armorStack(ModItems.CLOAK, false, false, false),
-                armorStack(ModItems.TORN_CLOAK, false, false, false)
+                armorStack(ModItems.TORN_CLOAK, false, false, false),
+
+                armorStack(ModItems.HORSE_BARDING, false, false, false)
         ));
     }
 

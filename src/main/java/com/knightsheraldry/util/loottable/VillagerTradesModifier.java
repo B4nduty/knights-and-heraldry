@@ -15,10 +15,10 @@ import java.util.List;
 public class VillagerTradesModifier {
     public static void registerCustomTrades() {
         for (int level = 1; level <= 5; level++) {
-            registerArmorTrades(level);
-            registerWeaponTrades(level);
-            registerClothsTrades(level);
-            registerRangedWeaponsTrades(level);
+            registerArmorerTrades(level);
+            registerWeaponsmithTrades(level);
+            registerShepherdTrades(level);
+            registerFletcherTrades(level);
             registerClericTrades(level);
         }
     }
@@ -37,7 +37,7 @@ public class VillagerTradesModifier {
         });
     }
 
-    private static void registerArmorTrades(int level) {
+    private static void registerArmorerTrades(int level) {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, level, factories -> {
             if (level == 1) {
                 addTradeOffer(factories, 8, 12, 1, ModItems.QUILTED_COIF);
@@ -58,6 +58,7 @@ public class VillagerTradesModifier {
             if (level == 3) {
                 addTradeOffer(factories, 23, 12, 10, ModItems.BRIGANDINE);
                 addTradeOffer(factories, 11, 12, 10, ModItems.GAUNTLET);
+                addTradeOffer(factories, 12, 12, 15, ModItems.HORSE_BARDING);
                 addRandomTradeOffer(factories, 9, 12, 10,
                         ModItems.BASCINET_NO_VISOR, ModItems.KETTLE_HELM, ModItems.NASAL_HELM, ModItems.VIKING_HELM,
                         ModItems.BARBUTE_NO_VISOR);
@@ -86,11 +87,14 @@ public class VillagerTradesModifier {
                         ModItems.PLATE_CUIRASS_TASSETS, ModItems.MAXIMILLIAN_CUIRASS,
                         ModItems.MAXIMILLIAN_CUIRASS_TASSETS, ModItems.XIIII_PLATE_CUIRASS,
                         ModItems.XIIII_PLATE_CUIRASS_TASSETS, ModItems.XIIII_PLATE_BREASTPLATE);
+                addRandomTradeOffer(factories, 24, 12, 15,
+                        ModItems.FROGMOUTH, ModItems.GREAT_ARMET, ModItems.GREAT_ARMET_2,
+                        ModItems.GREAT_HOUNDSKUL_BASCINET, ModItems.MAXIMILLIAN_HELMET);
             }
         });
     }
 
-    private static void registerWeaponTrades(int level) {
+    private static void registerWeaponsmithTrades(int level) {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH, level, factories -> {
             if (level == 1) {
                 addTradeOffer(factories, 8, 12, 1, ModItems.PITCHFORK);
@@ -140,37 +144,50 @@ public class VillagerTradesModifier {
         });
     }
 
-    private static void registerClothsTrades(int level) {
+    private static void registerShepherdTrades(int level) {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD, level, factories -> {
             if (level == 1) {
                 addRandomTradeOffer(factories, 6, 32, 1,
                         ModItems.CLOAK, ModItems.TORN_CLOAK);
-                addRandomTradeOffer(factories, 32, 32, 1,
+                addRandomTradeOffer(factories, 15, 32, 1,
                         ModItems.HOOD, ModItems.TORN_HOOD);
+                addTradeOffer(factories, 1, 32, 1, ModItems.CHAPERON);
             }
 
             if (level == 2) {
-                addRandomTradeOffer(factories, 6, 32, 1,
+                addRandomTradeOffer(factories, 2, 32, 1,
                         ModItems.SURCOAT, ModItems.SURCOAT_SLEEVELESS);
+            }
+
+            if (level == 4) {
+                addTradeOffer(factories, 20, 12, 5, ModItems.JESTER_HOOD);
+            }
+
+            if (level == 5) {
+                addTradeOffer(factories, 32, 12, 15, ModItems.GILDED_CHAPERON);
             }
         });
     }
 
-    private static void registerRangedWeaponsTrades(int level) {
+    private static void registerFletcherTrades(int level) {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FLETCHER, level, factories -> {
             if (level == 1) {
-                addTradeOffer(factories, 5, 32, 1, ModItems.BROADHEAD_ARROW);
+                addTradeOffer(factories, 3, 32, 1, ModItems.BROADHEAD_ARROW);
             }
 
             if (level == 2) {
-                addTradeOffer(factories, 5, 32, 5, ModItems.SWALLOWTAIL_ARROW);
-                addTradeOffer(factories, 5, 32, 5, ModItems.BODKIN_ARROW);
-                addTradeOffer(factories, 5, 32, 5, ModItems.CLOTH_ARROW);
+                addTradeOffer(factories, 4, 32, 5, ModItems.SWALLOWTAIL_ARROW);
+                addTradeOffer(factories, 6, 32, 5, ModItems.BODKIN_ARROW);
+                addTradeOffer(factories, 6, 32, 5, ModItems.CLOTH_ARROW);
                 addTradeOffer(factories, 13, 12, 5, ModItems.LONGBOW);
             }
 
             if (level == 3) {
                 addTradeOffer(factories, 15, 12, 10, ModItems.HEAVY_CROSSBOW);
+            }
+
+            if (level == 4) {
+                addTradeOffer(factories, 4, 12, 5, ModItems.PLUME);
             }
         });
     }

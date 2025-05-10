@@ -2,5 +2,11 @@
 	"parent": "item/generated",
 	"textures": {
 		"layer0": "knightsheraldry:item/heavy_crossbow_icon"
-	}
+	},
+	"overrides": [
+		{"predicate": {"pulling": 1}, "model": "knightsheraldry:item/heavy_crossbow_icon"},
+		{"predicate": {"pulling": 1, "pull": 0.3}, "model": "knightsheraldry:item/heavy_crossbow_icon_1"},
+		{"predicate": {"pulling": 1, "pull": 0.5}, "model": "knightsheraldry:item/heavy_crossbow_icon_2"},
+		{"predicate": {"pulling": 1, "pull": 0.7}, "model": "knightsheraldry:item/heavy_crossbow_icon_3"}
+	]
 }

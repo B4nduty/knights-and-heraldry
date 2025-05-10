@@ -9,7 +9,9 @@ import com.knightsheraldry.entity.custom.KHBodkinArrowEntity;
 import com.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
 import com.knightsheraldry.entity.custom.KHClothArrowEntity;
 import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
+import com.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import com.knightsheraldry.items.armor.trinkets.*;
+import com.knightsheraldry.items.item.DyeableItems;
 import com.knightsheraldry.items.item.SmithingHammer;
 import com.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import com.knightsheraldry.items.item.khrangeweapon.Handgonne;
@@ -264,17 +266,20 @@ public class ModItems {
 
     public static final Item CLOAK = registerItem("cloak",
             new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
-                    false, 10511680));
+                    false));
     public static final Item TORN_CLOAK = registerItem("torn_cloak",
             new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
-                    false, 10511680));
+                    false));
 
     public static final Item HOOD = registerItem("hood",
             new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
-                    false, 10511680));
+                    false));
     public static final Item TORN_HOOD = registerItem("torn_hood",
             new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
-                    false, 10511680));
+                    false));
+    public static final Item JESTER_HOOD = registerItem("jester_hood",
+            new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
+                    true));
 
     public static final Item BLACK_POWDER = registerItem("black_powder",
             new Item(new OwoItemSettings()));
@@ -299,6 +304,18 @@ public class ModItems {
             new SCArrow(new OwoItemSettings(), KHBroadheadArrowEntity::new));
     public static final Item CLOTH_ARROW = registerItem("cloth_arrow",
             new SCArrow(new OwoItemSettings(), KHClothArrowEntity::new));
+
+    public static final Item HORSE_BARDING = registerItem("horse_barding",
+            new HorseBardingArmorItem(7, new OwoItemSettings().maxCount(1)));
+
+    public static final Item PLUME = registerItem("plume",
+            new DyeableItems(new OwoItemSettings().maxCount(1)));
+
+    public static final Item CHAPERON = registerItem("chaperon",
+            new KHChaperon(new OwoItemSettings().maxCount(1), false));
+
+    public static final Item GILDED_CHAPERON = registerItem("gilded_chaperon",
+            new KHChaperon(new OwoItemSettings().maxCount(1), true));
 
     private static <T extends Item> T registerItem(String name, T item) {
         Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);

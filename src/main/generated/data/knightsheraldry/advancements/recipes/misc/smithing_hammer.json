@@ -39,7 +39,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smithing_hammer"
+        "recipe": "knightsheraldry:smithing_hammer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -54,7 +54,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smithing_hammer"
+      "knightsheraldry:smithing_hammer"
     ]
   },
   "sends_telemetry_event": false

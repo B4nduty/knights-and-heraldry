@@ -1,6 +1,9 @@
 package com.knightsheraldry.util.itemdata;
 
+import banduty.stoneycore.util.definitionsloader.SCRangedWeaponDefinitionsLoader;
+import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
 import com.knightsheraldry.items.ModItems;
+import com.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.text.Text;
@@ -17,6 +20,22 @@ public class ModModelPredicates {
     }
 
     private static void registerBowPredicates(Item item) {
+        if (item instanceof HeavyCrossbow) {
+            ModelPredicateProviderRegistry.register(item, new Identifier("pulling"), (stack, world, entity, seed) ->
+                    SCRangeWeaponUtil.getWeaponState(stack).isReloading() || SCRangeWeaponUtil.getWeaponState(stack).isCharged() ? 1.0F : 0.0F);
+
+            ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {
+                if (entity == null) {
+                    return 0.0F;
+                } else if (SCRangeWeaponUtil.getWeaponState(stack).isCharged()) {
+                    return 1.0F;
+                } else {
+                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F / SCRangedWeaponDefinitionsLoader.getData(stack.getItem()).rechargeTime();
+                }
+            });
+            return;
+        }
+
         ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {
             if (entity == null) {
                 return 0.0F;
@@ -30,7 +49,7 @@ public class ModModelPredicates {
 
     private static void registerEasterEggPredicates(Item item) {
         if (item == ModItems.LONGBOW) ModelPredicateProviderRegistry.register(item, new Identifier("longbow_xxxl"), (stack, world, entity, seed) ->
-                Objects.equals(stack.getName(), Text.translatable("item.knightsheraldry.easter_egg.longbow_xxxl")) ? 1.0F : 0.0F);
+                Objects.equals(stack.getName().getString(), Text.translatable("item.knightsheraldry.easter_egg.longbow_xxxl").getString()) ? 1.0F : 0.0F);
     }
 
     private static void registerArmorPredicates(Item item) {

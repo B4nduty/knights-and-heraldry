@@ -24,16 +24,52 @@ public class CloakHoodModel extends BipedEntityModel<LivingEntity> {
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = BipedEntityModel.getModelData(Dilation.NONE, 0f);
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData armorHead = modelPartData.addChild("armorHead", ModelPartBuilder.create().uv(56, 0).cuboid(-4.5F, -9.5F, -8.1F, 9.0F, 10.0F, 6.0F, new Dilation(0.6F))
-				.uv(40, 16).cuboid(-4.5F, -9.5F, -0.9F, 9.0F, 10.0F, 6.0F, new Dilation(0.6F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		ModelPartData armorHead = modelPartData.addChild("armorHead", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
-		armorHead.addChild("hood_tail_r1", ModelPartBuilder.create().uv(86, 0).cuboid(-4.5F, -23.95F, 19.33F, 9.0F, 9.0F, 3.0F, new Dilation(0.59F)), ModelTransform.of(0.0F, 24.2F, 1.0F, 0.6109F, 0.0F, 0.0F));
+		ModelPartData hood_head = armorHead.addChild("hood_head", ModelPartBuilder.create().uv(40, 0).cuboid(-4.5F, -8.5F, -6.0F, 9.0F, 9.0F, 4.0F, new Dilation(0.2F))
+				.uv(40, 13).cuboid(-4.5F, -8.5F, -1.6F, 9.0F, 9.0F, 6.0F, new Dilation(0.2F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
-		modelPartData.addChild("armorBody", ModelPartBuilder.create().uv(34, 36).cuboid(-8.0F, -0.75F, -3.0F, 16.0F, 22.0F, 6.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		hood_head.addChild("hood_tail_r1", ModelPartBuilder.create().uv(70, 16).cuboid(-1.0F, -22.15F, 9.13F, 2.0F, 5.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 24.0F, 0.0F, 0.1309F, 0.0F, 0.0F));
 
-		modelPartData.addChild("armorLeftArm", ModelPartBuilder.create().uv(104, 36).cuboid(-1.0F, -2.75F, -3.0F, 6.0F, 22.0F, 6.0F, new Dilation(0.1F)), ModelTransform.pivot(4.0F, 2.0F, 0.0F));
+		hood_head.addChild("hood_tail_r2", ModelPartBuilder.create().uv(66, 8).cuboid(-2.5F, -26.15F, 10.33F, 5.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 24.0F, 0.0F, 0.2182F, 0.0F, 0.0F));
 
-		modelPartData.addChild("armorRightArm", ModelPartBuilder.create().uv(79, 36).cuboid(-5.0F, -2.75F, -3.0F, 6.0F, 22.0F, 6.0F, new Dilation(0.1F)), ModelTransform.pivot(-4.0F, 2.0F, 0.0F));
+		hood_head.addChild("hood_tail_r3", ModelPartBuilder.create().uv(66, 0).cuboid(-3.5F, -23.95F, 19.33F, 7.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 24.0F, 0.0F, 0.6109F, 0.0F, 0.0F));
+
+		ModelPartData jester = hood_head.addChild("jester", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		jester.addChild("cube_r1", ModelPartBuilder.create().uv(119, 0).mirrored().cuboid(-9.25F, -9.0F, -1.0F, 2.0F, 2.0F, 0.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(0.25F, 0.0F, 0.5F, 0.0F, 0.0F, 0.1309F));
+
+		jester.addChild("cube_r2", ModelPartBuilder.create().uv(119, 0).cuboid(7.25F, -9.0F, -1.0F, 2.0F, 2.0F, 0.0F, new Dilation(0.0F)), ModelTransform.of(-0.25F, 0.0F, 0.5F, 0.0F, 0.0F, -0.1309F));
+
+		jester.addChild("hood_r1", ModelPartBuilder.create().uv(110, 20).cuboid(-2.5F, -9.1F, 7.55F, 5.0F, 4.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.3491F, 0.0F, 0.0F));
+
+		jester.addChild("hood_r2", ModelPartBuilder.create().uv(80, 20).cuboid(-4.5F, -8.5F, 2.4F, 9.0F, 4.0F, 6.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.4363F, 0.0F, 0.0F));
+
+		jester.addChild("ear_r1", ModelPartBuilder.create().uv(120, 0).cuboid(-4.5F, -11.0F, -2.0F, 1.0F, 7.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.25F, 0.0F, 0.5F, 0.0F, 0.0F, -0.1745F));
+
+		jester.addChild("ear_r2", ModelPartBuilder.create().uv(120, 0).cuboid(3.5F, -11.0F, -2.0F, 1.0F, 7.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(-0.25F, 0.0F, 0.5F, 0.0F, 0.0F, 0.1745F));
+
+		ModelPartData bell = jester.addChild("bell", ModelPartBuilder.create(), ModelTransform.of(0.0F, -8.5F, 8.0F, 0.3491F, 0.0F, 0.0F));
+
+		bell.addChild("hood_r3", ModelPartBuilder.create().uv(113, 0).cuboid(-1.5F, -1.5F, 0.05F, 3.0F, 3.0F, 0.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 2.0F, 0.0F, 0.0F, 0.0F, 0.7854F));
+
+		ModelPartData armorBody = modelPartData.addChild("armorBody", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		armorBody.addChild("cloak", ModelPartBuilder.create().uv(34, 36).cuboid(-8.0F, -0.75F, -3.0F, 16.0F, 22.0F, 6.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		ModelPartData hood_body = armorBody.addChild("hood_body", ModelPartBuilder.create().uv(86, 0).cuboid(-4.0F, 0.0F, -2.0F, 8.0F, 6.0F, 4.0F, new Dilation(0.42F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		hood_body.addChild("cube_r3", ModelPartBuilder.create().uv(86, 10).cuboid(-6.7F, 1.2F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.4F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.3491F));
+
+		hood_body.addChild("cube_r4", ModelPartBuilder.create().uv(102, 10).cuboid(2.6F, 1.2F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.4F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, -0.3491F));
+
+		ModelPartData armorRightArm = modelPartData.addChild("armorRightArm", ModelPartBuilder.create(), ModelTransform.pivot(-4.0F, 2.0F, 0.0F));
+
+		armorRightArm.addChild("cloak_arm_right", ModelPartBuilder.create().uv(79, 36).cuboid(-5.0F, -2.75F, -3.0F, 6.0F, 22.0F, 6.0F, new Dilation(0.1F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+
+		ModelPartData armorLeftArm = modelPartData.addChild("armorLeftArm", ModelPartBuilder.create(), ModelTransform.pivot(4.0F, 2.0F, 0.0F));
+
+		armorLeftArm.addChild("cloak_arm_left", ModelPartBuilder.create().uv(104, 36).cuboid(-1.0F, -2.75F, -3.0F, 6.0F, 22.0F, 6.0F, new Dilation(0.1F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 		return TexturedModelData.of(modelData, 128, 64);
 	}
 
@@ -78,7 +114,7 @@ public class CloakHoodModel extends BipedEntityModel<LivingEntity> {
 			l = -0.1658996062F;
 			m = 3.125F;
 			n = 0.01908953812F;
-		} else if (livingEntity.isOnGround() && livingEntity.getVelocity().horizontalLengthSquared() > 0 || !livingEntity.isOnGround()) {
+		} else if (!livingEntity.isOnGround() || livingEntity.getVelocity().horizontalLengthSquared() > 0) {
 			k = 0.1236246F;
 			l = -0.1636246F;
 			m = 2.125F;

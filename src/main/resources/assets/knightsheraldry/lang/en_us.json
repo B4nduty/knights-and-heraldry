@@ -177,6 +177,15 @@
   "item.knightsheraldry.broadhead_arrow": "Broadhead Tipped Arrow",
   "item.knightsheraldry.cloth_arrow": "Cloth Tipped Arrow",
 
+  "item.knightsheraldry.horse_barding": "Barding",
+
+  "item.knightsheraldry.plume": "Plume",
+
+  "item.knightsheraldry.chaperon": "Chaperon",
+  "item.knightsheraldry.gilded_chaperon": "Gilded Chaperon",
+
+  "item.knightsheraldry.jester_hood": "Jester Hood",
+
   "text.tooltip.knightsheraldry.right_click-to-charge": "§4Right-Click §rto §lCharge §rfor §l2 Seconds",
   "text.tooltip.knightsheraldry.on-charge": "On §4Charge §rit will §lAuto Attack",
   "text.tooltip.knightsheraldry.throw-to-pin": "§lThrow §rto §4Pin §ran §lEntity §rfor §45 §lSeconds",
@@ -196,7 +205,5 @@
   "event.knightsheraldry.recharge_time": "Recharge Time: %s sec",
   "event.knightsheraldry.recharged": "Has been Recharged",
 
-  "item.knightsheraldry.easter_egg.longbow_xxxl": "Longbow XXXL",
-  "item.knightsheraldry.easter_egg.legacy_handgonne": "Legacy Handgonne",
-  "item.knightsheraldry.easter_egg.legacy_arquebus": "Legacy Arquebus"
+  "item.knightsheraldry.easter_egg.longbow_xxxl": "Longbow XXXL"
 }

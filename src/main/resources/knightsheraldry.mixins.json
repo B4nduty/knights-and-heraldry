@@ -4,6 +4,7 @@
   "package": "com.knightsheraldry.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "CraftingScreenHandlerMixin",
     "ItemMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin"
@@ -13,6 +14,9 @@
   },
   "client": [
     "AbstractClientPlayerEntityMixin",
+    "EntityRendererMixin",
+    "HorseEntityRendererMixin",
+    "ItemRendererMixin",
     "ModelLoaderMixin"
   ]
 }

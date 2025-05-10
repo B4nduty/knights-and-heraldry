@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_besagews": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:besagews"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_plate_pauldron": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:plate_pauldron"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:plate_pauldron_besagews"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_plate_pauldron",
+      "has_besagews",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:plate_pauldron_besagews"
+    ]
+  },
+  "sends_telemetry_event": false
+}

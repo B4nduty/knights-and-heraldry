@@ -27,9 +27,13 @@ public class WarDart extends SwordItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        super.use(world, user, hand);
         ItemStack itemStack = user.getStackInHand(hand);
+        user.setCurrentHand(hand);
         return TypedActionResult.consume(itemStack);
+    }
+
+    @Override
+    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
     }
 
     @Override

@@ -13,15 +13,7 @@ public class KHDyeableChestplateTrinkets extends KHChestplateTrinkets implements
         this.defaultColor = defaultColor;
     }
 
-    public boolean isDyeable() {
-        return true;
-    }
-
-    public boolean isDyeableWithOverlay() {
+    public boolean hasOverlay() {
         return overlay;
-    }
-
-    public int getDefaultColor() {
-        return defaultColor;
     }
 }

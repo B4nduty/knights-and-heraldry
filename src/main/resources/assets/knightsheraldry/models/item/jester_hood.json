@@ -1,0 +1,7 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "knightsheraldry:item/jester_hood",
+		"layer1": "knightsheraldry:item/jester_hood_overlay"
+	}
+}

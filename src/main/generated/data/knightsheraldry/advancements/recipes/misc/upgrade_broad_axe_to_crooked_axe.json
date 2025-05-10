@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_broad_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:broad_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_smithing_hammer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:smithing_hammer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:upgrade_broad_axe_to_crooked_axe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_smithing_hammer",
+      "has_broad_axe",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:upgrade_broad_axe_to_crooked_axe"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -16,16 +16,14 @@ public class KHCloakTrinkets extends TrinketItem implements SCTrinketsItem, Dyea
     double toughness;
     double hungerDrainAddition;
     boolean overlay;
-    int defaultColor;
 
     public KHCloakTrinkets(Settings settings, double armor, double toughness, double hungerDrainAddition,
-                           boolean overlay, int defaultColor) {
+                           boolean overlay) {
         super(settings);
         this.armor = armor;
         this.toughness = toughness;
         this.hungerDrainAddition = hungerDrainAddition;
         this.overlay = overlay;
-        this.defaultColor = defaultColor;
     }
 
     @Override
@@ -55,20 +53,13 @@ public class KHCloakTrinkets extends TrinketItem implements SCTrinketsItem, Dyea
         return new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/" + this + ".png");
     }
 
-    public boolean isDyeable() {
-        return true;
-    }
-
-    public boolean isDyeableWithOverlay() {
+    @Override
+    public boolean hasOverlay() {
         return overlay;
     }
 
-    public int getDefaultColor() {
-        return defaultColor;
-    }
-
     @Override
-    public boolean unrenderCapeFeature() {
+    public boolean hasCustomAngles() {
         return true;
     }
 }

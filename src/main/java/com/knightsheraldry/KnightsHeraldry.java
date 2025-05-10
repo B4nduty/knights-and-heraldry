@@ -9,15 +9,16 @@ import com.knightsheraldry.datagen.ModRecipeProvider;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.event.TrinketsModifiersHandler;
+import com.knightsheraldry.event.UseItemHandler;
 import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.sounds.ModSounds;
-import com.knightsheraldry.util.loottable.ChestLootTableModifier;
 import com.knightsheraldry.util.loottable.VillagerTradesModifier;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -42,8 +43,8 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
         ModItemGroups.registerItemGroups();
         ModMessages.registerC2SPackets();
         VillagerTradesModifier.registerCustomTrades();
-        ChestLootTableModifier.modifyChestLootTables();
         TrinketsModifiersEvents.EVENT.register(new TrinketsModifiersHandler());
+        UseItemCallback.EVENT.register(new UseItemHandler());
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             ServerPlayerEntity player = handler.getPlayer();
             if (player != null) {

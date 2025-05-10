@@ -8,12 +8,12 @@
     {"predicate": {"pulling": 1}, "model": "knightsheraldry:item/longbow_pulling_0"},
     {"predicate": {"pulling": 1, "pull": 0.3}, "model": "knightsheraldry:item/longbow_pulling_1"},
     {"predicate": {"pulling": 1, "pull": 0.6}, "model": "knightsheraldry:item/longbow_pulling_2"},
-    {"predicate": {"pulling": 1, "pull": 0.9}, "model": "knightsheraldry:item/longbow_pulling_2"},
+    {"predicate": {"pulling": 1, "pull": 0.9}, "model": "knightsheraldry:item/longbow_pulling_3"},
     {"predicate": {"longbow_xxxl": 1}, "model": "knightsheraldry:item/longbow_xxxl"},
     {"predicate": {"longbow_xxxl": 1, "pulling": 1}, "model": "knightsheraldry:item/longbow_xxxl_pulling_0"},
     {"predicate": {"longbow_xxxl": 1, "pulling": 1, "pull": 0.3}, "model": "knightsheraldry:item/longbow_xxxl_pulling_1"},
     {"predicate": {"longbow_xxxl": 1, "pulling": 1, "pull": 0.6}, "model": "knightsheraldry:item/longbow_xxxl_pulling_2"},
-    {"predicate": {"longbow_xxxl": 1, "pulling": 1, "pull": 0.9}, "model": "knightsheraldry:item/longbow_xxxl_pulling_2"}
+    {"predicate": {"longbow_xxxl": 1, "pulling": 1, "pull": 0.9}, "model": "knightsheraldry:item/longbow_xxxl_pulling_3"}
   ],
   "display": {
     "thirdperson_righthand": {

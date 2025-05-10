@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_longsword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:longsword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_smithing_hammer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:smithing_hammer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:upgrade_longsword_to_v_longsword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_smithing_hammer",
+      "has_longsword",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:upgrade_longsword_to_v_longsword"
+    ]
+  },
+  "sends_telemetry_event": false
+}

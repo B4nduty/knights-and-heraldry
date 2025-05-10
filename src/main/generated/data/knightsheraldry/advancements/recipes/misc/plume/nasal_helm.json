@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nasal_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:nasal_helm"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_plume": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:plume"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:plume/nasal_helm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_nasal_helm",
+      "has_plume",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:plume/nasal_helm"
+    ]
+  },
+  "sends_telemetry_event": false
+}

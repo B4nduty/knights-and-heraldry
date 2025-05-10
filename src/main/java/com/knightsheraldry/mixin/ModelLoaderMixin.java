@@ -68,11 +68,67 @@ public abstract class ModelLoaderMixin {
                 "longbow_3d",
                 "heavy_crossbow_icon",
                 "arquebus_icon",
-                "handgonne_icon"
+                "handgonne_icon",
+                "plume_helmet",
+                "plume_horse"
+        };
+
+        String[] bannerCompatibleNames = {
+                "surcoat",
+                "surcoat_sleeveless"
+        };
+
+        String[] bannerPatternNames = {
+                "bl",
+                "bo",
+                "br",
+                "bri",
+                "bs",
+                "bt",
+                "bts",
+                "cbo",
+                "cr",
+                "cre",
+                "cs",
+                "dls",
+                "drs",
+                "flo",
+                "glb",
+                "gra",
+                "gru",
+                "hh",
+                "hhb",
+                "ld",
+                "ls",
+                "lud",
+                "mc",
+                "moj",
+                "mr",
+                "ms",
+                "pig",
+                "rd",
+                "rs",
+                "rud",
+                "sc",
+                "sku",
+                "ss",
+                "tl",
+                "tr",
+                "ts",
+                "tt",
+                "tts",
+                "vh",
+                "vhr"
         };
 
         for (String modelName : modelNames) {
             this.addModel(new ModelIdentifier(KnightsHeraldry.MOD_ID, modelName, "inventory"));
+        }
+
+        for (String baseName : bannerCompatibleNames) {
+            for (String patternName : bannerPatternNames) {
+                this.addModel(new ModelIdentifier(KnightsHeraldry.MOD_ID, baseName + "/" + patternName, "inventory"));
+            }
         }
     }
 }

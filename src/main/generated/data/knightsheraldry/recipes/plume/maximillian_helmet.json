@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:maximillian_helmet"
+    },
+    {
+      "item": "knightsheraldry:plume"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:maximillian_helmet"
+  }
+}

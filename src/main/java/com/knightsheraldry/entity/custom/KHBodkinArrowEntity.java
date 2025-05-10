@@ -33,7 +33,7 @@ public class KHBodkinArrowEntity extends SCArrowEntity {
     }
 
     public void applyDamage(LivingEntity target) {
-        float damageDealt = SCDamageCalculator.getSCDamage(target, getDamageAmount() - 4, getDamageType());
+        float damageDealt = SCDamageCalculator.getSCDamage(target, getDamageAmount() - 3, getDamageType());
 
         float armor = Math.max(0, target.getArmor() - 10);
         float armorToughness = Math.max(0, (float) target.getAttributeValue(EntityAttributes.GENERIC_ARMOR_TOUGHNESS) - 5);

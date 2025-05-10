@@ -15,51 +15,50 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 public class RenderFirstPersonTrinketsArmorHandler implements RenderFirstPersonTrinketsArmorEvents {
-    public void onRenderInFirstPerson(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, Arm arm) {
-        if (!(stack.getItem() instanceof SCTrinketsItem scTrinketsItem && scTrinketsItem.getFirstPersonModel() != null)) return;
+    private static final float ALPHA = 1.0F;
+
+    @Override
+    public void onRenderInFirstPerson(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers,
+                                      int light, Arm arm) {
+        if (!(stack.getItem() instanceof SCTrinketsItem scTrinketsItem)) return;
+        if (scTrinketsItem.getFirstPersonModel() == null) return;
 
         TrinketsArmModel model = (TrinketsArmModel) scTrinketsItem.getFirstPersonModel();
+        float[] color = DyeUtil.getFloatDyeColor(stack);
+        Identifier texturePath = scTrinketsItem.getTexturePath();
 
-        float[] color = new float[3];
-        color[0] = 1;
-        color[1] = 1;
-        color[2] = 1;
-        if (scTrinketsItem.isDyeable()) {
-            color = DyeUtil.getDyeColor(stack);
+        VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(texturePath));
+        renderArm(model, matrices, baseConsumer, light, scTrinketsItem.hasOverlay() ? color : new float[]{1, 1, 1}, arm);
+
+        if (scTrinketsItem.hasOverlay()) {
+            VertexConsumer overlayConsumer = vertexConsumers.getBuffer(
+                    RenderLayer.getArmorCutoutNoCull(getOverlayIdentifier(scTrinketsItem)));
+            renderArm(model, matrices, overlayConsumer, light, new float[]{1, 1, 1}, arm);
         }
-        VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(scTrinketsItem.getTexturePath()));
+    }
+
+    private void renderArm(TrinketsArmModel model, MatrixStack matrices, VertexConsumer consumer,
+                           int light, float[] color, Arm arm) {
         if (arm == Arm.RIGHT) {
-            model.armorRightArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-            if (scTrinketsItem.isDyeableWithOverlay()) {
-                VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(getOverlayIdentifier(scTrinketsItem)));
-                model.armorRightArm.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1.0F);
-            }
-        }
-
-        if (arm == Arm.LEFT) {
-            model.armorLeftArm.render(matrices, baseConsumer, light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1.0F);
-            if (scTrinketsItem.isDyeableWithOverlay()) {
-                VertexConsumer dyeableConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(getOverlayIdentifier(scTrinketsItem)));
-                model.armorLeftArm.render(matrices, dyeableConsumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1.0F);
-            }
+            model.armorRightArm.render(matrices, consumer, light, OverlayTexture.DEFAULT_UV,
+                    color[0], color[1], color[2], ALPHA);
+        } else {
+            model.armorLeftArm.render(matrices, consumer, light, OverlayTexture.DEFAULT_UV,
+                    color[0], color[1], color[2], ALPHA);
         }
     }
 
     private @NotNull Identifier getOverlayIdentifier(SCTrinketsItem scTrinketsItem) {
         Identifier originalIdentifier = scTrinketsItem.getTexturePath();
-
-        String textureOverlayString = null;
-        if (originalIdentifier != null) {
-            textureOverlayString = originalIdentifier.getPath();
+        if (originalIdentifier == null) {
+            return new Identifier("");
         }
 
-        if (textureOverlayString != null && textureOverlayString.endsWith(".png")) {
-            textureOverlayString = textureOverlayString.substring(0, textureOverlayString.length() - 4);
+        String texturePath = originalIdentifier.getPath();
+        if (texturePath.endsWith(".png")) {
+            texturePath = texturePath.substring(0, texturePath.length() - 4);
         }
 
-        if (scTrinketsItem.isDyeableWithOverlay()) textureOverlayString += "_overlay.png";
-        else return new Identifier("");
-
-        return new Identifier(originalIdentifier.getNamespace(), textureOverlayString);
+        return new Identifier(originalIdentifier.getNamespace(), texturePath + "_overlay.png");
     }
 }
