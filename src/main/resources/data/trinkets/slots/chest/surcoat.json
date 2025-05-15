@@ -1,5 +1,0 @@
-{
-  "icon": "knightsheraldry:gui/trinkets/surcoat",
-  "order": -512,
-  "validator_predicates": ["trinkets:tag"]
-}

@@ -1,6 +1,5 @@
 package com.knightsheraldry;
 
-import banduty.stoneycore.event.custom.TrinketsModifiersEvents;
 import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.config.KHConfig;
 import com.knightsheraldry.datagen.ModItemTagProvider;
@@ -8,16 +7,21 @@ import com.knightsheraldry.datagen.ModModelProvider;
 import com.knightsheraldry.datagen.ModRecipeProvider;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.entity.ModEntities;
-import com.knightsheraldry.event.TrinketsModifiersHandler;
+import com.knightsheraldry.event.AdjustAttributeModifierEvent;
+import com.knightsheraldry.event.CanEquipHandler;
+import com.knightsheraldry.event.StartTickHandler;
 import com.knightsheraldry.event.UseItemHandler;
 import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.sounds.ModSounds;
 import com.knightsheraldry.util.loottable.VillagerTradesModifier;
+import io.wispforest.accessories.api.events.AdjustAttributeModifierCallback;
+import io.wispforest.accessories.api.events.CanEquipCallback;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.nbt.NbtCompound;
@@ -43,8 +47,10 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
         ModItemGroups.registerItemGroups();
         ModMessages.registerC2SPackets();
         VillagerTradesModifier.registerCustomTrades();
-        TrinketsModifiersEvents.EVENT.register(new TrinketsModifiersHandler());
+        CanEquipCallback.EVENT.register(new CanEquipHandler());
+        ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
         UseItemCallback.EVENT.register(new UseItemHandler());
+        AdjustAttributeModifierCallback.EVENT.register(new AdjustAttributeModifierEvent());
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             ServerPlayerEntity player = handler.getPlayer();
             if (player != null) {

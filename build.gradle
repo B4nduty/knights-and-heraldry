@@ -50,6 +50,9 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven { url 'https://maven.wispforest.io/releases' }
+    maven { url 'https://maven.su5ed.dev/releases' }
+    maven { url 'https://maven.fabricmc.net' }
 }
 
 fabricApi {
@@ -83,7 +86,7 @@ dependencies {
 
     annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
 
-    modImplementation "dev.emi:trinkets:${project.trinkets}"
+    modImplementation("io.wispforest:accessories-fabric:${project.accessories}")
 
     include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_version}")
 

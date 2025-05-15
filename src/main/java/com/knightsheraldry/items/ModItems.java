@@ -10,7 +10,7 @@ import com.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
 import com.knightsheraldry.entity.custom.KHClothArrowEntity;
 import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import com.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
-import com.knightsheraldry.items.armor.trinkets.*;
+import com.knightsheraldry.items.armor.accessory.*;
 import com.knightsheraldry.items.item.DyeableItems;
 import com.knightsheraldry.items.item.SmithingHammer;
 import com.knightsheraldry.items.item.khrangeweapon.Arquebus;
@@ -155,103 +155,97 @@ public class ModItems {
             new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS));
 
     public static final Item MAIL_PAULDRON = registerItem("mail_pauldron",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 0, 1, 0.0d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item BRIGANDINE_PAULDRON = registerItem("brigandine_pauldron",
-            new KHDyeableChestplateTrinkets(new OwoItemSettings().maxCount(1), 1, 1, 0.0d,
-                    true, 10511680));
+            new KHDyeableChestplateAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
     public static final Item PLATE_PAULDRON = registerItem("plate_pauldron",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.1d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
 
     public static final Item BRIGANDINE = registerItem("brigandine",
-            new KHDyeableChestplateTrinkets(new OwoItemSettings().maxCount(1), 3, 1, 0.0d,
-                    true, 10511680));
+            new KHDyeableChestplateAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
 
     public static final Item BRIG_BREASTPLATE = registerItem("brig_breastplate",
-            new KHDyeableChestplateTrinkets(new OwoItemSettings().maxCount(1), 4, 1, 0.0d,
-                    true, 10511680));
+            new KHDyeableChestplateAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
     public static final Item BRIG_BREASTPLATE_TASSETS = registerItem("brig_breastplate_tassets",
-            new KHDyeableChestplateTrinkets(new OwoItemSettings().maxCount(1), 4, 1, 0.0d,
-                    true, 10511680));
+            new KHDyeableChestplateAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
 
     public static final Item PLATE_CUIRASS = registerItem("plate_cuirass",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 4, 2, 0.1d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item PLATE_CUIRASS_TASSETS = registerItem("plate_cuirass_tassets",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 4, 2, 0.1d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item MAXIMILLIAN_CUIRASS = registerItem("maximillian_cuirass",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 4, 2, 0.1d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item MAXIMILLIAN_CUIRASS_TASSETS = registerItem("maximillian_cuirass_tassets",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 4, 2, 0.1d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item XIIII_PLATE_CUIRASS = registerItem("xiiii_plate_cuirass",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 4, 2, 0.1d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item XIIII_PLATE_CUIRASS_TASSETS = registerItem("xiiii_plate_cuirass_tassets",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 4, 2, 0.1d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item XIIII_PLATE_BREASTPLATE = registerItem("xiiii_plate_breastplate",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 4, 2, 0.1d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
 
     public static final Item BARBUTE_NO_VISOR = registerItem("barbute_no_visor",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 1, 1, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item BASCINET_NO_VISOR = registerItem("bascinet_no_visor",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 1, 1, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item KETTLE_HELM = registerItem("kettle_helm",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 1, 1, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item NASAL_HELM = registerItem("nasal_helm",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 1, 1, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item VIKING_HELM = registerItem("viking_helm",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 1, 1, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
 
     public static final Item ARMET = registerItem("armet",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item ARMET_2 = registerItem("armet_2",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item BARBUTE = registerItem("barbute",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item BASCINET = registerItem("bascinet",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item CAGE = registerItem("cage",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item CAGE_2 = registerItem("cage_2",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item FLAT_BASCINET = registerItem("flat_bascinet",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item GREAT_HELM = registerItem("great_helm",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item GREAT_HELM_2 = registerItem("great_helm_2",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item SALLET = registerItem("sallet",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.0d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
 
     public static final Item FROGMOUTH = registerItem("frogmouth",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 3, 3, 0.1d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item GREAT_ARMET = registerItem("great_armet",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 3, 3, 0.1d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item GREAT_ARMET_2 = registerItem("great_armet_2",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 3, 3, 0.1d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item GREAT_BASCINET = registerItem("great_bascinet",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 3, 3, 0.1d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item GREAT_HOUNDSKUL_BASCINET = registerItem("great_houndskul_bascinet",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 3, 3, 0.1d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item MAXIMILLIAN_HELMET = registerItem("maximillian_helmet",
-            new KHHelmetTrinkets(new OwoItemSettings().maxCount(1), 3, 3, 0.1d));
+            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
 
     public static final Item GAUNTLET = registerItem("gauntlet",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 2, 0, 0.0d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item BRIGANDINE_REREBRACE = registerItem("brigandine_rerebrace",
-            new KHDyeableChestplateTrinkets(new OwoItemSettings().maxCount(1), 2, 1, 0.0d,
-                    true, 10511680));
+            new KHDyeableChestplateAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
     public static final Item PLATE_REREBRACE = registerItem("plate_rerebrace",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.1d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
 
     public static final Item BRIGANDINE_CHAUSSES = registerItem("brigandine_chausses",
-            new KHDyeableLeggingsTrinkets(new OwoItemSettings().maxCount(1), 2, 1, 0.0d,
-                    true, 10511680));
+            new KHDyeableLeggingsAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
     public static final Item PLATE_CHAUSSES = registerItem("plate_chausses",
-            new KHLeggingsTrinkets(new OwoItemSettings().maxCount(1), 2, 2, 0.1d));
+            new KHLeggingsAccessory(new OwoItemSettings().maxCount(1)));
 
     public static final Item SABATONS = registerItem("sabatons",
-            new KHBootsTrinkets(new OwoItemSettings().maxCount(1), 2, 1, 0.0d));
+            new KHBootsAccessory(new OwoItemSettings().maxCount(1)));
 
     public static final Item AVENTAIL = registerItem("aventail",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 0, 2, 0.0d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
 
     public static final Item RIM_GUARDS = registerItem("rim_guards",
             new Item(new OwoItemSettings().maxCount(1)));
@@ -260,26 +254,32 @@ public class ModItems {
             new Item(new OwoItemSettings().maxCount(1)));
 
     public static final Item SURCOAT = registerItem("surcoat",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
     public static final Item SURCOAT_SLEEVELESS = registerItem("surcoat_sleeveless",
-            new KHChestplateTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d));
+            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
 
     public static final Item CLOAK = registerItem("cloak",
-            new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
+            new KHCloak(new OwoItemSettings().maxCount(1),
                     false));
     public static final Item TORN_CLOAK = registerItem("torn_cloak",
-            new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
+            new KHCloak(new OwoItemSettings().maxCount(1),
                     false));
 
     public static final Item HOOD = registerItem("hood",
-            new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
+            new KHCloak(new OwoItemSettings().maxCount(1),
                     false));
     public static final Item TORN_HOOD = registerItem("torn_hood",
-            new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
+            new KHCloak(new OwoItemSettings().maxCount(1),
                     false));
     public static final Item JESTER_HOOD = registerItem("jester_hood",
-            new KHCloakTrinkets(new OwoItemSettings().maxCount(1), 0, 0, 0.0d,
+            new KHCloak(new OwoItemSettings().maxCount(1),
                     true));
+    public static final Item HELMET_HOOD = registerItem("helmet_hood",
+            new KHCloak(new OwoItemSettings().maxCount(1),
+                    false));
+    public static final Item HELMET_TORN_HOOD = registerItem("helmet_torn_hood",
+            new KHCloak(new OwoItemSettings().maxCount(1),
+                    false));
 
     public static final Item BLACK_POWDER = registerItem("black_powder",
             new Item(new OwoItemSettings()));

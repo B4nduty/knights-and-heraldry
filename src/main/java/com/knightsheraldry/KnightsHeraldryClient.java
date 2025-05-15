@@ -1,14 +1,13 @@
 package com.knightsheraldry;
 
-import banduty.stoneycore.event.custom.RenderFirstPersonTrinketsArmorEvents;
 import banduty.stoneycore.event.custom.RenderOverlayAndAdditionsEvents;
 import com.knightsheraldry.client.entity.*;
 import com.knightsheraldry.entity.ModEntities;
-import com.knightsheraldry.event.RenderFirstPersonTrinketsArmorHandler;
+import com.knightsheraldry.event.RenderFirstPersonAccessoryArmorHandler;
 import com.knightsheraldry.event.RenderOverlayAndAdditionsHandler;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
-import com.knightsheraldry.items.armor.trinkets.KHChaperon;
+import com.knightsheraldry.items.armor.accessory.KHChaperon;
 import com.knightsheraldry.items.item.DyeableItems;
 import com.knightsheraldry.model.HorseBardingModel;
 import com.knightsheraldry.model.ModEntityModelLayers;
@@ -28,7 +27,7 @@ public class KnightsHeraldryClient implements ClientModInitializer {
     public void onInitializeClient() {
         ModMessages.registerS2CPackets();
         RenderOverlayAndAdditionsEvents.EVENT.register(new RenderOverlayAndAdditionsHandler());
-        RenderFirstPersonTrinketsArmorEvents.EVENT.register(new RenderFirstPersonTrinketsArmorHandler());
+        RenderFirstPersonAccessoryArmorHandler.EVENT.register(new RenderFirstPersonAccessoryArmorHandler());
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
         ModItems.items.forEach(item -> {
             if (item == ModItems.SWALLOWTAIL_ARROW) EntityRendererRegistry.register(banduty.stoneycore.entity.ModEntities.SC_ARROW, KHSwallowtailArrowEntityRenderer::new);

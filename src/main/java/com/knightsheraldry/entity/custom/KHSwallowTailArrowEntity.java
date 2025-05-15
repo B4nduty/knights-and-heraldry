@@ -5,7 +5,8 @@ import banduty.stoneycore.entity.custom.SCArrowEntity;
 import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.util.itemdata.KHTags;
-import dev.emi.trinkets.api.TrinketsApi;
+import io.wispforest.accessories.api.AccessoriesCapability;
+import io.wispforest.accessories.api.slot.SlotEntryReference;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -61,13 +62,14 @@ public class KHSwallowTailArrowEntity extends SCArrowEntity {
     private float calculateDeflectProbability(PlayerEntity player) {
         final float[] deflectChance = {0f};
 
-        TrinketsApi.getTrinketComponent(player).ifPresent(trinkets ->
-                trinkets.getAllEquipped().forEach(pair -> {
-                    if (pair.getRight().isIn(KHTags.DEFLECTIVE_ARMOR.getTag())) {
-                        deflectChance[0] += 0.25f;
-                    }
-                })
-        );
+        if (AccessoriesCapability.getOptionally(player).isPresent()) {
+            for (SlotEntryReference equipped : AccessoriesCapability.get(player).getAllEquipped()) {
+                ItemStack itemStack = equipped.stack();
+                if (itemStack.isIn(KHTags.DEFLECTIVE_ARMOR.getTag())) {
+                    deflectChance[0] += 0.25f;
+                }
+            }
+        }
 
         for (ItemStack armor : player.getArmorItems()) {
             if (armor.isIn(KHTags.DEFLECTIVE_ARMOR.getTag())) {

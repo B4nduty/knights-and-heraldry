@@ -161,6 +161,7 @@ public class VillagerTradesModifier {
 
             if (level == 4) {
                 addTradeOffer(factories, 20, 12, 5, ModItems.JESTER_HOOD);
+                addRandomTradeOffer(factories, 30, 12, 5, ModItems.HELMET_HOOD, ModItems.HELMET_TORN_HOOD);
             }
 
             if (level == 5) {

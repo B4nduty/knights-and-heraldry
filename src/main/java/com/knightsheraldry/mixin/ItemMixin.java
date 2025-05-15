@@ -1,6 +1,6 @@
 package com.knightsheraldry.mixin;
 
-import banduty.stoneycore.items.armor.SCTrinketsItem;
+import banduty.stoneycore.items.armor.SCAccessoryItem;
 import com.knightsheraldry.items.ModItems;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ItemMixin {
     @Inject(method = "getName(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/text/Text;", at = @At("HEAD"), cancellable = true)
     public void knightsheraldry$getName(ItemStack stack, CallbackInfoReturnable<Text> cir) {
-        if (!(stack.getItem() instanceof SCTrinketsItem)) return;
+        if (!(stack.getItem() instanceof SCAccessoryItem)) return;
 
         StringBuilder translationKey = new StringBuilder(stack.getTranslationKey());
         if (stack.getOrCreateNbt().getBoolean("kh_aventail")) translationKey.append("_aventail");
@@ -33,7 +33,7 @@ public class ItemMixin {
 
     @Inject(method = "onCraft", at = @At("TAIL"))
     public void onCraft(ItemStack stack, World world, PlayerEntity player, CallbackInfo ci) {
-        if (!(stack.getItem() instanceof SCTrinketsItem)) return;
+        if (!(stack.getItem() instanceof SCAccessoryItem)) return;
 
         if (player.currentScreenHandler instanceof CraftingScreenHandler craftingInventory) {
             applyCraftingModifiers(stack, craftingInventory.getCraftingSlotCount(), craftingInventory::getSlot);

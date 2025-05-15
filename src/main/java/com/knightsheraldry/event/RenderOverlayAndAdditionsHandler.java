@@ -1,12 +1,12 @@
 package com.knightsheraldry.event;
 
 import banduty.stoneycore.event.custom.RenderOverlayAndAdditionsEvents;
-import banduty.stoneycore.items.armor.SCTrinketsItem;
+import banduty.stoneycore.items.armor.SCAccessoryItem;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.model.TrinketsChestplateModel;
-import com.knightsheraldry.model.TrinketsHelmetModel;
-import dev.emi.trinkets.api.client.TrinketRenderer;
+import com.knightsheraldry.model.AccessoryChestplateModel;
+import com.knightsheraldry.model.AccessoryHelmetModel;
+import io.wispforest.accessories.api.client.AccessoryRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
@@ -25,18 +25,18 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
     private static final float[] WHITE_COLOR = {1.0F, 1.0F, 1.0F};
     private static final float ALPHA = 1.0F;
 
-    private static final Identifier PLUME_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/plume.png");
-    private static final Identifier RIM_GUARDS_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/rim_guards.png");
-    private static final Identifier BESAGEWS_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/besagews.png");
-    private static final Identifier SURCOAT_OVERLAY_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/trinket/surcoat_overlay.png");
+    private static final Identifier PLUME_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/plume.png");
+    private static final Identifier RIM_GUARDS_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/rim_guards.png");
+    private static final Identifier BESAGEWS_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/besagews.png");
+    private static final Identifier SURCOAT_OVERLAY_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/surcoat_overlay.png");
 
     @Override
     public void onRenderOverlayAndAdditionsEvents(LivingEntity entity, ItemStack stack,
                                                   MatrixStack matrices, VertexConsumerProvider vertexConsumers,
                                                   int light, BipedEntityModel<LivingEntity> model) {
-        if (!(stack.getItem() instanceof SCTrinketsItem scTrinketsItem)) return;
+        if (!(stack.getItem() instanceof SCAccessoryItem scAccessoryItem)) return;
 
-        renderAventailIfNeeded(entity, stack, matrices, vertexConsumers, light, scTrinketsItem);
+        renderAventailIfNeeded(entity, stack, matrices, vertexConsumers, light);
         renderPlumeIfNeeded(entity, stack, matrices, vertexConsumers, light);
 
         renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "kh_rimmed", RIM_GUARDS_TEXTURE);
@@ -46,20 +46,20 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, SURCOAT_OVERLAY_TEXTURE);
         }
 
-        if (scTrinketsItem.hasOverlay()) {
+        if (scAccessoryItem.hasOverlay()) {
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model,
-                    getIdentifierWithSuffix("_overlay", scTrinketsItem));
+                    getIdentifierWithSuffix("_overlay", stack));
         }
     }
 
     private void renderAventailIfNeeded(LivingEntity entity, ItemStack stack, MatrixStack matrices,
-                                        VertexConsumerProvider vertexConsumers, int light, SCTrinketsItem item) {
+                                        VertexConsumerProvider vertexConsumers, int light) {
         if (!stack.getOrCreateNbt().getBoolean("kh_aventail")) return;
 
-        BipedEntityModel<LivingEntity> aventailModel = new TrinketsChestplateModel(
-                TrinketsChestplateModel.getTexturedModelData().createModel());
+        BipedEntityModel<LivingEntity> aventailModel = new AccessoryChestplateModel(
+                AccessoryChestplateModel.getTexturedModelData().createModel());
         VertexConsumer consumer = vertexConsumers.getBuffer(
-                RenderLayer.getArmorCutoutNoCull(getIdentifierWithSuffix("_aventail", item)));
+                RenderLayer.getArmorCutoutNoCull(getIdentifierWithSuffix("_aventail", stack)));
 
         renderModel(entity, aventailModel, matrices, consumer, light, WHITE_COLOR);
     }
@@ -68,8 +68,8 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
                                      VertexConsumerProvider vertexConsumers, int light) {
         if (stack.getNbt() == null || !stack.getNbt().contains("kh_plume")) return;
 
-        BipedEntityModel<LivingEntity> plumeModel = new TrinketsHelmetModel(
-                TrinketsHelmetModel.getTexturedModelData().createModel());
+        BipedEntityModel<LivingEntity> plumeModel = new AccessoryHelmetModel(
+                AccessoryHelmetModel.getTexturedModelData().createModel());
         VertexConsumer consumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(PLUME_TEXTURE));
 
         float[] color = getColorFromNbt(stack.getNbt().getInt("kh_plume"));
@@ -78,7 +78,7 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
 
     private void renderModel(LivingEntity entity, BipedEntityModel<LivingEntity> model,
                              MatrixStack matrices, VertexConsumer consumer, int light, float[] color) {
-        TrinketRenderer.followBodyRotations(entity, model);
+        AccessoryRenderer.followBodyRotations(entity, model);
         model.render(matrices, consumer, light, OverlayTexture.DEFAULT_UV,
                 color[0], color[1], color[2], ALPHA);
     }
@@ -103,8 +103,9 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
         };
     }
 
-    private Identifier getIdentifierWithSuffix(String suffix, SCTrinketsItem item) {
-        String path = item.getTexturePath().getPath().replace(".png", "") + suffix + ".png";
-        return new Identifier(item.getTexturePath().getNamespace(), path);
+    private Identifier getIdentifierWithSuffix(String suffix, ItemStack stack) {
+        if (!(stack.getItem() instanceof SCAccessoryItem item)) return new Identifier("");
+        String path = item.getTexturePath(stack).getPath().replace(".png", "") + suffix + ".png";
+        return new Identifier(item.getTexturePath(stack).getNamespace(), path);
     }
 }

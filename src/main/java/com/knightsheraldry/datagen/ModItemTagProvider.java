@@ -58,7 +58,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
 
         getOrCreateTagBuilder(SCTags.ALWAYS_WEARABLE.getTag())
-            .add(ModItems.HOOD, ModItems.TORN_HOOD, ModItems.CLOAK, ModItems.TORN_CLOAK, ModItems.CHAPERON, ModItems.GILDED_CHAPERON, ModItems.JESTER_HOOD);
+            .add(ModItems.HOOD, ModItems.TORN_HOOD, ModItems.CLOAK, ModItems.TORN_CLOAK, ModItems.CHAPERON,
+                    ModItems.GILDED_CHAPERON, ModItems.JESTER_HOOD, ModItems.HELMET_HOOD, ModItems.HELMET_TORN_HOOD);
 
         getOrCreateTagBuilder(SCTags.VISORED_HELMET.getTag())
                 .add(ModItems.ARMET, ModItems.ARMET_2, ModItems.BARBUTE, ModItems.BASCINET, ModItems.CAGE,
@@ -85,6 +86,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.SURCOAT, ModItems.SURCOAT_SLEEVELESS);
 
         getOrCreateTagBuilder(SCTags.HIDE_NAME_TAG.getTag())
-                .add(ModItems.HOOD, ModItems.TORN_HOOD, ModItems.JESTER_HOOD);
+                .add(ModItems.HOOD, ModItems.TORN_HOOD, ModItems.JESTER_HOOD, ModItems.HELMET_HOOD, ModItems.HELMET_TORN_HOOD);
     }
 }

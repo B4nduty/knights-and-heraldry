@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-07T22:32:11.2937233	Knights & Heraldry/Recipes
+// 1.20.1	2025-05-11T17:53:20.5857057	Knights & Heraldry/Recipes
 41c90feb2169ba08ffa91b3edbd82035e4e993ba data\knightsheraldry\advancements\recipes\misc\upgrade_mace_to_spiked_mace.json
 5683b7900014d1b19dc06c6c766781e20ee06d0a data\knightsheraldry\advancements\recipes\misc\sleeveless_surcoat_with_banner.json
 11326202b8298d1da7d6df52b6f924002c8724d6 data\knightsheraldry\recipes\plume\barbute.json
@@ -118,8 +118,8 @@ a69ab187d695ce74d9292730efde454b1a30f93b data\knightsheraldry\advancements\recip
 a0e49111af7043fbf7937003d27e8a5cd5267e33 data\knightsheraldry\advancements\recipes\misc\upgrade_axe_to_broad_axe.json
 6b5188f545f1d20cb87f62f9c3a3e5e45691e0d9 data\knightsheraldry\advancements\recipes\misc\plume\cage.json
 e699b0cc9bbf2f1d89d948bb508bf814a8464b92 data\knightsheraldry\advancements\recipes\misc\plume\kettle_helm.json
-fd1236f78266323da2fd94b985e5a136e8012746 data\knightsheraldry\recipes\plume\barbute_no_visor.json
 9c30637deca357d1b49a7f2a1e381cf706efd7c0 data\knightsheraldry\recipes\upgrade_crooked_axe_to_straight_crooked_axe.json
+fd1236f78266323da2fd94b985e5a136e8012746 data\knightsheraldry\recipes\plume\barbute_no_visor.json
 6b874a29c21f70eeea37c8bd87dc1d9d33cfcfdf data\knightsheraldry\recipes\plate_pauldron_besagews.json
 6db95a517e51c1a57bf90d0d97db61d57593af8d data\knightsheraldry\advancements\recipes\misc\plume\viking_helm.json
 bb1517975ac8d879aae95bb814bab4ce63fd9a2b data\knightsheraldry\recipes\upgrade_hammer_to_war_hammer.json

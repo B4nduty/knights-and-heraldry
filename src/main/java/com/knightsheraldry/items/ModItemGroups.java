@@ -193,6 +193,8 @@ public class ModItemGroups {
                 armorStack(ModItems.HOOD, false, false, false),
                 armorStack(ModItems.TORN_HOOD, false, false, false),
                 armorStack(ModItems.JESTER_HOOD, false, false, false),
+                armorStack(ModItems.HELMET_HOOD, false, false, false),
+                armorStack(ModItems.HELMET_TORN_HOOD, false, false, false),
 
                 armorStack(ModItems.CLOAK, false, false, false),
                 armorStack(ModItems.TORN_CLOAK, false, false, false),
