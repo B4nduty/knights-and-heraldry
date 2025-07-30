@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 public class CanEquipHandler implements CanEquipCallback {
     @Override
     public TriState canEquip(ItemStack itemStack, SlotReference slotReference) {
-        if (itemStack.getItem() == ModItems.HELMET_HOOD || itemStack.getItem() == ModItems.HELMET_TORN_HOOD) {
+        if (itemStack.getItem() == ModItems.HELMET_HOOD.get() || itemStack.getItem() == ModItems.HELMET_TORN_HOOD.get()) {
             if (AccessoriesCapability.getOptionally(slotReference.entity()).isPresent()) {
                 for (SlotEntryReference equipped : AccessoriesCapability.get(slotReference.entity()).getAllEquipped()) {
                     if (equipped.stack().getItem() instanceof KHHelmetAccessory) return TriState.DEFAULT;

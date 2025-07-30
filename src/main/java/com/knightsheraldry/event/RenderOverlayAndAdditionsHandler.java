@@ -92,7 +92,7 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
     }
 
     private boolean isSurcoat(ItemStack stack) {
-        return stack.getItem() == ModItems.SURCOAT || stack.getItem() == ModItems.SURCOAT_SLEEVELESS;
+        return stack.getItem() == ModItems.SURCOAT.get() || stack.getItem() == ModItems.SURCOAT_SLEEVELESS.get();
     }
 
     private float[] getColorFromNbt(int colorInt) {

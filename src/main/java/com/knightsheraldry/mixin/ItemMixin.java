@@ -46,10 +46,10 @@ public class ItemMixin {
     private void applyCraftingModifiers(ItemStack stack, int slotCount, java.util.function.IntFunction<Slot> slotSupplier) {
         for (int i = 0; i < slotCount; i++) {
             ItemStack ingredient = slotSupplier.apply(i).getStack();
-            if (ingredient.getItem() == ModItems.AVENTAIL && stack.getItem() != ModItems.AVENTAIL) stack.getOrCreateNbt().putBoolean("kh_aventail", true);
-            if (ingredient.getItem() == ModItems.RIM_GUARDS && stack.getItem() != ModItems.RIM_GUARDS) stack.getOrCreateNbt().putBoolean("kh_rimmed", true);
-            if (ingredient.getItem() == ModItems.BESAGEWS && stack.getItem() != ModItems.BESAGEWS) stack.getOrCreateNbt().putBoolean("kh_besagews", true);
-            if (ingredient.getItem() == ModItems.PLUME && stack.getItem() != ModItems.PLUME) {
+            if (ingredient.getItem() == ModItems.AVENTAIL.get() && stack.getItem() != ModItems.AVENTAIL.get()) stack.getOrCreateNbt().putBoolean("kh_aventail", true);
+            if (ingredient.getItem() == ModItems.RIM_GUARDS.get() && stack.getItem() != ModItems.RIM_GUARDS.get()) stack.getOrCreateNbt().putBoolean("kh_rimmed", true);
+            if (ingredient.getItem() == ModItems.BESAGEWS.get() && stack.getItem() != ModItems.BESAGEWS.get()) stack.getOrCreateNbt().putBoolean("kh_besagews", true);
+            if (ingredient.getItem() == ModItems.PLUME.get() && stack.getItem() != ModItems.PLUME.get()) {
                 NbtCompound nbtCompound = ingredient.getSubNbt("display");
                 int color = nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : 0xFFFFFF;
                 stack.getOrCreateNbt().putInt("kh_plume", color);

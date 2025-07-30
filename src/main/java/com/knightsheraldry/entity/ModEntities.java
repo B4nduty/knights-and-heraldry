@@ -1,26 +1,66 @@
 package com.knightsheraldry.entity;
 
 import com.knightsheraldry.KnightsHeraldry;
-import com.knightsheraldry.entity.custom.WarDartEntity;
+import com.knightsheraldry.entity.custom.*;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.registry.RegistryKeys;
 
 public class ModEntities {
-    public static final EntityType<WarDartEntity> WARDART_PROJECTILE = registerEntity("wardart_projectile", WarDartEntity::new, 0.5f, 0.5f);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
+            DeferredRegister.create(KnightsHeraldry.MOD_ID, RegistryKeys.ENTITY_TYPE);
 
-    private static <T extends Entity> EntityType<T> registerEntity(String name, EntityType.EntityFactory<T> factory, float width, float height) {
-        return Registry.register(Registries.ENTITY_TYPE, new Identifier(KnightsHeraldry.MOD_ID, name),
-                FabricEntityTypeBuilder.create(SpawnGroup.MISC, factory).dimensions(EntityDimensions.fixed(width, height)).build()
-        );
-    }
+    public static final RegistrySupplier<EntityType<KHBodkinArrowEntity>> BODKING_ARROW =
+            ENTITY_TYPES.register("bodkin_arrow", () ->
+                    FabricEntityTypeBuilder.<KHBodkinArrowEntity>create(SpawnGroup.MISC, KHBodkinArrowEntity::new)
+                            .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                            .trackRangeBlocks(64)
+                            .trackedUpdateRate(10)
+                            .build()
+            );
+
+    public static final RegistrySupplier<EntityType<KHBroadheadArrowEntity>> BROADHEAD_ARROW =
+            ENTITY_TYPES.register("broadhead_arrow", () ->
+                    FabricEntityTypeBuilder.<KHBroadheadArrowEntity>create(SpawnGroup.MISC, KHBroadheadArrowEntity::new)
+                            .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                            .trackRangeBlocks(64)
+                            .trackedUpdateRate(10)
+                            .build()
+            );
+
+    public static final RegistrySupplier<EntityType<KHClothArrowEntity>> CLOTH_ARROW =
+            ENTITY_TYPES.register("cloth_arrow", () ->
+                    FabricEntityTypeBuilder.<KHClothArrowEntity>create(SpawnGroup.MISC, KHClothArrowEntity::new)
+                            .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                            .trackRangeBlocks(64)
+                            .trackedUpdateRate(10)
+                            .build()
+            );
+
+    public static final RegistrySupplier<EntityType<KHSwallowTailArrowEntity>> SWALLOWTAIL_ARROW =
+            ENTITY_TYPES.register("swallowtail_arrow", () ->
+                    FabricEntityTypeBuilder.<KHSwallowTailArrowEntity>create(SpawnGroup.MISC, KHSwallowTailArrowEntity::new)
+                            .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                            .trackRangeBlocks(64)
+                            .trackedUpdateRate(10)
+                            .build()
+            );
+
+    public static final RegistrySupplier<EntityType<WarDartEntity>> WARDART_PROJECTILE =
+            ENTITY_TYPES.register("wardart_projectile", () ->
+                    FabricEntityTypeBuilder.<WarDartEntity>create(SpawnGroup.MISC, WarDartEntity::new)
+                            .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                            .trackRangeBlocks(64)
+                            .trackedUpdateRate(10)
+                            .build()
+            );
 
     public static void registerEntities() {
+        ENTITY_TYPES.register();
         KnightsHeraldry.LOGGER.info("Registering Entities for " + KnightsHeraldry.MOD_ID);
     }
 }

@@ -9,321 +9,299 @@ import com.knightsheraldry.entity.custom.KHBodkinArrowEntity;
 import com.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
 import com.knightsheraldry.entity.custom.KHClothArrowEntity;
 import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
-import com.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import com.knightsheraldry.items.armor.accessory.*;
+import com.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import com.knightsheraldry.items.item.DyeableItems;
-import com.knightsheraldry.items.item.SmithingHammer;
 import com.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import com.knightsheraldry.items.item.khrangeweapon.Handgonne;
 import com.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import com.knightsheraldry.items.item.khweapon.*;
-import io.wispforest.owo.itemgroup.OwoItemSettings;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
-
-import java.util.ArrayList;
-import java.util.List;
+import net.minecraft.registry.RegistryKeys;
 
 public class ModItems {
-    public static final List<Item> items = new ArrayList<>();
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(KnightsHeraldry.MOD_ID, RegistryKeys.ITEM);
 
-    public static final Item SMITHING_HAMMER = registerItem("smithing_hammer",
-            new SmithingHammer(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> DAGGER = ITEMS.register("dagger", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2F, new Item.Settings().maxDamage(251)));
 
-    public static final Item DAGGER = registerItem("dagger",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> STILETTO = ITEMS.register("stiletto", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2F, new Item.Settings().maxDamage(251)));
 
-    public static final Item STILETTO = registerItem("stiletto",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> RAPIER = ITEMS.register("rapier", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.2F, new Item.Settings().maxDamage(251)));
 
-    public static final Item RAPIER = registerItem("rapier",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.2F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> SWORD = ITEMS.register("sword", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> V_SWORD = ITEMS.register("v_sword", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> ARMING_SWORD = ITEMS.register("arming_sword", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new Item.Settings().maxDamage(251)));
 
-    public static final Item SWORD = registerItem("sword",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new OwoItemSettings().maxDamage(251)));
-    public static final Item V_SWORD = registerItem("v_sword",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new OwoItemSettings().maxDamage(251)));
-    public static final Item ARMING_SWORD = registerItem("arming_sword",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> AXE = ITEMS.register("axe", () ->
+            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> BROAD_AXE = ITEMS.register("broad_axe", () ->
+            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> CROOKED_AXE = ITEMS.register("crooked_axe", () ->
+            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> STRAIGHT_CROOKED_AXE = ITEMS.register("straight_crooked_axe", () ->
+            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
 
-    public static final Item AXE = registerItem("axe",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
-    public static final Item BROAD_AXE = registerItem("broad_axe",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
-    public static final Item CROOKED_AXE = registerItem("crooked_axe",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
-    public static final Item STRAIGHT_CROOKED_AXE = registerItem("straight_crooked_axe",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> MACE = ITEMS.register("mace", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> SPIKED_MACE = ITEMS.register("spiked_mace", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new Item.Settings().maxDamage(251)));
 
-    public static final Item MACE = registerItem("mace",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new OwoItemSettings().maxDamage(251)));
-    public static final Item SPIKED_MACE = registerItem("spiked_mace",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> FLAIL = ITEMS.register("flail", () ->
+            new Flail(-2.8F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> BALL_FLAIL = ITEMS.register("ball_flail", () ->
+            new Flail(-2.8F, new Item.Settings().maxDamage(251)));
 
-    public static final Item FLAIL = registerItem("flail",
-            new Flail(-2.8F, new OwoItemSettings().maxDamage(251)));
-    public static final Item BALL_FLAIL = registerItem("ball_flail",
-            new Flail(-2.8F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> HAMMER = ITEMS.register("hammer", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> WAR_HAMMER = ITEMS.register("war_hammer", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
 
-    public static final Item HAMMER = registerItem("hammer",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new OwoItemSettings().maxDamage(251)));
-    public static final Item WAR_HAMMER = registerItem("war_hammer",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> LONGSWORD = ITEMS.register("longsword", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> V_LONGSWORD = ITEMS.register("v_longsword", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(251)));
 
-    public static final Item LONGSWORD = registerItem("longsword",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new OwoItemSettings().maxDamage(251)));
-    public static final Item V_LONGSWORD = registerItem("v_longsword",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> FALCHION = ITEMS.register("falchion", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> SCIMITAR = ITEMS.register("scimitar", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(251)));
 
-    public static final Item FALCHION = registerItem("falchion",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new OwoItemSettings().maxDamage(251)));
-    public static final Item SCIMITAR = registerItem("scimitar",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> PITCHFORK = ITEMS.register("pitchfork", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
 
-    public static final Item PITCHFORK = registerItem("pitchfork",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> SPEAR = ITEMS.register("spear", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new Item.Settings().maxDamage(251)));
 
-    public static final Item SPEAR = registerItem("spear",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> PIKE = ITEMS.register("pike", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
 
-    public static final Item PIKE = registerItem("pike",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> BILLHOOK = ITEMS.register("billhook", () ->
+            new Billhook(-2.8F, new Item.Settings().maxDamage(251)));
 
-    public static final Item BILLHOOK = registerItem("billhook",
-            new Billhook(-2.8F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> GLAIVE = ITEMS.register("glaive", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> CURVED_GLAIVE = ITEMS.register("curved_glaive", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
 
-    public static final Item GLAIVE = registerItem("glaive",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
-    public static final Item CURVED_GLAIVE = registerItem("curved_glaive",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> HALBERD = ITEMS.register("halberd", () ->
+            new Halberd(-2.8F, new Item.Settings().maxDamage(251)));
 
-    public static final Item HALBERD = registerItem("halberd",
-            new Halberd(-2.8F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> LANCE = ITEMS.register("lance", () ->
+            new Lance(-3.0F, new Item.Settings().maxDamage(251), SCDamageCalculator.DamageType.PIERCING));
+    public static final RegistrySupplier<Item> WOODEN_LANCE = ITEMS.register("wooden_lance", () ->
+            new WoodenLance(-3.0F, new Item.Settings().maxDamage(1), SCDamageCalculator.DamageType.PIERCING));
 
-    public static final Item LANCE = registerItem("lance",
-            new Lance(-3.0F, new OwoItemSettings().maxDamage(251), SCDamageCalculator.DamageType.PIERCING));
-    public static final Item WOODEN_LANCE = registerItem("wooden_lance",
-            new WoodenLance(-3.0F, new OwoItemSettings().maxDamage(1), SCDamageCalculator.DamageType.PIERCING));
+    public static final RegistrySupplier<Item> POLEAXE = ITEMS.register("poleaxe", () ->
+            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
 
-    public static final Item POLEAXE = registerItem("poleaxe",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> POLEHAMMER = ITEMS.register("polehammer", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> BEC_DE_CORBIN = ITEMS.register("bec_de_corbin", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
 
-    public static final Item POLEHAMMER = registerItem("polehammer",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new OwoItemSettings().maxDamage(251)));
-    public static final Item BEC_DE_CORBIN = registerItem("bec_de_corbin",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> MORNING_STAR = ITEMS.register("morning_star", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new Item.Settings().maxDamage(251)));
 
-    public static final Item MORNING_STAR = registerItem("morning_star",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> BARDICHE = ITEMS.register("bardiche", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
 
-    public static final Item BARDICHE = registerItem("bardiche",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> WARSWORD = ITEMS.register("warsword", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> WARSWORD_CLAYMORE = ITEMS.register("warsword_claymore", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> WARSWORD_FLAMBERGE = ITEMS.register("warsword_flamberge", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+    public static final RegistrySupplier<Item> WARSWORD_ZWEIHANDER = ITEMS.register("warsword_zweihander", () ->
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
 
-    public static final Item WARSWORD = registerItem("warsword",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
-    public static final Item WARSWORD_CLAYMORE = registerItem("warsword_claymore",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
-    public static final Item WARSWORD_FLAMBERGE = registerItem("warsword_flamberge",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
-    public static final Item WARSWORD_ZWEIHANDER = registerItem("warsword_zweihander",
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new OwoItemSettings().maxDamage(251)));
-
-    public static final Item WARDART = registerItem("wardart",
-            new WarDart(-2.4F, new OwoItemSettings().maxDamage(251)));
+    public static final RegistrySupplier<Item> WARDART = ITEMS.register("wardart", () ->
+            new WarDart(-2.4F, new Item.Settings().maxDamage(251)));
 
 
-    public static final Item QUILTED_COIF = registerItem("quilted_coif",
-            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET, 10511680));
-    public static final Item GAMBESON = registerItem("gambeson",
-            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE, 10511680));
-    public static final Item GAMBESON_BREECHES = registerItem("gambeson_breeches",
-            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS, 10511680));
-    public static final Item GAMBESON_BOOTS = registerItem("gambeson_boots",
-            new SCDyeableUnderArmor(new OwoItemSettings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS, 10511680));
+    public static final RegistrySupplier<Item> QUILTED_COIF = ITEMS.register("quilted_coif", () ->
+            new SCDyeableUnderArmor(new Item.Settings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET, 10511680));
+    public static final RegistrySupplier<Item> GAMBESON = ITEMS.register("gambeson", () ->
+            new SCDyeableUnderArmor(new Item.Settings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE, 10511680));
+    public static final RegistrySupplier<Item> GAMBESON_BREECHES = ITEMS.register("gambeson_breeches", () ->
+            new SCDyeableUnderArmor(new Item.Settings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS, 10511680));
+    public static final RegistrySupplier<Item> GAMBESON_BOOTS = ITEMS.register("gambeson_boots", () ->
+            new SCDyeableUnderArmor(new Item.Settings(), ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS, 10511680));
 
-    public static final Item MAIL_COIF = registerItem("mail_coif",
-            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.HELMET));
-    public static final Item HAUBERK = registerItem("hauberk",
-            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE));
-    public static final Item MAIL_BREECHES = registerItem("mail_breeches",
-            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS));
-    public static final Item MAIL_BOOTS = registerItem("mail_boots",
-            new SCUnderArmor(new OwoItemSettings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS));
+    public static final RegistrySupplier<Item> MAIL_COIF = ITEMS.register("mail_coif", () ->
+            new SCUnderArmor(new Item.Settings(), ModArmorMaterials.MAIL, ArmorItem.Type.HELMET));
+    public static final RegistrySupplier<Item> HAUBERK = ITEMS.register("hauberk", () ->
+            new SCUnderArmor(new Item.Settings(), ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE));
+    public static final RegistrySupplier<Item> MAIL_BREECHES = ITEMS.register("mail_breeches", () ->
+            new SCUnderArmor(new Item.Settings(), ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS));
+    public static final RegistrySupplier<Item> MAIL_BOOTS = ITEMS.register("mail_boots", () ->
+            new SCUnderArmor(new Item.Settings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS));
 
-    public static final Item MAIL_PAULDRON = registerItem("mail_pauldron",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item BRIGANDINE_PAULDRON = registerItem("brigandine_pauldron",
-            new KHDyeableChestplateAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
-    public static final Item PLATE_PAULDRON = registerItem("plate_pauldron",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> MAIL_PAULDRON = ITEMS.register("mail_pauldron", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> BRIGANDINE_PAULDRON = ITEMS.register("brigandine_pauldron", () ->
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), true, 10511680));
+    public static final RegistrySupplier<Item> PLATE_PAULDRON = ITEMS.register("plate_pauldron", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
 
-    public static final Item BRIGANDINE = registerItem("brigandine",
-            new KHDyeableChestplateAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
+    public static final RegistrySupplier<Item> BRIGANDINE = ITEMS.register("brigandine", () ->
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), true, 10511680));
 
-    public static final Item BRIG_BREASTPLATE = registerItem("brig_breastplate",
-            new KHDyeableChestplateAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
-    public static final Item BRIG_BREASTPLATE_TASSETS = registerItem("brig_breastplate_tassets",
-            new KHDyeableChestplateAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
+    public static final RegistrySupplier<Item> BRIG_BREASTPLATE = ITEMS.register("brig_breastplate", () ->
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), true, 10511680));
+    public static final RegistrySupplier<Item> BRIG_BREASTPLATE_TASSETS = ITEMS.register("brig_breastplate_tassets", () ->
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), true, 10511680));
 
-    public static final Item PLATE_CUIRASS = registerItem("plate_cuirass",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item PLATE_CUIRASS_TASSETS = registerItem("plate_cuirass_tassets",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item MAXIMILLIAN_CUIRASS = registerItem("maximillian_cuirass",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item MAXIMILLIAN_CUIRASS_TASSETS = registerItem("maximillian_cuirass_tassets",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item XIIII_PLATE_CUIRASS = registerItem("xiiii_plate_cuirass",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item XIIII_PLATE_CUIRASS_TASSETS = registerItem("xiiii_plate_cuirass_tassets",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item XIIII_PLATE_BREASTPLATE = registerItem("xiiii_plate_breastplate",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> PLATE_CUIRASS = ITEMS.register("plate_cuirass", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> PLATE_CUIRASS_TASSETS = ITEMS.register("plate_cuirass_tassets", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> MAXIMILLIAN_CUIRASS = ITEMS.register("maximillian_cuirass", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> MAXIMILLIAN_CUIRASS_TASSETS = ITEMS.register("maximillian_cuirass_tassets", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> XIIII_PLATE_CUIRASS = ITEMS.register("xiiii_plate_cuirass", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> XIIII_PLATE_CUIRASS_TASSETS = ITEMS.register("xiiii_plate_cuirass_tassets", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> XIIII_PLATE_BREASTPLATE = ITEMS.register("xiiii_plate_breastplate", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
 
-    public static final Item BARBUTE_NO_VISOR = registerItem("barbute_no_visor",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item BASCINET_NO_VISOR = registerItem("bascinet_no_visor",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item KETTLE_HELM = registerItem("kettle_helm",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item NASAL_HELM = registerItem("nasal_helm",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item VIKING_HELM = registerItem("viking_helm",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> BARBUTE_NO_VISOR = ITEMS.register("barbute_no_visor", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> BASCINET_NO_VISOR = ITEMS.register("bascinet_no_visor", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> KETTLE_HELM = ITEMS.register("kettle_helm", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> NASAL_HELM = ITEMS.register("nasal_helm", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> VIKING_HELM = ITEMS.register("viking_helm", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
 
-    public static final Item ARMET = registerItem("armet",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item ARMET_2 = registerItem("armet_2",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item BARBUTE = registerItem("barbute",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item BASCINET = registerItem("bascinet",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item CAGE = registerItem("cage",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item CAGE_2 = registerItem("cage_2",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item FLAT_BASCINET = registerItem("flat_bascinet",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item GREAT_HELM = registerItem("great_helm",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item GREAT_HELM_2 = registerItem("great_helm_2",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item SALLET = registerItem("sallet",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> ARMET = ITEMS.register("armet", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> ARMET_2 = ITEMS.register("armet_2", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> BARBUTE = ITEMS.register("barbute", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> BASCINET = ITEMS.register("bascinet", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> CAGE = ITEMS.register("cage", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> CAGE_2 = ITEMS.register("cage_2", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> FLAT_BASCINET = ITEMS.register("flat_bascinet", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> GREAT_HELM = ITEMS.register("great_helm", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> GREAT_HELM_2 = ITEMS.register("great_helm_2", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> SALLET = ITEMS.register("sallet", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
 
-    public static final Item FROGMOUTH = registerItem("frogmouth",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item GREAT_ARMET = registerItem("great_armet",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item GREAT_ARMET_2 = registerItem("great_armet_2",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item GREAT_BASCINET = registerItem("great_bascinet",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item GREAT_HOUNDSKUL_BASCINET = registerItem("great_houndskul_bascinet",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item MAXIMILLIAN_HELMET = registerItem("maximillian_helmet",
-            new KHHelmetAccessory(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> FROGMOUTH = ITEMS.register("frogmouth", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> GREAT_ARMET = ITEMS.register("great_armet", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> GREAT_ARMET_2 = ITEMS.register("great_armet_2", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> GREAT_BASCINET = ITEMS.register("great_bascinet", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> GREAT_HOUNDSKUL_BASCINET = ITEMS.register("great_houndskul_bascinet", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> MAXIMILLIAN_HELMET = ITEMS.register("maximillian_helmet", () ->
+            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
 
-    public static final Item GAUNTLET = registerItem("gauntlet",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item BRIGANDINE_REREBRACE = registerItem("brigandine_rerebrace",
-            new KHDyeableChestplateAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
-    public static final Item PLATE_REREBRACE = registerItem("plate_rerebrace",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> GAUNTLET = ITEMS.register("gauntlet", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> BRIGANDINE_REREBRACE = ITEMS.register("brigandine_rerebrace", () ->
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), true, 10511680));
+    public static final RegistrySupplier<Item> PLATE_REREBRACE = ITEMS.register("plate_rerebrace", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
 
-    public static final Item BRIGANDINE_CHAUSSES = registerItem("brigandine_chausses",
-            new KHDyeableLeggingsAccessory(new OwoItemSettings().maxCount(1), true, 10511680));
-    public static final Item PLATE_CHAUSSES = registerItem("plate_chausses",
-            new KHLeggingsAccessory(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> BRIGANDINE_CHAUSSES = ITEMS.register("brigandine_chausses", () ->
+            new KHDyeableLeggingsAccessory(new Item.Settings().maxCount(1), true, 10511680));
+    public static final RegistrySupplier<Item> PLATE_CHAUSSES = ITEMS.register("plate_chausses", () ->
+            new KHLeggingsAccessory(new Item.Settings().maxCount(1)));
 
-    public static final Item SABATONS = registerItem("sabatons",
-            new KHBootsAccessory(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> SABATONS = ITEMS.register("sabatons", () ->
+            new KHBootsAccessory(new Item.Settings().maxCount(1)));
 
-    public static final Item AVENTAIL = registerItem("aventail",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> AVENTAIL = ITEMS.register("aventail", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
 
-    public static final Item RIM_GUARDS = registerItem("rim_guards",
-            new Item(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> RIM_GUARDS = ITEMS.register("rim_guards", () ->
+            new Item(new Item.Settings().maxCount(1)));
 
-    public static final Item BESAGEWS = registerItem("besagews",
-            new Item(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> BESAGEWS = ITEMS.register("besagews", () ->
+            new Item(new Item.Settings().maxCount(1)));
 
-    public static final Item SURCOAT = registerItem("surcoat",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
-    public static final Item SURCOAT_SLEEVELESS = registerItem("surcoat_sleeveless",
-            new KHChestplateAccessory(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> SURCOAT = ITEMS.register("surcoat", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> SURCOAT_SLEEVELESS = ITEMS.register("surcoat_sleeveless", () ->
+            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
 
-    public static final Item CLOAK = registerItem("cloak",
-            new KHCloak(new OwoItemSettings().maxCount(1),
-                    false));
-    public static final Item TORN_CLOAK = registerItem("torn_cloak",
-            new KHCloak(new OwoItemSettings().maxCount(1),
-                    false));
+    public static final RegistrySupplier<Item> CLOAK = ITEMS.register("cloak", () ->
+            new KHCloak(new Item.Settings().maxCount(1), false));
+    public static final RegistrySupplier<Item> TORN_CLOAK = ITEMS.register("torn_cloak", () ->
+            new KHCloak(new Item.Settings().maxCount(1), false));
 
-    public static final Item HOOD = registerItem("hood",
-            new KHCloak(new OwoItemSettings().maxCount(1),
-                    false));
-    public static final Item TORN_HOOD = registerItem("torn_hood",
-            new KHCloak(new OwoItemSettings().maxCount(1),
-                    false));
-    public static final Item JESTER_HOOD = registerItem("jester_hood",
-            new KHCloak(new OwoItemSettings().maxCount(1),
-                    true));
-    public static final Item HELMET_HOOD = registerItem("helmet_hood",
-            new KHCloak(new OwoItemSettings().maxCount(1),
-                    false));
-    public static final Item HELMET_TORN_HOOD = registerItem("helmet_torn_hood",
-            new KHCloak(new OwoItemSettings().maxCount(1),
-                    false));
+    public static final RegistrySupplier<Item> HOOD = ITEMS.register("hood", () ->
+            new KHCloak(new Item.Settings().maxCount(1), false));
+    public static final RegistrySupplier<Item> TORN_HOOD = ITEMS.register("torn_hood", () ->
+            new KHCloak(new Item.Settings().maxCount(1), false));
+    public static final RegistrySupplier<Item> JESTER_HOOD = ITEMS.register("jester_hood", () ->
+            new KHCloak(new Item.Settings().maxCount(1), true));
+    public static final RegistrySupplier<Item> HELMET_HOOD = ITEMS.register("helmet_hood", () ->
+            new KHCloak(new Item.Settings().maxCount(1), false));
+    public static final RegistrySupplier<Item> HELMET_TORN_HOOD = ITEMS.register("helmet_torn_hood", () ->
+            new KHCloak(new Item.Settings().maxCount(1), false));
 
-    public static final Item BLACK_POWDER = registerItem("black_powder",
-            new Item(new OwoItemSettings()));
+    public static final RegistrySupplier<Item> LONGBOW = ITEMS.register("longbow", () ->
+            new Item(new Item.Settings().maxCount(1).maxDamage(512)));
 
-    public static final Item LONGBOW = registerItem("longbow",
-            new Item(new OwoItemSettings().maxCount(1).maxDamage(512)));
+    public static final RegistrySupplier<Item> HEAVY_CROSSBOW = ITEMS.register("heavy_crossbow", () ->
+            new HeavyCrossbow(new Item.Settings().maxCount(1).maxDamage(512)));
 
-    public static final Item HEAVY_CROSSBOW = registerItem("heavy_crossbow",
-            new HeavyCrossbow(new OwoItemSettings().maxCount(1).maxDamage(512)));
+    public static final RegistrySupplier<Item> ARQUEBUS = ITEMS.register("arquebus", () ->
+            new Arquebus(new Item.Settings().maxCount(1).maxDamage(512)));
 
-    public static final Item ARQUEBUS = registerItem("arquebus",
-            new Arquebus(new OwoItemSettings().maxCount(1).maxDamage(512)));
+    public static final RegistrySupplier<Item> HANDGONNE = ITEMS.register("handgonne", () ->
+            new Handgonne(new Item.Settings().maxCount(1).maxDamage(512)));
 
-    public static final Item HANDGONNE = registerItem("handgonne",
-            new Handgonne(new OwoItemSettings().maxCount(1).maxDamage(512)));
+    public static final RegistrySupplier<Item> SWALLOWTAIL_ARROW = ITEMS.register("swallowtail_arrow", () ->
+            new SCArrow(new Item.Settings(), KHSwallowTailArrowEntity::new));
+    public static final RegistrySupplier<Item> BODKIN_ARROW = ITEMS.register("bodkin_arrow", () ->
+            new SCArrow(new Item.Settings(), KHBodkinArrowEntity::new));
+    public static final RegistrySupplier<Item> BROADHEAD_ARROW = ITEMS.register("broadhead_arrow", () ->
+            new SCArrow(new Item.Settings(), KHBroadheadArrowEntity::new));
+    public static final RegistrySupplier<Item> CLOTH_ARROW = ITEMS.register("cloth_arrow", () ->
+            new SCArrow(new Item.Settings(), KHClothArrowEntity::new));
 
-    public static final Item SWALLOWTAIL_ARROW = registerItem("swallowtail_arrow",
-            new SCArrow(new OwoItemSettings(), KHSwallowTailArrowEntity::new));
-    public static final Item BODKIN_ARROW = registerItem("bodkin_arrow",
-            new SCArrow(new OwoItemSettings(), KHBodkinArrowEntity::new));
-    public static final Item BROADHEAD_ARROW = registerItem("broadhead_arrow",
-            new SCArrow(new OwoItemSettings(), KHBroadheadArrowEntity::new));
-    public static final Item CLOTH_ARROW = registerItem("cloth_arrow",
-            new SCArrow(new OwoItemSettings(), KHClothArrowEntity::new));
+    public static final RegistrySupplier<Item> HORSE_BARDING = ITEMS.register("horse_barding", () ->
+            new HorseBardingArmorItem(7, new Item.Settings().maxCount(1)));
 
-    public static final Item HORSE_BARDING = registerItem("horse_barding",
-            new HorseBardingArmorItem(7, new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> PLUME = ITEMS.register("plume", () ->
+            new DyeableItems(new Item.Settings().maxCount(1)));
 
-    public static final Item PLUME = registerItem("plume",
-            new DyeableItems(new OwoItemSettings().maxCount(1)));
+    public static final RegistrySupplier<Item> CHAPERON = ITEMS.register("chaperon", () ->
+            new KHChaperon(new Item.Settings().maxCount(1), false));
 
-    public static final Item CHAPERON = registerItem("chaperon",
-            new KHChaperon(new OwoItemSettings().maxCount(1), false));
-
-    public static final Item GILDED_CHAPERON = registerItem("gilded_chaperon",
-            new KHChaperon(new OwoItemSettings().maxCount(1), true));
-
-    private static <T extends Item> T registerItem(String name, T item) {
-        Registry.register(Registries.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name), item);
-        items.add(item);
-        return item;
-    }
+    public static final RegistrySupplier<Item> GILDED_CHAPERON = ITEMS.register("gilded_chaperon", () ->
+            new KHChaperon(new Item.Settings().maxCount(1), true));
 
     public static void registerItems() {
+        ITEMS.register();
         KnightsHeraldry.LOGGER.info("Registering Mod Items for " + KnightsHeraldry.MOD_ID);
     }
 }

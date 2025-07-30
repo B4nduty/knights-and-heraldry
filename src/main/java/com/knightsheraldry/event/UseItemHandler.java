@@ -29,6 +29,6 @@ public class UseItemHandler implements UseItemCallback {
 
         Biome biome = world.getBiome(player.getBlockPos()).value();
 
-        return biome.doesNotSnow(player.getBlockPos());
+        return biome.doesNotSnow(player.getBlockPos()) || biome.getPrecipitation(player.getBlockPos()) == Biome.Precipitation.NONE;
     }
 }

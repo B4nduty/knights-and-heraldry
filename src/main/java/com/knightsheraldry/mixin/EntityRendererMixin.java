@@ -23,8 +23,8 @@ public class EntityRendererMixin<T extends Entity> {
             if (AccessoriesCapability.getOptionally(player).isPresent()) {
                 for (SlotEntryReference equipped : AccessoriesCapability.get(player).getAllEquipped()) {
                     ItemStack itemStack = equipped.stack();
-                    if (itemStack.getItem() == ModItems.HOOD || itemStack.getItem() == ModItems.TORN_HOOD ||
-                            itemStack.getItem() == ModItems.HELMET_HOOD || itemStack.getItem() == ModItems.HELMET_TORN_HOOD) ci.cancel();
+                    if (itemStack.getItem() == ModItems.HOOD.get() || itemStack.getItem() == ModItems.TORN_HOOD.get() ||
+                            itemStack.getItem() == ModItems.HELMET_HOOD.get() || itemStack.getItem() == ModItems.HELMET_TORN_HOOD.get()) ci.cancel();
                 }
             }
         }

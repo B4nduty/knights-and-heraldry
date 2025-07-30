@@ -4,8 +4,6 @@
 
   "item.knightsheraldry.guide_book": "Guide Book",
 
-  "item.knightsheraldry.smithing_hammer": "Smithing Hammer",
-
   "item.knightsheraldry.dagger": "Dagger",
 
   "item.knightsheraldry.stiletto": "Stiletto",
@@ -173,12 +171,16 @@
   "item.knightsheraldry.heavy_crossbow": "Heavy Crossbow",
   "item.knightsheraldry.arquebus": "Arquebus",
   "item.knightsheraldry.handgonne": "Handgonne",
-  "item.knightsheraldry.black_powder": "Black Powder",
 
   "item.knightsheraldry.swallowtail_arrow": "Swallowtail Tipped Arrow",
   "item.knightsheraldry.bodkin_arrow": "Bodkin Tipped Arrow",
   "item.knightsheraldry.broadhead_arrow": "Broadhead Tipped Arrow",
   "item.knightsheraldry.cloth_arrow": "Cloth Tipped Arrow",
+
+  "entity.knightsheraldry.swallowtail_arrow": "Swallowtail Tipped Arrow",
+  "entity.knightsheraldry.bodkin_arrow": "Bodkin Tipped Arrow",
+  "entity.knightsheraldry.broadhead_arrow": "Broadhead Tipped Arrow",
+  "entity.knightsheraldry.cloth_arrow": "Cloth Tipped Arrow",
 
   "item.knightsheraldry.horse_barding": "Barding",
 
@@ -186,6 +188,10 @@
 
   "item.knightsheraldry.chaperon": "Chaperon",
   "item.knightsheraldry.gilded_chaperon": "Gilded Chaperon",
+
+  "text.itemgroup.kingdomsieges.tab.kh_weapons": "KH Weapons",
+  "text.itemgroup.kingdomsieges.tab.kh_ammo": "KH Ammo",
+  "text.itemgroup.kingdomsieges.tab.kh_armors": "KH Armors",
 
   "text.tooltip.knightsheraldry.right_click-to-charge": "§4Right-Click §rto §lCharge §rfor §l2 Seconds",
   "text.tooltip.knightsheraldry.on-charge": "On §4Charge §rit will §lAuto Attack",

@@ -1,20 +1,19 @@
 package com.knightsheraldry.effect;
 
 import com.knightsheraldry.KnightsHeraldry;
+import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.registry.RegistryKeys;
 
 public class ModEffects {
-    public static final StatusEffect PIN = new PinEffect(StatusEffectCategory.HARMFUL, 16776960);
+    public static final DeferredRegister<StatusEffect> STATUS_EFFECTS = DeferredRegister.create(KnightsHeraldry.MOD_ID, RegistryKeys.STATUS_EFFECT);
 
-    public static void registerStatusEffect(String name, StatusEffect effect) {
-        Registry.register(Registries.STATUS_EFFECT, new Identifier(KnightsHeraldry.MOD_ID, name), effect);
-    }
+    public static final StatusEffect PIN = new PinEffect(StatusEffectCategory.HARMFUL, 0xFFFF00);
 
     public static void registerEffects() {
-        registerStatusEffect("pin", PIN);
+        STATUS_EFFECTS.register();
+        STATUS_EFFECTS.register("pin", () -> PIN);
+        KnightsHeraldry.LOGGER.info("Registering Effects for " + KnightsHeraldry.MOD_ID);
     }
 }

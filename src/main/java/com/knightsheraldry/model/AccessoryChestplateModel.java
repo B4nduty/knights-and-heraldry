@@ -51,16 +51,16 @@ public class AccessoryChestplateModel extends BipedEntityModel<LivingEntity> {
 
 		ModelPartData surcoat = armorBody.addChild("surcoat", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
-		surcoat.addChild("back_surcoat_r1", ModelPartBuilder.create().uv(40, 97).cuboid(-4.5F, 0.0F, -0.45F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.1309F, 0.0F, 0.0F));
+		surcoat.addChild("back_surcoat_r1", ModelPartBuilder.create().uv(40, 97).mirrored().cuboid(-4.5F, 0.0F, -0.45F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.1309F, 0.0F, 0.0F));
 
 		surcoat.addChild("front_surcoat_r1", ModelPartBuilder.create().uv(40, 97).cuboid(-4.5F, 0.0F, -2.65F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.2618F, 0.0F, 0.0F));
 
 		surcoat.addChild("belt", ModelPartBuilder.create().uv(0, 123).cuboid(-5.0F, 8.75F, -3.25F, 10.0F, 1.0F, 4.0F, new Dilation(0.0F))
 				.uv(28, 123).cuboid(-5.0F, 8.75F, -0.75F, 10.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
-		ModelPartData top_back_surcoat = surcoat.addChild("top_back_surcoat", ModelPartBuilder.create().uv(40, 105).cuboid(-4.5F, -0.2F, 0.0F, 9.0F, 5.0F, 0.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 4.5F, 3.1F));
+		ModelPartData top_back_surcoat = surcoat.addChild("top_back_surcoat", ModelPartBuilder.create().uv(40, 105).mirrored().cuboid(-4.5F, -0.2F, 0.0F, 9.0F, 5.0F, 0.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.pivot(0.0F, 4.5F, 3.1F));
 
-		top_back_surcoat.addChild("bottom_back_surcoat", ModelPartBuilder.create().uv(40, 110).cuboid(-4.5F, 0.0F, 0.0F, 9.0F, 8.0F, 0.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 4.8F, 0.0F, 0.0873F, 0.0F, 0.0F));
+		top_back_surcoat.addChild("bottom_back_surcoat", ModelPartBuilder.create().uv(40, 110).mirrored().cuboid(-4.5F, 0.0F, 0.0F, 9.0F, 8.0F, 0.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(0.0F, 4.8F, 0.0F, 0.0873F, 0.0F, 0.0F));
 
 		ModelPartData top_front_surcoat = surcoat.addChild("top_front_surcoat", ModelPartBuilder.create().uv(40, 105).cuboid(-4.5F, -0.1F, 0.0F, 9.0F, 5.0F, 0.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 4.2F, -3.9F, 0.2182F, 0.0F, 0.0F));
 

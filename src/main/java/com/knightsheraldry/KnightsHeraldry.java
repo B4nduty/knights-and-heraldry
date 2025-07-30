@@ -2,9 +2,6 @@ package com.knightsheraldry;
 
 import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.config.KHConfig;
-import com.knightsheraldry.datagen.ModItemTagProvider;
-import com.knightsheraldry.datagen.ModModelProvider;
-import com.knightsheraldry.datagen.ModRecipeProvider;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.event.AdjustAttributeModifierEvent;
@@ -16,11 +13,10 @@ import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.sounds.ModSounds;
 import com.knightsheraldry.util.loottable.VillagerTradesModifier;
+import dev.architectury.event.events.common.LifecycleEvent;
 import io.wispforest.accessories.api.events.AdjustAttributeModifierCallback;
 import io.wispforest.accessories.api.events.CanEquipCallback;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
@@ -32,7 +28,7 @@ import net.minecraft.util.Formatting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint {
+public class KnightsHeraldry implements ModInitializer {
     public static final String MOD_ID = "knightsheraldry";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     private static final KHConfig CONFIG = KHConfig.createAndLoad();
@@ -40,13 +36,15 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
 
     @Override
     public void onInitialize() {
+        ModSounds.registerSounds();
         ModEntities.registerEntities();
         ModEffects.registerEffects();
-        ModSounds.registerSounds();
         ModItems.registerItems();
-        ModItemGroups.registerItemGroups();
+        LifecycleEvent.SETUP.register(() -> {
+            ModItemGroups.registerItemGroups();
+            VillagerTradesModifier.registerCustomTrades();
+        });
         ModMessages.registerC2SPackets();
-        VillagerTradesModifier.registerCustomTrades();
         CanEquipCallback.EVENT.register(new CanEquipHandler());
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
         UseItemCallback.EVENT.register(new UseItemHandler());
@@ -57,13 +55,13 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
                 NbtCompound playerData = ((IEntityDataSaver) player).stoneycore$getPersistentData();
                 if (!playerData.getBoolean(FIRST_JOIN_TAG)) {
                     player.sendMessage(Text.literal("""
-                        §4Knights & Heraldry §ris in §6Beta
-                        §fMany things you see here can change in future updates.
-                        
-                        If you want to help improving this mod,
-                        send your feedback in the KH Discord Server.
-                        
-                        """)
+                                            §4Knights & Heraldry §ris in §6Beta
+                                            §fMany things you see here can change in future updates.
+                                            
+                                            If you want to help improving this mod,
+                                            send your feedback in the KH Discord Server.
+                                            
+                                            """)
                                     .append(Text.literal("§n§9Click here to join the KH Discord Server")
                                             .styled(style -> style
                                                     .withColor(Formatting.BLUE)
@@ -78,15 +76,6 @@ public class KnightsHeraldry implements ModInitializer, DataGeneratorEntrypoint 
                 }
             }
         });
-    }
-
-    @Override
-    public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-
-        pack.addProvider(ModRecipeProvider::new);
-        pack.addProvider(ModItemTagProvider::new);
-        pack.addProvider(ModModelProvider::new);
     }
 
     public static KHConfig getConfig() {

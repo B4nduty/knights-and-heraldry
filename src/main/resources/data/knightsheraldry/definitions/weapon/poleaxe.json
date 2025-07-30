@@ -1,0 +1,17 @@
+{
+  "usage": "melee",
+  "damage": {
+    "slashing": 9.0,
+    "piercing": 6.0,
+    "bludgeoning": 7.5
+  },
+  "radius": {
+    "level_0": 3.0,
+    "level_1": 3.7,
+    "level_2": 4.5,
+    "level_3": 5.3,
+    "level_4": 6.0
+  },
+  "animation": 2,
+  "piercingAnimation": 2
+}

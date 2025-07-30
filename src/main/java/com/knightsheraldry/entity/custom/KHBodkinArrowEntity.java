@@ -1,22 +1,28 @@
 package com.knightsheraldry.entity.custom;
 
-import banduty.stoneycore.entity.ModEntities;
 import banduty.stoneycore.entity.custom.SCArrowEntity;
 import banduty.stoneycore.util.SCDamageCalculator;
+import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.items.ModItems;
 import net.minecraft.entity.DamageUtil;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
 public class KHBodkinArrowEntity extends SCArrowEntity {
-    private final ItemStack bodkinArrowStack;
+    private ItemStack bodkinArrowStack;
 
     public KHBodkinArrowEntity(LivingEntity shooter, World world) {
-        super(ModEntities.SC_ARROW, shooter, world);
-        this.bodkinArrowStack = new ItemStack(ModItems.BODKIN_ARROW);
+        super(ModEntities.BODKING_ARROW.get(), shooter, world);
+        this.bodkinArrowStack = new ItemStack(ModItems.BODKIN_ARROW.get());
+    }
+
+    public KHBodkinArrowEntity(EntityType<KHBodkinArrowEntity> scArrowEntityEntityType, World world) {
+        super(scArrowEntityEntityType, world);
     }
 
     @Override
@@ -40,6 +46,7 @@ public class KHBodkinArrowEntity extends SCArrowEntity {
 
         damageDealt = DamageUtil.getDamageLeft(damageDealt, armor, armorToughness);
 
-        target.damage(getDamageSources().generic(), damageDealt);
+        if (this.getOwner() instanceof PlayerEntity player) target.damage(target.getWorld().getDamageSources().playerAttack(player), damageDealt);
+        else if (this.getOwner() instanceof LivingEntity livingEntity) target.damage(target.getWorld().getDamageSources().mobAttack(livingEntity), damageDealt);
     }
 }

@@ -23,7 +23,7 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         if (AccessoriesCapability.getOptionally(serverPlayerEntity).isPresent()) {
             for (SlotEntryReference equipped : AccessoriesCapability.get(serverPlayerEntity).getAllEquipped()) {
                 ItemStack accessoryStack = equipped.stack();
-                if (accessoryStack.getItem() == ModItems.HELMET_HOOD || accessoryStack.getItem() == ModItems.HELMET_TORN_HOOD) {
+                if (accessoryStack.getItem() == ModItems.HELMET_HOOD.get() || accessoryStack.getItem() == ModItems.HELMET_TORN_HOOD.get()) {
                     itemStack = accessoryStack;
                 }
 

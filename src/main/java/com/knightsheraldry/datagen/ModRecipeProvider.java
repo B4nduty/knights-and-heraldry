@@ -1,11 +1,11 @@
 package com.knightsheraldry.datagen;
 
+import banduty.stoneycore.items.SCItems;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -23,84 +23,72 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SMITHING_HAMMER, 1)
-                .pattern("IIN")
-                .pattern(" S ")
-                .pattern(" S ")
-                .input('S', Items.STICK)
-                .input('I', Items.IRON_INGOT)
-                .input('N', Items.IRON_NUGGET)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
-                .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
-                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "smithing_hammer"));
+        createWeaponCycle(exporter, ModItems.ARMING_SWORD.get(), ModItems.SWORD.get(), ModItems.V_SWORD.get());
+        createWeaponCycle(exporter, ModItems.STRAIGHT_CROOKED_AXE.get(), ModItems.AXE.get(), ModItems.BROAD_AXE.get(), ModItems.CROOKED_AXE.get());
+        createWeaponCycle(exporter, ModItems.MACE.get(), ModItems.SPIKED_MACE.get());
+        createWeaponCycle(exporter, ModItems.FLAIL.get(), ModItems.BALL_FLAIL.get());
+        createWeaponCycle(exporter, ModItems.HAMMER.get(), ModItems.WAR_HAMMER.get());
+        createWeaponCycle(exporter, ModItems.LONGSWORD.get(), ModItems.V_LONGSWORD.get());
+        createWeaponCycle(exporter, ModItems.FALCHION.get(), ModItems.SCIMITAR.get());
+        createWeaponCycle(exporter, ModItems.POLEHAMMER.get(), ModItems.BEC_DE_CORBIN.get());
+        createWeaponCycle(exporter, ModItems.WARSWORD.get(), ModItems.WARSWORD_CLAYMORE.get(),
+                ModItems.WARSWORD_FLAMBERGE.get(), ModItems.WARSWORD_ZWEIHANDER.get());
 
-        createWeaponCycle(exporter, ModItems.ARMING_SWORD, ModItems.SWORD, ModItems.V_SWORD);
-        createWeaponCycle(exporter, ModItems.STRAIGHT_CROOKED_AXE, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE);
-        createWeaponCycle(exporter, ModItems.MACE, ModItems.SPIKED_MACE);
-        createWeaponCycle(exporter, ModItems.FLAIL, ModItems.BALL_FLAIL);
-        createWeaponCycle(exporter, ModItems.HAMMER, ModItems.WAR_HAMMER);
-        createWeaponCycle(exporter, ModItems.LONGSWORD, ModItems.V_LONGSWORD);
-        createWeaponCycle(exporter, ModItems.FALCHION, ModItems.SCIMITAR);
-        createWeaponCycle(exporter, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN);
-        createWeaponCycle(exporter, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
-                ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER);
+        createAventailHelmet(exporter, ModItems.ARMET.get());
+        createAventailHelmet(exporter, ModItems.ARMET_2.get());
+        createAventailHelmet(exporter, ModItems.VIKING_HELM.get());
+        createAventailHelmet(exporter, ModItems.GREAT_HELM.get());
+        createAventailHelmet(exporter, ModItems.GREAT_HELM_2.get());
+        createAventailHelmet(exporter, ModItems.KETTLE_HELM.get());
+        createAventailHelmet(exporter, ModItems.NASAL_HELM.get());
+        createAventailHelmet(exporter, ModItems.SALLET.get());
+        createAventailHelmet(exporter, ModItems.BARBUTE.get());
+        createAventailHelmet(exporter, ModItems.BARBUTE_NO_VISOR.get());
+        createAventailHelmet(exporter, ModItems.BASCINET.get());
+        createAventailHelmet(exporter,  ModItems.BASCINET_NO_VISOR.get());
+        createAventailHelmet(exporter, ModItems.CAGE.get());
+        createAventailHelmet(exporter,  ModItems.CAGE_2.get());
+        createAventailHelmet(exporter,  ModItems.FLAT_BASCINET.get());
 
-        createAventailHelmet(exporter, ModItems.ARMET);
-        createAventailHelmet(exporter, ModItems.ARMET_2);
-        createAventailHelmet(exporter, ModItems.VIKING_HELM);
-        createAventailHelmet(exporter, ModItems.GREAT_HELM);
-        createAventailHelmet(exporter, ModItems.GREAT_HELM_2);
-        createAventailHelmet(exporter, ModItems.KETTLE_HELM);
-        createAventailHelmet(exporter, ModItems.NASAL_HELM);
-        createAventailHelmet(exporter, ModItems.SALLET);
-        createAventailHelmet(exporter, ModItems.BARBUTE);
-        createAventailHelmet(exporter, ModItems.BARBUTE_NO_VISOR);
-        createAventailHelmet(exporter, ModItems.BASCINET);
-        createAventailHelmet(exporter,  ModItems.BASCINET_NO_VISOR);
-        createAventailHelmet(exporter, ModItems.CAGE);
-        createAventailHelmet(exporter,  ModItems.CAGE_2);
-        createAventailHelmet(exporter,  ModItems.FLAT_BASCINET);
+        createPlumeRecipe(exporter,  ModItems.BARBUTE_NO_VISOR.get());
+        createPlumeRecipe(exporter,  ModItems.BASCINET_NO_VISOR.get());
+        createPlumeRecipe(exporter,  ModItems.KETTLE_HELM.get());
+        createPlumeRecipe(exporter,  ModItems.NASAL_HELM.get());
+        createPlumeRecipe(exporter,  ModItems.VIKING_HELM.get());
+        createPlumeRecipe(exporter,  ModItems.ARMET.get());
+        createPlumeRecipe(exporter,  ModItems.ARMET_2.get());
+        createPlumeRecipe(exporter,  ModItems.BARBUTE.get());
+        createPlumeRecipe(exporter,  ModItems.BASCINET.get());
+        createPlumeRecipe(exporter,  ModItems.CAGE.get());
+        createPlumeRecipe(exporter,  ModItems.CAGE_2.get());
+        createPlumeRecipe(exporter,  ModItems.FLAT_BASCINET.get());
+        createPlumeRecipe(exporter,  ModItems.GREAT_HELM.get());
+        createPlumeRecipe(exporter,  ModItems.GREAT_HELM_2.get());
+        createPlumeRecipe(exporter,  ModItems.SALLET.get());
+        createPlumeRecipe(exporter,  ModItems.FROGMOUTH.get());
+        createPlumeRecipe(exporter,  ModItems.GREAT_ARMET.get());
+        createPlumeRecipe(exporter,  ModItems.GREAT_ARMET_2.get());
+        createPlumeRecipe(exporter,  ModItems.GREAT_BASCINET.get());
+        createPlumeRecipe(exporter,  ModItems.GREAT_HOUNDSKUL_BASCINET.get());
+        createPlumeRecipe(exporter,  ModItems.MAXIMILLIAN_HELMET.get());
+        createPlumeRecipe(exporter,  ModItems.HORSE_BARDING.get());
 
-        createPlumeRecipe(exporter,  ModItems.BARBUTE_NO_VISOR);
-        createPlumeRecipe(exporter,  ModItems.BASCINET_NO_VISOR);
-        createPlumeRecipe(exporter,  ModItems.KETTLE_HELM);
-        createPlumeRecipe(exporter,  ModItems.NASAL_HELM);
-        createPlumeRecipe(exporter,  ModItems.VIKING_HELM);
-        createPlumeRecipe(exporter,  ModItems.ARMET);
-        createPlumeRecipe(exporter,  ModItems.ARMET_2);
-        createPlumeRecipe(exporter,  ModItems.BARBUTE);
-        createPlumeRecipe(exporter,  ModItems.BASCINET);
-        createPlumeRecipe(exporter,  ModItems.CAGE);
-        createPlumeRecipe(exporter,  ModItems.CAGE_2);
-        createPlumeRecipe(exporter,  ModItems.FLAT_BASCINET);
-        createPlumeRecipe(exporter,  ModItems.GREAT_HELM);
-        createPlumeRecipe(exporter,  ModItems.GREAT_HELM_2);
-        createPlumeRecipe(exporter,  ModItems.SALLET);
-        createPlumeRecipe(exporter,  ModItems.FROGMOUTH);
-        createPlumeRecipe(exporter,  ModItems.GREAT_ARMET);
-        createPlumeRecipe(exporter,  ModItems.GREAT_ARMET_2);
-        createPlumeRecipe(exporter,  ModItems.GREAT_BASCINET);
-        createPlumeRecipe(exporter,  ModItems.GREAT_HOUNDSKUL_BASCINET);
-        createPlumeRecipe(exporter,  ModItems.MAXIMILLIAN_HELMET);
-        createPlumeRecipe(exporter,  ModItems.HORSE_BARDING);
+        createPauldronRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.RIM_GUARDS.get(), "plate_pauldron_rim");
+        createPauldronRecipe(exporter, ModItems.MAIL_PAULDRON.get(), ModItems.BESAGEWS.get(), "mail_pauldron_besagews");
+        createPauldronRecipe(exporter, ModItems.BRIGANDINE_PAULDRON.get(), ModItems.BESAGEWS.get(), "brigandine_pauldron_besagews");
+        createPauldronRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.BESAGEWS.get(), "plate_pauldron_besagews");
 
-        createPauldronRecipe(exporter, ModItems.PLATE_PAULDRON, ModItems.RIM_GUARDS, "plate_pauldron_rim");
-        createPauldronRecipe(exporter, ModItems.MAIL_PAULDRON, ModItems.BESAGEWS, "mail_pauldron_besagews");
-        createPauldronRecipe(exporter, ModItems.BRIGANDINE_PAULDRON, ModItems.BESAGEWS, "brigandine_pauldron_besagews");
-        createPauldronRecipe(exporter, ModItems.PLATE_PAULDRON, ModItems.BESAGEWS, "plate_pauldron_besagews");
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SURCOAT, 1)
-                .input(ModItems.SURCOAT)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SURCOAT.get(), 1)
+                .input(ModItems.SURCOAT.get())
                 .input(ItemTags.BANNERS)
-                .criterion(hasItem(ModItems.SURCOAT), conditionsFromItem(ModItems.SURCOAT))
+                .criterion(hasItem(ModItems.SURCOAT.get()), conditionsFromItem(ModItems.SURCOAT.get()))
                 .criterion(hasItem(Items.WHITE_BANNER), conditionsFromItem(Items.WHITE_BANNER))
                 .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "surcoat_with_banner"));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SURCOAT_SLEEVELESS, 1)
-                .input(ModItems.SURCOAT_SLEEVELESS)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SURCOAT_SLEEVELESS.get(), 1)
+                .input(ModItems.SURCOAT_SLEEVELESS.get())
                 .input(ItemTags.BANNERS)
-                .criterion(hasItem(ModItems.SURCOAT_SLEEVELESS), conditionsFromItem(ModItems.SURCOAT_SLEEVELESS))
+                .criterion(hasItem(ModItems.SURCOAT_SLEEVELESS.get()), conditionsFromItem(ModItems.SURCOAT_SLEEVELESS.get()))
                 .criterion(hasItem(Items.WHITE_BANNER), conditionsFromItem(Items.WHITE_BANNER))
                 .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "sleeveless_surcoat_with_banner"));
     }
@@ -108,9 +96,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void createAventailHelmet(Consumer<RecipeJsonProvider> exporter, Item helmet) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, helmet, 1)
                 .input(helmet)
-                .input(ModItems.AVENTAIL)
+                .input(ModItems.AVENTAIL.get())
                 .criterion(hasItem(helmet), conditionsFromItem(helmet))
-                .criterion(hasItem(ModItems.AVENTAIL), conditionsFromItem(ModItems.AVENTAIL))
+                .criterion(hasItem(ModItems.AVENTAIL.get()), conditionsFromItem(ModItems.AVENTAIL.get()))
                 .offerTo(exporter, new Identifier(
                         KnightsHeraldry.MOD_ID,
                         "aventail/" + Registries.ITEM.getId(helmet).getPath()
@@ -120,9 +108,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void createPlumeRecipe(Consumer<RecipeJsonProvider> exporter, Item item) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, item, 1)
                 .input(item)
-                .input(ModItems.PLUME)
+                .input(ModItems.PLUME.get())
                 .criterion(hasItem(item), conditionsFromItem(item))
-                .criterion(hasItem(ModItems.PLUME), conditionsFromItem(ModItems.PLUME))
+                .criterion(hasItem(ModItems.PLUME.get()), conditionsFromItem(ModItems.PLUME.get()))
                 .offerTo(exporter, new Identifier(
                         KnightsHeraldry.MOD_ID,
                         "plume/" + Registries.ITEM.getId(item).getPath()
@@ -136,9 +124,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             Item next = weapons[(i + 1) % weapons.length];
 
             ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, next, 1)
-                    .input(ModItems.SMITHING_HAMMER)
+                    .input(SCItems.SMITHING_HAMMER.get())
                     .input(current)
-                    .criterion(hasItem(ModItems.SMITHING_HAMMER), conditionsFromItem(ModItems.SMITHING_HAMMER))
+                    .criterion(hasItem(SCItems.SMITHING_HAMMER.get()), conditionsFromItem(SCItems.SMITHING_HAMMER.get()))
                     .criterion(hasItem(current), conditionsFromItem(current))
                     .offerTo(exporter, new Identifier(
                             KnightsHeraldry.MOD_ID,

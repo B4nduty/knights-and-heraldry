@@ -25,7 +25,6 @@ public abstract class ModelLoaderMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/model/ModelLoader;addModel(Lnet/minecraft/client/util/ModelIdentifier;)V", ordinal = 3, shift = At.Shift.AFTER))
     public void knightsheraldry$add3dModels(BlockColors blockColors, Profiler profiler, Map<Identifier, JsonUnbakedModel> jsonUnbakedModels, Map<Identifier, List<ModelLoader.SourceTrackedData>> blockStates, CallbackInfo ci) {
         String[] modelNames = {
-                "smithing_hammer_3d",
                 "dagger_3d",
                 "stiletto_3d",
                 "rapier_3d",

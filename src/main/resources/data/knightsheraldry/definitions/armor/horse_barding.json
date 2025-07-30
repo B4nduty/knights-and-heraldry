@@ -3,5 +3,12 @@
     "slashing": 0.04,
     "bludgeoning": 0.1,
     "piercing": 0
+  },
+  "deflectChance": {
+    "minecraft:arrow": 0.6,
+    "knightsheraldry:bodkin_arrow": 0.6,
+    "knightsheraldry:broadhead_arrow": 0.6,
+    "knightsheraldry:cloth_arrow": 0.6,
+    "knightsheraldry:swallowtail_arrow": 0.6
   }
 }

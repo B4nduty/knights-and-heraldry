@@ -2,7 +2,6 @@ package com.knightsheraldry.datagen;
 
 import banduty.stoneycore.util.itemdata.SCTags;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.util.itemdata.KHTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -18,74 +17,61 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(SCTags.WEAPONS_3D.getTag())
-            .add(ModItems.SMITHING_HAMMER, ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER, ModItems.SWORD,
-                    ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE,
-                    ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE, ModItems.SPIKED_MACE, ModItems.HAMMER,
-                    ModItems.WAR_HAMMER, ModItems.LONGSWORD, ModItems.V_LONGSWORD, ModItems.FALCHION, ModItems.SCIMITAR,
-                    ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE, ModItems.BILLHOOK,
-                    ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.LANCE, ModItems.WOODEN_LANCE,
-                    ModItems.POLEAXE, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN, ModItems.MORNING_STAR,
-                    ModItems.BARDICHE,  ModItems.WARDART, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE,
-                    ModItems.WARSWORD_FLAMBERGE, ModItems.WARSWORD_ZWEIHANDER, ModItems.LONGBOW);
+            .add(ModItems.DAGGER.get(), ModItems.STILETTO.get(), ModItems.RAPIER.get(), ModItems.SWORD.get(),
+                    ModItems.V_SWORD.get(), ModItems.ARMING_SWORD.get(), ModItems.AXE.get(), ModItems.BROAD_AXE.get(), ModItems.CROOKED_AXE.get(),
+                    ModItems.STRAIGHT_CROOKED_AXE.get(), ModItems.MACE.get(), ModItems.SPIKED_MACE.get(), ModItems.HAMMER.get(),
+                    ModItems.WAR_HAMMER.get(), ModItems.LONGSWORD.get(), ModItems.V_LONGSWORD.get(), ModItems.FALCHION.get(), ModItems.SCIMITAR.get(),
+                    ModItems.PITCHFORK.get(), ModItems.SPEAR.get(), ModItems.PIKE.get(), ModItems.BILLHOOK.get(),
+                    ModItems.GLAIVE.get(), ModItems.CURVED_GLAIVE.get(), ModItems.HALBERD.get(), ModItems.LANCE.get(), ModItems.WOODEN_LANCE.get(),
+                    ModItems.POLEAXE.get(), ModItems.POLEHAMMER.get(), ModItems.BEC_DE_CORBIN.get(), ModItems.MORNING_STAR.get(),
+                    ModItems.BARDICHE.get(),  ModItems.WARDART.get(), ModItems.WARSWORD.get(), ModItems.WARSWORD_CLAYMORE.get(),
+                    ModItems.WARSWORD_FLAMBERGE.get(), ModItems.WARSWORD_ZWEIHANDER.get(), ModItems.LONGBOW.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_SHIELD.getTag())
-                .add(ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE,
-                        ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE,
-                        ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD,
-                        ModItems.V_LONGSWORD, ModItems.FALCHION, ModItems.SCIMITAR, ModItems.PITCHFORK,
-                        ModItems.SPEAR, ModItems.PIKE, ModItems.BILLHOOK, ModItems.GLAIVE, ModItems.CURVED_GLAIVE,
-                        ModItems.HALBERD, ModItems.POLEAXE, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN, ModItems.MORNING_STAR,
-                        ModItems.BARDICHE, ModItems.WARSWORD, ModItems.WARSWORD_CLAYMORE, ModItems.WARSWORD_FLAMBERGE,
-                        ModItems.WARSWORD_ZWEIHANDER);
+                .add(ModItems.RAPIER.get(), ModItems.SWORD.get(), ModItems.V_SWORD.get(), ModItems.ARMING_SWORD.get(), ModItems.AXE.get(),
+                        ModItems.BROAD_AXE.get(), ModItems.CROOKED_AXE.get(), ModItems.STRAIGHT_CROOKED_AXE.get(), ModItems.MACE.get(),
+                        ModItems.SPIKED_MACE.get(), ModItems.HAMMER.get(), ModItems.WAR_HAMMER.get(), ModItems.LONGSWORD.get(),
+                        ModItems.V_LONGSWORD.get(), ModItems.FALCHION.get(), ModItems.SCIMITAR.get(), ModItems.PITCHFORK.get(),
+                        ModItems.SPEAR.get(), ModItems.PIKE.get(), ModItems.BILLHOOK.get(), ModItems.GLAIVE.get(), ModItems.CURVED_GLAIVE.get(),
+                        ModItems.HALBERD.get(), ModItems.POLEAXE.get(), ModItems.POLEHAMMER.get(), ModItems.BEC_DE_CORBIN.get(), ModItems.MORNING_STAR.get(),
+                        ModItems.BARDICHE.get(), ModItems.WARSWORD.get(), ModItems.WARSWORD_CLAYMORE.get(), ModItems.WARSWORD_FLAMBERGE.get(),
+                        ModItems.WARSWORD_ZWEIHANDER.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_DAMAGE_BEHIND.getTag())
-                .add(ModItems.DAGGER);
+                .add(ModItems.DAGGER.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_IGNORES_ARMOR.getTag())
-                .add(ModItems.STILETTO);
+                .add(ModItems.STILETTO.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_DISABLE_SHIELD.getTag())
-                .add(ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE);
+                .add(ModItems.AXE.get(), ModItems.BROAD_AXE.get(), ModItems.CROOKED_AXE.get(), ModItems.STRAIGHT_CROOKED_AXE.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_BYPASS_BLOCK.getTag())
-                .add(ModItems.FLAIL, ModItems.BALL_FLAIL);
+                .add(ModItems.FLAIL.get(), ModItems.BALL_FLAIL.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_HARVEST.getTag())
-                .add(ModItems.PITCHFORK);
+                .add(ModItems.PITCHFORK.get());
 
         getOrCreateTagBuilder(SCTags.GEO_2D_ITEMS.getTag())
-                .add(ModItems.FLAIL, ModItems.BALL_FLAIL, ModItems.HEAVY_CROSSBOW, ModItems.ARQUEBUS, ModItems.HANDGONNE);
-
+                .add(ModItems.FLAIL.get(), ModItems.BALL_FLAIL.get(), ModItems.HEAVY_CROSSBOW.get(), ModItems.ARQUEBUS.get(), ModItems.HANDGONNE.get());
 
         getOrCreateTagBuilder(SCTags.ALWAYS_WEARABLE.getTag())
-            .add(ModItems.HOOD, ModItems.TORN_HOOD, ModItems.CLOAK, ModItems.TORN_CLOAK, ModItems.CHAPERON,
-                    ModItems.GILDED_CHAPERON, ModItems.JESTER_HOOD, ModItems.HELMET_HOOD, ModItems.HELMET_TORN_HOOD);
+            .add(ModItems.HOOD.get(), ModItems.TORN_HOOD.get(), ModItems.CLOAK.get(), ModItems.TORN_CLOAK.get(), ModItems.CHAPERON.get(),
+                    ModItems.GILDED_CHAPERON.get(), ModItems.JESTER_HOOD.get(), ModItems.HELMET_HOOD.get(), ModItems.HELMET_TORN_HOOD.get());
 
         getOrCreateTagBuilder(SCTags.VISORED_HELMET.getTag())
-                .add(ModItems.ARMET, ModItems.ARMET_2, ModItems.BARBUTE, ModItems.BASCINET, ModItems.CAGE,
-                        ModItems.CAGE_2, ModItems.FLAT_BASCINET, ModItems.GREAT_HELM, ModItems.GREAT_HELM_2,
-                        ModItems.SALLET, ModItems.FROGMOUTH, ModItems.GREAT_ARMET, ModItems.GREAT_ARMET_2,
-                        ModItems.GREAT_BASCINET, ModItems.GREAT_HOUNDSKUL_BASCINET, ModItems.MAXIMILLIAN_HELMET);
-
-        getOrCreateTagBuilder(KHTags.DEFLECTIVE_ARMOR.getTag())
-                .add(ModItems.MAIL_COIF, ModItems.HAUBERK, ModItems.MAIL_BREECHES, ModItems.MAIL_BOOTS,
-                        ModItems.MAIL_PAULDRON, ModItems.PLATE_PAULDRON, ModItems.PLATE_CUIRASS, ModItems.PLATE_CUIRASS_TASSETS,
-                        ModItems.MAXIMILLIAN_CUIRASS, ModItems.MAXIMILLIAN_CUIRASS_TASSETS, ModItems.XIIII_PLATE_CUIRASS,
-                        ModItems.XIIII_PLATE_CUIRASS_TASSETS, ModItems.XIIII_PLATE_BREASTPLATE, ModItems.BARBUTE_NO_VISOR,
-                        ModItems.BASCINET_NO_VISOR, ModItems.KETTLE_HELM, ModItems.NASAL_HELM, ModItems.VIKING_HELM,
-                        ModItems.ARMET, ModItems.ARMET_2, ModItems.BARBUTE, ModItems.BASCINET, ModItems.CAGE, ModItems.CAGE_2,
-                        ModItems.FLAT_BASCINET, ModItems.GREAT_HELM, ModItems.GREAT_HELM_2, ModItems.SALLET, ModItems.FROGMOUTH,
-                        ModItems.GREAT_ARMET, ModItems.GREAT_ARMET_2, ModItems.GREAT_BASCINET, ModItems.GREAT_HOUNDSKUL_BASCINET,
-                        ModItems.MAXIMILLIAN_HELMET, ModItems.GAUNTLET, ModItems.PLATE_REREBRACE, ModItems.PLATE_CHAUSSES,
-                        ModItems.SABATONS);
+                .add(ModItems.ARMET.get(), ModItems.ARMET_2.get(), ModItems.BARBUTE.get(), ModItems.BASCINET.get(), ModItems.CAGE.get(),
+                        ModItems.CAGE_2.get(), ModItems.FLAT_BASCINET.get(), ModItems.GREAT_HELM.get(), ModItems.GREAT_HELM_2.get(),
+                        ModItems.SALLET.get(), ModItems.FROGMOUTH.get(), ModItems.GREAT_ARMET.get(), ModItems.GREAT_ARMET_2.get(),
+                        ModItems.GREAT_BASCINET.get(), ModItems.GREAT_HOUNDSKUL_BASCINET.get(), ModItems.MAXIMILLIAN_HELMET.get());
 
         getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
-                .add(ModItems.CLOAK, ModItems.TORN_CLOAK);
+                .add(ModItems.CLOAK.get(), ModItems.TORN_CLOAK.get());
 
         getOrCreateTagBuilder(SCTags.BANNER_COMPATIBLE.getTag())
-                .add(ModItems.SURCOAT, ModItems.SURCOAT_SLEEVELESS);
+                .add(ModItems.SURCOAT.get(), ModItems.SURCOAT_SLEEVELESS.get());
 
         getOrCreateTagBuilder(SCTags.HIDE_NAME_TAG.getTag())
-                .add(ModItems.HOOD, ModItems.TORN_HOOD, ModItems.JESTER_HOOD, ModItems.HELMET_HOOD, ModItems.HELMET_TORN_HOOD);
+                .add(ModItems.HOOD.get(), ModItems.TORN_HOOD.get(), ModItems.JESTER_HOOD.get(), ModItems.HELMET_HOOD.get(), ModItems.HELMET_TORN_HOOD.get());
     }
 }

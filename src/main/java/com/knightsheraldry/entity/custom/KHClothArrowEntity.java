@@ -1,8 +1,9 @@
 package com.knightsheraldry.entity.custom;
 
-import banduty.stoneycore.entity.ModEntities;
 import banduty.stoneycore.entity.custom.SCArrowEntity;
+import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.items.ModItems;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -16,11 +17,15 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class KHClothArrowEntity extends SCArrowEntity {
-    private final ItemStack clothArrowStack;
+    private ItemStack clothArrowStack;
 
     public KHClothArrowEntity(LivingEntity shooter, World world) {
-        super(ModEntities.SC_ARROW, shooter, world);
-        this.clothArrowStack = new ItemStack(ModItems.CLOTH_ARROW);
+        super(ModEntities.CLOTH_ARROW.get(), shooter, world);
+        this.clothArrowStack = new ItemStack(ModItems.CLOTH_ARROW.get());
+    }
+
+    public KHClothArrowEntity(EntityType<KHClothArrowEntity> khClothArrowEntityEntityType, World world) {
+        super(khClothArrowEntityEntityType, world);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.knightsheraldry.items;
 
+import banduty.stoneycore.StoneyCore;
 import com.knightsheraldry.KnightsHeraldry;
 import io.wispforest.owo.itemgroup.Icon;
 import io.wispforest.owo.itemgroup.OwoItemGroup;
@@ -20,9 +21,9 @@ import net.minecraft.util.Util;
 import java.util.List;
 
 public class ModItemGroups {
-    private static final Identifier DISCORD_ICON = new Identifier(KnightsHeraldry.MOD_ID, "textures/gui/button/discord.png");
-    private static final Identifier BACKGROUND = new Identifier(KnightsHeraldry.MOD_ID, "textures/gui/group.png");
-    private static final Identifier TABS = new Identifier(KnightsHeraldry.MOD_ID, "textures/gui/tabs.png");
+    private static final Identifier DISCORD_ICON = new Identifier(StoneyCore.MOD_ID, "textures/gui/button/discord.png");
+    private static final Identifier BACKGROUND = new Identifier(StoneyCore.MOD_ID, "textures/gui/group.png");
+    private static final Identifier TABS = new Identifier(StoneyCore.MOD_ID, "textures/gui/tabs.png");
 
     private static ItemStack weaponStack(ItemConvertible item) {
         return new ItemStack(item);
@@ -42,186 +43,184 @@ public class ModItemGroups {
 
     private static void ammo(ItemGroup.DisplayContext ctx, ItemGroup.Entries stacks) {
         stacks.addAll(List.of(
-                ammoStack(ModItems.SWALLOWTAIL_ARROW),
-                ammoStack(ModItems.BODKIN_ARROW),
-                ammoStack(ModItems.BROADHEAD_ARROW),
-                ammoStack(ModItems.CLOTH_ARROW),
-                ammoStack(ModItems.BLACK_POWDER)
+                ammoStack(ModItems.SWALLOWTAIL_ARROW.get()),
+                ammoStack(ModItems.BODKIN_ARROW.get()),
+                ammoStack(ModItems.BROADHEAD_ARROW.get()),
+                ammoStack(ModItems.CLOTH_ARROW.get())
         ));
     }
 
-    private static void toolsAndWeapons(ItemGroup.DisplayContext ctx, ItemGroup.Entries stacks) {
+    private static void weapons(ItemGroup.DisplayContext ctx, ItemGroup.Entries stacks) {
         stacks.addAll(List.of(
-                weaponStack(ModItems.SMITHING_HAMMER),
-                weaponStack(ModItems.DAGGER),
-                weaponStack(ModItems.STILETTO),
-                weaponStack(ModItems.RAPIER),
-                weaponStack(ModItems.SWORD),
-                weaponStack(ModItems.V_SWORD),
-                weaponStack(ModItems.ARMING_SWORD),
-                weaponStack(ModItems.AXE),
-                weaponStack(ModItems.BROAD_AXE),
-                weaponStack(ModItems.CROOKED_AXE),
-                weaponStack(ModItems.STRAIGHT_CROOKED_AXE),
-                weaponStack(ModItems.MACE),
-                weaponStack(ModItems.SPIKED_MACE),
-                weaponStack(ModItems.FLAIL),
-                weaponStack(ModItems.BALL_FLAIL),
-                weaponStack(ModItems.HAMMER),
-                weaponStack(ModItems.WAR_HAMMER),
-                weaponStack(ModItems.LONGSWORD),
-                weaponStack(ModItems.V_LONGSWORD),
-                weaponStack(ModItems.FALCHION),
-                weaponStack(ModItems.SCIMITAR),
-                weaponStack(ModItems.PITCHFORK),
-                weaponStack(ModItems.SPEAR),
-                weaponStack(ModItems.PIKE),
-                weaponStack(ModItems.BILLHOOK),
-                weaponStack(ModItems.GLAIVE),
-                weaponStack(ModItems.CURVED_GLAIVE),
-                weaponStack(ModItems.HALBERD),
-                weaponStack(ModItems.LANCE),
-                weaponStack(ModItems.WOODEN_LANCE),
-                weaponStack(ModItems.POLEAXE),
-                weaponStack(ModItems.POLEHAMMER),
-                weaponStack(ModItems.BEC_DE_CORBIN),
-                weaponStack(ModItems.MORNING_STAR),
-                weaponStack(ModItems.BARDICHE),
-                weaponStack(ModItems.WARSWORD),
-                weaponStack(ModItems.WARSWORD_CLAYMORE),
-                weaponStack(ModItems.WARSWORD_FLAMBERGE),
-                weaponStack(ModItems.WARSWORD_ZWEIHANDER),
-                weaponStack(ModItems.WARDART),
+                weaponStack(ModItems.DAGGER.get()),
+                weaponStack(ModItems.STILETTO.get()),
+                weaponStack(ModItems.RAPIER.get()),
+                weaponStack(ModItems.SWORD.get()),
+                weaponStack(ModItems.V_SWORD.get()),
+                weaponStack(ModItems.ARMING_SWORD.get()),
+                weaponStack(ModItems.AXE.get()),
+                weaponStack(ModItems.BROAD_AXE.get()),
+                weaponStack(ModItems.CROOKED_AXE.get()),
+                weaponStack(ModItems.STRAIGHT_CROOKED_AXE.get()),
+                weaponStack(ModItems.MACE.get()),
+                weaponStack(ModItems.SPIKED_MACE.get()),
+                weaponStack(ModItems.FLAIL.get()),
+                weaponStack(ModItems.BALL_FLAIL.get()),
+                weaponStack(ModItems.HAMMER.get()),
+                weaponStack(ModItems.WAR_HAMMER.get()),
+                weaponStack(ModItems.LONGSWORD.get()),
+                weaponStack(ModItems.V_LONGSWORD.get()),
+                weaponStack(ModItems.FALCHION.get()),
+                weaponStack(ModItems.SCIMITAR.get()),
+                weaponStack(ModItems.PITCHFORK.get()),
+                weaponStack(ModItems.SPEAR.get()),
+                weaponStack(ModItems.PIKE.get()),
+                weaponStack(ModItems.BILLHOOK.get()),
+                weaponStack(ModItems.GLAIVE.get()),
+                weaponStack(ModItems.CURVED_GLAIVE.get()),
+                weaponStack(ModItems.HALBERD.get()),
+                weaponStack(ModItems.LANCE.get()),
+                weaponStack(ModItems.WOODEN_LANCE.get()),
+                weaponStack(ModItems.POLEAXE.get()),
+                weaponStack(ModItems.POLEHAMMER.get()),
+                weaponStack(ModItems.BEC_DE_CORBIN.get()),
+                weaponStack(ModItems.MORNING_STAR.get()),
+                weaponStack(ModItems.BARDICHE.get()),
+                weaponStack(ModItems.WARSWORD.get()),
+                weaponStack(ModItems.WARSWORD_CLAYMORE.get()),
+                weaponStack(ModItems.WARSWORD_FLAMBERGE.get()),
+                weaponStack(ModItems.WARSWORD_ZWEIHANDER.get()),
+                weaponStack(ModItems.WARDART.get()),
 
-                weaponStack(ModItems.LONGBOW),
-                weaponStack(ModItems.HEAVY_CROSSBOW),
-                weaponStack(ModItems.ARQUEBUS),
-                weaponStack(ModItems.HANDGONNE)
+                weaponStack(ModItems.LONGBOW.get()),
+                weaponStack(ModItems.HEAVY_CROSSBOW.get()),
+                weaponStack(ModItems.ARQUEBUS.get()),
+                weaponStack(ModItems.HANDGONNE.get())
         ));
     }
 
     private static void armors(ItemGroup.DisplayContext ctx, ItemGroup.Entries stacks) {
         stacks.addAll(List.of(
-                armorStack(ModItems.QUILTED_COIF, false, false, false),
-                armorStack(ModItems.GAMBESON, false, false, false),
-                armorStack(ModItems.GAMBESON_BREECHES, false, false, false),
-                armorStack(ModItems.GAMBESON_BOOTS, false, false, false),
+                armorStack(ModItems.QUILTED_COIF.get(), false, false, false),
+                armorStack(ModItems.GAMBESON.get(), false, false, false),
+                armorStack(ModItems.GAMBESON_BREECHES.get(), false, false, false),
+                armorStack(ModItems.GAMBESON_BOOTS.get(), false, false, false),
 
-                armorStack(ModItems.MAIL_COIF, false, false, false),
-                armorStack(ModItems.HAUBERK, false, false, false),
-                armorStack(ModItems.MAIL_BREECHES, false, false, false),
-                armorStack(ModItems.MAIL_BOOTS, false, false, false),
+                armorStack(ModItems.MAIL_COIF.get(), false, false, false),
+                armorStack(ModItems.HAUBERK.get(), false, false, false),
+                armorStack(ModItems.MAIL_BREECHES.get(), false, false, false),
+                armorStack(ModItems.MAIL_BOOTS.get(), false, false, false),
 
-                armorStack(ModItems.BARBUTE_NO_VISOR, false, false, false),
-                armorStack(ModItems.BASCINET_NO_VISOR, false, false, false),
-                armorStack(ModItems.KETTLE_HELM, false, false, false),
-                armorStack(ModItems.NASAL_HELM, false, false, false),
-                armorStack(ModItems.VIKING_HELM, false, false, false),
-                armorStack(ModItems.ARMET, false, false, false),
-                armorStack(ModItems.ARMET_2, false, false, false),
-                armorStack(ModItems.BARBUTE, false, false, false),
-                armorStack(ModItems.BASCINET, false, false, false),
-                armorStack(ModItems.CAGE, false, false, false),
-                armorStack(ModItems.CAGE_2, false, false, false),
-                armorStack(ModItems.FLAT_BASCINET, false, false, false),
-                armorStack(ModItems.GREAT_HELM, false, false, false),
-                armorStack(ModItems.GREAT_HELM_2, false, false, false),
-                armorStack(ModItems.SALLET, false, false, false),
+                armorStack(ModItems.BARBUTE_NO_VISOR.get(), false, false, false),
+                armorStack(ModItems.BASCINET_NO_VISOR.get(), false, false, false),
+                armorStack(ModItems.KETTLE_HELM.get(), false, false, false),
+                armorStack(ModItems.NASAL_HELM.get(), false, false, false),
+                armorStack(ModItems.VIKING_HELM.get(), false, false, false),
+                armorStack(ModItems.ARMET.get(), false, false, false),
+                armorStack(ModItems.ARMET_2.get(), false, false, false),
+                armorStack(ModItems.BARBUTE.get(), false, false, false),
+                armorStack(ModItems.BASCINET.get(), false, false, false),
+                armorStack(ModItems.CAGE.get(), false, false, false),
+                armorStack(ModItems.CAGE_2.get(), false, false, false),
+                armorStack(ModItems.FLAT_BASCINET.get(), false, false, false),
+                armorStack(ModItems.GREAT_HELM.get(), false, false, false),
+                armorStack(ModItems.GREAT_HELM_2.get(), false, false, false),
+                armorStack(ModItems.SALLET.get(), false, false, false),
 
-                armorStack(ModItems.AVENTAIL, false, false, false),
-                armorStack(ModItems.BARBUTE_NO_VISOR, true, false, false),
-                armorStack(ModItems.BASCINET_NO_VISOR, true, false, false),
-                armorStack(ModItems.KETTLE_HELM, true, false, false),
-                armorStack(ModItems.NASAL_HELM, true, false, false),
-                armorStack(ModItems.VIKING_HELM, true, false, false),
-                armorStack(ModItems.ARMET, true, false, false),
-                armorStack(ModItems.ARMET_2, true, false, false),
-                armorStack(ModItems.BARBUTE, true, false, false),
-                armorStack(ModItems.BASCINET, true, false, false),
-                armorStack(ModItems.CAGE, true, false, false),
-                armorStack(ModItems.CAGE_2, true, false, false),
-                armorStack(ModItems.FLAT_BASCINET, true, false, false),
-                armorStack(ModItems.GREAT_HELM, true, false, false),
-                armorStack(ModItems.GREAT_HELM_2, true, false, false),
-                armorStack(ModItems.SALLET, true, false, false),
+                armorStack(ModItems.AVENTAIL.get(), false, false, false),
+                armorStack(ModItems.BARBUTE_NO_VISOR.get(), true, false, false),
+                armorStack(ModItems.BASCINET_NO_VISOR.get(), true, false, false),
+                armorStack(ModItems.KETTLE_HELM.get(), true, false, false),
+                armorStack(ModItems.NASAL_HELM.get(), true, false, false),
+                armorStack(ModItems.VIKING_HELM.get(), true, false, false),
+                armorStack(ModItems.ARMET.get(), true, false, false),
+                armorStack(ModItems.ARMET_2.get(), true, false, false),
+                armorStack(ModItems.BARBUTE.get(), true, false, false),
+                armorStack(ModItems.BASCINET.get(), true, false, false),
+                armorStack(ModItems.CAGE.get(), true, false, false),
+                armorStack(ModItems.CAGE_2.get(), true, false, false),
+                armorStack(ModItems.FLAT_BASCINET.get(), true, false, false),
+                armorStack(ModItems.GREAT_HELM.get(), true, false, false),
+                armorStack(ModItems.GREAT_HELM_2.get(), true, false, false),
+                armorStack(ModItems.SALLET.get(), true, false, false),
 
-                armorStack(ModItems.FROGMOUTH, false, false, false),
-                armorStack(ModItems.GREAT_ARMET, false, false, false),
-                armorStack(ModItems.GREAT_ARMET_2, false, false, false),
-                armorStack(ModItems.GREAT_BASCINET, false, false, false),
-                armorStack(ModItems.GREAT_HOUNDSKUL_BASCINET, false, false, false),
-                armorStack(ModItems.MAXIMILLIAN_HELMET, false, false, false),
+                armorStack(ModItems.FROGMOUTH.get(), false, false, false),
+                armorStack(ModItems.GREAT_ARMET.get(), false, false, false),
+                armorStack(ModItems.GREAT_ARMET_2.get(), false, false, false),
+                armorStack(ModItems.GREAT_BASCINET.get(), false, false, false),
+                armorStack(ModItems.GREAT_HOUNDSKUL_BASCINET.get(), false, false, false),
+                armorStack(ModItems.MAXIMILLIAN_HELMET.get(), false, false, false),
 
-                armorStack(ModItems.CHAPERON, false, false, false),
-                armorStack(ModItems.GILDED_CHAPERON, false, false, false),
+                armorStack(ModItems.CHAPERON.get(), false, false, false),
+                armorStack(ModItems.GILDED_CHAPERON.get(), false, false, false),
 
-                armorStack(ModItems.PLUME, false, false, false),
+                armorStack(ModItems.PLUME.get(), false, false, false),
 
-                armorStack(ModItems.BRIGANDINE, false, false, false),
-                armorStack(ModItems.BRIG_BREASTPLATE, false, false, false),
-                armorStack(ModItems.BRIG_BREASTPLATE_TASSETS, false, false, false),
-                armorStack(ModItems.PLATE_CUIRASS, false, false, false),
-                armorStack(ModItems.PLATE_CUIRASS_TASSETS, false, false, false),
-                armorStack(ModItems.MAXIMILLIAN_CUIRASS, false, false, false),
-                armorStack(ModItems.MAXIMILLIAN_CUIRASS_TASSETS, false, false, false),
-                armorStack(ModItems.XIIII_PLATE_CUIRASS, false, false, false),
-                armorStack(ModItems.XIIII_PLATE_CUIRASS_TASSETS, false, false, false),
-                armorStack(ModItems.XIIII_PLATE_BREASTPLATE, false, false, false),
+                armorStack(ModItems.BRIGANDINE.get(), false, false, false),
+                armorStack(ModItems.BRIG_BREASTPLATE.get(), false, false, false),
+                armorStack(ModItems.BRIG_BREASTPLATE_TASSETS.get(), false, false, false),
+                armorStack(ModItems.PLATE_CUIRASS.get(), false, false, false),
+                armorStack(ModItems.PLATE_CUIRASS_TASSETS.get(), false, false, false),
+                armorStack(ModItems.MAXIMILLIAN_CUIRASS.get(), false, false, false),
+                armorStack(ModItems.MAXIMILLIAN_CUIRASS_TASSETS.get(), false, false, false),
+                armorStack(ModItems.XIIII_PLATE_CUIRASS.get(), false, false, false),
+                armorStack(ModItems.XIIII_PLATE_CUIRASS_TASSETS.get(), false, false, false),
+                armorStack(ModItems.XIIII_PLATE_BREASTPLATE.get(), false, false, false),
 
-                armorStack(ModItems.SURCOAT, false, false, false),
-                armorStack(ModItems.SURCOAT_SLEEVELESS, false, false, false),
+                armorStack(ModItems.SURCOAT.get(), false, false, false),
+                armorStack(ModItems.SURCOAT_SLEEVELESS.get(), false, false, false),
 
-                armorStack(ModItems.RIM_GUARDS, false, false, false),
-                armorStack(ModItems.BESAGEWS, false, false, false),
-                armorStack(ModItems.MAIL_PAULDRON, false, false, false),
-                armorStack(ModItems.BRIGANDINE_PAULDRON, false, false, false),
-                armorStack(ModItems.PLATE_PAULDRON, false, false, false),
-                armorStack(ModItems.MAIL_PAULDRON, false, false, true),
-                armorStack(ModItems.BRIGANDINE_PAULDRON, false, false, true),
-                armorStack(ModItems.PLATE_PAULDRON, false, false, true),
-                armorStack(ModItems.PLATE_PAULDRON, false, true, false),
-                armorStack(ModItems.PLATE_PAULDRON, false, true, true),
+                armorStack(ModItems.RIM_GUARDS.get(), false, false, false),
+                armorStack(ModItems.BESAGEWS.get(), false, false, false),
+                armorStack(ModItems.MAIL_PAULDRON.get(), false, false, false),
+                armorStack(ModItems.BRIGANDINE_PAULDRON.get(), false, false, false),
+                armorStack(ModItems.PLATE_PAULDRON.get(), false, false, false),
+                armorStack(ModItems.MAIL_PAULDRON.get(), false, false, true),
+                armorStack(ModItems.BRIGANDINE_PAULDRON.get(), false, false, true),
+                armorStack(ModItems.PLATE_PAULDRON.get(), false, false, true),
+                armorStack(ModItems.PLATE_PAULDRON.get(), false, true, false),
+                armorStack(ModItems.PLATE_PAULDRON.get(), false, true, true),
 
-                armorStack(ModItems.GAUNTLET, false, false, false),
-                armorStack(ModItems.BRIGANDINE_REREBRACE, false, false, false),
-                armorStack(ModItems.PLATE_REREBRACE, false, false, false),
-                armorStack(ModItems.BRIGANDINE_CHAUSSES, false, false, false),
-                armorStack(ModItems.PLATE_CHAUSSES, false, false, false),
+                armorStack(ModItems.GAUNTLET.get(), false, false, false),
+                armorStack(ModItems.BRIGANDINE_REREBRACE.get(), false, false, false),
+                armorStack(ModItems.PLATE_REREBRACE.get(), false, false, false),
+                armorStack(ModItems.BRIGANDINE_CHAUSSES.get(), false, false, false),
+                armorStack(ModItems.PLATE_CHAUSSES.get(), false, false, false),
 
-                armorStack(ModItems.SABATONS, false, false, false),
+                armorStack(ModItems.SABATONS.get(), false, false, false),
 
-                armorStack(ModItems.HOOD, false, false, false),
-                armorStack(ModItems.TORN_HOOD, false, false, false),
-                armorStack(ModItems.JESTER_HOOD, false, false, false),
-                armorStack(ModItems.HELMET_HOOD, false, false, false),
-                armorStack(ModItems.HELMET_TORN_HOOD, false, false, false),
+                armorStack(ModItems.HOOD.get(), false, false, false),
+                armorStack(ModItems.TORN_HOOD.get(), false, false, false),
+                armorStack(ModItems.JESTER_HOOD.get(), false, false, false),
+                armorStack(ModItems.HELMET_HOOD.get(), false, false, false),
+                armorStack(ModItems.HELMET_TORN_HOOD.get(), false, false, false),
 
-                armorStack(ModItems.CLOAK, false, false, false),
-                armorStack(ModItems.TORN_CLOAK, false, false, false),
+                armorStack(ModItems.CLOAK.get(), false, false, false),
+                armorStack(ModItems.TORN_CLOAK.get(), false, false, false),
 
-                armorStack(ModItems.HORSE_BARDING, false, false, false)
+                armorStack(ModItems.HORSE_BARDING.get(), false, false, false)
         ));
     }
 
-    public static final ItemGroupTab KH_TOOLS_WEAPONS_TAB = new ItemGroupTab(
-            Icon.of(ModItems.WARSWORD_ZWEIHANDER),
-            Text.literal("KH Tools & Weapons").formatted(Formatting.WHITE),
-            ModItemGroups::toolsAndWeapons,
+    public static final ItemGroupTab KH_WEAPONS_TAB = new ItemGroupTab(
+            Icon.of(ModItems.WARSWORD_ZWEIHANDER.get()),
+            Text.translatable("text.itemgroup.kingdomsieges.tab.kh_weapons").formatted(Formatting.WHITE),
+            ModItemGroups::weapons,
             TABS,
             true
     );
 
     public static final ItemGroupTab KH_AMMO_TAB = new ItemGroupTab(
-            Icon.of(ModItems.BLACK_POWDER),
-            Text.literal("KH Ammo").formatted(Formatting.WHITE),
+            Icon.of(ModItems.BROADHEAD_ARROW.get()),
+            Text.translatable("text.itemgroup.kingdomsieges.tab.kh_ammo").formatted(Formatting.WHITE),
             ModItemGroups::ammo,
             TABS,
             true
     );
 
     public static final ItemGroupTab KH_ARMORS_TAB = new ItemGroupTab(
-            Icon.of(ModItems.QUILTED_COIF),
-            Text.literal("KH Armors").formatted(Formatting.WHITE),
+            Icon.of(ModItems.QUILTED_COIF.get()),
+            Text.translatable("text.itemgroup.kingdomsieges.tab.kh_armors").formatted(Formatting.WHITE),
             ModItemGroups::armors,
             TABS,
             true
@@ -236,7 +235,7 @@ public class ModItemGroups {
             .build();
 
     private static void initializeGroup(OwoItemGroup group) {
-        group.tabs.add(KH_TOOLS_WEAPONS_TAB);
+        group.tabs.add(KH_WEAPONS_TAB);
         group.tabs.add(KH_ARMORS_TAB);
         group.tabs.add(KH_AMMO_TAB);
         group.addButton(LinkButton.discord("https://discord.gg/AbtCqntN9S"));

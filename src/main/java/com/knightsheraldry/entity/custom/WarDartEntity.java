@@ -26,12 +26,12 @@ public class WarDartEntity extends PersistentProjectileEntity {
 
     public WarDartEntity(EntityType<? extends PersistentProjectileEntity> entityEntityType, World world) {
         super(entityEntityType, world);
-        this.wardartStack = new ItemStack(ModItems.WARDART);
+        this.wardartStack = new ItemStack(ModItems.WARDART.get());
     }
 
     public WarDartEntity(LivingEntity livingEntity, World world, ItemStack stack) {
-        super(ModEntities.WARDART_PROJECTILE, livingEntity, world);
-        this.wardartStack = new ItemStack(ModItems.WARDART);
+        super(ModEntities.WARDART_PROJECTILE.get(), livingEntity, world);
+        this.wardartStack = new ItemStack(ModItems.WARDART.get());
         this.wardartStack = stack.copy();
     }
 

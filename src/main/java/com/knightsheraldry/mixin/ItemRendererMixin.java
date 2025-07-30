@@ -17,6 +17,7 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MatrixUtil;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -32,7 +33,7 @@ public abstract class ItemRendererMixin {
     @Inject(method = "renderItem(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformationMode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/world/World;III)V",
             at = @At("HEAD"))
     public void knightsheraldry$onRenderItem(LivingEntity entity, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, World world, int light, int overlay, int seed, CallbackInfo ci) {
-        if (stack.isEmpty() || !(stack.getNbt() != null && stack.getNbt().contains("kh_plume"))) {
+        if (stack.isEmpty() || stack.getNbt() == null || !stack.getNbt().contains("kh_plume")) {
             return;
         }
 
@@ -46,13 +47,20 @@ public abstract class ItemRendererMixin {
     @Inject(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformationMode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V",
             at = @At("HEAD"))
     public void knightsheraldry$renderGUIItem(ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo ci) {
-        if (renderMode == ModelTransformationMode.GUI && stack.getNbt() != null && stack.getNbt().contains("kh_plume")) {
-            BakedModel guiBakedModel = getCustomBakedModel(stack, null, 0);
+        if (stack.getNbt() != null && stack.getNbt().contains("kh_plume")) {
+            BakedModel guiBakedModel = getCustomBakedModel(stack, MinecraftClient.getInstance().player, 0);
             if (guiBakedModel != null) {
                 matrices.push();
+                model.getTransformation().getTransformation(renderMode).apply(leftHanded, matrices);
                 matrices.translate(-0.5F, -0.5F, -0.5F);
                 VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getCutout());
                 renderBakedItemModel(stack, guiBakedModel, light, overlay, matrices, vertexConsumer);
+                MatrixStack.Entry entry = matrices.peek();
+                if (renderMode == ModelTransformationMode.GUI) {
+                    MatrixUtil.scale(entry.getPositionMatrix(), 0.5F);
+                } else if (renderMode.isFirstPerson()) {
+                    MatrixUtil.scale(entry.getPositionMatrix(), 0.75F);
+                }
                 matrices.pop();
             }
         }

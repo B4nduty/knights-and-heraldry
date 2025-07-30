@@ -24,7 +24,7 @@ public abstract class AbstractClientPlayerEntityMixin extends PlayerEntity {
     @Inject(method = "getFovMultiplier", at = @At(value = "TAIL"), locals = LocalCapture.CAPTURE_FAILSOFT, cancellable = true)
     private void knightsheraldry$getFovMultiplierMixin(CallbackInfoReturnable<Float> cir, float f) {
         ItemStack itemStack = this.getActiveItem();
-        if (this.isUsingItem() && itemStack.isOf(ModItems.LONGBOW)) {
+        if (this.isUsingItem() && itemStack.isOf(ModItems.LONGBOW.get())) {
             int i = this.getItemUseTime();
             float g = (float)i / 20.0f;
             g = g > 1.0f ? 1.0f : g * g;

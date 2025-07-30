@@ -30,7 +30,7 @@ public class AccessoryArmModel extends BipedEntityModel<LivingEntity> {
 		ModelPartData armorRightArm = modelPartData.addChild("armorRightArm", ModelPartBuilder.create().uv(96, 16).cuboid(-5.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.35F))
 				.uv(112, 15).cuboid(-5.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.45F))
 				.uv(60, 108).cuboid(-5.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.55F))
-				.uv(85, 58).cuboid(-5.5F, 3.5F, -2.5F, 5.0F, 1.0F, 5.0F, new Dilation(-0.01F)), ModelTransform.pivot(-4.0F, 2.0F, 0.0F));
+				.uv(85, 58).cuboid(-5.5F, 3.5F, -2.5F, 5.0F, 1.0F, 5.0F, new Dilation(-0.01F)), ModelTransform.pivot(-5.0F, 2.0F, 0.0F));
 
 		armorRightArm.addChild("right_plate_rim_r1", ModelPartBuilder.create().uv(112, 18).cuboid(-1.0F, -5.0F, -3.5F, 0.0F, 4.0F, 7.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, 0.0F, 0.0F, 0.0F, 0.0F, -0.2618F));
 
@@ -42,7 +42,7 @@ public class AccessoryArmModel extends BipedEntityModel<LivingEntity> {
 		ModelPartData armorLeftArm = modelPartData.addChild("armorLeftArm", ModelPartBuilder.create().uv(96, 16).mirrored().cuboid(1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.35F)).mirrored(false)
 				.uv(112, 15).mirrored().cuboid(1.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.45F)).mirrored(false)
 				.uv(60, 108).mirrored().cuboid(1.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.55F)).mirrored(false)
-				.uv(85, 58).mirrored().cuboid(0.5F, 3.5F, -2.5F, 5.0F, 1.0F, 5.0F, new Dilation(-0.01F)).mirrored(false), ModelTransform.pivot(4.0F, 2.0F, 0.0F));
+				.uv(85, 58).mirrored().cuboid(0.5F, 3.5F, -2.5F, 5.0F, 1.0F, 5.0F, new Dilation(-0.01F)).mirrored(false), ModelTransform.pivot(5.0F, 2.0F, 0.0F));
 
 		armorLeftArm.addChild("left_plate_rim_r1", ModelPartBuilder.create().uv(112, 18).mirrored().cuboid(1.0F, -5.0F, -3.5F, 0.0F, 4.0F, 7.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.2618F));
 

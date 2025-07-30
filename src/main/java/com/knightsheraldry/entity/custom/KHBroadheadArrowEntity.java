@@ -1,19 +1,24 @@
 package com.knightsheraldry.entity.custom;
 
-import banduty.stoneycore.entity.ModEntities;
 import banduty.stoneycore.entity.custom.SCArrowEntity;
+import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.items.ModItems;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
 public class KHBroadheadArrowEntity extends SCArrowEntity {
-    private final ItemStack broadheadArrowStack;
+    private ItemStack broadheadArrowStack;
 
     public KHBroadheadArrowEntity(LivingEntity shooter, World world) {
-        super(ModEntities.SC_ARROW, shooter, world);
-        this.broadheadArrowStack = new ItemStack(ModItems.BROADHEAD_ARROW);
+        super(ModEntities.BROADHEAD_ARROW.get(), shooter, world);
+        this.broadheadArrowStack = new ItemStack(ModItems.BROADHEAD_ARROW.get());
+    }
+
+    public KHBroadheadArrowEntity(EntityType<KHBroadheadArrowEntity> khBroadheadArrowEntityEntityType, World world) {
+        super(khBroadheadArrowEntityEntityType, world);
     }
 
     @Override

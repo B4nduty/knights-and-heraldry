@@ -1,19 +1,9 @@
 {
-  "arquebus_close_1": {
-    "subtitle": "sounds.knightsheraldry.arquebus_close_1",
+  "arquebus_close": {
+    "subtitle": "sounds.knightsheraldry.arquebus_close",
     "sounds": [
-      "knightsheraldry:arquebus_close_1"
-    ]
-  },
-  "arquebus_close_2": {
-    "subtitle": "sounds.knightsheraldry.arquebus_close_2",
-    "sounds": [
-      "knightsheraldry:arquebus_close_2"
-    ]
-  },
-  "arquebus_close_3": {
-    "subtitle": "sounds.knightsheraldry.arquebus_close_3",
-    "sounds": [
+      "knightsheraldry:arquebus_close_1",
+      "knightsheraldry:arquebus_close_2",
       "knightsheraldry:arquebus_close_3"
     ]
   }
