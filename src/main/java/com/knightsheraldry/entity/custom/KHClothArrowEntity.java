@@ -17,11 +17,9 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class KHClothArrowEntity extends SCArrowEntity {
-    private ItemStack clothArrowStack;
 
     public KHClothArrowEntity(LivingEntity shooter, World world) {
         super(ModEntities.CLOTH_ARROW.get(), shooter, world);
-        this.clothArrowStack = new ItemStack(ModItems.CLOTH_ARROW.get());
     }
 
     public KHClothArrowEntity(EntityType<KHClothArrowEntity> khClothArrowEntityEntityType, World world) {
@@ -30,13 +28,13 @@ public class KHClothArrowEntity extends SCArrowEntity {
 
     @Override
     protected ItemStack asItemStack() {
-        return this.clothArrowStack;
+        return new ItemStack(ModItems.CLOTH_ARROW.get());
     }
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
-            scHitEntity(target, clothArrowStack, getDamageAmount());
+            scHitEntity(target, new ItemStack(ModItems.CLOTH_ARROW.get()), getDamageAmount());
         }
         super.onEntityHit(entityHitResult);
     }

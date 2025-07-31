@@ -10,11 +10,8 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
 public class KHBroadheadArrowEntity extends SCArrowEntity {
-    private ItemStack broadheadArrowStack;
-
     public KHBroadheadArrowEntity(LivingEntity shooter, World world) {
         super(ModEntities.BROADHEAD_ARROW.get(), shooter, world);
-        this.broadheadArrowStack = new ItemStack(ModItems.BROADHEAD_ARROW.get());
     }
 
     public KHBroadheadArrowEntity(EntityType<KHBroadheadArrowEntity> khBroadheadArrowEntityEntityType, World world) {
@@ -23,13 +20,13 @@ public class KHBroadheadArrowEntity extends SCArrowEntity {
 
     @Override
     protected ItemStack asItemStack() {
-        return this.broadheadArrowStack;
+        return new ItemStack(ModItems.BROADHEAD_ARROW.get());
     }
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
-            scHitEntity(target, broadheadArrowStack, getDamageAmount());
+            scHitEntity(target, new ItemStack(ModItems.BROADHEAD_ARROW.get()), getDamageAmount());
         }
         super.onEntityHit(entityHitResult);
     }

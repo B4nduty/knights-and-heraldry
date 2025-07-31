@@ -14,11 +14,9 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
 public class KHBodkinArrowEntity extends SCArrowEntity {
-    private ItemStack bodkinArrowStack;
 
     public KHBodkinArrowEntity(LivingEntity shooter, World world) {
         super(ModEntities.BODKING_ARROW.get(), shooter, world);
-        this.bodkinArrowStack = new ItemStack(ModItems.BODKIN_ARROW.get());
     }
 
     public KHBodkinArrowEntity(EntityType<KHBodkinArrowEntity> scArrowEntityEntityType, World world) {
@@ -27,7 +25,7 @@ public class KHBodkinArrowEntity extends SCArrowEntity {
 
     @Override
     protected ItemStack asItemStack() {
-        return this.bodkinArrowStack;
+        return new ItemStack(ModItems.BODKIN_ARROW.get());
     }
 
     @Override

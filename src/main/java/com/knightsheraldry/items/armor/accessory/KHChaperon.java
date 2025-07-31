@@ -32,6 +32,11 @@ public class KHChaperon extends AccessoryItem implements SCAccessoryItem, Dyeabl
     }
 
     @Override
+    public boolean shouldNotRenderOnHeadInFirstPerson() {
+        return true;
+    }
+
+    @Override
     public Identifier getTexturePath(ItemStack itemStack) {
         return new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/chaperon.png");
     }

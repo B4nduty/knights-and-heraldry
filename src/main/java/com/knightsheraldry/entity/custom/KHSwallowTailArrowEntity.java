@@ -13,12 +13,10 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
 public class KHSwallowTailArrowEntity extends SCArrowEntity {
-    private ItemStack swallowTailArrowStack;
     private PlayerEntity stuckPlayer;
 
     public KHSwallowTailArrowEntity(LivingEntity shooter, World world) {
         super(ModEntities.SWALLOWTAIL_ARROW.get(), shooter, world);
-        this.swallowTailArrowStack = new ItemStack(ModItems.SWALLOWTAIL_ARROW.get());
     }
 
     public KHSwallowTailArrowEntity(EntityType<KHSwallowTailArrowEntity> khSwallowTailArrowEntityEntityType, World world) {
@@ -27,7 +25,7 @@ public class KHSwallowTailArrowEntity extends SCArrowEntity {
 
     @Override
     protected ItemStack asItemStack() {
-        return this.swallowTailArrowStack;
+        return new ItemStack(ModItems.SWALLOWTAIL_ARROW.get());
     }
 
     @Override
@@ -41,7 +39,7 @@ public class KHSwallowTailArrowEntity extends SCArrowEntity {
             updateSwallowTailArrowCount(player);
         }
 
-        scHitEntity(target, swallowTailArrowStack, getDamageAmount());
+        scHitEntity(target, new ItemStack(ModItems.SWALLOWTAIL_ARROW.get()), getDamageAmount());
         super.onEntityHit(entityHitResult);
     }
 

@@ -24,6 +24,11 @@ public class KHHelmetAccessory extends AccessoryItem implements SCAccessoryItem 
     }
 
     @Override
+    public boolean shouldNotRenderOnHeadInFirstPerson() {
+        return true;
+    }
+
+    @Override
     public Identifier getTexturePath(ItemStack itemStack) {
         return new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + this + ".png");
     }
