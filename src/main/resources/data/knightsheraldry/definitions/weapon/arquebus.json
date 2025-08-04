@@ -1,17 +1,18 @@
 {
-  "usage": "ranged",
-  "baseDamage": 21,
-  "speed": 5.9,
-  "divergence": 2,
-  "maxUseTime": 1,
-  "rechargeTime": 15,
-  "needsFlintAndSteel": false,
-  "damageType": "bludgeoning",
-  "useAction": "bow",
-  "ammoRequirement": {
-    "item1": ["stoneycore:black_powder", 1],
-    "item2": ["minecraft:iron_nugget", "minecraft:gravel", 1],
-    "item3": ["minecraft:paper", "minecraft:grass", 1]
-  },
-  "soundEvent": ["knightsheraldry:arquebus_close"]
+  "ranged": {
+    "baseDamage": 21,
+    "speed": 5.9,
+    "divergence": 2,
+    "maxUseTime": 1,
+    "rechargeTime": 15,
+    "needsFlintAndSteel": false,
+    "damageType": "bludgeoning",
+    "useAction": "bow",
+    "ammoRequirement": {
+      "item1": ["stoneycore:black_powder", 1],
+      "item2": ["minecraft:iron_nugget", "minecraft:gravel", 1],
+      "item3": ["minecraft:paper", "minecraft:grass", 1]
+    },
+    "soundEvent": ["knightsheraldry:arquebus_close"]
+  }
 }

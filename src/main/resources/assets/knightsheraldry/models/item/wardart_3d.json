@@ -4,7 +4,7 @@
 		"layer0": "knightsheraldry:item/wardart_3d"
 	},
 	"overrides": [
-		{ "predicate": { "charged": 1 }, "model": "knightsheraldry:item/wardart_3d_charged" }
+		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/wardart_3d_charged" }
 	],
 	"display": {
 		"thirdperson_righthand": {

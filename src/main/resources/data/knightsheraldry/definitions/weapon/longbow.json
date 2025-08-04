@@ -1,14 +1,13 @@
 {
-  "usage": "ranged",
-  "baseDamage": 14,
-  "speed": 3.7,
-  "divergence": 1,
-  "maxUseTime": 72000,
-  "rechargeTime": 0,
-  "needsFlintAndSteel": false,
-  "damageType": "piercing",
-  "useAction": "bow",
-  "soundEvents": [
-    "minecraft:entity.arrow.shoot"
-  ]
+  "ranged": {
+    "baseDamage": 14,
+    "speed": 3.7,
+    "divergence": 1,
+    "maxUseTime": 72000,
+    "rechargeTime": 0,
+    "needsFlintAndSteel": false,
+    "damageType": "piercing",
+    "useAction": "bow",
+    "soundEvent": "minecraft:entity.arrow.shoot"
+  }
 }
