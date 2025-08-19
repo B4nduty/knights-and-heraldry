@@ -29,7 +29,8 @@ public class KHSwallowTailArrowEntity extends SCArrowEntity {
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
+    protected void onSCEntityHit(EntityHitResult entityHitResult) {
+        super.onSCEntityHit(entityHitResult);
         LivingEntity target = (LivingEntity) entityHitResult.getEntity();
 
         if (target instanceof PlayerEntity player && stuckPlayer == null) {
@@ -40,7 +41,6 @@ public class KHSwallowTailArrowEntity extends SCArrowEntity {
         }
 
         scHitEntity(target, new ItemStack(ModItems.SWALLOWTAIL_ARROW.get()), getDamageAmount());
-        super.onEntityHit(entityHitResult);
     }
 
     private void updateSwallowTailArrowCount(PlayerEntity player) {

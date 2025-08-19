@@ -15,14 +15,16 @@ public class UseItemHandler implements UseItemCallback {
     public TypedActionResult<ItemStack> interact(PlayerEntity playerEntity, World world, Hand hand) {
         ItemStack itemStack = playerEntity.getStackInHand(hand);
 
-        if ((itemStack.getItem() instanceof Handgonne || itemStack.getItem() instanceof Arquebus) && isRaining(world, playerEntity)) {
+        if ((itemStack.getItem() instanceof Handgonne || itemStack.getItem() instanceof Arquebus) && isRainingOrUnderWater(world, playerEntity)) {
             return TypedActionResult.fail(itemStack);
         }
 
         return TypedActionResult.pass(itemStack);
     }
 
-    private boolean isRaining(World world, PlayerEntity player) {
+    private boolean isRainingOrUnderWater(World world, PlayerEntity player) {
+        if (player.isSubmergedInWater()) return true;
+
         if (!world.isRaining()) {
             return false;
         }

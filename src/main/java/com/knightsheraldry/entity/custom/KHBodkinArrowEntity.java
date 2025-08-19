@@ -29,11 +29,12 @@ public class KHBodkinArrowEntity extends SCArrowEntity {
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
+    protected void onSCEntityHit(EntityHitResult entityHitResult) {
+        super.onSCEntityHit(entityHitResult);
+        if (this.getWorld().isClient()) return;
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
             applyDamage(target);
         }
-        super.onEntityHit(entityHitResult);
     }
 
     public void applyDamage(LivingEntity target) {

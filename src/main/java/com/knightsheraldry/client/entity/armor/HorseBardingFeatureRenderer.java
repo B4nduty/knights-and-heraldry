@@ -33,18 +33,33 @@ public class HorseBardingFeatureRenderer extends FeatureRenderer<HorseEntity, Ho
         ItemStack armorStack = horse.getArmorType();
         if (!armorStack.isEmpty() && armorStack.getItem() instanceof HorseBardingArmorItem horseBardingArmorItem) {
             this.getContextModel().copyStateTo(this.armorModel);
-            this.armorModel.setAngles(horse, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
+
             this.armorModel.animateModel(horse, limbAngle, limbDistance, tickDelta);
+            this.armorModel.setAngles(horse, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
+
+            // Base armor texture
             VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntityCutoutNoCull(HORSE_ARMOR_TEXTURE));
             this.armorModel.render(matrices, vertexConsumer, light, LivingEntityRenderer.getOverlay(horse, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
+
+            // Overlay texture (dyed color)
             int colorInt = horseBardingArmorItem.getColor(armorStack);
-            float[] colorFloat = new float[]{(colorInt >> 16 & 255) / 255.0F, (colorInt >> 8 & 255) / 255.0F, (colorInt & 255) / 255.0F};
+            float[] colorFloat = new float[]{
+                    (colorInt >> 16 & 255) / 255.0F,
+                    (colorInt >> 8 & 255) / 255.0F,
+                    (colorInt & 255) / 255.0F
+            };
             VertexConsumer vertexConsumerOverlay = vertexConsumers.getBuffer(RenderLayer.getEntityCutoutNoCull(HORSE_ARMOR_TEXTURE_OVERLAY));
             this.armorModel.render(matrices, vertexConsumerOverlay, light, LivingEntityRenderer.getOverlay(horse, 0.0F), colorFloat[0], colorFloat[1], colorFloat[2], 1.0F);
+
+            // Plume texture (optional, dyed color)
             if (armorStack.getNbt() != null && armorStack.getNbt().contains("kh_plume")) {
                 colorInt = armorStack.getNbt().getInt("kh_plume");
             }
-            colorFloat = new float[]{(colorInt >> 16 & 255) / 255.0F, (colorInt >> 8 & 255) / 255.0F, (colorInt & 255) / 255.0F};
+            colorFloat = new float[]{
+                    (colorInt >> 16 & 255) / 255.0F,
+                    (colorInt >> 8 & 255) / 255.0F,
+                    (colorInt & 255) / 255.0F
+            };
             VertexConsumer vertexConsumerPlume = vertexConsumers.getBuffer(RenderLayer.getEntityCutoutNoCull(HORSE_ARMOR_TEXTURE_PLUME));
             this.armorModel.plume.render(matrices, vertexConsumerPlume, light, LivingEntityRenderer.getOverlay(horse, 0.0F), colorFloat[0], colorFloat[1], colorFloat[2], 1.0F);
         }

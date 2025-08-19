@@ -32,11 +32,11 @@ public class KHClothArrowEntity extends SCArrowEntity {
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
+    protected void onSCEntityHit(EntityHitResult entityHitResult) {
+        super.onSCEntityHit(entityHitResult);
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
             scHitEntity(target, new ItemStack(ModItems.CLOTH_ARROW.get()), getDamageAmount());
         }
-        super.onEntityHit(entityHitResult);
     }
 
     @Override
