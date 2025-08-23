@@ -1,6 +1,6 @@
 package com.knightsheraldry.util.itemdata;
 
-import banduty.stoneycore.util.definitionsloader.SCWeaponDefinitionsLoader;
+import banduty.stoneycore.util.definitionsloader.WeaponDefinitionsLoader;
 import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
@@ -25,12 +25,12 @@ public class ModModelPredicates {
                     SCRangeWeaponUtil.getWeaponState(stack).isReloading() || SCRangeWeaponUtil.getWeaponState(stack).isCharged() ? 1.0F : 0.0F);
 
             ModelPredicateProviderRegistry.register(item, new Identifier("pull"), (stack, world, entity, seed) -> {
-                if (entity == null || !SCWeaponDefinitionsLoader.isRanged(stack)) {
+                if (entity == null || !WeaponDefinitionsLoader.isRanged(stack)) {
                     return 0.0F;
                 } else if (SCRangeWeaponUtil.getWeaponState(stack).isCharged()) {
                     return 1.0F;
                 } else {
-                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F / SCWeaponDefinitionsLoader.getData(stack).ranged().rechargeTime();
+                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F / WeaponDefinitionsLoader.getData(stack).ranged().rechargeTime();
                 }
             });
             return;

@@ -1,5 +1,6 @@
 package com.knightsheraldry.mixin;
 
+import banduty.stoneycore.items.armor.SCAccessoryItem;
 import com.knightsheraldry.items.ModItems;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.CraftingResultInventory;
@@ -22,11 +23,19 @@ public abstract class CraftingScreenHandlerMixin {
             at = @At(value = "TAIL")
     )
     private static void onUpdateResult(ScreenHandler handler, World world, PlayerEntity player, RecipeInputInventory craftingInventory, CraftingResultInventory resultInventory, CallbackInfo ci) {
-        ItemStack result = resultInventory.getStack(0);
+        ItemStack craftingRecipeItem = null;
+        for (int i = 0; i < craftingInventory.size(); i++) {
+            craftingRecipeItem = craftingInventory.getStack(i);
+            if (!craftingRecipeItem.isEmpty() && craftingRecipeItem.isOf(resultInventory.getStack(0).getItem())) break;
+        }
 
-        ItemStack modified = result.copy();
-        applyPreviewModifiers(modified, craftingInventory);
-        resultInventory.setStack(0, modified);
+        if (craftingRecipeItem == null || craftingRecipeItem.isEmpty()) return;
+
+        if (craftingRecipeItem.getItem() instanceof SCAccessoryItem) {
+            ItemStack modified = craftingRecipeItem.copy();
+            applyPreviewModifiers(modified, craftingInventory);
+            resultInventory.setStack(0, modified);
+        }
     }
 
     @Unique

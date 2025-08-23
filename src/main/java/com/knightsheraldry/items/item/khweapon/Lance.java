@@ -13,8 +13,6 @@ import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -121,9 +119,6 @@ public class Lance extends SwordItem {
     private static void doChargeProgress(int useTicks, ItemStack stack, LivingEntity user, World world) {
         float f = (float)useTicks / (float)40;
         if (f >= 1.0F && !isCharged(stack) && user instanceof PlayerEntity player) {
-            world.playSound(null, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.ITEM_CROSSBOW_LOADING_END, SoundCategory.PLAYERS, 1.0F,
-                    1.0F / (world.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
             setCharged(stack, true);
             player.sendMessage(Text.literal("Has been charged"), true);
         }
@@ -150,11 +145,11 @@ public class Lance extends SwordItem {
 
     public static boolean isCharged(ItemStack stack) {
         NbtCompound nbtCompound = stack.getNbt();
-        return nbtCompound != null && nbtCompound.getBoolean("kh_charged");
+        return nbtCompound != null && nbtCompound.getBoolean("sc_charged");
     }
 
     public static void setCharged(ItemStack stack, boolean charged) {
         NbtCompound nbtCompound = stack.getOrCreateNbt();
-        nbtCompound.putBoolean("kh_charged", charged);
+        nbtCompound.putBoolean("sc_charged", charged);
     }
 }

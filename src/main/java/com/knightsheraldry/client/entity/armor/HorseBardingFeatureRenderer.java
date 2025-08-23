@@ -38,7 +38,7 @@ public class HorseBardingFeatureRenderer extends FeatureRenderer<HorseEntity, Ho
             this.armorModel.setAngles(horse, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
 
             // Base armor texture
-            VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntityCutoutNoCull(HORSE_ARMOR_TEXTURE));
+            VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(HORSE_ARMOR_TEXTURE));
             this.armorModel.render(matrices, vertexConsumer, light, LivingEntityRenderer.getOverlay(horse, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
 
             // Overlay texture (dyed color)
@@ -48,7 +48,7 @@ public class HorseBardingFeatureRenderer extends FeatureRenderer<HorseEntity, Ho
                     (colorInt >> 8 & 255) / 255.0F,
                     (colorInt & 255) / 255.0F
             };
-            VertexConsumer vertexConsumerOverlay = vertexConsumers.getBuffer(RenderLayer.getEntityCutoutNoCull(HORSE_ARMOR_TEXTURE_OVERLAY));
+            VertexConsumer vertexConsumerOverlay = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(HORSE_ARMOR_TEXTURE_OVERLAY));
             this.armorModel.render(matrices, vertexConsumerOverlay, light, LivingEntityRenderer.getOverlay(horse, 0.0F), colorFloat[0], colorFloat[1], colorFloat[2], 1.0F);
 
             // Plume texture (optional, dyed color)

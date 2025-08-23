@@ -1,5 +1,7 @@
 package com.knightsheraldry.entity.custom;
 
+import banduty.stoneycore.util.SCDamageCalculator;
+import banduty.stoneycore.util.definitionsloader.WeaponDefinitionsLoader;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.items.ModItems;
@@ -65,7 +67,9 @@ public class WarDartEntity extends PersistentProjectileEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         if (entityHitResult.getEntity() instanceof LivingEntity livingEntity) {
             livingEntity.addStatusEffect(new StatusEffectInstance(ModEffects.PIN, 100, 0));
-            livingEntity.damage(this.getDamageSources().genericKill(), 0.1f);
+            livingEntity.damage(this.getDamageSources().genericKill(),
+                    WeaponDefinitionsLoader.getData(ModItems.WARDART.get()).melee().damage()
+                            .getOrDefault(SCDamageCalculator.DamageType.PIERCING.name(), 0f));
         }
     }
 

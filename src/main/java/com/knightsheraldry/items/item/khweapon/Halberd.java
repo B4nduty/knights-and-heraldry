@@ -31,9 +31,8 @@ public class Halberd extends SwordItem {
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.getPos());
-                        float damage = SCDamageCalculator.getSCDamage(playerEntity, SCWeaponUtil.calculateDamage(this, distance,
-                                damageType.name()), damageType);
-                        float maxDamage = SCWeaponUtil.getDamageValues(damageType.name(), this);
+                        float damage = SCDamageCalculator.getSCDamage(playerEntity, SCWeaponUtil.calculateDamage(this, distance, damageType), damageType);
+                        float maxDamage = SCWeaponUtil.getDamageValues(damageType, this);
 
                         if (damage >= maxDamage) {
                             critical = true;

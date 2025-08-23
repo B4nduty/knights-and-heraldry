@@ -73,10 +73,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createPlumeRecipe(exporter,  ModItems.MAXIMILLIAN_HELMET.get());
         createPlumeRecipe(exporter,  ModItems.HORSE_BARDING.get());
 
-        createPauldronRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.RIM_GUARDS.get(), "plate_pauldron_rim");
-        createPauldronRecipe(exporter, ModItems.MAIL_PAULDRON.get(), ModItems.BESAGEWS.get(), "mail_pauldron_besagews");
-        createPauldronRecipe(exporter, ModItems.BRIGANDINE_PAULDRON.get(), ModItems.BESAGEWS.get(), "brigandine_pauldron_besagews");
-        createPauldronRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.BESAGEWS.get(), "plate_pauldron_besagews");
+        createEasyRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, ModItems.MAIL_PAULDRON.get(), ModItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, ModItems.BRIGANDINE_PAULDRON.get(), ModItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, ModItems.MAIL_PAULDRON.get(), ModItems.BESAGEWS.get());
+        createEasyRecipe(exporter, ModItems.BRIGANDINE_PAULDRON.get(), ModItems.BESAGEWS.get());
+        createEasyRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.BESAGEWS.get());
+        createEasyRecipe(exporter, ModItems.MAIL_PAULDRON.get(), ModItems.BESAGEWS.get(), ModItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, ModItems.BRIGANDINE_PAULDRON.get(), ModItems.BESAGEWS.get(), ModItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.BESAGEWS.get(), ModItems.RIM_GUARDS.get());
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SURCOAT.get(), 1)
                 .input(ModItems.SURCOAT.get())
@@ -135,12 +140,24 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         }
     }
 
-    private void createPauldronRecipe(Consumer<RecipeJsonProvider> exporter, Item pauldron, Item attachment, String recipeName) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, pauldron, 1)
-                .input(pauldron)
-                .input(attachment)
-                .criterion(hasItem(pauldron), conditionsFromItem(pauldron))
-                .criterion(hasItem(attachment), conditionsFromItem(attachment))
-                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, recipeName));
+    private void createEasyRecipe(Consumer<RecipeJsonProvider> exporter, Item principal, Item... attachments) {
+        ShapelessRecipeJsonBuilder builder = ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, principal, 1)
+                .input(principal)
+                .criterion(hasItem(principal), conditionsFromItem(principal));
+
+        for (Item attachment : attachments) {
+            builder.input(attachment)
+                    .criterion(hasItem(attachment), conditionsFromItem(attachment));
+        }
+
+        StringBuilder recipeId = new StringBuilder(Registries.ITEM.getId(principal).getPath());
+        for (Item attachment : attachments) {
+            recipeId.append("_").append(Registries.ITEM.getId(attachment).getPath());
+        }
+
+        builder.offerTo(exporter, new Identifier(
+                KnightsHeraldry.MOD_ID,
+                recipeId.toString()
+        ));
     }
 }
