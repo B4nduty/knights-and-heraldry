@@ -27,23 +27,22 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     @Inject(method = "tick", at = @At("HEAD"))
     private void knightsheraldry$onTick(CallbackInfo ci) {
         ItemStack lanceStack = getLanceStack(playerEntity);
-        if (lanceStack != null && lanceStack.getNbt() != null && lanceStack.getNbt().getBoolean("kh_charged")
-                && playerEntity instanceof ServerPlayerEntity serverPlayer) {
+        if (!(lanceStack != null && lanceStack.getNbt() != null && lanceStack.getNbt().getBoolean("sc_charged")
+                && playerEntity instanceof ServerPlayerEntity serverPlayer)) return;
 
-            NbtCompound nbt = stoneycore$getPersistentData();
-            int nonSprintingTicks = nbt.getInt("nonSprintingTicks");
+        NbtCompound nbt = stoneycore$getPersistentData();
+        int nonSprintingTicks = nbt.getInt("nonSprintingTicks");
 
-            BlockPos previousBlockPos = BlockPos.fromLong(nbt.getLong("previousBlockPos"));
-            BlockPos currentBlockPos = serverPlayer.getBlockPos();
+        BlockPos previousBlockPos = BlockPos.fromLong(nbt.getLong("previousBlockPos"));
+        BlockPos currentBlockPos = serverPlayer.getBlockPos();
 
-            boolean staying = currentBlockPos.equals(previousBlockPos);
+        boolean staying = currentBlockPos.equals(previousBlockPos);
 
-            float velocity = calculateVelocity(serverPlayer, nonSprintingTicks, staying);
+        float velocity = calculateVelocity(serverPlayer, nonSprintingTicks, staying);
 
-            PlayerVelocity.updatePreviousBlockPos(this, currentBlockPos.asLong());
-            PlayerVelocity.updateSpeedHistory(this, velocity);
-            PlayerVelocity.updateNonSprintingTicks(this, nonSprintingTicks);
-        }
+        PlayerVelocity.updatePreviousBlockPos(this, currentBlockPos.asLong());
+        PlayerVelocity.updateSpeedHistory(this, velocity);
+        PlayerVelocity.updateNonSprintingTicks(this, nonSprintingTicks);
     }
 
     @Unique
@@ -60,24 +59,32 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
 
         if (player.isSprinting()) {
             velocity *= 1.3f;
-            stoneycore$getPersistentData().putInt("nonSprintingTicks", 0);
-        } else {
-            nonSprintingTicks++;
-            if (nonSprintingTicks >= 3) {
-                if (nonSprintingTicks >= 5 && staying) {
-                    velocity *= 0.1f;
-                    stoneycore$getPersistentData().putInt("nonSprintingTicks", 0);
-                } else if (player.isSneaking()) {
-                    velocity *= 0.3f;
-                    stoneycore$getPersistentData().putInt("nonSprintingTicks", 0);
-                } else if (player.hasVehicle()) {
-                    velocity = getVehicleVelocity(player);
-                    stoneycore$getPersistentData().putInt("nonSprintingTicks", 0);
-                }
-            }
+            resetNonSprintingTicks();
+            return velocity;
         }
 
+        nonSprintingTicks++;
+        if (nonSprintingTicks < 3) {
+            return velocity; // No penalty yet
+        }
+
+        if (nonSprintingTicks >= 5 && staying) {
+            velocity *= 0.1f;
+        } else if (player.isSneaking()) {
+            velocity *= 0.3f;
+        } else if (player.hasVehicle()) {
+            velocity = getVehicleVelocity(player);
+        } else {
+            return velocity; // Nothing special triggered
+        }
+
+        resetNonSprintingTicks();
         return velocity;
+    }
+
+    @Unique
+    private void resetNonSprintingTicks() {
+        stoneycore$getPersistentData().putInt("nonSprintingTicks", 0);
     }
 
     @Unique

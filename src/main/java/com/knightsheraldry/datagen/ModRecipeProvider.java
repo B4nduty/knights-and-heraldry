@@ -74,8 +74,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createPlumeRecipe(exporter,  ModItems.HORSE_BARDING.get());
 
         createEasyRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, ModItems.MAIL_PAULDRON.get(), ModItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, ModItems.BRIGANDINE_PAULDRON.get(), ModItems.RIM_GUARDS.get());
         createEasyRecipe(exporter, ModItems.MAIL_PAULDRON.get(), ModItems.BESAGEWS.get());
         createEasyRecipe(exporter, ModItems.BRIGANDINE_PAULDRON.get(), ModItems.BESAGEWS.get());
         createEasyRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.BESAGEWS.get());

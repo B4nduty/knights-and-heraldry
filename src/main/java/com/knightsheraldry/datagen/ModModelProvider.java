@@ -133,7 +133,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SWALLOWTAIL_ARROW.get(), Models.HANDHELD);
         itemModelGenerator.register(ModItems.BODKIN_ARROW.get(), Models.HANDHELD);
         itemModelGenerator.register(ModItems.BROADHEAD_ARROW.get(), Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CLOTH_ARROW.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.PLUME.get(), Models.HANDHELD);
 

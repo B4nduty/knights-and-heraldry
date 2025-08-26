@@ -2,6 +2,7 @@
   "armor": 2,
   "toughness": 2,
   "hungerDrainMultiplier": 0.1,
+  "weight": 8,
   "deflectChance": {
     "minecraft:arrow": 0.05,
     "knightsheraldry:bodkin_arrow": 0.05,

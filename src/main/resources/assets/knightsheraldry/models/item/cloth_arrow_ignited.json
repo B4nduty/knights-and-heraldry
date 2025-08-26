@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "knightsheraldry:item/cloth_arrow"
+    "layer0": "knightsheraldry:item/cloth_arrow_ignited"
   }
 }

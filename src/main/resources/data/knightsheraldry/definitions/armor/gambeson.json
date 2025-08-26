@@ -1,4 +1,5 @@
 {
+  "weight": 5,
   "damageResistance": {
     "slashing": 0.04,
     "bludgeoning": 0.1,

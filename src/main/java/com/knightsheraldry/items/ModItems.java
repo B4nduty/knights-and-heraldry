@@ -12,6 +12,7 @@ import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import com.knightsheraldry.items.armor.accessory.*;
 import com.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import com.knightsheraldry.items.item.DyeableItems;
+import com.knightsheraldry.items.item.khammo.ClothArrow;
 import com.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import com.knightsheraldry.items.item.khrangeweapon.Handgonne;
 import com.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
@@ -286,7 +287,7 @@ public class ModItems {
     public static final RegistrySupplier<Item> BROADHEAD_ARROW = ITEMS.register("broadhead_arrow", () ->
             new SCArrow(new Item.Settings(), KHBroadheadArrowEntity::new));
     public static final RegistrySupplier<Item> CLOTH_ARROW = ITEMS.register("cloth_arrow", () ->
-            new SCArrow(new Item.Settings(), KHClothArrowEntity::new));
+            new ClothArrow(new Item.Settings().maxCount(6), KHClothArrowEntity::new));
 
     public static final RegistrySupplier<Item> HORSE_BARDING = ITEMS.register("horse_barding", () ->
             new HorseBardingArmorItem(7, new Item.Settings().maxCount(1)));

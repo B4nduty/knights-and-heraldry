@@ -62,7 +62,7 @@ public class Lance extends SwordItem {
                     if (livingEntity.hasVehicle()) livingEntity.stopRiding();
 
                     stack.damage(1, player, p -> p.sendToolBreakStatus(livingEntity.getActiveHand()));
-                    SCDamageCalculator.applyDamage(livingEntity, player, stack, damage);
+                    targetedEntity.damage(player.getWorld().getDamageSources().playerAttack(player), damage);
                     if (!player.isCreative()) player.getItemCooldownManager().set(this, KnightsHeraldry.getConfig().getLanceCooldown() * 20);
                 }
             }
@@ -88,7 +88,7 @@ public class Lance extends SwordItem {
         Vec3d end = start.add(direction.multiply(range));
 
         Box box = player.getBoundingBox().stretch(direction.multiply(range)).expand(1.0, 1.0, 1.0);
-        Predicate<Entity> validEntity = (entity) -> !entity.isSpectator() && entity.isAlive() && entity != player;
+        Predicate<Entity> validEntity = (entity) -> !entity.isSpectator() && entity.isAlive();
         EntityHitResult entityHitResult = ProjectileUtil.raycast(player, start, end, box, validEntity, range * range);
 
         return entityHitResult != null ? entityHitResult.getEntity() : null;
@@ -104,7 +104,7 @@ public class Lance extends SwordItem {
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (!world.isClient && user instanceof PlayerEntity player && !player.getItemCooldownManager().isCoolingDown(this)) {
             int i = this.getMaxUseTime(stack) - remainingUseTicks;
-            doChargeProgress(i, stack, user, world);
+            doChargeProgress(i, stack, user);
             float f = (float)(stack.getMaxUseTime() - remainingUseTicks) / (float)40;
             if (f < 1.0F) {
                 this.charged = false;
@@ -116,7 +116,7 @@ public class Lance extends SwordItem {
         }
     }
 
-    private static void doChargeProgress(int useTicks, ItemStack stack, LivingEntity user, World world) {
+    private static void doChargeProgress(int useTicks, ItemStack stack, LivingEntity user) {
         float f = (float)useTicks / (float)40;
         if (f >= 1.0F && !isCharged(stack) && user instanceof PlayerEntity player) {
             setCharged(stack, true);

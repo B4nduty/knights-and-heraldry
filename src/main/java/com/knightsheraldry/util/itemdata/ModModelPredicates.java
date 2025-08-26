@@ -71,9 +71,11 @@ public class ModModelPredicates {
                         stack.hasNbt() && stack.getNbt().getBoolean("sc_charged") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
                 (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
-
         ModelPredicateProviderRegistry.register(item, new Identifier("bludgeoning"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
                         stack.getNbt().getBoolean("sc_bludgeoning") ? 1.0F : 0.0F);
+        ModelPredicateProviderRegistry.register(item, new Identifier("ignited"),
+                (stack, world, entity, seed) -> stack.hasNbt() &&
+                        stack.getNbt().getBoolean("ignited") ? 1.0F : 0.0F);
     }
 }

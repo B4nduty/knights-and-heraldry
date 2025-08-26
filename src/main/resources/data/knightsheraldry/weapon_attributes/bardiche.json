@@ -5,6 +5,9 @@
     "attacks": [
       {
         "damageMultiplier": 0.0
+      },
+      {
+        "damageMultiplier": 0.0
       }
     ]
   }
