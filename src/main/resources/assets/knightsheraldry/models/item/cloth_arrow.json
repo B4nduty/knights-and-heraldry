@@ -4,6 +4,7 @@
     "layer0": "knightsheraldry:item/cloth_arrow"
   },
   "overrides": [
-    { "predicate": { "ignited": 1 }, "model": "knightsheraldry:item/cloth_arrow_ignited" }
+    { "predicate": { "ignited": 1 }, "model": "knightsheraldry:item/cloth_arrow_ignited" },
+    { "predicate": { "extinguished": 1 }, "model": "knightsheraldry:item/cloth_arrow_extinguished" }
   ]
 }

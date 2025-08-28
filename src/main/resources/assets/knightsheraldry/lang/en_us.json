@@ -196,6 +196,9 @@
   "text.tooltip.knightsheraldry.right_click-to-charge": "§4Right-Click §rto §lCharge §rfor §l2 Seconds",
   "text.tooltip.knightsheraldry.on-charge": "On §4Charge §rit will §lAuto Attack",
   "text.tooltip.knightsheraldry.throw-to-pin": "§lThrow §rto §4Pin §ran §lEntity §rfor §45 §lSeconds",
+  "text.tooltip.knightsheraldry.ignite": "Right-click with §lFlint & Steel §rto ignite",
+  "text.tooltip.knightsheraldry.extinguish": "Right-click with §lWater Bucket §rto extinguish",
+  "text.tooltip.knightsheraldry.right_click-flint_steel-fire": "Right-click with §lFlint & Steel §rto fire",
 
   "text.config.knightsheraldry.title": "Knights & Heraldry",
   "text.config.knightsheraldry.section.lance": "Lance",

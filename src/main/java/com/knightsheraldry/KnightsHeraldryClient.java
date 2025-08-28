@@ -3,6 +3,7 @@ package com.knightsheraldry;
 import banduty.stoneycore.event.custom.RenderOverlayAndAdditionsEvents;
 import com.knightsheraldry.client.entity.*;
 import com.knightsheraldry.entity.ModEntities;
+import com.knightsheraldry.event.ItemTooltipHandler;
 import com.knightsheraldry.event.RenderFirstPersonAccessoryArmorHandler;
 import com.knightsheraldry.event.RenderOverlayAndAdditionsHandler;
 import com.knightsheraldry.items.ModItems;
@@ -18,6 +19,7 @@ import dev.architectury.platform.Platform;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -32,6 +34,7 @@ public class KnightsHeraldryClient implements ClientModInitializer {
     @Environment(EnvType.CLIENT)
     public void onInitializeClient() {
         ModMessages.registerS2CPackets();
+        ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
         RenderOverlayAndAdditionsEvents.EVENT.register(new RenderOverlayAndAdditionsHandler());
         RenderFirstPersonAccessoryArmorHandler.EVENT.register(new RenderFirstPersonAccessoryArmorHandler());
 

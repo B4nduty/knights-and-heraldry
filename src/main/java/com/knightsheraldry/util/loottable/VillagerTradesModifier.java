@@ -150,6 +150,7 @@ public class VillagerTradesModifier {
                 ModItems.CLOAK.get(), ModItems.TORN_CLOAK.get());
         addRandomTradeOffer(VillagerProfession.SHEPHERD, 1,15, 32, 1,
                 ModItems.HOOD.get(), ModItems.TORN_HOOD.get());
+        addRandomTradeOffer(VillagerProfession.SHEPHERD, 1,30, 12, 5, ModItems.HELMET_HOOD.get(), ModItems.HELMET_TORN_HOOD.get());
         addTradeOffer(VillagerProfession.SHEPHERD, 1,1, 32, 1, ModItems.CHAPERON.get());
 
 
@@ -158,26 +159,25 @@ public class VillagerTradesModifier {
 
 
         addTradeOffer(VillagerProfession.SHEPHERD, 4,20, 12, 5, ModItems.JESTER_HOOD.get());
-        addRandomTradeOffer(VillagerProfession.SHEPHERD, 1,30, 12, 5, ModItems.HELMET_HOOD.get(), ModItems.HELMET_TORN_HOOD.get());
 
 
         addTradeOffer(VillagerProfession.SHEPHERD, 5,32, 12, 15, ModItems.GILDED_CHAPERON.get());
     }
 
     private static void registerFletcherTrades() {
-        addTradeOffer(VillagerProfession.FLETCHER, 1,3, 32, 1, ModItems.BROADHEAD_ARROW.get());
+        addTradeOffer(VillagerProfession.FLETCHER, 1,1, 32, 1, ModItems.BROADHEAD_ARROW.get());
 
 
-        addTradeOffer(VillagerProfession.FLETCHER, 2,4, 32, 5, ModItems.SWALLOWTAIL_ARROW.get());
-        addTradeOffer(VillagerProfession.FLETCHER, 2,6, 32, 5, ModItems.BODKIN_ARROW.get());
-        addTradeOffer(VillagerProfession.FLETCHER, 2,6, 32, 5, ModItems.CLOTH_ARROW.get());
+        addTradeOffer(VillagerProfession.FLETCHER, 2,2, 32, 5, ModItems.SWALLOWTAIL_ARROW.get());
+        addTradeOffer(VillagerProfession.FLETCHER, 2,4, 32, 5, ModItems.BODKIN_ARROW.get());
         addTradeOffer(VillagerProfession.FLETCHER, 2,13, 12, 5, ModItems.LONGBOW.get());
 
 
+        addTradeOffer(VillagerProfession.FLETCHER, 3,6, 32, 5, ModItems.CLOTH_ARROW.get());
         addTradeOffer(VillagerProfession.FLETCHER, 3,15, 12, 10, ModItems.HEAVY_CROSSBOW.get());
 
 
-        addTradeOffer(VillagerProfession.FLETCHER, 4,4, 12, 5, ModItems.PLUME.get());
+        addTradeOffer(VillagerProfession.FLETCHER, 4,3, 12, 5, ModItems.PLUME.get());
 
     }
 }

@@ -100,7 +100,9 @@ public class AccessoryChestplateModel extends BipedEntityModel<LivingEntity> {
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		this.armorBody.copyTransform(this.body);
 		this.armorBody.pivotZ += 0.25F;
-		this.armorBody.zScale += 0.1F;
+		this.armorBody.xScale += 0.05F;
+		this.armorBody.yScale += 0.05F;
+		this.armorBody.zScale += 0.05F;
 		this.armorBody.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 
 		this.armorRightArm.copyTransform(this.rightArm);

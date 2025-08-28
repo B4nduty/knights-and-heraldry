@@ -29,13 +29,13 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(KnightsHeraldry.MOD_ID, RegistryKeys.ITEM);
 
     public static final RegistrySupplier<Item> DAGGER = ITEMS.register("dagger", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2F, new Item.Settings().maxDamage(151)));
 
     public static final RegistrySupplier<Item> STILETTO = ITEMS.register("stiletto", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2F, new Item.Settings().maxDamage(121)));
 
     public static final RegistrySupplier<Item> RAPIER = ITEMS.register("rapier", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.2F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.2F, new Item.Settings().maxDamage(161)));
 
     public static final RegistrySupplier<Item> SWORD = ITEMS.register("sword", () ->
             new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new Item.Settings().maxDamage(251)));
@@ -45,86 +45,86 @@ public class ModItems {
             new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new Item.Settings().maxDamage(251)));
 
     public static final RegistrySupplier<Item> AXE = ITEMS.register("axe", () ->
-            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(301)));
     public static final RegistrySupplier<Item> BROAD_AXE = ITEMS.register("broad_axe", () ->
-            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(301)));
     public static final RegistrySupplier<Item> CROOKED_AXE = ITEMS.register("crooked_axe", () ->
-            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(301)));
     public static final RegistrySupplier<Item> STRAIGHT_CROOKED_AXE = ITEMS.register("straight_crooked_axe", () ->
-            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(301)));
 
     public static final RegistrySupplier<Item> MACE = ITEMS.register("mace", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new Item.Settings().maxDamage(331)));
     public static final RegistrySupplier<Item> SPIKED_MACE = ITEMS.register("spiked_mace", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new Item.Settings().maxDamage(331)));
 
     public static final RegistrySupplier<Item> FLAIL = ITEMS.register("flail", () ->
-            new Flail(-2.8F, new Item.Settings().maxDamage(251)));
+            new Flail(-2.8F, new Item.Settings().maxDamage(201)));
     public static final RegistrySupplier<Item> BALL_FLAIL = ITEMS.register("ball_flail", () ->
-            new Flail(-2.8F, new Item.Settings().maxDamage(251)));
+            new Flail(-2.8F, new Item.Settings().maxDamage(201)));
 
     public static final RegistrySupplier<Item> HAMMER = ITEMS.register("hammer", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(331)));
     public static final RegistrySupplier<Item> WAR_HAMMER = ITEMS.register("war_hammer", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(331)));
 
     public static final RegistrySupplier<Item> LONGSWORD = ITEMS.register("longsword", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(281)));
     public static final RegistrySupplier<Item> V_LONGSWORD = ITEMS.register("v_longsword", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(281)));
 
     public static final RegistrySupplier<Item> FALCHION = ITEMS.register("falchion", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(281)));
     public static final RegistrySupplier<Item> SCIMITAR = ITEMS.register("scimitar", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.5F, new Item.Settings().maxDamage(281)));
 
     public static final RegistrySupplier<Item> PITCHFORK = ITEMS.register("pitchfork", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(181)));
 
     public static final RegistrySupplier<Item> SPEAR = ITEMS.register("spear", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.4F, new Item.Settings().maxDamage(181)));
 
     public static final RegistrySupplier<Item> PIKE = ITEMS.register("pike", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(151)));
 
     public static final RegistrySupplier<Item> BILLHOOK = ITEMS.register("billhook", () ->
-            new Billhook(-2.8F, new Item.Settings().maxDamage(251)));
+            new Billhook(-2.8F, new Item.Settings().maxDamage(301)));
 
     public static final RegistrySupplier<Item> GLAIVE = ITEMS.register("glaive", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(301)));
     public static final RegistrySupplier<Item> CURVED_GLAIVE = ITEMS.register("curved_glaive", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(301)));
 
     public static final RegistrySupplier<Item> HALBERD = ITEMS.register("halberd", () ->
-            new Halberd(-2.8F, new Item.Settings().maxDamage(251)));
+            new Halberd(-2.8F, new Item.Settings().maxDamage(301)));
 
     public static final RegistrySupplier<Item> LANCE = ITEMS.register("lance", () ->
-            new Lance(-3.0F, new Item.Settings().maxDamage(251), SCDamageCalculator.DamageType.PIERCING));
+            new Lance(-3.0F, new Item.Settings().maxDamage(1), SCDamageCalculator.DamageType.PIERCING));
     public static final RegistrySupplier<Item> WOODEN_LANCE = ITEMS.register("wooden_lance", () ->
             new WoodenLance(-3.0F, new Item.Settings().maxDamage(1), SCDamageCalculator.DamageType.PIERCING));
 
     public static final RegistrySupplier<Item> POLEAXE = ITEMS.register("poleaxe", () ->
-            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
+            new AxeItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(301)));
 
     public static final RegistrySupplier<Item> POLEHAMMER = ITEMS.register("polehammer", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(301)));
     public static final RegistrySupplier<Item> BEC_DE_CORBIN = ITEMS.register("bec_de_corbin", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(301)));
 
     public static final RegistrySupplier<Item> MORNING_STAR = ITEMS.register("morning_star", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new Item.Settings().maxDamage(301)));
 
     public static final RegistrySupplier<Item> BARDICHE = ITEMS.register("bardiche", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Settings().maxDamage(301)));
 
     public static final RegistrySupplier<Item> WARSWORD = ITEMS.register("warsword", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(301)));
     public static final RegistrySupplier<Item> WARSWORD_CLAYMORE = ITEMS.register("warsword_claymore", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(301)));
     public static final RegistrySupplier<Item> WARSWORD_FLAMBERGE = ITEMS.register("warsword_flamberge", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(301)));
     public static final RegistrySupplier<Item> WARSWORD_ZWEIHANDER = ITEMS.register("warsword_zweihander", () ->
-            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(251)));
+            new SwordItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Settings().maxDamage(301)));
 
     public static final RegistrySupplier<Item> WARDART = ITEMS.register("wardart", () ->
             new WarDart(-2.4F, new Item.Settings().maxDamage(251)));

@@ -1,6 +1,5 @@
 package com.knightsheraldry.mixin;
 
-import banduty.stoneycore.items.armor.SCAccessoryItem;
 import com.knightsheraldry.items.ModItems;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.CraftingResultInventory;
@@ -46,13 +45,11 @@ public abstract class CraftingScreenHandlerMixin {
         }
         if (shouldReturn) return;
 
-        if (craftingRecipeItem.getItem() instanceof SCAccessoryItem) {
-            ItemStack modified = craftingRecipeItem.copy();
-            applyPreviewModifiers(modified, craftingInventory);
-            resultInventory.setStack(0, modified);
-            handler.setPreviousTrackedSlot(0, modified);
-            serverPlayerEntity.networkHandler.sendPacket(new ScreenHandlerSlotUpdateS2CPacket(handler.syncId, handler.nextRevision(), 0, modified));
-        }
+        ItemStack modified = craftingRecipeItem.copy();
+        applyPreviewModifiers(modified, craftingInventory);
+        resultInventory.setStack(0, modified);
+        handler.setPreviousTrackedSlot(0, modified);
+        serverPlayerEntity.networkHandler.sendPacket(new ScreenHandlerSlotUpdateS2CPacket(handler.syncId, handler.nextRevision(), 0, modified));
     }
 
     @Unique

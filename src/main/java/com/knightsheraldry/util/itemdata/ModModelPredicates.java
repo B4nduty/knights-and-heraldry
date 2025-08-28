@@ -77,5 +77,8 @@ public class ModModelPredicates {
         ModelPredicateProviderRegistry.register(item, new Identifier("ignited"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
                         stack.getNbt().getBoolean("ignited") ? 1.0F : 0.0F);
+        ModelPredicateProviderRegistry.register(item, new Identifier("extinguished"),
+                (stack, world, entity, seed) -> stack.hasNbt() &&
+                        stack.getNbt().getBoolean("extinguished") ? 1.0F : 0.0F);
     }
 }

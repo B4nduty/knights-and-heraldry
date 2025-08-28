@@ -7,7 +7,7 @@ import net.minecraft.recipe.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
-    WEAPONS(0, -1, 0.0F, -1.0F, 14, () ->
+    WEAPONS(0, 100, 0.0F, -1.0F, 14, () ->
             Ingredient.ofItems(Items.IRON_INGOT));
 
     private final int miningLevel;

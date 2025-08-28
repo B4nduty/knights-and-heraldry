@@ -22,7 +22,7 @@ public class Halberd extends SwordItem {
         super.postHit(stack, target, attacker);
 
         if (attacker instanceof PlayerEntity playerEntity) {
-            SCDamageCalculator.DamageType damageType = SCWeaponUtil.calculateDamageType(stack, this, ((PlayerAttackProperties) playerEntity).getComboCount());
+            SCDamageCalculator.DamageType damageType = SCWeaponUtil.calculateDamageType(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
             double maxDistance = SCWeaponUtil.getMaxDistance(this);
             Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
             Vec3d playerPos = playerEntity.getPos();
