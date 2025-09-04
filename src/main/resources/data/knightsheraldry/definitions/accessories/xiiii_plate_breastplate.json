@@ -1,6 +1,7 @@
 {
   "armor": 4,
   "toughness": 2,
+  "armorSlot": "HEAD",
   "hungerDrainMultiplier": 0.1,
   "weight": 10,
   "deflectChance": {

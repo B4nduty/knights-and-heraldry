@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:cage"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:cage"
+  }
+}

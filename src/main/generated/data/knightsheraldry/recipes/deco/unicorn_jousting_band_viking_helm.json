@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:viking_helm"
+    },
+    {
+      "item": "knightsheraldry:unicorn"
+    },
+    {
+      "item": "knightsheraldry:jousting_band"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:viking_helm"
+  }
+}

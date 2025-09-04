@@ -52,8 +52,8 @@ public class HorseBardingFeatureRenderer extends FeatureRenderer<HorseEntity, Ho
             this.armorModel.render(matrices, vertexConsumerOverlay, light, LivingEntityRenderer.getOverlay(horse, 0.0F), colorFloat[0], colorFloat[1], colorFloat[2], 1.0F);
 
             // Plume texture (optional, dyed color)
-            if (armorStack.getNbt() != null && armorStack.getNbt().contains("kh_plume")) {
-                colorInt = armorStack.getNbt().getInt("kh_plume");
+            if (armorStack.getNbt() != null && armorStack.getNbt().contains("plume")) {
+                colorInt = armorStack.getNbt().getInt("plume");
             }
             colorFloat = new float[]{
                     (colorInt >> 16 & 255) / 255.0F,

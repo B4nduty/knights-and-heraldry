@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cage_2": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:cage_2"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_fluffy_plume": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:fluffy_plume"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_jousting_band": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:jousting_band"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/fluffy_plume_jousting_band_cage_2"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cage_2",
+      "has_fluffy_plume",
+      "has_jousting_band",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/fluffy_plume_jousting_band_cage_2"
+    ]
+  },
+  "sends_telemetry_event": false
+}

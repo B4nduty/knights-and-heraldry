@@ -9,7 +9,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.nbt.NbtCompound;
@@ -17,7 +16,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
-import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -87,11 +85,26 @@ public class Lance extends SwordItem {
         Vec3d direction = player.getRotationVec(1.0F);
         Vec3d end = start.add(direction.multiply(range));
 
-        Box box = player.getBoundingBox().stretch(direction.multiply(range)).expand(1.0, 1.0, 1.0);
-        Predicate<Entity> validEntity = (entity) -> !entity.isSpectator() && entity.isAlive();
-        EntityHitResult entityHitResult = ProjectileUtil.raycast(player, start, end, box, validEntity, range * range);
+        Box box = player.getBoundingBox().stretch(direction.multiply(range)).expand(1.0D);
 
-        return entityHitResult != null ? entityHitResult.getEntity() : null;
+        Predicate<Entity> validEntity = (entity) ->
+                !entity.isSpectator()
+                        && entity.isAlive()
+                        && entity != player
+                        && (player.getVehicle() == null || entity != player.getVehicle());
+
+        // collect all potential entities in the path
+        List<Entity> candidates = player.getWorld().getOtherEntities(player, box, validEntity);
+
+        for (Entity candidate : candidates) {
+            Box targetBox = candidate.getBoundingBox().expand(0.3D);
+            var result = targetBox.raycast(start, end);
+            if (result.isPresent()) {
+                return candidate;
+            }
+        }
+
+        return null;
     }
 
     @Override
@@ -145,11 +158,11 @@ public class Lance extends SwordItem {
 
     public static boolean isCharged(ItemStack stack) {
         NbtCompound nbtCompound = stack.getNbt();
-        return nbtCompound != null && nbtCompound.getBoolean("sc_charged");
+        return nbtCompound != null && nbtCompound.getBoolean("charged");
     }
 
     public static void setCharged(ItemStack stack, boolean charged) {
         NbtCompound nbtCompound = stack.getOrCreateNbt();
-        nbtCompound.putBoolean("sc_charged", charged);
+        nbtCompound.putBoolean("charged", charged);
     }
 }

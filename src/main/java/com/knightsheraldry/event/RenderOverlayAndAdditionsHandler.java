@@ -5,7 +5,8 @@ import banduty.stoneycore.items.armor.SCAccessoryItem;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.model.AccessoryChestplateModel;
-import com.knightsheraldry.model.AccessoryHelmetModel;
+import com.knightsheraldry.model.HelmetDecoModel;
+import com.knightsheraldry.util.itemdata.HelmetDeco;
 import io.wispforest.accessories.api.client.AccessoryRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -18,6 +19,7 @@ import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
@@ -25,7 +27,6 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
     private static final float[] WHITE_COLOR = {1.0F, 1.0F, 1.0F};
     private static final float ALPHA = 1.0F;
 
-    private static final Identifier PLUME_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/plume.png");
     private static final Identifier RIM_GUARDS_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/rim_guards.png");
     private static final Identifier BESAGEWS_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/besagews.png");
     private static final Identifier SURCOAT_OVERLAY_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/surcoat_overlay.png");
@@ -37,10 +38,10 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
         if (!(stack.getItem() instanceof SCAccessoryItem scAccessoryItem)) return;
 
         renderAventailIfNeeded(entity, stack, matrices, vertexConsumers, light);
-        renderPlumeIfNeeded(entity, stack, matrices, vertexConsumers, light);
+        renderHelmetDecoIfNeeded(entity, stack, matrices, vertexConsumers, light);
 
-        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "kh_rimmed", RIM_GUARDS_TEXTURE);
-        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "kh_besagews", BESAGEWS_TEXTURE);
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "rimmed", RIM_GUARDS_TEXTURE);
+        renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "besagews", BESAGEWS_TEXTURE);
 
         if (isSurcoat(stack)) {
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, SURCOAT_OVERLAY_TEXTURE);
@@ -54,7 +55,7 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
 
     private void renderAventailIfNeeded(LivingEntity entity, ItemStack stack, MatrixStack matrices,
                                         VertexConsumerProvider vertexConsumers, int light) {
-        if (!stack.getOrCreateNbt().getBoolean("kh_aventail")) return;
+        if (!stack.getOrCreateNbt().getBoolean("aventail")) return;
 
         BipedEntityModel<LivingEntity> aventailModel = new AccessoryChestplateModel(
                 AccessoryChestplateModel.getTexturedModelData().createModel());
@@ -64,17 +65,48 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
         renderModel(entity, aventailModel, matrices, consumer, light, WHITE_COLOR);
     }
 
-    private void renderPlumeIfNeeded(LivingEntity entity, ItemStack stack, MatrixStack matrices,
-                                     VertexConsumerProvider vertexConsumers, int light) {
-        if (stack.getNbt() == null || !stack.getNbt().contains("kh_plume")) return;
+    private void renderHelmetDecoIfNeeded(LivingEntity entity, ItemStack stack, MatrixStack matrices,
+                                          VertexConsumerProvider vertexConsumers, int light) {
+        NbtCompound nbt = stack.getNbt();
+        if (nbt == null) return;
 
-        BipedEntityModel<LivingEntity> plumeModel = new AccessoryHelmetModel(
-                AccessoryHelmetModel.getTexturedModelData().createModel());
-        VertexConsumer consumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(PLUME_TEXTURE));
+        String basePath = "textures/entity/accessories/deco/";
 
-        float[] color = getColorFromNbt(stack.getNbt().getInt("kh_plume"));
-        renderModel(entity, plumeModel, matrices, consumer, light, color);
+        for (HelmetDeco deco : HelmetDeco.HELMET_DECO.values()) {
+            String key = deco.getNbtKey();
+
+            if (deco.color() == 2) {
+                if (nbt.contains(key) && nbt.getCompound(key).contains("color1")) {
+                    float[] color = getColorFromNbt(nbt.getCompound(key).getInt("color1"));
+                    Identifier texture = new Identifier(KnightsHeraldry.MOD_ID, basePath + key + "_base.png");
+                    renderHelmetDeco(entity, matrices, vertexConsumers, light, texture, color);
+                }
+                if (nbt.contains(key) && nbt.getCompound(key).contains("color2")) {
+                    float[] color = getColorFromNbt(nbt.getCompound(key).getInt("color2"));
+                    Identifier texture = new Identifier(KnightsHeraldry.MOD_ID, basePath + key + "_stripe.png");
+                    renderHelmetDeco(entity, matrices, vertexConsumers, light, texture, color);
+                }
+                continue;
+            }
+
+            if (!nbt.contains(key)) continue;
+            float[] color = deco.color() == 1 ? getColorFromNbt(nbt.getInt(key)) : WHITE_COLOR;
+            Identifier texture = new Identifier(KnightsHeraldry.MOD_ID, basePath + key + ".png");
+            renderHelmetDeco(entity, matrices, vertexConsumers, light, texture, color);
+        }
     }
+
+    private void renderHelmetDeco(LivingEntity entity, MatrixStack matrices,
+                                  VertexConsumerProvider vertexConsumers, int light,
+                                  Identifier texture, float[] color) {
+        BipedEntityModel<LivingEntity> model =
+                new HelmetDecoModel(HelmetDecoModel.getTexturedModelData().createModel());
+        VertexConsumer consumer =
+                vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(texture));
+
+        renderModel(entity, model, matrices, consumer, light, color);
+    }
+
 
     private void renderModel(LivingEntity entity, BipedEntityModel<LivingEntity> model,
                              MatrixStack matrices, VertexConsumer consumer, int light, float[] color) {
@@ -99,7 +131,7 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
         return new float[]{
                 (colorInt >> 16 & 255) / 255.0F,
                 (colorInt >> 8 & 255) / 255.0F,
-                (colorInt & 255) / 255.0F
+                (colorInt & 0xFF) / 255.0F
         };
     }
 

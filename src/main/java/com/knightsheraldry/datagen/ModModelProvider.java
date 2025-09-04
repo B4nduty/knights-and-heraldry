@@ -1,6 +1,7 @@
 package com.knightsheraldry.datagen;
 
 import com.knightsheraldry.items.ModItems;
+import com.knightsheraldry.util.itemdata.HelmetDeco;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
@@ -99,11 +100,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SABATONS.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.FROGMOUTH.get(), Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GREAT_ARMET.get(), Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GREAT_ARMET_2.get(), Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GREAT_BASCINET.get(), Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GREAT_HOUNDSKUL_BASCINET.get(), Models.HANDHELD);
-        itemModelGenerator.register(ModItems.MAXIMILLIAN_HELMET.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.GAUNTLET.get(), Models.HANDHELD);
 
@@ -134,12 +130,15 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BODKIN_ARROW.get(), Models.HANDHELD);
         itemModelGenerator.register(ModItems.BROADHEAD_ARROW.get(), Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.PLUME.get(), Models.HANDHELD);
-
         generateBannerPatternModels(ModItems.SURCOAT.get(), itemModelGenerator);
         generateBannerPatternModels(ModItems.SURCOAT_SLEEVELESS.get(), itemModelGenerator);
 
         itemModelGenerator.register(ModItems.CHAPERON.get(), Models.HANDHELD);
+
+        for (Item deco : HelmetDeco.HELMET_DECO.keySet()) {
+            if (deco == ModItems.JOUSTING_BAND.get()) continue;
+            itemModelGenerator.register(deco, Models.HANDHELD);
+        }
     }
 
     public void generateBannerPatternModels(Item item, ItemModelGenerator itemModelGenerator) {

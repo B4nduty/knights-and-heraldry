@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jousting_band": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:jousting_band"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sallet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:sallet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/jousting_band_sallet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sallet",
+      "has_jousting_band",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/jousting_band_sallet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

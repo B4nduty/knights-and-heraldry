@@ -4,15 +4,10 @@ import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.items.item.khweapon.Lance;
 import com.knightsheraldry.util.playerdata.PlayerVelocity;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.passive.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.vehicle.BoatEntity;
-import net.minecraft.entity.vehicle.MinecartEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,22 +22,12 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     @Inject(method = "tick", at = @At("HEAD"))
     private void knightsheraldry$onTick(CallbackInfo ci) {
         ItemStack lanceStack = getLanceStack(playerEntity);
-        if (!(lanceStack != null && lanceStack.getNbt() != null && lanceStack.getNbt().getBoolean("sc_charged")
+        if (!(lanceStack != null && lanceStack.getNbt() != null && lanceStack.getNbt().getBoolean("charged")
                 && playerEntity instanceof ServerPlayerEntity serverPlayer)) return;
 
-        NbtCompound nbt = stoneycore$getPersistentData();
-        int nonSprintingTicks = nbt.getInt("nonSprintingTicks");
+        float velocity = calculateVelocity(serverPlayer, lanceStack);
 
-        BlockPos previousBlockPos = BlockPos.fromLong(nbt.getLong("previousBlockPos"));
-        BlockPos currentBlockPos = serverPlayer.getBlockPos();
-
-        boolean staying = currentBlockPos.equals(previousBlockPos);
-
-        float velocity = calculateVelocity(serverPlayer, nonSprintingTicks, staying);
-
-        PlayerVelocity.updatePreviousBlockPos(this, currentBlockPos.asLong());
         PlayerVelocity.updateSpeedHistory(this, velocity);
-        PlayerVelocity.updateNonSprintingTicks(this, nonSprintingTicks);
     }
 
     @Unique
@@ -54,49 +39,21 @@ public abstract class PlayerEntityMixin implements IEntityDataSaver {
     }
 
     @Unique
-    private float calculateVelocity(ServerPlayerEntity player, int nonSprintingTicks, boolean staying) {
-        float velocity = player.getMovementSpeed();
+    private float calculateVelocity(ServerPlayerEntity player, ItemStack lanceStack) {
+        double prevX = lanceStack.getOrCreateNbt().getDouble("prevX");
+        double prevZ = lanceStack.getOrCreateNbt().getDouble("prevZ");
 
-        if (player.isSprinting()) {
-            velocity *= 1.3f;
-            resetNonSprintingTicks();
-            return velocity;
-        }
+        Entity entity = player.getVehicle();
+        if (entity == null) entity = player;
 
-        nonSprintingTicks++;
-        if (nonSprintingTicks < 3) {
-            return velocity; // No penalty yet
-        }
+        // Compute delta since last tick
+        Vec3d delta = new Vec3d(entity.getX() - prevX, 0, entity.getZ() - prevZ);
 
-        if (nonSprintingTicks >= 5 && staying) {
-            velocity *= 0.1f;
-        } else if (player.isSneaking()) {
-            velocity *= 0.3f;
-        } else if (player.hasVehicle()) {
-            velocity = getVehicleVelocity(player);
-        } else {
-            return velocity; // Nothing special triggered
-        }
+        // Save current position for next tick
+        lanceStack.getOrCreateNbt().putDouble("prevX", entity.getX());
+        lanceStack.getOrCreateNbt().putDouble("prevZ", entity.getZ());
 
-        resetNonSprintingTicks();
-        return velocity;
+        return (float) delta.length();
     }
 
-    @Unique
-    private void resetNonSprintingTicks() {
-        stoneycore$getPersistentData().putInt("nonSprintingTicks", 0);
-    }
-
-    @Unique
-    private float getVehicleVelocity(ServerPlayerEntity player) {
-        Entity vehicle = player.getVehicle();
-        if (vehicle instanceof MinecartEntity minecart) {
-            return (float) minecart.getVelocity().length();
-        } else if (vehicle instanceof BoatEntity boat) {
-            return (float) boat.getVelocity().length();
-        } else if (vehicle instanceof AbstractHorseEntity horse) {
-            return (float) horse.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
-        }
-        return player.getMovementSpeed();
-    }
 }

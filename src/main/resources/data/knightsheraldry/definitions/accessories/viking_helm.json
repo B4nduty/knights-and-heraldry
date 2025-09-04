@@ -1,6 +1,7 @@
 {
   "armor": 1,
   "toughness": 1,
+  "armorSlot": "HEAD",
   "weight": 2,
   "deflectChance": {
     "minecraft:arrow": 0.05,

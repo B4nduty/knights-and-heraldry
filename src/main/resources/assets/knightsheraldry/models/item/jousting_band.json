@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "knightsheraldry:item/jousting_band_base",
+    "layer1": "knightsheraldry:item/jousting_band_stripe"
+  }
+}

@@ -55,25 +55,28 @@ public class ModModelPredicates {
     private static void registerArmorPredicates(Item item) {
         ModelPredicateProviderRegistry.register(item, new Identifier("aventail"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
-                        stack.getNbt().getBoolean("kh_aventail") ? 1.0F : 0.0F);
+                        stack.getNbt().getBoolean("aventail") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("rimmed"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
-                        stack.getNbt().getBoolean("kh_rimmed") ? 1.0F : 0.0F);
+                        stack.getNbt().getBoolean("rimmed") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("besagews"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
-                        stack.getNbt().getBoolean("kh_besagews") ? 1.0F : 0.0F);
+                        stack.getNbt().getBoolean("besagews") ? 1.0F : 0.0F);
+        ModelPredicateProviderRegistry.register(item, new Identifier("open_visor"),
+                (stack, world, entity, seed) -> stack.hasNbt() &&
+                        stack.getNbt().getBoolean("visor_open") ? 1.0F : 0.0F);
     }
 
     private static void registerWeaponPredicates(Item item) {
         ModelPredicateProviderRegistry.register(item, new Identifier("charged"),
                 (stack, world, entity, seed) -> entity != null
                         && (entity.getMainHandStack() == stack || entity.getOffHandStack() == stack) &&
-                        stack.hasNbt() && stack.getNbt().getBoolean("sc_charged") ? 1.0F : 0.0F);
+                        stack.hasNbt() && stack.getNbt().getBoolean("charged") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("blocking"),
                 (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("bludgeoning"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
-                        stack.getNbt().getBoolean("sc_bludgeoning") ? 1.0F : 0.0F);
+                        stack.getNbt().getBoolean("bludgeoning") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("ignited"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
                         stack.getNbt().getBoolean("ignited") ? 1.0F : 0.0F);

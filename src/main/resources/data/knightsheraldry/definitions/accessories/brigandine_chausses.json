@@ -1,5 +1,6 @@
 {
   "weight": 6,
   "armor": 2,
+  "armorSlot": "LEGS",
   "toughness": 1
 }

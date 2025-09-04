@@ -31,22 +31,38 @@ public class ModItemGroups {
 
     private static ItemStack armorStack(ItemConvertible item, boolean aventail, boolean rimmed, boolean besagews) {
         ItemStack armorStack = new ItemStack(item);
-        if (aventail) armorStack.getOrCreateNbt().putBoolean("kh_aventail", true);
-        if (rimmed) armorStack.getOrCreateNbt().putBoolean("kh_rimmed", true);
-        if (besagews) armorStack.getOrCreateNbt().putBoolean("kh_besagews", true);
+        if (aventail) armorStack.getOrCreateNbt().putBoolean("aventail", true);
+        if (rimmed) armorStack.getOrCreateNbt().putBoolean("rimmed", true);
+        if (besagews) armorStack.getOrCreateNbt().putBoolean("besagews", true);
         return armorStack;
     }
 
-    private static ItemStack ammoStack(ItemConvertible item) {
+    private static ItemStack decorStack(ItemConvertible item) {
         return new ItemStack(item);
     }
 
-    private static void ammo(ItemGroup.DisplayContext ctx, ItemGroup.Entries stacks) {
+    private static void deco(ItemGroup.DisplayContext ctx, ItemGroup.Entries stacks) {
         stacks.addAll(List.of(
-                ammoStack(ModItems.SWALLOWTAIL_ARROW.get()),
-                ammoStack(ModItems.BODKIN_ARROW.get()),
-                ammoStack(ModItems.BROADHEAD_ARROW.get()),
-                ammoStack(ModItems.CLOTH_ARROW.get())
+                decorStack(ModItems.PLUME.get()),
+                decorStack(ModItems.TRI_PLUME.get()),
+                decorStack(ModItems.FLUFFY_PLUME.get()),
+                decorStack(ModItems.JOUSTING_BAND.get()),
+                decorStack(ModItems.TEUTONIC_SNAKES.get()),
+                decorStack(ModItems.TEUTONIC_BLACK_SNAKES.get()),
+                decorStack(ModItems.GOLD_HORNS.get()),
+                decorStack(ModItems.BLACK_HORNS.get()),
+                decorStack(ModItems.TEUTONIC_GOLD_WINGS.get()),
+                decorStack(ModItems.TEUTONIC_BLACK_WINGS.get()),
+                decorStack(ModItems.TEUTONIC_WINGS_BALL_ENDS.get()),
+                decorStack(ModItems.TEUTONIC_WINGS_SHARP_ENDS.get()),
+                decorStack(ModItems.DRAGON.get()),
+                decorStack(ModItems.LION.get()),
+                decorStack(ModItems.SNAKE.get()),
+                decorStack(ModItems.UNICORN.get()),
+                decorStack(ModItems.STAG.get()),
+                decorStack(ModItems.BOAR.get()),
+                decorStack(ModItems.EAGLE.get()),
+                decorStack(ModItems.PEGASUS.get())
         ));
     }
 
@@ -95,7 +111,12 @@ public class ModItemGroups {
                 weaponStack(ModItems.LONGBOW.get()),
                 weaponStack(ModItems.HEAVY_CROSSBOW.get()),
                 weaponStack(ModItems.ARQUEBUS.get()),
-                weaponStack(ModItems.HANDGONNE.get())
+                weaponStack(ModItems.HANDGONNE.get()),
+
+                decorStack(ModItems.SWALLOWTAIL_ARROW.get()),
+                decorStack(ModItems.BODKIN_ARROW.get()),
+                decorStack(ModItems.BROADHEAD_ARROW.get()),
+                decorStack(ModItems.CLOTH_ARROW.get())
         ));
     }
 
@@ -154,8 +175,6 @@ public class ModItemGroups {
                 armorStack(ModItems.CHAPERON.get(), false, false, false),
                 armorStack(ModItems.GILDED_CHAPERON.get(), false, false, false),
 
-                armorStack(ModItems.PLUME.get(), false, false, false),
-
                 armorStack(ModItems.BRIGANDINE.get(), false, false, false),
                 armorStack(ModItems.BRIG_BREASTPLATE.get(), false, false, false),
                 armorStack(ModItems.BRIG_BREASTPLATE_TASSETS.get(), false, false, false),
@@ -210,10 +229,10 @@ public class ModItemGroups {
             true
     );
 
-    public static final ItemGroupTab KH_AMMO_TAB = new ItemGroupTab(
-            Icon.of(ModItems.BROADHEAD_ARROW.get()),
-            Text.translatable("text.itemgroup.kingdomsieges.tab.kh_ammo").formatted(Formatting.WHITE),
-            ModItemGroups::ammo,
+    public static final ItemGroupTab KH_DECO_TAB = new ItemGroupTab(
+            Icon.of(ModItems.PLUME.get()),
+            Text.translatable("text.itemgroup.kingdomsieges.tab.kh_deco").formatted(Formatting.WHITE),
+            ModItemGroups::deco,
             TABS,
             true
     );
@@ -237,7 +256,7 @@ public class ModItemGroups {
     private static void initializeGroup(OwoItemGroup group) {
         group.tabs.add(KH_WEAPONS_TAB);
         group.tabs.add(KH_ARMORS_TAB);
-        group.tabs.add(KH_AMMO_TAB);
+        group.tabs.add(KH_DECO_TAB);
         group.addButton(LinkButton.discord("https://discord.gg/AbtCqntN9S"));
     }
     

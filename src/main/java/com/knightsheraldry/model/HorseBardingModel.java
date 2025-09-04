@@ -25,7 +25,7 @@ public class HorseBardingModel<T extends AbstractHorseEntity> extends HorseEntit
 		super(root);
 
 		this.armorHead = root.getChild("armorHead");
-		this.plume = root.getChild("plume");
+        this.plume = root.getChild("plume");
 		this.mouth = this.armorHead.getChild("mouth");
 		this.left_ear = this.armorHead.getChild("left_ear");
 		this.right_ear = this.armorHead.getChild("right_ear");
@@ -37,7 +37,7 @@ public class HorseBardingModel<T extends AbstractHorseEntity> extends HorseEntit
 	}
 
 	public Iterable<ModelPart> getHeadParts() {
-		return ImmutableList.of(this.armorHead, this.mouth, this.left_ear, this.right_ear, this.neck, this.mane, this.headpiece);
+		return ImmutableList.of(this.armorHead, this.plume, this.mouth, this.left_ear, this.right_ear, this.neck, this.mane, this.headpiece);
 	}
 
 	@Override
@@ -50,9 +50,9 @@ public class HorseBardingModel<T extends AbstractHorseEntity> extends HorseEntit
 		ModelPartData modelPartData = modelData.getRoot();
 		ModelPartData armorHead = modelPartData.addChild("armorHead", ModelPartBuilder.create().uv(0, 13).cuboid(-3.0F, -11.0F, -2.0F, 6.0F, 5.0F, 7.0F, new Dilation(0.1F)), ModelTransform.pivot(0.0F, 2.0F, -9.0F));
 
-		modelPartData.addChild("plume", ModelPartBuilder.create().uv(96, 80).cuboid(0.0F, -19.0F, 3.0F, 0.0F, 8.0F, 10.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+        modelPartData.addChild("plume", ModelPartBuilder.create().uv(96, 80).cuboid(0.0F, -19.0F, 3.0F, 0.0F, 8.0F, 10.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 2.0F, -9.0F));
 
-		armorHead.addChild("mouth", ModelPartBuilder.create().uv(0, 25).cuboid(-2.0F, -11.0F, -7.2F, 4.0F, 5.0F, 5.0F, new Dilation(0.1F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+        armorHead.addChild("mouth", ModelPartBuilder.create().uv(0, 25).cuboid(-2.0F, -11.0F, -7.2F, 4.0F, 5.0F, 5.0F, new Dilation(0.1F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		armorHead.addChild("left_ear", ModelPartBuilder.create().uv(19, 16).cuboid(0.55F, -13.0F, 4.0F, 2.0F, 3.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -1.0F, -0.01F));
 
@@ -97,11 +97,16 @@ public class HorseBardingModel<T extends AbstractHorseEntity> extends HorseEntit
         this.saddle.visible = entity.isSaddled();
 		ItemStack armorStack = ItemStack.EMPTY;
 		if (entity instanceof HorseEntity horseEntity) armorStack = horseEntity.getArmorType();
-        this.plume.visible = armorStack.getNbt() != null && armorStack.getNbt().contains("kh_plume");
+        this.plume.visible = armorStack.getNbt() != null && armorStack.getNbt().contains("plume");
 	}
 
 	@Override
 	public void animateModel(T entity, float limbAngle, float limbDistance, float tickDelta) {
 		super.animateModel(entity, limbAngle, limbDistance, tickDelta);
+
+        this.plume.pivotY = this.head.pivotY;
+        this.plume.pivotZ = this.head.pivotZ;
+        this.plume.pitch = this.head.pitch;
+        this.plume.yaw = this.head.yaw;
 	}
 }

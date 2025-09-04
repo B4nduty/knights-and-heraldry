@@ -1,13 +1,11 @@
 package com.knightsheraldry;
 
+import banduty.stoneycore.event.custom.CraftingPreviewCallback;
 import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.config.KHConfig;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.entity.ModEntities;
-import com.knightsheraldry.event.AdjustAttributeModifierEvent;
-import com.knightsheraldry.event.CanEquipHandler;
-import com.knightsheraldry.event.StartTickHandler;
-import com.knightsheraldry.event.UseItemHandler;
+import com.knightsheraldry.event.*;
 import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.networking.ModMessages;
@@ -49,6 +47,7 @@ public class KnightsHeraldry implements ModInitializer {
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
         UseItemCallback.EVENT.register(new UseItemHandler());
         AdjustAttributeModifierCallback.EVENT.register(new AdjustAttributeModifierEvent());
+        CraftingPreviewCallback.EVENT.register(new CraftingPreviewHandler());
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             ServerPlayerEntity player = handler.getPlayer();
             if (player != null) {

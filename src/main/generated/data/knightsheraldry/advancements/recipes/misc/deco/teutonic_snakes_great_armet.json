@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_great_armet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:great_armet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_teutonic_snakes": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:teutonic_snakes"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/teutonic_snakes_great_armet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_great_armet",
+      "has_teutonic_snakes",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/teutonic_snakes_great_armet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

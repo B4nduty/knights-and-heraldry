@@ -12,6 +12,7 @@ import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import com.knightsheraldry.items.armor.accessory.*;
 import com.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import com.knightsheraldry.items.item.DyeableItems;
+import com.knightsheraldry.items.item.TwoLayerDyeableItem;
 import com.knightsheraldry.items.item.khammo.ClothArrow;
 import com.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import com.knightsheraldry.items.item.khrangeweapon.Handgonne;
@@ -149,94 +150,94 @@ public class ModItems {
             new SCUnderArmor(new Item.Settings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS));
 
     public static final RegistrySupplier<Item> MAIL_PAULDRON = ITEMS.register("mail_pauldron", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(74)));
     public static final RegistrySupplier<Item> BRIGANDINE_PAULDRON = ITEMS.register("brigandine_pauldron", () ->
-            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), true, 10511680));
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(84), true, 10511680));
     public static final RegistrySupplier<Item> PLATE_PAULDRON = ITEMS.register("plate_pauldron", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(132)));
 
     public static final RegistrySupplier<Item> BRIGANDINE = ITEMS.register("brigandine", () ->
-            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), true, 10511680));
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(325), true, 10511680));
 
     public static final RegistrySupplier<Item> BRIG_BREASTPLATE = ITEMS.register("brig_breastplate", () ->
-            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), true, 10511680));
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(420), true, 10511680));
     public static final RegistrySupplier<Item> BRIG_BREASTPLATE_TASSETS = ITEMS.register("brig_breastplate_tassets", () ->
-            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), true, 10511680));
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(420), true, 10511680));
 
     public static final RegistrySupplier<Item> PLATE_CUIRASS = ITEMS.register("plate_cuirass", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(500)));
     public static final RegistrySupplier<Item> PLATE_CUIRASS_TASSETS = ITEMS.register("plate_cuirass_tassets", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(500)));
     public static final RegistrySupplier<Item> MAXIMILLIAN_CUIRASS = ITEMS.register("maximillian_cuirass", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(500)));
     public static final RegistrySupplier<Item> MAXIMILLIAN_CUIRASS_TASSETS = ITEMS.register("maximillian_cuirass_tassets", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(500)));
     public static final RegistrySupplier<Item> XIIII_PLATE_CUIRASS = ITEMS.register("xiiii_plate_cuirass", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(500)));
     public static final RegistrySupplier<Item> XIIII_PLATE_CUIRASS_TASSETS = ITEMS.register("xiiii_plate_cuirass_tassets", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(500)));
     public static final RegistrySupplier<Item> XIIII_PLATE_BREASTPLATE = ITEMS.register("xiiii_plate_breastplate", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(500)));
 
     public static final RegistrySupplier<Item> BARBUTE_NO_VISOR = ITEMS.register("barbute_no_visor", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(84), false));
     public static final RegistrySupplier<Item> BASCINET_NO_VISOR = ITEMS.register("bascinet_no_visor", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(84), false));
     public static final RegistrySupplier<Item> KETTLE_HELM = ITEMS.register("kettle_helm", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(84), false));
     public static final RegistrySupplier<Item> NASAL_HELM = ITEMS.register("nasal_helm", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(84), false));
     public static final RegistrySupplier<Item> VIKING_HELM = ITEMS.register("viking_helm", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(84), false));
 
     public static final RegistrySupplier<Item> ARMET = ITEMS.register("armet", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true));
     public static final RegistrySupplier<Item> ARMET_2 = ITEMS.register("armet_2", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true));
     public static final RegistrySupplier<Item> BARBUTE = ITEMS.register("barbute", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true));
     public static final RegistrySupplier<Item> BASCINET = ITEMS.register("bascinet", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true));
     public static final RegistrySupplier<Item> CAGE = ITEMS.register("cage", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true));
     public static final RegistrySupplier<Item> CAGE_2 = ITEMS.register("cage_2", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true));
     public static final RegistrySupplier<Item> FLAT_BASCINET = ITEMS.register("flat_bascinet", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true));
     public static final RegistrySupplier<Item> GREAT_HELM = ITEMS.register("great_helm", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), false));
     public static final RegistrySupplier<Item> GREAT_HELM_2 = ITEMS.register("great_helm_2", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), false));
     public static final RegistrySupplier<Item> SALLET = ITEMS.register("sallet", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true));
 
     public static final RegistrySupplier<Item> FROGMOUTH = ITEMS.register("frogmouth", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(180), false));
     public static final RegistrySupplier<Item> GREAT_ARMET = ITEMS.register("great_armet", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(180), true));
     public static final RegistrySupplier<Item> GREAT_ARMET_2 = ITEMS.register("great_armet_2", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(180), true));
     public static final RegistrySupplier<Item> GREAT_BASCINET = ITEMS.register("great_bascinet", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(180), true));
     public static final RegistrySupplier<Item> GREAT_HOUNDSKUL_BASCINET = ITEMS.register("great_houndskul_bascinet", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(180), true));
     public static final RegistrySupplier<Item> MAXIMILLIAN_HELMET = ITEMS.register("maximillian_helmet", () ->
-            new KHHelmetAccessory(new Item.Settings().maxCount(1)));
+            new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(180), true));
 
     public static final RegistrySupplier<Item> GAUNTLET = ITEMS.register("gauntlet", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(69)));
     public static final RegistrySupplier<Item> BRIGANDINE_REREBRACE = ITEMS.register("brigandine_rerebrace", () ->
-            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), true, 10511680));
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(77), true, 10511680));
     public static final RegistrySupplier<Item> PLATE_REREBRACE = ITEMS.register("plate_rerebrace", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1)));
+            new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(89)));
 
     public static final RegistrySupplier<Item> BRIGANDINE_CHAUSSES = ITEMS.register("brigandine_chausses", () ->
-            new KHDyeableLeggingsAccessory(new Item.Settings().maxCount(1), true, 10511680));
+            new KHDyeableLeggingsAccessory(new Item.Settings().maxCount(1).maxDamage(144), true, 10511680));
     public static final RegistrySupplier<Item> PLATE_CHAUSSES = ITEMS.register("plate_chausses", () ->
-            new KHLeggingsAccessory(new Item.Settings().maxCount(1)));
+            new KHLeggingsAccessory(new Item.Settings().maxCount(1).maxDamage(168)));
 
     public static final RegistrySupplier<Item> SABATONS = ITEMS.register("sabatons", () ->
-            new KHBootsAccessory(new Item.Settings().maxCount(1)));
+            new KHBootsAccessory(new Item.Settings().maxCount(1).maxDamage(69)));
 
     public static final RegistrySupplier<Item> AVENTAIL = ITEMS.register("aventail", () ->
             new KHChestplateAccessory(new Item.Settings().maxCount(1)));
@@ -294,10 +295,47 @@ public class ModItems {
 
     public static final RegistrySupplier<Item> PLUME = ITEMS.register("plume", () ->
             new DyeableItems(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> TRI_PLUME = ITEMS.register("tri_plume", () ->
+            new DyeableItems(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> FLUFFY_PLUME = ITEMS.register("fluffy_plume", () ->
+            new DyeableItems(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> JOUSTING_BAND = ITEMS.register("jousting_band", () ->
+            new TwoLayerDyeableItem(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> TEUTONIC_SNAKES = ITEMS.register("teutonic_snakes", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> TEUTONIC_BLACK_SNAKES = ITEMS.register("teutonic_black_snakes", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> GOLD_HORNS = ITEMS.register("gold_horns", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> BLACK_HORNS = ITEMS.register("black_horns", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> TEUTONIC_GOLD_WINGS = ITEMS.register("teutonic_gold_wings", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> TEUTONIC_BLACK_WINGS = ITEMS.register("teutonic_black_wings", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> TEUTONIC_WINGS_BALL_ENDS = ITEMS.register("teutonic_wings_ball_ends", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> TEUTONIC_WINGS_SHARP_ENDS = ITEMS.register("teutonic_wings_sharp_ends", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> DRAGON = ITEMS.register("dragon", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> LION = ITEMS.register("lion", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> SNAKE = ITEMS.register("snake", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> UNICORN = ITEMS.register("unicorn", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> STAG = ITEMS.register("stag", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> BOAR = ITEMS.register("boar", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> EAGLE = ITEMS.register("eagle", () ->
+            new Item(new Item.Settings().maxCount(1)));
+    public static final RegistrySupplier<Item> PEGASUS = ITEMS.register("pegasus", () ->
+            new Item(new Item.Settings().maxCount(1)));
 
     public static final RegistrySupplier<Item> CHAPERON = ITEMS.register("chaperon", () ->
             new KHChaperon(new Item.Settings().maxCount(1), false));
-
     public static final RegistrySupplier<Item> GILDED_CHAPERON = ITEMS.register("gilded_chaperon", () ->
             new KHChaperon(new Item.Settings().maxCount(1), true));
 

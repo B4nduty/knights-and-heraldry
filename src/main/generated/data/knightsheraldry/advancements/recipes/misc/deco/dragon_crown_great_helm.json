@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crown": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "stoneycore:crown"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_dragon": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dragon"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_great_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:great_helm"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/dragon_crown_great_helm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_great_helm",
+      "has_dragon",
+      "has_crown",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/dragon_crown_great_helm"
+    ]
+  },
+  "sends_telemetry_event": false
+}

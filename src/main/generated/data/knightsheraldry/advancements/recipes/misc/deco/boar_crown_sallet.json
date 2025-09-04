@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_boar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:boar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crown": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "stoneycore:crown"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sallet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:sallet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/boar_crown_sallet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sallet",
+      "has_boar",
+      "has_crown",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/boar_crown_sallet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 public class AdjustAttributeModifierEvent implements AdjustAttributeModifierCallback {
     @Override
     public void adjustAttributes(ItemStack stack, SlotReference reference, AccessoryAttributeBuilder builder) {
-        if (!(stack.getNbt() != null && stack.getNbt().getBoolean("kh_aventail"))) return;
+        if (!(stack.getNbt() != null && stack.getNbt().getBoolean("aventail"))) return;
         updatePlayerAttributes(reference, builder);
     }
 

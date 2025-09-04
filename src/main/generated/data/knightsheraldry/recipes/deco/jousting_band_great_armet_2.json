@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:great_armet_2"
+    },
+    {
+      "item": "knightsheraldry:jousting_band"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:great_armet_2"
+  }
+}

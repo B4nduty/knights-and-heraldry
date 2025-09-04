@@ -67,9 +67,7 @@ public abstract class ModelLoaderMixin {
                 "longbow_3d",
                 "heavy_crossbow_icon",
                 "arquebus_icon",
-                "handgonne_icon",
-                "plume_helmet",
-                "plume_horse"
+                "handgonne_icon"
         };
 
         String[] bannerCompatibleNames = {

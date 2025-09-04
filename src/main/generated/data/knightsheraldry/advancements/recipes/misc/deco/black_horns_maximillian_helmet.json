@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_black_horns": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:black_horns"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_maximillian_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:maximillian_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/black_horns_maximillian_helmet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_maximillian_helmet",
+      "has_black_horns",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/black_horns_maximillian_helmet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

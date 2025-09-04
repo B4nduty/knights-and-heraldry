@@ -3,6 +3,7 @@ package com.knightsheraldry.items.armor.accessory;
 import banduty.stoneycore.items.armor.SCAccessoryItem;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.model.AccessoryHelmetModel;
+import com.knightsheraldry.model.AccessoryOpenHelmetModel;
 import io.wispforest.accessories.api.AccessoryItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -12,15 +13,24 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
 public class KHHelmetAccessory extends AccessoryItem implements SCAccessoryItem {
+    private final boolean openVisor;
 
-    public KHHelmetAccessory(Settings settings) {
+    public KHHelmetAccessory(Settings settings, boolean openVisor) {
         super(settings);
+        this.openVisor = openVisor;
     }
 
     @Environment(EnvType.CLIENT)
     @Override
     public BipedEntityModel<LivingEntity> getModel(ItemStack itemStack) {
         return new AccessoryHelmetModel(AccessoryHelmetModel.getTexturedModelData().createModel());
+    }
+
+    @Environment(EnvType.CLIENT)
+    @Override
+    public BipedEntityModel<LivingEntity> openVisorModel(ItemStack itemStack) {
+        if (openVisor) return new AccessoryOpenHelmetModel(AccessoryOpenHelmetModel.getTexturedModelData().createModel());
+        return null;
     }
 
     @Override
