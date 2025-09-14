@@ -4,7 +4,6 @@ import banduty.stoneycore.event.custom.RenderOverlayAndAdditionsEvents;
 import banduty.stoneycore.items.armor.SCAccessoryItem;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModItems;
-import com.knightsheraldry.model.AccessoryChestplateModel;
 import com.knightsheraldry.model.HelmetDecoModel;
 import com.knightsheraldry.util.itemdata.HelmetDeco;
 import io.wispforest.accessories.api.client.AccessoryRenderer;
@@ -37,7 +36,6 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
                                                   int light, BipedEntityModel<LivingEntity> model) {
         if (!(stack.getItem() instanceof SCAccessoryItem scAccessoryItem)) return;
 
-        renderAventailIfNeeded(entity, stack, matrices, vertexConsumers, light);
         renderHelmetDecoIfNeeded(entity, stack, matrices, vertexConsumers, light);
 
         renderPartIfNeeded(stack, matrices, vertexConsumers, light, model, "rimmed", RIM_GUARDS_TEXTURE);
@@ -47,22 +45,10 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, SURCOAT_OVERLAY_TEXTURE);
         }
 
-        if (scAccessoryItem.hasOverlay()) {
+        if (scAccessoryItem.getRenderSettings(stack).overlay()) {
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model,
                     getIdentifierWithSuffix("_overlay", stack));
         }
-    }
-
-    private void renderAventailIfNeeded(LivingEntity entity, ItemStack stack, MatrixStack matrices,
-                                        VertexConsumerProvider vertexConsumers, int light) {
-        if (!stack.getOrCreateNbt().getBoolean("aventail")) return;
-
-        BipedEntityModel<LivingEntity> aventailModel = new AccessoryChestplateModel(
-                AccessoryChestplateModel.getTexturedModelData().createModel());
-        VertexConsumer consumer = vertexConsumers.getBuffer(
-                RenderLayer.getArmorCutoutNoCull(getIdentifierWithSuffix("_aventail", stack)));
-
-        renderModel(entity, aventailModel, matrices, consumer, light, WHITE_COLOR);
     }
 
     private void renderHelmetDecoIfNeeded(LivingEntity entity, ItemStack stack, MatrixStack matrices,

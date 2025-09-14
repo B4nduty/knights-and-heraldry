@@ -40,7 +40,7 @@ public class KHSwallowTailArrowEntity extends SCArrowEntity {
             updateSwallowTailArrowCount(player);
         }
 
-        scHitEntity(target, new ItemStack(ModItems.SWALLOWTAIL_ARROW.get()), getDamageAmount());
+        scHitEntity(target, new ItemStack(ModItems.SWALLOWTAIL_ARROW.get()), getDamage());
     }
 
     private void updateSwallowTailArrowCount(PlayerEntity player) {

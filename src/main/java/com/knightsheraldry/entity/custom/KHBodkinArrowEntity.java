@@ -38,14 +38,14 @@ public class KHBodkinArrowEntity extends SCArrowEntity {
     }
 
     public void applyDamage(LivingEntity target) {
-        float damageDealt = SCDamageCalculator.getSCDamage(target, getDamageAmount() - 3, getDamageType());
+        double damageDealt = SCDamageCalculator.getSCDamage(target, getDamage() - 3, getDamageType());
 
-        float armor = Math.max(0, target.getArmor() - 10);
-        float armorToughness = Math.max(0, (float) target.getAttributeValue(EntityAttributes.GENERIC_ARMOR_TOUGHNESS) - 5);
+        double armor = Math.max(0, target.getArmor() - 10);
+        double armorToughness = Math.max(0, target.getAttributeValue(EntityAttributes.GENERIC_ARMOR_TOUGHNESS) - 5);
 
-        damageDealt = DamageUtil.getDamageLeft(damageDealt, armor, armorToughness);
+        damageDealt = DamageUtil.getDamageLeft((float) damageDealt, (float) armor, (float) armorToughness);
 
-        if (this.getOwner() instanceof PlayerEntity player) target.damage(target.getWorld().getDamageSources().playerAttack(player), damageDealt);
-        else if (this.getOwner() instanceof LivingEntity livingEntity) target.damage(target.getWorld().getDamageSources().mobAttack(livingEntity), damageDealt);
+        if (this.getOwner() instanceof PlayerEntity player) target.damage(target.getWorld().getDamageSources().playerAttack(player), (float) damageDealt);
+        else if (this.getOwner() instanceof LivingEntity livingEntity) target.damage(target.getWorld().getDamageSources().mobAttack(livingEntity), (float) damageDealt);
     }
 }

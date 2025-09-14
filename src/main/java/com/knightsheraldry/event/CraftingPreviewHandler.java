@@ -43,7 +43,6 @@ public class CraftingPreviewHandler implements CraftingPreviewCallback {
                 appliedNewColors = true;
                 continue;
             }
-            if (ingredient.getItem() == ModItems.AVENTAIL.get() && original.getItem() != ModItems.AVENTAIL.get()) { original.getOrCreateNbt().putBoolean("aventail", true); continue; }
             if (ingredient.getItem() == ModItems.RIM_GUARDS.get() && original.getItem() != ModItems.RIM_GUARDS.get()) { original.getOrCreateNbt().putBoolean("rimmed", true); continue; }
             if (ingredient.getItem() == ModItems.BESAGEWS.get() && original.getItem() != ModItems.BESAGEWS.get()) { original.getOrCreateNbt().putBoolean("besagews", true); continue; }
 
@@ -59,11 +58,9 @@ public class CraftingPreviewHandler implements CraftingPreviewCallback {
                 }
 
                 if (deco.color() == 2 && ingredient.getItem() instanceof TwoLayerDyeableItem twoLayerDyeableItem) {
-                    NbtCompound nbt = original.getOrCreateNbt();
-                    NbtCompound colors = new NbtCompound();
-                    colors.putInt("color1", twoLayerDyeableItem.getColor1(ingredient));
-                    colors.putInt("color2", twoLayerDyeableItem.getColor2(ingredient));
-                    nbt.put(deco.getNbtKey(), colors);
+                    NbtCompound nbt = original.getOrCreateSubNbt(deco.getNbtKey());
+                    nbt.putInt("color1", twoLayerDyeableItem.getColor1(ingredient));
+                    nbt.putInt("color2", twoLayerDyeableItem.getColor2(ingredient));
                     appliedNewColors = true;
                     continue;
                 }

@@ -97,6 +97,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.XIIII_PLATE_CUIRASS_TASSETS.get(), Models.HANDHELD);
         itemModelGenerator.register(ModItems.XIIII_PLATE_BREASTPLATE.get(), Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.GREAVES.get(), Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.SABATONS.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.FROGMOUTH.get(), Models.HANDHELD);
@@ -105,7 +107,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.PLATE_REREBRACE.get(), Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.PLATE_CHAUSSES.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PLATE_CUISSES.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.AVENTAIL.get(), Models.HANDHELD);
 

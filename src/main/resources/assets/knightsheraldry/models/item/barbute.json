@@ -4,8 +4,6 @@
 		"layer0": "knightsheraldry:item/barbute"
 	},
 	"overrides": [
-      { "predicate": { "aventail": 1 }, "model": "knightsheraldry:item/barbute_aventail" },
-      { "predicate": { "open_visor": 1 }, "model": "knightsheraldry:item/open_barbute" },
-      { "predicate": { "aventail": 1,  "open_visor": 1 }, "model": "knightsheraldry:item/open_barbute_aventail" }
+      { "predicate": { "open_visor": 1 }, "model": "knightsheraldry:item/open_barbute" }
 	]
 }

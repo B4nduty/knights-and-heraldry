@@ -1,17 +1,22 @@
 package com.knightsheraldry.entity.custom;
 
 import banduty.stoneycore.entity.custom.SCArrowEntity;
+import com.knightsheraldry.data.ArrowBehavior;
+import com.knightsheraldry.data.ArrowBehaviorManager;
 import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.items.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -38,23 +43,54 @@ public class KHClothArrowEntity extends SCArrowEntity {
         return new ItemStack(ModItems.CLOTH_ARROW.get());
     }
 
+    private ArrowBehavior getBehavior() {
+        ArrowBehavior behavior = ArrowBehaviorManager.INSTANCE.getBehavior(Registries.ITEM.getId(ModItems.CLOTH_ARROW.get()));
+        if (behavior == null) {
+            behavior = new ArrowBehavior();
+            behavior.targetItemId = Registries.ITEM.getId(ModItems.CLOTH_ARROW.get());
+            behavior.requireOnFire = true;
+            behavior.groundBurnTicks = 100;
+            behavior.aoeRadius = 5.0D;
+            ArrowBehavior.EffectEntry nausea = new ArrowBehavior.EffectEntry();
+            nausea.id = new Identifier("minecraft", "nausea");
+            nausea.duration = 100;
+            nausea.amplifier = 0;
+            ArrowBehavior.EffectEntry poison = new ArrowBehavior.EffectEntry();
+            poison.id = new Identifier("minecraft", "poison");
+            poison.duration = 100;
+            poison.amplifier = 0;
+            behavior.effects.add(nausea);
+            behavior.effects.add(poison);
+            behavior.smoke.enabled = true;
+            behavior.smoke.particle = new Identifier("minecraft", "campfire_cosy_smoke");
+            behavior.smoke.count = 80;
+            behavior.smoke.maxSpeed = 0.1D;
+            behavior.igniteBlocks.radiusX = 2;
+            behavior.igniteBlocks.radiusY = 2;
+            behavior.igniteBlocks.radiusZ = 2;
+            behavior.igniteBlocks.chance = 0.1f;
+        }
+        return behavior;
+    }
+
     @Override
     protected void onSCEntityHit(EntityHitResult entityHitResult) {
         super.onSCEntityHit(entityHitResult);
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
-            scHitEntity(target, new ItemStack(ModItems.CLOTH_ARROW.get()), getDamageAmount());
+            scHitEntity(target, new ItemStack(ModItems.CLOTH_ARROW.get()), getDamage());
         }
     }
 
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
         World world = this.getWorld();
+        ArrowBehavior behavior = getBehavior();
 
         blockCollisioned = true;
-        if (this.isOnFire() && world instanceof ServerWorld serverWorld) {
-            spawnSmokeParticles(serverWorld, blockHitResult);
-            applySmokeEffectsToNearbyEntities(world);
-            igniteNearbyBlocks(serverWorld, blockHitResult.getBlockPos());
+        if ((!behavior.requireOnFire || this.isOnFire()) && world instanceof ServerWorld serverWorld) {
+            if (behavior.smoke.enabled) spawnSmokeParticles(serverWorld, blockHitResult, behavior);
+            applySmokeEffectsToNearbyEntities(world, behavior);
+            igniteNearbyBlocks(serverWorld, blockHitResult.getBlockPos(), behavior);
         }
 
         super.onBlockHit(blockHitResult);
@@ -66,22 +102,29 @@ public class KHClothArrowEntity extends SCArrowEntity {
 
         if (!(this.getWorld() instanceof ServerWorld serverWorld)) return;
 
-        if (this.isOnFire() && this.blockCollisioned) {
-            if (groundTicks >= 100) {
+        ArrowBehavior behavior = getBehavior();
+
+        if ((!behavior.requireOnFire || this.isOnFire()) && this.blockCollisioned) {
+            if (groundTicks >= behavior.groundBurnTicks) {
                 this.setOnFire(false);
                 this.setFireTicks(0);
                 this.setOnFireFor(0);
             } else groundTicks++;
-            applySmokeEffectsToNearbyEntities(serverWorld);
+            applySmokeEffectsToNearbyEntities(serverWorld, behavior);
         }
 
     }
 
-    private void spawnSmokeParticles(ServerWorld serverWorld, BlockHitResult blockHitResult) {
+    private void spawnSmokeParticles(ServerWorld serverWorld, BlockHitResult blockHitResult, ArrowBehavior behavior) {
         BlockPos center = blockHitResult.getBlockPos();
 
-        int particleCount = 80;
-        double maxSpeed = 0.1;
+        int particleCount = behavior.smoke.count;
+        double maxSpeed = behavior.smoke.maxSpeed;
+        ParticleEffect particle = ParticleTypes.CAMPFIRE_COSY_SMOKE;
+        if (behavior.smoke.particle != null && Registries.PARTICLE_TYPE.containsId(behavior.smoke.particle)) {
+            // Fallback to campfire smoke because resolving arbitrary particle types into ParticleEffect is non-trivial here
+            particle = ParticleTypes.CAMPFIRE_COSY_SMOKE;
+        }
 
         for (int i = 0; i < particleCount; i++) {
             double angle = random.nextDouble() * 2 * Math.PI;
@@ -91,7 +134,7 @@ public class KHClothArrowEntity extends SCArrowEntity {
             double dz = Math.sin(angle);
 
             serverWorld.spawnParticles(
-                    ParticleTypes.CAMPFIRE_COSY_SMOKE,
+                    particle,
                     center.getX() + 0.5,
                     center.getY() + 0.5,
                     center.getZ() + 0.5,
@@ -102,24 +145,25 @@ public class KHClothArrowEntity extends SCArrowEntity {
         }
     }
 
-    private void applySmokeEffectsToNearbyEntities(World world) {
+    private void applySmokeEffectsToNearbyEntities(World world, ArrowBehavior behavior) {
         List<LivingEntity> entitiesInRange = world.getEntitiesByClass(
                 LivingEntity.class,
-                this.getBoundingBox().expand(5.0),
+                this.getBoundingBox().expand(behavior.aoeRadius),
                 LivingEntity::isAlive
         );
 
         for (LivingEntity entity : entitiesInRange) {
-            // Apply Nausea + Poison while in smoke
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 100, 0)); // 5s nausea
-            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 0)); // 5s poison
+            for (ArrowBehavior.EffectEntry e : behavior.effects) {
+                StatusEffect effect = Registries.STATUS_EFFECT.get(e.id);
+                if (effect != null) entity.addStatusEffect(new StatusEffectInstance(effect, e.duration, e.amplifier));
+            }
         }
     }
 
-    private void igniteNearbyBlocks(ServerWorld world, BlockPos hitPos) {
+    private void igniteNearbyBlocks(ServerWorld world, BlockPos hitPos, ArrowBehavior behavior) {
         Random random = new Random();
 
-        for (BlockPos pos : BlockPos.iterateOutwards(hitPos, 2, 2, 2)) {
+        for (BlockPos pos : BlockPos.iterateOutwards(hitPos, behavior.igniteBlocks.radiusX, behavior.igniteBlocks.radiusY, behavior.igniteBlocks.radiusZ)) {
             if (!world.getBlockState(pos).isAir()) continue;
 
             boolean canPlaceFire = false;
@@ -133,7 +177,7 @@ public class KHClothArrowEntity extends SCArrowEntity {
                 }
             }
 
-            if (canPlaceFire && random.nextFloat() < 0.1f) {
+            if (canPlaceFire && random.nextFloat() < behavior.igniteBlocks.chance) {
                 world.setBlockState(pos, Blocks.FIRE.getDefaultState());
             }
         }

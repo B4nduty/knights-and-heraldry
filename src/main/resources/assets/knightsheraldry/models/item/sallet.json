@@ -4,8 +4,6 @@
 		"layer0": "knightsheraldry:item/sallet"
 	},
 	"overrides": [
-      { "predicate": { "aventail": 1 }, "model": "knightsheraldry:item/sallet_aventail" },
-      { "predicate": { "open_visor": 1 }, "model": "knightsheraldry:item/open_sallet" },
-      { "predicate": { "aventail": 1,  "open_visor": 1 }, "model": "knightsheraldry:item/open_sallet_aventail" }
+      { "predicate": { "open_visor": 1 }, "model": "knightsheraldry:item/open_sallet" }
 	]
 }

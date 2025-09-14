@@ -2,8 +2,5 @@
 	"parent": "item/handheld",
 	"textures": {
 		"layer0": "knightsheraldry:item/great_helm_2"
-	},
-	"overrides": [
-		{ "predicate": { "aventail": 1 }, "model": "knightsheraldry:item/great_helm_2_aventail" }
-	]
+	}
 }

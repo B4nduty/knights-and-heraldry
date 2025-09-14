@@ -7,16 +7,7 @@ import net.minecraft.item.ItemStack;
 
 import java.util.List;
 
-public class ItemTooltipComponent implements TooltipComponent {
-    private final List<ItemStack> items;
-
-    public ItemTooltipComponent(List<ItemStack> items) {
-        this.items = items;
-    }
-
-    public List<ItemStack> getItems() {
-        return items;
-    }
+public record ItemTooltipComponent(List<ItemStack> items) implements TooltipComponent {
 
     @Override
     public int getHeight() {

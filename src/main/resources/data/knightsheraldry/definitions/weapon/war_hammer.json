@@ -2,8 +2,8 @@
   "melee": {
     "damage": {
       "slashing": 0.0,
-      "piercing": 6.0,
-      "bludgeoning": 9.0
+      "piercing": 10.0,
+      "bludgeoning": 8.0
     },
     "radius": {
       "level_0": 2.0,

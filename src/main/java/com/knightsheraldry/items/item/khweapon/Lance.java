@@ -52,7 +52,7 @@ public class Lance extends SwordItem {
                         && tameableEntity.isOwner(player))) return;
                 if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)
                         && !player.getItemCooldownManager().isCoolingDown(this)) {
-                    float damage = SCDamageCalculator.getSCDamage(livingEntity, getLanceDamage() *
+                    double damage = SCDamageCalculator.getSCDamage(livingEntity, getLanceDamage() *
                             ((IEntityDataSaver) player).stoneycore$getPersistentData().getFloat("speedHistory") * 10,
                             this.onlyDamageType);
 
@@ -60,7 +60,7 @@ public class Lance extends SwordItem {
                     if (livingEntity.hasVehicle()) livingEntity.stopRiding();
 
                     stack.damage(1, player, p -> p.sendToolBreakStatus(livingEntity.getActiveHand()));
-                    targetedEntity.damage(player.getWorld().getDamageSources().playerAttack(player), damage);
+                    targetedEntity.damage(player.getWorld().getDamageSources().playerAttack(player), (float) damage);
                     if (!player.isCreative()) player.getItemCooldownManager().set(this, KnightsHeraldry.getConfig().getLanceCooldown() * 20);
                 }
             }

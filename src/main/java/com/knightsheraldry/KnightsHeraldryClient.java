@@ -43,7 +43,7 @@ public class KnightsHeraldryClient implements ClientModInitializer {
         RenderFirstPersonAccessoryArmorHandler.EVENT.register(new RenderFirstPersonAccessoryArmorHandler());
         TooltipComponentCallback.EVENT.register(data -> {
             if (data instanceof ItemTooltipData itemData) {
-                return new ItemTooltipComponent(itemData.getItems());
+                return new ItemTooltipComponent(itemData.items());
             }
             return null;
         });

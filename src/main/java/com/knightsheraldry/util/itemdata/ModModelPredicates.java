@@ -53,9 +53,6 @@ public class ModModelPredicates {
     }
 
     private static void registerArmorPredicates(Item item) {
-        ModelPredicateProviderRegistry.register(item, new Identifier("aventail"),
-                (stack, world, entity, seed) -> stack.hasNbt() &&
-                        stack.getNbt().getBoolean("aventail") ? 1.0F : 0.0F);
         ModelPredicateProviderRegistry.register(item, new Identifier("rimmed"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
                         stack.getNbt().getBoolean("rimmed") ? 1.0F : 0.0F);

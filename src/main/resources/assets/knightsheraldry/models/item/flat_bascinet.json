@@ -4,8 +4,6 @@
 		"layer0": "knightsheraldry:item/flat_bascinet"
 	},
 	"overrides": [
-      { "predicate": { "aventail": 1 }, "model": "knightsheraldry:item/flat_bascinet_aventail" },
-      { "predicate": { "open_visor": 1 }, "model": "knightsheraldry:item/open_flat_bascinet" },
-      { "predicate": { "aventail": 1,  "open_visor": 1 }, "model": "knightsheraldry:item/open_flat_bascinet_aventail" }
+      { "predicate": { "open_visor": 1 }, "model": "knightsheraldry:item/open_flat_bascinet" }
 	]
 }

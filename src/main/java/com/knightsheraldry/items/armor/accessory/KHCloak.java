@@ -6,8 +6,6 @@ import com.knightsheraldry.model.CloakHoodModel;
 import io.wispforest.accessories.api.AccessoryItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.model.BipedEntityModel;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -22,8 +20,8 @@ public class KHCloak extends AccessoryItem implements SCAccessoryItem, DyeableIt
 
     @Environment(EnvType.CLIENT)
     @Override
-    public BipedEntityModel<LivingEntity> getModel(ItemStack itemStack) {
-        return new CloakHoodModel(CloakHoodModel.getTexturedModelData().createModel());
+    public ModelBundle getModels(ItemStack itemStack) {
+        return ModelBundle.ofBase(new CloakHoodModel(CloakHoodModel.getTexturedModelData().createModel()));
     }
 
     @Environment(EnvType.CLIENT)
@@ -33,12 +31,7 @@ public class KHCloak extends AccessoryItem implements SCAccessoryItem, DyeableIt
     }
 
     @Override
-    public boolean hasOverlay() {
-        return overlay;
-    }
-
-    @Override
-    public boolean hasCustomAngles(ItemStack itemStack) {
-        return true;
+    public RenderSettings getRenderSettings(ItemStack stack) {
+        return new RenderSettings(overlay, true, false);
     }
 }

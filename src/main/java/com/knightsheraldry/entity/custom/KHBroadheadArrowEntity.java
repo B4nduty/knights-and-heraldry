@@ -27,7 +27,7 @@ public class KHBroadheadArrowEntity extends SCArrowEntity {
     protected void onSCEntityHit(EntityHitResult entityHitResult) {
         super.onSCEntityHit(entityHitResult);
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
-            scHitEntity(target, new ItemStack(ModItems.BROADHEAD_ARROW.get()), getDamageAmount());
+            scHitEntity(target, new ItemStack(ModItems.BROADHEAD_ARROW.get()), getDamage());
         }
     }
 }

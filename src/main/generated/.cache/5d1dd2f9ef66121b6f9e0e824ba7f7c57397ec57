@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-04T16:51:05.8287167	Knights & Heraldry/Model Definitions
+// 1.20.1	2025-09-14T13:49:58.3952255	Knights & Heraldry/Model Definitions
 58f0d4cd5e8b90f7b5f050d06de685903fe87979 assets\knightsheraldry\models\item\broad_axe.json
 152d866115a897066f28347780322871e014c1b2 assets\knightsheraldry\models\item\broadhead_arrow.json
 9af3461a55e5457898b4ab2c77096d103ad869a9 assets\knightsheraldry\models\item\surcoat\ss.json
@@ -51,6 +51,7 @@ cd5b0bd98dfe16f469abf494a625b8d311e79b64 assets\knightsheraldry\models\item\surc
 a37ecf74e2a8c4651fb8d398f060fb11af4b6aab assets\knightsheraldry\models\item\bec_de_corbin.json
 1ca5e011db4a6b52b91524a060dd4a987a4a3209 assets\knightsheraldry\models\item\teutonic_snakes.json
 274982a379fe7c8db2799aff7b78b6272b6b3d30 assets\knightsheraldry\models\item\polehammer.json
+1e7eeb709f076651107253a125848fe5a183aa21 assets\knightsheraldry\models\item\greaves.json
 5edaa5d6697a8e5a8f638800e99fbd5941ac4b46 assets\knightsheraldry\models\item\surcoat\ld.json
 26d5e266212d6def76bc08e3eb85606e9a27fdf6 assets\knightsheraldry\models\item\surcoat_sleeveless\cbo.json
 32814dbf3ba8bba985a861bb7ae16145ab127320 assets\knightsheraldry\models\item\surcoat_sleeveless\vh.json
@@ -61,8 +62,8 @@ a3b93771b998d9b814145bc0878a425ac0aee23f assets\knightsheraldry\models\item\surc
 5dc34f29338decc929edbfbe9013dff86e39af5e assets\knightsheraldry\models\item\torn_hood.json
 4a177c32ab9c33bd065f6796c3e5cc4c7e985b00 assets\knightsheraldry\models\item\fluffy_plume.json
 b5624b1196371f52aa96c5dec8f80a870a7b19fc assets\knightsheraldry\models\item\tri_plume.json
-d063f7f3c758fdbc642ba79a90c6058a6f6026e8 assets\knightsheraldry\models\item\surcoat_sleeveless\tr.json
 81ffe91b897514b4104676bbf36a54e702d6e402 assets\knightsheraldry\models\item\surcoat\cre.json
+d063f7f3c758fdbc642ba79a90c6058a6f6026e8 assets\knightsheraldry\models\item\surcoat_sleeveless\tr.json
 ff877278fab07d3b14becfdc870fda4bacc44ca3 assets\knightsheraldry\models\item\bodkin_arrow.json
 cb96d3678ad4505b9fa648a21a3874a706aacd79 assets\knightsheraldry\models\item\surcoat\hhb.json
 fb58204e126f27f85f748e717f4c4a4357e110c0 assets\knightsheraldry\models\item\surcoat\vhr.json
@@ -135,10 +136,10 @@ c5acbc1be83ca6d8c590614dd2fb6c6d10ad946f assets\knightsheraldry\models\item\surc
 87915087fb0f6067dd665a5bbaa9f4165516faf1 assets\knightsheraldry\models\item\surcoat\bo.json
 dc5b889e35bb36552953898ad98640759477be8b assets\knightsheraldry\models\item\teutonic_black_snakes.json
 3ee6a19fc8dadffd7e8cf7de5bbf53dffe1088e0 assets\knightsheraldry\models\item\surcoat\tt.json
-f93cac9352c471bab3554800c1e67ae39a5abb1f assets\knightsheraldry\models\item\plate_chausses.json
 36e7f260962fc54ffac5583c9c9906c45256a9f1 assets\knightsheraldry\models\item\stag.json
 8ff52f4e15b2669d3b0c125c9896a2673b8e66f8 assets\knightsheraldry\models\item\surcoat_sleeveless\bl.json
 8ee8d3a4fb9d6d8deb881090dfd10bc133a39965 assets\knightsheraldry\models\item\bardiche.json
+23804df64e47259b825b59b24163b80bb77077a0 assets\knightsheraldry\models\item\plate_cuisses.json
 24d4e7fb99459b684252159129ce81b93430c56c assets\knightsheraldry\models\item\helmet_torn_hood.json
 f6b19472685f2cb117f5b73ade39ebfa7e3cc559 assets\knightsheraldry\models\item\stiletto.json
 f4aab9be9611cad1b70bff671f3cdacdf681967c assets\knightsheraldry\models\item\surcoat_sleeveless\ss.json

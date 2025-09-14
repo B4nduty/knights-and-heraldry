@@ -35,7 +35,6 @@ public class ItemMixin {
         if (!(stack.getItem() instanceof SCAccessoryItem)) return;
 
         StringBuilder translationKey = new StringBuilder(stack.getTranslationKey());
-        if (stack.getOrCreateNbt().getBoolean("aventail")) translationKey.append("_aventail");
         if (stack.getOrCreateNbt().getBoolean("rimmed")) translationKey.append("_rimmed");
         if (stack.getOrCreateNbt().getBoolean("besagews")) translationKey.append("_besagews");
         cir.setReturnValue(Text.translatable(translationKey.toString()));
@@ -45,8 +44,25 @@ public class ItemMixin {
     public void knightsheraldry$getTooltipData(ItemStack stack, CallbackInfoReturnable<Optional<TooltipData>> cir) {
         List<ItemStack> itemsToShow = new ArrayList<>();
         for (HelmetDeco helmetDeco : HelmetDeco.HELMET_DECO.values()) {
-            if (stack.isOf(helmetDeco.item()) || stack.getNbt() == null || !stack.getNbt().getBoolean(helmetDeco.getNbtKey())) continue;
-            itemsToShow.add(new ItemStack(helmetDeco.item()));
+            NbtCompound nbt = stack.getNbt();
+            String key = helmetDeco.getNbtKey();
+            if (stack.isOf(helmetDeco.item()) || nbt == null || !nbt.contains(key)) continue;
+            ItemStack itemStack = new ItemStack(helmetDeco.item());
+
+            if (helmetDeco.color() == 2) {
+                if (nbt.getCompound(key).contains("color1")) {
+                    itemStack.getOrCreateSubNbt(key).putInt("color1", nbt.getCompound(key).getInt("color1"));
+                } else itemStack.getOrCreateSubNbt(key).putInt("color1", -1);
+                if (nbt.getCompound(key).contains("color2")) {
+                    itemStack.getOrCreateSubNbt(key).putInt("color2", nbt.getCompound(key).getInt("color2"));
+                } else itemStack.getOrCreateSubNbt(key).putInt("color2", -1);
+            }
+
+            if (helmetDeco.color() == 1) {
+                itemStack.getOrCreateSubNbt("display").putInt("color", nbt.getInt(key));
+            }
+
+            itemsToShow.add(itemStack);
         }
         if (!itemsToShow.isEmpty()) cir.setReturnValue(Optional.of(new ItemTooltipData(itemsToShow)));
     }
@@ -93,7 +109,6 @@ public class ItemMixin {
                 appliedNewColors = true;
                 continue;
             }
-            if (ingredient.getItem() == ModItems.AVENTAIL.get() && original.getItem() != ModItems.AVENTAIL.get()) { original.getOrCreateNbt().putBoolean("aventail", true); continue; }
             if (ingredient.getItem() == ModItems.RIM_GUARDS.get() && original.getItem() != ModItems.RIM_GUARDS.get()) { original.getOrCreateNbt().putBoolean("rimmed", true); continue; }
             if (ingredient.getItem() == ModItems.BESAGEWS.get() && original.getItem() != ModItems.BESAGEWS.get()) { original.getOrCreateNbt().putBoolean("besagews", true); continue; }
 
@@ -109,11 +124,9 @@ public class ItemMixin {
                 }
 
                 if (deco.color() == 2 && ingredient.getItem() instanceof TwoLayerDyeableItem twoLayerDyeableItem) {
-                    NbtCompound nbt = original.getOrCreateNbt();
-                    NbtCompound colors = new NbtCompound();
-                    colors.putInt("color1", twoLayerDyeableItem.getColor1(ingredient));
-                    colors.putInt("color2", twoLayerDyeableItem.getColor2(ingredient));
-                    nbt.put(deco.getNbtKey(), colors);
+                    NbtCompound nbt = original.getOrCreateSubNbt(deco.getNbtKey());
+                    nbt.putInt("color1", twoLayerDyeableItem.getColor1(ingredient));
+                    nbt.putInt("color2", twoLayerDyeableItem.getColor2(ingredient));
                     appliedNewColors = true;
                     continue;
                 }

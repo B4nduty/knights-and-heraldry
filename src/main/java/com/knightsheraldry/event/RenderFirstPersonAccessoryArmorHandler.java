@@ -24,16 +24,16 @@ public class RenderFirstPersonAccessoryArmorHandler implements RenderFirstPerson
     public void onRenderInFirstPerson(ClientPlayerEntity clientPlayerEntity, ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers,
                                       int light, Arm arm) {
         if (!(stack.getItem() instanceof SCAccessoryItem scAccessoryItem)) return;
-        if (scAccessoryItem.getFirstPersonModel(stack) == null) return;
+        if (scAccessoryItem.getModels(stack).firstPerson().isEmpty()) return;
 
-        AccessoryArmModel model = (AccessoryArmModel) scAccessoryItem.getFirstPersonModel(stack);
+        AccessoryArmModel model = (AccessoryArmModel) scAccessoryItem.getModels(stack).firstPerson().get();
         float[] color = DyeUtil.getFloatDyeColor(stack);
         Identifier texturePath = scAccessoryItem.getTexturePath(stack);
 
         VertexConsumer baseConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(texturePath));
-        renderArm(clientPlayerEntity, model, matrices, baseConsumer, light, scAccessoryItem.hasOverlay() ? color : new float[]{1, 1, 1}, arm);
+        renderArm(clientPlayerEntity, model, matrices, baseConsumer, light, scAccessoryItem.getRenderSettings(stack).overlay() ? color : new float[]{1, 1, 1}, arm);
 
-        if (scAccessoryItem.hasOverlay()) {
+        if (scAccessoryItem.getRenderSettings(stack).overlay()) {
             VertexConsumer overlayConsumer = vertexConsumers.getBuffer(
                     RenderLayer.getArmorCutoutNoCull(getOverlayIdentifier(stack)));
             renderArm(clientPlayerEntity, model, matrices, overlayConsumer, light, new float[]{1, 1, 1}, arm);

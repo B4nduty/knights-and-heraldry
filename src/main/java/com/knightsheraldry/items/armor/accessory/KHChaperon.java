@@ -6,8 +6,6 @@ import com.knightsheraldry.model.ChaperonModel;
 import io.wispforest.accessories.api.AccessoryItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.model.BipedEntityModel;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.DyeableItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -20,24 +18,18 @@ public class KHChaperon extends AccessoryItem implements SCAccessoryItem, Dyeabl
         this.hasOverlay = hasOverlay;
     }
 
-    @Override
-    public boolean hasOverlay() {
-        return hasOverlay;
-    }
-
     @Environment(EnvType.CLIENT)
-    @Override
-    public BipedEntityModel<LivingEntity> getModel(ItemStack itemStack) {
-        return new ChaperonModel(ChaperonModel.getTexturedModelData().createModel());
-    }
-
-    @Override
-    public boolean shouldNotRenderOnHeadInFirstPerson() {
-        return true;
+    public ModelBundle getModels(ItemStack itemStack) {
+        return ModelBundle.ofBase(new ChaperonModel(ChaperonModel.getTexturedModelData().createModel()));
     }
 
     @Override
     public Identifier getTexturePath(ItemStack itemStack) {
         return new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/chaperon.png");
+    }
+
+    @Override
+    public RenderSettings getRenderSettings(ItemStack stack) {
+        return new RenderSettings(hasOverlay, false, true);
     }
 }

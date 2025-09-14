@@ -87,9 +87,10 @@ public class VillagerTradesModifier {
 
 
         addTradeOffer(VillagerProfession.ARMORER, 5,18, 12, 15, ModItems.PLATE_PAULDRON.get());
+        addTradeOffer(VillagerProfession.ARMORER, 5,13, 12, 15, ModItems.GREAVES.get());
         addTradeOffer(VillagerProfession.ARMORER, 5,11, 12, 15, ModItems.SABATONS.get());
         addTradeOffer(VillagerProfession.ARMORER, 5,24, 12, 15, ModItems.PLATE_REREBRACE.get());
-        addTradeOffer(VillagerProfession.ARMORER, 5,24, 12, 15, ModItems.PLATE_CHAUSSES.get());
+        addTradeOffer(VillagerProfession.ARMORER, 5,15, 12, 15, ModItems.PLATE_CUISSES.get());
         addTradeOffer(VillagerProfession.ARMORER, 5,4, 12, 15, ModItems.RIM_GUARDS.get());
         addTradeOffer(VillagerProfession.ARMORER, 5,3, 12, 15, ModItems.BESAGEWS.get());
         addRandomTradeOffer(VillagerProfession.ARMORER, 5,26, 12, 15,

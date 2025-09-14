@@ -3,6 +3,7 @@ package com.knightsheraldry;
 import banduty.stoneycore.event.custom.CraftingPreviewCallback;
 import banduty.stoneycore.util.playerdata.IEntityDataSaver;
 import com.knightsheraldry.config.KHConfig;
+import com.knightsheraldry.data.ArrowBehaviorManager;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.entity.ModEntities;
 import com.knightsheraldry.event.*;
@@ -12,7 +13,6 @@ import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.sounds.ModSounds;
 import com.knightsheraldry.util.loottable.VillagerTradesModifier;
 import dev.architectury.event.events.common.LifecycleEvent;
-import io.wispforest.accessories.api.events.AdjustAttributeModifierCallback;
 import io.wispforest.accessories.api.events.CanEquipCallback;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -46,8 +46,8 @@ public class KnightsHeraldry implements ModInitializer {
         CanEquipCallback.EVENT.register(new CanEquipHandler());
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
         UseItemCallback.EVENT.register(new UseItemHandler());
-        AdjustAttributeModifierCallback.EVENT.register(new AdjustAttributeModifierEvent());
         CraftingPreviewCallback.EVENT.register(new CraftingPreviewHandler());
+        ArrowBehaviorManager.register();
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             ServerPlayerEntity player = handler.getPlayer();
             if (player != null) {

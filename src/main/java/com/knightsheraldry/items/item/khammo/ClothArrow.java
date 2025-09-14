@@ -1,12 +1,14 @@
 package com.knightsheraldry.items.item.khammo;
 
-import banduty.stoneycore.items.item.SCArrow;
+import com.knightsheraldry.items.item.KHExtendedArrowItem;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LeveledCauldronBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.Items;
@@ -23,10 +25,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class ClothArrow extends SCArrow {
+public class ClothArrow extends KHExtendedArrowItem {
     private static final int IGNITE_DURATION_TICKS = 20 * 60;
 
-    public ClothArrow(Settings settings, BiFunction<PlayerEntity, World, Entity> arrowEntityFactory) {
+    public ClothArrow(Settings settings, BiFunction<LivingEntity, World, PersistentProjectileEntity> arrowEntityFactory) {
         super(settings, arrowEntityFactory);
     }
 
@@ -123,6 +125,15 @@ public class ClothArrow extends SCArrow {
             }
         }
         return TypedActionResult.success(itemStack);
+    }
+
+    @Override
+    public PersistentProjectileEntity createArrow(World world, ItemStack stack, LivingEntity shooter) {
+        PersistentProjectileEntity arrow = super.createArrow(world, stack, shooter);
+        if (stack.getNbt() != null && stack.getNbt().getBoolean("ignited")) {
+            arrow.setOnFireFor(60);
+        }
+        return arrow;
     }
 
     @Override

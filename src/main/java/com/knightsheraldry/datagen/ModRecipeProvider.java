@@ -36,22 +36,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createWeaponCycle(exporter, ModItems.WARSWORD.get(), ModItems.WARSWORD_CLAYMORE.get(),
                 ModItems.WARSWORD_FLAMBERGE.get(), ModItems.WARSWORD_ZWEIHANDER.get());
 
-        createAventailHelmet(exporter, ModItems.ARMET.get());
-        createAventailHelmet(exporter, ModItems.ARMET_2.get());
-        createAventailHelmet(exporter, ModItems.VIKING_HELM.get());
-        createAventailHelmet(exporter, ModItems.GREAT_HELM.get());
-        createAventailHelmet(exporter, ModItems.GREAT_HELM_2.get());
-        createAventailHelmet(exporter, ModItems.KETTLE_HELM.get());
-        createAventailHelmet(exporter, ModItems.NASAL_HELM.get());
-        createAventailHelmet(exporter, ModItems.SALLET.get());
-        createAventailHelmet(exporter, ModItems.BARBUTE.get());
-        createAventailHelmet(exporter, ModItems.BARBUTE_NO_VISOR.get());
-        createAventailHelmet(exporter, ModItems.BASCINET.get());
-        createAventailHelmet(exporter,  ModItems.BASCINET_NO_VISOR.get());
-        createAventailHelmet(exporter, ModItems.CAGE.get());
-        createAventailHelmet(exporter,  ModItems.CAGE_2.get());
-        createAventailHelmet(exporter,  ModItems.FLAT_BASCINET.get());
-
         createDecoRecipe(exporter,  ModItems.BARBUTE_NO_VISOR.get());
         createDecoRecipe(exporter,  ModItems.BASCINET_NO_VISOR.get());
         createDecoRecipe(exporter,  ModItems.KETTLE_HELM.get());
@@ -143,18 +127,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.TRI_PLUME.get()), conditionsFromItem(ModItems.TRI_PLUME.get()))
                 .criterion(hasItem(ModItems.PLUME.get()), conditionsFromItem(ModItems.PLUME.get()))
                 .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, getRecipeName(ModItems.FLUFFY_PLUME.get()) + "_2"));
-    }
-
-    private void createAventailHelmet(Consumer<RecipeJsonProvider> exporter, Item helmet) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, helmet, 1)
-                .input(helmet)
-                .input(ModItems.AVENTAIL.get())
-                .criterion(hasItem(helmet), conditionsFromItem(helmet))
-                .criterion(hasItem(ModItems.AVENTAIL.get()), conditionsFromItem(ModItems.AVENTAIL.get()))
-                .offerTo(exporter, new Identifier(
-                        KnightsHeraldry.MOD_ID,
-                        "aventail/" + Registries.ITEM.getId(helmet).getPath()
-                ));
     }
 
     private static void createDecoRecipe(Consumer<RecipeJsonProvider> exporter, Item helmet) {

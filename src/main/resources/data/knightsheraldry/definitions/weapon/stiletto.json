@@ -2,7 +2,7 @@
   "melee": {
     "damage": {
       "slashing": 0.0,
-      "piercing": 9.0,
+      "piercing": 6.5,
       "bludgeoning": 0.0
     },
     "radius": {
