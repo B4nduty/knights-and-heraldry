@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "stoneycore:smithing_hammer"
+  },
+  "base": {
+    "item": "knightsheraldry:plate_rerebrace"
+  },
+  "result": {
+    "item": "knightsheraldry:dark_plate_rerebrace"
+  },
+  "template": {
+    "item": "knightsheraldry:darkened_armor_template"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "stoneycore:smithing_hammer"
+  },
+  "base": {
+    "item": "knightsheraldry:plate_pauldron"
+  },
+  "result": {
+    "item": "knightsheraldry:dark_plate_pauldron"
+  },
+  "template": {
+    "item": "knightsheraldry:darkened_armor_template"
+  }
+}

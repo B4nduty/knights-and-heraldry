@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "stoneycore:smithing_hammer"
+  },
+  "base": {
+    "item": "knightsheraldry:great_armet"
+  },
+  "result": {
+    "item": "knightsheraldry:dark_great_armet"
+  },
+  "template": {
+    "item": "knightsheraldry:darkened_armor_template"
+  }
+}

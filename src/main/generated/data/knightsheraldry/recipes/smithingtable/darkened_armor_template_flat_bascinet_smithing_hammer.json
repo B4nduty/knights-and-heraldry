@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "stoneycore:smithing_hammer"
+  },
+  "base": {
+    "item": "knightsheraldry:flat_bascinet"
+  },
+  "result": {
+    "item": "knightsheraldry:dark_flat_bascinet"
+  },
+  "template": {
+    "item": "knightsheraldry:darkened_armor_template"
+  }
+}

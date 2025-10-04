@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "stoneycore:smithing_hammer"
+  },
+  "base": {
+    "item": "knightsheraldry:maximillian_helmet"
+  },
+  "result": {
+    "item": "knightsheraldry:dark_maximillian_helmet"
+  },
+  "template": {
+    "item": "knightsheraldry:darkened_armor_template"
+  }
+}
