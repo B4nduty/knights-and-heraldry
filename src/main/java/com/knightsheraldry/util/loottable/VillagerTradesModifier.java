@@ -156,7 +156,7 @@ public class VillagerTradesModifier {
 
 
         addRandomTradeOffer(VillagerProfession.SHEPHERD, 2,2, 32, 1,
-                ModItems.SURCOAT.get(), ModItems.SURCOAT_SLEEVELESS.get());
+                ModItems.SURCOAT.get(), ModItems.SURCOAT_SLEEVELESS.get(), ModItems.CIVILIAN_SURCOAT.get(), ModItems.GIORNEA.get());
 
 
         addTradeOffer(VillagerProfession.SHEPHERD, 4,20, 12, 5, ModItems.JESTER_HOOD.get());

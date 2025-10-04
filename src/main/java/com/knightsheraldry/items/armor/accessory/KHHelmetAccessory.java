@@ -15,6 +15,12 @@ public class KHHelmetAccessory extends AccessoryItem implements SCAccessoryItem 
     private final boolean openVisor;
     private final Ingredient ingredient;
 
+    public KHHelmetAccessory(Settings settings, Ingredient ingredient) {
+        super(settings);
+        this.openVisor = false;
+        this.ingredient = ingredient;
+    }
+
     public KHHelmetAccessory(Settings settings, boolean openVisor, Ingredient ingredient) {
         super(settings);
         this.openVisor = openVisor;

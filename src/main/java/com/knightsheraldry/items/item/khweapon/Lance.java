@@ -1,7 +1,7 @@
 package com.knightsheraldry.items.item.khweapon;
 
 import banduty.stoneycore.util.SCDamageCalculator;
-import banduty.stoneycore.util.playerdata.IEntityDataSaver;
+import banduty.stoneycore.util.data.playerdata.IEntityDataSaver;
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.ModToolMaterials;
 import net.minecraft.client.item.TooltipContext;

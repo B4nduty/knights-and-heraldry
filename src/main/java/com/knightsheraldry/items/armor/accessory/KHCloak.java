@@ -13,6 +13,11 @@ import net.minecraft.util.Identifier;
 public class KHCloak extends AccessoryItem implements SCAccessoryItem, DyeableItem {
     boolean overlay;
 
+    public KHCloak(Settings settings) {
+        super(settings);
+        this.overlay = false;
+    }
+
     public KHCloak(Settings settings, boolean overlay) {
         super(settings);
         this.overlay = overlay;

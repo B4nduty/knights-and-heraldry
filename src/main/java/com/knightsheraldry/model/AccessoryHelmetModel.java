@@ -28,7 +28,6 @@ public class AccessoryHelmetModel extends BipedEntityModel<LivingEntity> {
         ModelPartData modelPartData = modelData.getRoot();
         ModelPartData armorHead = modelPartData.addChild("armorHead", ModelPartBuilder.create().uv(80, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.6F))
                 .uv(72, 97).cuboid(-7.0F, -5.2F, -7.0F, 14.0F, 1.0F, 14.0F, new Dilation(0.0F))
-                .uv(56, 118).cuboid(-5.0F, 0.0F, -3.3F, 10.0F, 4.0F, 6.0F, new Dilation(0.66F))
                 .uv(86, 84).cuboid(-5.0F, -1.9F, -4.0F, 10.0F, 2.0F, 11.0F, new Dilation(0.0F))
                 .uv(104, 33).cuboid(-1.0F, -8.0F, 4.0F, 2.0F, 8.0F, 2.0F, new Dilation(0.0F))
                 .uv(104, 35).cuboid(-1.0F, -10.0F, -2.0F, 2.0F, 2.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
@@ -69,21 +68,33 @@ public class AccessoryHelmetModel extends BipedEntityModel<LivingEntity> {
 
         ModelPartData maximillian = visor.addChild("maximillian", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 6.0F, 2.0F));
 
-        maximillian.addChild("maximillian_2_r1", ModelPartBuilder.create().uv(64, 67).cuboid(-4.5F, -2.8F, -4.85F, 9.0F, 3.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.1309F, 0.0F, 0.0F));
+        maximillian.addChild("maximillian_2_r1", ModelPartBuilder.create().uv(64, 67).cuboid(-4.5F, -2.8F, -4.85F, 9.0F, 3.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -0.3F, 0.1F, 0.1309F, 0.0F, 0.0F));
 
         maximillian.addChild("maximillian_1_r1", ModelPartBuilder.create().uv(60, 59).cuboid(-4.5F, -6.8F, -5.4F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
 
-        ModelPartData ridge_1 = maximillian.addChild("ridge_1", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.5F, -4.75F));
+        ModelPartData ridge_2 = maximillian.addChild("ridge_2", ModelPartBuilder.create(), ModelTransform.of(0.0F, -3.25F, -4.0F, 0.0F, -0.2618F, 0.0F));
 
-        ridge_1.addChild("cube_r2", ModelPartBuilder.create().uv(79, 116).cuboid(-4.5F, -0.5F, -0.5F, 9.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.7854F, 0.0F, 0.0F));
+        ridge_2.addChild("cube_r2", ModelPartBuilder.create().uv(85, 116).cuboid(-2.5F, -0.2172F, -3.0328F, 3.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(2.3882F, 2.0F, -0.0511F, 0.7854F, 0.0F, 0.0F));
 
-        ModelPartData ridge_2 = maximillian.addChild("ridge_2", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -2.25F, -5.0F));
+        ridge_2.addChild("cube_r3", ModelPartBuilder.create().uv(84, 116).cuboid(-3.5F, -0.0793F, -2.0707F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(3.3307F, 1.0F, -1.0435F, 0.7854F, 0.0F, 0.0F));
 
-        ridge_2.addChild("cube_r3", ModelPartBuilder.create().uv(79, 116).cuboid(-4.5F, -0.5F, -0.5F, 9.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.7854F, 0.0F, 0.0F));
+        ridge_2.addChild("cube_r4", ModelPartBuilder.create().uv(84, 116).cuboid(-4.0F, -0.6414F, -1.8586F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(3.7666F, 0.0F, -1.0351F, 0.7854F, 0.0F, 0.0F));
 
-        ModelPartData ridge_3 = maximillian.addChild("ridge_3", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -0.95F, -5.0F));
+        ModelPartData ridge_5 = maximillian.addChild("ridge_5", ModelPartBuilder.create(), ModelTransform.of(0.0F, -3.25F, -4.0F, 0.0F, 0.2618F, 0.0F));
 
-        ridge_3.addChild("cube_r4", ModelPartBuilder.create().uv(79, 116).cuboid(-4.5F, -0.5F, -0.5F, 9.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.7854F, 0.0F, 0.0F));
+        ridge_5.addChild("cube_r5", ModelPartBuilder.create().uv(85, 116).mirrored().cuboid(-0.5F, -0.2172F, -3.0328F, 3.0F, 1.0F, 1.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(-2.3882F, 2.0F, -0.0511F, 0.7854F, 0.0F, 0.0F));
+
+        ridge_5.addChild("cube_r6", ModelPartBuilder.create().uv(84, 116).mirrored().cuboid(-0.5F, -0.0793F, -2.0707F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(-3.3307F, 1.0F, -1.0435F, 0.7854F, 0.0F, 0.0F));
+
+        ridge_5.addChild("cube_r7", ModelPartBuilder.create().uv(84, 116).mirrored().cuboid(1.0F, -0.6414F, -1.8586F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(-4.7666F, 0.0F, -1.0351F, 0.7854F, 0.0F, 0.0F));
+
+        ModelPartData middle_ridge = visor.addChild("middle_ridge", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 30.0F, 2.0F));
+
+        middle_ridge.addChild("cube_r8", ModelPartBuilder.create().uv(102, 116).cuboid(-0.5F, -0.5F, -2.0F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -27.45F, -5.0F, 0.7854F, 0.0F, 0.0F));
+
+        middle_ridge.addChild("cube_r9", ModelPartBuilder.create().uv(102, 116).cuboid(-0.5F, -0.15F, -2.0F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -26.15F, -5.0F, 0.7854F, 0.0F, 0.0F));
+
+        middle_ridge.addChild("cube_r10", ModelPartBuilder.create().uv(102, 116).cuboid(-0.5F, -0.5F, -2.75F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -24.85F, -4.0F, 0.7854F, 0.0F, 0.0F));
 
         ModelPartData armet = visor.addChild("armet", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 6.0F, 2.0F));
 
@@ -113,6 +124,8 @@ public class AccessoryHelmetModel extends BipedEntityModel<LivingEntity> {
 
         sallet.addChild("sallet_2_r1", ModelPartBuilder.create().uv(98, 77).cuboid(-5.0F, -1.4F, -5.9F, 10.0F, 2.0F, 2.0F, new Dilation(0.0F))
                 .uv(73, 87).cuboid(-4.5F, -6.4F, -5.4F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
+
+        modelPartData.addChild("bb_main", ModelPartBuilder.create().uv(56, 118).cuboid(-5.0F, -24.0F, -3.3F, 10.0F, 4.0F, 6.0F, new Dilation(0.66F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
         return TexturedModelData.of(modelData, 128, 128);
     }
 

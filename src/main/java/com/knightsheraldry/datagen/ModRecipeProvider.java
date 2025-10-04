@@ -8,9 +8,12 @@ import com.knightsheraldry.util.itemdata.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.ItemTags;
@@ -127,6 +130,72 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.TRI_PLUME.get()), conditionsFromItem(ModItems.TRI_PLUME.get()))
                 .criterion(hasItem(ModItems.PLUME.get()), conditionsFromItem(ModItems.PLUME.get()))
                 .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, getRecipeName(ModItems.FLUFFY_PLUME.get()) + "_2"));
+
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE_PAULDRON.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE_PAULDRON.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.PLATE_PAULDRON.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_PLATE_PAULDRON.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIG_BREASTPLATE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIG_BREASTPLATE.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIG_BREASTPLATE_TASSETS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIG_BREASTPLATE_TASSETS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.PLATE_CUIRASS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_PLATE_CUIRASS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.PLATE_CUIRASS_TASSETS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_PLATE_CUIRASS_TASSETS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.MAXIMILLIAN_CUIRASS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_MAXIMILLIAN_CUIRASS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.MAXIMILLIAN_CUIRASS_TASSETS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.XIIII_PLATE_CUIRASS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_XIIII_PLATE_CUIRASS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.XIIII_PLATE_CUIRASS_TASSETS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.XIIII_PLATE_BREASTPLATE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_XIIII_PLATE_BREASTPLATE.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BARBUTE_NO_VISOR.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BARBUTE_NO_VISOR.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BASCINET_NO_VISOR.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BASCINET_NO_VISOR.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.KETTLE_HELM.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_KETTLE_HELM.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.NASAL_HELM.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_NASAL_HELM.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.VIKING_HELM.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_VIKING_HELM.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.ARMET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_ARMET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.ARMET_2.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_ARMET_2.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BARBUTE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BARBUTE.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BASCINET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BASCINET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.CAGE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_CAGE.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.CAGE_2.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_CAGE_2.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.FLAT_BASCINET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_FLAT_BASCINET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAT_HELM.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAT_HELM.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAT_HELM_2.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAT_HELM_2.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.SALLET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_SALLET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.FROGMOUTH.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_FROGMOUTH.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAT_ARMET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAT_ARMET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAT_ARMET_2.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAT_ARMET_2.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAT_BASCINET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAT_BASCINET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAT_HOUNDSKUL_BASCINET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAT_HOUNDSKUL_BASCINET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.MAXIMILLIAN_HELMET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_MAXIMILLIAN_HELMET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GAUNTLET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GAUNTLET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE_REREBRACE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE_REREBRACE.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.PLATE_REREBRACE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_PLATE_REREBRACE.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE_CHAUSSES.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE_CHAUSSES.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.PLATE_CUISSES.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_PLATE_CUISSES.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAVES.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAVES.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.SABATONS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_SABATONS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.HORSE_BARDING.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_HORSE_BARDING.get());
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DARKENED_ARMOR_TEMPLATE.get())
+                .pattern("SBS")
+                .pattern("SCS")
+                .pattern("SBS")
+                .input('C', Items.COPPER_INGOT)
+                .input('B', Items.BONE_MEAL)
+                .input('S', Items.BASALT)
+                .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
+                .criterion(hasItem(Items.BONE_MEAL), conditionsFromItem(Items.BONE_MEAL))
+                .criterion(hasItem(Items.BASALT), conditionsFromItem(Items.BASALT))
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, getRecipeName(ModItems.DARKENED_ARMOR_TEMPLATE.get())));
+    }
+
+    private void createSmithingRecipe(Consumer<RecipeJsonProvider> exporter, Item template, Item base, Item addition, Item finalItem) {
+        SmithingTransformRecipeJsonBuilder builder = SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(template), Ingredient.ofItems(base), Ingredient.ofItems(addition), RecipeCategory.MISC, finalItem)
+                .criterion(hasItem(template), conditionsFromItem(template))
+                .criterion(hasItem(base), conditionsFromItem(base))
+                .criterion(hasItem(addition), conditionsFromItem(addition));
+
+        builder.offerTo(exporter, new Identifier(
+                KnightsHeraldry.MOD_ID,
+                "smithingtable/" + Registries.ITEM.getId(template).getPath() + "_" + Registries.ITEM.getId(base).getPath() + "_" + Registries.ITEM.getId(addition).getPath()
+        ));
     }
 
     private static void createDecoRecipe(Consumer<RecipeJsonProvider> exporter, Item helmet) {

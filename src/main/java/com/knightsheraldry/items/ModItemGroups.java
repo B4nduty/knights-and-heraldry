@@ -147,6 +147,22 @@ public class ModItemGroups {
                 armorStack(ModItems.GREAT_HELM_2.get(),false, false),
                 armorStack(ModItems.SALLET.get(),false, false),
 
+                armorStack(ModItems.DARK_BARBUTE_NO_VISOR.get(),false, false),
+                armorStack(ModItems.DARK_BASCINET_NO_VISOR.get(),false, false),
+                armorStack(ModItems.DARK_KETTLE_HELM.get(),false, false),
+                armorStack(ModItems.DARK_NASAL_HELM.get(),false, false),
+                armorStack(ModItems.DARK_VIKING_HELM.get(),false, false),
+                armorStack(ModItems.DARK_ARMET.get(),false, false),
+                armorStack(ModItems.DARK_ARMET_2.get(),false, false),
+                armorStack(ModItems.DARK_BARBUTE.get(),false, false),
+                armorStack(ModItems.DARK_BASCINET.get(),false, false),
+                armorStack(ModItems.DARK_CAGE.get(),false, false),
+                armorStack(ModItems.DARK_CAGE_2.get(),false, false),
+                armorStack(ModItems.DARK_FLAT_BASCINET.get(),false, false),
+                armorStack(ModItems.DARK_GREAT_HELM.get(),false, false),
+                armorStack(ModItems.DARK_GREAT_HELM_2.get(),false, false),
+                armorStack(ModItems.DARK_SALLET.get(),false, false),
+
                 armorStack(ModItems.AVENTAIL.get(),false, false),
 
                 armorStack(ModItems.FROGMOUTH.get(),false, false),
@@ -155,6 +171,13 @@ public class ModItemGroups {
                 armorStack(ModItems.GREAT_BASCINET.get(),false, false),
                 armorStack(ModItems.GREAT_HOUNDSKUL_BASCINET.get(),false, false),
                 armorStack(ModItems.MAXIMILLIAN_HELMET.get(),false, false),
+
+                armorStack(ModItems.DARK_FROGMOUTH.get(),false, false),
+                armorStack(ModItems.DARK_GREAT_ARMET.get(),false, false),
+                armorStack(ModItems.DARK_GREAT_ARMET_2.get(),false, false),
+                armorStack(ModItems.DARK_GREAT_BASCINET.get(),false, false),
+                armorStack(ModItems.DARK_GREAT_HOUNDSKUL_BASCINET.get(),false, false),
+                armorStack(ModItems.DARK_MAXIMILLIAN_HELMET.get(),false, false),
 
                 armorStack(ModItems.CHAPERON.get(),false, false),
                 armorStack(ModItems.GILDED_CHAPERON.get(),false, false),
@@ -170,8 +193,21 @@ public class ModItemGroups {
                 armorStack(ModItems.XIIII_PLATE_CUIRASS_TASSETS.get(),false, false),
                 armorStack(ModItems.XIIII_PLATE_BREASTPLATE.get(),false, false),
 
+                armorStack(ModItems.DARK_BRIGANDINE.get(),false, false),
+                armorStack(ModItems.DARK_BRIG_BREASTPLATE.get(),false, false),
+                armorStack(ModItems.DARK_BRIG_BREASTPLATE_TASSETS.get(),false, false),
+                armorStack(ModItems.DARK_PLATE_CUIRASS.get(),false, false),
+                armorStack(ModItems.DARK_PLATE_CUIRASS_TASSETS.get(),false, false),
+                armorStack(ModItems.DARK_MAXIMILLIAN_CUIRASS.get(),false, false),
+                armorStack(ModItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS.get(),false, false),
+                armorStack(ModItems.DARK_XIIII_PLATE_CUIRASS.get(),false, false),
+                armorStack(ModItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get(),false, false),
+                armorStack(ModItems.DARK_XIIII_PLATE_BREASTPLATE.get(),false, false),
+
                 armorStack(ModItems.SURCOAT.get(),false, false),
                 armorStack(ModItems.SURCOAT_SLEEVELESS.get(),false, false),
+                armorStack(ModItems.CIVILIAN_SURCOAT.get(),false, false),
+                armorStack(ModItems.GIORNEA.get(),false, false),
 
                 armorStack(ModItems.RIM_GUARDS.get(),false, false),
                 armorStack(ModItems.BESAGEWS.get(),false, false),
@@ -184,15 +220,30 @@ public class ModItemGroups {
                 armorStack(ModItems.PLATE_PAULDRON.get(),true, false),
                 armorStack(ModItems.PLATE_PAULDRON.get(),true, true),
 
+                armorStack(ModItems.DARK_BRIGANDINE_PAULDRON.get(),false, false),
+                armorStack(ModItems.DARK_PLATE_PAULDRON.get(),false, false),
+                armorStack(ModItems.DARK_BRIGANDINE_PAULDRON.get(),false, true),
+                armorStack(ModItems.DARK_PLATE_PAULDRON.get(),false, true),
+                armorStack(ModItems.DARK_PLATE_PAULDRON.get(),true, false),
+                armorStack(ModItems.DARK_PLATE_PAULDRON.get(),true, true),
+
                 armorStack(ModItems.GAUNTLET.get(),false, false),
                 armorStack(ModItems.BRIGANDINE_REREBRACE.get(),false, false),
                 armorStack(ModItems.PLATE_REREBRACE.get(),false, false),
                 armorStack(ModItems.BRIGANDINE_CHAUSSES.get(),false, false),
                 armorStack(ModItems.PLATE_CUISSES.get(),false, false),
-
                 armorStack(ModItems.GREAVES.get(),false, false),
 
+                armorStack(ModItems.DARK_GAUNTLET.get(),false, false),
+                armorStack(ModItems.DARK_BRIGANDINE_REREBRACE.get(),false, false),
+                armorStack(ModItems.DARK_PLATE_REREBRACE.get(),false, false),
+                armorStack(ModItems.DARK_BRIGANDINE_CHAUSSES.get(),false, false),
+                armorStack(ModItems.DARK_PLATE_CUISSES.get(),false, false),
+                armorStack(ModItems.DARK_GREAVES.get(),false, false),
+
                 armorStack(ModItems.SABATONS.get(),false, false),
+
+                armorStack(ModItems.DARK_SABATONS.get(),false, false),
 
                 armorStack(ModItems.HOOD.get(),false, false),
                 armorStack(ModItems.TORN_HOOD.get(),false, false),
@@ -203,7 +254,11 @@ public class ModItemGroups {
                 armorStack(ModItems.CLOAK.get(),false, false),
                 armorStack(ModItems.TORN_CLOAK.get(),false, false),
 
-                armorStack(ModItems.HORSE_BARDING.get(),false, false)
+                armorStack(ModItems.HORSE_BARDING.get(),false, false),
+
+                armorStack(ModItems.DARK_HORSE_BARDING.get(),false, false),
+
+                armorStack(ModItems.DARKENED_ARMOR_TEMPLATE.get(),false, false)
         ));
     }
 

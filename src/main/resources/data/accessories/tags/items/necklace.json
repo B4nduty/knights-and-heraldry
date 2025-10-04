@@ -3,6 +3,8 @@
   "values": [
     "knightsheraldry:mail_pauldron",
     "knightsheraldry:brigandine_pauldron",
-    "knightsheraldry:plate_pauldron"
+    "knightsheraldry:plate_pauldron",
+    "knightsheraldry:dark_brigandine_pauldron",
+    "knightsheraldry:dark_plate_pauldron"
   ]
 }

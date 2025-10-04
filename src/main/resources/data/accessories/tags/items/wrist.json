@@ -3,6 +3,9 @@
   "values": [
     "knightsheraldry:gauntlet",
     "knightsheraldry:brigandine_rerebrace",
-    "knightsheraldry:plate_rerebrace"
+    "knightsheraldry:plate_rerebrace",
+    "knightsheraldry:dark_gauntlet",
+    "knightsheraldry:dark_brigandine_rerebrace",
+    "knightsheraldry:dark_plate_rerebrace"
   ]
 }

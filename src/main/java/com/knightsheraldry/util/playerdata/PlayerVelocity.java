@@ -1,6 +1,6 @@
 package com.knightsheraldry.util.playerdata;
 
-import banduty.stoneycore.util.playerdata.IEntityDataSaver;
+import banduty.stoneycore.util.data.playerdata.IEntityDataSaver;
 import com.knightsheraldry.networking.ModMessages;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;

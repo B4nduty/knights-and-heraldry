@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "knightsheraldry:greaves"
+    "knightsheraldry:greaves",
+    "knightsheraldry:dark_greaves"
   ]
 }

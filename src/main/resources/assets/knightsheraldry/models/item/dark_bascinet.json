@@ -1,0 +1,9 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "knightsheraldry:item/dark_bascinet"
+	},
+	"overrides": [
+      { "predicate": { "open_visor": 1 }, "model": "knightsheraldry:item/dark_open_bascinet" }
+	]
+}

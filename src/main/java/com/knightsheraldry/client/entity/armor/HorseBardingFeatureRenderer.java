@@ -15,10 +15,12 @@ import net.minecraft.client.render.entity.model.HorseEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.passive.HorseEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
 public class HorseBardingFeatureRenderer extends FeatureRenderer<HorseEntity, HorseEntityModel<HorseEntity>> {
     private static final Identifier HORSE_ARMOR_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/horse_barding.png");
+    private static final Identifier DARK_HORSE_ARMOR_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/dark_horse_barding.png");
     private static final Identifier HORSE_ARMOR_TEXTURE_OVERLAY = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/horse_barding_overlay.png");
     private static final Identifier HORSE_ARMOR_TEXTURE_PLUME = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/horse_barding_plume.png");
     private final HorseBardingModel<HorseEntity> armorModel;
@@ -38,7 +40,9 @@ public class HorseBardingFeatureRenderer extends FeatureRenderer<HorseEntity, Ho
             this.armorModel.setAngles(horse, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
 
             // Base armor texture
-            VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(HORSE_ARMOR_TEXTURE));
+            Identifier texture = HORSE_ARMOR_TEXTURE;
+            if (Registries.ITEM.getId(armorStack.getItem()).getPath().contains("dark_")) texture = DARK_HORSE_ARMOR_TEXTURE;
+            VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getArmorCutoutNoCull(texture));
             this.armorModel.render(matrices, vertexConsumer, light, LivingEntityRenderer.getOverlay(horse, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
 
             // Overlay texture (dyed color)

@@ -1,9 +1,10 @@
 package com.knightsheraldry.mixin;
 
-import banduty.stoneycore.util.playerdata.IEntityDataSaver;
+import banduty.stoneycore.util.data.keys.NBTDataHelper;
+import banduty.stoneycore.util.data.playerdata.IEntityDataSaver;
+import banduty.stoneycore.util.data.playerdata.PDKeys;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,8 +18,6 @@ public abstract class LivingEntityMixin {
 
     @Unique
     private static final int SWALLOWTAIL_ARROW_COOLDOWN = 20 * 30;
-    @Unique
-    private static final int SWALLOWTAIL_ARROW_DECREMENT = 1;
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void knightsheraldry$tick(CallbackInfo ci) {
@@ -30,8 +29,7 @@ public abstract class LivingEntityMixin {
 
     @Unique
     private void handleSwallowtailArrowTimer(PlayerEntity player) {
-        NbtCompound nbt = ((IEntityDataSaver) player).stoneycore$getPersistentData();
-        int swallowtailArrowCount = nbt.getInt("swallowtail_arrow_count");
+        int swallowtailArrowCount = NBTDataHelper.get((IEntityDataSaver) player, PDKeys.SWALLOWTAIL_ARROW_COUNT, 0);
 
         if (swallowtailArrowCount >= 0) {
             int stuckArrows = player.getStuckArrowCount();
@@ -41,7 +39,7 @@ public abstract class LivingEntityMixin {
                 }
 
                 if (--this.stuckSwallowTailArrowTimer <= 0) {
-                    nbt.putInt("swallowtail_arrow_count", swallowtailArrowCount - SWALLOWTAIL_ARROW_DECREMENT);
+                    NBTDataHelper.set((IEntityDataSaver) player, PDKeys.SWALLOWTAIL_ARROW_COUNT, swallowtailArrowCount - 1);
                 }
             }
         }

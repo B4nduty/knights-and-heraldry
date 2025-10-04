@@ -1,7 +1,7 @@
 package com.knightsheraldry;
 
 import banduty.stoneycore.event.custom.CraftingPreviewCallback;
-import banduty.stoneycore.util.playerdata.IEntityDataSaver;
+import banduty.stoneycore.util.data.playerdata.IEntityDataSaver;
 import com.knightsheraldry.config.KHConfig;
 import com.knightsheraldry.data.ArrowBehaviorManager;
 import com.knightsheraldry.effect.ModEffects;

@@ -1,6 +1,6 @@
 package com.knightsheraldry.mixin;
 
-import banduty.stoneycore.util.playerdata.IEntityDataSaver;
+import banduty.stoneycore.util.data.playerdata.IEntityDataSaver;
 import com.knightsheraldry.items.item.khweapon.Lance;
 import com.knightsheraldry.util.playerdata.PlayerVelocity;
 import net.minecraft.entity.Entity;

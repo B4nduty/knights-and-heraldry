@@ -1,0 +1,14 @@
+{
+  "armor": 1,
+  "toughness": 2,
+  "armorSlot": "LEGS",
+  "hungerDrainMultiplier": 0.1,
+  "weight": 5.5,
+  "deflectChance": {
+    "minecraft:arrow": 0.03,
+    "knightsheraldry:bodkin_arrow": 0.03,
+    "knightsheraldry:broadhead_arrow": 0.03,
+    "knightsheraldry:cloth_arrow": 0.03,
+    "knightsheraldry:swallowtail_arrow": 0.03
+  }
+}

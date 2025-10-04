@@ -70,6 +70,7 @@ public class WarDart extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        super.appendTooltip(stack, world, tooltip, context);
         tooltip.add(Text.translatable("text.tooltip.knightsheraldry.throw-to-pin"));
     }
 }

@@ -2,7 +2,6 @@ package com.knightsheraldry.items.item.khweapon;
 
 import com.knightsheraldry.client.item.FlailModel;
 import com.knightsheraldry.items.ModToolMaterials;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.SwordItem;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
@@ -50,17 +49,7 @@ public class Flail extends SwordItem implements GeoItem {
     }
 
     private PlayState predicate(AnimationState<Flail> animationState) {
-        RawAnimation animation;
-        final var client = MinecraftClient.getInstance();
-        if (client.options.attackKey.isPressed()) {
-            animation = RawAnimation.begin().then("attack", Animation.LoopType.LOOP);
-        } else {
-            animation = RawAnimation.begin().then("standby", Animation.LoopType.LOOP);
-        }
-
-        animationState.getController().setAnimation(animation);
-
-        return PlayState.CONTINUE;
+        return FlailAnimation.clientPredicate(animationState);
     }
 
     @Override

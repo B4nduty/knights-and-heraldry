@@ -97,17 +97,37 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.XIIII_PLATE_CUIRASS_TASSETS.get(), Models.HANDHELD);
         itemModelGenerator.register(ModItems.XIIII_PLATE_BREASTPLATE.get(), Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.DARK_PLATE_CUIRASS.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DARK_PLATE_CUIRASS_TASSETS.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DARK_MAXIMILLIAN_CUIRASS.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DARK_XIIII_PLATE_CUIRASS.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DARK_XIIII_PLATE_BREASTPLATE.get(), Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.GREAVES.get(), Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.DARK_GREAVES.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.SABATONS.get(), Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.DARK_SABATONS.get(), Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.FROGMOUTH.get(), Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.DARK_FROGMOUTH.get(), Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.GAUNTLET.get(), Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.DARK_GAUNTLET.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.PLATE_REREBRACE.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.PLATE_CUISSES.get(), Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.DARK_PLATE_REREBRACE.get(), Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.DARK_PLATE_CUISSES.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.AVENTAIL.get(), Models.HANDHELD);
 
@@ -117,6 +137,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.SURCOAT.get(), Models.HANDHELD);
         itemModelGenerator.register(ModItems.SURCOAT_SLEEVELESS.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CIVILIAN_SURCOAT.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GIORNEA.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.CLOAK.get(), Models.HANDHELD);
         itemModelGenerator.register(ModItems.TORN_CLOAK.get(), Models.HANDHELD);
@@ -136,6 +158,8 @@ public class ModModelProvider extends FabricModelProvider {
         generateBannerPatternModels(ModItems.SURCOAT_SLEEVELESS.get(), itemModelGenerator);
 
         itemModelGenerator.register(ModItems.CHAPERON.get(), Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.DARKENED_ARMOR_TEMPLATE.get(), Models.HANDHELD);
 
         for (Item deco : HelmetDeco.HELMET_DECO.keySet()) {
             if (deco == ModItems.JOUSTING_BAND.get()) continue;

@@ -1,9 +1,9 @@
 {
   "armor": 4,
-  "toughness": 2,
+  "toughness": 3,
   "armorSlot": "CHEST",
   "hungerDrainMultiplier": 0.1,
-  "weight": 10,
+  "weight": 11,
   "deflectChance": {
     "minecraft:arrow": 0.05,
     "knightsheraldry:bodkin_arrow": 0.05,

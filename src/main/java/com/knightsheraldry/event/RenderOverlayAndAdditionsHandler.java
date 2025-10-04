@@ -19,6 +19,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
@@ -29,6 +30,7 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
     private static final Identifier RIM_GUARDS_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/rim_guards.png");
     private static final Identifier BESAGEWS_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/besagews.png");
     private static final Identifier SURCOAT_OVERLAY_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/surcoat_overlay.png");
+    private static final Identifier CIVILIAN_BELT_TEXTURE = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/civilian_belt.png");
 
     @Override
     public void onRenderOverlayAndAdditionsEvents(LivingEntity entity, ItemStack stack,
@@ -43,6 +45,10 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
 
         if (isSurcoat(stack)) {
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, SURCOAT_OVERLAY_TEXTURE);
+        }
+
+        if (stack.getItem() == ModItems.CIVILIAN_SURCOAT.get() || stack.getItem() == ModItems.GIORNEA.get()) {
+            ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, CIVILIAN_BELT_TEXTURE);
         }
 
         if (scAccessoryItem.getRenderSettings(stack).overlay()) {
@@ -105,6 +111,14 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
                                     VertexConsumerProvider vertexConsumers, int light,
                                     BipedEntityModel<LivingEntity> model, String key, Identifier texture) {
         if (stack.getOrCreateNbt().getBoolean(key)) {
+            String stackName = Registries.ITEM.getId(stack.getItem()).getPath();
+            if (stackName.contains("dark_")) {
+                if (texture.equals(RIM_GUARDS_TEXTURE)) {
+                    texture = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/dark_rim_guards.png");
+                } else if (texture.equals(BESAGEWS_TEXTURE)) {
+                    texture = new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/dark_besagews.png");
+                }
+            }
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, texture);
         }
     }

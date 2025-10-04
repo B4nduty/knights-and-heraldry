@@ -1,6 +1,6 @@
 package com.knightsheraldry.datagen;
 
-import banduty.stoneycore.util.itemdata.SCTags;
+import banduty.stoneycore.util.data.itemdata.SCTags;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.util.itemdata.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;

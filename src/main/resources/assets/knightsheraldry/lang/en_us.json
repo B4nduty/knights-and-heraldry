@@ -85,10 +85,22 @@
   "item.knightsheraldry.plate_pauldron_besagews": "Plate Pauldron with Besagews",
   "item.knightsheraldry.plate_pauldron_rimmed_besagews": "Plate Pauldron with Rim Guards & Besagews",
 
+  "item.knightsheraldry.dark_brigandine_pauldron": "Darkened Brigandine Pauldron",
+  "item.knightsheraldry.dark_brigandine_pauldron_besagews": "Darkened Brigandine Pauldron with Besagews",
+  "item.knightsheraldry.dark_plate_pauldron": "Darkened Plate Pauldron",
+  "item.knightsheraldry.dark_plate_pauldron_rimmed": "Darkened Plate Pauldron with Rim Guards",
+  "item.knightsheraldry.dark_plate_pauldron_besagews": "Darkened Plate Pauldron with Besagews",
+  "item.knightsheraldry.dark_plate_pauldron_rimmed_besagews": "Darkened Plate Pauldron with Rim Guards & Besagews",
+
   "item.knightsheraldry.brigandine": "Brigandine",
+
+  "item.knightsheraldry.dark_brigandine": "Darkened Brigandine",
 
   "item.knightsheraldry.brig_breastplate": "Brig Plate Cuirass",
   "item.knightsheraldry.brig_breastplate_tassets": "Brig Plate Cuirass with Tassets",
+
+  "item.knightsheraldry.dark_brig_breastplate": "Darkened Brig Plate Cuirass",
+  "item.knightsheraldry.dark_brig_breastplate_tassets": "Darkened Brig Plate Cuirass with Tassets",
 
   "item.knightsheraldry.plate_cuirass": "Plate Cuirass",
   "item.knightsheraldry.plate_cuirass_tassets": "Plate Cuirass with Tassets",
@@ -98,11 +110,25 @@
   "item.knightsheraldry.xiiii_plate_cuirass_tassets": "XIIII Plate Cuirass with Tassets",
   "item.knightsheraldry.xiiii_plate_breastplate": "XIIII Plate Breastplate",
 
+  "item.knightsheraldry.dark_plate_cuirass": "Darkened Plate Cuirass",
+  "item.knightsheraldry.dark_plate_cuirass_tassets": "Darkened Plate Cuirass with Tassets",
+  "item.knightsheraldry.dark_maximillian_cuirass": "Darkened Maximillian Cuirass",
+  "item.knightsheraldry.dark_maximillian_cuirass_tassets": "Darkened Maximillian Cuirass with Tassets",
+  "item.knightsheraldry.dark_xiiii_plate_cuirass": "Darkened XIIII Plate Cuirass",
+  "item.knightsheraldry.dark_xiiii_plate_cuirass_tassets": "Darkened XIIII Plate Cuirass with Tassets",
+  "item.knightsheraldry.dark_xiiii_plate_breastplate": "Darkened XIIII Plate Breastplate",
+
   "item.knightsheraldry.barbute_no_visor": "Barbute Helmet no Visor",
   "item.knightsheraldry.bascinet_no_visor": "Bascinet Helmet no Visor",
   "item.knightsheraldry.kettle_helm": "Kettle Helmet",
   "item.knightsheraldry.nasal_helm": "Nasal Helmet",
   "item.knightsheraldry.viking_helm": "Viking Helmet",
+
+  "item.knightsheraldry.dark_barbute_no_visor": "Darkened Barbute Helmet no Visor",
+  "item.knightsheraldry.dark_bascinet_no_visor": "Darkened Bascinet Helmet no Visor",
+  "item.knightsheraldry.dark_kettle_helm": "Darkened Kettle Helmet",
+  "item.knightsheraldry.dark_nasal_helm": "Darkened Nasal Helmet",
+  "item.knightsheraldry.dark_viking_helm": "Darkened Viking Helmet",
 
   "item.knightsheraldry.armet": "Armet (Dual Slit Visor)",
   "item.knightsheraldry.armet_2": "Armet (Single Slit Visor)",
@@ -115,6 +141,17 @@
   "item.knightsheraldry.great_helm_2": "Gilded Great Helmet",
   "item.knightsheraldry.sallet": "Sallet",
 
+  "item.knightsheraldry.dark_armet": "Darkened Armet (Dual Slit Visor)",
+  "item.knightsheraldry.dark_armet_2": "Darkened Armet (Single Slit Visor)",
+  "item.knightsheraldry.dark_barbute": "Darkened Barbute",
+  "item.knightsheraldry.dark_bascinet": "Darkened Bascinet",
+  "item.knightsheraldry.dark_cage": "Darkened Cage Helmet (Slim)",
+  "item.knightsheraldry.dark_cage_2": "Darkened Cage Helmet (Robust)",
+  "item.knightsheraldry.dark_flat_bascinet": "Darkened Flat Bascinet",
+  "item.knightsheraldry.dark_great_helm": "Darkened Great Helmet",
+  "item.knightsheraldry.dark_great_helm_2": "Darkened Gilded Great Helmet",
+  "item.knightsheraldry.dark_sallet": "Darkened Sallet",
+
   "item.knightsheraldry.frogmouth": "Frogmouth",
   "item.knightsheraldry.great_armet": "Great Armet (Dual Slit Visor)",
   "item.knightsheraldry.great_armet_2": "Great Armet (Single Slit Visor)",
@@ -122,19 +159,38 @@
   "item.knightsheraldry.great_houndskul_bascinet": "Great Houndskul Bascinet",
   "item.knightsheraldry.maximillian_helmet": "Maximillian Helmet",
 
+  "item.knightsheraldry.dark_frogmouth": "Darkened Frogmouth",
+  "item.knightsheraldry.dark_great_armet": "Darkened Great Armet (Dual Slit Visor)",
+  "item.knightsheraldry.dark_great_armet_2": "Darkened Great Armet (Single Slit Visor)",
+  "item.knightsheraldry.dark_great_bascinet": "Darkened Great Bascinet",
+  "item.knightsheraldry.dark_great_houndskul_bascinet": "Darkened Great Houndskul Bascinet",
+  "item.knightsheraldry.dark_maximillian_helmet": "Darkened Maximillian Helmet",
+
   "item.knightsheraldry.gauntlet": "Gauntlet",
 
-  "item.knightsheraldry.brigandine_rerebrace": "Brigandine Rerebrace",
+  "item.knightsheraldry.dark_gauntlet": "Darkened Gauntlet",
 
+  "item.knightsheraldry.brigandine_rerebrace": "Brigandine Rerebrace",
   "item.knightsheraldry.plate_rerebrace": "Plate Rerebrace",
+
+  "item.knightsheraldry.dark_brigandine_rerebrace": "Darkened Brigandine Rerebrace",
+  "item.knightsheraldry.dark_plate_rerebrace": "Darkened Plate Rerebrace",
 
   "item.knightsheraldry.brigandine_chausses": "Brigandine Chausses",
   "item.knightsheraldry.plate_cuisses": "Plate Cuisses",
   "item.knightsheraldry.plate_chausses": "Plate Chausses",
 
+  "item.knightsheraldry.dark_brigandine_chausses": "Darkened Brigandine Chausses",
+  "item.knightsheraldry.dark_plate_cuisses": "Darkened Plate Cuisses",
+  "item.knightsheraldry.dark_plate_chausses": "Darkened Plate Chausses",
+
   "item.knightsheraldry.greaves": "Greaves",
 
+  "item.knightsheraldry.dark_greaves": "Darkened Greaves",
+
   "item.knightsheraldry.sabatons": "Sabatons",
+
+  "item.knightsheraldry.dark_sabatons": "Darkened Sabatons",
 
   "item.knightsheraldry.aventail": "Aventail",
 
@@ -144,6 +200,8 @@
 
   "item.knightsheraldry.surcoat": "Surcoat",
   "item.knightsheraldry.surcoat_sleeveless": "Surcoat Sleeveless",
+  "item.knightsheraldry.civilian_surcoat": "Civilian Surcoat",
+  "item.knightsheraldry.giornea": "Giornea",
 
   "item.knightsheraldry.hood": "Hood",
   "item.knightsheraldry.torn_hood": "Torn Hood",
@@ -171,6 +229,8 @@
 
   "item.knightsheraldry.horse_barding": "Barding",
 
+  "item.knightsheraldry.dark_horse_barding": "Darkened Barding",
+
   "item.knightsheraldry.plume": "Plume",
   "item.knightsheraldry.tri_plume": "Tri Plume",
   "item.knightsheraldry.fluffy_plume": "Fluffy Plume",
@@ -194,6 +254,8 @@
 
   "item.knightsheraldry.chaperon": "Chaperon",
   "item.knightsheraldry.gilded_chaperon": "Gilded Chaperon",
+
+  "item.knightsheraldry.darkened_armor_template": "Darkened Armor Template",
 
   "text.itemgroup.kingdomsieges.tab.kh_weapons": "KH Weapons",
   "text.itemgroup.kingdomsieges.tab.kh_deco": "KH Deco",
