@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_viking_helm"
+    },
+    {
+      "item": "knightsheraldry:tri_plume"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:dark_viking_helm"
+  }
+}

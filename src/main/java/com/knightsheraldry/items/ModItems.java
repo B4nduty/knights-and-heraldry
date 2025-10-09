@@ -329,9 +329,9 @@ public class ModItems {
             new Item(new Item.Settings().maxCount(1)));
 
     public static final RegistrySupplier<Item> SURCOAT = ITEMS.register("surcoat", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1), Ingredient.ofItems(Items.LEATHER)));
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), Ingredient.ofItems(Items.LEATHER)));
     public static final RegistrySupplier<Item> SURCOAT_SLEEVELESS = ITEMS.register("surcoat_sleeveless", () ->
-            new KHChestplateAccessory(new Item.Settings().maxCount(1), Ingredient.ofItems(Items.LEATHER)));
+            new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), Ingredient.ofItems(Items.LEATHER)));
     public static final RegistrySupplier<Item> CIVILIAN_SURCOAT = ITEMS.register("civilian_surcoat", () ->
             new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1), Ingredient.ofItems(Items.LEATHER)));
     public static final RegistrySupplier<Item> GIORNEA = ITEMS.register("giornea", () ->

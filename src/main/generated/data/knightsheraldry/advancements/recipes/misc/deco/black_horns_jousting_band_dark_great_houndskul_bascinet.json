@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_black_horns": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:black_horns"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_dark_great_houndskul_bascinet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_great_houndskul_bascinet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_jousting_band": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:jousting_band"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/black_horns_jousting_band_dark_great_houndskul_bascinet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_great_houndskul_bascinet",
+      "has_black_horns",
+      "has_jousting_band",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/black_horns_jousting_band_dark_great_houndskul_bascinet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

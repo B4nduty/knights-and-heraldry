@@ -61,6 +61,28 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createDecoRecipe(exporter,  ModItems.GREAT_HOUNDSKUL_BASCINET.get());
         createDecoRecipe(exporter,  ModItems.MAXIMILLIAN_HELMET.get());
 
+        createDecoRecipe(exporter,  ModItems.DARK_BARBUTE_NO_VISOR.get());
+        createDecoRecipe(exporter,  ModItems.DARK_BASCINET_NO_VISOR.get());
+        createDecoRecipe(exporter,  ModItems.DARK_KETTLE_HELM.get());
+        createDecoRecipe(exporter,  ModItems.DARK_NASAL_HELM.get());
+        createDecoRecipe(exporter,  ModItems.DARK_VIKING_HELM.get());
+        createDecoRecipe(exporter,  ModItems.DARK_ARMET.get());
+        createDecoRecipe(exporter,  ModItems.DARK_ARMET_2.get());
+        createDecoRecipe(exporter,  ModItems.DARK_BARBUTE.get());
+        createDecoRecipe(exporter,  ModItems.DARK_BASCINET.get());
+        createDecoRecipe(exporter,  ModItems.DARK_CAGE.get());
+        createDecoRecipe(exporter,  ModItems.DARK_CAGE_2.get());
+        createDecoRecipe(exporter,  ModItems.DARK_FLAT_BASCINET.get());
+        createDecoRecipe(exporter,  ModItems.DARK_GREAT_HELM.get());
+        createDecoRecipe(exporter,  ModItems.DARK_GREAT_HELM_2.get());
+        createDecoRecipe(exporter,  ModItems.DARK_SALLET.get());
+        createDecoRecipe(exporter,  ModItems.DARK_FROGMOUTH.get());
+        createDecoRecipe(exporter,  ModItems.DARK_GREAT_ARMET.get());
+        createDecoRecipe(exporter,  ModItems.DARK_GREAT_ARMET_2.get());
+        createDecoRecipe(exporter,  ModItems.DARK_GREAT_BASCINET.get());
+        createDecoRecipe(exporter,  ModItems.DARK_GREAT_HOUNDSKUL_BASCINET.get());
+        createDecoRecipe(exporter,  ModItems.DARK_MAXIMILLIAN_HELMET.get());
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HORSE_BARDING.get(), 1)
                 .input(ModItems.HORSE_BARDING.get())
                 .input(ModItems.PLUME.get())

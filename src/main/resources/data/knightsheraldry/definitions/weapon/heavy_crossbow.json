@@ -1,5 +1,6 @@
 {
   "ranged": {
+    "id": "crossbow",
     "baseDamage": 16,
     "speed": 3,
     "divergence": 1,

@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_great_helm_2": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_great_helm_2"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_jousting_band": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:jousting_band"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_plume": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:plume"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/plume_jousting_band_dark_great_helm_2"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_great_helm_2",
+      "has_plume",
+      "has_jousting_band",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/plume_jousting_band_dark_great_helm_2"
+    ]
+  },
+  "sends_telemetry_event": false
+}

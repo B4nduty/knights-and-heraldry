@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_barbute_no_visor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_barbute_no_visor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_jousting_band": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:jousting_band"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_teutonic_black_wings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:teutonic_black_wings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/teutonic_black_wings_jousting_band_dark_barbute_no_visor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_barbute_no_visor",
+      "has_teutonic_black_wings",
+      "has_jousting_band",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/teutonic_black_wings_jousting_band_dark_barbute_no_visor"
+    ]
+  },
+  "sends_telemetry_event": false
+}

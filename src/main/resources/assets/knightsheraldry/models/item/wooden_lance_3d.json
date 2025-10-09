@@ -43,10 +43,7 @@
 	},
 	"overrides": [
 		{
-			"predicate": {
-				"charged": 1
-			},
-			"model": "knightsheraldry:item/wooden_lance_3d_charged"
+			"predicate": {"charged": 1}, "model": "knightsheraldry:item/wooden_lance_3d_charged"
 		}
 	]
 }

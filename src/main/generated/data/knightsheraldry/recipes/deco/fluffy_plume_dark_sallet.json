@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_sallet"
+    },
+    {
+      "item": "knightsheraldry:fluffy_plume"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:dark_sallet"
+  }
+}

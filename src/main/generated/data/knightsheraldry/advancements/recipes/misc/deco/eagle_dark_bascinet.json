@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_bascinet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_bascinet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_eagle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:eagle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/eagle_dark_bascinet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_bascinet",
+      "has_eagle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/eagle_dark_bascinet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

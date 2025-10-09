@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_great_armet"
+    },
+    {
+      "item": "knightsheraldry:pegasus"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:dark_great_armet"
+  }
+}

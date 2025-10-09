@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_great_bascinet"
+    },
+    {
+      "item": "knightsheraldry:teutonic_black_snakes"
+    },
+    {
+      "item": "knightsheraldry:jousting_band"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:dark_great_bascinet"
+  }
+}

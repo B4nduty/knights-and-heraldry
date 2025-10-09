@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_boar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:boar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_dark_viking_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_viking_helm"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/boar_dark_viking_helm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_viking_helm",
+      "has_boar",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/boar_dark_viking_helm"
+    ]
+  },
+  "sends_telemetry_event": false
+}

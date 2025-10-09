@@ -59,9 +59,9 @@ public class ModModelPredicates {
         ModelPredicateProviderRegistry.register(item, new Identifier("besagews"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
                         stack.getNbt().getBoolean("besagews") ? 1.0F : 0.0F);
-        ModelPredicateProviderRegistry.register(item, new Identifier("open_visor"),
+        ModelPredicateProviderRegistry.register(item, new Identifier("visor_open"),
                 (stack, world, entity, seed) -> stack.hasNbt() &&
-                        stack.getNbt().getBoolean("visor_open") ? 1.0F : 0.0F);
+                        stack.getNbt().getBoolean("visorOpen") ? 1.0F : 0.0F);
     }
 
     private static void registerWeaponPredicates(Item item) {

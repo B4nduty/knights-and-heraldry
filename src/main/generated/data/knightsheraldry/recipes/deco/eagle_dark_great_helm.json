@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_great_helm"
+    },
+    {
+      "item": "knightsheraldry:eagle"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:dark_great_helm"
+  }
+}

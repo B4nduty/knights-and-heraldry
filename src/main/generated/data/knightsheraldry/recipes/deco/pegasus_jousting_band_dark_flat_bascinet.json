@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_flat_bascinet"
+    },
+    {
+      "item": "knightsheraldry:pegasus"
+    },
+    {
+      "item": "knightsheraldry:jousting_band"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:dark_flat_bascinet"
+  }
+}

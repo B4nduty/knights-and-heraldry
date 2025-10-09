@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_kettle_helm"
+    },
+    {
+      "item": "knightsheraldry:teutonic_black_wings"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:dark_kettle_helm"
+  }
+}

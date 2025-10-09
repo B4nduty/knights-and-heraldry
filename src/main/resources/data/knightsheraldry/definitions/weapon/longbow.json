@@ -1,5 +1,6 @@
 {
   "ranged": {
+    "id": "bow",
     "baseDamage": 14,
     "speed": 3.7,
     "divergence": 1,

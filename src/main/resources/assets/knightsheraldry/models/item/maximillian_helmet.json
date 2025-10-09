@@ -4,6 +4,6 @@
 		"layer0": "knightsheraldry:item/maximillian_helmet"
 	},
 	"overrides": [
-		{ "predicate": { "open_visor": 1 }, "model": "knightsheraldry:item/open_maximillian_helmet" }
+		{ "predicate": { "visor_open": 1 }, "model": "knightsheraldry:item/open_maximillian_helmet" }
 	]
 }

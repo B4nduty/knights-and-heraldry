@@ -1,5 +1,6 @@
 {
   "ranged": {
+    "id": "musket",
     "baseDamage": 21,
     "speed": 5.9,
     "divergence": 2,
@@ -9,10 +10,10 @@
     "damageType": "bludgeoning",
     "useAction": "bow",
     "ammoRequirement": {
-      "item1": ["stoneycore:black_powder", 1],
-      "item2": ["minecraft:iron_nugget", "minecraft:gravel", 1],
-      "item3": ["minecraft:paper", "minecraft:grass", 1]
+      "item1": { "items": ["stoneycore:black_powder"], "amount": 1 },
+      "item2": { "items": ["minecraft:iron_nugget", "minecraft:gravel"], "amount": 1 },
+      "item3": { "items": ["minecraft:paper", "minecraft:grass"], "amount": 1 }
     },
-    "soundEvent": ["knightsheraldry:arquebus_close"]
+    "soundEvent": "knightsheraldry:arquebus_close"
   }
 }

@@ -4,6 +4,6 @@
 		"layer0": "knightsheraldry:item/barbute"
 	},
 	"overrides": [
-      { "predicate": { "open_visor": 1 }, "model": "knightsheraldry:item/open_barbute" }
+      { "predicate": { "visor_open": 1 }, "model": "knightsheraldry:item/open_barbute" }
 	]
 }

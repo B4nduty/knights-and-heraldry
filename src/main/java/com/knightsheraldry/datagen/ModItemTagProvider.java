@@ -61,7 +61,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.ARMET.get(), ModItems.ARMET_2.get(), ModItems.BARBUTE.get(), ModItems.BASCINET.get(), ModItems.CAGE.get(),
                         ModItems.CAGE_2.get(), ModItems.FLAT_BASCINET.get(), ModItems.GREAT_HELM.get(), ModItems.GREAT_HELM_2.get(),
                         ModItems.SALLET.get(), ModItems.FROGMOUTH.get(), ModItems.GREAT_ARMET.get(), ModItems.GREAT_ARMET_2.get(),
-                        ModItems.GREAT_BASCINET.get(), ModItems.GREAT_HOUNDSKUL_BASCINET.get(), ModItems.MAXIMILLIAN_HELMET.get());
+                        ModItems.GREAT_BASCINET.get(), ModItems.GREAT_HOUNDSKUL_BASCINET.get(), ModItems.MAXIMILLIAN_HELMET.get(),
+                        ModItems.DARK_ARMET.get(), ModItems.DARK_ARMET_2.get(), ModItems.DARK_BARBUTE.get(), ModItems.DARK_BASCINET.get(), ModItems.DARK_CAGE.get(),
+                        ModItems.DARK_CAGE_2.get(), ModItems.DARK_FLAT_BASCINET.get(), ModItems.DARK_GREAT_HELM.get(), ModItems.DARK_GREAT_HELM_2.get(),
+                        ModItems.DARK_SALLET.get(), ModItems.DARK_FROGMOUTH.get(), ModItems.DARK_GREAT_ARMET.get(), ModItems.DARK_GREAT_ARMET_2.get(),
+                        ModItems.DARK_GREAT_BASCINET.get(), ModItems.DARK_GREAT_HOUNDSKUL_BASCINET.get(), ModItems.DARK_MAXIMILLIAN_HELMET.get());
 
         getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
                 .add(ModItems.CLOAK.get(), ModItems.TORN_CLOAK.get());

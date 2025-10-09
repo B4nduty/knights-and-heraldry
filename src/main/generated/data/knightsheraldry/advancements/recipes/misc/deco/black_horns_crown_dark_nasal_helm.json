@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_black_horns": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:black_horns"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crown": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "stoneycore:crown"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_dark_nasal_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_nasal_helm"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/black_horns_crown_dark_nasal_helm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_nasal_helm",
+      "has_black_horns",
+      "has_crown",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/black_horns_crown_dark_nasal_helm"
+    ]
+  },
+  "sends_telemetry_event": false
+}
