@@ -33,7 +33,6 @@ public class WarDartRenderer extends EntityRenderer<WarDartEntity> {
 
     public void render(WarDartEntity warDartEntity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         matrices.push();
-        matrices.scale(this.scale, this.scale, this.scale);
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(tickDelta, warDartEntity.prevYaw, warDartEntity.getYaw()) - 90.0F));
         matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(MathHelper.lerp(tickDelta, warDartEntity.prevPitch, warDartEntity.getPitch()) + 90.0F));
         this.itemRenderer.renderItem(warDartEntity.getStack(), ModelTransformationMode.FIXED, light, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, warDartEntity.getWorld(), warDartEntity.getId());

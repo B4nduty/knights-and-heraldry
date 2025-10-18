@@ -38,7 +38,9 @@ public class KHBodkinArrowEntity extends SCArrowEntity {
     }
 
     public void applyDamage(LivingEntity target) {
-        double damageDealt = SCDamageCalculator.getSCDamage(target, getDamage() - 3, getDamageType());
+        double damageDealt = getDamage() * getVelocity().length();
+
+        damageDealt = SCDamageCalculator.getSCDamage(target, damageDealt - 3, getDamageType());
 
         double armor = Math.max(0, target.getArmor() - 10);
         double armorToughness = Math.max(0, target.getAttributeValue(EntityAttributes.GENERIC_ARMOR_TOUGHNESS) - 5);

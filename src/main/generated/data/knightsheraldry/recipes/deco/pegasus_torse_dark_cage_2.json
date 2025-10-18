@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_cage_2"
+    },
+    {
+      "item": "knightsheraldry:pegasus"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:dark_cage_2"
+  }
+}

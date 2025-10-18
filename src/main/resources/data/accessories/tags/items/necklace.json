@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "knightsheraldry:mail_pauldron",
-    "knightsheraldry:brigandine_pauldron",
-    "knightsheraldry:plate_pauldron",
-    "knightsheraldry:dark_brigandine_pauldron",
-    "knightsheraldry:dark_plate_pauldron"
+    "knightsheraldry:mail_spaulders",
+    "knightsheraldry:brigandine_spaulders",
+    "knightsheraldry:plate_spaulders",
+    "knightsheraldry:dark_brigandine_spaulders",
+    "knightsheraldry:dark_plate_spaulders"
   ]
 }

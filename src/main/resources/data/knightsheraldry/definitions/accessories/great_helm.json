@@ -4,10 +4,10 @@
   "armorSlot": "HEAD",
   "weight": 3,
   "deflectChance": {
-    "minecraft:arrow": 0.05,
-    "knightsheraldry:bodkin_arrow": 0.05,
-    "knightsheraldry:broadhead_arrow": 0.05,
-    "knightsheraldry:cloth_arrow": 0.05,
-    "knightsheraldry:swallowtail_arrow": 0.05
+    "minecraft:arrow": 0.1,
+    "knightsheraldry:bodkin_arrow": 0.1,
+    "knightsheraldry:broadhead_arrow": 0.1,
+    "knightsheraldry:cloth_arrow": 0.1,
+    "knightsheraldry:swallowtail_arrow": 0.1
   }
 }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:mail_spaulders"
+    },
+    {
+      "item": "knightsheraldry:besagews"
+    },
+    {
+      "item": "knightsheraldry:rim_guards"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:mail_spaulders"
+  }
+}

@@ -5,10 +5,10 @@
   "hungerDrainMultiplier": 0.1,
   "weight": 7.5,
   "deflectChance": {
-    "minecraft:arrow": 0.02,
-    "knightsheraldry:bodkin_arrow": 0.02,
-    "knightsheraldry:broadhead_arrow": 0.02,
-    "knightsheraldry:cloth_arrow": 0.02,
-    "knightsheraldry:swallowtail_arrow": 0.02
+    "minecraft:arrow": 0.1,
+    "knightsheraldry:bodkin_arrow": 0.1,
+    "knightsheraldry:broadhead_arrow": 0.1,
+    "knightsheraldry:cloth_arrow": 0.1,
+    "knightsheraldry:swallowtail_arrow": 0.1
   }
 }

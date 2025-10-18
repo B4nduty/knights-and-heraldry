@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:visored_bascinet"
+    },
+    {
+      "item": "knightsheraldry:gold_horns"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:visored_bascinet"
+  }
+}

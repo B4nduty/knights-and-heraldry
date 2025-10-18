@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "stoneycore:smithing_hammer"
+  },
+  "base": {
+    "item": "knightsheraldry:brigandine_harness"
+  },
+  "result": {
+    "item": "knightsheraldry:dark_brigandine_harness"
+  },
+  "template": {
+    "item": "knightsheraldry:darkened_armor_template"
+  }
+}

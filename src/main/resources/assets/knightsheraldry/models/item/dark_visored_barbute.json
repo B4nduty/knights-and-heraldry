@@ -1,0 +1,9 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "knightsheraldry:item/dark_visored_barbute"
+	},
+	"overrides": [
+      { "predicate": { "visor_open": 1 }, "model": "knightsheraldry:item/dark_open_visored_barbute" }
+	]
+}

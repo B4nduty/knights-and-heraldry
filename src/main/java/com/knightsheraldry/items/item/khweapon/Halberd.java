@@ -2,10 +2,12 @@ package com.knightsheraldry.items.item.khweapon;
 
 import banduty.stoneycore.util.SCDamageCalculator;
 import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
+import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.items.ModToolMaterials;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -23,6 +25,11 @@ public class Halberd extends SwordItem {
 
         if (attacker instanceof PlayerEntity playerEntity) {
             SCDamageCalculator.DamageType damageType = SCWeaponUtil.calculateDamageType(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
+
+            if (damageType.equals(SCDamageCalculator.DamageType.BLUDGEONING)) {
+                target.addStatusEffect(new StatusEffectInstance(ModEffects.PIN, 2 * 20));
+            }
+
             double maxDistance = SCWeaponUtil.getMaxDistance(this);
             Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
             Vec3d playerPos = playerEntity.getPos();

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_viking_helm"
+    },
+    {
+      "item": "knightsheraldry:black_horns"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:dark_viking_helm"
+  }
+}

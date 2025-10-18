@@ -1,8 +1,8 @@
 {
-  "armor": 2,
-  "toughness": 2,
+  "armor": 1,
+  "toughness": 1,
   "armorSlot": "HEAD",
-  "weight": 3,
+  "weight": 2,
   "deflectChance": {
     "minecraft:arrow": 0.05,
     "knightsheraldry:bodkin_arrow": 0.05,

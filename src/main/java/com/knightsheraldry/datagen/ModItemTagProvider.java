@@ -26,8 +26,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                     ModItems.PITCHFORK.get(), ModItems.SPEAR.get(), ModItems.PIKE.get(), ModItems.BILLHOOK.get(),
                     ModItems.GLAIVE.get(), ModItems.CURVED_GLAIVE.get(), ModItems.HALBERD.get(), ModItems.LANCE.get(), ModItems.WOODEN_LANCE.get(),
                     ModItems.POLEAXE.get(), ModItems.POLEHAMMER.get(), ModItems.BEC_DE_CORBIN.get(), ModItems.MORNING_STAR.get(),
-                    ModItems.BARDICHE.get(),  ModItems.WARDART.get(), ModItems.WARSWORD.get(), ModItems.WARSWORD_CLAYMORE.get(),
-                    ModItems.WARSWORD_FLAMBERGE.get(), ModItems.WARSWORD_ZWEIHANDER.get(), ModItems.LONGBOW.get());
+                    ModItems.BARDICHE.get(),  ModItems.WARDART.get(), ModItems.GREATSWORD.get(), ModItems.CLAYMORE.get(),
+                    ModItems.FLAMBERGE.get(), ModItems.ZWEIHANDER.get(), ModItems.LONGBOW.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_SHIELD.getTag())
                 .add(ModItems.RAPIER.get(), ModItems.SWORD.get(), ModItems.V_SWORD.get(), ModItems.ARMING_SWORD.get(), ModItems.AXE.get(),
@@ -36,8 +36,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.V_LONGSWORD.get(), ModItems.FALCHION.get(), ModItems.SCIMITAR.get(), ModItems.PITCHFORK.get(),
                         ModItems.SPEAR.get(), ModItems.PIKE.get(), ModItems.BILLHOOK.get(), ModItems.GLAIVE.get(), ModItems.CURVED_GLAIVE.get(),
                         ModItems.HALBERD.get(), ModItems.POLEAXE.get(), ModItems.POLEHAMMER.get(), ModItems.BEC_DE_CORBIN.get(), ModItems.MORNING_STAR.get(),
-                        ModItems.BARDICHE.get(), ModItems.WARSWORD.get(), ModItems.WARSWORD_CLAYMORE.get(), ModItems.WARSWORD_FLAMBERGE.get(),
-                        ModItems.WARSWORD_ZWEIHANDER.get());
+                        ModItems.BARDICHE.get(), ModItems.GREATSWORD.get(), ModItems.CLAYMORE.get(), ModItems.FLAMBERGE.get(),
+                        ModItems.ZWEIHANDER.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_DAMAGE_BEHIND.getTag())
                 .add(ModItems.DAGGER.get());
@@ -58,12 +58,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.FLAIL.get(), ModItems.BALL_FLAIL.get(), ModItems.HEAVY_CROSSBOW.get(), ModItems.ARQUEBUS.get(), ModItems.HANDGONNE.get());
 
         getOrCreateTagBuilder(SCTags.VISORED_HELMET.getTag())
-                .add(ModItems.ARMET.get(), ModItems.ARMET_2.get(), ModItems.BARBUTE.get(), ModItems.BASCINET.get(), ModItems.CAGE.get(),
-                        ModItems.CAGE_2.get(), ModItems.FLAT_BASCINET.get(), ModItems.GREAT_HELM.get(), ModItems.GREAT_HELM_2.get(),
+                .add(ModItems.ARMET.get(), ModItems.ARMET_2.get(), ModItems.VISORED_BARBUTE.get(), ModItems.HOUNDSKULL.get(), ModItems.CAGE.get(),
+                        ModItems.CAGE_2.get(), ModItems.VISORED_BASCINET.get(), ModItems.GREAT_HELM.get(), ModItems.GREAT_HELM_2.get(),
                         ModItems.SALLET.get(), ModItems.FROGMOUTH.get(), ModItems.GREAT_ARMET.get(), ModItems.GREAT_ARMET_2.get(),
                         ModItems.GREAT_BASCINET.get(), ModItems.GREAT_HOUNDSKUL_BASCINET.get(), ModItems.MAXIMILLIAN_HELMET.get(),
-                        ModItems.DARK_ARMET.get(), ModItems.DARK_ARMET_2.get(), ModItems.DARK_BARBUTE.get(), ModItems.DARK_BASCINET.get(), ModItems.DARK_CAGE.get(),
-                        ModItems.DARK_CAGE_2.get(), ModItems.DARK_FLAT_BASCINET.get(), ModItems.DARK_GREAT_HELM.get(), ModItems.DARK_GREAT_HELM_2.get(),
+                        ModItems.DARK_ARMET.get(), ModItems.DARK_ARMET_2.get(), ModItems.DARK_VISORED_BARBUTE.get(), ModItems.DARK_HOUNDSKULL.get(), ModItems.DARK_CAGE.get(),
+                        ModItems.DARK_CAGE_2.get(), ModItems.DARK_VISORED_BASCINET.get(), ModItems.DARK_GREAT_HELM.get(), ModItems.DARK_GREAT_HELM_2.get(),
                         ModItems.DARK_SALLET.get(), ModItems.DARK_FROGMOUTH.get(), ModItems.DARK_GREAT_ARMET.get(), ModItems.DARK_GREAT_ARMET_2.get(),
                         ModItems.DARK_GREAT_BASCINET.get(), ModItems.DARK_GREAT_HOUNDSKUL_BASCINET.get(), ModItems.DARK_MAXIMILLIAN_HELMET.get());
 

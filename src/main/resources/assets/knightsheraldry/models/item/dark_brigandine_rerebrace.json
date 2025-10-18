@@ -1,7 +1,0 @@
-{
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "knightsheraldry:item/brigandine_rerebrace",
-		"layer1": "knightsheraldry:item/dark_brigandine_rerebrace_overlay"
-	}
-}

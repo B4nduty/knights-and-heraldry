@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:houndskull"
+    },
+    {
+      "item": "knightsheraldry:teutonic_snakes"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:houndskull"
+  }
+}

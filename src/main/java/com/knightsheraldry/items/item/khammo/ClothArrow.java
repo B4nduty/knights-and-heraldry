@@ -41,7 +41,8 @@ public class ClothArrow extends KHExtendedArrowItem {
             long currentTime = world.getTime();
 
             if (currentTime - igniteTime >= IGNITE_DURATION_TICKS) {
-                stack.getOrCreateNbt().putBoolean("ignited", false);
+                stack.getOrCreateNbt().remove("ignited");
+                stack.getOrCreateNbt().remove("igniteTime");
                 stack.getOrCreateNbt().putBoolean("extinguished", true);
 
                 world.playSound(null, entity.getX(), entity.getY(), entity.getZ(),
@@ -64,10 +65,20 @@ public class ClothArrow extends KHExtendedArrowItem {
 
         if (world.getBlockState(pos).isOf(Blocks.FIRE)) {
             if (!world.isClient) {
-                stack.getOrCreateNbt().putBoolean("ignited", true);
-                stack.getOrCreateNbt().putLong("igniteTime", world.getTime());
+                if (stack.getCount() > 1) {
+                    ItemStack ignitedArrow = stack.split(1);
+                    ignitedArrow.getOrCreateNbt().putBoolean("ignited", true);
+                    ignitedArrow.getOrCreateNbt().putLong("igniteTime", world.getTime());
+
+                    if (!player.getInventory().insertStack(ignitedArrow)) {
+                        player.dropItem(ignitedArrow, false);
+                    }
+                } else {
+                    stack.getOrCreateNbt().putBoolean("ignited", true);
+                    stack.getOrCreateNbt().putLong("igniteTime", world.getTime());
+                }
             } else {
-                float pitch = 0.8f + player.getRandom().nextFloat() * (1.2f - 0.8f);
+                float pitch = 0.5f + player.getRandom().nextFloat() * 1.5f;
                 player.playSound(SoundEvents.ITEM_FIRECHARGE_USE, 0.5f, pitch);
             }
             return ActionResult.SUCCESS;
@@ -78,7 +89,8 @@ public class ClothArrow extends KHExtendedArrowItem {
             if (level > 1) {
                 if (!world.isClient) {
                     LeveledCauldronBlock.decrementFluidLevel(state, world, pos);
-                    stack.getOrCreateNbt().putBoolean("ignited", false);
+                    stack.getOrCreateNbt().remove("ignited");
+                    stack.getOrCreateNbt().remove("igniteTime");
                     stack.getOrCreateNbt().putBoolean("extinguished", true);
                 } else {
                     float pitch = 1.8f + player.getRandom().nextFloat() * (3.4f - 1.8f);
@@ -100,7 +112,8 @@ public class ClothArrow extends KHExtendedArrowItem {
         else offHandStack = user.getMainHandStack();
         if (offHandStack.isOf(Items.WATER_BUCKET) && itemStack.getNbt() != null && itemStack.getNbt().getBoolean("ignited")) {
             if (!world.isClient) {
-                itemStack.getOrCreateNbt().putBoolean("ignited", false);
+                itemStack.getOrCreateNbt().remove("ignited");
+                itemStack.getOrCreateNbt().remove("igniteTime");
                 itemStack.getOrCreateNbt().putBoolean("extinguished", true);
                 if (!user.isCreative()) {
                     if (itemStack == user.getMainHandStack()) {
@@ -115,12 +128,24 @@ public class ClothArrow extends KHExtendedArrowItem {
             }
         } else if (offHandStack.isOf(Items.FLINT_AND_STEEL)) {
             if (!world.isClient) {
-                itemStack.getOrCreateNbt().putBoolean("ignited", true);
-                itemStack.getOrCreateNbt().putLong("igniteTime", world.getTime());
-                if (user instanceof ServerPlayerEntity serverPlayerEntity && !serverPlayerEntity.isCreative())
+                if (itemStack.getCount() > 1) {
+                    ItemStack ignitedArrow = itemStack.split(1);
+                    ignitedArrow.getOrCreateNbt().putBoolean("ignited", true);
+                    ignitedArrow.getOrCreateNbt().putLong("igniteTime", world.getTime());
+
+                    if (!user.getInventory().insertStack(ignitedArrow)) {
+                        user.dropItem(ignitedArrow, false);
+                    }
+                } else {
+                    itemStack.getOrCreateNbt().putBoolean("ignited", true);
+                    itemStack.getOrCreateNbt().putLong("igniteTime", world.getTime());
+                }
+
+                if (user instanceof ServerPlayerEntity serverPlayerEntity && !serverPlayerEntity.isCreative()) {
                     offHandStack.damage(1, user.getRandom(), serverPlayerEntity);
+                }
             } else {
-                float pitch = 0.8f + user.getRandom().nextFloat() * (1.2f - 0.8f);
+                float pitch = 0.5f + user.getRandom().nextFloat() * 1.5f;
                 user.playSound(SoundEvents.ITEM_FIRECHARGE_USE, 0.5f, pitch);
             }
         }

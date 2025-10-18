@@ -116,13 +116,13 @@ public class ModItems {
     public static final RegistrySupplier<Item> BARDICHE = ITEMS.register("bardiche", () ->
             new SwordItem(ModToolMaterials.WEAPONS, 1, -3.0F, new Item.Settings().maxDamage(301)));
 
-    public static final RegistrySupplier<Item> WARSWORD = ITEMS.register("warsword", () ->
+    public static final RegistrySupplier<Item> GREATSWORD = ITEMS.register("greatsword", () ->
             new SwordItem(ModToolMaterials.WEAPONS, 1, -3.2F, new Item.Settings().maxDamage(301)));
-    public static final RegistrySupplier<Item> WARSWORD_CLAYMORE = ITEMS.register("warsword_claymore", () ->
+    public static final RegistrySupplier<Item> CLAYMORE = ITEMS.register("claymore", () ->
             new SwordItem(ModToolMaterials.WEAPONS, 1, -3.2F, new Item.Settings().maxDamage(301)));
-    public static final RegistrySupplier<Item> WARSWORD_FLAMBERGE = ITEMS.register("warsword_flamberge", () ->
+    public static final RegistrySupplier<Item> FLAMBERGE = ITEMS.register("flamberge", () ->
             new SwordItem(ModToolMaterials.WEAPONS, 1, -3.2F, new Item.Settings().maxDamage(301)));
-    public static final RegistrySupplier<Item> WARSWORD_ZWEIHANDER = ITEMS.register("warsword_zweihander", () ->
+    public static final RegistrySupplier<Item> ZWEIHANDER = ITEMS.register("zweihander", () ->
             new SwordItem(ModToolMaterials.WEAPONS, 1, -3.2F, new Item.Settings().maxDamage(301)));
 
     public static final RegistrySupplier<Item> WARDART = ITEMS.register("wardart", () ->
@@ -147,15 +147,15 @@ public class ModItems {
     public static final RegistrySupplier<Item> MAIL_BOOTS = ITEMS.register("mail_boots", () ->
             new SCUnderArmor(new Item.Settings(), ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS));
 
-    public static final RegistrySupplier<Item> MAIL_PAULDRON = ITEMS.register("mail_pauldron", () ->
+    public static final RegistrySupplier<Item> MAIL_SPAULDERS = ITEMS.register("mail_spaulders", () ->
             new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(74), Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> BRIGANDINE_PAULDRON = ITEMS.register("brigandine_pauldron", () ->
+    public static final RegistrySupplier<Item> BRIGANDINE_SPAULDERS = ITEMS.register("brigandine_spaulders", () ->
             new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(84), true, 10511680, Ingredient.ofItems(Items.IRON_INGOT, Items.LEATHER)));
-    public static final RegistrySupplier<Item> DARK_BRIGANDINE_PAULDRON = ITEMS.register("dark_brigandine_pauldron", () ->
+    public static final RegistrySupplier<Item> DARK_BRIGANDINE_SPAULDERS = ITEMS.register("dark_brigandine_spaulders", () ->
             new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(84), true, 10511680, Ingredient.ofItems(Items.IRON_INGOT, Items.LEATHER)));
-    public static final RegistrySupplier<Item> PLATE_PAULDRON = ITEMS.register("plate_pauldron", () ->
+    public static final RegistrySupplier<Item> PLATE_SPAULDERS = ITEMS.register("plate_spaulders", () ->
             new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(132), Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> DARK_PLATE_PAULDRON = ITEMS.register("dark_plate_pauldron", () ->
+    public static final RegistrySupplier<Item> DARK_PLATE_SPAULDERS = ITEMS.register("dark_plate_spaulders", () ->
             new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(132), Ingredient.ofItems(Items.IRON_INGOT)));
 
     public static final RegistrySupplier<Item> BRIGANDINE = ITEMS.register("brigandine", () ->
@@ -201,13 +201,13 @@ public class ModItems {
     public static final RegistrySupplier<Item> DARK_XIIII_PLATE_BREASTPLATE = ITEMS.register("dark_xiiii_plate_breastplate", () ->
             new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(500), Ingredient.ofItems(Items.IRON_INGOT)));
 
-    public static final RegistrySupplier<Item> BARBUTE_NO_VISOR = ITEMS.register("barbute_no_visor", () ->
+    public static final RegistrySupplier<Item> BARBUTE = ITEMS.register("barbute", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(84), Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> DARK_BARBUTE_NO_VISOR = ITEMS.register("dark_barbute_no_visor", () ->
+    public static final RegistrySupplier<Item> DARK_BARBUTE = ITEMS.register("dark_barbute", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(84), Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> BASCINET_NO_VISOR = ITEMS.register("bascinet_no_visor", () ->
+    public static final RegistrySupplier<Item> BASCINET = ITEMS.register("bascinet", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(84), Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> DARK_BASCINET_NO_VISOR = ITEMS.register("dark_bascinet_no_visor", () ->
+    public static final RegistrySupplier<Item> DARK_BASCINET = ITEMS.register("dark_bascinet", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(84), Ingredient.ofItems(Items.IRON_INGOT)));
     public static final RegistrySupplier<Item> KETTLE_HELM = ITEMS.register("kettle_helm", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(84), Ingredient.ofItems(Items.IRON_INGOT)));
@@ -230,13 +230,13 @@ public class ModItems {
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
     public static final RegistrySupplier<Item> DARK_ARMET_2 = ITEMS.register("dark_armet_2", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> BARBUTE = ITEMS.register("barbute", () ->
+    public static final RegistrySupplier<Item> VISORED_BARBUTE = ITEMS.register("visored_barbute", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> DARK_BARBUTE = ITEMS.register("dark_barbute", () ->
+    public static final RegistrySupplier<Item> DARK_VISORED_BARBUTE = ITEMS.register("dark_visored_barbute", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> BASCINET = ITEMS.register("bascinet", () ->
+    public static final RegistrySupplier<Item> HOUNDSKULL = ITEMS.register("houndskull", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> DARK_BASCINET = ITEMS.register("dark_bascinet", () ->
+    public static final RegistrySupplier<Item> DARK_HOUNDSKULL = ITEMS.register("dark_houndskull", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
     public static final RegistrySupplier<Item> CAGE = ITEMS.register("cage", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
@@ -246,9 +246,9 @@ public class ModItems {
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
     public static final RegistrySupplier<Item> DARK_CAGE_2 = ITEMS.register("dark_cage_2", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> FLAT_BASCINET = ITEMS.register("flat_bascinet", () ->
+    public static final RegistrySupplier<Item> VISORED_BASCINET = ITEMS.register("visored_bascinet", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> DARK_FLAT_BASCINET = ITEMS.register("dark_flat_bascinet", () ->
+    public static final RegistrySupplier<Item> DARK_VISORED_BASCINET = ITEMS.register("dark_visored_bascinet", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(132), true, Ingredient.ofItems(Items.IRON_INGOT)));
     public static final RegistrySupplier<Item> GREAT_HELM = ITEMS.register("great_helm", () ->
             new KHHelmetAccessory(new Item.Settings().maxCount(1).maxDamage(192), Ingredient.ofItems(Items.IRON_INGOT)));
@@ -292,18 +292,18 @@ public class ModItems {
             new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(69), Ingredient.ofItems(Items.IRON_INGOT)));
     public static final RegistrySupplier<Item> DARK_GAUNTLET = ITEMS.register("dark_gauntlet", () ->
             new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(69), Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> BRIGANDINE_REREBRACE = ITEMS.register("brigandine_rerebrace", () ->
+    public static final RegistrySupplier<Item> BRIGANDINE_HARNESS = ITEMS.register("brigandine_harness", () ->
             new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(77), true, 10511680, Ingredient.ofItems(Items.IRON_INGOT, Items.LEATHER)));
-    public static final RegistrySupplier<Item> DARK_BRIGANDINE_REREBRACE = ITEMS.register("dark_brigandine_rerebrace", () ->
+    public static final RegistrySupplier<Item> DARK_BRIGANDINE_HARNESS = ITEMS.register("dark_brigandine_harness", () ->
             new KHDyeableChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(77), true, 10511680, Ingredient.ofItems(Items.IRON_INGOT, Items.LEATHER)));
-    public static final RegistrySupplier<Item> PLATE_REREBRACE = ITEMS.register("plate_rerebrace", () ->
+    public static final RegistrySupplier<Item> PLATE_HARNESS = ITEMS.register("plate_harness", () ->
             new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(89), Ingredient.ofItems(Items.IRON_INGOT)));
-    public static final RegistrySupplier<Item> DARK_PLATE_REREBRACE = ITEMS.register("dark_plate_rerebrace", () ->
+    public static final RegistrySupplier<Item> DARK_PLATE_HARNESS = ITEMS.register("dark_plate_harness", () ->
             new KHChestplateAccessory(new Item.Settings().maxCount(1).maxDamage(89), Ingredient.ofItems(Items.IRON_INGOT)));
 
-    public static final RegistrySupplier<Item> BRIGANDINE_CHAUSSES = ITEMS.register("brigandine_chausses", () ->
+    public static final RegistrySupplier<Item> BRIGANDINE_CUISSES = ITEMS.register("brigandine_cuisses", () ->
             new KHDyeableLeggingsAccessory(new Item.Settings().maxCount(1).maxDamage(144), true, 10511680, Ingredient.ofItems(Items.IRON_INGOT, Items.LEATHER)));
-    public static final RegistrySupplier<Item> DARK_BRIGANDINE_CHAUSSES = ITEMS.register("dark_brigandine_chausses", () ->
+    public static final RegistrySupplier<Item> DARK_BRIGANDINE_CUISSES = ITEMS.register("dark_brigandine_cuisses", () ->
             new KHDyeableLeggingsAccessory(new Item.Settings().maxCount(1).maxDamage(144), true, 10511680, Ingredient.ofItems(Items.IRON_INGOT, Items.LEATHER)));
     public static final RegistrySupplier<Item> PLATE_CUISSES = ITEMS.register("plate_cuisses", () ->
             new KHLeggingsAccessory(new Item.Settings().maxCount(1).maxDamage(156), Ingredient.ofItems(Items.IRON_INGOT)));
@@ -372,7 +372,7 @@ public class ModItems {
     public static final RegistrySupplier<Item> BROADHEAD_ARROW = ITEMS.register("broadhead_arrow", () ->
             new KHExtendedArrowItem(new Item.Settings(), KHBroadheadArrowEntity::new));
     public static final RegistrySupplier<Item> CLOTH_ARROW = ITEMS.register("cloth_arrow", () ->
-            new ClothArrow(new Item.Settings().maxCount(6), KHClothArrowEntity::new));
+            new ClothArrow(new Item.Settings(), KHClothArrowEntity::new));
 
     public static final RegistrySupplier<Item> HORSE_BARDING = ITEMS.register("horse_barding", () ->
             new HorseBardingArmorItem(7, new Item.Settings().maxCount(1)));
@@ -386,7 +386,7 @@ public class ModItems {
             new DyeableItems(new Item.Settings().maxCount(1)));
     public static final RegistrySupplier<Item> FLUFFY_PLUME = ITEMS.register("fluffy_plume", () ->
             new DyeableItems(new Item.Settings().maxCount(1)));
-    public static final RegistrySupplier<Item> JOUSTING_BAND = ITEMS.register("jousting_band", () ->
+    public static final RegistrySupplier<Item> TORSE = ITEMS.register("torse", () ->
             new TwoLayerDyeableItem(new Item.Settings().maxCount(1)));
     public static final RegistrySupplier<Item> TEUTONIC_SNAKES = ITEMS.register("teutonic_snakes", () ->
             new Item(new Item.Settings().maxCount(1)));

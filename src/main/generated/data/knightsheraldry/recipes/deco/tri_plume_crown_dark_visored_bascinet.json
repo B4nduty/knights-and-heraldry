@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_visored_bascinet"
+    },
+    {
+      "item": "knightsheraldry:tri_plume"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:dark_visored_bascinet"
+  }
+}

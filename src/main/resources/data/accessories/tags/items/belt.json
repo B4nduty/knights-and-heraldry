@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "knightsheraldry:brigandine_chausses",
+    "knightsheraldry:brigandine_cuisses",
     "knightsheraldry:plate_cuisses",
-    "knightsheraldry:dark_brigandine_chausses",
+    "knightsheraldry:dark_brigandine_cuisses",
     "knightsheraldry:dark_plate_cuisses"
   ]
 }

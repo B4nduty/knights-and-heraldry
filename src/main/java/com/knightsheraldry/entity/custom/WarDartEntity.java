@@ -19,7 +19,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
@@ -78,28 +77,27 @@ public class WarDartEntity extends PersistentProjectileEntity {
         HitResult.Type type = hitResult.getType();
         if (!this.getWorld().isClient) {
             if (type == HitResult.Type.BLOCK) {
-                this.setVelocity(Vec3d.ZERO);
-                BlockPos pos = ((BlockHitResult) hitResult).getBlockPos();
-                this.setPosition(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
                 BlockHitResult blockHitResult = (BlockHitResult)hitResult;
                 this.onBlockHit(blockHitResult);
                 BlockPos blockPos = blockHitResult.getBlockPos();
                 this.getWorld().emitGameEvent(GameEvent.PROJECTILE_LAND, blockPos, GameEvent.Emitter.of(this, this.getWorld().getBlockState(blockPos)));
-                this.setVelocity(this.getVelocity().multiply(-0.01, -0.1, -0.01));
             }
 
             if (type == HitResult.Type.ENTITY) {
                 Entity entity = ((EntityHitResult)hitResult).getEntity();
-                this.setVelocity(Vec3d.ZERO);
-                Vec3d pos = hitResult.getPos();
                 this.getWorld().emitGameEvent(GameEvent.PROJECTILE_LAND, hitResult.getPos(), GameEvent.Emitter.of(this, null));
-                this.setPosition(pos.getX(), pos.getY(), pos.getZ());
                 this.setVelocity(this.getVelocity().multiply(-0.01, -0.1, -0.01));
+                this.setPosition(this.getPos().add(0, -1, 0));
                 if (entity instanceof LivingEntity livingEntity) {
                     if (livingEntity instanceof PlayerEntity player && player.isCreative()) return;
                     this.onEntityHit((EntityHitResult)hitResult);
                 }
             }
         }
+    }
+
+    @Override
+    public boolean shouldRender(double distance) {
+        return true;
     }
 }

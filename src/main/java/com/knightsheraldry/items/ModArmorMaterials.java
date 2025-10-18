@@ -11,7 +11,7 @@ import net.minecraft.sound.SoundEvents;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    GAMBESON(165, new int[] {2, 5, 4, 1}, 15,
+    GAMBESON(165, new int[] {1, 4, 2, 1}, 15,
             SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0f, 0f, () -> Ingredient.ofItems(Items.LEATHER)),
     MAIL(256, new int[] {2, 6, 5, 2}, 12,
             SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 0f, 0f, () -> Ingredient.ofItems(Items.CHAIN));

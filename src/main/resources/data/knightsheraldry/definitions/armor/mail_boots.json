@@ -6,10 +6,10 @@
     "piercing": 0
   },
   "deflectChance": {
-    "minecraft:arrow": 0.15,
-    "knightsheraldry:bodkin_arrow": 0.15,
-    "knightsheraldry:broadhead_arrow": 0.15,
-    "knightsheraldry:cloth_arrow": 0.15,
-    "knightsheraldry:swallowtail_arrow": 0.15
+    "minecraft:arrow": 0.02,
+    "knightsheraldry:bodkin_arrow": 0.02,
+    "knightsheraldry:broadhead_arrow": 0.02,
+    "knightsheraldry:cloth_arrow": 0.02,
+    "knightsheraldry:swallowtail_arrow": 0.02
   }
 }

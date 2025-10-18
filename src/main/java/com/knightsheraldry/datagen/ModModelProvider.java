@@ -73,10 +73,10 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.BARDICHE.get(), Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.WARSWORD.get(), Models.HANDHELD);
-        itemModelGenerator.register(ModItems.WARSWORD_CLAYMORE.get(), Models.HANDHELD);
-        itemModelGenerator.register(ModItems.WARSWORD_FLAMBERGE.get(), Models.HANDHELD);
-        itemModelGenerator.register(ModItems.WARSWORD_ZWEIHANDER.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GREATSWORD.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CLAYMORE.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.FLAMBERGE.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ZWEIHANDER.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.WARDART.get(), Models.HANDHELD);
 
@@ -121,11 +121,11 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.DARK_GAUNTLET.get(), Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.PLATE_REREBRACE.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PLATE_HARNESS.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.PLATE_CUISSES.get(), Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.DARK_PLATE_REREBRACE.get(), Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DARK_PLATE_HARNESS.get(), Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.DARK_PLATE_CUISSES.get(), Models.HANDHELD);
 
@@ -162,7 +162,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DARKENED_ARMOR_TEMPLATE.get(), Models.HANDHELD);
 
         for (Item deco : HelmetDeco.HELMET_DECO.keySet()) {
-            if (deco == ModItems.JOUSTING_BAND.get()) continue;
+            if (deco == ModItems.TORSE.get()) continue;
             itemModelGenerator.register(deco, Models.HANDHELD);
         }
     }

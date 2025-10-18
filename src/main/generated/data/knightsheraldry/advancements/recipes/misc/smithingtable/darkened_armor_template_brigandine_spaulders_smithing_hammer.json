@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_brigandine_spaulders": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:brigandine_spaulders"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_darkened_armor_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:darkened_armor_template"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_smithing_hammer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "stoneycore:smithing_hammer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:smithingtable/darkened_armor_template_brigandine_spaulders_smithing_hammer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_darkened_armor_template",
+      "has_brigandine_spaulders",
+      "has_smithing_hammer",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:smithingtable/darkened_armor_template_brigandine_spaulders_smithing_hammer"
+    ]
+  },
+  "sends_telemetry_event": false
+}

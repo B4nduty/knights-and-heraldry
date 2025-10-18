@@ -14,7 +14,7 @@ public record HelmetDeco(Item item, int color, int group) {
             entry(SCItems.CROWN.get(), 0, 1),
             entry(ModItems.TRI_PLUME.get(), 1, 0),
             entry(ModItems.FLUFFY_PLUME.get(), 1, 0),
-            entry(ModItems.JOUSTING_BAND.get(), 2, 1),
+            entry(ModItems.TORSE.get(), 2, 1),
             entry(ModItems.TEUTONIC_SNAKES.get(), 0, 0),
             entry(ModItems.TEUTONIC_BLACK_SNAKES.get(), 0, 0),
             entry(ModItems.GOLD_HORNS.get(), 0, 0),

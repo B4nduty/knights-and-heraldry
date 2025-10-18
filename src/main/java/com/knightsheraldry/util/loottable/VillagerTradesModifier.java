@@ -65,7 +65,7 @@ public class VillagerTradesModifier {
         addTradeOffer(VillagerProfession.ARMORER, 2,14, 12, 5, ModItems.HAUBERK.get());
         addTradeOffer(VillagerProfession.ARMORER, 2,11, 12, 5, ModItems.MAIL_BREECHES.get());
         addTradeOffer(VillagerProfession.ARMORER, 2,9, 12, 5, ModItems.MAIL_BOOTS.get());
-        addTradeOffer(VillagerProfession.ARMORER, 2,8, 12, 5, ModItems.MAIL_PAULDRON.get());
+        addTradeOffer(VillagerProfession.ARMORER, 2,8, 12, 5, ModItems.MAIL_SPAULDERS.get());
         addTradeOffer(VillagerProfession.ARMORER, 2,9, 12, 5, ModItems.AVENTAIL.get());
 
 
@@ -73,23 +73,23 @@ public class VillagerTradesModifier {
         addTradeOffer(VillagerProfession.ARMORER, 3,11, 12, 10, ModItems.GAUNTLET.get());
         addTradeOffer(VillagerProfession.ARMORER, 3,12, 12, 15, ModItems.HORSE_BARDING.get());
         addRandomTradeOffer(VillagerProfession.ARMORER, 3,9, 12, 10,
-                ModItems.BASCINET_NO_VISOR.get(), ModItems.KETTLE_HELM.get(), ModItems.NASAL_HELM.get(), ModItems.VIKING_HELM.get(),
-                ModItems.BARBUTE_NO_VISOR.get());
+                ModItems.BASCINET.get(), ModItems.KETTLE_HELM.get(), ModItems.NASAL_HELM.get(), ModItems.VIKING_HELM.get(),
+                ModItems.BARBUTE.get());
 
 
-        addTradeOffer(VillagerProfession.ARMORER, 4,15, 12, 15, ModItems.BRIGANDINE_PAULDRON.get());
-        addTradeOffer(VillagerProfession.ARMORER, 4,21, 12, 15, ModItems.BRIGANDINE_REREBRACE.get());
-        addTradeOffer(VillagerProfession.ARMORER, 4,21, 12, 15, ModItems.BRIGANDINE_CHAUSSES.get());
+        addTradeOffer(VillagerProfession.ARMORER, 4,15, 12, 15, ModItems.BRIGANDINE_SPAULDERS.get());
+        addTradeOffer(VillagerProfession.ARMORER, 4,21, 12, 15, ModItems.BRIGANDINE_HARNESS.get());
+        addTradeOffer(VillagerProfession.ARMORER, 4,21, 12, 15, ModItems.BRIGANDINE_CUISSES.get());
         addRandomTradeOffer(VillagerProfession.ARMORER, 4,24, 12, 15,
-                ModItems.ARMET_2.get(), ModItems.BARBUTE.get(), ModItems.BASCINET.get(), ModItems.CAGE.get(),
-                ModItems.CAGE_2.get(), ModItems.FLAT_BASCINET.get(), ModItems.GREAT_HELM.get(), ModItems.GREAT_HELM_2.get(),
+                ModItems.ARMET_2.get(), ModItems.VISORED_BARBUTE.get(), ModItems.HOUNDSKULL.get(), ModItems.CAGE.get(),
+                ModItems.CAGE_2.get(), ModItems.VISORED_BASCINET.get(), ModItems.GREAT_HELM.get(), ModItems.GREAT_HELM_2.get(),
                 ModItems.SALLET.get(), ModItems.ARMET.get());
 
 
-        addTradeOffer(VillagerProfession.ARMORER, 5,18, 12, 15, ModItems.PLATE_PAULDRON.get());
+        addTradeOffer(VillagerProfession.ARMORER, 5,18, 12, 15, ModItems.PLATE_SPAULDERS.get());
         addTradeOffer(VillagerProfession.ARMORER, 5,13, 12, 15, ModItems.GREAVES.get());
         addTradeOffer(VillagerProfession.ARMORER, 5,11, 12, 15, ModItems.SABATONS.get());
-        addTradeOffer(VillagerProfession.ARMORER, 5,24, 12, 15, ModItems.PLATE_REREBRACE.get());
+        addTradeOffer(VillagerProfession.ARMORER, 5,24, 12, 15, ModItems.PLATE_HARNESS.get());
         addTradeOffer(VillagerProfession.ARMORER, 5,15, 12, 15, ModItems.PLATE_CUISSES.get());
         addTradeOffer(VillagerProfession.ARMORER, 5,4, 12, 15, ModItems.RIM_GUARDS.get());
         addTradeOffer(VillagerProfession.ARMORER, 5,3, 12, 15, ModItems.BESAGEWS.get());
@@ -134,8 +134,8 @@ public class VillagerTradesModifier {
         addRandomTradeOffer(VillagerProfession.WEAPONSMITH, 4,23, 12, 15,
                 ModItems.POLEHAMMER.get(), ModItems.BEC_DE_CORBIN.get());
         addRandomTradeOffer(VillagerProfession.WEAPONSMITH, 4,35, 12, 15,
-                ModItems.WARSWORD.get(), ModItems.WARSWORD_CLAYMORE.get(), ModItems.WARSWORD_FLAMBERGE.get(),
-                ModItems.WARSWORD_ZWEIHANDER.get());
+                ModItems.GREATSWORD.get(), ModItems.CLAYMORE.get(), ModItems.FLAMBERGE.get(),
+                ModItems.ZWEIHANDER.get());
         addTradeOffer(VillagerProfession.WEAPONSMITH, 4,15, 12, 15, ModItems.RAPIER.get());
         addTradeOffer(VillagerProfession.WEAPONSMITH, 4,20, 12, 15, ModItems.MORNING_STAR.get());
         addTradeOffer(VillagerProfession.WEAPONSMITH, 4,18, 12, 15, ModItems.HANDGONNE.get());

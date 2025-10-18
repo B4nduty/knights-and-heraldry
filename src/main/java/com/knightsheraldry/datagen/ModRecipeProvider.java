@@ -36,21 +36,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createWeaponCycle(exporter, ModItems.LONGSWORD.get(), ModItems.V_LONGSWORD.get());
         createWeaponCycle(exporter, ModItems.FALCHION.get(), ModItems.SCIMITAR.get());
         createWeaponCycle(exporter, ModItems.POLEHAMMER.get(), ModItems.BEC_DE_CORBIN.get());
-        createWeaponCycle(exporter, ModItems.WARSWORD.get(), ModItems.WARSWORD_CLAYMORE.get(),
-                ModItems.WARSWORD_FLAMBERGE.get(), ModItems.WARSWORD_ZWEIHANDER.get());
+        createWeaponCycle(exporter, ModItems.GREATSWORD.get(), ModItems.CLAYMORE.get(),
+                ModItems.FLAMBERGE.get(), ModItems.ZWEIHANDER.get());
 
-        createDecoRecipe(exporter,  ModItems.BARBUTE_NO_VISOR.get());
-        createDecoRecipe(exporter,  ModItems.BASCINET_NO_VISOR.get());
+        createDecoRecipe(exporter,  ModItems.BARBUTE.get());
+        createDecoRecipe(exporter,  ModItems.BASCINET.get());
         createDecoRecipe(exporter,  ModItems.KETTLE_HELM.get());
         createDecoRecipe(exporter,  ModItems.NASAL_HELM.get());
         createDecoRecipe(exporter,  ModItems.VIKING_HELM.get());
         createDecoRecipe(exporter,  ModItems.ARMET.get());
         createDecoRecipe(exporter,  ModItems.ARMET_2.get());
-        createDecoRecipe(exporter,  ModItems.BARBUTE.get());
-        createDecoRecipe(exporter,  ModItems.BASCINET.get());
+        createDecoRecipe(exporter,  ModItems.VISORED_BARBUTE.get());
+        createDecoRecipe(exporter,  ModItems.HOUNDSKULL.get());
         createDecoRecipe(exporter,  ModItems.CAGE.get());
         createDecoRecipe(exporter,  ModItems.CAGE_2.get());
-        createDecoRecipe(exporter,  ModItems.FLAT_BASCINET.get());
+        createDecoRecipe(exporter,  ModItems.VISORED_BASCINET.get());
         createDecoRecipe(exporter,  ModItems.GREAT_HELM.get());
         createDecoRecipe(exporter,  ModItems.GREAT_HELM_2.get());
         createDecoRecipe(exporter,  ModItems.SALLET.get());
@@ -61,18 +61,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createDecoRecipe(exporter,  ModItems.GREAT_HOUNDSKUL_BASCINET.get());
         createDecoRecipe(exporter,  ModItems.MAXIMILLIAN_HELMET.get());
 
-        createDecoRecipe(exporter,  ModItems.DARK_BARBUTE_NO_VISOR.get());
-        createDecoRecipe(exporter,  ModItems.DARK_BASCINET_NO_VISOR.get());
+        createDecoRecipe(exporter,  ModItems.DARK_BARBUTE.get());
+        createDecoRecipe(exporter,  ModItems.DARK_BASCINET.get());
         createDecoRecipe(exporter,  ModItems.DARK_KETTLE_HELM.get());
         createDecoRecipe(exporter,  ModItems.DARK_NASAL_HELM.get());
         createDecoRecipe(exporter,  ModItems.DARK_VIKING_HELM.get());
         createDecoRecipe(exporter,  ModItems.DARK_ARMET.get());
         createDecoRecipe(exporter,  ModItems.DARK_ARMET_2.get());
-        createDecoRecipe(exporter,  ModItems.DARK_BARBUTE.get());
-        createDecoRecipe(exporter,  ModItems.DARK_BASCINET.get());
+        createDecoRecipe(exporter,  ModItems.DARK_VISORED_BARBUTE.get());
+        createDecoRecipe(exporter,  ModItems.DARK_HOUNDSKULL.get());
         createDecoRecipe(exporter,  ModItems.DARK_CAGE.get());
         createDecoRecipe(exporter,  ModItems.DARK_CAGE_2.get());
-        createDecoRecipe(exporter,  ModItems.DARK_FLAT_BASCINET.get());
+        createDecoRecipe(exporter,  ModItems.DARK_VISORED_BASCINET.get());
         createDecoRecipe(exporter,  ModItems.DARK_GREAT_HELM.get());
         createDecoRecipe(exporter,  ModItems.DARK_GREAT_HELM_2.get());
         createDecoRecipe(exporter,  ModItems.DARK_SALLET.get());
@@ -92,13 +92,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         "deco/" + Registries.ITEM.getId(ModItems.PLUME.get()).getPath() + "_" + Registries.ITEM.getId(ModItems.HORSE_BARDING.get()).getPath()
                 ));
 
-        createEasyRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, ModItems.MAIL_PAULDRON.get(), ModItems.BESAGEWS.get());
-        createEasyRecipe(exporter, ModItems.BRIGANDINE_PAULDRON.get(), ModItems.BESAGEWS.get());
-        createEasyRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.BESAGEWS.get());
-        createEasyRecipe(exporter, ModItems.MAIL_PAULDRON.get(), ModItems.BESAGEWS.get(), ModItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, ModItems.BRIGANDINE_PAULDRON.get(), ModItems.BESAGEWS.get(), ModItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, ModItems.PLATE_PAULDRON.get(), ModItems.BESAGEWS.get(), ModItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, ModItems.PLATE_SPAULDERS.get(), ModItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, ModItems.MAIL_SPAULDERS.get(), ModItems.BESAGEWS.get());
+        createEasyRecipe(exporter, ModItems.BRIGANDINE_SPAULDERS.get(), ModItems.BESAGEWS.get());
+        createEasyRecipe(exporter, ModItems.PLATE_SPAULDERS.get(), ModItems.BESAGEWS.get());
+        createEasyRecipe(exporter, ModItems.MAIL_SPAULDERS.get(), ModItems.BESAGEWS.get(), ModItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, ModItems.BRIGANDINE_SPAULDERS.get(), ModItems.BESAGEWS.get(), ModItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, ModItems.PLATE_SPAULDERS.get(), ModItems.BESAGEWS.get(), ModItems.RIM_GUARDS.get());
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SURCOAT.get(), 1)
                 .input(ModItems.SURCOAT.get())
@@ -114,20 +114,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.WHITE_BANNER), conditionsFromItem(Items.WHITE_BANNER))
                 .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "sleeveless_surcoat_with_banner"));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.JOUSTING_BAND.get())
-                .input(ModItems.JOUSTING_BAND.get())
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TORSE.get())
+                .input(ModItems.TORSE.get())
                 .input(ModTags.DYES.getTag())
-                .criterion(hasItem(ModItems.JOUSTING_BAND.get()), conditionsFromItem(ModItems.JOUSTING_BAND.get()))
+                .criterion(hasItem(ModItems.TORSE.get()), conditionsFromItem(ModItems.TORSE.get()))
                 .criterion("has_" + ModTags.DYES.getTag(), conditionsFromTag(ModTags.DYES.getTag()))
-                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "jousting_band_dye"));
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, Registries.ITEM.getId(ModItems.TORSE.get()).getPath() + "_dye"));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.JOUSTING_BAND.get())
-                .input(ModItems.JOUSTING_BAND.get())
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TORSE.get())
+                .input(ModItems.TORSE.get())
                 .input(ModTags.DYES.getTag())
                 .input(ModTags.DYES.getTag())
-                .criterion(hasItem(ModItems.JOUSTING_BAND.get()), conditionsFromItem(ModItems.JOUSTING_BAND.get()))
+                .criterion(hasItem(ModItems.TORSE.get()), conditionsFromItem(ModItems.TORSE.get()))
                 .criterion("has_" + ModTags.DYES.getTag(), conditionsFromTag(ModTags.DYES.getTag()))
-                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, "jousting_band_dye_double"));
+                .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, Registries.ITEM.getId(ModItems.TORSE.get()).getPath() + "_dye_double"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TRI_PLUME.get())
                 .input(ModItems.PLUME.get())
@@ -153,8 +153,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.PLUME.get()), conditionsFromItem(ModItems.PLUME.get()))
                 .offerTo(exporter, new Identifier(KnightsHeraldry.MOD_ID, getRecipeName(ModItems.FLUFFY_PLUME.get()) + "_2"));
 
-        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE_PAULDRON.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE_PAULDRON.get());
-        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.PLATE_PAULDRON.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_PLATE_PAULDRON.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE_SPAULDERS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE_SPAULDERS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.PLATE_SPAULDERS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_PLATE_SPAULDERS.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIG_BREASTPLATE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIG_BREASTPLATE.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIG_BREASTPLATE_TASSETS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIG_BREASTPLATE_TASSETS.get());
@@ -165,18 +165,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.XIIII_PLATE_CUIRASS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_XIIII_PLATE_CUIRASS.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.XIIII_PLATE_CUIRASS_TASSETS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.XIIII_PLATE_BREASTPLATE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_XIIII_PLATE_BREASTPLATE.get());
-        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BARBUTE_NO_VISOR.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BARBUTE_NO_VISOR.get());
-        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BASCINET_NO_VISOR.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BASCINET_NO_VISOR.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BARBUTE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BARBUTE.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BASCINET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BASCINET.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.KETTLE_HELM.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_KETTLE_HELM.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.NASAL_HELM.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_NASAL_HELM.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.VIKING_HELM.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_VIKING_HELM.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.ARMET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_ARMET.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.ARMET_2.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_ARMET_2.get());
-        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BARBUTE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BARBUTE.get());
-        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BASCINET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BASCINET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.VISORED_BARBUTE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_VISORED_BARBUTE.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.HOUNDSKULL.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_HOUNDSKULL.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.CAGE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_CAGE.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.CAGE_2.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_CAGE_2.get());
-        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.FLAT_BASCINET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_FLAT_BASCINET.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.VISORED_BASCINET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_VISORED_BASCINET.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAT_HELM.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAT_HELM.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAT_HELM_2.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAT_HELM_2.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.SALLET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_SALLET.get());
@@ -187,9 +187,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAT_HOUNDSKUL_BASCINET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAT_HOUNDSKUL_BASCINET.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.MAXIMILLIAN_HELMET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_MAXIMILLIAN_HELMET.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GAUNTLET.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GAUNTLET.get());
-        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE_REREBRACE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE_REREBRACE.get());
-        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.PLATE_REREBRACE.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_PLATE_REREBRACE.get());
-        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE_CHAUSSES.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE_CHAUSSES.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE_HARNESS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE_HARNESS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.PLATE_HARNESS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_PLATE_HARNESS.get());
+        createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.BRIGANDINE_CUISSES.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_BRIGANDINE_CUISSES.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.PLATE_CUISSES.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_PLATE_CUISSES.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.GREAVES.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_GREAVES.get());
         createSmithingRecipe(exporter, ModItems.DARKENED_ARMOR_TEMPLATE.get(), ModItems.SABATONS.get(), SCItems.SMITHING_HAMMER.get(), ModItems.DARK_SABATONS.get());
