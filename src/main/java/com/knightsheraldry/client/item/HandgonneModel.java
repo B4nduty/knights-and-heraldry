@@ -2,22 +2,22 @@ package com.knightsheraldry.client.item;
 
 import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.items.item.khrangeweapon.Handgonne;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
 
 public class HandgonneModel extends GeoModel<Handgonne> {
     @Override
-    public Identifier getModelResource(Handgonne animatable) {
-        return new Identifier(KnightsHeraldry.MOD_ID, "geo/handgonne.geo.json");
+    public ResourceLocation getModelResource(Handgonne animatable) {
+        return new ResourceLocation(KnightsHeraldry.MOD_ID, "geo/handgonne.geo.json");
     }
 
     @Override
-    public Identifier getTextureResource(Handgonne animatable) {
-        return new Identifier(KnightsHeraldry.MOD_ID, "textures/item/handgonne.png");
+    public ResourceLocation getTextureResource(Handgonne animatable) {
+        return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/item/handgonne.png");
     }
 
     @Override
-    public Identifier getAnimationResource(Handgonne animatable) {
-        return new Identifier(KnightsHeraldry.MOD_ID, "animations/handgonne.animation.json");
+    public ResourceLocation getAnimationResource(Handgonne animatable) {
+        return new ResourceLocation(KnightsHeraldry.MOD_ID, "animations/handgonne.animation.json");
     }
 }

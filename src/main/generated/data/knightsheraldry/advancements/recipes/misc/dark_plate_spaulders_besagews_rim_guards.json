@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_besagews": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:besagews"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_dark_plate_spaulders": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_plate_spaulders"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_rim_guards": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:rim_guards"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:dark_plate_spaulders_besagews_rim_guards"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_plate_spaulders",
+      "has_besagews",
+      "has_rim_guards",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:dark_plate_spaulders_besagews_rim_guards"
+    ]
+  },
+  "sends_telemetry_event": false
+}

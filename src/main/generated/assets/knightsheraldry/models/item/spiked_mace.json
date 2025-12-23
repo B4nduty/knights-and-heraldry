@@ -1,5 +1,13 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/spiked_mace_broken",
+      "predicate": {
+        "broken": 1
+      }
+    }
+  ],
   "textures": {
     "layer0": "knightsheraldry:item/spiked_mace"
   }

@@ -27,8 +27,8 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.Item;
 
 import java.util.Objects;
 
@@ -62,7 +62,7 @@ public class KnightsHeraldryClient implements ClientModInitializer {
     private void registerClient() {
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE.get(), WarDartRenderer::new);
 
-        for (Item item : Registries.ITEM) {
+        for (Item item : BuiltInRegistries.ITEM) {
             if (item == ModItems.SWALLOWTAIL_ARROW.get()) EntityRendererRegistry.register(ModEntities.SWALLOWTAIL_ARROW.get(), KHSwallowtailArrowEntityRenderer::new);
             if (item == ModItems.BODKIN_ARROW.get()) EntityRendererRegistry.register(ModEntities.BODKING_ARROW.get(), KHBodkinArrowEntityRenderer::new);
             if (item == ModItems.BROADHEAD_ARROW.get()) EntityRendererRegistry.register(ModEntities.BROADHEAD_ARROW.get(), KHBroadheadArrowEntityRenderer::new);
@@ -80,7 +80,7 @@ public class KnightsHeraldryClient implements ClientModInitializer {
                     tintIndex > 0 ? -1 : horseBardingArmorItem.getColor(stack), item);
             if (item instanceof KHChaperon khChaperon) ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
                     tintIndex > 0 ? -1 : khChaperon.getColor(stack), item);
-            if (Objects.equals(Registries.ITEM.getId(item).getNamespace(), "knightsheraldry")) {
+            if (Objects.equals(BuiltInRegistries.ITEM.getKey(item).getNamespace(), "knightsheraldry")) {
                 ModModelPredicates.registerModelPredicates(item);
             }
         }

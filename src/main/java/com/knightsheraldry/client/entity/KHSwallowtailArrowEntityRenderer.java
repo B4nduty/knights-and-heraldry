@@ -4,17 +4,18 @@ import com.knightsheraldry.KnightsHeraldry;
 import com.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.ProjectileEntityRenderer;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.renderer.entity.ArrowRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 @Environment(EnvType.CLIENT)
-public class KHSwallowtailArrowEntityRenderer extends ProjectileEntityRenderer<KHSwallowTailArrowEntity> {
-    public KHSwallowtailArrowEntityRenderer(EntityRendererFactory.Context context) {
+public class KHSwallowtailArrowEntityRenderer extends ArrowRenderer<KHSwallowTailArrowEntity> {
+    public KHSwallowtailArrowEntityRenderer(EntityRendererProvider.Context context) {
         super(context);
     }
 
-    public Identifier getTexture(KHSwallowTailArrowEntity arrowEntity) {
-        return new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/arrow/swallowtail_arrow.png");
+    public @NotNull ResourceLocation getTextureLocation(@NotNull KHSwallowTailArrowEntity arrowEntity) {
+        return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/arrow/swallowtail_arrow.png");
     }
 }

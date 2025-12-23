@@ -7,16 +7,17 @@
     "ItemMixin",
     "LivingEntityAccessor",
     "LivingEntityMixin",
-    "PlayerEntityMixin",
+    "PiglinAIMixin",
+    "PlayerMixin",
     "PowderSnowBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "AbstractClientPlayerEntityMixin",
+    "AbstractClientPlayerMixin",
     "EntityRendererMixin",
-    "HorseEntityRendererMixin",
-    "ModelLoaderMixin"
+    "HorseRendererMixin",
+    "ModelBakeryMixin"
   ]
 }

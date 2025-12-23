@@ -1,6 +1,0 @@
-{
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "knightsheraldry:item/dark_open_armet"
-	}
-}

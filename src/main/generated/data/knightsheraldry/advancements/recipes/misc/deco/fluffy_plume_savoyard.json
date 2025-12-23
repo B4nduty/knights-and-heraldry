@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fluffy_plume": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:fluffy_plume"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_savoyard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:savoyard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/fluffy_plume_savoyard"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_savoyard",
+      "has_fluffy_plume",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/fluffy_plume_savoyard"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_savoyard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_savoyard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_teutonic_wings_sharp_ends": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:teutonic_wings_sharp_ends"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/teutonic_wings_sharp_ends_torse_dark_savoyard"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_torse": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:torse"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_savoyard",
+      "has_teutonic_wings_sharp_ends",
+      "has_torse",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/teutonic_wings_sharp_ends_torse_dark_savoyard"
+    ]
+  },
+  "sends_telemetry_event": false
+}

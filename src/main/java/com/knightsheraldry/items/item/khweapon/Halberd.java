@@ -5,40 +5,41 @@ import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
 import com.knightsheraldry.effect.ModEffects;
 import com.knightsheraldry.items.ModToolMaterials;
 import net.bettercombat.logic.PlayerAttackProperties;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 public class Halberd extends SwordItem {
-    public Halberd(float attackSpeed, Settings settings) {
-        super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
+    public Halberd(float attackSpeed, Item.Properties properties) {
+        super(ModToolMaterials.WEAPONS, 1, attackSpeed, properties);
     }
 
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        super.postHit(stack, target, attacker);
+    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        super.hurtEnemy(stack, target, attacker);
 
-        if (attacker instanceof PlayerEntity playerEntity) {
-            SCDamageCalculator.DamageType damageType = SCWeaponUtil.calculateDamageType(stack, ((PlayerAttackProperties) playerEntity).getComboCount());
+        if (attacker instanceof Player player) {
+            SCDamageCalculator.DamageType damageType = SCWeaponUtil.calculateDamageType(stack, ((PlayerAttackProperties) player).getComboCount());
 
             if (damageType.equals(SCDamageCalculator.DamageType.BLUDGEONING)) {
-                target.addStatusEffect(new StatusEffectInstance(ModEffects.PIN, 2 * 20));
+                target.addEffect(new MobEffectInstance(ModEffects.PIN, 2 * 20));
             }
 
             double maxDistance = SCWeaponUtil.getMaxDistance(this);
-            Box detectionBox = new Box(playerEntity.getBlockPos()).expand(maxDistance);
-            Vec3d playerPos = playerEntity.getPos();
-            playerEntity.getWorld().getEntitiesByClass(LivingEntity.class, detectionBox, entity ->
-                            entity != playerEntity && entity == target && playerEntity.getBlockPos().isWithinDistance(entity.getBlockPos(), maxDistance + 1))
+            AABB detectionBox = new AABB(player.getOnPos()).inflate(maxDistance);
+            Vec3 playerPos = player.position();
+            player.level().getEntitiesOfClass(LivingEntity.class, detectionBox, entity ->
+                            entity != player && entity == target && player.position().closerThan(entity.position(), maxDistance + 1))
                     .forEach(entity -> {
                         boolean critical = false;
-                        double distance = playerPos.distanceTo(target.getPos());
-                        double damage = SCDamageCalculator.getSCDamage(playerEntity, SCWeaponUtil.calculateDamage(this, distance, damageType), damageType);
+                        double distance = playerPos.distanceTo(target.position());
+                        double damage = SCDamageCalculator.getSCDamage(player, SCWeaponUtil.calculateDamage(this, distance, damageType), damageType);
                         double maxDamage = SCWeaponUtil.getDamageValues(damageType, this);
 
                         if (damage >= maxDamage) {

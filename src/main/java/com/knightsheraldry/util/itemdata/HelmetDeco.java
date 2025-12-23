@@ -2,8 +2,8 @@ package com.knightsheraldry.util.itemdata;
 
 import banduty.stoneycore.items.SCItems;
 import com.knightsheraldry.items.ModItems;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.Item;
 
 import java.util.List;
 import java.util.Map;
@@ -38,7 +38,7 @@ public record HelmetDeco(Item item, int color, int group) {
     }
 
     public String getNbtKey() {
-        return Registries.ITEM.getId(item).getPath();
+        return BuiltInRegistries.ITEM.getKey(item).getPath();
     }
 
     public static List<Item> getDecoGroup(int group) {

@@ -1,6 +1,14 @@
 {
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "knightsheraldry:item/flail_icon"
-	}
+  "parent": "item/generated",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/flail_icon_broken",
+      "predicate": {
+        "broken": 1
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "knightsheraldry:item/flail_icon"
+  }
 }

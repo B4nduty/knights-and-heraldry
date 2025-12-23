@@ -6,26 +6,28 @@ package com.knightsheraldry.items.armor.accessory;
     import io.wispforest.accessories.api.AccessoryItem;
     import net.fabricmc.api.EnvType;
     import net.fabricmc.api.Environment;
-    import net.minecraft.item.DyeableItem;
-    import net.minecraft.item.ItemStack;
-    import net.minecraft.util.Identifier;
+    import net.minecraft.resources.ResourceLocation;
+    import net.minecraft.world.item.DyeableLeatherItem;
+    import net.minecraft.world.item.Item;
+    import net.minecraft.world.item.ItemStack;
 
-    public class KHChaperon extends AccessoryItem implements SCAccessoryItem, DyeableItem {
+public class KHChaperon extends AccessoryItem implements SCAccessoryItem, DyeableLeatherItem {
         boolean hasOverlay;
 
-        public KHChaperon(Settings settings, boolean hasOverlay) {
-            super(settings);
+        public KHChaperon(Item.Properties properties, boolean hasOverlay) {
+            super(properties);
             this.hasOverlay = hasOverlay;
         }
 
         @Environment(EnvType.CLIENT)
         public ModelBundle getModels(ItemStack itemStack) {
-            return ModelBundle.ofBase(new ChaperonModel(ChaperonModel.getTexturedModelData().createModel()));
+            return ModelBundle.ofBase(new ChaperonModel(ChaperonModel.getTexturedModelData().bakeRoot()));
         }
 
         @Override
-        public Identifier getTexturePath(ItemStack itemStack) {
-            return new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/chaperon.png");
+        public ResourceLocation getTexturePath(ItemStack itemStack) {
+            if (itemStack.getDamageValue() > itemStack.getMaxDamage() * 0.9f) return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + this + "_lowd.png");
+            return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/accessories/chaperon.png");
         }
 
         @Override

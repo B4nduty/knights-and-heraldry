@@ -1,0 +1,15 @@
+{
+  "parent": "item/handheld",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/brigandine_spaulders_besagews",
+      "predicate": {
+        "besagews": 1
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "knightsheraldry:item/brigandine_spaulders",
+    "layer1": "knightsheraldry:item/brigandine_spaulders_overlay"
+  }
+}

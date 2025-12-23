@@ -1,10 +1,10 @@
 package com.knightsheraldry.util.itemdata;
 
 import com.knightsheraldry.KnightsHeraldry;
-import net.minecraft.item.Item;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 
 public enum ModTags {
     DYES("dyes");
@@ -12,7 +12,7 @@ public enum ModTags {
     private final TagKey<Item> tag;
 
     ModTags(String name) {
-        this.tag = TagKey.of(RegistryKeys.ITEM, new Identifier(KnightsHeraldry.MOD_ID, name));
+        this.tag = TagKey.create(Registries.ITEM, new ResourceLocation(KnightsHeraldry.MOD_ID, name));
     }
 
     public TagKey<Item> getTag() {

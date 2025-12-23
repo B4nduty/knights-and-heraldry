@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fluffy_plume": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:fluffy_plume"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_golden_savoyard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:golden_savoyard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/fluffy_plume_torse_golden_savoyard"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_torse": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:torse"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_savoyard",
+      "has_fluffy_plume",
+      "has_torse",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/fluffy_plume_torse_golden_savoyard"
+    ]
+  },
+  "sends_telemetry_event": false
+}

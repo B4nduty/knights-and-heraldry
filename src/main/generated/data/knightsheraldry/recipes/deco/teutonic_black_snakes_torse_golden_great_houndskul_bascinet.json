@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_great_houndskul_bascinet"
+    },
+    {
+      "item": "knightsheraldry:teutonic_black_snakes"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:golden_great_houndskul_bascinet"
+  }
+}

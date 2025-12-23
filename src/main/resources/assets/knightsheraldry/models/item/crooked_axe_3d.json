@@ -4,7 +4,9 @@
 		"layer0": "knightsheraldry:item/crooked_axe_3d"
 	},
 	"overrides": [
-		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/crooked_axe_3d_blocking" }
+		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/crooked_axe_3d_blocking" },
+		{ "predicate": { "broken": 1 }, "model": "knightsheraldry:item/crooked_axe_3d_broken" },
+		{ "predicate": { "broken": 1, "blocking": 1 }, "model": "knightsheraldry:item/crooked_axe_3d_broken_blocking" }
 	],
 	"display": {
 		"thirdperson_righthand": {

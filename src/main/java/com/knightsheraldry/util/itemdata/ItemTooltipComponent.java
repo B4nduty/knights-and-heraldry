@@ -1,31 +1,31 @@
 package com.knightsheraldry.util.itemdata;
 
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.tooltip.TooltipComponent;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public record ItemTooltipComponent(List<ItemStack> items) implements TooltipComponent {
+public record ItemTooltipComponent(List<ItemStack> items) implements ClientTooltipComponent {
 
     @Override
     public int getHeight() {
-        return 20; // Height for item rendering
+        return 20;
     }
 
     @Override
-    public int getWidth(TextRenderer textRenderer) {
-        return items.size() * 18 + 2; // Width based on number of items
+    public int getWidth(Font font) {
+        return items.size() * 18 + 2;
     }
 
     @Override
-    public void drawItems(TextRenderer textRenderer, int x, int y, DrawContext context) {
+    public void renderImage(Font font, int x, int y, GuiGraphics guiGraphics) {
         for (int i = 0; i < items.size(); i++) {
             ItemStack stack = items.get(i);
             int xPos = x + i * 18;
-            context.drawItem(stack, xPos, y);
-            context.drawItemInSlot(textRenderer, stack, xPos, y);
+            guiGraphics.renderItem(stack, xPos, y);
+            guiGraphics.renderItemDecorations(font, stack, xPos, y);
         }
     }
 }

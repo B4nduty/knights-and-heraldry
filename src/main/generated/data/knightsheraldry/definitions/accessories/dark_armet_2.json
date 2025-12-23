@@ -1,0 +1,14 @@
+{
+  "armor": 2.0,
+  "armorSlot": "HEAD",
+  "deflectChance": {
+    "knightsheraldry:bodkin_arrow": 0.1,
+    "knightsheraldry:broadhead_arrow": 0.1,
+    "knightsheraldry:cloth_arrow": 0.1,
+    "knightsheraldry:swallowtail_arrow": 0.1,
+    "minecraft:arrow": 0.1
+  },
+  "toughness": 3.0,
+  "visoredHelmet": "stoneycore:single_eyeslit",
+  "weight": 3.3
+}

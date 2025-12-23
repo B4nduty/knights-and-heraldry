@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:burgonet_falling_buffe"
+    },
+    {
+      "item": "knightsheraldry:teutonic_black_snakes"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:burgonet_falling_buffe"
+  }
+}

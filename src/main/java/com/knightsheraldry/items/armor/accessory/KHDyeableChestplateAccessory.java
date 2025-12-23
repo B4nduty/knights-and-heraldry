@@ -1,28 +1,29 @@
 package com.knightsheraldry.items.armor.accessory;
 
-import net.minecraft.item.DyeableItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.item.DyeableLeatherItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 
-public class KHDyeableChestplateAccessory extends KHChestplateAccessory implements DyeableItem {
+public class KHDyeableChestplateAccessory extends KHChestplateAccessory implements DyeableLeatherItem {
     boolean overlay;
     int defaultColor;
 
-    public KHDyeableChestplateAccessory(Settings settings, Ingredient ingredient) {
-        super(settings, ingredient);
+    public KHDyeableChestplateAccessory(Item.Properties properties, Ingredient ingredient) {
+        super(properties, ingredient);
         this.overlay = false;
         this.defaultColor = 0xffffff;
     }
 
-    public KHDyeableChestplateAccessory(Settings settings, int defaultColor, Ingredient ingredient) {
-        super(settings, ingredient);
+    public KHDyeableChestplateAccessory(Item.Properties properties, int defaultColor, Ingredient ingredient) {
+        super(properties, ingredient);
         this.overlay = false;
         this.defaultColor = defaultColor;
     }
 
-    public KHDyeableChestplateAccessory(Settings settings, boolean overlay, int defaultColor, Ingredient ingredient) {
-        super(settings, ingredient);
+    public KHDyeableChestplateAccessory(Item.Properties properties, boolean overlay, int defaultColor, Ingredient ingredient) {
+        super(properties, ingredient);
         this.overlay = overlay;
         this.defaultColor = defaultColor;
     }
@@ -34,7 +35,7 @@ public class KHDyeableChestplateAccessory extends KHChestplateAccessory implemen
 
     @Override
     public int getColor(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getSubNbt("display");
+        CompoundTag nbtCompound = stack.getTagElement("display");
         return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : defaultColor;
     }
 }

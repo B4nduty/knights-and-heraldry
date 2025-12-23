@@ -1,9 +1,0 @@
-{
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "knightsheraldry:item/dark_maximillian_helmet"
-	},
-	"overrides": [
-		{ "predicate": { "visor_open": 1 }, "model": "knightsheraldry:item/dark_open_maximillian_helmet" }
-	]
-}

@@ -1,18 +1,19 @@
 package com.knightsheraldry.items;
 
-import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-public enum ModToolMaterials implements ToolMaterial {
+public enum ModToolMaterials implements Tier {
     WEAPONS(0, 100, 0.0F, -1.0F, 14, () ->
-            Ingredient.ofItems(Items.IRON_INGOT));
+            Ingredient.of(Items.IRON_INGOT));
 
     private final int miningLevel;
     private final int itemDurability;
-    private final float miningSpeed;
+    private final float speed;
     private final float attackDamage;
     private final int enchantability;
     private final Supplier<Ingredient> repairIngredient;
@@ -27,39 +28,39 @@ public enum ModToolMaterials implements ToolMaterial {
     ) {
         this.miningLevel = miningLevel;
         this.itemDurability = itemDurability;
-        this.miningSpeed = miningSpeed;
+        this.speed = miningSpeed;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
         this.repairIngredient = repairIngredient;
     }
 
     @Override
-    public int getDurability() {
+    public int getUses() {
         return this.itemDurability;
     }
 
     @Override
-    public float getMiningSpeedMultiplier() {
-        return this.miningSpeed;
+    public float getSpeed() {
+        return this.speed;
     }
 
     @Override
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return this.attackDamage;
     }
 
     @Override
-    public int getMiningLevel() {
+    public int getLevel() {
         return this.miningLevel;
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
     @Override
-    public Ingredient getRepairIngredient() {
+    public @NotNull Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
 }

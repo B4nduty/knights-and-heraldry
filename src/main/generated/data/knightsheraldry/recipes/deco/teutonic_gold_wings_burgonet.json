@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:burgonet"
+    },
+    {
+      "item": "knightsheraldry:teutonic_gold_wings"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:burgonet"
+  }
+}

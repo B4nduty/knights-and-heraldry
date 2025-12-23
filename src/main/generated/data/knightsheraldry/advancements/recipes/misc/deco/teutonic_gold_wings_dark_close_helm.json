@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_close_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_close_helm"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_teutonic_gold_wings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:teutonic_gold_wings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/teutonic_gold_wings_dark_close_helm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_close_helm",
+      "has_teutonic_gold_wings",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/teutonic_gold_wings_dark_close_helm"
+    ]
+  },
+  "sends_telemetry_event": false
+}

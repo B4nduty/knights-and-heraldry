@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_great_bascinet"
+    },
+    {
+      "item": "knightsheraldry:eagle"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:golden_great_bascinet"
+  }
+}

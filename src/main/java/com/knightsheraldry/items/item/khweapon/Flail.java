@@ -1,8 +1,10 @@
 package com.knightsheraldry.items.item.khweapon;
 
 import com.knightsheraldry.client.item.FlailModel;
+import com.knightsheraldry.client.item.FlailRenderer;
 import com.knightsheraldry.items.ModToolMaterials;
-import net.minecraft.item.SwordItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.animatable.client.RenderProvider;
@@ -18,8 +20,8 @@ import java.util.function.Supplier;
 public class Flail extends SwordItem implements GeoItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
-    public Flail(float attackSpeed, Settings settings) {
-        super(ModToolMaterials.WEAPONS, 1, attackSpeed, settings);
+    public Flail(float attackSpeed, Item.Properties properties) {
+        super(ModToolMaterials.WEAPONS, 1, attackSpeed, properties);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
@@ -31,7 +33,7 @@ public class Flail extends SwordItem implements GeoItem {
             @Override
             public GeoItemRenderer<Flail> getCustomRenderer() {
                 if (this.renderer == null)
-                    this.renderer = new GeoItemRenderer<>(new FlailModel());
+                    this.renderer = new FlailRenderer(new FlailModel());
 
                 return this.renderer;
             }

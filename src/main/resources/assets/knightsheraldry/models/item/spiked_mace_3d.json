@@ -5,7 +5,9 @@
 		"particle": "knightsheraldry:item/spiked_mace_3d"
 	},
 	"overrides": [
-		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/spiked_mace_3d_blocking" }
+		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/spiked_mace_3d_blocking" },
+		{ "predicate": { "broken": 1 }, "model": "knightsheraldry:item/spiked_mace_3d_broken" },
+		{ "predicate": { "broken": 1, "blocking": 1 }, "model": "knightsheraldry:item/spiked_mace_3d_broken_blocking" }
 	],
 	"elements": [
 		{

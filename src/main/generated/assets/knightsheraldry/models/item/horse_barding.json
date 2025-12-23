@@ -1,0 +1,8 @@
+{
+  "parent": "item/handheld",
+  "overrides": [],
+  "textures": {
+    "layer0": "knightsheraldry:item/horse_barding",
+    "layer1": "knightsheraldry:item/horse_barding_overlay"
+  }
+}

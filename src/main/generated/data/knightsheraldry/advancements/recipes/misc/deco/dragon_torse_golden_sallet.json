@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dragon": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dragon"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_golden_sallet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:golden_sallet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/dragon_torse_golden_sallet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_torse": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:torse"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_sallet",
+      "has_dragon",
+      "has_torse",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/dragon_torse_golden_sallet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

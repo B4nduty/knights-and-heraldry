@@ -2,8 +2,8 @@ package com.knightsheraldry.items.item.khrangeweapon;
 
 import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
 import com.knightsheraldry.client.item.HandgonneModel;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.RenderProvider;
 import software.bernie.geckolib.constant.DataTickets;
@@ -20,8 +20,8 @@ public class Handgonne extends Item implements GeoItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
 
-    public Handgonne(Settings settings) {
-        super(settings);
+    public Handgonne(Item.Properties properties) {
+        super(properties);
     }
 
     @Override

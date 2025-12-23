@@ -1,0 +1,21 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 1.0,
+  "hit_times": 3,
+  "ingredients": [
+    {
+      "count": 1,
+      "item": "knightsheraldry:great_helm",
+      "nbt": "{Damage:0}"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "knightsheraldry:great_helm_2",
+    "nbt": "{Damage:0}"
+  }
+}

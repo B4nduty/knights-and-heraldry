@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_visored_barbute"
+    },
+    {
+      "item": "knightsheraldry:teutonic_black_wings"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:golden_visored_barbute"
+  }
+}

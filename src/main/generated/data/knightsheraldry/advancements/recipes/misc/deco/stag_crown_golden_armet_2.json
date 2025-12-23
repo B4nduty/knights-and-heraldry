@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crown": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "stoneycore:crown"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_golden_armet_2": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:golden_armet_2"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stag": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:stag"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/stag_crown_golden_armet_2"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_armet_2",
+      "has_stag",
+      "has_crown",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/stag_crown_golden_armet_2"
+    ]
+  },
+  "sends_telemetry_event": false
+}

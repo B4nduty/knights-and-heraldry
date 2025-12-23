@@ -1,0 +1,12 @@
+{
+  "armorSlot": "CHEST",
+  "deflectChance": {
+    "knightsheraldry:bodkin_arrow": 0.02,
+    "knightsheraldry:broadhead_arrow": 0.02,
+    "knightsheraldry:cloth_arrow": 0.02,
+    "knightsheraldry:swallowtail_arrow": 0.02,
+    "minecraft:arrow": 0.02
+  },
+  "toughness": 1.0,
+  "weight": 2.6
+}

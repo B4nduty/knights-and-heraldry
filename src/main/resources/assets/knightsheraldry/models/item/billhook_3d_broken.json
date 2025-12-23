@@ -1,0 +1,48 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "knightsheraldry:item/billhook_3d_broken"
+	},
+	"overrides": [
+		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/billhook_3d_blocking" },
+		{ "predicate": { "broken": 1 }, "model": "knightsheraldry:item/billhook_3d_broken_blocking" },
+		{ "predicate": { "broken": 1, "blocking": 1 }, "model": "knightsheraldry:item/billhook_3d_broken_blocking" }
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 0],
+			"translation": [-0.25, 26, 1.75],
+			"scale": [4, 4, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, 0],
+			"translation": [-0.25, 26, 1.75],
+			"scale": [4, 4, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [-17, -90, 0],
+			"translation": [-2.25, 16.25, -3],
+			"scale": [3, 3, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-17, 90, 0],
+			"translation": [-2.25, 16.25, -3],
+			"scale": [3, 3, 1]
+		},
+		"ground": {
+			"rotation": [-180, 0, 0],
+			"translation": [0, -12.5, -8],
+			"scale": [1, 1, 0.5]
+		},
+		"gui": {
+			"rotation": [-180, 0, 45],
+			"translation": [-22.5, -22.5, 0],
+			"scale": [2, 2, 1]
+		},
+		"fixed": {
+			"rotation": [-180, 0, 0],
+			"translation": [-0.5, -30, -16.75],
+			"scale": [2, 2, 1]
+		}
+	}
+}

@@ -2,8 +2,8 @@ package com.knightsheraldry.items.item.khrangeweapon;
 
 import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
 import com.knightsheraldry.client.item.HeavyCrossbowModel;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.RenderProvider;
 import software.bernie.geckolib.constant.DataTickets;
@@ -20,8 +20,8 @@ public class HeavyCrossbow extends Item implements GeoItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
 
-    public HeavyCrossbow(Settings settings) {
-        super(settings);
+    public HeavyCrossbow(Item.Properties properties) {
+        super(properties);
     }
 
     @Override

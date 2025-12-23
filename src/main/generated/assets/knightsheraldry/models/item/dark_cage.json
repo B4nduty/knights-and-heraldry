@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/dark_cage_open",
+      "predicate": {
+        "open": 1
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "knightsheraldry:item/dark_cage"
+  }
+}

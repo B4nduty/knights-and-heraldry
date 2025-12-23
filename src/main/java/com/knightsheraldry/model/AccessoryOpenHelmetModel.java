@@ -1,129 +1,162 @@
 package com.knightsheraldry.model;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.BipedEntityModel;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.world.entity.LivingEntity;
 
 @Environment(EnvType.CLIENT)
-public class AccessoryOpenHelmetModel extends BipedEntityModel<LivingEntity> {
+public class AccessoryOpenHelmetModel extends HumanoidModel<LivingEntity> {
 	private final ModelPart armorHead;
 	public AccessoryOpenHelmetModel(ModelPart root) {
         super(root);
         this.armorHead = root.getChild("armorHead");
 	}
-	public static TexturedModelData getTexturedModelData() {
-        ModelData modelData = BipedEntityModel.getModelData(Dilation.NONE, 0f);
-		ModelPartData modelPartData = modelData.getRoot();
-        ModelPartData armorHead = modelPartData.addChild("armorHead", ModelPartBuilder.create().uv(80, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.6F))
-                .uv(72, 97).cuboid(-7.0F, -5.2F, -7.0F, 14.0F, 1.0F, 14.0F, new Dilation(0.0F))
-                .uv(86, 84).cuboid(-5.0F, -1.9F, -4.0F, 10.0F, 2.0F, 11.0F, new Dilation(0.0F))
-                .uv(104, 33).cuboid(-1.0F, -8.0F, 4.0F, 2.0F, 8.0F, 2.0F, new Dilation(0.0F))
-                .uv(104, 35).cuboid(-1.0F, -10.0F, -2.0F, 2.0F, 2.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+	public static LayerDefinition getTexturedModelData() {
+        MeshDefinition modelData = HumanoidModel.createMesh(CubeDeformation.NONE, 0f);
+		PartDefinition modelPartData = modelData.getRoot();
+        PartDefinition armorHead = modelPartData.addOrReplaceChild("armorHead", CubeListBuilder.create().texOffs(80, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.6F))
+                .texOffs(72, 97).addBox(-7.0F, -5.2F, -7.0F, 14.0F, 1.0F, 14.0F, new CubeDeformation(0.0F))
+                .texOffs(86, 84).addBox(-5.0F, -2.7F, -4.0F, 10.0F, 2.0F, 11.0F, new CubeDeformation(0.0F))
+                .texOffs(104, 33).addBox(-1.0F, -8.0F, 4.0F, 2.0F, 8.0F, 2.0F, new CubeDeformation(0.0F))
+                .texOffs(104, 35).addBox(-1.0F, -10.0F, -2.0F, 2.0F, 2.0F, 8.0F, new CubeDeformation(0.0F))
+                .texOffs(0, 4).addBox(-4.0F, -5.0F, -7.4142F, 8.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-        ModelPartData frogmouth = armorHead.addChild("frogmouth", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.0F, 1.0F, 0.5236F, 0.0F, 0.0F));
+        PartDefinition frogmouth = armorHead.addOrReplaceChild("frogmouth", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 0.0F, 1.0F, 0.5236F, 0.0F, 0.0F));
 
-        frogmouth.addChild("frogmouth_r1", ModelPartBuilder.create().uv(65, 72).cuboid(-6.0F, -7.5F, -6.0F, 8.0F, 7.0F, 8.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.05F, 1.7F, 0.0F, -0.7854F, 0.0F));
+        frogmouth.addOrReplaceChild("frogmouth_r1", CubeListBuilder.create().texOffs(65, 72).addBox(-6.0F, -7.5F, -6.0F, 8.0F, 7.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -1.05F, 1.7F, 0.0F, -0.7854F, 0.0F));
 
-        armorHead.addChild("nasal", ModelPartBuilder.create().uv(0, 97).cuboid(-5.0F, -5.0F, -5.0F, 10.0F, 1.0F, 10.0F, new Dilation(0.0F))
-                .uv(14, 108).cuboid(-1.0F, -9.0F, -5.0F, 2.0F, 4.0F, 10.0F, new Dilation(0.0F))
-                .uv(0, 108).cuboid(-5.0F, -9.0F, -1.0F, 10.0F, 4.0F, 2.0F, new Dilation(0.0F))
-                .uv(12, 114).cuboid(-1.0F, -10.0F, -1.0F, 2.0F, 1.0F, 2.0F, new Dilation(0.0F))
-                .uv(20, 114).cuboid(-1.0F, -4.0F, -5.0F, 2.0F, 4.0F, 0.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+        armorHead.addOrReplaceChild("nasal", CubeListBuilder.create().texOffs(0, 97).addBox(-5.0F, -5.0F, -5.0F, 10.0F, 1.0F, 10.0F, new CubeDeformation(0.0F))
+                .texOffs(14, 108).addBox(-1.0F, -9.0F, -5.0F, 2.0F, 4.0F, 10.0F, new CubeDeformation(0.0F))
+                .texOffs(0, 108).addBox(-5.0F, -9.0F, -1.0F, 10.0F, 4.0F, 2.0F, new CubeDeformation(0.0F))
+                .texOffs(12, 114).addBox(-1.0F, -10.0F, -1.0F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F))
+                .texOffs(20, 114).addBox(-1.0F, -4.0F, -5.0F, 2.0F, 4.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-        ModelPartData visor = armorHead.addChild("visor", ModelPartBuilder.create().uv(83, 16).cuboid(-4.0F, -1.75F, -1.9F, 8.0F, 3.0F, 4.0F, new Dilation(0.65F)), ModelTransform.of(0.0F, -6.0F, -2.0F, -1.5708F, 0.0F, 0.0F));
+        PartDefinition visor = armorHead.addOrReplaceChild("visor", CubeListBuilder.create().texOffs(83, 16).addBox(-4.0F, -1.75F, -1.9F, 8.0F, 3.0F, 4.0F, new CubeDeformation(0.65F)), PartPose.offsetAndRotation(0.0F, -6.0F, -2.0F, -1.5708F, 0.0F, 0.0F));
 
-        ModelPartData houndskul = visor.addChild("houndskul", ModelPartBuilder.create().uv(100, 58).cuboid(0.5F, -3.1F, -5.5F, 3.0F, 1.0F, 1.0F, new Dilation(0.0F))
-                .uv(100, 58).cuboid(-3.5F, -3.1F, -5.5F, 3.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 6.0F, 2.0F));
+        PartDefinition houndskul = visor.addOrReplaceChild("houndskul", CubeListBuilder.create(), PartPose.offset(0.0F, 6.0F, 2.0F));
 
-        houndskul.addChild("cone_2_r1", ModelPartBuilder.create().uv(103, 62).cuboid(-5.6F, -1.23F, -5.6F, 5.0F, 0.0F, 5.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, -0.7854F, 0.0F));
+        houndskul.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(61, 8).addBox(-3.95F, -1.15F, -1.2F, 5.0F, 4.0F, 4.0F, new CubeDeformation(0.01F)), PartPose.offsetAndRotation(0.0F, -1.5F, -5.75F, 0.7854F, 0.6981F, 1.5708F));
 
-        houndskul.addChild("cone_1_r1", ModelPartBuilder.create().uv(118, 57).cuboid(0.0F, -6.5F, -4.75F, 0.0F, 4.0F, 5.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.7854F, 0.0F, 0.0F));
+        houndskul.addOrReplaceChild("houndskul_2_r1", CubeListBuilder.create().texOffs(108, 58).addBox(-4.5F, -2.8F, -4.85F, 9.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.1309F, 0.0F, 0.0F));
 
-        houndskul.addChild("houndskul_2_r1", ModelPartBuilder.create().uv(108, 58).cuboid(-4.5F, -2.8F, -4.85F, 9.0F, 3.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.1309F, 0.0F, 0.0F));
+        houndskul.addOrReplaceChild("houndskul_1_r1", CubeListBuilder.create().texOffs(104, 50).addBox(-4.5F, -6.4F, -5.4F, 9.0F, 5.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
 
-        houndskul.addChild("houndskul_1_r1", ModelPartBuilder.create().uv(104, 50).cuboid(-4.5F, -6.4F, -5.4F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
+        houndskul.addOrReplaceChild("eyeslit_3_r1", CubeListBuilder.create().texOffs(107, 24).addBox(-9.0F, -7.21F, -1.9F, 8.0F, 2.0F, 2.0F, new CubeDeformation(-0.01F))
+                .texOffs(107, 28).addBox(-9.0F, -7.2F, -1.45F, 8.0F, 2.0F, 2.0F, new CubeDeformation(-0.01F)), PartPose.offsetAndRotation(5.0F, 0.0F, 0.0F, 0.7854F, 0.0F, 0.0F));
 
-        ModelPartData great_bascinet = visor.addChild("great_bascinet", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 6.0F, 2.0F));
+        houndskul.addOrReplaceChild("eyeslit_2_r1", CubeListBuilder.create().texOffs(100, 58).addBox(-3.5F, -2.6F, -5.7F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(100, 58).addBox(0.5F, -2.6F, -5.7F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.0873F, 0.0F, 0.0F));
 
-        great_bascinet.addChild("eyeslit_2_r1", ModelPartBuilder.create().uv(100, 60).cuboid(-3.5F, -0.6F, -7.2F, 3.0F, 1.0F, 1.0F, new Dilation(0.0F))
-                .uv(100, 60).cuboid(0.5F, -0.6F, -7.2F, 3.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.5236F, 0.0F, 0.0F));
+        PartDefinition great_bascinet = visor.addOrReplaceChild("great_bascinet", CubeListBuilder.create(), PartPose.offset(0.0F, 6.0F, 2.0F));
 
-        great_bascinet.addChild("houndskul_2_r2", ModelPartBuilder.create().uv(104, 50).cuboid(-4.5F, -6.4F, -5.4F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
+        great_bascinet.addOrReplaceChild("eyeslit_2_r1", CubeListBuilder.create().texOffs(100, 60).addBox(-3.5F, -0.6F, -7.2F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(100, 60).addBox(0.5F, -0.6F, -7.2F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.5236F, 0.0F, 0.0F));
 
-        ModelPartData cone = great_bascinet.addChild("cone", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -2.0F, -5.75F));
+        great_bascinet.addOrReplaceChild("houndskul_2_r2", CubeListBuilder.create().texOffs(104, 50).addBox(-4.5F, -6.4F, -5.4F, 9.0F, 5.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
 
-        cone.addChild("cube_r1", ModelPartBuilder.create().uv(39, 79).cuboid(-4.5F, -1.5F, -1.2F, 9.0F, 4.0F, 4.0F, new Dilation(0.01F)), ModelTransform.of(0.0F, 0.5F, 0.0F, 0.7854F, 0.0F, 0.0F));
+        PartDefinition cone = great_bascinet.addOrReplaceChild("cone", CubeListBuilder.create(), PartPose.offset(0.0F, -2.0F, -5.75F));
 
-        ModelPartData armet = visor.addChild("armet", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 6.0F, 2.0F));
+        cone.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(39, 79).addBox(-4.5F, -1.5F, -1.2F, 9.0F, 4.0F, 4.0F, new CubeDeformation(0.01F)), PartPose.offsetAndRotation(0.0F, 0.5F, 0.0F, 0.7854F, 0.0F, 0.0F));
 
-        armet.addChild("armet_2_r1", ModelPartBuilder.create().uv(80, 50).cuboid(-4.5F, -6.4F, -5.4F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
+        PartDefinition armet = visor.addOrReplaceChild("armet", CubeListBuilder.create(), PartPose.offset(0.0F, 6.0F, 2.0F));
 
-        armet.addChild("armet_1_r1", ModelPartBuilder.create().uv(104, 0).cuboid(-4.5F, -4.4F, -4.5F, 9.0F, 3.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.4363F, 0.0F, 0.0F));
+        armet.addOrReplaceChild("armet_2_r1", CubeListBuilder.create().texOffs(80, 50).addBox(-4.5F, -6.4F, -5.4F, 9.0F, 5.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
 
-        ModelPartData barbute = visor.addChild("barbute", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 6.0F, 2.0F));
+        armet.addOrReplaceChild("armet_1_r1", CubeListBuilder.create().texOffs(104, 0).addBox(-4.5F, -4.4F, -4.5F, 9.0F, 3.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.4363F, 0.0F, 0.0F));
 
-        barbute.addChild("barbute_3_r1", ModelPartBuilder.create().uv(116, 122).cuboid(0.39F, -4.0F, -6.2F, 4.0F, 4.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-1.7F, 1.8F, -0.9F, 0.0F, -0.3491F, -0.1309F));
+        PartDefinition barbute = visor.addOrReplaceChild("barbute", CubeListBuilder.create(), PartPose.offset(0.0F, 6.0F, 2.0F));
 
-        barbute.addChild("barbute_2_r1", ModelPartBuilder.create().uv(104, 122).cuboid(-2.39F, -4.0F, -6.2F, 4.0F, 4.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-0.2F, 1.6F, -0.2F, 0.0F, 0.3491F, 0.1309F));
+        barbute.addOrReplaceChild("barbute_3_r1", CubeListBuilder.create().texOffs(116, 122).addBox(0.39F, -4.0F, -6.2F, 4.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.7F, 1.8F, -0.9F, 0.0F, -0.3491F, -0.1309F));
 
-        barbute.addChild("barbute_2_r2", ModelPartBuilder.create().uv(114, 67).cuboid(-1.61F, -8.0F, -6.0F, 5.0F, 8.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.5F, 0.0F, 0.0F, -0.2618F, 0.0F));
+        barbute.addOrReplaceChild("barbute_2_r1", CubeListBuilder.create().texOffs(104, 122).addBox(-2.39F, -4.0F, -6.2F, 4.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.2F, 1.6F, -0.2F, 0.0F, 0.3491F, 0.1309F));
 
-        barbute.addChild("barbute_1_r1", ModelPartBuilder.create().uv(100, 67).cuboid(-3.39F, -8.0F, -6.0F, 5.0F, 8.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.5F, 0.0F, 0.0F, 0.2618F, 0.0F));
+        barbute.addOrReplaceChild("barbute_2_r2", CubeListBuilder.create().texOffs(114, 67).addBox(-1.61F, -8.0F, -6.0F, 5.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.5F, 0.0F, 0.0F, -0.2618F, 0.0F));
 
-        ModelPartData barbute_nose = barbute.addChild("barbute_nose", ModelPartBuilder.create(), ModelTransform.of(0.0F, -3.0F, 0.0F, 0.1745F, 0.0F, 0.0F));
+        barbute.addOrReplaceChild("barbute_1_r1", CubeListBuilder.create().texOffs(100, 67).addBox(-3.39F, -8.0F, -6.0F, 5.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.5F, 0.0F, 0.0F, 0.2618F, 0.0F));
 
-        barbute_nose.addChild("barbute_3_r2", ModelPartBuilder.create().uv(120, 79).cuboid(-5.0196F, -3.5174F, -5.0196F, 2.0F, 4.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 1.9F, 0.0F, 0.0F, -0.7854F, 0.0F));
+        PartDefinition barbute_nose = barbute.addOrReplaceChild("barbute_nose", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, -3.0F, 0.0F, 0.1745F, 0.0F, 0.0F));
 
-        ModelPartData barbute_nose2 = barbute.addChild("barbute_nose2", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -1.0F, 0.0F));
+        barbute_nose.addOrReplaceChild("barbute_3_r2", CubeListBuilder.create().texOffs(120, 79).addBox(-5.0196F, -3.5174F, -5.0196F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.9F, 0.0F, 0.0F, -0.7854F, 0.0F));
 
-        barbute_nose2.addChild("barbute_4_r1", ModelPartBuilder.create().uv(120, 79).cuboid(-4.95F, -3.5F, -4.95F, 2.0F, 4.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 2.0F, -0.1F, 0.0F, -0.7854F, 0.0F));
+        PartDefinition barbute_nose2 = barbute.addOrReplaceChild("barbute_nose2", CubeListBuilder.create(), PartPose.offset(0.0F, -1.0F, 0.0F));
 
-        ModelPartData sallet = visor.addChild("sallet", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 6.0F, 2.0F));
+        barbute_nose2.addOrReplaceChild("barbute_4_r1", CubeListBuilder.create().texOffs(120, 79).addBox(-4.95F, -3.5F, -4.95F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 2.0F, -0.1F, 0.0F, -0.7854F, 0.0F));
 
-        sallet.addChild("sallet_2_r1", ModelPartBuilder.create().uv(98, 77).cuboid(-5.0F, -1.4F, -5.9F, 10.0F, 2.0F, 2.0F, new Dilation(0.0F))
-                .uv(73, 87).cuboid(-4.5F, -6.4F, -5.4F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
+        PartDefinition sallet = visor.addOrReplaceChild("sallet", CubeListBuilder.create(), PartPose.offset(0.0F, 6.0F, 2.0F));
 
-        ModelPartData maximillian = visor.addChild("maximillian", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 6.0F, 2.0F));
+        sallet.addOrReplaceChild("sallet_1_r1", CubeListBuilder.create().texOffs(73, 87).addBox(-4.5F, -1.3038F, -2.7645F, 9.0F, 5.0F, 3.0F, new CubeDeformation(0.0F))
+                .texOffs(98, 77).addBox(-5.0F, 3.4962F, -3.2645F, 10.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -6.0F, -2.0F, -0.1309F, 0.0F, 0.0F));
 
-        maximillian.addChild("maximillian_2_r1", ModelPartBuilder.create().uv(64, 67).cuboid(-4.5F, -2.8F, -4.85F, 9.0F, 3.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -0.3F, 0.1F, 0.1309F, 0.0F, 0.0F));
+        PartDefinition maximillian = visor.addOrReplaceChild("maximillian", CubeListBuilder.create(), PartPose.offset(0.0F, 6.0F, 2.0F));
 
-        maximillian.addChild("maximillian_1_r1", ModelPartBuilder.create().uv(60, 59).cuboid(-4.5F, -6.8F, -5.4F, 9.0F, 5.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
+        maximillian.addOrReplaceChild("maximillian_2_r1", CubeListBuilder.create().texOffs(64, 67).addBox(-4.5F, -2.8F, -4.85F, 9.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -0.3F, 0.1F, 0.1309F, 0.0F, 0.0F));
 
-        ModelPartData ridge_2 = maximillian.addChild("ridge_2", ModelPartBuilder.create(), ModelTransform.of(0.0F, -3.25F, -4.0F, 0.0F, -0.2618F, 0.0F));
+        maximillian.addOrReplaceChild("maximillian_1_r1", CubeListBuilder.create().texOffs(60, 59).addBox(-4.5F, -6.8F, -5.4F, 9.0F, 5.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.1309F, 0.0F, 0.0F));
 
-        ridge_2.addChild("cube_r2", ModelPartBuilder.create().uv(85, 116).cuboid(-2.5F, -0.2172F, -3.0328F, 3.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(2.3882F, 2.0F, -0.0511F, 0.7854F, 0.0F, 0.0F));
+        PartDefinition ridge_2 = maximillian.addOrReplaceChild("ridge_2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, -3.25F, -4.0F, 0.0F, -0.2618F, 0.0F));
 
-        ridge_2.addChild("cube_r3", ModelPartBuilder.create().uv(84, 116).cuboid(-3.5F, -0.0793F, -2.0707F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(3.3307F, 1.0F, -1.0435F, 0.7854F, 0.0F, 0.0F));
+        ridge_2.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(85, 116).addBox(-2.5F, -0.2172F, -3.0328F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.3882F, 2.0F, -0.0511F, 0.7854F, 0.0F, 0.0F));
 
-        ridge_2.addChild("cube_r4", ModelPartBuilder.create().uv(84, 116).cuboid(-4.0F, -0.6414F, -1.8586F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(3.7666F, 0.0F, -1.0351F, 0.7854F, 0.0F, 0.0F));
+        ridge_2.addOrReplaceChild("cube_r3", CubeListBuilder.create().texOffs(84, 116).addBox(-3.5F, -0.0793F, -2.0707F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.3307F, 1.0F, -1.0435F, 0.7854F, 0.0F, 0.0F));
 
-        ModelPartData ridge_5 = maximillian.addChild("ridge_5", ModelPartBuilder.create(), ModelTransform.of(0.0F, -3.25F, -4.0F, 0.0F, 0.2618F, 0.0F));
+        ridge_2.addOrReplaceChild("cube_r4", CubeListBuilder.create().texOffs(84, 116).addBox(-4.0F, -0.6414F, -1.8586F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.7666F, 0.0F, -1.0351F, 0.7854F, 0.0F, 0.0F));
 
-        ridge_5.addChild("cube_r5", ModelPartBuilder.create().uv(85, 116).mirrored().cuboid(-0.5F, -0.2172F, -3.0328F, 3.0F, 1.0F, 1.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(-2.3882F, 2.0F, -0.0511F, 0.7854F, 0.0F, 0.0F));
+        PartDefinition ridge_5 = maximillian.addOrReplaceChild("ridge_5", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, -3.25F, -4.0F, 0.0F, 0.2618F, 0.0F));
 
-        ridge_5.addChild("cube_r6", ModelPartBuilder.create().uv(84, 116).mirrored().cuboid(-0.5F, -0.0793F, -2.0707F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(-3.3307F, 1.0F, -1.0435F, 0.7854F, 0.0F, 0.0F));
+        ridge_5.addOrReplaceChild("cube_r5", CubeListBuilder.create().texOffs(85, 116).mirror().addBox(-0.5F, -0.2172F, -3.0328F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.3882F, 2.0F, -0.0511F, 0.7854F, 0.0F, 0.0F));
 
-        ridge_5.addChild("cube_r7", ModelPartBuilder.create().uv(84, 116).mirrored().cuboid(1.0F, -0.6414F, -1.8586F, 4.0F, 1.0F, 1.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(-4.7666F, 0.0F, -1.0351F, 0.7854F, 0.0F, 0.0F));
+        ridge_5.addOrReplaceChild("cube_r6", CubeListBuilder.create().texOffs(84, 116).mirror().addBox(-0.5F, -0.0793F, -2.0707F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-3.3307F, 1.0F, -1.0435F, 0.7854F, 0.0F, 0.0F));
 
-        ModelPartData middle_ridge = maximillian.addChild("middle_ridge", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+        ridge_5.addOrReplaceChild("cube_r7", CubeListBuilder.create().texOffs(84, 116).mirror().addBox(1.0F, -0.6414F, -1.8586F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.7666F, 0.0F, -1.0351F, 0.7854F, 0.0F, 0.0F));
 
-        middle_ridge.addChild("cube_r8", ModelPartBuilder.create().uv(102, 116).cuboid(-0.5F, -0.6414F, -1.8586F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -27.25F, -5.0F, 0.7854F, 0.0F, 0.0F));
+        PartDefinition middle_ridge = maximillian.addOrReplaceChild("middle_ridge", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-        middle_ridge.addChild("cube_r9", ModelPartBuilder.create().uv(102, 116).cuboid(-0.5F, -0.0793F, -2.0707F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -26.25F, -5.0F, 0.7854F, 0.0F, 0.0F));
+        middle_ridge.addOrReplaceChild("cube_r8", CubeListBuilder.create().texOffs(102, 116).addBox(-0.5F, -0.6414F, -1.8586F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -27.25F, -5.0F, 0.7854F, 0.0F, 0.0F));
 
-        middle_ridge.addChild("cube_r10", ModelPartBuilder.create().uv(102, 116).cuboid(-0.5F, -0.2172F, -3.0328F, 1.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -25.25F, -4.0F, 0.7854F, 0.0F, 0.0F));
+        middle_ridge.addOrReplaceChild("cube_r9", CubeListBuilder.create().texOffs(102, 116).addBox(-0.5F, -0.0793F, -2.0707F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -26.25F, -5.0F, 0.7854F, 0.0F, 0.0F));
 
-        armorHead.addChild("bb_main", ModelPartBuilder.create().uv(56, 118).cuboid(-5.0F, -24.0F, -3.3F, 10.0F, 4.0F, 6.0F, new Dilation(0.66F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
-        return TexturedModelData.of(modelData, 128, 128);
+        middle_ridge.addOrReplaceChild("cube_r10", CubeListBuilder.create().texOffs(102, 116).addBox(-0.5F, -0.2172F, -3.0328F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -25.25F, -4.0F, 0.7854F, 0.0F, 0.0F));
+
+        PartDefinition ridged = armorHead.addOrReplaceChild("ridged", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, -3.25F, -4.0F, 0.0F, 0.2618F, 0.0F));
+
+        ridged.addOrReplaceChild("cube_r5", CubeListBuilder.create().texOffs(66, 5).mirror().addBox(-0.5F, -0.5F, -2.75F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.3882F, 2.0F, -0.0511F, 0.7854F, 0.0F, 0.0F));
+
+        ridged.addOrReplaceChild("cube_r6", CubeListBuilder.create().texOffs(65, 5).mirror().addBox(-0.5F, -0.15F, -3.0F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-3.3307F, 1.0F, -1.0435F, 0.7854F, 0.0F, 0.0F));
+
+        ridged.addOrReplaceChild("cube_r7", CubeListBuilder.create().texOffs(65, 5).mirror().addBox(1.0F, -0.5F, -4.0F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.7666F, 0.0F, -1.0351F, 0.7854F, 0.0F, 0.0F));
+
+        PartDefinition ridgedd = armorHead.addOrReplaceChild("ridgedd", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, -3.25F, -4.0F, 0.0F, -0.2618F, 0.0F));
+
+        ridgedd.addOrReplaceChild("cube_r8", CubeListBuilder.create().texOffs(66, 5).addBox(-2.5F, -0.5F, -2.75F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.3882F, 2.0F, -0.0511F, 0.7854F, 0.0F, 0.0F));
+
+        ridgedd.addOrReplaceChild("cube_r9", CubeListBuilder.create().texOffs(65, 5).addBox(-3.5F, -0.15F, -3.0F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.3307F, 1.0F, -1.0435F, 0.7854F, 0.0F, 0.0F));
+
+        ridgedd.addOrReplaceChild("cube_r10", CubeListBuilder.create().texOffs(65, 5).addBox(-4.0F, -0.5F, -4.0F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.7666F, 0.0F, -1.0351F, 0.7854F, 0.0F, 0.0F));
+
+        PartDefinition mid_ridge = armorHead.addOrReplaceChild("mid_ridge", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
+
+        mid_ridge.addOrReplaceChild("cube_r11", CubeListBuilder.create().texOffs(83, 5).addBox(0.0F, -0.5F, -4.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(83, 5).addBox(-1.0F, -0.5F, -4.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -27.25F, -5.0F, 0.7854F, 0.0F, 0.0F));
+
+        mid_ridge.addOrReplaceChild("cube_r12", CubeListBuilder.create().texOffs(83, 5).addBox(-0.75F, -0.15F, -3.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(83, 5).addBox(-0.25F, -0.15F, -3.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -26.25F, -5.0F, 0.7854F, 0.0F, 0.0F));
+
+        mid_ridge.addOrReplaceChild("cube_r13", CubeListBuilder.create().texOffs(83, 5).addBox(-0.5F, -0.5F, -2.75F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -25.25F, -4.0F, 0.7854F, 0.0F, 0.0F));
+
+
+        armorHead.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(56, 118).addBox(-5.0F, -24.0F, -3.3F, 10.0F, 4.0F, 6.0F, new CubeDeformation(0.66F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+        return LayerDefinition.create(modelData, 128, 128);
     }
 
 	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-        this.armorHead.copyTransform(this.head);
-		armorHead.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
+        this.armorHead.copyFrom(this.head);
+		armorHead.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
 	}
 }

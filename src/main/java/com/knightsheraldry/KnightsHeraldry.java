@@ -11,6 +11,8 @@ import com.knightsheraldry.items.ModItemGroups;
 import com.knightsheraldry.items.ModItems;
 import com.knightsheraldry.networking.ModMessages;
 import com.knightsheraldry.sounds.ModSounds;
+import com.knightsheraldry.util.loottable.ArchaeologyLootModifier;
+import com.knightsheraldry.util.loottable.ChestLootTableModifier;
 import com.knightsheraldry.util.loottable.VillagerTradesModifier;
 import dev.architectury.event.events.common.LifecycleEvent;
 import io.wispforest.accessories.api.events.CanEquipCallback;
@@ -18,11 +20,11 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.ClickEvent;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
+import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.ClickEvent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,6 +43,8 @@ public class KnightsHeraldry implements ModInitializer {
         LifecycleEvent.SETUP.register(() -> {
             ModItemGroups.registerItemGroups();
             VillagerTradesModifier.registerCustomTrades();
+            ArchaeologyLootModifier.registerArchaeologyLoot();
+            ChestLootTableModifier.modifyChestLootTables();
         });
         ModMessages.registerC2SPackets();
         CanEquipCallback.EVENT.register(new CanEquipHandler());
@@ -49,30 +53,28 @@ public class KnightsHeraldry implements ModInitializer {
         CraftingPreviewCallback.EVENT.register(new CraftingPreviewHandler());
         ArrowBehaviorManager.register();
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
-            ServerPlayerEntity player = handler.getPlayer();
-            if (player != null) {
-                NbtCompound playerData = ((IEntityDataSaver) player).stoneycore$getPersistentData();
-                if (!playerData.getBoolean(FIRST_JOIN_TAG)) {
-                    player.sendMessage(Text.literal("""
-                                            §4Knights & Heraldry §ris in §6Beta
-                                            §fMany things you see here can change in future updates.
-                                            
-                                            If you want to help improving this mod,
-                                            send your feedback in the KH Discord Server.
-                                            
-                                            """)
-                                    .append(Text.literal("§n§9Click here to join the KH Discord Server")
-                                            .styled(style -> style
-                                                    .withColor(Formatting.BLUE)
-                                                    .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.gg/NvXG4ZWFXc"))))
-                                    .append(Text.literal("""
-                                            
-                                            Thanks for playing this mod,
-                                            §4The Knights Heraldry Team""")),
-                            false);
+            ServerPlayer player = handler.getPlayer();
+            CompoundTag playerData = ((IEntityDataSaver) player).stoneycore$getPersistentData();
+            if (!playerData.getBoolean(FIRST_JOIN_TAG)) {
+                player.displayClientMessage(Component.literal("""
+                                        §4Knights & Heraldry §ris in §6Beta
+                                        §fMany things you see here can change in future updates.
+                                        
+                                        If you want to help improving this mod,
+                                        send your feedback in the KH Discord Server.
+                                        
+                                        """)
+                                .append(Component.literal("§n§9Click here to join the KH Discord Server")
+                                        .withStyle(style -> style
+                                                .withColor(ChatFormatting.BLUE)
+                                                .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.gg/NvXG4ZWFXc"))))
+                                .append(Component.literal("""
+                                        
+                                        Thanks for playing this mod,
+                                        §4The Knights Heraldry Team""")),
+                        false);
 
-                    playerData.putBoolean(FIRST_JOIN_TAG, true);
-                }
+                playerData.putBoolean(FIRST_JOIN_TAG, true);
             }
         });
     }

@@ -1,0 +1,14 @@
+{
+  "damageResistance": {
+    "BLUDGEONING": 0.1,
+    "SLASHING": 0.04
+  },
+  "deflectChance": {
+    "knightsheraldry:bodkin_arrow": 0.002,
+    "knightsheraldry:broadhead_arrow": 0.002,
+    "knightsheraldry:cloth_arrow": 0.002,
+    "knightsheraldry:swallowtail_arrow": 0.002,
+    "minecraft:arrow": 0.002
+  },
+  "weight": 1.0
+}

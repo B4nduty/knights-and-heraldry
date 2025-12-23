@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_golden_viking_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:golden_viking_helm"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pegasus": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:pegasus"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/pegasus_golden_viking_helm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_viking_helm",
+      "has_pegasus",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/pegasus_golden_viking_helm"
+    ]
+  },
+  "sends_telemetry_event": false
+}

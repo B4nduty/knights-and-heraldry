@@ -6,7 +6,11 @@
 	"overrides": [
 		{ "predicate": { "blocking": 1 }, "model": "knightsheraldry:item/bec_de_corbin_3d_blocking" },
 		{ "predicate": { "bludgeoning": 1 }, "model": "knightsheraldry:item/bec_de_corbin_3d_bludgeoning" },
-		{ "predicate": { "blocking": 1, "bludgeoning": 1 }, "model": "knightsheraldry:item/bec_de_corbin_3d_bludgeoning_blocking" }
+		{ "predicate": { "blocking": 1, "bludgeoning": 1 }, "model": "knightsheraldry:item/bec_de_corbin_3d_bludgeoning_blocking" },
+		{ "predicate": { "broken": 1 }, "model": "knightsheraldry:item/bec_de_corbin_3d_broken" },
+		{ "predicate": { "broken": 1, "blocking": 1 }, "model": "knightsheraldry:item/bec_de_corbin_3d_broken_blocking" },
+		{ "predicate": { "broken": 1, "bludgeoning": 1 }, "model": "knightsheraldry:item/bec_de_corbin_3d_broken_bludgeoning" },
+		{ "predicate": { "broken": 1, "blocking": 1, "bludgeoning": 1 }, "model": "knightsheraldry:item/bec_de_corbin_3d_broken_bludgeoning_blocking" }
 	],
 	"display": {
 		"thirdperson_righthand": {

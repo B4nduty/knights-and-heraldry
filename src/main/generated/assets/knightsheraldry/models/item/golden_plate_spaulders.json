@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/golden_plate_spaulders_besagews",
+      "predicate": {
+        "besagews": 1
+      }
+    },
+    {
+      "model": "knightsheraldry:item/golden_plate_spaulders_rimmed",
+      "predicate": {
+        "rimmed": 1
+      }
+    },
+    {
+      "model": "knightsheraldry:item/golden_plate_spaulders_besagews_rimmed",
+      "predicate": {
+        "besagews": 1,
+        "rimmed": 1
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "knightsheraldry:item/golden_plate_spaulders"
+  }
+}

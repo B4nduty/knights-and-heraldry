@@ -1,0 +1,37 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.85,
+  "hit_times": 7,
+  "ingredients": [
+    {
+      "count": 1,
+      "item": "knightsheraldry:viking_helm",
+      "nbt": "{Damage:0}"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:basalt"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:basalt"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "knightsheraldry:dark_viking_helm",
+    "nbt": "{Damage:0}"
+  }
+}

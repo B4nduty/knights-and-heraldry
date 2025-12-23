@@ -1,7 +1,0 @@
-{
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "knightsheraldry:item/chaperon",
-		"layer1": "knightsheraldry:item/gilded_chaperon"
-	}
-}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:burgonet"
+    },
+    {
+      "item": "knightsheraldry:black_horns"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:burgonet"
+  }
+}

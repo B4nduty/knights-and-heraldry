@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_cage"
+    },
+    {
+      "item": "knightsheraldry:gold_horns"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:golden_cage"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.75,
+  "hit_times": 5,
+  "ingredients": [
+    {
+      "count": 1,
+      "item": "stoneycore:manuscript",
+      "nbt": "{TargetStack:{Count:1b,id:\"knightsheraldry:visored_bascinet\",tag:{Damage:0}}}"
+    },
+    {
+      "count": 1,
+      "item": "knightsheraldry:bascinet",
+      "nbt": "{Damage:0}"
+    },
+    {
+      "count": 1,
+      "item": "stoneycore:hot_iron"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "stoneycore:hot_iron",
+    "nbt": "{TargetStack:{Count:1b,id:\"knightsheraldry:visored_bascinet\",tag:{Damage:0}}}"
+  }
+}

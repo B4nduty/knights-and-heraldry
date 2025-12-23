@@ -1,12 +1,12 @@
 package com.knightsheraldry.data;
 
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ArrowBehavior {
-    public Identifier targetItemId;
+    public ResourceLocation targetItemId;
 
     public boolean requireOnFire = true;
     public int groundBurnTicks = 100;
@@ -18,14 +18,14 @@ public class ArrowBehavior {
     public final IgniteBlocksConfig igniteBlocks = new IgniteBlocksConfig();
 
     public static class EffectEntry {
-        public Identifier id;
+        public ResourceLocation id;
         public int duration = 100;
         public int amplifier = 0;
     }
 
     public static class SmokeConfig {
         public boolean enabled = true;
-        public Identifier particle = new Identifier("minecraft", "campfire_cosy_smoke");
+        public ResourceLocation particle = new ResourceLocation("minecraft", "campfire_cosy_smoke");
         public int count = 80;
         public double maxSpeed = 0.1D;
     }

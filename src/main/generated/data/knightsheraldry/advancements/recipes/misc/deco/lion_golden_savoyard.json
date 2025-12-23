@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_golden_savoyard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:golden_savoyard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_lion": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:lion"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/lion_golden_savoyard"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_savoyard",
+      "has_lion",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/lion_golden_savoyard"
+    ]
+  },
+  "sends_telemetry_event": false
+}

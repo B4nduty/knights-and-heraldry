@@ -1,0 +1,13 @@
+{
+  "ranged": {
+    "baseDamage": 16.0,
+    "damageType": "PIERCING",
+    "divergence": 1.0,
+    "id": "crossbow",
+    "maxUseTime": 72000,
+    "rechargeTime": 5,
+    "soundEvent": "minecraft:entity.arrow.shoot",
+    "speed": 3.0,
+    "useAnim": "CROSSBOW"
+  }
+}

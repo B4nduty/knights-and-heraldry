@@ -1,7 +1,0 @@
-{
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "knightsheraldry:item/brigandine_harness",
-		"layer1": "knightsheraldry:item/dark_brigandine_harness_overlay"
-	}
-}

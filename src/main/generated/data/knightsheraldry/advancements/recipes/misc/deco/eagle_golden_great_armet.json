@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_eagle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:eagle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_golden_great_armet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:golden_great_armet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/eagle_golden_great_armet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_great_armet",
+      "has_eagle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/eagle_golden_great_armet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

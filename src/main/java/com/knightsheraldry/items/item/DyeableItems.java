@@ -1,17 +1,17 @@
 package com.knightsheraldry.items.item;
 
-import net.minecraft.item.DyeableItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.item.DyeableLeatherItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
-public class DyeableItems extends Item implements DyeableItem {
-    public DyeableItems(Settings settings) {
-        super(settings);
+public class DyeableItems extends Item implements DyeableLeatherItem {
+    public DyeableItems(Item.Properties properties) {
+        super(properties);
     }
 
     public int getColor(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getSubNbt("display");
-        return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : 0xFFFFFF;
+        CompoundTag compoundTag = stack.getTagElement("display");
+        return compoundTag != null && compoundTag.contains("color", 99) ? compoundTag.getInt("color") : 0xFFFFFF;
     }
 }

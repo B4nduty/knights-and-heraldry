@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_golden_kettle_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:golden_kettle_helm"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_teutonic_black_wings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:teutonic_black_wings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/teutonic_black_wings_golden_kettle_helm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_kettle_helm",
+      "has_teutonic_black_wings",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/teutonic_black_wings_golden_kettle_helm"
+    ]
+  },
+  "sends_telemetry_event": false
+}

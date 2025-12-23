@@ -7,22 +7,23 @@ import com.knightsheraldry.model.AccessoryOpenHelmetModel;
 import io.wispforest.accessories.api.AccessoryItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 
 public class KHHelmetAccessory extends AccessoryItem implements SCAccessoryItem {
     private final boolean openVisor;
     private final Ingredient ingredient;
 
-    public KHHelmetAccessory(Settings settings, Ingredient ingredient) {
-        super(settings);
+    public KHHelmetAccessory(Item.Properties properties, Ingredient ingredient) {
+        super(properties);
         this.openVisor = false;
         this.ingredient = ingredient;
     }
 
-    public KHHelmetAccessory(Settings settings, boolean openVisor, Ingredient ingredient) {
-        super(settings);
+    public KHHelmetAccessory(Item.Properties properties, boolean openVisor, Ingredient ingredient) {
+        super(properties);
         this.openVisor = openVisor;
         this.ingredient = ingredient;
     }
@@ -31,9 +32,9 @@ public class KHHelmetAccessory extends AccessoryItem implements SCAccessoryItem 
     @Override
     public ModelBundle getModels(ItemStack itemStack) {
         if (openVisor) {
-            return ModelBundle.ofBaseAndVisor(new AccessoryHelmetModel(AccessoryHelmetModel.getTexturedModelData().createModel()), new AccessoryOpenHelmetModel(AccessoryOpenHelmetModel.getTexturedModelData().createModel()));
+            return ModelBundle.ofBaseAndVisor(new AccessoryHelmetModel(AccessoryHelmetModel.getTexturedModelData().bakeRoot()), new AccessoryOpenHelmetModel(AccessoryOpenHelmetModel.getTexturedModelData().bakeRoot()));
         }
-        return ModelBundle.ofBase(new AccessoryHelmetModel(AccessoryHelmetModel.getTexturedModelData().createModel()));
+        return ModelBundle.ofBase(new AccessoryHelmetModel(AccessoryHelmetModel.getTexturedModelData().bakeRoot()));
     }
 
     @Override
@@ -42,12 +43,13 @@ public class KHHelmetAccessory extends AccessoryItem implements SCAccessoryItem 
     }
 
     @Override
-    public Identifier getTexturePath(ItemStack itemStack) {
-        return new Identifier(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + this + ".png");
+    public ResourceLocation getTexturePath(ItemStack itemStack) {
+        if (itemStack.getDamageValue() > itemStack.getMaxDamage() * 0.9f) return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + this + "_lowd.png");
+        return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + this + ".png");
     }
 
     @Override
-    public boolean canRepair(ItemStack stack, ItemStack ingredient) {
-        return this.ingredient.test(ingredient) || super.canRepair(stack, ingredient);
+    public boolean isValidRepairItem(ItemStack stack, ItemStack ingredient) {
+        return this.ingredient.test(ingredient) || super.isValidRepairItem(stack, ingredient);
     }
 }

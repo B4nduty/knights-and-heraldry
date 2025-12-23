@@ -92,15 +92,29 @@
   "item.knightsheraldry.dark_plate_spaulders_besagews": "Darkened Plate Spaulders with Besagews",
   "item.knightsheraldry.dark_plate_spaulders_rimmed_besagews": "Darkened Plate Spaulders with Rim Guards & Besagews",
 
+  "item.knightsheraldry.golden_mail_spaulders": "Golden Mail Spaulders",
+  "item.knightsheraldry.golden_mail_spaulders_besagews": "Golden Mail Spaulders with Besagews",
+  "item.knightsheraldry.golden_brigandine_spaulders": "Golden Brigandine Spaulders",
+  "item.knightsheraldry.golden_brigandine_spaulders_besagews": "Golden Brigandine Spaulders with Besagews",
+  "item.knightsheraldry.golden_plate_spaulders": "Golden Plate Spaulders",
+  "item.knightsheraldry.golden_plate_spaulders_rimmed": "Golden Plate Spaulders with Rim Guards",
+  "item.knightsheraldry.golden_plate_spaulders_besagews": "Golden Plate Spaulders with Besagews",
+  "item.knightsheraldry.golden_plate_spaulders_rimmed_besagews": "Golden Plate Spaulders with Rim Guards & Besagews",
+
   "item.knightsheraldry.brigandine": "Brigandine",
 
   "item.knightsheraldry.dark_brigandine": "Darkened Brigandine",
+
+  "item.knightsheraldry.golden_brigandine": "Golden Brigandine",
 
   "item.knightsheraldry.brig_breastplate": "Brigandine with Plackart",
   "item.knightsheraldry.brig_breastplate_tassets": "Brigandine with Plackart and Tassets",
 
   "item.knightsheraldry.dark_brig_breastplate": "Darkened Brigandine with Plackart",
   "item.knightsheraldry.dark_brig_breastplate_tassets": "Darkened Brigandine with Plackart and Tassets",
+
+  "item.knightsheraldry.golden_brig_breastplate": "Golden Brigandine with Plackart",
+  "item.knightsheraldry.golden_brig_breastplate_tassets": "Golden Brigandine with Plackart and Tassets",
 
   "item.knightsheraldry.plate_cuirass": "Plate Cuirass",
   "item.knightsheraldry.plate_cuirass_tassets": "Plate Cuirass with Tassets",
@@ -118,17 +132,34 @@
   "item.knightsheraldry.dark_xiiii_plate_cuirass_tassets": "Darkened XIIII Plate Cuirass with Tassets",
   "item.knightsheraldry.dark_xiiii_plate_breastplate": "Darkened XIIII Plate Breastplate",
 
+  "item.knightsheraldry.golden_plate_cuirass": "Golden Plate Cuirass",
+  "item.knightsheraldry.golden_plate_cuirass_tassets": "Golden Plate Cuirass with Tassets",
+  "item.knightsheraldry.golden_maximillian_cuirass": "Golden Maximillian Cuirass",
+  "item.knightsheraldry.golden_maximillian_cuirass_tassets": "Golden Maximillian Cuirass with Tassets",
+  "item.knightsheraldry.golden_xiiii_plate_cuirass": "Golden XIIII Plate Cuirass",
+  "item.knightsheraldry.golden_xiiii_plate_cuirass_tassets": "Golden XIIII Plate Cuirass with Tassets",
+  "item.knightsheraldry.golden_xiiii_plate_breastplate": "Golden XIIII Plate Breastplate",
+
   "item.knightsheraldry.barbute": "Barbute Helmet",
   "item.knightsheraldry.bascinet": "Bascinet Helmet",
   "item.knightsheraldry.kettle_helm": "Kettle Helmet",
   "item.knightsheraldry.nasal_helm": "Nasal Helmet",
   "item.knightsheraldry.viking_helm": "Viking Helmet",
+  "item.knightsheraldry.burgonet": "Burgonet",
 
   "item.knightsheraldry.dark_barbute": "Darkened Barbute Helmet",
   "item.knightsheraldry.dark_bascinet": "Darkened Bascinet Helmet",
   "item.knightsheraldry.dark_kettle_helm": "Darkened Kettle Helmet",
   "item.knightsheraldry.dark_nasal_helm": "Darkened Nasal Helmet",
   "item.knightsheraldry.dark_viking_helm": "Darkened Viking Helmet",
+  "item.knightsheraldry.dark_burgonet": "Darkened Burgonet",
+
+  "item.knightsheraldry.golden_barbute": "Golden Barbute Helmet",
+  "item.knightsheraldry.golden_bascinet": "Golden Bascinet Helmet",
+  "item.knightsheraldry.golden_kettle_helm": "Golden Kettle Helmet",
+  "item.knightsheraldry.golden_nasal_helm": "Golden Nasal Helmet",
+  "item.knightsheraldry.golden_viking_helm": "Golden Viking Helmet",
+  "item.knightsheraldry.golden_burgonet": "Golden Burgonet",
 
   "item.knightsheraldry.armet": "Armet (Dual Slit Visor)",
   "item.knightsheraldry.armet_2": "Armet (Single Slit Visor)",
@@ -140,6 +171,8 @@
   "item.knightsheraldry.great_helm": "Great Helmet",
   "item.knightsheraldry.great_helm_2": "Gilded Great Helmet",
   "item.knightsheraldry.sallet": "Sallet",
+  "item.knightsheraldry.burgonet_falling_buffe": "Burgonet with Falling Buffe",
+  "item.knightsheraldry.close_helm": "Close Helm",
 
   "item.knightsheraldry.dark_armet": "Darkened Armet (Dual Slit Visor)",
   "item.knightsheraldry.dark_armet_2": "Darkened Armet (Single Slit Visor)",
@@ -151,30 +184,57 @@
   "item.knightsheraldry.dark_great_helm": "Darkened Great Helmet",
   "item.knightsheraldry.dark_great_helm_2": "Darkened Gilded Great Helmet",
   "item.knightsheraldry.dark_sallet": "Darkened Sallet",
+  "item.knightsheraldry.dark_burgonet_falling_buffe": "Darkened Burgonet with Falling Buffe",
+  "item.knightsheraldry.dark_close_helm": "Darkened Close Helm",
+
+  "item.knightsheraldry.golden_armet": "Golden Armet (Dual Slit Visor)",
+  "item.knightsheraldry.golden_armet_2": "Golden Armet (Single Slit Visor)",
+  "item.knightsheraldry.golden_visored_barbute": "Golden Visored Barbute",
+  "item.knightsheraldry.golden_houndskull": "Golden Houndskull",
+  "item.knightsheraldry.golden_cage": "Golden Cage Helmet (Slim)",
+  "item.knightsheraldry.golden_cage_2": "Golden Cage Helmet (Robust)",
+  "item.knightsheraldry.golden_visored_bascinet": "Golden Visored Bascinet",
+  "item.knightsheraldry.golden_great_helm": "Golden Great Helmet",
+  "item.knightsheraldry.golden_great_helm_2": "Golden Gilded Great Helmet",
+  "item.knightsheraldry.golden_sallet": "Golden Sallet",
+  "item.knightsheraldry.golden_burgonet_falling_buffe": "Golden Burgonet with Falling Buffe",
+  "item.knightsheraldry.golden_close_helm": "Golden Close Helm",
 
   "item.knightsheraldry.frogmouth": "Frogmouth",
   "item.knightsheraldry.great_armet": "Great Armet (Dual Slit Visor)",
   "item.knightsheraldry.great_armet_2": "Great Armet (Single Slit Visor)",
   "item.knightsheraldry.great_bascinet": "Great Bascinet",
-  "item.knightsheraldry.great_houndskul_bascinet": "Great Houndskul Bascinet",
+  "item.knightsheraldry.great_houndskul_bascinet": "Great Houndskull Bascinet",
   "item.knightsheraldry.maximillian_helmet": "Maximillian Helmet",
+  "item.knightsheraldry.savoyard": "Savoyard",
 
   "item.knightsheraldry.dark_frogmouth": "Darkened Frogmouth",
   "item.knightsheraldry.dark_great_armet": "Darkened Great Armet (Dual Slit Visor)",
   "item.knightsheraldry.dark_great_armet_2": "Darkened Great Armet (Single Slit Visor)",
   "item.knightsheraldry.dark_great_bascinet": "Darkened Great Bascinet",
-  "item.knightsheraldry.dark_great_houndskul_bascinet": "Darkened Great Houndskul Bascinet",
+  "item.knightsheraldry.dark_great_houndskul_bascinet": "Darkened Great Houndskull Bascinet",
   "item.knightsheraldry.dark_maximillian_helmet": "Darkened Maximillian Helmet",
+  "item.knightsheraldry.dark_savoyard": "Darkened Savoyard",
+
+  "item.knightsheraldry.golden_frogmouth": "Golden Frogmouth",
+  "item.knightsheraldry.golden_great_armet": "Golden Great Armet (Dual Slit Visor)",
+  "item.knightsheraldry.golden_great_armet_2": "Golden Great Armet (Single Slit Visor)",
+  "item.knightsheraldry.golden_great_bascinet": "Golden Great Bascinet",
+  "item.knightsheraldry.golden_great_houndskul_bascinet": "Golden Great Houndskull Bascinet",
+  "item.knightsheraldry.golden_maximillian_helmet": "Golden Maximillian Helmet",
+  "item.knightsheraldry.golden_savoyard": "Golden Savoyard",
 
   "item.knightsheraldry.gauntlet": "Gauntlet",
-
-  "item.knightsheraldry.dark_gauntlet": "Darkened Gauntlet",
-
   "item.knightsheraldry.brigandine_harness": "Brigandine Arm Harness",
   "item.knightsheraldry.plate_harness": "Plate Arm Harness",
 
+  "item.knightsheraldry.dark_gauntlet": "Darkened Gauntlet",
   "item.knightsheraldry.dark_brigandine_harness": "Darkened Brigandine Arm Harness",
   "item.knightsheraldry.dark_plate_harness": "Darkened Plate Arm Harness",
+
+  "item.knightsheraldry.golden_gauntlet": "Golden Gauntlet",
+  "item.knightsheraldry.golden_brigandine_harness": "Golden Brigandine Arm Harness",
+  "item.knightsheraldry.golden_plate_harness": "Golden Plate Arm Harness",
 
   "item.knightsheraldry.brigandine_cuisses": "Brigandine Cuisses",
   "item.knightsheraldry.plate_cuisses": "Plate Cuisses",
@@ -182,14 +242,24 @@
   "item.knightsheraldry.dark_brigandine_cuisses": "Darkened Brigandine Cuisses",
   "item.knightsheraldry.dark_plate_cuisses": "Darkened Plate Cuisses",
 
+  "item.knightsheraldry.golden_brigandine_cuisses": "Golden Brigandine Cuisses",
+  "item.knightsheraldry.golden_plate_cuisses": "Golden Plate Cuisses",
+
   "item.knightsheraldry.greaves": "Greaves",
 
   "item.knightsheraldry.dark_greaves": "Darkened Greaves",
+
+  "item.knightsheraldry.golden_greaves": "Golden Greaves",
 
   "item.knightsheraldry.sabatons": "Sabatons",
 
   "item.knightsheraldry.dark_sabatons": "Darkened Sabatons",
 
+  "item.knightsheraldry.golden_sabatons": "Golden Sabatons",
+
+  "item.knightsheraldry.bevor": "Bevor",
+  "item.knightsheraldry.dark_bevor": "Dark Bevor",
+  "item.knightsheraldry.golden_bevor": "Golden Bevor",
   "item.knightsheraldry.aventail": "Aventail",
 
   "item.knightsheraldry.rim_guards": "Rim Guards",
@@ -229,6 +299,8 @@
 
   "item.knightsheraldry.dark_horse_barding": "Darkened Barding",
 
+  "item.knightsheraldry.golden_horse_barding": "Golden Barding",
+
   "item.knightsheraldry.plume": "Plume",
   "item.knightsheraldry.tri_plume": "Tri Plume",
   "item.knightsheraldry.fluffy_plume": "Fluffy Plume",
@@ -255,9 +327,263 @@
 
   "item.knightsheraldry.darkened_armor_template": "Darkened Armor Template",
 
-  "text.itemgroup.kingdomsieges.tab.kh_weapons": "KH Weapons",
-  "text.itemgroup.kingdomsieges.tab.kh_deco": "KH Deco",
-  "text.itemgroup.kingdomsieges.tab.kh_armors": "KH Armors",
+  "item.knightsheraldry.manuscript_dagger": "Manuscript Dagger",
+  "item.knightsheraldry.manuscript_stiletto": "Manuscript Stiletto",
+  "item.knightsheraldry.manuscript_rapier": "Manuscript Rapier",
+  "item.knightsheraldry.manuscript_sword": "Manuscript Sword",
+  "item.knightsheraldry.manuscript_v_sword": "Manuscript V Sword",
+  "item.knightsheraldry.manuscript_arming_sword": "Manuscript Arming Sword",
+  "item.knightsheraldry.manuscript_axe": "Manuscript Axe",
+  "item.knightsheraldry.manuscript_broad_axe": "Manuscript Broad Axe",
+  "item.knightsheraldry.manuscript_crooked_axe": "Manuscript Crooked Axe",
+  "item.knightsheraldry.manuscript_straight_crooked_axe": "Manuscript Straight Crooked Axe",
+  "item.knightsheraldry.manuscript_mace": "Manuscript Mace",
+  "item.knightsheraldry.manuscript_spiked_mace": "Manuscript Spiked Mace",
+  "item.knightsheraldry.manuscript_flail": "Manuscript Flail",
+  "item.knightsheraldry.manuscript_ball_flail": "Manuscript Ball Flail",
+  "item.knightsheraldry.manuscript_hammer": "Manuscript Hammer",
+  "item.knightsheraldry.manuscript_war_hammer": "Manuscript War Hammer",
+  "item.knightsheraldry.manuscript_longsword": "Manuscript Longsword",
+  "item.knightsheraldry.manuscript_v_longsword": "Manuscript V Longsword",
+  "item.knightsheraldry.manuscript_falchion": "Manuscript Falchion",
+  "item.knightsheraldry.manuscript_scimitar": "Manuscript Scimitar",
+  "item.knightsheraldry.manuscript_pitchfork": "Manuscript Pitchfork",
+  "item.knightsheraldry.manuscript_spear": "Manuscript Spear",
+  "item.knightsheraldry.manuscript_pike": "Manuscript Pike",
+  "item.knightsheraldry.manuscript_billhook": "Manuscript Billhook",
+  "item.knightsheraldry.manuscript_glaive": "Manuscript Glaive",
+  "item.knightsheraldry.manuscript_curved_glaive": "Manuscript Curved Glaive",
+  "item.knightsheraldry.manuscript_halberd": "Manuscript Halberd",
+  "item.knightsheraldry.manuscript_lance": "Manuscript Lance",
+  "item.knightsheraldry.manuscript_wooden_lance": "Manuscript Wooden Lance",
+  "item.knightsheraldry.manuscript_poleaxe": "Manuscript Poleaxe",
+  "item.knightsheraldry.manuscript_polehammer": "Manuscript Polehammer",
+  "item.knightsheraldry.manuscript_bec_de_corbin": "Manuscript Bec de Corbin",
+  "item.knightsheraldry.manuscript_morning_star": "Manuscript Morning Star",
+  "item.knightsheraldry.manuscript_bardiche": "Manuscript Bardiche",
+  "item.knightsheraldry.manuscript_greatsword": "Manuscript Greatsword",
+  "item.knightsheraldry.manuscript_claymore": "Manuscript Claymore",
+  "item.knightsheraldry.manuscript_flamberge": "Manuscript Flamberge",
+  "item.knightsheraldry.manuscript_zweihander": "Manuscript Zweihander",
+  "item.knightsheraldry.manuscript_wardart": "Manuscript Wardart",
+
+  "item.knightsheraldry.manuscript_quilted_coif": "Manuscript Quilted Coif",
+  "item.knightsheraldry.manuscript_gambeson": "Manuscript Gambeson",
+  "item.knightsheraldry.manuscript_gambeson_breeches": "Manuscript Gambeson Breeches",
+  "item.knightsheraldry.manuscript_gambeson_boots": "Manuscript Gambeson Boots",
+
+  "item.knightsheraldry.manuscript_mail_coif": "Manuscript Mail Coif",
+  "item.knightsheraldry.manuscript_hauberk": "Manuscript Hauberk",
+  "item.knightsheraldry.manuscript_mail_breeches": "Manuscript Mail Breeches",
+  "item.knightsheraldry.manuscript_mail_boots": "Manuscript Mail Boots",
+
+  "item.knightsheraldry.manuscript_mail_spaulders": "Manuscript Mail Spaulders",
+  "item.knightsheraldry.manuscript_brigandine_spaulders": "Manuscript Brigandine Spaulders",
+  "item.knightsheraldry.manuscript_plate_spaulders": "Manuscript Plate Spaulders",
+
+  "item.knightsheraldry.manuscript_brigandine": "Manuscript Brigandine",
+
+  "item.knightsheraldry.manuscript_brig_breastplate": "Manuscript Brig Breastplate with Plackart",
+  "item.knightsheraldry.manuscript_brig_breastplate_tassets": "Manuscript Brig Breastplate with Plackart and Tassets",
+
+  "item.knightsheraldry.manuscript_plate_cuirass": "Manuscript Plate Cuirass",
+  "item.knightsheraldry.manuscript_plate_cuirass_tassets": "Manuscript Plate Cuirass with Tassets",
+  "item.knightsheraldry.manuscript_maximillian_cuirass": "Manuscript Maximillian Cuirass",
+  "item.knightsheraldry.manuscript_maximillian_cuirass_tassets": "Manuscript Maximillian Cuirass with Tassets",
+  "item.knightsheraldry.manuscript_xiiii_plate_cuirass": "Manuscript XIIII Plate Cuirass",
+  "item.knightsheraldry.manuscript_xiiii_plate_cuirass_tassets": "Manuscript XIIII Plate Cuirass with Tassets",
+  "item.knightsheraldry.manuscript_xiiii_plate_breastplate": "Manuscript XIIII Plate Breastplate",
+  
+  "item.knightsheraldry.manuscript_rim_guards": "Manuscript Rim Guards",
+  "item.knightsheraldry.manuscript_besagews": "Manuscript Besagews",
+
+  "item.knightsheraldry.manuscript_barbute": "Manuscript Barbute",
+  "item.knightsheraldry.manuscript_bascinet": "Manuscript Bascinet",
+  "item.knightsheraldry.manuscript_kettle_helm": "Manuscript Kettle Helmet",
+  "item.knightsheraldry.manuscript_nasal_helm": "Manuscript Nasal Helmet",
+  "item.knightsheraldry.manuscript_viking_helm": "Manuscript Viking Helmet",
+
+  "item.knightsheraldry.manuscript_armet": "Manuscript Armet (Dual Slit Visor)",
+  "item.knightsheraldry.manuscript_armet_2": "Manuscript Armet (Single Slit Visor)",
+  "item.knightsheraldry.manuscript_visored_barbute": "Manuscript Visored Barbute",
+  "item.knightsheraldry.manuscript_houndskull": "Manuscript Houndskull",
+  "item.knightsheraldry.manuscript_cage": "Manuscript Cage Helmet (Slim)",
+  "item.knightsheraldry.manuscript_cage_2": "Manuscript Cage Helmet (Robust)",
+  "item.knightsheraldry.manuscript_visored_bascinet": "Manuscript Visored Bascinet",
+  "item.knightsheraldry.manuscript_great_helm": "Manuscript Great Helmet",
+  "item.knightsheraldry.manuscript_great_helm_2": "Manuscript Gilded Great Helmet",
+  "item.knightsheraldry.manuscript_sallet": "Manuscript Sallet",
+
+  "item.knightsheraldry.manuscript_frogmouth": "Manuscript Frogmouth",
+  "item.knightsheraldry.manuscript_great_armet": "Manuscript Great Armet (Dual Slit Visor)",
+  "item.knightsheraldry.manuscript_great_armet_2": "Manuscript Great Armet (Single Slit Visor)",
+  "item.knightsheraldry.manuscript_great_bascinet": "Manuscript Great Bascinet",
+  "item.knightsheraldry.manuscript_great_houndskul_bascinet": "Manuscript Great Houndskul Bascinet",
+  "item.knightsheraldry.manuscript_maximillian_helmet": "Manuscript Maximillian Helmet",
+
+  "item.knightsheraldry.manuscript_gauntlet": "Manuscript Gauntlet",
+  "item.knightsheraldry.manuscript_brigandine_harness": "Manuscript Brigandine Harness",
+  "item.knightsheraldry.manuscript_plate_harness": "Manuscript Plate Harness",
+
+  "item.knightsheraldry.manuscript_brigandine_cuisses": "Manuscript Brigandine Cuisses",
+  "item.knightsheraldry.manuscript_plate_cuisses": "Manuscript Plate Cuisses",
+
+  "item.knightsheraldry.manuscript_greaves": "Manuscript Greaves",
+
+  "item.knightsheraldry.manuscript_sabatons": "Manuscript Sabatons",
+
+  "item.knightsheraldry.manuscript_surcoat": "Manuscript Surcoat",
+  "item.knightsheraldry.manuscript_surcoat_sleeveless": "Manuscript Sleeveless Surcoat",
+  "item.knightsheraldry.manuscript_civilian_surcoat": "Manuscript Civilian Surcoat",
+  "item.knightsheraldry.manuscript_giornea": "Manuscript Giornea",
+
+  "item.knightsheraldry.manuscript_cloak": "Manuscript Cloak",
+  "item.knightsheraldry.manuscript_torn_cloak": "Manuscript Torn Cloak",
+
+  "item.knightsheraldry.manuscript_hood": "Manuscript Hood",
+  "item.knightsheraldry.manuscript_torn_hood": "Manuscript Torn Hood",
+  "item.knightsheraldry.manuscript_jester_hood": "Manuscript Jester Hood",
+  "item.knightsheraldry.manuscript_helmet_hood": "Manuscript Helmet Hood",
+  "item.knightsheraldry.manuscript_helmet_torn_hood": "Manuscript Helmet Torn Hood",
+
+  "item.knightsheraldry.manuscript_longbow": "Manuscript Longbow",
+
+  "item.knightsheraldry.manuscript_heavy_crossbow": "Manuscript Heavy Crossbow",
+
+  "item.knightsheraldry.manuscript_arquebus": "Manuscript Arquebus",
+
+  "item.knightsheraldry.manuscript_handgonne": "Manuscript Handgonne",
+
+  "item.knightsheraldry.manuscript_swallowtail_arrow": "Manuscript Swallowtail Tipped Arrow",
+  "item.knightsheraldry.manuscript_bodkin_arrow": "Manuscript Bodkin Tipped Arrow",
+  "item.knightsheraldry.manuscript_broadhead_arrow": "Manuscript Broadhead Tipped Arrow",
+  "item.knightsheraldry.manuscript_cloth_arrow": "Manuscript Cloth Tipped Arrow",
+
+  "item.knightsheraldry.manuscript_horse_barding": "Manuscript Barding",
+
+  "item.knightsheraldry.hot_iron_finished_dagger": "Hot Dagger",
+  "item.knightsheraldry.hot_iron_finished_stiletto": "Hot Stiletto",
+  "item.knightsheraldry.hot_iron_finished_rapier": "Hot Rapier",
+  "item.knightsheraldry.hot_iron_finished_sword": "Hot Sword",
+  "item.knightsheraldry.hot_iron_finished_v_sword": "Hot V Sword",
+  "item.knightsheraldry.hot_iron_finished_arming_sword": "Hot Arming Sword",
+  "item.knightsheraldry.hot_iron_finished_axe": "Hot Axe",
+  "item.knightsheraldry.hot_iron_finished_broad_axe": "Hot Broad Axe",
+  "item.knightsheraldry.hot_iron_finished_crooked_axe": "Hot Crooked Axe",
+  "item.knightsheraldry.hot_iron_finished_straight_crooked_axe": "Hot Straight Crooked Axe",
+  "item.knightsheraldry.hot_iron_finished_mace": "Hot Mace",
+  "item.knightsheraldry.hot_iron_finished_spiked_mace": "Hot Spiked Mace",
+  "item.knightsheraldry.hot_iron_finished_flail": "Hot Flail",
+  "item.knightsheraldry.hot_iron_finished_ball_flail": "Hot Ball Flail",
+  "item.knightsheraldry.hot_iron_finished_hammer": "Hot Hammer",
+  "item.knightsheraldry.hot_iron_finished_war_hammer": "Hot War Hammer",
+  "item.knightsheraldry.hot_iron_finished_longsword": "Hot Longsword",
+  "item.knightsheraldry.hot_iron_finished_v_longsword": "Hot V Longsword",
+  "item.knightsheraldry.hot_iron_finished_falchion": "Hot Falchion",
+  "item.knightsheraldry.hot_iron_finished_scimitar": "Hot Scimitar",
+  "item.knightsheraldry.hot_iron_finished_pitchfork": "Hot Pitchfork",
+  "item.knightsheraldry.hot_iron_finished_spear": "Hot Spear",
+  "item.knightsheraldry.hot_iron_finished_pike": "Hot Pike",
+  "item.knightsheraldry.hot_iron_finished_billhook": "Hot Billhook",
+  "item.knightsheraldry.hot_iron_finished_glaive": "Hot Glaive",
+  "item.knightsheraldry.hot_iron_finished_curved_glaive": "Hot Curved Glaive",
+  "item.knightsheraldry.hot_iron_finished_halberd": "Hot Halberd",
+  "item.knightsheraldry.hot_iron_finished_lance": "Hot Lance",
+  "item.knightsheraldry.hot_iron_finished_wooden_lance": "Hot Wooden Lance",
+  "item.knightsheraldry.hot_iron_finished_poleaxe": "Hot Poleaxe",
+  "item.knightsheraldry.hot_iron_finished_polehammer": "Hot Polehammer",
+  "item.knightsheraldry.hot_iron_finished_bec_de_corbin": "Hot Bec de Corbin",
+  "item.knightsheraldry.hot_iron_finished_morning_star": "Hot Morning Star",
+  "item.knightsheraldry.hot_iron_finished_bardiche": "Hot Bardiche",
+  "item.knightsheraldry.hot_iron_finished_greatsword": "Hot Greatsword",
+  "item.knightsheraldry.hot_iron_finished_claymore": "Hot Claymore",
+  "item.knightsheraldry.hot_iron_finished_flamberge": "Hot Flamberge",
+  "item.knightsheraldry.hot_iron_finished_zweihander": "Hot Zweihander",
+  "item.knightsheraldry.hot_iron_finished_wardart": "Hot Wardart",
+
+  "item.knightsheraldry.hot_iron_finished_quilted_coif": "Hot Quilted Coif",
+  "item.knightsheraldry.hot_iron_finished_gambeson": "Hot Gambeson",
+  "item.knightsheraldry.hot_iron_finished_gambeson_breeches": "Hot Gambeson Breeches",
+  "item.knightsheraldry.hot_iron_finished_gambeson_boots": "Hot Gambeson Boots",
+
+  "item.knightsheraldry.hot_iron_finished_mail_coif": "Hot Mail Coif",
+  "item.knightsheraldry.hot_iron_finished_hauberk": "Hot Hauberk",
+  "item.knightsheraldry.hot_iron_finished_mail_breeches": "Hot Mail Breeches",
+  "item.knightsheraldry.hot_iron_finished_mail_boots": "Hot Mail Boots",
+
+  "item.knightsheraldry.hot_iron_finished_mail_spaulders": "Hot Mail Spaulders",
+  "item.knightsheraldry.hot_iron_finished_brigandine_spaulders": "Hot Brigandine Spaulders",
+  "item.knightsheraldry.hot_iron_finished_plate_spaulders": "Hot Plate Spaulders",
+
+  "item.knightsheraldry.hot_iron_finished_brigandine": "Hot Brigandine",
+
+  "item.knightsheraldry.hot_iron_finished_brig_breastplate": "Hot Brig Breastplate with Plackart",
+  "item.knightsheraldry.hot_iron_finished_brig_breastplate_tassets": "Hot Brig Breastplate with Plackart and Tassets",
+
+  "item.knightsheraldry.hot_iron_finished_plate_cuirass": "Hot Plate Cuirass",
+  "item.knightsheraldry.hot_iron_finished_plate_cuirass_tassets": "Hot Plate Cuirass with Tassets",
+  "item.knightsheraldry.hot_iron_finished_maximillian_cuirass": "Hot Maximillian Cuirass",
+  "item.knightsheraldry.hot_iron_finished_maximillian_cuirass_tassets": "Hot Maximillian Cuirass with Tassets",
+  "item.knightsheraldry.hot_iron_finished_xiiii_plate_cuirass": "Hot XIIII Plate Cuirass",
+  "item.knightsheraldry.hot_iron_finished_xiiii_plate_cuirass_tassets": "Hot XIIII Plate Cuirass with Tassets",
+  "item.knightsheraldry.hot_iron_finished_xiiii_plate_breastplate": "Hot XIIII Plate Breastplate",
+
+  "item.knightsheraldry.hot_iron_finished_rim_guards": "Hot Rim Guards",
+  "item.knightsheraldry.hot_iron_finished_besagews": "Hot Besagews",
+
+  "item.knightsheraldry.hot_iron_finished_barbute": "Hot Barbute",
+  "item.knightsheraldry.hot_iron_finished_bascinet": "Hot Bascinet",
+  "item.knightsheraldry.hot_iron_finished_kettle_helm": "Hot Kettle Helmet",
+  "item.knightsheraldry.hot_iron_finished_nasal_helm": "Hot Nasal Helmet",
+  "item.knightsheraldry.hot_iron_finished_viking_helm": "Hot Viking Helmet",
+
+  "item.knightsheraldry.hot_iron_finished_armet": "Hot Armet (Dual Slit Visor)",
+  "item.knightsheraldry.hot_iron_finished_armet_2": "Hot Armet (Single Slit Visor)",
+  "item.knightsheraldry.hot_iron_finished_visored_barbute": "Hot Visored Barbute",
+  "item.knightsheraldry.hot_iron_finished_houndskull": "Hot Houndskull",
+  "item.knightsheraldry.hot_iron_finished_cage": "Hot Cage Helmet (Slim)",
+  "item.knightsheraldry.hot_iron_finished_cage_2": "Hot Cage Helmet (Robust)",
+  "item.knightsheraldry.hot_iron_finished_visored_bascinet": "Hot Visored Bascinet",
+  "item.knightsheraldry.hot_iron_finished_great_helm": "Hot Great Helmet",
+  "item.knightsheraldry.hot_iron_finished_great_helm_2": "Hot Gilded Great Helmet",
+  "item.knightsheraldry.hot_iron_finished_sallet": "Hot Sallet",
+
+  "item.knightsheraldry.hot_iron_finished_frogmouth": "Hot Frogmouth",
+  "item.knightsheraldry.hot_iron_finished_great_armet": "Hot Great Armet (Dual Slit Visor)",
+  "item.knightsheraldry.hot_iron_finished_great_armet_2": "Hot Great Armet (Single Slit Visor)",
+  "item.knightsheraldry.hot_iron_finished_great_bascinet": "Hot Great Bascinet",
+  "item.knightsheraldry.hot_iron_finished_great_houndskul_bascinet": "Hot Great Houndskul Bascinet",
+  "item.knightsheraldry.hot_iron_finished_maximillian_helmet": "Hot Maximillian Helmet",
+
+  "item.knightsheraldry.hot_iron_finished_gauntlet": "Hot Gauntlet",
+  "item.knightsheraldry.hot_iron_finished_brigandine_harness": "Hot Brigandine Harness",
+  "item.knightsheraldry.hot_iron_finished_plate_harness": "Hot Plate Harness",
+
+  "item.knightsheraldry.hot_iron_finished_brigandine_cuisses": "Hot Brigandine Cuisses",
+  "item.knightsheraldry.hot_iron_finished_plate_cuisses": "Hot Plate Cuisses",
+
+  "item.knightsheraldry.hot_iron_finished_greaves": "Hot Greaves",
+
+  "item.knightsheraldry.hot_iron_finished_sabatons": "Hot Sabatons",
+
+  "item.knightsheraldry.hot_iron_finished_longbow": "Hot Longbow",
+
+  "item.knightsheraldry.hot_iron_finished_heavy_crossbow": "Hot Heavy Crossbow",
+
+  "item.knightsheraldry.hot_iron_finished_arquebus": "Hot Arquebus",
+
+  "item.knightsheraldry.hot_iron_finished_handgonne": "Hot Handgonne",
+
+  "item.knightsheraldry.hot_iron_finished_swallowtail_arrow": "Hot Swallowtail Tipped Arrow",
+  "item.knightsheraldry.hot_iron_finished_bodkin_arrow": "Hot Bodkin Tipped Arrow",
+  "item.knightsheraldry.hot_iron_finished_broadhead_arrow": "Hot Broadhead Tipped Arrow",
+  "item.knightsheraldry.hot_iron_finished_cloth_arrow": "Hot Cloth Tipped Arrow",
+
+  "item.knightsheraldry.hot_iron_finished_horse_barding": "Hot Barding",
+
+  "component.itemgroup.kingdomsieges.tab.kh_weapons": "KH Weapons",
+  "component.itemgroup.kingdomsieges.tab.kh_deco": "KH Deco",
+  "component.itemgroup.kingdomsieges.tab.kh_armors": "KH Armors",
 
   "text.tooltip.knightsheraldry.right_click-to-charge": "§4Right-Click §rto §lCharge §rfor §l2 Seconds",
   "text.tooltip.knightsheraldry.on-charge": "On §4Charge §rit will §lAuto Attack",

@@ -1,24 +1,26 @@
 package com.knightsheraldry.items.armor.horse;
 
 import banduty.stoneycore.StoneyCore;
-import net.minecraft.item.DyeableItem;
-import net.minecraft.item.HorseArmorItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.util.Identifier;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeableLeatherItem;
+import net.minecraft.world.item.HorseArmorItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
-public class HorseBardingArmorItem extends HorseArmorItem implements DyeableItem {
-    public HorseBardingArmorItem(int bonus, Settings settings) {
-        super(bonus, "", settings);
+public class HorseBardingArmorItem extends HorseArmorItem implements DyeableLeatherItem {
+    public HorseBardingArmorItem(int bonus, Item.Properties properties) {
+        super(bonus, "", properties);
     }
 
     @Override
-    public Identifier getEntityTexture() {
-        return new Identifier(StoneyCore.MOD_ID, "textures/models/armor/a_layer_1.png");
+    public @NotNull ResourceLocation getTexture() {
+        return new ResourceLocation(StoneyCore.MOD_ID, "textures/models/armor/a_layer_1.png");
     }
 
     public int getColor(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getSubNbt("display");
-        return nbtCompound != null && nbtCompound.contains("color", 99) ? nbtCompound.getInt("color") : 0xFFFFFF;
+        CompoundTag compoundTag = stack.getTagElement("display");
+        return compoundTag != null && compoundTag.contains("color", 99) ? compoundTag.getInt("color") : 0xFFFFFF;
     }
 }

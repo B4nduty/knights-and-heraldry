@@ -1,9 +1,0 @@
-{
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "knightsheraldry:item/cage_2"
-	},
-	"overrides": [
-      { "predicate": { "visor_open": 1 }, "model": "knightsheraldry:item/open_cage_2" }
-	]
-}

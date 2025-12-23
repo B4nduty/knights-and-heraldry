@@ -1,0 +1,26 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 1.0,
+  "hit_times": 3,
+  "ingredients": [
+    {
+      "count": 1,
+      "item": "stoneycore:manuscript",
+      "nbt": "{TargetStack:{Count:1b,id:\"knightsheraldry:xiiii_plate_cuirass_tassets\",tag:{Damage:0}}}"
+    },
+    {
+      "count": 1,
+      "item": "knightsheraldry:xiiii_plate_cuirass",
+      "nbt": "{Damage:0}"
+    },
+    {
+      "count": 1,
+      "item": "stoneycore:hot_iron"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "stoneycore:hot_iron",
+    "nbt": "{TargetStack:{Count:1b,id:\"knightsheraldry:xiiii_plate_cuirass_tassets\",tag:{Damage:0}}}"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crown": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "stoneycore:crown"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_dark_burgonet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_burgonet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_teutonic_black_snakes": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:teutonic_black_snakes"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/teutonic_black_snakes_crown_dark_burgonet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_burgonet",
+      "has_teutonic_black_snakes",
+      "has_crown",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/teutonic_black_snakes_crown_dark_burgonet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -4,11 +4,14 @@ import com.google.common.collect.ImmutableList;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.entity.model.BipedEntityModel;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.world.entity.LivingEntity;
+import org.jetbrains.annotations.NotNull;
 
 @Environment(EnvType.CLIENT)
-public class AccessoryArmModel extends BipedEntityModel<LivingEntity> {
+public class AccessoryArmModel extends HumanoidModel<LivingEntity> {
 	public final ModelPart armorRightArm;
 	public final ModelPart armorLeftArm;
 
@@ -19,37 +22,37 @@ public class AccessoryArmModel extends BipedEntityModel<LivingEntity> {
 	}
 
 	@Override
-	protected Iterable<ModelPart> getBodyParts() {
+	protected @NotNull Iterable<ModelPart> bodyParts() {
 		return ImmutableList.of(this.armorRightArm, this.armorLeftArm);
 	}
 
-	public static TexturedModelData getTexturedModelData() {
-		ModelData modelData = BipedEntityModel.getModelData(Dilation.NONE, 0f);
-		ModelPartData modelPartData = modelData.getRoot();
+	public static LayerDefinition getTexturedModelData() {
+        MeshDefinition modelData = HumanoidModel.createMesh(CubeDeformation.NONE, 0f);
+        PartDefinition modelPartData = modelData.getRoot();
 
-		ModelPartData armorRightArm = modelPartData.addChild("armorRightArm", ModelPartBuilder.create().uv(96, 16).cuboid(-5.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.35F))
-				.uv(112, 15).cuboid(-5.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.45F))
-				.uv(60, 108).cuboid(-5.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.55F))
-				.uv(85, 58).cuboid(-5.5F, 3.5F, -2.5F, 5.0F, 1.0F, 5.0F, new Dilation(-0.01F)), ModelTransform.pivot(-5.0F, 2.0F, 0.0F));
+        PartDefinition armorRightArm = modelPartData.addOrReplaceChild("armorRightArm", CubeListBuilder.create().texOffs(96, 16).addBox(-5.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.35F))
+				.texOffs(112, 15).addBox(-5.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.45F))
+				.texOffs(60, 108).addBox(-5.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.55F))
+				.texOffs(85, 58).addBox(-5.5F, 3.5F, -2.5F, 5.0F, 1.0F, 5.0F, new CubeDeformation(-0.01F)), PartPose.offset(-5.0F, 2.0F, 0.0F));
 
-		armorRightArm.addChild("right_plate_rim_r1", ModelPartBuilder.create().uv(112, 18).cuboid(-1.0F, -5.0F, -3.5F, 0.0F, 4.0F, 7.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, 0.0F, 0.0F, 0.0F, 0.0F, -0.2618F));
+		armorRightArm.addOrReplaceChild("right_plate_rim_r1", CubeListBuilder.create().texOffs(112, 18).addBox(-1.0F, -5.0F, -3.5F, 0.0F, 4.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, 0.0F, 0.0F, 0.0F, 0.0F, -0.2618F));
 
-		armorRightArm.addChild("right_besagew_r1", ModelPartBuilder.create().uv(116, 45).cuboid(-1.0F, 0.0F, -4.3F, 3.0F, 3.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, 0.0F, 0.0F, 0.0F, 0.3491F, 0.0F));
+		armorRightArm.addOrReplaceChild("right_besagew_r1", CubeListBuilder.create().texOffs(116, 45).addBox(-1.0F, 0.0F, -4.3F, 3.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, 0.0F, 0.0F, 0.0F, 0.3491F, 0.0F));
 
-		armorRightArm.addChild("right_couter_r1", ModelPartBuilder.create().uv(112, 25).cuboid(-4.5F, 0.1F, 1.6F, 0.0F, 4.0F, 4.0F, new Dilation(0.0F))
-				.uv(48, 65).cuboid(-4.5F, 0.1F, 3.6F, 5.0F, 2.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, 0.0F, 0.0F, -0.7854F, 0.0F, 0.0F));
+		armorRightArm.addOrReplaceChild("right_couter_r1", CubeListBuilder.create().texOffs(112, 25).addBox(-4.5F, 0.1F, 1.6F, 0.0F, 4.0F, 4.0F, new CubeDeformation(0.0F))
+				.texOffs(48, 65).addBox(-4.5F, 0.1F, 3.6F, 5.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, 0.0F, 0.0F, -0.7854F, 0.0F, 0.0F));
 
-		ModelPartData armorLeftArm = modelPartData.addChild("armorLeftArm", ModelPartBuilder.create().uv(96, 16).mirrored().cuboid(1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.35F)).mirrored(false)
-				.uv(112, 15).mirrored().cuboid(1.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.45F)).mirrored(false)
-				.uv(60, 108).mirrored().cuboid(1.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new Dilation(0.55F)).mirrored(false)
-				.uv(85, 58).mirrored().cuboid(0.5F, 3.5F, -2.5F, 5.0F, 1.0F, 5.0F, new Dilation(-0.01F)).mirrored(false), ModelTransform.pivot(5.0F, 2.0F, 0.0F));
+        PartDefinition armorLeftArm = modelPartData.addOrReplaceChild("armorLeftArm", CubeListBuilder.create().texOffs(96, 16).mirror().addBox(1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.35F)).mirror(false)
+				.texOffs(112, 15).mirror().addBox(1.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.45F)).mirror(false)
+				.texOffs(60, 108).mirror().addBox(1.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.55F)).mirror(false)
+				.texOffs(85, 58).mirror().addBox(0.5F, 3.5F, -2.5F, 5.0F, 1.0F, 5.0F, new CubeDeformation(-0.01F)).mirror(false), PartPose.offset(5.0F, 2.0F, 0.0F));
 
-		armorLeftArm.addChild("left_plate_rim_r1", ModelPartBuilder.create().uv(112, 18).mirrored().cuboid(1.0F, -5.0F, -3.5F, 0.0F, 4.0F, 7.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.2618F));
+		armorLeftArm.addOrReplaceChild("left_plate_rim_r1", CubeListBuilder.create().texOffs(112, 18).mirror().addBox(1.0F, -5.0F, -3.5F, 0.0F, 4.0F, 7.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.2618F));
 
-		armorLeftArm.addChild("left_besagew_r1", ModelPartBuilder.create().uv(116, 45).mirrored().cuboid(-2.0F, 0.0F, -4.3F, 3.0F, 3.0F, 2.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(1.0F, 0.0F, 0.0F, 0.0F, -0.3491F, 0.0F));
+		armorLeftArm.addOrReplaceChild("left_besagew_r1", CubeListBuilder.create().texOffs(116, 45).mirror().addBox(-2.0F, 0.0F, -4.3F, 3.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.0F, 0.0F, 0.0F, 0.0F, -0.3491F, 0.0F));
 
-		armorLeftArm.addChild("left_couter_r1", ModelPartBuilder.create().uv(112, 25).mirrored().cuboid(4.5F, 0.1F, 1.6F, 0.0F, 4.0F, 4.0F, new Dilation(0.0F)).mirrored(false)
-				.uv(48, 65).mirrored().cuboid(-0.5F, 0.1F, 3.6F, 5.0F, 2.0F, 2.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(1.0F, 0.0F, 0.0F, -0.7854F, 0.0F, 0.0F));
-		return TexturedModelData.of(modelData, 128, 128);
+		armorLeftArm.addOrReplaceChild("left_couter_r1", CubeListBuilder.create().texOffs(112, 25).mirror().addBox(4.5F, 0.1F, 1.6F, 0.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false)
+				.texOffs(48, 65).mirror().addBox(-0.5F, 0.1F, 3.6F, 5.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.0F, 0.0F, 0.0F, -0.7854F, 0.0F, 0.0F));
+		return LayerDefinition.create(modelData, 128, 128);
 	}
 }

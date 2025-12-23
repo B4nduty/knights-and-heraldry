@@ -1,21 +1,21 @@
 package com.knightsheraldry.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
 
-public class PinEffect extends StatusEffect {
-    protected PinEffect(StatusEffectCategory category, int color) {
+public class PinEffect extends MobEffect {
+    protected PinEffect(MobEffectCategory category, int color) {
         super(category, color);
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity livingEntity, int amplifier) {
-        super.applyUpdateEffect(livingEntity, amplifier);
+    public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+        super.applyEffectTick(livingEntity, amplifier);
     }
 
     @Override
-    public boolean canApplyUpdateEffect(int duration, int amplifier) {
+    public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
 }

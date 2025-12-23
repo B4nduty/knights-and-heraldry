@@ -1,23 +1,24 @@
 package com.knightsheraldry.items.item.khweapon;
 
 import banduty.stoneycore.util.SCDamageCalculator;
-import net.minecraft.item.DyeableItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.world.item.DyeableLeatherItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
-public class WoodenLance extends Lance implements DyeableItem {
-    public WoodenLance(float attackSpeed, Settings settings, SCDamageCalculator.DamageType onlyDamageType) {
-        super(attackSpeed, settings, onlyDamageType);
+public class WoodenLance extends Lance implements DyeableLeatherItem {
+    public WoodenLance(float attackSpeed, Item.Properties properties, SCDamageCalculator.DamageType onlyDamageType) {
+        super(attackSpeed, properties, onlyDamageType);
     }
 
     @Override
     public int getColor(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getSubNbt(DISPLAY_KEY);
-        if (nbtCompound != null && nbtCompound.contains(COLOR_KEY, NbtElement.NUMBER_TYPE)) {
-            return nbtCompound.getInt(COLOR_KEY);
+        CompoundTag tagElement = stack.getTagElement(TAG_DISPLAY);
+        if (tagElement != null && tagElement.contains(TAG_COLOR, Tag.TAG_ANY_NUMERIC)) {
+            return tagElement.getInt(TAG_COLOR);
         }
-        return DEFAULT_COLOR;
+        return DEFAULT_LEATHER_COLOR;
     }
 
     @Override

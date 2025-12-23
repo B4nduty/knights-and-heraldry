@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_burgonet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:dark_burgonet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_gold_horns": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:gold_horns"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/gold_horns_dark_burgonet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_burgonet",
+      "has_gold_horns",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/gold_horns_dark_burgonet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

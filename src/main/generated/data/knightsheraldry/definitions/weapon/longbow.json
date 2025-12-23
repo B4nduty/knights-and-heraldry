@@ -1,0 +1,11 @@
+{
+  "ranged": {
+    "baseDamage": 14.0,
+    "damageType": "PIERCING",
+    "divergence": 1.0,
+    "maxUseTime": 72000,
+    "soundEvent": "minecraft:entity.arrow.shoot",
+    "speed": 3.7,
+    "useAnim": "BOW"
+  }
+}

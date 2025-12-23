@@ -1,5 +1,13 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/flamberge_broken",
+      "predicate": {
+        "broken": 1
+      }
+    }
+  ],
   "textures": {
     "layer0": "knightsheraldry:item/flamberge"
   }

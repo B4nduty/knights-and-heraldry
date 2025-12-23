@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_houndskull"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:golden_houndskull"
+  }
+}
