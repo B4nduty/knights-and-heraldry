@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_burgonet"
+    },
+    {
+      "item": "knightsheraldry:teutonic_wings_sharp_ends"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

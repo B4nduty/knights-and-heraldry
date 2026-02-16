@@ -1,0 +1,29 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "knightsheraldry:item/hammer_3d_broken"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [60, 140, -47],
+			"translation": [-8.25, 10, 6.75],
+			"scale": [2, 2, 0.8]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [60, 140, -47],
+			"translation": [-8.25, 10, 6.75],
+			"scale": [2, 2, 0.8]
+		},
+		"firstperson_righthand": {
+			"rotation": [13, 154, -63],
+			"translation": [-4.25, 6, -1.75],
+			"scale": [1.5, 2, 0.8]
+		},
+		"firstperson_lefthand": {
+			"rotation": [13, 154, -63],
+			"translation": [-4.25, 6, -1.75],
+			"scale": [1.5, 2, 0.8]
+		}
+	}
+}

@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_savoyard"
+    },
+    {
+      "item": "knightsheraldry:gold_horns"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

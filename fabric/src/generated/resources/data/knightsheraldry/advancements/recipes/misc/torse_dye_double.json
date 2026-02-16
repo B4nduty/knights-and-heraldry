@@ -1,0 +1,46 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_TagKey[minecraft:item / knightsheraldry:dyes]": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "knightsheraldry:dyes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:torse_dye_double"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_torse": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "knightsheraldry:torse"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_torse",
+      "has_TagKey[minecraft:item / knightsheraldry:dyes]",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:torse_dye_double"
+    ]
+  },
+  "sends_telemetry_event": false
+}

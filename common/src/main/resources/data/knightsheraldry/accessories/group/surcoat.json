@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "order": 900,
+  "slots": [
+    "surcoat"
+  ],
+  "icon": "knightsheraldry:gui/accessory/surcoat"
+}

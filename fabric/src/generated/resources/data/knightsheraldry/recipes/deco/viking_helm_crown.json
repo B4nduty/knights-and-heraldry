@@ -1,0 +1,11 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:viking_helm"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

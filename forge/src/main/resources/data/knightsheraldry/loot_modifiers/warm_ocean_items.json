@@ -1,0 +1,21 @@
+{
+  "type": "knightsheraldry:add_archaeology_items",
+  "conditions": [
+    {
+      "condition": "minecraft:location_check",
+      "predicate": {
+        "storage_loot": "minecraft:archaeology/ocean_ruin_warm"
+      }
+    }
+  ],
+  "items": [
+    "knightsheraldry:falchion",
+    "knightsheraldry:spear",
+    "knightsheraldry:pike",
+    "knightsheraldry:glaive",
+    "knightsheraldry:great_bascinet",
+    "knightsheraldry:great_houndskul_bascinet",
+    "knightsheraldry:maximilian_helmet",
+    "knightsheraldry:savoyard"
+  ]
+}

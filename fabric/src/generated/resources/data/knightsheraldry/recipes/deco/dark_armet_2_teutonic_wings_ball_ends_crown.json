@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_armet_2"
+    },
+    {
+      "item": "knightsheraldry:teutonic_wings_ball_ends"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

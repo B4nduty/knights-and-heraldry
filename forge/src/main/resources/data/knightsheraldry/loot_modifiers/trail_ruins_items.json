@@ -1,0 +1,19 @@
+{
+  "type": "knightsheraldry:add_archaeology_items",
+  "conditions": [
+    {
+      "condition": "minecraft:location_check",
+      "predicate": {
+        "storage_loot": "minecraft:archaeology/trail_ruins_common"
+      }
+    }
+  ],
+  "items": [
+    "knightsheraldry:flail",
+    "knightsheraldry:longsword",
+    "knightsheraldry:billhook",
+    "knightsheraldry:halberd",
+    "knightsheraldry:maximillian_cuirass",
+    "knightsheraldry:xiiii_plate_cuirass"
+  ]
+}

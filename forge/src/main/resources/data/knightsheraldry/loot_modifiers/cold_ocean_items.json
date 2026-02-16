@@ -1,0 +1,17 @@
+{
+  "type": "knightsheraldry:add_archaeology_items",
+  "conditions": [
+    {
+      "condition": "minecraft:location_check",
+      "predicate": {
+        "storage_loot": "minecraft:archaeology/ocean_ruin_cold"
+      }
+    }
+  ],
+  "items": [
+    "knightsheraldry:polehammer",
+    "knightsheraldry:morning_star",
+    "knightsheraldry:plate_spaulders",
+    "knightsheraldry:plate_cuirass"
+  ]
+}

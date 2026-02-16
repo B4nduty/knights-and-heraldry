@@ -1,0 +1,24 @@
+{
+  "type": "knightsheraldry:add_archaeology_items",
+  "conditions": [
+    {
+      "condition": "minecraft:location_check",
+      "predicate": {
+        "storage_loot": "minecraft:archaeology/desert_pyramid"
+      }
+    }
+  ],
+  "items": [
+    "knightsheraldry:stiletto",
+    "knightsheraldry:rapier",
+    "knightsheraldry:poleaxe",
+    "knightsheraldry:bardiche",
+    "knightsheraldry:houndskull",
+    "knightsheraldry:cage",
+    "knightsheraldry:visored_bascinet",
+    "knightsheraldry:great_helm",
+    "knightsheraldry:sallet",
+    "knightsheraldry:burgonet_falling_buffe",
+    "knightsheraldry:close_helm"
+  ]
+}

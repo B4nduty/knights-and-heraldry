@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:burgonet"
+    },
+    {
+      "item": "knightsheraldry:stag"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

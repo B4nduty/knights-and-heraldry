@@ -1,0 +1,16 @@
+{
+  "type": "knightsheraldry:add_manuscript",
+  "conditions": [
+    { "condition": "forge:loot_table_id", "loot_table_id": "minecraft:chests/stronghold_library" },
+    { "condition": "minecraft:random_chance", "chance": 0.8 }
+  ],
+  "items": [
+    "knightsheraldry:flail",
+    "knightsheraldry:spear",
+    "knightsheraldry:wardart",
+    "knightsheraldry:xiiii_plate_cuirass",
+    "knightsheraldry:xiiii_plate_breastplate",
+    "knightsheraldry:frogmouth",
+    "knightsheraldry:great_armet"
+  ]
+}

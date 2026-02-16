@@ -1,0 +1,21 @@
+{
+  "type": "knightsheraldry:add_manuscript",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/village/village_weaponsmith"
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.3
+    }
+  ],
+  "items": [
+    "knightsheraldry:dagger",
+    "knightsheraldry:sword",
+    "knightsheraldry:axe",
+    "knightsheraldry:mace",
+    "knightsheraldry:hammer",
+    "knightsheraldry:heavy_crossbow"
+  ]
+}

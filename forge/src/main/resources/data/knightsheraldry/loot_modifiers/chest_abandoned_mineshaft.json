@@ -1,0 +1,21 @@
+{
+  "type": "knightsheraldry:add_manuscript",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/abandoned_mineshaft"
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.4
+    }
+  ],
+  "items": [
+    "knightsheraldry:brigandine_harness",
+    "knightsheraldry:brigandine_cuisses",
+    "knightsheraldry:sabatons",
+    "knightsheraldry:aventail",
+    "knightsheraldry:rim_guards",
+    "knightsheraldry:besagews"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_great_armet_2"
+    },
+    {
+      "item": "knightsheraldry:pegasus"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

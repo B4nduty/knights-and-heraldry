@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:maximillian_helmet"
+    },
+    {
+      "item": "knightsheraldry:teutonic_wings_sharp_ends"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

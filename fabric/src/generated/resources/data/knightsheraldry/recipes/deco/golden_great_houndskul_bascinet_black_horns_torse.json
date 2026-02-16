@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_great_houndskul_bascinet"
+    },
+    {
+      "item": "knightsheraldry:black_horns"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

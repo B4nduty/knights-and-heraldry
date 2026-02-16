@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "knightsheraldry:item/torse_base",
+    "layer1": "knightsheraldry:item/torse_stripe"
+  }
+}

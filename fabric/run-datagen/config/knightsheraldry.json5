@@ -1,0 +1,8 @@
+{
+	// Lance Cooldown
+	"getLanceCooldown": 30,
+	// Damage Tamed Entities
+	"getDamageTamedEntities": false,
+	// WarDart throw Cooldown
+	"getWardartCooldown": 15
+}

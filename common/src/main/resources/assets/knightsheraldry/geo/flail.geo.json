@@ -1,0 +1,53 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.flail",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bb_main",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-0.5, -7, -0.5], "size": [1, 18, 1], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "chain",
+					"pivot": [0, 10, 0],
+					"rotation": [25, 0, 0],
+					"cubes": [
+						{"origin": [0, 8.5, -4], "size": [0, 3, 4], "uv": [0, 15]}
+					]
+				},
+				{
+					"name": "chain2",
+					"parent": "chain",
+					"pivot": [0, 10, -4],
+					"rotation": [-2.5, 0, 0],
+					"cubes": [
+						{"origin": [0, 8.5, -8], "size": [0, 3, 4], "uv": [0, 15]}
+					]
+				},
+				{
+					"name": "ball",
+					"parent": "chain2",
+					"pivot": [0, 10, -12],
+					"cubes": [
+						{"origin": [-1.5, 8.5, -16], "size": [3, 3, 8], "uv": [0, 21]},
+						{"origin": [0, 5.5, -18.5], "size": [0, 9, 11], "uv": [0, 22]},
+						{"origin": [0, 5.5, -18.5], "size": [0, 9, 11], "pivot": [0, 10, -16], "rotation": [0, 0, 45], "uv": [0, 22]},
+						{"origin": [0, 5.5, -18.5], "size": [0, 9, 11], "pivot": [0, 10, -16], "rotation": [0, 0, 90], "uv": [0, 22]},
+						{"origin": [0, 5.5, -18.5], "size": [0, 9, 11], "pivot": [0, 10, -16], "rotation": [0, 0, -45], "uv": [0, 22]}
+					]
+				}
+			]
+		}
+	]
+}

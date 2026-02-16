@@ -1,0 +1,10 @@
+{
+  "arquebus_close": {
+    "subtitle": "sounds.knightsheraldry.arquebus_close",
+    "sounds": [
+      "knightsheraldry:arquebus_close_1",
+      "knightsheraldry:arquebus_close_2",
+      "knightsheraldry:arquebus_close_3"
+    ]
+  }
+}

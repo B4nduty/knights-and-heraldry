@@ -1,0 +1,11 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_cage_2"
+    },
+    {
+      "item": "knightsheraldry:fluffy_plume"
+    }
+  ]
+}

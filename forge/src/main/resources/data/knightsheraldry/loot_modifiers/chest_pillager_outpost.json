@@ -1,0 +1,13 @@
+{
+  "type": "knightsheraldry:add_manuscript",
+  "conditions": [
+    { "condition": "forge:loot_table_id", "loot_table_id": "minecraft:chests/pillager_outpost" },
+    { "condition": "minecraft:random_chance", "chance": 0.6 }
+  ],
+  "items": [
+    "knightsheraldry:halberd",
+    "knightsheraldry:lance",
+    "knightsheraldry:armet",
+    "knightsheraldry:visored_barbute"
+  ]
+}

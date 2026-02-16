@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:cage"
+    },
+    {
+      "item": "knightsheraldry:fluffy_plume"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

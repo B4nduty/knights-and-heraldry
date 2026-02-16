@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "knightsheraldry:mail_spaulders",
+    "knightsheraldry:mail_spaulders_besagews",
+    "knightsheraldry:golden_mail_spaulders",
+    "knightsheraldry:golden_mail_spaulders_besagews",
+    "knightsheraldry:brigandine_spaulders",
+    "knightsheraldry:brigandine_spaulders_besagews",
+    "knightsheraldry:dark_brigandine_spaulders",
+    "knightsheraldry:dark_brigandine_spaulders_besagews",
+    "knightsheraldry:golden_brigandine_spaulders",
+    "knightsheraldry:golden_brigandine_spaulders_besagews",
+    "knightsheraldry:plate_spaulders",
+    "knightsheraldry:plate_spaulders_besagews",
+    "knightsheraldry:plate_spaulders_rimmed",
+    "knightsheraldry:plate_spaulders_besagews_rimmed",
+    "knightsheraldry:dark_plate_spaulders",
+    "knightsheraldry:dark_plate_spaulders_besagews",
+    "knightsheraldry:dark_plate_spaulders_rimmed",
+    "knightsheraldry:dark_plate_spaulders_besagews_rimmed",
+    "knightsheraldry:golden_plate_spaulders",
+    "knightsheraldry:golden_plate_spaulders_besagews",
+    "knightsheraldry:golden_plate_spaulders_rimmed",
+    "knightsheraldry:golden_plate_spaulders_besagews_rimmed"
+  ]
+}

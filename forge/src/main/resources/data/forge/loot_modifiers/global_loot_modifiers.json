@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "entries": [
+    "knightsheraldry:desert_pyramid_items",
+    "knightsheraldry:trail_ruins_items",
+    "knightsheraldry:cold_ocean_items",
+    "knightsheraldry:warm_ocean_items",
+    "knightsheraldry:chest_abandoned_mineshaft",
+    "knightsheraldry:chest_stronghold_library",
+    "knightsheraldry:chest_woodland_mansion",
+    "knightsheraldry:chest_pillager_outpost",
+    "knightsheraldry:chest_village_weaponsmith"
+  ]
+}

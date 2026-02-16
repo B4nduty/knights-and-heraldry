@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_kettle_helm"
+    },
+    {
+      "item": "knightsheraldry:tri_plume"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

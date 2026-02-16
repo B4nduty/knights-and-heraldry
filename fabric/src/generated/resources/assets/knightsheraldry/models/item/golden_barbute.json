@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [],
+  "textures": {
+    "layer0": "knightsheraldry:item/golden_barbute"
+  }
+}

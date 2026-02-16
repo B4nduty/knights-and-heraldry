@@ -1,0 +1,15 @@
+{
+  "type": "knightsheraldry:add_manuscript",
+  "conditions": [
+    { "condition": "forge:loot_table_id", "loot_table_id": "minecraft:chests/woodland_mansion" },
+    { "condition": "minecraft:random_chance", "chance": 0.8 }
+  ],
+  "items": [
+    "knightsheraldry:bardiche",
+    "knightsheraldry:greatsword",
+    "knightsheraldry:plate_cuirass",
+    "knightsheraldry:maximillian_cuirass",
+    "knightsheraldry:plate_harness",
+    "knightsheraldry:plate_cuisses"
+  ]
+}

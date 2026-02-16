@@ -1,0 +1,39 @@
+{
+    "schemaVersion": 1,
+    "id": "knightsheraldry",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${mod_author}"
+    ],
+    "contact": {},
+    "license": "${license}",
+    "icon": "assets/modid/${mod_id}.png",
+    "environment": "*",
+    "entrypoints": {
+        "client": [
+            "banduty.knightsheraldry.KnightsHeraldryFabricClient"
+        ],
+        "main": [
+            "banduty.knightsheraldry.KnightsHeraldryFabric"
+        ],
+        "fabric-datagen": [
+            "banduty.knightsheraldry.KnightsHeraldryFabricDatagen"
+        ]
+    },
+    "mixins": [
+        "${mod_id}.mixins.json",
+        "${mod_id}.fabric.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.14",
+        "fabric": "*",
+        "minecraft": "${minecraft_version}",
+        "java": ">=17"
+    },
+    "suggests": {
+        "another-mod": "*"
+    }
+}
+  

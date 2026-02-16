@@ -1,0 +1,21 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.9,
+  "hit_times": 3,
+  "ingredients": [
+    {
+      "count": 1,
+      "item": "stoneycore:manuscript",
+      "nbt": "{TargetStack:{Count:1b,id:\"knightsheraldry:viking_helm\",tag:{Damage:0}}}"
+    },
+    {
+      "count": 1,
+      "item": "stoneycore:hot_iron"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "stoneycore:hot_iron",
+    "nbt": "{TargetStack:{Count:1b,id:\"knightsheraldry:viking_helm\",tag:{Damage:0}}}"
+  }
+}

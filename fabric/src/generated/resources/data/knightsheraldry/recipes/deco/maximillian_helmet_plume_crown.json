@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:maximillian_helmet"
+    },
+    {
+      "item": "knightsheraldry:plume"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

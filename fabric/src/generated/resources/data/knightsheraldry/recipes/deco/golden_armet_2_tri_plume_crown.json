@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_armet_2"
+    },
+    {
+      "item": "knightsheraldry:tri_plume"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

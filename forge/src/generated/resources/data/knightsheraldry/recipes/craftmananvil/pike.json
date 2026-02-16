@@ -1,0 +1,25 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.9,
+  "hit_times": 3,
+  "ingredients": [
+    {
+      "count": 1,
+      "item": "stoneycore:manuscript",
+      "nbt": "{TargetStack:{Count:1b,id:\"knightsheraldry:pike\",tag:{Damage:0}}}"
+    },
+    {
+      "count": 1,
+      "item": "stoneycore:hot_iron"
+    },
+    {
+      "count": 1,
+      "tag": "minecraft:planks"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "stoneycore:hot_iron",
+    "nbt": "{TargetStack:{Count:1b,id:\"knightsheraldry:pike\",tag:{Damage:0}}}"
+  }
+}

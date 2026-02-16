@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:torse"
+    },
+    {
+      "tag": "knightsheraldry:dyes"
+    }
+  ],
+  "result": {
+    "item": "knightsheraldry:torse"
+  }
+}
