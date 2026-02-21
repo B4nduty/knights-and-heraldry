@@ -1,8 +1,0 @@
-{
-  "loader": "forge:separate_transforms",
-  "base": { "parent": "minecraft:item/generated" },
-  "gui_light": "front",
-  "textures": {
-    "layer0": "knightsheraldry:item/surcoat"
-  }
-}

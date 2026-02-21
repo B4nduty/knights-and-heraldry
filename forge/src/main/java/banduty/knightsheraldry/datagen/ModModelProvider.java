@@ -25,16 +25,36 @@ public class ModModelProvider extends ForgeModelProviderPlus {
     protected void registerModels() {
         // --- Basic Flat Items ---
         Item[] simpleFlat = {
+                // Basic items
                 ModItems.CHAPERON.get(), ModItems.BROADHEAD_ARROW.get(), ModItems.BODKIN_ARROW.get(),
                 ModItems.SWALLOWTAIL_ARROW.get(), ModItems.HOOD.get(), ModItems.TORN_HOOD.get(),
                 ModItems.HELMET_HOOD.get(), ModItems.HELMET_TORN_HOOD.get(), ModItems.CLOAK.get(),
-                ModItems.TORN_CLOAK.get(), ModItems.CIVILIAN_SURCOAT.get(), ModItems.GIORNEA.get(), ModItems.AVENTAIL.get(),
-                ModItems.BEVOR.get(), ModItems.DARK_BEVOR.get(), ModItems.GOLDEN_BEVOR.get(),
-                ModItems.RIM_GUARDS.get(), ModItems.BESAGEWS.get(), ModItems.QUILTED_COIF.get(),
-                ModItems.GAMBESON_BREECHES.get(), ModItems.GAMBESON_BOOTS.get(), ModItems.MAIL_COIF.get(),
-                ModItems.HAUBERK.get(), ModItems.MAIL_BREECHES.get(), ModItems.MAIL_BOOTS.get(),
-                ModItems.LONGBOW.get(), ModItems.LANCE.get()
+                ModItems.TORN_CLOAK.get(), ModItems.CIVILIAN_SURCOAT.get(), ModItems.GIORNEA.get(),
+                ModItems.AVENTAIL.get(), ModItems.BEVOR.get(), ModItems.DARK_BEVOR.get(),
+                ModItems.GOLDEN_BEVOR.get(), ModItems.RIM_GUARDS.get(), ModItems.BESAGEWS.get(),
+                ModItems.QUILTED_COIF.get(), ModItems.GAMBESON_BREECHES.get(), ModItems.GAMBESON_BOOTS.get(),
+                ModItems.MAIL_COIF.get(), ModItems.HAUBERK.get(), ModItems.MAIL_BREECHES.get(),
+                ModItems.MAIL_BOOTS.get(), ModItems.LONGBOW.get(), ModItems.LANCE.get(),
+
+                // Plumes
+                ModItems.PLUME.get(), ModItems.TRI_PLUME.get(), ModItems.FLUFFY_PLUME.get(),
+
+                // Deco items - Snakes
+                ModItems.TEUTONIC_SNAKES.get(), ModItems.TEUTONIC_BLACK_SNAKES.get(),
+
+                // Deco items - Horns
+                ModItems.GOLD_HORNS.get(), ModItems.BLACK_HORNS.get(),
+
+                // Deco items - Wings
+                ModItems.TEUTONIC_GOLD_WINGS.get(), ModItems.TEUTONIC_BLACK_WINGS.get(),
+                ModItems.TEUTONIC_WINGS_BALL_ENDS.get(), ModItems.TEUTONIC_WINGS_SHARP_ENDS.get(),
+
+                // Deco items - Heraldic beasts
+                ModItems.DRAGON.get(), ModItems.LION.get(), ModItems.SNAKE.get(),
+                ModItems.UNICORN.get(), ModItems.STAG.get(), ModItems.BOAR.get(),
+                ModItems.EAGLE.get(), ModItems.PEGASUS.get()
         };
+
         for (Item item : simpleFlat) simpleItem(item);
 
         registerSimpleItems();

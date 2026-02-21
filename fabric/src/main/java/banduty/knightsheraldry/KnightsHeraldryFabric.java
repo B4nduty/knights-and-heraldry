@@ -29,5 +29,7 @@ public class KnightsHeraldryFabric implements ModInitializer {
         CanEquipCallback.EVENT.register(new CanEquipHandler());
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());
         UseItemCallback.EVENT.register(new UseItemHandler());
+
+
     }
 }

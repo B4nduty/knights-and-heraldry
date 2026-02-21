@@ -1,8 +1,0 @@
-{
-  "parent": "item/handheld",
-  "overrides": [],
-  "textures": {
-    "layer0": "knightsheraldry:item/golden_brigandine",
-    "layer1": "knightsheraldry:item/golden_brigandine_overlay"
-  }
-}

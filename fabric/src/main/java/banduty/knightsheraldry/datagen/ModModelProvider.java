@@ -161,7 +161,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
         };
 
         for (Item item : simpleHandheldItems) {
-            registerItemWConditions(item, ModelTemplates.FLAT_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID,"broken"), 1));
+            registerItemWConditions(item, ModelTemplates.FLAT_HANDHELD_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID,"broken"), 1));
         }
 
         for (Item item : openVisorHelmet) {
