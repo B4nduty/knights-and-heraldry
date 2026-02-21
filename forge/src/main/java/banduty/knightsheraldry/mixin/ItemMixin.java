@@ -5,6 +5,7 @@ import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
 import banduty.knightsheraldry.util.itemdata.HelmetDeco;
 import banduty.knightsheraldry.util.itemdata.ItemTooltipData;
 import banduty.stoneycore.items.armor.SCAccessoryItem;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.CraftingMenu;
@@ -69,100 +70,84 @@ public class ItemMixin {
         if (!(stack.getItem() instanceof SCAccessoryItem)) return;
 
         if (player.containerMenu instanceof CraftingMenu craftingMenu) {
-            applyCraftingModifiers(stack, craftingMenu.getSize(), craftingMenu::getSlot);
+            knightsheraldry$applyCraftingModifiers(stack, craftingMenu.getSize(), craftingMenu::getSlot);
         } else if (player.containerMenu instanceof InventoryMenu inventoryMenu) {
-            applyCraftingModifiers(stack, 4, inventoryMenu::getSlot);
+            knightsheraldry$applyCraftingModifiers(stack, 4, inventoryMenu::getSlot);
         }
     }
 
     @Unique
-    private void applyCraftingModifiers(ItemStack original, int slotCount, IntFunction<Slot> slotSupplier) {
+    private void knightsheraldry$applyCraftingModifiers(ItemStack original, int slotCount, IntFunction<Slot> slotSupplier) {
+        CompoundTag originalColors = null;
+        String itemPath = BuiltInRegistries.ITEM.getKey(original.getItem()).getPath();
 
-        CompoundTag nbt = original.getOrCreateTag();
+        if (original.getItem() instanceof TwoLayerDyeableItem) {
+            CompoundTag tag = original.getTag();
+            if (tag != null && tag.contains(itemPath)) {
+                originalColors = tag.getCompound(itemPath);
+                tag.remove(itemPath);
+            }
+        }
+
+        boolean appliedNewColors = false;
 
         for (int i = 0; i < slotCount; i++) {
-
             ItemStack ingredient = slotSupplier.apply(i).getItem();
-            if (ingredient.isEmpty() || ingredient.getItem() == original.getItem())
-                continue;
-
-            if (original.getItem() instanceof TwoLayerDyeableItem
-                    && ingredient.getItem() instanceof DyeItem dye) {
-
-                int color = getColorFromComponents(
-                        dye.getDyeColor().getTextureDiffuseColors()
-                );
-
-                if (!nbt.contains("color1")) {
-                    nbt.putInt("color1", color);
-                } else if (!nbt.contains("color2")) {
-                    nbt.putInt("color2", color);
+            if (ingredient.getItem() == original.getItem()) continue;
+            if (ingredient.getItem() instanceof DyeItem dye && original.getItem() instanceof TwoLayerDyeableItem) {
+                CompoundTag nbt = original.getOrCreateTag();
+                int color = getColorFromComponents(dye.getDyeColor().getTextureDiffuseColors());
+                CompoundTag colors = nbt.getCompound(itemPath);
+                if (!colors.contains("color1")) {
+                    colors.putInt("color1", color);
+                } else if (!colors.contains("color2")) {
+                    colors.putInt("color2", color);
                 }
-
+                nbt.put(itemPath, colors);
+                appliedNewColors = true;
+                continue;
+            }
+            if (ingredient.getItem() == ModItems.RIM_GUARDS.get() && original.getItem() != ModItems.RIM_GUARDS.get()) {
+                original.getOrCreateTag().putBoolean("rimmed", true);
+                continue;
+            }
+            if (ingredient.getItem() == ModItems.BESAGEWS.get() && original.getItem() != ModItems.BESAGEWS.get()) {
+                original.getOrCreateTag().putBoolean("besagews", true);
                 continue;
             }
 
-            if (ingredient.getItem() == ModItems.RIM_GUARDS
-                    && original.getItem() != ModItems.RIM_GUARDS) {
-                nbt.putBoolean("rimmed", true);
-                continue;
-            }
-
-            if (ingredient.getItem() == ModItems.BESAGEWS
-                    && original.getItem() != ModItems.BESAGEWS) {
-                nbt.putBoolean("besagews", true);
-                continue;
-            }
-
-            Optional<HelmetDeco> decoOpt =
-                    HelmetDeco.getDecoFromItem(ingredient.getItem());
-
-            if (decoOpt.isEmpty())
-                continue;
-
-            HelmetDeco deco = decoOpt.get();
-
-            // Remove existing deco in same group
-            for (HelmetDeco other : HelmetDeco.getValues()) {
-                if (other.group() == deco.group()) {
-                    nbt.remove(other.getNbtKey());
-                }
-            }
-
-            String key = deco.getNbtKey();
-
-            // Two-layer deco copied from item
-            if (deco.color() == 2
-                    && ingredient.getItem() instanceof TwoLayerDyeableItem twoLayer) {
-
-                CompoundTag colorTag = new CompoundTag();
-                colorTag.putInt("color1", twoLayer.getColor1(ingredient));
-                colorTag.putInt("color2", twoLayer.getColor2(ingredient));
-
-                nbt.put(key, colorTag);
-                continue;
-            }
-
-            // Single color deco (supports DyeItem)
-            if (deco.color() == 1) {
-
-                int color = 0xFFFFFF;
-
-                if (ingredient.getItem() instanceof DyeItem dyeItem) {
-                    color = dyeItem.getDyeColor().getFireworkColor();
-                } else {
-                    CompoundTag display = ingredient.getTagElement("display");
-                    if (display != null && display.contains("color", 99)) {
-                        color = display.getInt("color");
+            Optional<HelmetDeco> deco = HelmetDeco.getDecoFromItem(ingredient.getItem());
+            if (deco.isPresent()) {
+                if (original.getTag() != null) {
+                    for (HelmetDeco otherDeco : HelmetDeco.getValues()) {
+                        if (!original.getTag().contains(otherDeco.getNbtKey())) continue;
+                        if (otherDeco.group() == deco.get().group()) {
+                            original.getTag().remove(otherDeco.getNbtKey());
+                        }
                     }
                 }
 
-                nbt.putInt(key, color);
-                continue;
-            }
+                if (deco.get().color() == 2 && ingredient.getItem() instanceof TwoLayerDyeableItem twoLayerDyeableItem) {
+                    CompoundTag tag = original.getOrCreateTagElement(deco.get().getNbtKey());
+                    tag.putInt("color1", twoLayerDyeableItem.getColor1(ingredient));
+                    tag.putInt("color2", twoLayerDyeableItem.getColor2(ingredient));
+                    appliedNewColors = true;
+                    continue;
+                }
 
-            // Boolean deco
-            nbt.putBoolean(key, true);
+                String key = deco.get().getNbtKey();
+                if (deco.get().color() == 1) {
+                    CompoundTag display = ingredient.getTagElement("display");
+                    int color = display != null && display.contains("color", 99) ? display.getInt("color") : 0xFFFFFF;
+                    original.getOrCreateTag().putInt(key, color);
+                } else {
+                    original.getOrCreateTag().putBoolean(key, true);
+                }
+            }
+        }
+
+        if (original.getItem() instanceof TwoLayerDyeableItem && !appliedNewColors && originalColors != null) {
+            original.getOrCreateTag().put(itemPath, originalColors);
         }
     }
 

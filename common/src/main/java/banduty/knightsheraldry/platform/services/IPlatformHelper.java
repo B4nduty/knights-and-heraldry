@@ -2,8 +2,8 @@ package banduty.knightsheraldry.platform.services;
 
 import banduty.knightsheraldry.config.KHConfigImpl;
 import banduty.knightsheraldry.data.ArrowBehavior;
+import banduty.knightsheraldry.recipe.TwoLayerDyeRecipe;
 import banduty.knightsheraldry.recipes.HelmetDecoRecipe;
-import banduty.stoneycore.recipes.BannerPatternRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.player.Player;
@@ -52,4 +52,6 @@ public interface IPlatformHelper {
     MobEffect getPinEffect();
 
     RecipeSerializer<HelmetDecoRecipe> getHelmetDecoRecipe();
+
+    RecipeSerializer<TwoLayerDyeRecipe> getTwoLayerDyeRecipe();
 }

@@ -3,7 +3,6 @@ package banduty.knightsheraldry.datagen;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.ModItems;
 import banduty.knightsheraldry.util.itemdata.HelmetDeco;
-import banduty.knightsheraldry.util.itemdata.ModTags;
 import banduty.stoneycore.datagen.BannerRecipeBuilder;
 import banduty.stoneycore.datagen.CraftmanAnvilRecipeJsonBuilder;
 import banduty.stoneycore.datagen.ManuscriptRecipeBuilder;
@@ -29,8 +28,8 @@ import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider {
     public ModRecipeProvider(PackOutput output) {
-    super(output);
-}
+        super(output);
+    }
 
     @Override
     public void buildRecipes(Consumer<FinishedRecipe> exporter) {
@@ -45,83 +44,83 @@ public class ModRecipeProvider extends RecipeProvider {
         createWeaponCycle(exporter, ModItems.GREATSWORD.get(), ModItems.CLAYMORE.get(),
                 ModItems.FLAMBERGE.get(), ModItems.ZWEIHANDER.get());
 
-        createDecoRecipe(exporter,  ModItems.BARBUTE.get());
-        createDecoRecipe(exporter,  ModItems.BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.KETTLE_HELM.get());
-        createDecoRecipe(exporter,  ModItems.NASAL_HELM.get());
-        createDecoRecipe(exporter,  ModItems.VIKING_HELM.get());
-        createDecoRecipe(exporter,  ModItems.BURGONET.get());
-        createDecoRecipe(exporter,  ModItems.ARMET.get());
-        createDecoRecipe(exporter,  ModItems.ARMET_2.get());
-        createDecoRecipe(exporter,  ModItems.VISORED_BARBUTE.get());
-        createDecoRecipe(exporter,  ModItems.HOUNDSKULL.get());
-        createDecoRecipe(exporter,  ModItems.CAGE.get());
-        createDecoRecipe(exporter,  ModItems.CAGE_2.get());
-        createDecoRecipe(exporter,  ModItems.VISORED_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.GREAT_HELM.get());
-        createDecoRecipe(exporter,  ModItems.GREAT_HELM_2.get());
-        createDecoRecipe(exporter,  ModItems.SALLET.get());
-        createDecoRecipe(exporter,  ModItems.BURGONET_FALLING_BUFFE.get());
-        createDecoRecipe(exporter,  ModItems.CLOSE_HELM.get());
-        createDecoRecipe(exporter,  ModItems.FROGMOUTH.get());
-        createDecoRecipe(exporter,  ModItems.GREAT_ARMET.get());
-        createDecoRecipe(exporter,  ModItems.GREAT_ARMET_2.get());
-        createDecoRecipe(exporter,  ModItems.GREAT_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.GREAT_HOUNDSKUL_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.MAXIMILLIAN_HELMET.get());
-        createDecoRecipe(exporter,  ModItems.SAVOYARD.get());
+        createDecoRecipe(exporter, ModItems.BARBUTE.get());
+        createDecoRecipe(exporter, ModItems.BASCINET.get());
+        createDecoRecipe(exporter, ModItems.KETTLE_HELM.get());
+        createDecoRecipe(exporter, ModItems.NASAL_HELM.get());
+        createDecoRecipe(exporter, ModItems.VIKING_HELM.get());
+        createDecoRecipe(exporter, ModItems.BURGONET.get());
+        createDecoRecipe(exporter, ModItems.ARMET.get());
+        createDecoRecipe(exporter, ModItems.ARMET_2.get());
+        createDecoRecipe(exporter, ModItems.VISORED_BARBUTE.get());
+        createDecoRecipe(exporter, ModItems.HOUNDSKULL.get());
+        createDecoRecipe(exporter, ModItems.CAGE.get());
+        createDecoRecipe(exporter, ModItems.CAGE_2.get());
+        createDecoRecipe(exporter, ModItems.VISORED_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.GREAT_HELM.get());
+        createDecoRecipe(exporter, ModItems.GREAT_HELM_2.get());
+        createDecoRecipe(exporter, ModItems.SALLET.get());
+        createDecoRecipe(exporter, ModItems.BURGONET_FALLING_BUFFE.get());
+        createDecoRecipe(exporter, ModItems.CLOSE_HELM.get());
+        createDecoRecipe(exporter, ModItems.FROGMOUTH.get());
+        createDecoRecipe(exporter, ModItems.GREAT_ARMET.get());
+        createDecoRecipe(exporter, ModItems.GREAT_ARMET_2.get());
+        createDecoRecipe(exporter, ModItems.GREAT_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.GREAT_HOUNDSKUL_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.MAXIMILLIAN_HELMET.get());
+        createDecoRecipe(exporter, ModItems.SAVOYARD.get());
 
-        createDecoRecipe(exporter,  ModItems.DARK_BARBUTE.get());
-        createDecoRecipe(exporter,  ModItems.DARK_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.DARK_KETTLE_HELM.get());
-        createDecoRecipe(exporter,  ModItems.DARK_NASAL_HELM.get());
-        createDecoRecipe(exporter,  ModItems.DARK_VIKING_HELM.get());
-        createDecoRecipe(exporter,  ModItems.DARK_BURGONET.get());
-        createDecoRecipe(exporter,  ModItems.DARK_ARMET.get());
-        createDecoRecipe(exporter,  ModItems.DARK_ARMET_2.get());
-        createDecoRecipe(exporter,  ModItems.DARK_VISORED_BARBUTE.get());
-        createDecoRecipe(exporter,  ModItems.DARK_HOUNDSKULL.get());
-        createDecoRecipe(exporter,  ModItems.DARK_CAGE.get());
-        createDecoRecipe(exporter,  ModItems.DARK_CAGE_2.get());
-        createDecoRecipe(exporter,  ModItems.DARK_VISORED_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.DARK_GREAT_HELM.get());
-        createDecoRecipe(exporter,  ModItems.DARK_GREAT_HELM_2.get());
-        createDecoRecipe(exporter,  ModItems.DARK_SALLET.get());
-        createDecoRecipe(exporter,  ModItems.DARK_CLOSE_HELM.get());
-        createDecoRecipe(exporter,  ModItems.DARK_BURGONET_FALLING_BUFFE.get());
-        createDecoRecipe(exporter,  ModItems.DARK_FROGMOUTH.get());
-        createDecoRecipe(exporter,  ModItems.DARK_GREAT_ARMET.get());
-        createDecoRecipe(exporter,  ModItems.DARK_GREAT_ARMET_2.get());
-        createDecoRecipe(exporter,  ModItems.DARK_GREAT_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.DARK_GREAT_HOUNDSKUL_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.DARK_MAXIMILLIAN_HELMET.get());
-        createDecoRecipe(exporter,  ModItems.DARK_SAVOYARD.get());
+        createDecoRecipe(exporter, ModItems.DARK_BARBUTE.get());
+        createDecoRecipe(exporter, ModItems.DARK_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.DARK_KETTLE_HELM.get());
+        createDecoRecipe(exporter, ModItems.DARK_NASAL_HELM.get());
+        createDecoRecipe(exporter, ModItems.DARK_VIKING_HELM.get());
+        createDecoRecipe(exporter, ModItems.DARK_BURGONET.get());
+        createDecoRecipe(exporter, ModItems.DARK_ARMET.get());
+        createDecoRecipe(exporter, ModItems.DARK_ARMET_2.get());
+        createDecoRecipe(exporter, ModItems.DARK_VISORED_BARBUTE.get());
+        createDecoRecipe(exporter, ModItems.DARK_HOUNDSKULL.get());
+        createDecoRecipe(exporter, ModItems.DARK_CAGE.get());
+        createDecoRecipe(exporter, ModItems.DARK_CAGE_2.get());
+        createDecoRecipe(exporter, ModItems.DARK_VISORED_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.DARK_GREAT_HELM.get());
+        createDecoRecipe(exporter, ModItems.DARK_GREAT_HELM_2.get());
+        createDecoRecipe(exporter, ModItems.DARK_SALLET.get());
+        createDecoRecipe(exporter, ModItems.DARK_CLOSE_HELM.get());
+        createDecoRecipe(exporter, ModItems.DARK_BURGONET_FALLING_BUFFE.get());
+        createDecoRecipe(exporter, ModItems.DARK_FROGMOUTH.get());
+        createDecoRecipe(exporter, ModItems.DARK_GREAT_ARMET.get());
+        createDecoRecipe(exporter, ModItems.DARK_GREAT_ARMET_2.get());
+        createDecoRecipe(exporter, ModItems.DARK_GREAT_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.DARK_GREAT_HOUNDSKUL_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.DARK_MAXIMILLIAN_HELMET.get());
+        createDecoRecipe(exporter, ModItems.DARK_SAVOYARD.get());
 
-        createDecoRecipe(exporter,  ModItems.GOLDEN_BARBUTE.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_KETTLE_HELM.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_NASAL_HELM.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_VIKING_HELM.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_BURGONET.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_ARMET.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_ARMET_2.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_VISORED_BARBUTE.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_HOUNDSKULL.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_CAGE.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_CAGE_2.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_VISORED_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_GREAT_HELM.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_GREAT_HELM_2.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_SALLET.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_CLOSE_HELM.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_BURGONET_FALLING_BUFFE.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_FROGMOUTH.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_GREAT_ARMET.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_GREAT_ARMET_2.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_GREAT_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_MAXIMILLIAN_HELMET.get());
-        createDecoRecipe(exporter,  ModItems.GOLDEN_SAVOYARD.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_BARBUTE.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_KETTLE_HELM.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_NASAL_HELM.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_VIKING_HELM.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_BURGONET.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_ARMET.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_ARMET_2.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_VISORED_BARBUTE.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_HOUNDSKULL.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_CAGE.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_CAGE_2.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_VISORED_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_HELM.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_HELM_2.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_SALLET.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_CLOSE_HELM.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_BURGONET_FALLING_BUFFE.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_FROGMOUTH.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_ARMET.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_ARMET_2.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_MAXIMILLIAN_HELMET.get());
+        createDecoRecipe(exporter, ModItems.GOLDEN_SAVOYARD.get());
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.HORSE_BARDING.get(), 1)
                 .requires(ModItems.HORSE_BARDING.get())
@@ -171,7 +170,7 @@ public class ModRecipeProvider extends RecipeProvider {
         createEasyRecipe(exporter, ModItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), ModItems.DARK_PLATE_SPAULDERS_RIMMED.get(), ModItems.BESAGEWS.get());
         createEasyRecipe(exporter, ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), ModItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get(), ModItems.BESAGEWS.get());
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SURCOAT.get(), 1)
+  /*      ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SURCOAT.get(), 1)
                 .requires(ModItems.SURCOAT.get())
                 .requires(ItemTags.BANNERS)
                 .unlockedBy(getHasName(ModItems.SURCOAT.get()), has(ModItems.SURCOAT.get()))
@@ -184,8 +183,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.SURCOAT_SLEEVELESS.get()), has(ModItems.SURCOAT_SLEEVELESS.get()))
                 .unlockedBy(getHasName(Items.WHITE_BANNER), has(Items.WHITE_BANNER))
                 .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, "sleeveless_surcoat_with_banner"));
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TORSE.get())
+*/
+       /* ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TORSE.get())
                 .requires(ModItems.TORSE.get())
                 .requires(ModTags.DYES.getTag())
                 .unlockedBy(getHasName(ModItems.TORSE.get()), has(ModItems.TORSE.get()))
@@ -199,7 +198,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.TORSE.get()), has(ModItems.TORSE.get()))
                 .unlockedBy("has_" + ModTags.DYES.getTag(), has(ModTags.DYES.getTag()))
                 .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(ModItems.TORSE.get()).getPath() + "_dye_double"));
-
+*/
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TRI_PLUME.get())
                 .requires(ModItems.PLUME.get())
                 .requires(ModItems.PLUME.get())

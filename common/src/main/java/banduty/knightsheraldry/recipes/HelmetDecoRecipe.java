@@ -16,6 +16,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 
 public class HelmetDecoRecipe extends CustomRecipe {
+
     private static final Ingredient DECO_ITEMS = Ingredient.of(
             HelmetDeco.getRegisteredItems().stream().map(ItemStack::new)
     );
@@ -41,13 +42,15 @@ public class HelmetDecoRecipe extends CustomRecipe {
                 return false;
             }
         }
+
         return baseCount == 1 && decoCount > 0;
     }
 
     @Override
-    public ItemStack assemble(CraftingContainer container, RegistryAccess registry) {
+    public ItemStack assemble(CraftingContainer container, RegistryAccess registryAccess) {
         ItemStack baseItem = ItemStack.EMPTY;
 
+        // Find base helmet
         for (int i = 0; i < container.getContainerSize(); i++) {
             ItemStack stack = container.getItem(i);
             if (!stack.isEmpty() && stack.getItem() instanceof DecoableItem) {
@@ -58,43 +61,57 @@ public class HelmetDecoRecipe extends CustomRecipe {
 
         if (baseItem.isEmpty()) return ItemStack.EMPTY;
 
-        CompoundTag nbt = baseItem.getOrCreateTag();
+        CompoundTag rootTag = baseItem.getOrCreateTag();
+        CompoundTag decoTag = rootTag.getCompound("HelmetDeco");
 
+        // Apply each deco ingredient
         for (int i = 0; i < container.getContainerSize(); i++) {
             ItemStack ingredient = container.getItem(i);
             if (ingredient.isEmpty() || ingredient.getItem() instanceof DecoableItem) continue;
 
             HelmetDeco.getDecoFromItem(ingredient.getItem()).ifPresent(deco -> {
+
+                // Remove existing deco in same group
                 for (HelmetDeco other : HelmetDeco.getValues()) {
                     if (other.group() == deco.group()) {
-                        nbt.remove(other.getNbtKey());
+                        decoTag.remove(other.getNbtKey());
                     }
                 }
 
-                applyIngredientToTag(nbt, deco, ingredient);
+                applyIngredientToTag(decoTag, deco, ingredient);
             });
         }
 
+        rootTag.put("HelmetDeco", decoTag);
         return baseItem;
     }
 
-    private void applyIngredientToTag(CompoundTag nbt, HelmetDeco deco, ItemStack ingredient) {
+    private void applyIngredientToTag(CompoundTag decoTag, HelmetDeco deco, ItemStack ingredient) {
+
         switch (deco.color()) {
+
+            // Two-layer dyeable
             case 2 -> {
                 if (ingredient.getItem() instanceof TwoLayerDyeableItem twoLayer) {
-                    CompoundTag decoNbt = new CompoundTag();
-                    decoNbt.putInt("color1", twoLayer.getColor1(ingredient));
-                    decoNbt.putInt("color2", twoLayer.getColor2(ingredient));
-                    nbt.put(deco.getNbtKey(), decoNbt);
+                    CompoundTag colorTag = new CompoundTag();
+                    colorTag.putInt("color1", twoLayer.getColor1(ingredient));
+                    colorTag.putInt("color2", twoLayer.getColor2(ingredient));
+                    decoTag.put(deco.getNbtKey(), colorTag);
                 }
             }
+
+            // Single color (like leather dye)
             case 1 -> {
                 CompoundTag display = ingredient.getTagElement("display");
                 int color = (display != null && display.contains("color", 99))
-                        ? display.getInt("color") : 0xFFFFFF;
-                nbt.putInt(deco.getNbtKey(), color);
+                        ? display.getInt("color")
+                        : 0xFFFFFF;
+
+                decoTag.putInt(deco.getNbtKey(), color);
             }
-            default -> nbt.putBoolean(deco.getNbtKey(), true);
+
+            // Boolean deco (no color)
+            default -> decoTag.putBoolean(deco.getNbtKey(), true);
         }
     }
 

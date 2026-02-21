@@ -1,6 +1,7 @@
 package banduty.knightsheraldry.recipes;
 
 import banduty.knightsheraldry.KnightsHeraldry;
+import banduty.knightsheraldry.recipe.TwoLayerDyeRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SimpleCraftingRecipeSerializer;
@@ -17,6 +18,12 @@ public interface ModRecipes {
     RegistryObject<RecipeSerializer<HelmetDecoRecipe>> HELMET_DECO_SERIALIZER =
             RECIPE_SERIALIZERS.register("helmet_deco_crafting",
                     () -> new SimpleCraftingRecipeSerializer<>(HelmetDecoRecipe::new));
+    RegistryObject<RecipeSerializer<TwoLayerDyeRecipe>> TWO_LAYER_DYEING_SERIALIZER =
+            RECIPE_SERIALIZERS.register("two_layer_dyeing",
+                    () -> new SimpleCraftingRecipeSerializer<>(TwoLayerDyeRecipe::new));
+    RegistryObject<RecipeSerializer<SurcoatBannerRecipe>> SURCOAT_BANNER =
+            RECIPE_SERIALIZERS.register("surcoat_banner",
+                    () -> new SimpleCraftingRecipeSerializer<>(SurcoatBannerRecipe::new));
 
     static void register(IEventBus modEventBus) {
         RECIPE_TYPES.register(modEventBus);

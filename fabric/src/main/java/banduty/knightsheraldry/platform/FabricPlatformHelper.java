@@ -6,6 +6,7 @@ import banduty.knightsheraldry.data.ArrowBehavior;
 import banduty.knightsheraldry.data.ArrowBehaviorManager;
 import banduty.knightsheraldry.effect.ModEffects;
 import banduty.knightsheraldry.platform.services.IPlatformHelper;
+import banduty.knightsheraldry.recipe.TwoLayerDyeRecipe;
 import banduty.knightsheraldry.recipes.HelmetDecoRecipe;
 import banduty.knightsheraldry.recipes.ModRecipes;
 import net.bettercombat.logic.PlayerAttackProperties;
@@ -62,5 +63,10 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public RecipeSerializer<HelmetDecoRecipe> getHelmetDecoRecipe() {
         return ModRecipes.HELMET_DECO_SERIALIZER;
+    }
+
+    @Override
+    public RecipeSerializer<TwoLayerDyeRecipe> getTwoLayerDyeRecipe() {
+        return ModRecipes.TWO_LAYER_DYE_SERIALIZER;
     }
 }

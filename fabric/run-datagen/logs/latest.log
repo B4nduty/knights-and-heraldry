@@ -1,5 +1,5 @@
-[12:42:20] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.20.1 with Fabric Loader 0.16.10
-[12:42:21] [main/INFO] (FabricLoader) Loading 57 mods:
+[19:27:05] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.20.1 with Fabric Loader 0.16.10
+[19:27:06] [main/INFO] (FabricLoader) Loading 57 mods:
 	- accessories 1.0.0-beta.47+1.20.1
 	- bettercombat 1.8.5+1.20.1
 	- cloth-basic-math 0.6.1
@@ -57,50 +57,50 @@
 	- reach-entity-attributes 2.4.0
 	- stoneycore 0.7.1.40
 	- streq 1.0.10
-[12:42:21] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.4+mixin.0.8.7/6a12aacc794f1078458433116e9ed42c1cc98096/sponge-mixin-0.15.4+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
-[12:42:21] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
-[12:42:22] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_16
-[12:42:22] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
-[12:42:23] [main/WARN] (FabricLoader/Mixin) Error loading class: net/minecraft/client/renderer/LevelRenderer (java.lang.RuntimeException: Cannot load class net.minecraft.client.renderer.LevelRenderer in environment type SERVER)
-[12:42:23] [main/WARN] (FabricLoader/Mixin) @Mixin target net.minecraft.client.renderer.LevelRenderer was not found accessories-common.mixins.json:LevelRendererAccessor from mod accessories
-[12:42:23] [main/WARN] (FabricLoader/Mixin) Error loading class: fr/catcore/server/translations/api/resource/language/SystemDelegatedLanguage (java.lang.ClassNotFoundException: fr/catcore/server/translations/api/resource/language/SystemDelegatedLanguage)
-[12:42:23] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
-[12:42:23] [main/WARN] (FabricLoader/Mixin) Error loading class: org/quiltmc/loader/impl/game/minecraft/Hooks (java.lang.ClassNotFoundException: org/quiltmc/loader/impl/game/minecraft/Hooks)
-[12:42:26] [main/WARN] (FabricLoader/Mixin) @ModifyVariable(@At("INVOKE")) Shift.BY=2 on accessories-fabric.mixins.json:LivingEntityMixin from mod accessories::localvar$zbn000$accessories$adjustLooting exceeds the maximum allowed value: 0. Increase the value of maxShiftBy to suppress this warning.
-[12:42:29] [main/WARN] (FabricLoader/Mixin) @Inject(@At("INVOKE")) Shift.BY=2 on accessories-common.mixins.json:NbtCompoundMixin from mod accessories::handler$zci000$accessories$adjustCheckForListVariants exceeds the maximum allowed value: 0. Increase the value of maxShiftBy to suppress this warning.
-[12:42:34] [main/INFO] (DataLoaderBase) Registering Listeners!
-[12:42:34] [main/INFO] (owo) My Seethenhagen factory makes 331 pounds of licorice per hour
-[12:42:34] [main/INFO] (StoneyCore) Registered attributes for stoneycore
-[12:42:34] [main/INFO] (StoneyCore) Registering Sounds for stoneycore
-[12:42:34] [main/INFO] (StoneyCore) Registering ModRecipes for stoneycore
-[12:42:34] [main/INFO] (StoneyCore) Registering Mod Items for stoneycore
-[12:42:34] [main/INFO] (StoneyCore) Registering Entities for stoneycore
-[12:42:34] [main/INFO] (StoneyCore) Registering Menu for stoneycore
-[12:42:34] [main/INFO] (StoneyCore) Registering Mod Blocks for stoneycore
-[12:42:34] [main/INFO] (StoneyCore) Registering Mod Block Entities for stoneycore
-[12:42:34] [main/INFO] (StoneyCore) Registering Particles for stoneycore
-[12:42:34] [main/INFO] (StoneyCore) Hello Fabric world!
-[12:42:34] [main/INFO] (StoneyCore) Hello to stoneycore
-[12:42:34] [main/INFO] (Knights & Heraldry) Hello to knightsheraldry
-[12:42:34] [main/INFO] (Knights & Heraldry) Registering Effects for knightsheraldry
-[12:42:34] [main/INFO] (Knights & Heraldry) Registering Entities for knightsheraldry
-[12:42:34] [main/INFO] (Knights & Heraldry) Registering Mod Items for knightsheraldry
-[12:42:35] [main/INFO] (Knights & Heraldry) Registering Sounds for knightsheraldry
-[12:42:35] [main/INFO] (Knights & Heraldry) Registering Helmet Deco
-[12:42:35] [main/INFO] (Knights & Heraldry) Registering ModRecipes for knightsheraldry
-[12:42:35] [main/INFO] (owo) Services frozen by 'net.minecraft.server.Main'
-[12:42:35] [main/INFO] (FabricDataGenHelper) Running data generator for knightsheraldry
-[12:42:35] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Recipes
-[12:42:35] [main/INFO] (Minecraft) Knights & Heraldry/Recipes finished after 459 ms
-[12:42:35] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Tags for minecraft:item
-[12:42:35] [main/INFO] (Minecraft) Knights & Heraldry/Tags for minecraft:item finished after 134 ms
-[12:42:35] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Model Definitions
-[12:42:36] [main/INFO] (Minecraft) Knights & Heraldry/Model Definitions finished after 92 ms
-[12:42:36] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Accessories Definitions
-[12:42:36] [main/INFO] (Minecraft) Knights & Heraldry/Accessories Definitions finished after 29 ms
-[12:42:36] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Armor Definitions
-[12:42:36] [main/INFO] (Minecraft) Knights & Heraldry/Armor Definitions finished after 8 ms
-[12:42:36] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Weapon Definitions
-[12:42:36] [main/INFO] (Minecraft) Knights & Heraldry/Weapon Definitions finished after 28 ms
-[12:42:36] [main/INFO] (Minecraft) All providers took: 758 ms
-[12:42:36] [main/INFO] (Minecraft) Caching: total files: 5545, old count: 5545, new count: 5546, removed stale: 0, written: 28
+[19:27:07] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.4+mixin.0.8.7/6a12aacc794f1078458433116e9ed42c1cc98096/sponge-mixin-0.15.4+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
+[19:27:07] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[19:27:07] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_16
+[19:27:07] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[19:27:08] [main/WARN] (FabricLoader/Mixin) Error loading class: fr/catcore/server/translations/api/resource/language/SystemDelegatedLanguage (java.lang.ClassNotFoundException: fr/catcore/server/translations/api/resource/language/SystemDelegatedLanguage)
+[19:27:08] [main/WARN] (FabricLoader/Mixin) Error loading class: net/minecraft/client/renderer/LevelRenderer (java.lang.RuntimeException: Cannot load class net.minecraft.client.renderer.LevelRenderer in environment type SERVER)
+[19:27:08] [main/WARN] (FabricLoader/Mixin) @Mixin target net.minecraft.client.renderer.LevelRenderer was not found accessories-common.mixins.json:LevelRendererAccessor from mod accessories
+[19:27:08] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[19:27:08] [main/WARN] (FabricLoader/Mixin) Error loading class: org/quiltmc/loader/impl/game/minecraft/Hooks (java.lang.ClassNotFoundException: org/quiltmc/loader/impl/game/minecraft/Hooks)
+[19:27:12] [main/WARN] (FabricLoader/Mixin) @ModifyVariable(@At("INVOKE")) Shift.BY=2 on accessories-fabric.mixins.json:LivingEntityMixin from mod accessories::localvar$zke000$accessories$adjustLooting exceeds the maximum allowed value: 0. Increase the value of maxShiftBy to suppress this warning.
+[19:27:15] [main/WARN] (FabricLoader/Mixin) @Inject(@At("INVOKE")) Shift.BY=2 on accessories-common.mixins.json:NbtCompoundMixin from mod accessories::handler$zkp000$accessories$adjustCheckForListVariants exceeds the maximum allowed value: 0. Increase the value of maxShiftBy to suppress this warning.
+[19:27:20] [main/INFO] (StoneyCore) Registered attributes for stoneycore
+[19:27:20] [main/INFO] (StoneyCore) Registering Sounds for stoneycore
+[19:27:20] [main/INFO] (StoneyCore) Registering ModRecipes for stoneycore
+[19:27:20] [main/INFO] (StoneyCore) Registering Mod Items for stoneycore
+[19:27:20] [main/INFO] (StoneyCore) Registering Entities for stoneycore
+[19:27:20] [main/INFO] (StoneyCore) Registering Menu for stoneycore
+[19:27:20] [main/INFO] (StoneyCore) Registering Mod Blocks for stoneycore
+[19:27:20] [main/INFO] (StoneyCore) Registering Mod Block Entities for stoneycore
+[19:27:20] [main/INFO] (StoneyCore) Registering Particles for stoneycore
+[19:27:20] [main/INFO] (StoneyCore) Hello Fabric world!
+[19:27:20] [main/INFO] (StoneyCore) Hello to stoneycore
+[19:27:20] [main/INFO] (owo) We don't have to worry about people re-inventing Venezuela glisco, that's their problem for integrating the Bourgeoisie into their pack
+[19:27:20] [main/INFO] (Knights & Heraldry) Hello to knightsheraldry
+[19:27:20] [main/INFO] (Knights & Heraldry) Registering Effects for knightsheraldry
+[19:27:20] [main/INFO] (Knights & Heraldry) Registering Entities for knightsheraldry
+[19:27:20] [main/INFO] (Knights & Heraldry) Registering Mod Items for knightsheraldry
+[19:27:20] [main/INFO] (Knights & Heraldry) Registering Sounds for knightsheraldry
+[19:27:20] [main/INFO] (Knights & Heraldry) Registering Helmet Deco
+[19:27:20] [main/INFO] (Knights & Heraldry) Registering ModRecipes for knightsheraldry
+[19:27:20] [main/INFO] (DataLoaderBase) Registering Listeners!
+[19:27:20] [main/INFO] (owo) Services frozen by 'net.minecraft.server.Main'
+[19:27:20] [main/INFO] (FabricDataGenHelper) Running data generator for knightsheraldry
+[19:27:21] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Recipes
+[19:27:21] [main/INFO] (Minecraft) Knights & Heraldry/Recipes finished after 365 ms
+[19:27:21] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Tags for minecraft:item
+[19:27:21] [main/INFO] (Minecraft) Knights & Heraldry/Tags for minecraft:item finished after 202 ms
+[19:27:21] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Model Definitions
+[19:27:21] [main/INFO] (Minecraft) Knights & Heraldry/Model Definitions finished after 97 ms
+[19:27:21] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Accessories Definitions
+[19:27:21] [main/INFO] (Minecraft) Knights & Heraldry/Accessories Definitions finished after 26 ms
+[19:27:21] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Armor Definitions
+[19:27:21] [main/INFO] (Minecraft) Knights & Heraldry/Armor Definitions finished after 10 ms
+[19:27:21] [main/INFO] (Minecraft) Starting provider: Knights & Heraldry/Weapon Definitions
+[19:27:21] [main/INFO] (Minecraft) Knights & Heraldry/Weapon Definitions finished after 40 ms
+[19:27:21] [main/INFO] (Minecraft) All providers took: 746 ms
+[19:27:22] [main/INFO] (Minecraft) Caching: total files: 5545, old count: 5545, new count: 5542, removed stale: 4, written: 0

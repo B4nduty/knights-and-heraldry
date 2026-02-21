@@ -9,12 +9,15 @@ import banduty.knightsheraldry.items.item.DyeableItems;
 import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
+import banduty.knightsheraldry.util.itemdata.ItemTooltipComponent;
+import banduty.knightsheraldry.util.itemdata.ItemTooltipData;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.ModelEvent;
+import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -52,19 +55,13 @@ public class KnightsHeraldryForgeClient {
                     if (tintIndex == 1) return twoLayerItem.getColor2(stack);
                     return -1;
                 }, item);
-            }
-
-            else if (item instanceof DyeableItems dyeableItems) {
+            } else if (item instanceof DyeableItems dyeableItems) {
                 event.register((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : dyeableItems.getColor(stack), item);
-            }
-
-            else if (item instanceof HorseBardingArmorItem horseBardingArmorItem) {
+            } else if (item instanceof HorseBardingArmorItem horseBardingArmorItem) {
                 event.register((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : horseBardingArmorItem.getColor(stack), item);
-            }
-
-            else if (item instanceof KHChaperon khChaperon) {
+            } else if (item instanceof KHChaperon khChaperon) {
                 event.register((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : khChaperon.getColor(stack), item);
             }
@@ -86,9 +83,14 @@ public class KnightsHeraldryForgeClient {
         // Register all pattern models
         String[] patterns = new String[]{"bl", "bo", "br", "bri", "bs", "bt", "bts", "cbo", "cr", "cre", "cs", "dls", "drs", "flo", "glb", "gra", "gru", "hh", "hhb", "ld", "ls", "lud", "mc", "moj", "mr", "ms", "pig", "rd", "rs", "rud", "sc", "sku", "ss", "tl", "tr", "ts", "tt", "tts", "vh", "vhr"};
 
-        for(String pattern : patterns) {
+        for (String pattern : patterns) {
             event.register(new ResourceLocation(KnightsHeraldry.MOD_ID, "item/surcoat/" + pattern));
             event.register(new ResourceLocation(KnightsHeraldry.MOD_ID, "item/surcoat_sleeveless/" + pattern));
         }
+    }
+
+    @SubscribeEvent
+    public static void onRegisterClientTooltipComponents(RegisterClientTooltipComponentFactoriesEvent event) {
+        event.register(ItemTooltipData.class, (data) -> new ItemTooltipComponent(data.items()));
     }
 }
