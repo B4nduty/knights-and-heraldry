@@ -22,9 +22,4 @@ public interface ModRecipes {
             BuiltInRegistries.RECIPE_SERIALIZER,
             new ResourceLocation(KnightsHeraldry.MOD_ID, "two_layer_dyeing"),
             new SimpleCraftingRecipeSerializer<>(TwoLayerDyeRecipe::new));
-
-    RecipeSerializer<SurcoatBannerRecipe> SURCOAT_BANNER = Registry.register(
-            BuiltInRegistries.RECIPE_SERIALIZER,
-            new ResourceLocation(KnightsHeraldry.MOD_ID, "surcoat_banner"),
-            new SimpleCraftingRecipeSerializer<>(SurcoatBannerRecipe::new));
 }

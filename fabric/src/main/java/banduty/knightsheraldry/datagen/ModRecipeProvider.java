@@ -22,6 +22,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Consumer;
@@ -623,16 +624,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void createBannerRecipe(Consumer<FinishedRecipe> exporter, Item targetItem) {
+
         NonNullList<Ingredient> ingredients = NonNullList.create();
 
+        // Any banner
         ingredients.add(Ingredient.of(net.minecraft.tags.ItemTags.BANNERS));
 
+        // The armor/surcoat/etc
         ingredients.add(Ingredient.of(targetItem));
 
         exporter.accept(new BannerRecipeBuilder(
-                new ResourceLocation(KnightsHeraldry.MOD_ID, "banner_pattern/" + getItemName(targetItem)),
+                new ResourceLocation(KnightsHeraldry.MOD_ID,
+                        "banner_pattern/" + getItemName(targetItem)),
                 targetItem,
-                ingredients
+                ingredients,
+                CraftingBookCategory.MISC,
+                getItemName(targetItem)
         ));
     }
 

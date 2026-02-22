@@ -12,6 +12,9 @@
     "PowderSnowBlockMixin"
   ],
   "client": [
+    "AbstractClientPlayerMixin",
+    "EntityRendererMixin",
+    "HorseRendererMixin"
   ],
   "server": [
   ],

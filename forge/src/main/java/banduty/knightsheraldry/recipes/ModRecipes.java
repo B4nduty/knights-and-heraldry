@@ -21,9 +21,6 @@ public interface ModRecipes {
     RegistryObject<RecipeSerializer<TwoLayerDyeRecipe>> TWO_LAYER_DYEING_SERIALIZER =
             RECIPE_SERIALIZERS.register("two_layer_dyeing",
                     () -> new SimpleCraftingRecipeSerializer<>(TwoLayerDyeRecipe::new));
-    RegistryObject<RecipeSerializer<SurcoatBannerRecipe>> SURCOAT_BANNER =
-            RECIPE_SERIALIZERS.register("surcoat_banner",
-                    () -> new SimpleCraftingRecipeSerializer<>(SurcoatBannerRecipe::new));
 
     static void register(IEventBus modEventBus) {
         RECIPE_TYPES.register(modEventBus);

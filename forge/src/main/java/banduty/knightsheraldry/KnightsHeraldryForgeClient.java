@@ -3,6 +3,7 @@ package banduty.knightsheraldry;
 import banduty.knightsheraldry.client.entity.*;
 import banduty.knightsheraldry.client.item.SurcoatWithBannerModel;
 import banduty.knightsheraldry.entity.ModEntities;
+import banduty.knightsheraldry.items.ModItems;
 import banduty.knightsheraldry.items.armor.accessory.KHChaperon;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.items.item.DyeableItems;
@@ -12,6 +13,8 @@ import banduty.knightsheraldry.model.ModEntityModelLayers;
 import banduty.knightsheraldry.util.itemdata.ItemTooltipComponent;
 import banduty.knightsheraldry.util.itemdata.ItemTooltipData;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
@@ -80,12 +83,34 @@ public class KnightsHeraldryForgeClient {
 
     @SubscribeEvent
     public static void registerAdditionalModels(ModelEvent.RegisterAdditional event) {
-        // Register all pattern models
-        String[] patterns = new String[]{"bl", "bo", "br", "bri", "bs", "bt", "bts", "cbo", "cr", "cre", "cs", "dls", "drs", "flo", "glb", "gra", "gru", "hh", "hhb", "ld", "ls", "lud", "mc", "moj", "mr", "ms", "pig", "rd", "rs", "rud", "sc", "sku", "ss", "tl", "tr", "ts", "tt", "tts", "vh", "vhr"};
 
-        for (String pattern : patterns) {
-            event.register(new ResourceLocation(KnightsHeraldry.MOD_ID, "item/surcoat/" + pattern));
-            event.register(new ResourceLocation(KnightsHeraldry.MOD_ID, "item/surcoat_sleeveless/" + pattern));
+        String[] patterns = new String[]{
+                "bl", "bo", "br", "bri", "bs", "bt", "bts", "cbo", "cr", "cre", "cs",
+                "dls", "drs", "flo", "glb", "gra", "gru", "hh", "hhb", "ld", "ls",
+                "lud", "mc", "moj", "mr", "ms", "pig", "rd", "rs", "rud", "sc", "sku",
+                "ss", "tl", "tr", "ts", "tt", "tts", "vh", "vhr"
+        };
+
+        // Register for each base item that supports patterns
+        Item[] patternedItems = new Item[]{
+                ModItems.SURCOAT.get(),
+                ModItems.SURCOAT_SLEEVELESS.get()
+        };
+
+        for (Item item : patternedItems) {
+
+            String basePath = BuiltInRegistries.ITEM.getKey(item).getPath();
+            String namespace = BuiltInRegistries.ITEM.getKey(item).getNamespace();
+
+            for (String pattern : patterns) {
+
+                String modelPath = basePath + "/" + pattern;
+
+                event.register(new ModelResourceLocation(
+                        new ResourceLocation(namespace, modelPath),
+                        "inventory"
+                ));
+            }
         }
     }
 

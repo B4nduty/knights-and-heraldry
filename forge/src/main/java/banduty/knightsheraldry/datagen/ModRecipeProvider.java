@@ -22,6 +22,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Consumer;
@@ -632,7 +633,8 @@ public class ModRecipeProvider extends RecipeProvider {
         exporter.accept(new BannerRecipeBuilder(
                 new ResourceLocation(KnightsHeraldry.MOD_ID, "banner_pattern/" + getItemName(targetItem)),
                 targetItem,
-                ingredients
+                ingredients,
+                CraftingBookCategory.MISC
         ));
     }
 

@@ -86,21 +86,22 @@ public class ModModelProvider extends ForgeModelProviderPlus {
         registerManuscriptsItems();
     }
 
-    // In your ForgeModelProviderPlus class
     protected void registerSurcoatWithBanner(Item surcoatItem) {
         String path = BuiltInRegistries.ITEM.getKey(surcoatItem).getPath();
 
         String[] patterns = new String[]{"bl", "bo", "br", "bri", "bs", "bt", "bts", "cbo", "cr", "cre", "cs", "dls", "drs", "flo", "glb", "gra", "gru", "hh", "hhb", "ld", "ls", "lud", "mc", "moj", "mr", "ms", "pig", "rd", "rs", "rud", "sc", "sku", "ss", "tl", "tr", "ts", "tt", "tts", "vh", "vhr"};
 
-        for(String pattern : patterns) {
-            String modelName = path + "/" + pattern;
+        for (String pattern : patterns) {
+            String modelName = "item/" + path + "/" + pattern;
             withExistingParent(modelName, "item/generated")
                     .texture("layer0", modLoc("item/" + path + "/" + pattern))
                     .renderType("minecraft:translucent");
         }
 
-        withExistingParent(path, "item/generated")
-                .texture("layer0", modLoc("item/" + path));
+/*        withExistingParent(
+                path,                    // this is "surcoat"
+                ResourceLocation.tryBuild("minecraft", "builtin/entity")
+        );*/
     }
 
     private void registerSimpleItems() {
@@ -118,7 +119,7 @@ public class ModModelProvider extends ForgeModelProviderPlus {
                 ModItems.ZWEIHANDER.get(), ModItems.WARDART.get()
         };
         for (Item item : brokenItems) {
-            register3DWeaponWConditions(item, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID,"broken"), 1));
+            register3DWeaponWConditions(item, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "broken"), 1));
         }
 
         Item[] openVisorHelmets = {
@@ -139,7 +140,8 @@ public class ModModelProvider extends ForgeModelProviderPlus {
                 ModItems.MAXIMILLIAN_HELMET.get(), ModItems.DARK_MAXIMILLIAN_HELMET.get(), ModItems.GOLDEN_MAXIMILLIAN_HELMET.get(),
                 ModItems.SAVOYARD.get(), ModItems.DARK_SAVOYARD.get(), ModItems.GOLDEN_SAVOYARD.get()
         };
-        for (Item item : openVisorHelmets) registerItemWConditions(item, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID,"open"), 1));
+        for (Item item : openVisorHelmets)
+            registerItemWConditions(item, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "open"), 1));
 
         Item[] simpleArmor = {
                 ModItems.MAIL_SPAULDERS.get(), ModItems.MAIL_SPAULDERS_BESAGEWS.get(), ModItems.GOLDEN_MAIL_SPAULDERS.get(),
