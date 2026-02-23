@@ -23,3 +23,4 @@ eclipse
 run
 /fabric/run-datagen/logs
 /fabric/src/generated
+/forge/src/generated
