@@ -1,0 +1,25 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.5,
+  "hit_times": 5,
+  "ingredients": [
+    {
+      "count": 1,
+      "item": "stoneycore:manuscript",
+      "nbt": "{TargetStack:{Count:1b,id:\"knightsheraldry:arming_sword\",tag:{Damage:0}}}"
+    },
+    {
+      "count": 1,
+      "item": "stoneycore:hot_iron"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "stoneycore:hot_iron",
+    "nbt": "{TargetStack:{Count:1b,id:\"knightsheraldry:arming_sword\",tag:{Damage:0}}}"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "stoneycore:manuscript_crafting",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "stoneycore:smithing_hammer"
+    },
+    {
+      "item": "knightsheraldry:broadhead_arrow"
+    }
+  ],
+  "result": {
+    "item": "stoneycore:manuscript"
+  }
+}

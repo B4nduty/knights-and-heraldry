@@ -34,7 +34,7 @@ public class ModModelProvider extends ForgeModelProviderPlus {
                 ModItems.GOLDEN_BEVOR.get(), ModItems.RIM_GUARDS.get(), ModItems.BESAGEWS.get(),
                 ModItems.QUILTED_COIF.get(), ModItems.GAMBESON_BREECHES.get(), ModItems.GAMBESON_BOOTS.get(),
                 ModItems.MAIL_COIF.get(), ModItems.HAUBERK.get(), ModItems.MAIL_BREECHES.get(),
-                ModItems.MAIL_BOOTS.get(), ModItems.LONGBOW.get(), ModItems.LANCE.get(),
+                ModItems.MAIL_BOOTS.get(), ModItems.LANCE.get(),
 
                 // Plumes
                 ModItems.PLUME.get(), ModItems.TRI_PLUME.get(), ModItems.FLUFFY_PLUME.get(),
