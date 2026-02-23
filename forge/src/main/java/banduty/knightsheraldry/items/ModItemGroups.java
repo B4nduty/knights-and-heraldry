@@ -303,7 +303,7 @@ public class ModItemGroups {
     public static final RegistryObject<CreativeModeTab> KH_DECO_TAB = CREATIVE_MODE_TABS.register("kh_deco",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.PLUME.get()))
-                    .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_armors"))
+                    .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_deco"))
                     .displayItems((parameters, output) -> {
                         output.acceptAll(List.of(
                                 itemStack(ModItems.PLUME.get()),
