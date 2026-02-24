@@ -163,7 +163,7 @@ public class RenderOverlayAndAdditionsHandler {
     }
 
     private static ResourceLocation getResourceLocationWithSuffix(ItemStack stack) {
-        if (!(stack.getItem() instanceof SCAccessoryItem item)) return ResourceLocation.parse("");
+        if (!(stack.getItem() instanceof SCAccessoryItem item)) return ResourceLocation.tryParse("");
         String path = item.getTexturePath(stack).getPath().replace(".png", "") + "_overlay" + ".png";
         return ResourceLocation.fromNamespaceAndPath(item.getTexturePath(stack).getNamespace(), path);
     }

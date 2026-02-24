@@ -74,10 +74,10 @@ public class RenderFirstPersonAccessoryArmorHandler {
     }
 
     private static @NotNull ResourceLocation getOverlayResourceLocation(ItemStack stack) {
-        if (!(stack.getItem() instanceof SCAccessoryItem scAccessoryItem)) return ResourceLocation.parse("");
+        if (!(stack.getItem() instanceof SCAccessoryItem scAccessoryItem)) return ResourceLocation.tryParse("");
         ResourceLocation originalResourceLocation = scAccessoryItem.getTexturePath(stack);
         if (originalResourceLocation == null) {
-            return ResourceLocation.parse("");
+            return ResourceLocation.tryParse("");
         }
 
         String texturePath = originalResourceLocation.getPath();
