@@ -188,11 +188,6 @@ public interface ModItemGroups {
                 itemStack(ModItems.MAXIMILLIAN_HELMET),
                 itemStack(ModItems.SAVOYARD),
 
-                itemStack(ModItems.AVENTAIL),
-                itemStack(ModItems.BEVOR),
-                itemStack(ModItems.DARK_BEVOR),
-                itemStack(ModItems.GOLDEN_BEVOR),
-
                 itemStack(ModItems.DARK_FROGMOUTH),
                 itemStack(ModItems.DARK_GREAT_ARMET),
                 itemStack(ModItems.DARK_GREAT_ARMET_2),
@@ -208,6 +203,11 @@ public interface ModItemGroups {
                 itemStack(ModItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET),
                 itemStack(ModItems.GOLDEN_MAXIMILLIAN_HELMET),
                 itemStack(ModItems.GOLDEN_SAVOYARD),
+
+                itemStack(ModItems.AVENTAIL),
+                itemStack(ModItems.BEVOR),
+                itemStack(ModItems.DARK_BEVOR),
+                itemStack(ModItems.GOLDEN_BEVOR),
 
                 itemStack(ModItems.CHAPERON),
                 itemStack(ModItems.GILDED_CHAPERON),
