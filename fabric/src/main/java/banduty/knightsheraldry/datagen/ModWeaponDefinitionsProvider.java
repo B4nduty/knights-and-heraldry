@@ -229,7 +229,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .speed(3.7f)
                                 .divergence(1)
                                 .maxUseTime(72000)
-                                .rechargeTime(0)
+                                .rechargeTime(3)
                                 .needsFlintAndSteel(false)
                                 .damageType(SCDamageCalculator.DamageType.PIERCING)
                                 .useAnim(UseAnim.BOW)

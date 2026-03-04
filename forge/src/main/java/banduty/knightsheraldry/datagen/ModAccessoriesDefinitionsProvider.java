@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.datagen;
 
+import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.ModItems;
-import banduty.stoneycore.StoneyCore;
 import banduty.stoneycore.datagen.DefinitionsProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
@@ -128,87 +128,87 @@ public class ModAccessoriesDefinitionsProvider extends DefinitionsProvider.Acces
         map.put(ModItems.DARK_BURGONET.get(), new ArmorStats(2.0, 1.0, 2.2, 0.05, false, "head"));
         map.put(ModItems.GOLDEN_BURGONET.get(), new ArmorStats(1.0, 1.0, 2.1, 0.05, false, "head"));
 
-        map.put(ModItems.VIKING_HELM.get(), new ArmorStats(1.0, 1.0, 2.0, 0.05, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.DARK_VIKING_HELM.get(), new ArmorStats(2.0, 1.0, 2.2, 0.05, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.GOLDEN_VIKING_HELM.get(), new ArmorStats(1.0, 1.0, 2.1, 0.05, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.VIKING_HELM.get(), new ArmorStats(1.0, 1.0, 2.0, 0.05, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.DARK_VIKING_HELM.get(), new ArmorStats(2.0, 1.0, 2.2, 0.05, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.GOLDEN_VIKING_HELM.get(), new ArmorStats(1.0, 1.0, 2.1, 0.05, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
 
         // Second tier helmets
-        map.put(ModItems.ARMET.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.DARK_ARMET.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.GOLDEN_ARMET.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.ARMET.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.DARK_ARMET.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.GOLDEN_ARMET.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
 
-        map.put(ModItems.VISORED_BARBUTE.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.DARK_VISORED_BARBUTE.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.GOLDEN_VISORED_BARBUTE.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.VISORED_BARBUTE.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.DARK_VISORED_BARBUTE.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.GOLDEN_VISORED_BARBUTE.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
 
-        map.put(ModItems.CLOSE_HELM.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.DARK_CLOSE_HELM.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.GOLDEN_CLOSE_HELM.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.CLOSE_HELM.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.DARK_CLOSE_HELM.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.GOLDEN_CLOSE_HELM.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
 
-        map.put(ModItems.ARMET_2.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
-        map.put(ModItems.DARK_ARMET_2.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
-        map.put(ModItems.GOLDEN_ARMET_2.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.ARMET_2.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.DARK_ARMET_2.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.GOLDEN_ARMET_2.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
 
-        map.put(ModItems.SALLET.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
-        map.put(ModItems.DARK_SALLET.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
-        map.put(ModItems.GOLDEN_SALLET.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.SALLET.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.DARK_SALLET.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.GOLDEN_SALLET.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
 
-        map.put(ModItems.BURGONET_FALLING_BUFFE.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
-        map.put(ModItems.DARK_BURGONET_FALLING_BUFFE.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
-        map.put(ModItems.GOLDEN_BURGONET_FALLING_BUFFE.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.BURGONET_FALLING_BUFFE.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.DARK_BURGONET_FALLING_BUFFE.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.GOLDEN_BURGONET_FALLING_BUFFE.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
 
-        map.put(ModItems.HOUNDSKULL.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_RIGHT));
-        map.put(ModItems.DARK_HOUNDSKULL.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_RIGHT));
-        map.put(ModItems.GOLDEN_HOUNDSKULL.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_RIGHT));
+        map.put(ModItems.HOUNDSKULL.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_RIGHT));
+        map.put(ModItems.DARK_HOUNDSKULL.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_RIGHT));
+        map.put(ModItems.GOLDEN_HOUNDSKULL.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_RIGHT));
 
-        map.put(ModItems.CAGE.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_FOUR_BARS));
-        map.put(ModItems.DARK_CAGE.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_FOUR_BARS));
-        map.put(ModItems.GOLDEN_CAGE.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_FOUR_BARS));
+        map.put(ModItems.CAGE.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
+        map.put(ModItems.DARK_CAGE.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
+        map.put(ModItems.GOLDEN_CAGE.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
 
-        map.put(ModItems.CAGE_2.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_FOUR_BARS));
-        map.put(ModItems.DARK_CAGE_2.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_FOUR_BARS));
-        map.put(ModItems.GOLDEN_CAGE_2.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_FOUR_BARS));
+        map.put(ModItems.CAGE_2.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
+        map.put(ModItems.DARK_CAGE_2.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
+        map.put(ModItems.GOLDEN_CAGE_2.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
 
-        map.put(ModItems.VISORED_BASCINET.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
-        map.put(ModItems.DARK_VISORED_BASCINET.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
-        map.put(ModItems.GOLDEN_VISORED_BASCINET.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
+        map.put(ModItems.VISORED_BASCINET.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
+        map.put(ModItems.DARK_VISORED_BASCINET.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
+        map.put(ModItems.GOLDEN_VISORED_BASCINET.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
 
-        map.put(ModItems.GREAT_HELM.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
-        map.put(ModItems.DARK_GREAT_HELM.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
-        map.put(ModItems.GOLDEN_GREAT_HELM.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
+        map.put(ModItems.GREAT_HELM.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
+        map.put(ModItems.DARK_GREAT_HELM.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
+        map.put(ModItems.GOLDEN_GREAT_HELM.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
 
-        map.put(ModItems.GREAT_HELM_2.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
-        map.put(ModItems.DARK_GREAT_HELM_2.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
-        map.put(ModItems.GOLDEN_GREAT_HELM_2.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
+        map.put(ModItems.GREAT_HELM_2.get(), new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
+        map.put(ModItems.DARK_GREAT_HELM_2.get(), new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
+        map.put(ModItems.GOLDEN_GREAT_HELM_2.get(), new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
 
         // Third tier helmets
-        map.put(ModItems.FROGMOUTH.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_V_SHAPE));
-        map.put(ModItems.DARK_FROGMOUTH.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_V_SHAPE));
-        map.put(ModItems.GOLDEN_FROGMOUTH.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_V_SHAPE));
+        map.put(ModItems.FROGMOUTH.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_V_SHAPE));
+        map.put(ModItems.DARK_FROGMOUTH.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_V_SHAPE));
+        map.put(ModItems.GOLDEN_FROGMOUTH.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_V_SHAPE));
 
-        map.put(ModItems.GREAT_ARMET.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.DARK_GREAT_ARMET.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.GOLDEN_GREAT_ARMET.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.GREAT_ARMET.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.DARK_GREAT_ARMET.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.GOLDEN_GREAT_ARMET.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
 
-        map.put(ModItems.GREAT_HOUNDSKUL_BASCINET.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.DARK_GREAT_HOUNDSKUL_BASCINET.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(ModItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.GREAT_HOUNDSKUL_BASCINET.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.DARK_GREAT_HOUNDSKUL_BASCINET.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(ModItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
 
-        map.put(ModItems.GREAT_ARMET_2.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
-        map.put(ModItems.DARK_GREAT_ARMET_2.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
-        map.put(ModItems.GOLDEN_GREAT_ARMET_2.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.GREAT_ARMET_2.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.DARK_GREAT_ARMET_2.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(ModItems.GOLDEN_GREAT_ARMET_2.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
 
-        map.put(ModItems.GREAT_BASCINET.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_FULL));
-        map.put(ModItems.DARK_GREAT_BASCINET.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_FULL));
-        map.put(ModItems.GOLDEN_GREAT_BASCINET.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_FULL));
+        map.put(ModItems.GREAT_BASCINET.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_FULL));
+        map.put(ModItems.DARK_GREAT_BASCINET.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_FULL));
+        map.put(ModItems.GOLDEN_GREAT_BASCINET.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_FULL));
 
-        map.put(ModItems.MAXIMILLIAN_HELMET.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
-        map.put(ModItems.DARK_MAXIMILLIAN_HELMET.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
-        map.put(ModItems.GOLDEN_MAXIMILLIAN_HELMET.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
+        map.put(ModItems.MAXIMILLIAN_HELMET.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
+        map.put(ModItems.DARK_MAXIMILLIAN_HELMET.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
+        map.put(ModItems.GOLDEN_MAXIMILLIAN_HELMET.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
 
-        map.put(ModItems.SAVOYARD.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
-        map.put(ModItems.DARK_SAVOYARD.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
-        map.put(ModItems.GOLDEN_SAVOYARD.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", StoneyCore.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
+        map.put(ModItems.SAVOYARD.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
+        map.put(ModItems.DARK_SAVOYARD.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
+        map.put(ModItems.GOLDEN_SAVOYARD.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
 
         return map;
     }
