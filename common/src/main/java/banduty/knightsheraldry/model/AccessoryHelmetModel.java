@@ -158,8 +158,8 @@ public class AccessoryHelmetModel extends HumanoidModel<LivingEntity> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
         this.armorHead.copyFrom(this.head);
-        this.armorHead.render(matrices, vertices, light, overlay, red, green, blue, alpha);
+        this.armorHead.render(poseStack, vertices, light, overlay, red, green, blue, alpha);
     }
 }

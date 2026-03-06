@@ -56,7 +56,6 @@ public class ModRecipeProvider extends RecipeProvider {
         createDecoRecipe(exporter, ModItems.VISORED_BARBUTE.get());
         createDecoRecipe(exporter, ModItems.HOUNDSKULL.get());
         createDecoRecipe(exporter, ModItems.CAGE.get());
-        createDecoRecipe(exporter, ModItems.CAGE_2.get());
         createDecoRecipe(exporter, ModItems.VISORED_BASCINET.get());
         createDecoRecipe(exporter, ModItems.GREAT_HELM.get());
         createDecoRecipe(exporter, ModItems.GREAT_HELM_2.get());
@@ -82,7 +81,6 @@ public class ModRecipeProvider extends RecipeProvider {
         createDecoRecipe(exporter, ModItems.DARK_VISORED_BARBUTE.get());
         createDecoRecipe(exporter, ModItems.DARK_HOUNDSKULL.get());
         createDecoRecipe(exporter, ModItems.DARK_CAGE.get());
-        createDecoRecipe(exporter, ModItems.DARK_CAGE_2.get());
         createDecoRecipe(exporter, ModItems.DARK_VISORED_BASCINET.get());
         createDecoRecipe(exporter, ModItems.DARK_GREAT_HELM.get());
         createDecoRecipe(exporter, ModItems.DARK_GREAT_HELM_2.get());
@@ -108,7 +106,6 @@ public class ModRecipeProvider extends RecipeProvider {
         createDecoRecipe(exporter, ModItems.GOLDEN_VISORED_BARBUTE.get());
         createDecoRecipe(exporter, ModItems.GOLDEN_HOUNDSKULL.get());
         createDecoRecipe(exporter, ModItems.GOLDEN_CAGE.get());
-        createDecoRecipe(exporter, ModItems.GOLDEN_CAGE_2.get());
         createDecoRecipe(exporter, ModItems.GOLDEN_VISORED_BASCINET.get());
         createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_HELM.get());
         createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_HELM_2.get());
@@ -273,8 +270,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 new ItemStack(ModItems.HOUNDSKULL.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, ModItems.GOLDEN_CAGE.get(), 7, 0.7f,
                 new ItemStack(ModItems.CAGE.get()), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_CAGE_2.get(), 7, 0.7f,
-                new ItemStack(ModItems.CAGE_2.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, ModItems.GOLDEN_VISORED_BASCINET.get(), 7, 0.7f,
                 new ItemStack(ModItems.VISORED_BASCINET.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, ModItems.GOLDEN_GREAT_HELM.get(), 7, 0.7f,
@@ -389,9 +384,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
         createSmithingRecipe(exporter, ModItems.DARK_CAGE.get(), 7, 0.85f,
                 new ItemStack(ModItems.CAGE.get()), new ItemStack(Items.COPPER_INGOT),
-                new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_CAGE_2.get(), 7, 0.85f,
-                new ItemStack(ModItems.CAGE_2.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
         createSmithingRecipe(exporter, ModItems.DARK_VISORED_BASCINET.get(), 7, 0.85f,
                 new ItemStack(ModItems.VISORED_BASCINET.get()), new ItemStack(Items.COPPER_INGOT),
@@ -529,7 +521,6 @@ public class ModRecipeProvider extends RecipeProvider {
         createCraftmanAnvilRecipe(exporter, 5, 0.75f, ModItems.VISORED_BARBUTE.get(), new ItemStack(ModItems.BARBUTE.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.HOUNDSKULL.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.CAGE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.CAGE_2.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.75f, ModItems.VISORED_BASCINET.get(), new ItemStack(ModItems.BASCINET.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.GREAT_HELM.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, false, 3, 1.0f, ModItems.GREAT_HELM_2.get(), false, new ItemStack(ModItems.GREAT_HELM.get()), new ItemStack(Items.GOLD_INGOT));

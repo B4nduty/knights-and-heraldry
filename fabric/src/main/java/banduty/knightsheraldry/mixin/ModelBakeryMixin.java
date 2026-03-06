@@ -157,7 +157,6 @@ public abstract class ModelBakeryMixin {
                 ModItems.VISORED_BARBUTE,
                 ModItems.HOUNDSKULL,
                 ModItems.CAGE,
-                ModItems.CAGE_2,
                 ModItems.VISORED_BASCINET,
                 ModItems.GREAT_HELM,
                 ModItems.SALLET,

@@ -56,7 +56,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createDecoRecipe(exporter, ModItems.VISORED_BARBUTE);
         createDecoRecipe(exporter, ModItems.HOUNDSKULL);
         createDecoRecipe(exporter, ModItems.CAGE);
-        createDecoRecipe(exporter, ModItems.CAGE_2);
         createDecoRecipe(exporter, ModItems.VISORED_BASCINET);
         createDecoRecipe(exporter, ModItems.GREAT_HELM);
         createDecoRecipe(exporter, ModItems.GREAT_HELM_2);
@@ -82,7 +81,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createDecoRecipe(exporter, ModItems.DARK_VISORED_BARBUTE);
         createDecoRecipe(exporter, ModItems.DARK_HOUNDSKULL);
         createDecoRecipe(exporter, ModItems.DARK_CAGE);
-        createDecoRecipe(exporter, ModItems.DARK_CAGE_2);
         createDecoRecipe(exporter, ModItems.DARK_VISORED_BASCINET);
         createDecoRecipe(exporter, ModItems.DARK_GREAT_HELM);
         createDecoRecipe(exporter, ModItems.DARK_GREAT_HELM_2);
@@ -108,7 +106,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createDecoRecipe(exporter, ModItems.GOLDEN_VISORED_BARBUTE);
         createDecoRecipe(exporter, ModItems.GOLDEN_HOUNDSKULL);
         createDecoRecipe(exporter, ModItems.GOLDEN_CAGE);
-        createDecoRecipe(exporter, ModItems.GOLDEN_CAGE_2);
         createDecoRecipe(exporter, ModItems.GOLDEN_VISORED_BASCINET);
         createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_HELM);
         createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_HELM_2);
@@ -273,8 +270,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new ItemStack(ModItems.HOUNDSKULL), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, ModItems.GOLDEN_CAGE, 7, 0.7f,
                 new ItemStack(ModItems.CAGE), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_CAGE_2, 7, 0.7f,
-                new ItemStack(ModItems.CAGE_2), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, ModItems.GOLDEN_VISORED_BASCINET, 7, 0.7f,
                 new ItemStack(ModItems.VISORED_BASCINET), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, ModItems.GOLDEN_GREAT_HELM, 7, 0.7f,
@@ -389,9 +384,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
         createSmithingRecipe(exporter, ModItems.DARK_CAGE, 7, 0.85f,
                 new ItemStack(ModItems.CAGE), new ItemStack(Items.COPPER_INGOT),
-                new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_CAGE_2, 7, 0.85f,
-                new ItemStack(ModItems.CAGE_2), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
         createSmithingRecipe(exporter, ModItems.DARK_VISORED_BASCINET, 7, 0.85f,
                 new ItemStack(ModItems.VISORED_BASCINET), new ItemStack(Items.COPPER_INGOT),
@@ -529,7 +521,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createCraftmanAnvilRecipe(exporter, 5, 0.75f, ModItems.VISORED_BARBUTE, new ItemStack(ModItems.BARBUTE), new ItemStack(SCItems.HOT_IRON));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.HOUNDSKULL, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.CAGE, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.CAGE_2, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
         createCraftmanAnvilRecipe(exporter, 5, 0.75f, ModItems.VISORED_BASCINET, new ItemStack(ModItems.BASCINET), new ItemStack(SCItems.HOT_IRON));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.GREAT_HELM, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
         createCraftmanAnvilRecipe(exporter, false, 3, 1.0f, ModItems.GREAT_HELM_2, false, new ItemStack(ModItems.GREAT_HELM), new ItemStack(Items.GOLD_INGOT));

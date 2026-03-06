@@ -165,10 +165,6 @@ public class ModAccessoriesDefinitionsProvider extends DefinitionsProvider.Acces
         map.put(ModItems.DARK_CAGE, new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
         map.put(ModItems.GOLDEN_CAGE, new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
 
-        map.put(ModItems.CAGE_2, new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
-        map.put(ModItems.DARK_CAGE_2, new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
-        map.put(ModItems.GOLDEN_CAGE_2, new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
-
         map.put(ModItems.VISORED_BASCINET, new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
         map.put(ModItems.DARK_VISORED_BASCINET, new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));
         map.put(ModItems.GOLDEN_VISORED_BASCINET, new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG_BREATHES_BOTH));

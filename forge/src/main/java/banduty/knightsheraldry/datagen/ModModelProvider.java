@@ -128,7 +128,6 @@ public class ModModelProvider extends ForgeModelProviderPlus {
                 ModItems.VISORED_BARBUTE.get(), ModItems.DARK_VISORED_BARBUTE.get(), ModItems.GOLDEN_VISORED_BARBUTE.get(),
                 ModItems.HOUNDSKULL.get(), ModItems.DARK_HOUNDSKULL.get(), ModItems.GOLDEN_HOUNDSKULL.get(),
                 ModItems.CAGE.get(), ModItems.DARK_CAGE.get(), ModItems.GOLDEN_CAGE.get(),
-                ModItems.CAGE_2.get(), ModItems.DARK_CAGE_2.get(), ModItems.GOLDEN_CAGE_2.get(),
                 ModItems.VISORED_BASCINET.get(), ModItems.DARK_VISORED_BASCINET.get(), ModItems.GOLDEN_VISORED_BASCINET.get(),
                 ModItems.SALLET.get(), ModItems.DARK_SALLET.get(), ModItems.GOLDEN_SALLET.get(),
                 ModItems.BURGONET_FALLING_BUFFE.get(), ModItems.DARK_BURGONET_FALLING_BUFFE.get(), ModItems.GOLDEN_BURGONET_FALLING_BUFFE.get(),
@@ -253,7 +252,6 @@ public class ModModelProvider extends ForgeModelProviderPlus {
         itemTypesMap.put(ModItems.VISORED_BARBUTE.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(ModItems.HOUNDSKULL.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(ModItems.CAGE.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(ModItems.CAGE_2.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(ModItems.VISORED_BASCINET.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(ModItems.GREAT_HELM.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(ModItems.SALLET.get(), Manuscript.Types.HELMET);

@@ -209,7 +209,6 @@ public class KnightsHeraldryForgeClient {
                 ModItems.VISORED_BARBUTE.get(),
                 ModItems.HOUNDSKULL.get(),
                 ModItems.CAGE.get(),
-                ModItems.CAGE_2.get(),
                 ModItems.VISORED_BASCINET.get(),
                 ModItems.GREAT_HELM.get(),
                 ModItems.SALLET.get(),

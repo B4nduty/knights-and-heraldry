@@ -14,7 +14,6 @@ import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import banduty.knightsheraldry.items.item.khweapon.*;
 import banduty.stoneycore.items.armor.underarmor.SCDyeableUnderArmor;
 import banduty.stoneycore.items.armor.underarmor.SCUnderArmor;
-import banduty.stoneycore.recipes.ManuscriptCraftingRecipe;
 import banduty.stoneycore.util.SCDamageCalculator;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -286,17 +285,11 @@ public interface ModItems {
     Item GOLDEN_HOUNDSKULL = registerItem("golden_houndskull",
             new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Item CAGE = registerItem("cage",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(172), true, Ingredient.of(Items.IRON_INGOT)));
+            new KHCageHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Item DARK_CAGE = registerItem("dark_cage",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(189), true, Ingredient.of(Items.IRON_INGOT)));
+            new KHCageHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Item GOLDEN_CAGE = registerItem("golden_cage",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Item CAGE_2 = registerItem("cage_2",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Item DARK_CAGE_2 = registerItem("dark_cage_2",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Item GOLDEN_CAGE_2 = registerItem("golden_cage_2",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            new KHCageHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Item VISORED_BASCINET = registerItem("visored_bascinet",
             new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Item DARK_VISORED_BASCINET = registerItem("dark_visored_bascinet",
@@ -304,17 +297,17 @@ public interface ModItems {
     Item GOLDEN_VISORED_BASCINET = registerItem("golden_visored_bascinet",
             new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Item GREAT_HELM = registerItem("great_helm",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(250), Ingredient.of(Items.IRON_INGOT)));
+            new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(250), Ingredient.of(Items.IRON_INGOT)));
     Item DARK_GREAT_HELM = registerItem("dark_great_helm",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(275), Ingredient.of(Items.IRON_INGOT)));
+            new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(275), Ingredient.of(Items.IRON_INGOT)));
     Item GOLDEN_GREAT_HELM = registerItem("golden_great_helm",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(300), Ingredient.of(Items.GOLD_INGOT)));
+            new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(300), Ingredient.of(Items.GOLD_INGOT)));
     Item GREAT_HELM_2 = registerItem("great_helm_2",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(250), Ingredient.of(Items.IRON_INGOT)));
+            new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(250), Ingredient.of(Items.IRON_INGOT)));
     Item DARK_GREAT_HELM_2 = registerItem("dark_great_helm_2",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(275), Ingredient.of(Items.IRON_INGOT)));
+            new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(275), Ingredient.of(Items.IRON_INGOT)));
     Item GOLDEN_GREAT_HELM_2 = registerItem("golden_great_helm_2",
-            new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(300), Ingredient.of(Items.GOLD_INGOT)));
+            new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(300), Ingredient.of(Items.GOLD_INGOT)));
     Item SALLET = registerItem("sallet",
             new KHHelmetAccessory(new Item.Properties().stacksTo(1).defaultDurability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Item DARK_SALLET = registerItem("dark_sallet",
