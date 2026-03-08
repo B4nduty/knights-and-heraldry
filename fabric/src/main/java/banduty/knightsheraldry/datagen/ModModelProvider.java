@@ -68,19 +68,19 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerHelmetDecoItems(itemModelGenerators);
 
         // Dyeable Items
-        registerItemWConditions(ModItems.BRIGANDINE_HARNESS, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_BRIGANDINE_HARNESS, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE_HARNESS, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.BRIGANDINE_CUISSES, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_BRIGANDINE_CUISSES, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE_CUISSES, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.JESTER_HOOD, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.HORSE_BARDING, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_HORSE_BARDING, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_HORSE_BARDING, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GILDED_CHAPERON, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GAMBESON, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.WOODEN_LANCE, ModelTemplates.FLAT_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.BRIGANDINE_HARNESS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.DARK_BRIGANDINE_HARNESS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE_HARNESS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.BRIGANDINE_CUISSES, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.DARK_BRIGANDINE_CUISSES, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE_CUISSES, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.JESTER_HOOD, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.HORSE_BARDING, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.DARK_HORSE_BARDING, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.GOLDEN_HORSE_BARDING, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.GILDED_CHAPERON, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.GAMBESON, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.WOODEN_LANCE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
     }
 
     private void registerSimpleItems(ItemModelGenerators itemModelGenerators) {
@@ -116,7 +116,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 ModItems.GOLDEN_PLATE_SPAULDERS, ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS, ModItems.GOLDEN_PLATE_SPAULDERS_RIMMED,
                 ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED,
                 ModItems.PLATE_CUIRASS, ModItems.GOLDEN_PLATE_CUIRASS, ModItems.DARK_PLATE_CUIRASS,
-                ModItems.PLATE_CUIRASS_TASSETS,ModItems.DARK_PLATE_CUIRASS_TASSETS,  ModItems.GOLDEN_PLATE_CUIRASS_TASSETS,
+                ModItems.PLATE_CUIRASS_TASSETS, ModItems.DARK_PLATE_CUIRASS_TASSETS, ModItems.GOLDEN_PLATE_CUIRASS_TASSETS,
                 ModItems.MAXIMILLIAN_CUIRASS, ModItems.DARK_MAXIMILLIAN_CUIRASS, ModItems.GOLDEN_MAXIMILLIAN_CUIRASS,
                 ModItems.MAXIMILLIAN_CUIRASS_TASSETS, ModItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS, ModItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS,
                 ModItems.XIIII_PLATE_CUIRASS, ModItems.XIIII_PLATE_CUIRASS_TASSETS, ModItems.XIIII_PLATE_BREASTPLATE,
@@ -160,11 +160,11 @@ public class ModModelProvider extends FabricModelProviderPlus {
         };
 
         for (Item item : simpleHandheldItems) {
-            registerItemWConditions(item, ModelTemplates.FLAT_HANDHELD_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID,"broken"), 1));
+            registerItemWConditions(item, ModelTemplates.FLAT_HANDHELD_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "broken"), 1));
         }
 
         for (Item item : openVisorHelmet) {
-            registerItemWConditions(item, ModelTemplates.FLAT_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID,"open"), 1));
+            registerItemWConditions(item, ModelTemplates.FLAT_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "open"), 1));
         }
 
         for (Item item : simpleArmor) {
