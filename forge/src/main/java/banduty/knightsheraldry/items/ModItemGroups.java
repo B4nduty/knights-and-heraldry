@@ -12,15 +12,15 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
-public class ModItemGroups {
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
+public interface ModItemGroups {
+    DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, KnightsHeraldry.MOD_ID);
 
     private static ItemStack itemStack(ItemLike item) {
         return new ItemStack(item);
     }
 
-    public static final RegistryObject<CreativeModeTab> KH_WEAPONS_TAB = CREATIVE_MODE_TABS.register("kh_weapons",
+    RegistryObject<CreativeModeTab> KH_WEAPONS_TAB = CREATIVE_MODE_TABS.register("kh_weapons",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.ZWEIHANDER.get()))
                     .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_weapons"))
@@ -76,7 +76,7 @@ public class ModItemGroups {
                         ));
                     }).build());
 
-    public static final RegistryObject<CreativeModeTab> KH_ARMORS_TAB = CREATIVE_MODE_TABS.register("kh_armors",
+    RegistryObject<CreativeModeTab> KH_ARMORS_TAB = CREATIVE_MODE_TABS.register("kh_armors",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.QUILTED_COIF.get()))
                     .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_armors"))
@@ -297,7 +297,7 @@ public class ModItemGroups {
                         ));
                     }).build());
 
-    public static final RegistryObject<CreativeModeTab> KH_DECO_TAB = CREATIVE_MODE_TABS.register("kh_deco",
+    RegistryObject<CreativeModeTab> KH_DECO_TAB = CREATIVE_MODE_TABS.register("kh_deco",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.PLUME.get()))
                     .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_deco"))
@@ -326,7 +326,7 @@ public class ModItemGroups {
                         ));
                     }).build());
 
-    public static void register(IEventBus eventBus) {
+    static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);
     }
 }
