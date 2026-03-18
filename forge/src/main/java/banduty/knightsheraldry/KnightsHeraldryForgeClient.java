@@ -15,6 +15,7 @@ import banduty.knightsheraldry.util.itemdata.ItemTooltipData;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -110,22 +111,78 @@ public class KnightsHeraldryForgeClient {
         }
 
         // 3D Models
-        String[] modelNames = {
-                "dagger_3d", "stiletto_3d", "rapier_3d", "sword_3d", "v_sword_3d",
-                "arming_sword_3d", "axe_3d", "broad_axe_3d", "crooked_axe_3d",
-                "straight_crooked_axe_3d", "mace_3d", "spiked_mace_3d", "flail_icon",
-                "ball_flail_icon", "hammer_3d", "war_hammer_3d", "longsword_3d",
-                "v_longsword_3d", "falchion_3d", "scimitar_3d", "pitchfork_3d",
-                "spear_3d", "pike_3d", "billhook_3d", "glaive_3d", "curved_glaive_3d",
-                "halberd_3d", "lance_3d", "wooden_lance_3d", "poleaxe_3d",
-                "polehammer_3d", "bec_de_corbin_3d", "morning_star_3d", "bardiche_3d",
-                "greatsword_3d", "claymore_3d", "flamberge_3d", "zweihander_3d",
-                "wardart_3d", "longbow_3d", "heavy_crossbow_icon", "arquebus_icon",
-                "handgonne_icon"
+        Item[] weapons3D = {
+                ModItems.DAGGER.get(),
+                ModItems.STILETTO.get(),
+                ModItems.RAPIER.get(),
+                ModItems.SWORD.get(),
+                ModItems.V_SWORD.get(),
+                ModItems.ARMING_SWORD.get(),
+                ModItems.AXE.get(),
+                ModItems.BROAD_AXE.get(),
+                ModItems.CROOKED_AXE.get(),
+                ModItems.STRAIGHT_CROOKED_AXE.get(),
+                ModItems.MACE.get(),
+                ModItems.SPIKED_MACE.get(),
+                ModItems.HAMMER.get(),
+                ModItems.WAR_HAMMER.get(),
+                ModItems.LONGSWORD.get(),
+                ModItems.V_LONGSWORD.get(),
+                ModItems.FALCHION.get(),
+                ModItems.SCIMITAR.get(),
+                ModItems.PITCHFORK.get(),
+                ModItems.SPEAR.get(),
+                ModItems.PIKE.get(),
+                ModItems.BILLHOOK.get(),
+                ModItems.GLAIVE.get(),
+                ModItems.CURVED_GLAIVE.get(),
+                ModItems.HALBERD.get(),
+                ModItems.LANCE.get(),
+                ModItems.WOODEN_LANCE.get(),
+                ModItems.POLEAXE.get(),
+                ModItems.POLEHAMMER.get(),
+                ModItems.BEC_DE_CORBIN.get(),
+                ModItems.MORNING_STAR.get(),
+                ModItems.BARDICHE.get(),
+                ModItems.GREATSWORD.get(),
+                ModItems.CLAYMORE.get(),
+                ModItems.FLAMBERGE.get(),
+                ModItems.ZWEIHANDER.get(),
+                ModItems.WARDART.get(),
+                ModItems.LONGBOW.get()
         };
 
-        for (String modelName : modelNames) {
-            event.register(new ModelResourceLocation(KnightsHeraldry.MOD_ID, modelName, "inventory"));
+        // 2D ICON-ONLY weapons
+        Item[] weaponsIcon = {
+                ModItems.FLAIL.get(),
+                ModItems.BALL_FLAIL.get(),
+                ModItems.HEAVY_CROSSBOW.get(),
+                ModItems.ARQUEBUS.get(),
+                ModItems.HANDGONNE.get()
+        };
+
+        // ===== register 3D models =====
+        for (Item item : weapons3D) {
+
+            ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
+
+            event.register(new ModelResourceLocation(
+                    id.getNamespace(),
+                    id.getPath() + "_3d",
+                    "inventory"
+            ));
+        }
+
+        // ===== register icon models =====
+        for (Item item : weaponsIcon) {
+
+            ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
+
+            event.register(new ModelResourceLocation(
+                    id.getNamespace(),
+                    id.getPath() + "_icon",
+                    "inventory"
+            ));
         }
 
         // Manuscript Items

@@ -119,7 +119,7 @@ public class ModModelProvider extends ForgeModelProviderPlus {
                 ModItems.ZWEIHANDER.get(), ModItems.WARDART.get()
         };
         for (Item item : brokenItems) {
-            register3DWeaponWConditions(item, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "broken"), 1));
+            registerItemWConditions(item, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "broken"), 1));
         }
 
         Item[] openVisorHelmets = {

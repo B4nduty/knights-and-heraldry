@@ -6,6 +6,7 @@ import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.item.Item;
@@ -23,58 +24,62 @@ public abstract class ModelBakeryMixin {
     @Shadow
     protected abstract void loadTopLevel(ModelResourceLocation modelId);
 
-    @Inject( method = "<init>",
+    @Inject(method = "<init>",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/resources/model/ModelBakery;loadTopLevel(Lnet/minecraft/client/resources/model/ModelResourceLocation;)V", ordinal = 3, shift = At.Shift.AFTER))
     public void knightsheraldry$add3dModels(BlockColors blockColors, ProfilerFiller profilerFiller, Map<ResourceLocation, BlockModel> blockModelMap, Map<ResourceLocation, List<ModelBakery.LoadedJson>> blockStates, CallbackInfo ci) {
-        String[] modelNames = {
-                "dagger_3d",
-                "stiletto_3d",
-                "rapier_3d",
-                "sword_3d",
-                "v_sword_3d",
-                "arming_sword_3d",
-                "axe_3d",
-                "broad_axe_3d",
-                "crooked_axe_3d",
-                "straight_crooked_axe_3d",
-                "mace_3d",
-                "spiked_mace_3d",
-                "flail_icon",
-                "ball_flail_icon",
-                "hammer_3d",
-                "war_hammer_3d",
-                "longsword_3d",
-                "v_longsword_3d",
-                "falchion_3d",
-                "scimitar_3d",
-                "pitchfork_3d",
-                "spear_3d",
-                "pike_3d",
-                "billhook_3d",
-                "glaive_3d",
-                "curved_glaive_3d",
-                "halberd_3d",
-                "lance_3d",
-                "wooden_lance_3d",
-                "poleaxe_3d",
-                "polehammer_3d",
-                "bec_de_corbin_3d",
-                "morning_star_3d",
-                "bardiche_3d",
-                "greatsword_3d",
-                "claymore_3d",
-                "flamberge_3d",
-                "zweihander_3d",
-                "wardart_3d",
-                "longbow_3d",
-                "heavy_crossbow_icon",
-                "arquebus_icon",
-                "handgonne_icon"
+        Item[] weapons3D = {
+                ModItems.DAGGER,
+                ModItems.STILETTO,
+                ModItems.RAPIER,
+                ModItems.SWORD,
+                ModItems.V_SWORD,
+                ModItems.ARMING_SWORD,
+                ModItems.AXE,
+                ModItems.BROAD_AXE,
+                ModItems.CROOKED_AXE,
+                ModItems.STRAIGHT_CROOKED_AXE,
+                ModItems.MACE,
+                ModItems.SPIKED_MACE,
+                ModItems.HAMMER,
+                ModItems.WAR_HAMMER,
+                ModItems.LONGSWORD,
+                ModItems.V_LONGSWORD,
+                ModItems.FALCHION,
+                ModItems.SCIMITAR,
+                ModItems.PITCHFORK,
+                ModItems.SPEAR,
+                ModItems.PIKE,
+                ModItems.BILLHOOK,
+                ModItems.GLAIVE,
+                ModItems.CURVED_GLAIVE,
+                ModItems.HALBERD,
+                ModItems.LANCE,
+                ModItems.WOODEN_LANCE,
+                ModItems.POLEAXE,
+                ModItems.POLEHAMMER,
+                ModItems.BEC_DE_CORBIN,
+                ModItems.MORNING_STAR,
+                ModItems.BARDICHE,
+                ModItems.GREATSWORD,
+                ModItems.CLAYMORE,
+                ModItems.FLAMBERGE,
+                ModItems.ZWEIHANDER,
+                ModItems.WARDART,
+                ModItems.LONGBOW
         };
 
-        String[] bannerCompatibleNames = {
-                "surcoat",
-                "surcoat_sleeveless"
+        // 2D ICON-ONLY weapons
+        Item[] weaponsIcon = {
+                ModItems.FLAIL,
+                ModItems.BALL_FLAIL,
+                ModItems.HEAVY_CROSSBOW,
+                ModItems.ARQUEBUS,
+                ModItems.HANDGONNE
+        };
+
+        Item[] patternedItems = new Item[]{
+                ModItems.SURCOAT,
+                ModItems.SURCOAT_SLEEVELESS
         };
 
         Item[] manuscriptItems = {
@@ -257,18 +262,42 @@ public abstract class ModelBakeryMixin {
                 "vh",
                 "vhr"
         };
+        
+        // ===== register 3D models =====
+        for (Item item : weapons3D) {
 
-        for (String modelName : modelNames) {
-            this.loadTopLevel(new ModelResourceLocation(KnightsHeraldry.MOD_ID, modelName, "inventory"));
+            ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
+
+            this.loadTopLevel(new ModelResourceLocation(
+                    id.getNamespace(),
+                    id.getPath() + "_3d",
+                    "inventory"
+            ));
+        }
+
+        // ===== register icon models =====
+        for (Item item : weaponsIcon) {
+
+            ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
+
+            this.loadTopLevel(new ModelResourceLocation(
+                    id.getNamespace(),
+                    id.getPath() + "_icon",
+                    "inventory"
+            ));
         }
 
         for (Item manuscriptItem : manuscriptItems) {
             this.loadTopLevel(new ModelResourceLocation(KnightsHeraldry.MOD_ID, "manuscript_" + manuscriptItem, "inventory"));
         }
 
-        for (String baseName : bannerCompatibleNames) {
-            for (String patternName : bannerPatternNames) {
-                this.loadTopLevel(new ModelResourceLocation(KnightsHeraldry.MOD_ID, baseName + "/" + patternName, "inventory"));
+        for (Item item : patternedItems) {
+
+            for (String pattern : bannerPatternNames) {
+
+                String modelPath = item + "/" + pattern;
+
+                this.loadTopLevel(new ModelResourceLocation(KnightsHeraldry.MOD_ID, modelPath, "inventory"));
             }
         }
     }
