@@ -8,6 +8,8 @@ import io.wispforest.accessories.api.AccessoryItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class KHGreatHelmetAccessory extends AccessoryItem implements SCAccessoryItem, DecoableItem {
     private final Ingredient ingredient;
@@ -18,6 +20,7 @@ public class KHGreatHelmetAccessory extends AccessoryItem implements SCAccessory
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public ModelBundle getModels(ItemStack itemStack) {
         return ModelBundle.ofBase(new GreatHelm(GreatHelm.getTexturedModelData().bakeRoot()));
     }

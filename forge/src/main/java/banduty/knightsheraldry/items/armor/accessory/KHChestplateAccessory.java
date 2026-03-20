@@ -8,6 +8,8 @@ import io.wispforest.accessories.api.AccessoryItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class KHChestplateAccessory extends AccessoryItem implements SCAccessoryItem {
     private final Ingredient ingredient;
@@ -18,6 +20,7 @@ public class KHChestplateAccessory extends AccessoryItem implements SCAccessoryI
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public ModelBundle getModels(ItemStack itemStack) {
         return ModelBundle.ofBaseAndFirstPerson(new AccessoryChestplateModel(AccessoryChestplateModel.getTexturedModelData().bakeRoot()),
                 new AccessoryArmModel(AccessoryArmModel.getTexturedModelData().bakeRoot()));

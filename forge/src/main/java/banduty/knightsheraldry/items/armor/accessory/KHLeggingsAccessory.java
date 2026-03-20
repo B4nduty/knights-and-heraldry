@@ -7,6 +7,8 @@ import io.wispforest.accessories.api.AccessoryItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class KHLeggingsAccessory extends AccessoryItem implements SCAccessoryItem {
     private final Ingredient ingredient;
@@ -17,6 +19,7 @@ public class KHLeggingsAccessory extends AccessoryItem implements SCAccessoryIte
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public ModelBundle getModels(ItemStack itemStack) {
         return ModelBundle.ofBase(new AccessoryLeggingsModel(AccessoryLeggingsModel.getTexturedModelData().bakeRoot()));
     }

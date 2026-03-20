@@ -7,6 +7,8 @@ import io.wispforest.accessories.api.AccessoryItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class KHCloak extends AccessoryItem implements SCAccessoryItem, DyeableLeatherItem {
     boolean overlay;
@@ -22,6 +24,7 @@ public class KHCloak extends AccessoryItem implements SCAccessoryItem, DyeableLe
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public ModelBundle getModels(ItemStack itemStack) {
         return ModelBundle.ofBase(new CloakHoodModel(CloakHoodModel.getTexturedModelData().bakeRoot()));
     }

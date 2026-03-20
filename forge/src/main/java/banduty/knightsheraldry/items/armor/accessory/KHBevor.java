@@ -9,24 +9,25 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class KHBevor extends KHHelmetAccessory {
-        boolean hasOverlay;
+    boolean hasOverlay;
 
-        public KHBevor(Properties properties, Ingredient ingredient) {
-            super(properties, ingredient);
-        }
-
-        @OnlyIn(Dist.CLIENT)
-        public ModelBundle getModels(ItemStack itemStack) {
-            return ModelBundle.ofBase(new BevorModel(BevorModel.getTexturedModelData().bakeRoot()));
-        }
-
-        @Override
-        public ResourceLocation getTexturePath(ItemStack itemStack) {
-            return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + this + ".png");
-        }
-
-        @Override
-        public RenderSettings getRenderSettings(ItemStack stack) {
-            return new RenderSettings(hasOverlay, false, true);
-        }
+    public KHBevor(Properties properties, Ingredient ingredient) {
+        super(properties, ingredient);
     }
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public ModelBundle getModels(ItemStack itemStack) {
+        return ModelBundle.ofBase(new BevorModel(BevorModel.getTexturedModelData().bakeRoot()));
+    }
+
+    @Override
+    public ResourceLocation getTexturePath(ItemStack itemStack) {
+        return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + this + ".png");
+    }
+
+    @Override
+    public RenderSettings getRenderSettings(ItemStack stack) {
+        return new RenderSettings(hasOverlay, false, true);
+    }
+}

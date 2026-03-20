@@ -9,6 +9,8 @@ import io.wispforest.accessories.api.AccessoryItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class KHCloseHelmet extends AccessoryItem implements SCAccessoryItem, DecoableItem {
     private final boolean openVisor;
@@ -26,7 +28,9 @@ public class KHCloseHelmet extends AccessoryItem implements SCAccessoryItem, Dec
         this.ingredient = ingredient;
     }
 
+
     @Override
+    @OnlyIn(Dist.CLIENT)
     public ModelBundle getModels(ItemStack itemStack) {
         if (openVisor) {
             return ModelBundle.ofBaseAndVisor(new CloseHelmClosed(CloseHelmClosed.getTexturedModelData().bakeRoot()), new CloseHelmOpened(CloseHelmOpened.getTexturedModelData().bakeRoot()));

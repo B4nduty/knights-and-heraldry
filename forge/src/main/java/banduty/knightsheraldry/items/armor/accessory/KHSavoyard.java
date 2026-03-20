@@ -9,6 +9,8 @@ import io.wispforest.accessories.api.AccessoryItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class KHSavoyard extends AccessoryItem implements SCAccessoryItem, DecoableItem {
     private final boolean openVisor;
@@ -27,6 +29,7 @@ public class KHSavoyard extends AccessoryItem implements SCAccessoryItem, Decoab
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public ModelBundle getModels(ItemStack itemStack) {
         if (openVisor) {
             return ModelBundle.ofBaseAndVisor(new SavoyardClosed(SavoyardClosed.getTexturedModelData().bakeRoot()), new SavoyardOpened(SavoyardOpened.getTexturedModelData().bakeRoot()));
