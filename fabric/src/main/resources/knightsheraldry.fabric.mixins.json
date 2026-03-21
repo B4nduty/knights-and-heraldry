@@ -15,7 +15,6 @@
   "client": [
     "AbstractClientPlayerMixin",
     "EntityRendererMixin",
-    "HorseRendererMixin",
     "ModelBakeryMixin"
   ],
   "server": [

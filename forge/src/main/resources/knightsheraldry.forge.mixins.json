@@ -13,8 +13,7 @@
   ],
   "client": [
     "AbstractClientPlayerMixin",
-    "EntityRendererMixin",
-    "HorseRendererMixin"
+    "EntityRendererMixin"
   ],
   "server": [
   ],

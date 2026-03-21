@@ -6,7 +6,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.HorseArmorItem;
 import net.minecraft.world.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 public class HorseBardingArmorItem extends HorseArmorItem implements DyeableLeatherItem {
     public HorseBardingArmorItem(int bonus, Properties properties) {
@@ -14,7 +13,7 @@ public class HorseBardingArmorItem extends HorseArmorItem implements DyeableLeat
     }
 
     @Override
-    public @NotNull ResourceLocation getTexture() {
+    public ResourceLocation getTexture() {
         return new ResourceLocation(StoneyCore.MOD_ID, "textures/models/armor/a_layer_1.png");
     }
 
