@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemDisplayContext;
+import org.jetbrains.annotations.NotNull;
 
 public class WarDartRenderer extends EntityRenderer<WarDartEntity> {
     public static final ResourceLocation TEXTURE = new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/item/wardart_3d.png");
@@ -38,7 +39,7 @@ public class WarDartRenderer extends EntityRenderer<WarDartEntity> {
         super.render(warDartEntity, yaw, tickDelta, poseStack, multiBufferSource, light);
     }
 
-    public ResourceLocation getTextureLocation(WarDartEntity entity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull WarDartEntity entity) {
         return TEXTURE;
     }
 }
