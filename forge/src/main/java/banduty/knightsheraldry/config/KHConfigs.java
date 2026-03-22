@@ -1,31 +1,47 @@
 package banduty.knightsheraldry.config;
 
-import banduty.knightsheraldry.KnightsHeraldry;
-import me.shedaniel.autoconfig.ConfigData;
-import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
-import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
+import com.electronwill.nightconfig.core.file.CommentedFileConfig;
+import net.minecraftforge.common.ForgeConfigSpec;
 
-@Config(name = KnightsHeraldry.MOD_ID)
-@Config.Gui.Background("minecraft:textures/block/oak_planks.png")
-public class KHConfigs extends PartitioningSerializer.GlobalData {
+import java.nio.file.Path;
 
-    @ConfigEntry.Category("common")
-    @ConfigEntry.Gui.TransitiveObject()
-    public Common common = new Common();
+public class KHConfigs {
 
-    @Config(name = KnightsHeraldry.MOD_ID + "-common")
-    public static final class Common implements ConfigData {
-        @Comment("Lance Cooldown")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 180)
-        public int getLanceCooldown = 30;
+    public static final ForgeConfigSpec SPEC;
+    public static final ForgeConfigSpec.IntValue lanceCooldown;
+    public static final ForgeConfigSpec.BooleanValue damageTamedEntities;
+    public static final ForgeConfigSpec.IntValue wardartCooldown;
 
-        @Comment("Damage Tamed Entities")
-        public boolean getDamageTamedEntities = false;
+    static {
+        final ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
-        @Comment("WarDart throw Cooldown")
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 180)
-        public int getWardartCooldown = 15;
+        builder.comment("Common configuration settings")
+                .push("common");
+
+        lanceCooldown = builder
+                .comment("Lance Cooldown")
+                .defineInRange("lanceCooldown", 30, 0, Integer.MAX_VALUE);
+
+        damageTamedEntities = builder
+                .comment("Damage Tamed Entities")
+                .define("damageTamedEntities", false);
+
+        wardartCooldown = builder
+                .comment("WarDart throw Cooldown")
+                .defineInRange("wardartCooldown", 15, 0, Integer.MAX_VALUE);
+
+        builder.pop();
+        SPEC = builder.build();
+    }
+
+    public static void loadConfig(ForgeConfigSpec spec, Path path) {
+        final CommentedFileConfig configData = CommentedFileConfig.builder(path)
+                .sync()
+                .autosave()
+                .preserveInsertionOrder()
+                .build();
+        configData.load();
+        spec.setConfig(configData);
     }
 }
+
