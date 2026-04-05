@@ -9,10 +9,8 @@ import banduty.knightsheraldry.platform.services.IPlatformHelper;
 import banduty.knightsheraldry.recipe.TwoLayerDyeRecipe;
 import banduty.knightsheraldry.recipes.HelmetDecoRecipe;
 import banduty.knightsheraldry.recipes.ModRecipes;
-import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
@@ -45,11 +43,6 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public KHConfigImpl getConfig() {
         return config;
-    }
-
-    @Override
-    public int getComboCount(Player player) {
-        return ((PlayerAttackProperties) player).getComboCount();
     }
 
     @Override

@@ -7,7 +7,6 @@ import banduty.stoneycore.entity.custom.SCArrowEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 
 public class FabricEntityHelper implements IEntityHelper {
     @Override

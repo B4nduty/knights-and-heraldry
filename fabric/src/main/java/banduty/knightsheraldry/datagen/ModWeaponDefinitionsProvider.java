@@ -2,9 +2,9 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.items.ModItems;
 import banduty.knightsheraldry.sounds.ModSounds;
+import banduty.stoneycore.combat.melee.SCDamageType;
 import banduty.stoneycore.datagen.DefinitionsProvider;
 import banduty.stoneycore.items.SCItems;
-import banduty.stoneycore.util.SCDamageCalculator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Items;
@@ -33,7 +33,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         MeleeBuilder.create()
                                 .damage(0.0f, 0.0f, 6.5f)
                                 .levelRadii(0.0, 0.7, 1.2, 1.7, 2.0)
-                                .onlyDamageType(SCDamageCalculator.DamageType.PIERCING)
+                                .onlyDamageType(SCDamageType.PIERCING)
                                 .build()
                 ).build()
         );
@@ -42,7 +42,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         MeleeBuilder.create()
                                 .damage(0.0f, 0.0f, 9.0f)
                                 .levelRadii(2.5, 2.9, 3.4, 4.0, 4.5)
-                                .onlyDamageType(SCDamageCalculator.DamageType.PIERCING)
+                                .onlyDamageType(SCDamageType.PIERCING)
                                 .build()
                 ).build()
         );
@@ -68,7 +68,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         MeleeBuilder.create()
                                 .damage(0.0f, 10.0f, 0.0f)
                                 .levelRadii(2.0, 2.4, 2.9, 3.4, 4.0)
-                                .onlyDamageType(SCDamageCalculator.DamageType.BLUDGEONING)
+                                .onlyDamageType(SCDamageType.BLUDGEONING)
                                 .build()
                 ).build(),
                 ModItems.MACE, ModItems.SPIKED_MACE
@@ -77,7 +77,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         MeleeBuilder.create()
                                 .damage(0.0f, 8.0f, 0.0f)
                                 .levelRadii(2.0, 2.4, 2.9, 3.4, 4.0)
-                                .onlyDamageType(SCDamageCalculator.DamageType.BLUDGEONING)
+                                .onlyDamageType(SCDamageType.BLUDGEONING)
                                 .build()
                 ).build(),
                 ModItems.FLAIL, ModItems.BALL_FLAIL
@@ -112,7 +112,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         MeleeBuilder.create()
                                 .damage(0.0f, 0.0f, 7.5f)
                                 .levelRadii(3.3, 4.0, 4.7, 5.5, 6.0)
-                                .onlyDamageType(SCDamageCalculator.DamageType.PIERCING)
+                                .onlyDamageType(SCDamageType.PIERCING)
                                 .build()
                 ).build(),
                 ModItems.PITCHFORK
@@ -121,7 +121,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         MeleeBuilder.create()
                                 .damage(0.0f, 0.0f, 11.0f)
                                 .levelRadii(4.4, 5.1, 5.9, 6.7, 7.5)
-                                .onlyDamageType(SCDamageCalculator.DamageType.PIERCING)
+                                .onlyDamageType(SCDamageType.PIERCING)
                                 .build()
                 ).build(),
                 ModItems.SPEAR
@@ -130,7 +130,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         MeleeBuilder.create()
                                 .damage(0.0f, 0.0f, 11.0f)
                                 .levelRadii(5.5, 6.2, 7.0, 7.8, 8.5)
-                                .onlyDamageType(SCDamageCalculator.DamageType.PIERCING)
+                                .onlyDamageType(SCDamageType.PIERCING)
                                 .build()
                 ).build(),
                 ModItems.PIKE
@@ -187,7 +187,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         MeleeBuilder.create()
                                 .damage(0.0f, 12.0f, 0.0f)
                                 .levelRadii(3.0, 3.7, 4.5, 5.3, 6.0)
-                                .onlyDamageType(SCDamageCalculator.DamageType.BLUDGEONING)
+                                .onlyDamageType(SCDamageType.BLUDGEONING)
                                 .build()
                 ).build(),
                 ModItems.MORNING_STAR
@@ -215,7 +215,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         MeleeBuilder.create()
                                 .damage(0.0f, 0.0f, 13.5f)
                                 .levelRadii(3.4, 3.8, 4.3, 4.6, 5.0)
-                                .onlyDamageType(SCDamageCalculator.DamageType.PIERCING)
+                                .onlyDamageType(SCDamageType.PIERCING)
                                 .build()
                 ).build(),
                 ModItems.WARDART
@@ -231,7 +231,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .maxUseTime(72000)
                                 .rechargeTime(3)
                                 .needsFlintAndSteel(false)
-                                .damageType(SCDamageCalculator.DamageType.PIERCING)
+                                .damageType(SCDamageType.PIERCING)
                                 .useAnim(UseAnim.BOW)
                                 .soundEvent(SoundEvents.ARROW_SHOOT)
                                 .build()
@@ -247,7 +247,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .maxUseTime(72000)
                                 .rechargeTime(5)
                                 .needsFlintAndSteel(false)
-                                .damageType(SCDamageCalculator.DamageType.PIERCING)
+                                .damageType(SCDamageType.PIERCING)
                                 .useAnim(UseAnim.CROSSBOW)
                                 .soundEvent(SoundEvents.ARROW_SHOOT)
                                 .build()
@@ -263,7 +263,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .maxUseTime(1)
                                 .rechargeTime(15)
                                 .needsFlintAndSteel(false)
-                                .damageType(SCDamageCalculator.DamageType.BLUDGEONING)
+                                .damageType(SCDamageType.BLUDGEONING)
                                 .useAnim(UseAnim.BOW)
                                 .soundEvent(ModSounds.ARQUEBUS_CLOSE)
                                 .ammoRequirement("item1", SCItems.BLACK_POWDER, 1)
@@ -282,7 +282,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .maxUseTime(1)
                                 .rechargeTime(15)
                                 .needsFlintAndSteel(true)
-                                .damageType(SCDamageCalculator.DamageType.BLUDGEONING)
+                                .damageType(SCDamageType.BLUDGEONING)
                                 .useAnim(UseAnim.BOW)
                                 .soundEvent(ModSounds.ARQUEBUS_CLOSE)
                                 .ammoRequirement("item1", SCItems.BLACK_POWDER, 2)

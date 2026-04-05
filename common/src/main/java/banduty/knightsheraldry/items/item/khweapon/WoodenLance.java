@@ -1,13 +1,13 @@
 package banduty.knightsheraldry.items.item.khweapon;
 
-import banduty.stoneycore.util.SCDamageCalculator;
+import banduty.stoneycore.combat.melee.SCDamageType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.ItemStack;
 
 public class WoodenLance extends Lance implements DyeableLeatherItem {
-    public WoodenLance(float attackSpeed, Properties properties, SCDamageCalculator.DamageType onlyDamageType) {
+    public WoodenLance(float attackSpeed, Properties properties, SCDamageType onlyDamageType) {
         super(attackSpeed, properties, onlyDamageType);
     }
 

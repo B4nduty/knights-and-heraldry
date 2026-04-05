@@ -2,7 +2,8 @@ package banduty.knightsheraldry.items.item.khweapon;
 
 import banduty.knightsheraldry.items.ModToolMaterials;
 import banduty.knightsheraldry.platform.Services;
-import banduty.stoneycore.util.SCDamageCalculator;
+import banduty.stoneycore.combat.melee.CombatSelect;
+import banduty.stoneycore.combat.melee.SCDamageType;
 import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -23,9 +24,9 @@ public class Halberd extends SwordItem {
         super.hurtEnemy(stack, target, attacker);
 
         if (attacker instanceof Player player) {
-            SCDamageCalculator.DamageType damageType = SCWeaponUtil.calculateDamageType(stack, Services.PLATFORM.getComboCount(player));
+            SCDamageType damageType = SCWeaponUtil.calculateDamageType(stack, CombatSelect.getComboCount(player));
 
-            if (damageType.equals(SCDamageCalculator.DamageType.BLUDGEONING)) {
+            if (damageType.equals(SCDamageType.BLUDGEONING)) {
                 target.addEffect(new MobEffectInstance(Services.PLATFORM.getPinEffect(), 2 * 20));
             }
 
@@ -37,7 +38,7 @@ public class Halberd extends SwordItem {
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.position());
-                        double damage = SCDamageCalculator.getSCDamage(player, SCWeaponUtil.calculateDamage(this, distance, damageType), damageType);
+                        double damage = SCDamageType.calculateSCDamage(player, SCWeaponUtil.calculateDamage(this, distance, damageType), damageType);
                         double maxDamage = SCWeaponUtil.getDamageValues(damageType, this);
 
                         if (damage >= maxDamage) {

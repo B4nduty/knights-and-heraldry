@@ -1,7 +1,10 @@
 package banduty.knightsheraldry.items;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.entity.custom.*;
+import banduty.knightsheraldry.entity.custom.KHBodkinArrowEntity;
+import banduty.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
+import banduty.knightsheraldry.entity.custom.KHClothArrowEntity;
+import banduty.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import banduty.knightsheraldry.items.armor.accessory.*;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.items.item.DyeableItems;
@@ -12,9 +15,9 @@ import banduty.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import banduty.knightsheraldry.items.item.khweapon.*;
+import banduty.stoneycore.combat.melee.SCDamageType;
 import banduty.stoneycore.items.armor.underarmor.SCDyeableUnderArmor;
 import banduty.stoneycore.items.armor.underarmor.SCUnderArmor;
-import banduty.stoneycore.util.SCDamageCalculator;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -80,9 +83,9 @@ public interface ModItems {
             () -> new Halberd(-2.8F, new Item.Properties().defaultDurability(391)));
 
     RegistryObject<Item> LANCE = registerItem("lance",
-            () -> new Lance(-3.0F, new Item.Properties().defaultDurability(1), SCDamageCalculator.DamageType.PIERCING));
+            () -> new Lance(-3.0F, new Item.Properties().defaultDurability(1), SCDamageType.PIERCING));
     RegistryObject<Item> WOODEN_LANCE = registerItem("wooden_lance",
-            () -> new WoodenLance(-3.0F, new Item.Properties().defaultDurability(1), SCDamageCalculator.DamageType.PIERCING));
+            () -> new WoodenLance(-3.0F, new Item.Properties().defaultDurability(1), SCDamageType.PIERCING));
 
     RegistryObject<Item> POLEAXE = registerItem("poleaxe",
             () -> new AxeItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Properties().defaultDurability(391)));

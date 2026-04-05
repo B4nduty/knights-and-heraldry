@@ -113,7 +113,8 @@ dependencies {
 
     modImplementation "software.bernie.geckolib:geckolib-forge-1.20.1:${project.geckolib}"
 
-    modImplementation "maven.modrinth:better-combat:${project.bettercombat}-forge"
+    modCompileOnly "maven.modrinth:better-combat:${project.bettercombat}-forge"
+    // modRuntimeOnly "maven.modrinth:better-combat:${project.bettercombat}-forge"
 
     modImplementation "dev.kosmx.player-anim:player-animation-lib-forge:${project.player_anim}"
 

@@ -1,8 +1,8 @@
 package banduty.knightsheraldry.entity.custom;
 
 import banduty.knightsheraldry.platform.Services;
+import banduty.stoneycore.combat.melee.SCDamageType;
 import banduty.stoneycore.entity.custom.SCArrowEntity;
-import banduty.stoneycore.util.SCDamageCalculator;
 import net.minecraft.world.damagesource.CombatRules;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -39,7 +39,7 @@ public class KHBodkinArrowEntity extends SCArrowEntity {
     public void applyDamage(LivingEntity target) {
         double damageDealt = getBaseDamage() * getDeltaMovement().length();
 
-        damageDealt = SCDamageCalculator.getSCDamage(target, damageDealt - 3, getDamageType());
+        damageDealt = SCDamageType.calculateSCDamage(target, damageDealt - 3, getDamageType());
 
         double armor = Math.max(0, target.getArmorValue() - 10);
         double armorToughness = Math.max(0, target.getAttributeValue(Attributes.ARMOR_TOUGHNESS) - 5);

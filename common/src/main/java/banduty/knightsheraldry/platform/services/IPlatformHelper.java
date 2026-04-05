@@ -6,7 +6,6 @@ import banduty.knightsheraldry.recipe.TwoLayerDyeRecipe;
 import banduty.knightsheraldry.recipes.HelmetDecoRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
 public interface IPlatformHelper {
@@ -44,8 +43,6 @@ public interface IPlatformHelper {
     }
 
     KHConfigImpl getConfig();
-
-    int getComboCount(Player player);
 
     ArrowBehavior getBehavior(ResourceLocation key);
 

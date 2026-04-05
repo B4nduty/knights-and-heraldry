@@ -2,7 +2,7 @@ package banduty.knightsheraldry.items.item.khweapon;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.ModToolMaterials;
-import banduty.stoneycore.util.SCDamageCalculator;
+import banduty.stoneycore.combat.melee.SCDamageType;
 import banduty.stoneycore.util.data.playerdata.IEntityDataSaver;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -25,8 +25,8 @@ import java.util.function.Predicate;
 
 public class Lance extends SwordItem {
     private boolean charged = false;
-    private final SCDamageCalculator.DamageType onlyDamageType;
-    public Lance(float attackSpeed, Properties properties, SCDamageCalculator.DamageType onlyDamageType) {
+    private final SCDamageType onlyDamageType;
+    public Lance(float attackSpeed, Properties properties, SCDamageType onlyDamageType) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, properties);
         this.onlyDamageType = onlyDamageType;
     }
@@ -51,7 +51,7 @@ public class Lance extends SwordItem {
                         && tamableAnimal.isOwnedBy(player))) return;
                 if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)
                         && !player.getCooldowns().isOnCooldown(this)) {
-                    double damage = SCDamageCalculator.getSCDamage(livingEntity, getLanceDamage() *
+                    double damage = SCDamageType.calculateSCDamage(livingEntity, getLanceDamage() *
                             ((IEntityDataSaver) player).stoneycore$getPersistentData().getFloat("speedHistory") * 10,
                             this.onlyDamageType);
 

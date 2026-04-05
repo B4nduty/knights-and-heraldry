@@ -1,8 +1,8 @@
 package banduty.knightsheraldry.items.item.khweapon;
 
 import banduty.knightsheraldry.items.ModToolMaterials;
-import banduty.knightsheraldry.platform.Services;
-import banduty.stoneycore.util.SCDamageCalculator;
+import banduty.stoneycore.combat.melee.CombatSelect;
+import banduty.stoneycore.combat.melee.SCDamageType;
 import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,7 +22,7 @@ public class Billhook extends SwordItem {
         super.hurtEnemy(stack, target, attacker);
 
         if (attacker instanceof Player player) {
-            SCDamageCalculator.DamageType damageType = SCWeaponUtil.calculateDamageType(stack, Services.PLATFORM.getComboCount(player));
+            SCDamageType damageType = SCWeaponUtil.calculateDamageType(stack, CombatSelect.getComboCount(player));
             double maxDistance = SCWeaponUtil.getMaxDistance(this);
             AABB detectionBox = new AABB(player.getOnPos()).inflate(maxDistance);
             Vec3 playerPos = player.position();
@@ -31,7 +31,7 @@ public class Billhook extends SwordItem {
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.position());
-                        double damage = SCDamageCalculator.getSCDamage(player, SCWeaponUtil.calculateDamage(this, distance,
+                        double damage = SCDamageType.calculateSCDamage(player, SCWeaponUtil.calculateDamage(this, distance,
                                 damageType), damageType);
                         double maxDamage = SCWeaponUtil.getDamageValues(damageType, this);
 
