@@ -9,6 +9,7 @@ import banduty.knightsheraldry.items.ModItems;
 import banduty.knightsheraldry.recipes.ModRecipes;
 import banduty.knightsheraldry.sounds.ModSounds;
 import banduty.knightsheraldry.util.itemdata.KHHelmetDeco;
+import banduty.knightsheraldry.util.loottable.ModLootTable;
 import banduty.stoneycore.networking.ModMessages;
 import io.wispforest.accessories.api.events.CanEquipCallback;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -34,6 +35,7 @@ public class KnightsHeraldryForge {
         ModMessages.register();
         ModSounds.register(modEventBus);
         ModRecipes.register(modEventBus);
+        ModLootTable.registerLootTables(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
