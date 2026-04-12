@@ -17,14 +17,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Player.class)
 public abstract class PlayerMixin implements IEntityDataSaver {
-    @Unique
-    private final Player playerEntity = (Player) (Object) this;
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void knightsheraldry$onTick(CallbackInfo ci) {
-        ItemStack lanceStack = getLanceStack(playerEntity);
-        if (!(lanceStack != null && lanceStack.getTag() != null && lanceStack.getTag().getBoolean("charged")
-                && playerEntity instanceof ServerPlayer serverPlayer)) return;
+        Player player = (Player) (Object) this;
+
+        if (!(player instanceof ServerPlayer serverPlayer)) return;
+
+        ItemStack lanceStack = getLanceStack(player);
+        if (lanceStack.isEmpty()) return;
+
+        CompoundTag itemTag = lanceStack.getTag();
+        if (itemTag == null || !itemTag.getBoolean("charged")) return;
 
         float velocity = calculateVelocity(serverPlayer);
 
@@ -33,10 +37,13 @@ public abstract class PlayerMixin implements IEntityDataSaver {
 
     @Unique
     private ItemStack getLanceStack(Player player) {
-        ItemStack mainHandStack = player.getMainHandItem();
-        ItemStack offHandStack = player.getOffhandItem();
-        return mainHandStack.getItem() instanceof Lance ? mainHandStack :
-                offHandStack.getItem() instanceof Lance ? offHandStack : null;
+        ItemStack mainHand = player.getMainHandItem();
+        if (mainHand.getItem() instanceof Lance) return mainHand;
+
+        ItemStack offHand = player.getOffhandItem();
+        if (offHand.getItem() instanceof Lance) return offHand;
+
+        return ItemStack.EMPTY;
     }
 
     @Unique

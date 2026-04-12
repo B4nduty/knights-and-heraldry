@@ -3,6 +3,7 @@ package banduty.knightsheraldry.event;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.item.khweapon.Lance;
 import banduty.knightsheraldry.util.playerdata.PlayerVelocity;
+import banduty.stoneycore.util.data.playerdata.IEntityDataSaver;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -18,36 +19,40 @@ public class PlayerTickHandler {
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (event.phase != TickEvent.Phase.START || !(event.player instanceof ServerPlayer player)) {
-            return;
-        }
+        if (event.phase != TickEvent.Phase.START) return;
+        if (!(event.player instanceof ServerPlayer player)) return;
 
         ItemStack lanceStack = getLanceStack(player);
 
-        if (lanceStack != null && lanceStack.hasTag() && lanceStack.getTag().getBoolean("charged")) {
-            float velocity = calculateVelocity(player);
+        if (lanceStack.isEmpty()) return;
 
-            PlayerVelocity.updateSpeedHistory(player, velocity);
-        }
+        CompoundTag tag = lanceStack.getTag();
+        if (tag == null || !tag.getBoolean("charged")) return;
+
+        float velocity = calculateVelocity(player);
+
+        if (player instanceof IEntityDataSaver)
+            PlayerVelocity.updateSpeedHistory((IEntityDataSaver) player, velocity);
     }
 
     private static ItemStack getLanceStack(Player player) {
-        ItemStack mainHandStack = player.getMainHandItem();
-        if (mainHandStack.getItem() instanceof Lance) return mainHandStack;
+        ItemStack mainHand = player.getMainHandItem();
+        if (mainHand.getItem() instanceof Lance) return mainHand;
 
-        ItemStack offHandStack = player.getOffhandItem();
-        if (offHandStack.getItem() instanceof Lance) return offHandStack;
+        ItemStack offHand = player.getOffhandItem();
+        if (offHand.getItem() instanceof Lance) return offHand;
 
-        return null;
+        return ItemStack.EMPTY;
     }
 
     private static float calculateVelocity(ServerPlayer player) {
-        CompoundTag playerData = player.getPersistentData();
+        CompoundTag playerData = ((IEntityDataSaver) player).stoneycore$getPersistentData();
 
         double prevX = playerData.getDouble("lancePrevX");
         double prevZ = playerData.getDouble("lancePrevZ");
 
-        Entity entity = player.getVehicle() != null ? player.getVehicle() : player;
+        Entity entity = player.getVehicle();
+        if (entity == null) entity = player;
 
         Vec3 delta = new Vec3(entity.getX() - prevX, 0, entity.getZ() - prevZ);
 

@@ -10,14 +10,21 @@ import java.util.function.Supplier;
 public record VelocityS2CPacket(float speedHistory) {
 
     public static void handle(VelocityS2CPacket msg, Supplier<NetworkEvent.Context> ctx) {
-        ctx.get().enqueueWork(() -> {
-            if (Minecraft.getInstance().player != null) {
-                ((IEntityDataSaver) Minecraft.getInstance().player)
-                        .stoneycore$getPersistentData()
-                        .putFloat("speedHistory", msg.speedHistory);
-            }
-        });
-        ctx.get().setPacketHandled(true);
+        NetworkEvent.Context context = ctx.get();
+
+        if (context.getDirection().getReceptionSide().isClient()) {
+            context.enqueueWork(() -> {
+                Minecraft mc = Minecraft.getInstance();
+
+                if (mc.player != null) {
+                    ((IEntityDataSaver) mc.player)
+                            .stoneycore$getPersistentData()
+                            .putFloat("speedHistory", msg.speedHistory);
+                }
+            });
+        }
+
+        context.setPacketHandled(true);
     }
 
     public static VelocityS2CPacket decode(FriendlyByteBuf buf) {

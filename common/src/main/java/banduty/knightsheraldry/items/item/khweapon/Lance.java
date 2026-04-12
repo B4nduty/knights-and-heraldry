@@ -26,6 +26,7 @@ import java.util.function.Predicate;
 public class Lance extends SwordItem {
     private boolean charged = false;
     private final SCDamageType onlyDamageType;
+
     public Lance(float attackSpeed, Properties properties, SCDamageType onlyDamageType) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, properties);
         this.onlyDamageType = onlyDamageType;
@@ -46,21 +47,37 @@ public class Lance extends SwordItem {
             }
             if (weapon != null) {
                 Entity targetedEntity = raycastEntity(player, getRange());
+                if (targetedEntity == null) return;
+
                 boolean damageTamedEntities = KnightsHeraldry.getConfig().getDamageTamedEntities();
-                if (damageTamedEntities && (targetedEntity instanceof TamableAnimal tamableAnimal
-                        && tamableAnimal.isOwnedBy(player))) return;
+                if (!damageTamedEntities && targetedEntity instanceof TamableAnimal tamableAnimal
+                        && tamableAnimal.isOwnedBy(player)) return;
+
                 if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)
                         && !player.getCooldowns().isOnCooldown(this)) {
+                    double test = ((IEntityDataSaver) player).stoneycore$getPersistentData().getFloat("speedHistory");
                     double damage = SCDamageType.calculateSCDamage(livingEntity, getLanceDamage() *
-                            ((IEntityDataSaver) player).stoneycore$getPersistentData().getFloat("speedHistory") * 10,
+                                    ((IEntityDataSaver) player).stoneycore$getPersistentData().getFloat("speedHistory") * 10,
                             this.onlyDamageType);
 
                     setCharged(stack, false);
+
                     if (livingEntity.isPassenger()) livingEntity.stopRiding();
 
-                    stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(livingEntity.getUsedItemHand()));
-                    targetedEntity.hurt(player.level().damageSources().playerAttack(player), (float) damage);
-                    if (!player.isCreative()) player.getCooldowns().addCooldown(this, KnightsHeraldry.getConfig().getLanceCooldown() * 20);
+                    stack.hurtAndBreak(1, player,
+                            p -> p.broadcastBreakEvent(player.getUsedItemHand()));
+
+                    targetedEntity.hurt(
+                            player.level().damageSources().playerAttack(player),
+                            (float) damage
+                    );
+
+                    if (!player.isCreative()) {
+                        player.getCooldowns().addCooldown(
+                                this,
+                                KnightsHeraldry.getConfig().getLanceCooldown() * 20
+                        );
+                    }
                 }
             }
         }
@@ -117,7 +134,7 @@ public class Lance extends SwordItem {
         if (!level.isClientSide() && user instanceof Player player && !player.getCooldowns().isOnCooldown(this)) {
             int i = this.getUseDuration(stack) - remainingUseTicks;
             doChargeProgress(i, stack, user);
-            float f = (float)(stack.getUseDuration() - remainingUseTicks) / (float)40;
+            float f = (float) (stack.getUseDuration() - remainingUseTicks) / (float) 40;
             if (f < 1.0F) {
                 this.charged = false;
             }
@@ -129,7 +146,7 @@ public class Lance extends SwordItem {
     }
 
     private static void doChargeProgress(int useTicks, ItemStack stack, LivingEntity user) {
-        float f = (float)useTicks / (float)40;
+        float f = (float) useTicks / (float) 40;
         if (f >= 1.0F && !isCharged(stack) && user instanceof Player player) {
             setCharged(stack, true);
             player.displayClientMessage(Component.literal("Has been charged"), true);

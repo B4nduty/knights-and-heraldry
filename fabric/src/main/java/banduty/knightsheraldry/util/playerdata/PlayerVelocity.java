@@ -9,15 +9,25 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 
 public class PlayerVelocity {
+
     public static void updateSpeedHistory(IEntityDataSaver player, float velocity) {
-        CompoundTag compoundTag = player.stoneycore$getPersistentData();
-        compoundTag.putFloat("speedHistory", velocity);
-        syncSpeedHistory(velocity, (ServerPlayer) player);
+        CompoundTag tag = player.stoneycore$getPersistentData();
+
+        float old = tag.getFloat("speedHistory");
+
+        if (Math.abs(old - velocity) < 0.01f) return;
+
+        tag.putFloat("speedHistory", velocity);
+
+        if (player instanceof ServerPlayer serverPlayer) {
+            syncSpeedHistory(serverPlayer, velocity);
+        }
     }
 
-    public static void syncSpeedHistory(float speedHistory, ServerPlayer player) {
+    public static void syncSpeedHistory(ServerPlayer player, float speedHistory) {
         FriendlyByteBuf buffer = PacketByteBufs.create();
         buffer.writeFloat(speedHistory);
+
         ServerPlayNetworking.send(player, ModMessages.VELOCITY_ID, buffer);
     }
 }
