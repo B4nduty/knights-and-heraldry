@@ -14,37 +14,29 @@ public class ArchaeologyLootModifier {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY.equals(id)) {
                 tableBuilder.modifyPools(builder -> {
-                    for (Item item : modifyDesertPyramidArchaeologyLoot()) {
-                        addBrokenItemToLoot(builder, item);
-                    }
+                    addBrokenItemsToPool(builder, modifyDesertPyramidArchaeologyLoot());
                 });
             }
             if (BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_COMMON.equals(id)) {
                 tableBuilder.modifyPools(builder -> {
-                    for (Item item : modifyTrailRuinsCommonArchaeologyLoot()) {
-                        addBrokenItemToLoot(builder, item);
-                    }
+                    addBrokenItemsToPool(builder, modifyTrailRuinsCommonArchaeologyLoot());
                 });
             }
             if (BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY.equals(id)) {
                 tableBuilder.modifyPools(builder -> {
-                    for (Item item : modifyColdOceansRuinsArchaeologyLoot()) {
-                        addBrokenItemToLoot(builder, item);
-                    }
+                    addBrokenItemsToPool(builder, modifyColdOceansRuinsArchaeologyLoot());
                 });
             }
             if (BuiltInLootTables.OCEAN_RUIN_WARM_ARCHAEOLOGY.equals(id)) {
                 tableBuilder.modifyPools(builder -> {
-                    for (Item item : modifyWarmOceansRuinsArchaeologyLoot()) {
-                        addBrokenItemToLoot(builder, item);
-                    }
+                    addBrokenItemsToPool(builder, modifyWarmOceansRuinsArchaeologyLoot());
                 });
             }
         });
     }
 
     private static Item[] modifyDesertPyramidArchaeologyLoot() {
-        return new Item[] {
+        return new Item[]{
                 ModItems.STILETTO,
                 ModItems.RAPIER,
                 ModItems.POLEAXE,
@@ -60,7 +52,7 @@ public class ArchaeologyLootModifier {
     }
 
     private static Item[] modifyTrailRuinsCommonArchaeologyLoot() {
-        return new Item[] {
+        return new Item[]{
                 ModItems.FLAIL,
                 ModItems.LONGSWORD,
                 ModItems.BILLHOOK,
@@ -71,7 +63,7 @@ public class ArchaeologyLootModifier {
     }
 
     private static Item[] modifyColdOceansRuinsArchaeologyLoot() {
-        return new Item[] {
+        return new Item[]{
                 ModItems.POLEHAMMER,
                 ModItems.MORNING_STAR,
                 ModItems.PLATE_SPAULDERS,
@@ -80,7 +72,7 @@ public class ArchaeologyLootModifier {
     }
 
     private static Item[] modifyWarmOceansRuinsArchaeologyLoot() {
-        return new Item[] {
+        return new Item[]{
                 ModItems.FALCHION,
                 ModItems.SPEAR,
                 ModItems.PIKE,
@@ -92,12 +84,17 @@ public class ArchaeologyLootModifier {
         };
     }
 
-    private static void addBrokenItemToLoot(LootPool.Builder builder, Item item) {
+    private static void addBrokenItemsToPool(LootPool.Builder pool, Item[] items) {
         float minDamagePercent = 0.01f;
         float maxDamagePercent = 1.0f;
 
-        builder.with(LootItem.lootTableItem(item)
-                .apply(SetItemDamageFunction.setDamage(UniformGenerator.between(minDamagePercent, maxDamagePercent)))
-                .build());
+        for (Item item : items) {
+            pool.add(
+                    LootItem.lootTableItem(item)
+                            .apply(SetItemDamageFunction.setDamage(
+                                    UniformGenerator.between(minDamagePercent, maxDamagePercent)
+                            ))
+            );
+        }
     }
 }

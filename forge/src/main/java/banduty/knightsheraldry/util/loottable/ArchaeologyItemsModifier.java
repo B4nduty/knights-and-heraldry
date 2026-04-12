@@ -16,10 +16,15 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class ArchaeologyItemsModifier extends LootModifier {
+
     public static final Supplier<Codec<ArchaeologyItemsModifier>> CODEC = Suppliers.memoize(() ->
             RecordCodecBuilder.create(inst -> codecStart(inst)
-                    .and(ForgeRegistries.ITEMS.getCodec().listOf().fieldOf("items").forGetter(m -> m.items))
-                    .apply(inst, ArchaeologyItemsModifier::new)));
+                    .and(ForgeRegistries.ITEMS.getCodec()
+                            .listOf()
+                            .fieldOf("items")
+                            .forGetter(m -> m.items))
+                    .apply(inst, ArchaeologyItemsModifier::new))
+    );
 
     private final List<Item> items;
 
@@ -30,12 +35,27 @@ public class ArchaeologyItemsModifier extends LootModifier {
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        for (Item item : items) {
-            ItemStack stack = new ItemStack(item);
-            float damagePercent = context.getRandom().nextFloat() * (1.0f - 0.01f) + 0.01f;
-            stack.setDamageValue((int) (stack.getMaxDamage() * damagePercent));
-            generatedLoot.add(stack);
+
+        if (items.isEmpty()) return generatedLoot;
+
+        float roll = context.getRandom().nextFloat();
+
+        if (roll < 0.5f) {
+            return generatedLoot;
         }
+
+        generatedLoot.clear();
+
+        Item item = items.get(context.getRandom().nextInt(items.size()));
+        ItemStack stack = new ItemStack(item);
+
+        if (stack.isDamageableItem()) {
+            float damagePercent = 0.01f + context.getRandom().nextFloat() * 0.99f;
+            stack.setDamageValue((int) (stack.getMaxDamage() * damagePercent));
+        }
+
+        generatedLoot.add(stack);
+
         return generatedLoot;
     }
 

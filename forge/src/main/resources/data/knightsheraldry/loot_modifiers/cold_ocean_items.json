@@ -2,10 +2,8 @@
   "type": "knightsheraldry:add_archaeology_items",
   "conditions": [
     {
-      "condition": "minecraft:location_check",
-      "predicate": {
-        "storage_loot": "minecraft:archaeology/ocean_ruin_cold"
-      }
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:archaeology/ocean_ruin_cold"
     }
   ],
   "items": [

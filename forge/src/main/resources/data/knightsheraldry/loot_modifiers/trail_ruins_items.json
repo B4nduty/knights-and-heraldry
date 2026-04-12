@@ -2,10 +2,8 @@
   "type": "knightsheraldry:add_archaeology_items",
   "conditions": [
     {
-      "condition": "minecraft:location_check",
-      "predicate": {
-        "storage_loot": "minecraft:archaeology/trail_ruins_common"
-      }
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:archaeology/trail_ruins_common"
     }
   ],
   "items": [
