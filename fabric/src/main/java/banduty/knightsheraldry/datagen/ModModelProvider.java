@@ -81,6 +81,25 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerItemWConditions(ModItems.GILDED_CHAPERON, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
         registerItemWConditions(ModItems.GAMBESON, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
         registerItemWConditions(ModItems.WOODEN_LANCE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+
+        registerItemWConditions(ModItems.BRIGANDINE_SPAULDERS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.BRIGANDINE_SPAULDERS_BESAGEWS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.DARK_BRIGANDINE_SPAULDERS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE_SPAULDERS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+
+        registerItemWConditions(ModItems.BRIGANDINE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.DARK_BRIGANDINE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+
+        registerItemWConditions(ModItems.BRIG_BREASTPLATE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.DARK_BRIG_BREASTPLATE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.GOLDEN_BRIG_BREASTPLATE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+
+        registerItemWConditions(ModItems.BRIG_BREASTPLATE_TASSETS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.DARK_BRIG_BREASTPLATE_TASSETS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(ModItems.GOLDEN_BRIG_BREASTPLATE_TASSETS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
     }
 
     private void registerSimpleItems(ItemModelGenerators itemModelGenerators) {
@@ -108,9 +127,8 @@ public class ModModelProvider extends FabricModelProviderPlus {
 
         Item[] simpleArmor = {
                 ModItems.MAIL_SPAULDERS, ModItems.MAIL_SPAULDERS_BESAGEWS, ModItems.GOLDEN_MAIL_SPAULDERS,
-                ModItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS, ModItems.BRIGANDINE_SPAULDERS, ModItems.BRIGANDINE_SPAULDERS_BESAGEWS,
-                ModItems.DARK_BRIGANDINE_SPAULDERS, ModItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS, ModItems.GOLDEN_BRIGANDINE_SPAULDERS,
-                ModItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS, ModItems.PLATE_SPAULDERS, ModItems.PLATE_SPAULDERS_BESAGEWS,
+                ModItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS,
+                ModItems.PLATE_SPAULDERS, ModItems.PLATE_SPAULDERS_BESAGEWS,
                 ModItems.PLATE_SPAULDERS_RIMMED, ModItems.PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.DARK_PLATE_SPAULDERS,
                 ModItems.DARK_PLATE_SPAULDERS_BESAGEWS, ModItems.DARK_PLATE_SPAULDERS_RIMMED, ModItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED,
                 ModItems.GOLDEN_PLATE_SPAULDERS, ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS, ModItems.GOLDEN_PLATE_SPAULDERS_RIMMED,
@@ -134,9 +152,6 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 ModItems.GAUNTLET, ModItems.DARK_GAUNTLET, ModItems.GOLDEN_GAUNTLET,
                 ModItems.PLATE_HARNESS, ModItems.DARK_PLATE_HARNESS, ModItems.GOLDEN_PLATE_HARNESS,
                 ModItems.PLATE_CUISSES, ModItems.DARK_PLATE_CUISSES, ModItems.GOLDEN_PLATE_CUISSES,
-                ModItems.BRIGANDINE, ModItems.DARK_BRIGANDINE, ModItems.GOLDEN_BRIGANDINE,
-                ModItems.BRIG_BREASTPLATE, ModItems.DARK_BRIG_BREASTPLATE, ModItems.GOLDEN_BRIG_BREASTPLATE,
-                ModItems.BRIG_BREASTPLATE_TASSETS, ModItems.DARK_BRIG_BREASTPLATE_TASSETS, ModItems.GOLDEN_BRIG_BREASTPLATE_TASSETS,
                 ModItems.GREAT_HELM, ModItems.DARK_GREAT_HELM, ModItems.GOLDEN_GREAT_HELM,
                 ModItems.GREAT_HELM_2, ModItems.DARK_GREAT_HELM_2, ModItems.GOLDEN_GREAT_HELM_2
         };

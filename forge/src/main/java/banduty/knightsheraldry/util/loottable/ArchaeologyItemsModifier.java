@@ -40,7 +40,7 @@ public class ArchaeologyItemsModifier extends LootModifier {
 
         float roll = context.getRandom().nextFloat();
 
-        if (roll < 0.5f) {
+        if (roll < 0.7f) {
             return generatedLoot;
         }
 

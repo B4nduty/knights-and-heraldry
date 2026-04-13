@@ -4,9 +4,6 @@ import banduty.knightsheraldry.client.entity.*;
 import banduty.knightsheraldry.client.item.SurcoatWithBannerModel;
 import banduty.knightsheraldry.entity.ModEntities;
 import banduty.knightsheraldry.items.ModItems;
-import banduty.knightsheraldry.items.armor.accessory.KHChaperon;
-import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
-import banduty.knightsheraldry.items.item.DyeableItems;
 import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
@@ -16,6 +13,7 @@ import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -58,15 +56,9 @@ public class KnightsHeraldryForgeClient {
                     if (tintIndex == 1) return twoLayerItem.getColor2(stack);
                     return -1;
                 }, item);
-            } else if (item instanceof DyeableItems dyeableItems) {
+            } else if (item instanceof DyeableLeatherItem dyeableItems) {
                 event.register((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : dyeableItems.getColor(stack), item);
-            } else if (item instanceof HorseBardingArmorItem horseBardingArmorItem) {
-                event.register((stack, tintIndex) ->
-                        tintIndex > 0 ? -1 : horseBardingArmorItem.getColor(stack), item);
-            } else if (item instanceof KHChaperon khChaperon) {
-                event.register((stack, tintIndex) ->
-                        tintIndex > 0 ? -1 : khChaperon.getColor(stack), item);
             }
         }
     }

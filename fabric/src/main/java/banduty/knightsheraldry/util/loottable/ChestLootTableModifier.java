@@ -90,18 +90,24 @@ public class ChestLootTableModifier {
     }
 
     private static void addChestLootPool(LootTable.Builder tableBuilder, float chance, Item... items) {
+
         LootPool.Builder poolBuilder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
                 .when(LootItemRandomChanceCondition.randomChance(chance));
 
         for (Item item : items) {
-            var manuscriptStack = Manuscript.createForStack(new ItemStack(item));
-            CompoundTag nbt = manuscriptStack.getOrCreateTag();
+            ItemStack stack = new ItemStack(item);
 
-            poolBuilder.with(LootItem.lootTableItem(manuscriptStack.getItem())
-                    .apply(SetNbtFunction.setTag(nbt))
-                    .setWeight(1)
-                    .build());
+            // build manuscript properly ONCE
+            ItemStack manuscript = Manuscript.createForStack(stack);
+            CompoundTag nbt = manuscript.getOrCreateTag();
+
+            poolBuilder.with(
+                    LootItem.lootTableItem(manuscript.getItem())
+                            .apply(SetNbtFunction.setTag(nbt))
+                            .setWeight(1)
+                            .build()
+            );
         }
 
         tableBuilder.pool(poolBuilder.build());

@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public interface ModLootTable {
     DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS =
-            DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, "knightsheraldry");
+            DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, KnightsHeraldry.MOD_ID);
 
     RegistryObject<Codec<ArchaeologyItemsModifier>> ARCHAEOLOGY_ITEM_MODIFIER =
             LOOT_MODIFIER_SERIALIZERS.register("add_archaeology_items", ArchaeologyItemsModifier.CODEC);
