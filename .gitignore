@@ -25,3 +25,4 @@ run
 /fabric/src/generated
 /forge/src/generated
 /fabric/run-datagen/.mixin.out/class/net/minecraft/world/entity
+fabric/run-datagen/.mixin.out/class/net/minecraft/world/entity/LivingEntity.class
