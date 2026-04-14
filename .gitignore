@@ -24,3 +24,4 @@ run
 /fabric/run-datagen/logs
 /fabric/src/generated
 /forge/src/generated
+/fabric/run-datagen/.mixin.out/class/net/minecraft/world/entity
