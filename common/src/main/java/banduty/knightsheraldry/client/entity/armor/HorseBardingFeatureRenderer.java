@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.ItemStack;
@@ -64,10 +65,11 @@ public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<H
             VertexConsumer vertexConsumerOverlay = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(textureOverlay));
             model.renderToBuffer(poseStack, vertexConsumerOverlay, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), colorFloat[0], colorFloat[1], colorFloat[2], 1.0F);
 
-            // Plume texture (optional, dyed color)
-            if (armorStack.getTag() != null && armorStack.getTag().contains("plume")) {
-                colorInt = armorStack.getTag().getInt("plume");
+            CompoundTag tag = armorStack.getTag();
+            if (tag != null && tag.contains("HelmetDeco")) {
+                colorInt = getPlumeColor(armorStack);
             }
+
             colorFloat = new float[]{
                     (colorInt >> 16 & 255) / 255.0F,
                     (colorInt >> 8 & 255) / 255.0F,
@@ -76,5 +78,13 @@ public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<H
             VertexConsumer vertexConsumerPlume = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(HORSE_ARMOR_TEXTURE_PLUME));
             model.plume.render(poseStack, vertexConsumerPlume, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), colorFloat[0], colorFloat[1], colorFloat[2], 1.0F);
         }
+    }
+
+    private int getPlumeColor(ItemStack stack) {
+        CompoundTag tag = stack.getTag();
+        if (tag == null || !tag.contains("HelmetDeco")) return 0xFFFFFF;
+
+        CompoundTag deco = tag.getCompound("HelmetDeco");
+        return deco.getInt("plume");
     }
 }

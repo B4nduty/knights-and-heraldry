@@ -1,7 +1,9 @@
 package banduty.knightsheraldry.util.itemdata;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.*;
 
@@ -26,6 +28,17 @@ public record HelmetDeco(Item item, int color, int group) {
 
     public String getNbtKey() {
         return BuiltInRegistries.ITEM.getKey(item).getPath();
+    }
+
+    public static int getColor(ItemStack stack, String key, int defaultColor) {
+        CompoundTag tag = stack.getTag();
+        if (tag == null || !tag.contains("HelmetDeco")) return defaultColor;
+
+        CompoundTag deco = tag.getCompound("HelmetDeco");
+
+        if (!deco.contains(key)) return defaultColor;
+
+        return deco.getInt(key);
     }
 
     public static List<Item> getDecoGroup(int group) {
