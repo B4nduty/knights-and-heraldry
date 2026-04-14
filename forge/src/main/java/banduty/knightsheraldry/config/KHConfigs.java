@@ -15,9 +15,6 @@ public class KHConfigs {
     static {
         final ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
-        builder.comment("Common configuration settings")
-                .push("common");
-
         lanceCooldown = builder
                 .comment("Lance Cooldown")
                 .defineInRange("lanceCooldown", 30, 0, Integer.MAX_VALUE);
@@ -30,7 +27,6 @@ public class KHConfigs {
                 .comment("WarDart throw Cooldown")
                 .defineInRange("wardartCooldown", 15, 0, Integer.MAX_VALUE);
 
-        builder.pop();
         SPEC = builder.build();
     }
 
