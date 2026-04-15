@@ -1,0 +1,11 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_frogmouth"
+    },
+    {
+      "item": "knightsheraldry:teutonic_wings_ball_ends"
+    }
+  ]
+}

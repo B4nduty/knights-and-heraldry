@@ -1,0 +1,17 @@
+{
+  "type": "stoneycore:banner_pattern_crafting",
+  "category": "misc",
+  "group": "surcoat_sleeveless",
+  "ingredients": [
+    {
+      "tag": "minecraft:banners"
+    },
+    {
+      "item": "knightsheraldry:surcoat_sleeveless"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "knightsheraldry:surcoat_sleeveless"
+  }
+}

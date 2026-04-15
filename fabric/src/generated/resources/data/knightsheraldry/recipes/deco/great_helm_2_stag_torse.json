@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:great_helm_2"
+    },
+    {
+      "item": "knightsheraldry:stag"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

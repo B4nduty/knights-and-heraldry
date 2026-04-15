@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:nasal_helm"
+    },
+    {
+      "item": "knightsheraldry:teutonic_snakes"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

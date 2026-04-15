@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_maximillian_helmet"
+    },
+    {
+      "item": "knightsheraldry:lion"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

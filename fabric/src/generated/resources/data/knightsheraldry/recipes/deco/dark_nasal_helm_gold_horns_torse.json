@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_nasal_helm"
+    },
+    {
+      "item": "knightsheraldry:gold_horns"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

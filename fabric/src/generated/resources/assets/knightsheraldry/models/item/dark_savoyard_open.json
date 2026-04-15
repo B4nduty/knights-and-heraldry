@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "knightsheraldry:item/dark_savoyard_open"
+  }
+}

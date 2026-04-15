@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:bascinet"
+    },
+    {
+      "item": "knightsheraldry:boar"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

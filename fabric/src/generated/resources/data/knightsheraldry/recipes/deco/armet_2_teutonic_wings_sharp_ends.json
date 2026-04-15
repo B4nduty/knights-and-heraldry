@@ -1,0 +1,11 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:armet_2"
+    },
+    {
+      "item": "knightsheraldry:teutonic_wings_sharp_ends"
+    }
+  ]
+}

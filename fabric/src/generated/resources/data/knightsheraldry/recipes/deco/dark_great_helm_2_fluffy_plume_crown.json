@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_great_helm_2"
+    },
+    {
+      "item": "knightsheraldry:fluffy_plume"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

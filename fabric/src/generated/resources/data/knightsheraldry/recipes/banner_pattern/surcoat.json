@@ -1,0 +1,17 @@
+{
+  "type": "stoneycore:banner_pattern_crafting",
+  "category": "misc",
+  "group": "surcoat",
+  "ingredients": [
+    {
+      "tag": "minecraft:banners"
+    },
+    {
+      "item": "knightsheraldry:surcoat"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "knightsheraldry:surcoat"
+  }
+}

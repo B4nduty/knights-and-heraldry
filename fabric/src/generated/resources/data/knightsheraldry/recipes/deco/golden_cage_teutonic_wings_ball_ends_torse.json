@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_cage"
+    },
+    {
+      "item": "knightsheraldry:teutonic_wings_ball_ends"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

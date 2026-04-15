@@ -1,0 +1,11 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_visored_barbute"
+    },
+    {
+      "item": "knightsheraldry:plume"
+    }
+  ]
+}

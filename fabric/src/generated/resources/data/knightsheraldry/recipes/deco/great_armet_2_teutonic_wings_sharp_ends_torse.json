@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:great_armet_2"
+    },
+    {
+      "item": "knightsheraldry:teutonic_wings_sharp_ends"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

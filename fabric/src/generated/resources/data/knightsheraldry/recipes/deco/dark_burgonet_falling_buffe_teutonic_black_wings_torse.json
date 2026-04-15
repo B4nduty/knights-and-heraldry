@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_burgonet_falling_buffe"
+    },
+    {
+      "item": "knightsheraldry:teutonic_black_wings"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

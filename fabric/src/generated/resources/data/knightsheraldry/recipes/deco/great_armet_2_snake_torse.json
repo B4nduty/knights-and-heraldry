@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:great_armet_2"
+    },
+    {
+      "item": "knightsheraldry:snake"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

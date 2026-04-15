@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_frogmouth"
+    },
+    {
+      "item": "knightsheraldry:snake"
+    },
+    {
+      "item": "knightsheraldry:torse"
+    }
+  ]
+}

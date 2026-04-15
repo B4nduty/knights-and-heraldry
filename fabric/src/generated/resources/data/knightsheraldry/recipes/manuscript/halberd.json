@@ -1,0 +1,17 @@
+{
+  "type": "stoneycore:manuscript_crafting",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "stoneycore:smithing_hammer"
+    },
+    {
+      "item": "knightsheraldry:halberd"
+    }
+  ],
+  "result": {
+    "item": "stoneycore:manuscript"
+  }
+}

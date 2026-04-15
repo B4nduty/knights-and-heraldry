@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_savoyard"
+    },
+    {
+      "item": "knightsheraldry:teutonic_black_snakes"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

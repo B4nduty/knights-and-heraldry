@@ -1,0 +1,13 @@
+{
+  "damageResistance": {
+    "BLUDGEONING": 0.04,
+    "SLASHING": 0.1
+  },
+  "deflectChance": {
+    "minecraft:arrow": 0.6,
+    "stoneycore:bodkin_arrow": 0.6,
+    "stoneycore:broadhead_arrow": 0.6,
+    "stoneycore:cloth_arrow": 0.6,
+    "stoneycore:swallowtail_arrow": 0.6
+  }
+}

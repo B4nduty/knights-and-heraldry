@@ -1,0 +1,11 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_bascinet"
+    },
+    {
+      "item": "knightsheraldry:lion"
+    }
+  ]
+}

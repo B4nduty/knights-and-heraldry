@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_sallet"
+    },
+    {
+      "item": "knightsheraldry:boar"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

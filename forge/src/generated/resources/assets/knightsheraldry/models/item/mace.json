@@ -1,0 +1,20 @@
+{
+  "base": {
+    "parent": "knightsheraldry:item/mace_3d"
+  },
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/mace_broken",
+      "predicate": {
+        "knightsheraldry:broken": 1.0
+      }
+    }
+  ],
+  "perspectives": {
+    "gui": {
+      "parent": "knightsheraldry:item/mace_gui"
+    }
+  }
+}

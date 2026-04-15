@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:armet"
+    },
+    {
+      "item": "knightsheraldry:snake"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

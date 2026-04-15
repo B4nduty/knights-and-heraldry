@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:golden_close_helm"
+    },
+    {
+      "item": "knightsheraldry:lion"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}

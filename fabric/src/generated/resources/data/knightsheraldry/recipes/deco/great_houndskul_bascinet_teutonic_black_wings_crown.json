@@ -1,0 +1,14 @@
+{
+  "type": "knightsheraldry:helmet_deco_crafting",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:great_houndskul_bascinet"
+    },
+    {
+      "item": "knightsheraldry:teutonic_black_wings"
+    },
+    {
+      "item": "stoneycore:crown"
+    }
+  ]
+}
