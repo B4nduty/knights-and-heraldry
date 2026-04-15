@@ -22,3 +22,5 @@ build
 eclipse
 run
 /fabric/run-datagen/logs
+/fabric/run-datagen/.mixin.out/class/net/minecraft/world/entity
+fabric/run-datagen/.mixin.out/class/net/minecraft/world/entity/LivingEntity.class
