@@ -7,45 +7,46 @@ import net.minecraft.client.model.HorseModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.ItemStack;
 
 public class HorseBardingModel<T extends AbstractHorse> extends HorseModel<T> {
-	private final ModelPart armorHead;
-	public final ModelPart plume;
-	private final ModelPart mouth;
-	private final ModelPart left_ear;
-	private final ModelPart right_ear;
-	private final ModelPart neck;
-	private final ModelPart mane;
-	private final ModelPart armorBody;
-	private final ModelPart saddle;
-	private final ModelPart headpiece;
+    private final ModelPart armorHead;
+    public final ModelPart plume;
+    private final ModelPart mouth;
+    private final ModelPart left_ear;
+    private final ModelPart right_ear;
+    private final ModelPart neck;
+    private final ModelPart mane;
+    private final ModelPart armorBody;
+    private final ModelPart saddle;
+    private final ModelPart headpiece;
 
-	public HorseBardingModel(ModelPart root) {
-		super(root);
+    public HorseBardingModel(ModelPart root) {
+        super(root);
 
-		this.armorHead = root.getChild("armorHead");
+        this.armorHead = root.getChild("armorHead");
         this.plume = root.getChild("plume");
-		this.mouth = this.armorHead.getChild("mouth");
-		this.left_ear = this.armorHead.getChild("left_ear");
-		this.right_ear = this.armorHead.getChild("right_ear");
-		this.neck = this.armorHead.getChild("neck");
-		this.mane = this.armorHead.getChild("mane");
-		this.headpiece = this.armorHead.getChild("headpiece");
-		this.armorBody = root.getChild("armorBody");
-		this.saddle = this.armorBody.getChild("saddle");
-	}
+        this.mouth = this.armorHead.getChild("mouth");
+        this.left_ear = this.armorHead.getChild("left_ear");
+        this.right_ear = this.armorHead.getChild("right_ear");
+        this.neck = this.armorHead.getChild("neck");
+        this.mane = this.armorHead.getChild("mane");
+        this.headpiece = this.armorHead.getChild("headpiece");
+        this.armorBody = root.getChild("armorBody");
+        this.saddle = this.armorBody.getChild("saddle");
+    }
 
-	public Iterable<ModelPart> headParts() {
-		return ImmutableList.of(this.armorHead, this.plume, this.mouth, this.left_ear, this.right_ear, this.neck, this.mane, this.headpiece);
-	}
+    public Iterable<ModelPart> headParts() {
+        return ImmutableList.of(this.armorHead, this.plume, this.mouth, this.left_ear, this.right_ear, this.neck, this.mane, this.headpiece);
+    }
 
     @Override
     protected Iterable<ModelPart> bodyParts() {
         return ImmutableList.of(this.armorBody, this.saddle);
-	}
+    }
 
     public static LayerDefinition getTexturedModelData() {
         MeshDefinition meshDefinition = HorseModel.createBodyMesh(CubeDeformation.NONE);
@@ -86,29 +87,38 @@ public class HorseBardingModel<T extends AbstractHorse> extends HorseModel<T> {
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		this.armorHead.copyFrom(this.headParts);
-		armorHead.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
-		this.armorBody.copyFrom(this.body);
-		this.armorBody.y += 8f;
-		this.armorBody.z += 3.75f;
-		armorBody.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
-	}
+        this.armorHead.copyFrom(this.headParts);
+        armorHead.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
+        this.armorBody.copyFrom(this.body);
+        this.armorBody.y += 8f;
+        this.armorBody.z += 3.75f;
+        armorBody.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
+    }
 
     @Override
     public void setupAnim(T entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
         this.saddle.visible = entity.isSaddled();
-		ItemStack armorStack = ItemStack.EMPTY;
-		if (entity instanceof Horse horse) armorStack = horse.getArmor();
-        this.plume.visible = armorStack.getTag() != null && armorStack.getTag().contains("plume");
-	}
+        this.plume.visible = false;
 
-	@Override
-	public void prepareMobModel(T entity, float limbAngle, float limbDistance, float tickDelta) {
-		super.prepareMobModel(entity, limbAngle, limbDistance, tickDelta);
+        ItemStack armorStack = ItemStack.EMPTY;
+        if (entity instanceof Horse horse) {
+            armorStack = horse.getArmor();
+        }
+
+        CompoundTag tag = armorStack.getTag();
+        if (tag != null && tag.contains("HelmetDeco")) {
+            CompoundTag deco = tag.getCompound("HelmetDeco");
+            this.plume.visible = deco.getBoolean("plume");
+        }
+    }
+
+    @Override
+    public void prepareMobModel(T entity, float limbAngle, float limbDistance, float tickDelta) {
+        super.prepareMobModel(entity, limbAngle, limbDistance, tickDelta);
 
         this.plume.y = this.headParts.y;
         this.plume.z = this.headParts.z;
         this.plume.xRot = this.headParts.xRot;
         this.plume.yRot = this.headParts.yRot;
-	}
+    }
 }

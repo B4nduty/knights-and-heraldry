@@ -120,32 +120,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createDecoRecipe(exporter, ModItems.GOLDEN_MAXIMILLIAN_HELMET);
         createDecoRecipe(exporter, ModItems.GOLDEN_SAVOYARD);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.HORSE_BARDING, 1)
-                .requires(ModItems.HORSE_BARDING)
-                .requires(ModItems.PLUME)
-                .unlockedBy(getHasName(ModItems.HORSE_BARDING), has(ModItems.HORSE_BARDING))
-                .unlockedBy(getHasName(ModItems.PLUME), has(ModItems.PLUME))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID,
-                        "deco/" + BuiltInRegistries.ITEM.getKey(ModItems.PLUME).getPath() + "_" + BuiltInRegistries.ITEM.getKey(ModItems.HORSE_BARDING).getPath()
-                ));
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.DARK_HORSE_BARDING, 1)
-                .requires(ModItems.DARK_HORSE_BARDING)
-                .requires(ModItems.PLUME)
-                .unlockedBy(getHasName(ModItems.DARK_HORSE_BARDING), has(ModItems.DARK_HORSE_BARDING))
-                .unlockedBy(getHasName(ModItems.PLUME), has(ModItems.PLUME))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID,
-                        "deco/" + BuiltInRegistries.ITEM.getKey(ModItems.PLUME).getPath() + "_" + BuiltInRegistries.ITEM.getKey(ModItems.DARK_HORSE_BARDING).getPath()
-                ));
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.GOLDEN_HORSE_BARDING, 1)
-                .requires(ModItems.GOLDEN_HORSE_BARDING)
-                .requires(ModItems.PLUME)
-                .unlockedBy(getHasName(ModItems.GOLDEN_HORSE_BARDING), has(ModItems.GOLDEN_HORSE_BARDING))
-                .unlockedBy(getHasName(ModItems.PLUME), has(ModItems.PLUME))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID,
-                        "deco/" + BuiltInRegistries.ITEM.getKey(ModItems.PLUME).getPath() + "_" + BuiltInRegistries.ITEM.getKey(ModItems.GOLDEN_HORSE_BARDING).getPath()
-                ));
+        createDecoPlumeRecipe(exporter, ModItems.HORSE_BARDING);
+        createDecoPlumeRecipe(exporter, ModItems.DARK_HORSE_BARDING);
+        createDecoPlumeRecipe(exporter, ModItems.GOLDEN_HORSE_BARDING);
 
         createEasyRecipe(exporter, ModItems.MAIL_SPAULDERS_BESAGEWS, ModItems.MAIL_SPAULDERS, ModItems.BESAGEWS);
         createEasyRecipe(exporter, ModItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS, ModItems.GOLDEN_MAIL_SPAULDERS, ModItems.BESAGEWS);
@@ -666,6 +643,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 ));
             }
         }
+    }
+
+    private void createDecoPlumeRecipe(Consumer<FinishedRecipe> exporter, Item helmet) {
+        String helmetName = BuiltInRegistries.ITEM.getKey(helmet).getPath();
+
+        NonNullList<Ingredient> ingredients = NonNullList.create();
+        ingredients.add(Ingredient.of(helmet));
+        ingredients.add(Ingredient.of(ModItems.PLUME));
+
+        exporter.accept(new HelmetDecoRecipeBuilder(
+                new ResourceLocation(KnightsHeraldry.MOD_ID, "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(ModItems.PLUME).getPath()),
+                ingredients
+        ));
+
     }
 
     private void createWeaponCycle(Consumer<FinishedRecipe> exporter, Item... weapons) {
