@@ -1,9 +1,5 @@
 {
-  "base": {
-    "parent": "knightsheraldry:item/poleaxe_3d"
-  },
-  "gui_light": "front",
-  "loader": "forge:separate_transforms",
+  "parent": "minecraft:item/generated",
   "overrides": [
     {
       "model": "knightsheraldry:item/poleaxe_broken",
@@ -12,9 +8,7 @@
       }
     }
   ],
-  "perspectives": {
-    "gui": {
-      "parent": "knightsheraldry:item/poleaxe_gui"
-    }
+  "textures": {
+    "layer0": "knightsheraldry:item/poleaxe"
   }
 }

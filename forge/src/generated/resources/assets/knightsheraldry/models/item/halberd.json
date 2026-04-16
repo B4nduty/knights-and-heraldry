@@ -1,9 +1,5 @@
 {
-  "base": {
-    "parent": "knightsheraldry:item/halberd_3d"
-  },
-  "gui_light": "front",
-  "loader": "forge:separate_transforms",
+  "parent": "minecraft:item/generated",
   "overrides": [
     {
       "model": "knightsheraldry:item/halberd_broken",
@@ -12,9 +8,7 @@
       }
     }
   ],
-  "perspectives": {
-    "gui": {
-      "parent": "knightsheraldry:item/halberd_gui"
-    }
+  "textures": {
+    "layer0": "knightsheraldry:item/halberd"
   }
 }

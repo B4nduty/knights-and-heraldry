@@ -1,6 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
+  "type": "knightsheraldry:helmet_deco_crafting",
   "ingredients": [
     {
       "item": "knightsheraldry:horse_barding"
@@ -8,8 +7,5 @@
     {
       "item": "knightsheraldry:plume"
     }
-  ],
-  "result": {
-    "item": "knightsheraldry:horse_barding"
-  }
+  ]
 }
