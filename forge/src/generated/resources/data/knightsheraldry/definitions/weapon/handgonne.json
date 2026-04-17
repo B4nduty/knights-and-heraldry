@@ -32,5 +32,8 @@
     "soundEvent": "knightsheraldry:arquebus_close",
     "speed": 4.3,
     "useAnim": "BOW"
-  }
+  },
+  "usage": [
+    "RANGED"
+  ]
 }

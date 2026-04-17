@@ -4,6 +4,7 @@ import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.ModItems;
 import banduty.stoneycore.datagen.DefinitionsProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 import java.util.HashMap;
@@ -260,7 +261,7 @@ public class ModAccessoriesDefinitionsProvider extends DefinitionsProvider.Acces
     }
 
     @Override
-    protected void generateDefinitions(ItemDefinitionConsumer consumer) {
+    protected void generateDefinitions(AccessoriesConsumer consumer) {
         processMap(consumer, createSpauldersMap());
         processMap(consumer, createChestplateMap());
         processMap(consumer, createHelmetMap());
@@ -270,36 +271,29 @@ public class ModAccessoriesDefinitionsProvider extends DefinitionsProvider.Acces
         processMap(consumer, createExtraMap());
     }
 
-    private void processMap(ItemDefinitionConsumer consumer, Map<Item, ArmorStats> map) {
+    private void processMap(AccessoriesConsumer consumer, Map<Item, ArmorStats> map) {
         for (Map.Entry<Item, ArmorStats> entry : map.entrySet()) {
             Item item = entry.getKey();
             ArmorStats stats = entry.getValue();
 
             Builder builder = Builder.create()
-                    .toughness(stats.toughness)
-                    .armor(stats.armor)
-                    .weight(stats.weight);
-
-            switch (stats.slot) {
-                case "chest" -> builder.armorSlotChest();
-                case "head" -> builder.armorSlotHead();
-                case "legs" -> builder.armorSlotLegs();
-                case "feet" -> builder.armorSlotFeet();
-            }
+                    .armor(stats.armor, stats.toughness)
+                    .weight(stats.weight)
+                    .slot(stats.slot.toUpperCase());
 
             if (stats.hasHungerDrain) {
-                builder.hungerDrainMultiplier(0.1);
+                builder.hunger(0.1);
             }
 
             if (stats.deflectChance > 0) {
-                builder.deflectChance(stats.deflectChance);
+                builder.deflect(stats.deflectChance);
             }
 
             if (stats.visorNamespace != null && stats.visorType != null) {
-                builder.visoredHelmet(stats.visorNamespace, stats.visorType);
+                builder.visor(new ResourceLocation(stats.visorNamespace, stats.visorType));
             }
 
-            consumer.accept(builder.build(), item);
+            consumer.accept(item, builder.build());
         }
     }
 }

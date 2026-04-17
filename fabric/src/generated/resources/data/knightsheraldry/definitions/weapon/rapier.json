@@ -1,11 +1,14 @@
 {
   "melee": {
     "damage": {
-      "BLUDGEONING": 0.0,
-      "PIERCING": 9.0,
-      "SLASHING": 0.0
+      "PIERCING": {
+        "level_0": 0.0,
+        "level_1": 6.0,
+        "level_2": 9.0,
+        "level_3": 6.0,
+        "level_4": 3.0
+      }
     },
-    "onlyDamageType": "PIERCING",
     "piercingAnimation": [],
     "radius": {
       "level_0": 2.5,
@@ -14,5 +17,8 @@
       "level_3": 4.0,
       "level_4": 4.5
     }
-  }
+  },
+  "usage": [
+    "MELEE"
+  ]
 }

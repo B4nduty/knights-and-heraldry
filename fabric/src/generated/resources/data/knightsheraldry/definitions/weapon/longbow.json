@@ -8,5 +8,8 @@
     "soundEvent": "minecraft:entity.arrow.shoot",
     "speed": 3.7,
     "useAnim": "BOW"
-  }
+  },
+  "usage": [
+    "RANGED"
+  ]
 }

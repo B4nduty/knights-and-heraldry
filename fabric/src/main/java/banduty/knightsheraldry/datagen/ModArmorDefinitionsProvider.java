@@ -5,9 +5,6 @@ import banduty.knightsheraldry.items.ModItems;
 import banduty.stoneycore.datagen.DefinitionsProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.Item;
-
-import java.util.function.BiConsumer;
 
 public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
     public ModArmorDefinitionsProvider(PackOutput output) {
@@ -15,7 +12,7 @@ public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
     }
 
     @Override
-    protected void generateDefinitions(BiConsumer<Item, DefinitionEntry> biConsumer) {
+    protected void generateDefinitions(ArmorConsumer biConsumer) {
         // Gambeson Set
         biConsumer.accept(ModItems.QUILTED_COIF, Builder.create()
                         .weight(0.5)

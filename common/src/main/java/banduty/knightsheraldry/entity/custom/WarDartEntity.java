@@ -3,6 +3,7 @@ package banduty.knightsheraldry.entity.custom;
 import banduty.knightsheraldry.platform.Services;
 import banduty.stoneycore.combat.melee.SCDamageType;
 import banduty.stoneycore.util.definitionsloader.WeaponDefinitionsStorage;
+import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -65,8 +66,7 @@ public class WarDartEntity extends AbstractArrow {
         if (entityHitResult.getEntity() instanceof LivingEntity livingEntity) {
             livingEntity.addEffect(new MobEffectInstance(Services.PLATFORM.getPinEffect(), 100, 0));
             livingEntity.hurt(this.damageSources().genericKill(),
-                    WeaponDefinitionsStorage.getData(Services.ENTITY.getWardartItem()).melee().damage()
-                            .getOrDefault(SCDamageType.PIERCING.name(), 0f));
+                    (float) SCWeaponUtil.getMaxDamage(SCDamageType.PIERCING, this.getPickupItem().getItem()));
         }
     }
 

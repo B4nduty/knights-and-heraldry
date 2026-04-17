@@ -1,5 +1,8 @@
 {
   "ammo": {
     "deflectChance": -0.2
-  }
+  },
+  "usage": [
+    "AMMO"
+  ]
 }
