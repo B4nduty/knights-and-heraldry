@@ -21,10 +21,10 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         consumer.accept(ModItems.DAGGER,
                 Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
-                                .slashingDamage(0.0f, 4.5f, 7.0f, 4.5f, 2.5f)
+                                .slashingDamage(2f, 5f, 3f)
                                 .bludgeoningDamage()
-                                .piercingDamage(0.0f, 2.5f, 3.5f, 2.5f, 1.0f)
-                                .levelRadii(0.0, 0.7, 1.2, 1.7, 2.0)
+                                .piercingDamage(1f, 3f, 2f)
+                                .levelRadii(0.7, 1.2, 2.0)
                                 .anim(3)
                                 .pierceAnim(3)
                 ).build()
@@ -34,8 +34,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         Weapon.MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
-                                .piercingDamage(0.0f, 4.0f, 6.5f, 4.0f, 2.0f)
-                                .levelRadii(0.0, 0.7, 1.2, 1.7, 2.0)
+                                .piercingDamage(4.0f, 7.0f, 5.0f)
+                                .levelRadii(0.7, 1.2, 2.0)
                                 
                 ).build()
         );
@@ -44,17 +44,17 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         Weapon.MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
-                                .piercingDamage(0.0f, 6.0f, 9.0f, 6.0f, 3.0f)
-                                .levelRadii(2.5, 2.9, 3.4, 4.0, 4.5)
+                                .piercingDamage(7.0f, 10.0f, 7.0f)
+                                .levelRadii(2.5, 3.5, 4.5)
                                 
                 ).build()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
-                                .slashingDamage(0.0f, 6.0f, 9.0f, 6.0f, 3.0f)
-                                .bludgeoningDamage(0.0f, 4.0f, 6.0f, 4.0f, 2.0f)
-                                .piercingDamage(0.0f, 4.0f, 6.0f, 4.0f, 2.0f)
-                                .levelRadii(1.0, 2.2, 2.7, 3.2, 3.5)
+                                .slashingDamage(3.0f, 6.0f, 4.0f)
+                                .bludgeoningDamage(2.0f, 5.0f, 3.0f)
+                                .piercingDamage(2.0f, 5.0f, 3.0f)
+                                .levelRadii(1.0, 2.2, 3.5)
                                 .anim(3)
                                 .pierceAnim(3)
 
@@ -63,10 +63,10 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
-                                .slashingDamage(0.0f, 6.5f, 10.0f, 6.5f, 3.0f)
+                                .slashingDamage(7.0f, 11.0f, 7.0f)
                                 .bludgeoningDamage()
                                 .piercingDamage()
-                                .levelRadii(2.0, 2.4, 2.9, 3.4, 4.0)
+                                .levelRadii(2.0, 3.0, 4.0)
                                 
                 ).build(),
                 ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE
@@ -74,9 +74,9 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
                                 .slashingDamage()
-                                .bludgeoningDamage(0.0f, 6.5f, 10.0f, 6.5f, 3.0f)
+                                .bludgeoningDamage(7.0f, 11.0f, 7.0f)
                                 .piercingDamage()
-                                .levelRadii(2.0, 2.4, 2.9, 3.4, 4.0)
+                                .levelRadii(2.0, 3.0, 4.0)
                                 
                 ).build(),
                 ModItems.MACE, ModItems.SPIKED_MACE
@@ -115,10 +115,10 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
-                                .slashingDamage(0.0f, 6.0f, 9.0f, 6.0f, 3.0f)
+                                .slashingDamage(6.0f, 9.0f, 6.0f)
                                 .bludgeoningDamage()
                                 .piercingDamage()
-                                .levelRadii(1.0, 1.9, 2.6, 3.3, 4.0)
+                                .levelRadii(1.9, 3.0, 4.0)
                                 
                 ).build(),
                 ModItems.FALCHION, ModItems.SCIMITAR
@@ -127,8 +127,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         Weapon.MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
-                                .piercingDamage(0.0f, 5.0f, 7.5f, 5.0f, 2.5f)
-                                .levelRadii(3.3, 4.0, 4.7, 5.5, 6.0)
+                                .piercingDamage(0.0f, 5.0f, 7.5f, 5.0f)
+                                .levelRadii(3.2, 3.3, 4.7, 6.0)
                                 
                 ).build(),
                 ModItems.PITCHFORK
@@ -137,8 +137,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         Weapon.MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
-                                .piercingDamage(0.0f, 7.0f, 11.0f, 7.0f, 3.5f)
-                                .levelRadii(4.4, 5.1, 5.9, 6.7, 7.5)
+                                .piercingDamage(0.0f, 6.0f, 10.0f, 6.0f)
+                                .levelRadii(4.3, 4.4, 6.0, 7.5)
                                 
                 ).build(),
                 ModItems.SPEAR
@@ -147,8 +147,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                         Weapon.MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
-                                .piercingDamage(0.0f, 7.0f, 11.0f, 7.0f, 3.5f)
-                                .levelRadii(5.5, 6.2, 7.0, 7.8, 8.5)
+                                .piercingDamage(0.0f, 6.0f, 10.0f, 6.0f)
+                                .levelRadii(5.4, 5.5, 7.0, 8.5)
                                 
                 ).build(),
                 ModItems.PIKE
@@ -179,10 +179,10 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
-                                .slashingDamage(0.0f, 6.0f, 9.0f, 6.0f, 3.0f)
-                                .bludgeoningDamage(0.0f, 2.0f, 3.0f, 2.0f, 1.0f)
-                                .piercingDamage(0.0f, 7.0f, 10.5f, 7.0f, 3.5f)
-                                .levelRadii(4.0, 4.7, 5.5, 6.3, 7.0)
+                                .slashingDamage(0.0f, 5.0f, 8.0f, 5.0f)
+                                .bludgeoningDamage(0.0f, 2.0f, 4.0f, 2.0f)
+                                .piercingDamage(0.0f, 5.0f, 8.0f, 5.0f)
+                                .levelRadii(3.9, 4.0, 5.5, 7.0)
                                 .anim(2)
                                 .pierceAnim(2)
                                 
@@ -214,29 +214,29 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
                                 .slashingDamage()
-                                .bludgeoningDamage(0.0f, 8.0f, 12.0f, 8.0f, 4.0f)
+                                .bludgeoningDamage(0.0f, 7.0f, 11.0f, 7.0f)
                                 .piercingDamage()
-                                .levelRadii(3.0, 3.7, 4.5, 5.3, 6.0)
+                                .levelRadii(2.9, 3.0, 4.5, 6.0)
                                 
                 ).build(),
                 ModItems.MORNING_STAR
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
-                                .slashingDamage(0.0f, 8.0f, 12.0f, 8.0f, 4.0f)
+                                .slashingDamage(0.0f, 8.0f, 12.0f, 8.0f)
                                 .bludgeoningDamage()
                                 .piercingDamage()
-                                .levelRadii(3.0, 3.7, 4.5, 5.3, 6.0)
+                                .levelRadii(2.9, 3.0, 4.5, 6.0)
                                 
                 ).build(),
                 ModItems.BARDICHE
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
-                                .slashingDamage(0.0f, 8.0f, 13.0f, 8.0f, 4.0f)
+                                .slashingDamage(7.0f, 11.0f, 7.0f)
                                 .bludgeoningDamage()
-                                .piercingDamage(0.0f, 8.0f, 10.0f, 8.0f, 4.0f)
-                                .levelRadii(1.0, 2.2, 2.9, 4.1, 5.0)
+                                .piercingDamage(5.0f, 8.0f, 5.0f)
+                                .levelRadii(1.0, 3.0, 5.0)
                                 .anim(3)
                                 .pierceAnim(2)
                                 .knockback(0.3)

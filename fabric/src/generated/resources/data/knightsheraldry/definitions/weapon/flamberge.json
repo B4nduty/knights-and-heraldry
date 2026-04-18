@@ -4,18 +4,14 @@
     "bonusKnockback": 0.3,
     "damage": {
       "PIERCING": {
-        "level_0": 0.0,
+        "level_0": 5.0,
         "level_1": 8.0,
-        "level_2": 10.0,
-        "level_3": 8.0,
-        "level_4": 4.0
+        "level_2": 5.0
       },
       "SLASHING": {
-        "level_0": 0.0,
-        "level_1": 8.0,
-        "level_2": 13.0,
-        "level_3": 8.0,
-        "level_4": 4.0
+        "level_0": 7.0,
+        "level_1": 11.0,
+        "level_2": 7.0
       }
     },
     "piercingAnimation": [
@@ -23,10 +19,8 @@
     ],
     "radius": {
       "level_0": 1.0,
-      "level_1": 2.2,
-      "level_2": 2.9,
-      "level_3": 4.1,
-      "level_4": 5.0
+      "level_1": 3.0,
+      "level_2": 5.0
     }
   },
   "usage": [

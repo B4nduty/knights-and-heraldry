@@ -31,76 +31,71 @@ public interface ModItems {
     DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, KnightsHeraldry.MOD_ID);
 
 
-    RegistryObject<Item> DAGGER = weapon("dagger", -2F, 196);
+    RegistryObject<Item> DAGGER = sword("dagger", -1.5F, 196);
 
-    RegistryObject<Item> STILETTO = weapon("stiletto", -2F, 157);
+    RegistryObject<Item> STILETTO = sword("stiletto", -1.4F, 157);
 
-    RegistryObject<Item> RAPIER = weapon("rapier", -2.2F, 209);
+    RegistryObject<Item> RAPIER = sword("rapier", -2.2F, 209);
 
-    RegistryObject<Item> SWORD = weapon("sword", -2.4F, 326);
-    RegistryObject<Item> V_SWORD = weapon("v_sword", -2.4F, 326);
-    RegistryObject<Item> ARMING_SWORD = weapon("arming_sword", -2.4F, 326);
+    RegistryObject<Item> SWORD = sword("sword", -2.4F, 326);
+    RegistryObject<Item> V_SWORD = sword("v_sword", -2.4F, 326);
+    RegistryObject<Item> ARMING_SWORD = sword("arming_sword", -2.4F, 326);
 
-    RegistryObject<Item> AXE = registerItem("axe",
-            () -> new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Properties().defaultDurability(391)));
-    RegistryObject<Item> BROAD_AXE = registerItem("broad_axe",
-            () -> new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Properties().defaultDurability(391)));
-    RegistryObject<Item> CROOKED_AXE = registerItem("crooked_axe",
-            () -> new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Properties().defaultDurability(391)));
-    RegistryObject<Item> STRAIGHT_CROOKED_AXE = registerItem("straight_crooked_axe",
-            () -> new AxeItem(ModToolMaterials.WEAPONS, 1, -2.6F, new Item.Properties().defaultDurability(391)));
+    RegistryObject<Item> AXE = axe("axe", -2.6F, 391);
+    RegistryObject<Item> BROAD_AXE = axe("broad_axe",-2.6F, 391);
+    RegistryObject<Item> CROOKED_AXE = axe("crooked_axe",-2.6F, 391);
+    RegistryObject<Item> STRAIGHT_CROOKED_AXE = axe("straight_crooked_axe",-2.6F, 391);
 
-    RegistryObject<Item> MACE = weapon("mace", -3.0F, 430);
-    RegistryObject<Item> SPIKED_MACE = weapon("spiked_mace", -3.0F, 430);
+    RegistryObject<Item> MACE = sword("mace", -2.6F, 430);
+    RegistryObject<Item> SPIKED_MACE = sword("spiked_mace", -2.6F, 430);
 
     RegistryObject<Item> FLAIL = registerItem("flail",
             () -> new Flail(-2.8F, new Item.Properties().defaultDurability(261)));
     RegistryObject<Item> BALL_FLAIL = registerItem("ball_flail",
             () -> new Flail(-2.8F, new Item.Properties().defaultDurability(261)));
 
-    RegistryObject<Item> HAMMER = weapon("hammer", -2.8F, 430);
-    RegistryObject<Item> WAR_HAMMER = weapon("war_hammer", -2.8F, 430);
+    RegistryObject<Item> HAMMER = sword("hammer", -2.8F, 430);
+    RegistryObject<Item> WAR_HAMMER = sword("war_hammer", -2.8F, 430);
 
-    RegistryObject<Item> LONGSWORD = weapon("longsword", -2.5F, 365);
-    RegistryObject<Item> V_LONGSWORD = weapon("v_longsword", -2.5F, 365);
+    RegistryObject<Item> LONGSWORD = sword("longsword", -2.5F, 365);
+    RegistryObject<Item> V_LONGSWORD = sword("v_longsword", -2.5F, 365);
 
-    RegistryObject<Item> FALCHION = weapon("falchion", -2.5F, 365);
-    RegistryObject<Item> SCIMITAR = weapon("scimitar", -2.5F, 365);
+    RegistryObject<Item> FALCHION = sword("falchion", -2.5F, 365);
+    RegistryObject<Item> SCIMITAR = sword("scimitar", -2.5F, 365);
 
-    RegistryObject<Item> PITCHFORK = weapon("pitchfork", -2.6F, 235);
+    RegistryObject<Item> PITCHFORK = sword("pitchfork", -2.6F, 235);
 
-    RegistryObject<Item> SPEAR = weapon("spear", -2.4F, 235);
+    RegistryObject<Item> SPEAR = sword("spear", -3.2F, 235);
 
-    RegistryObject<Item> PIKE = weapon("pike", -2.8F, 196);
+    RegistryObject<Item> PIKE = sword("pike", -3.5F, 196);
 
     RegistryObject<Item> BILLHOOK = registerItem("billhook",
             () -> new Billhook(-2.8F, new Item.Properties().defaultDurability(391)));
 
-    RegistryObject<Item> GLAIVE = weapon("glaive", -2.6F, 391);
-    RegistryObject<Item> CURVED_GLAIVE = weapon("curved_glaive", -2.6F, 391);
+    RegistryObject<Item> GLAIVE = sword("glaive", -2.6F, 391);
+    RegistryObject<Item> CURVED_GLAIVE = sword("curved_glaive", -2.6F, 391);
 
     RegistryObject<Item> HALBERD = registerItem("halberd",
-            () -> new Halberd(-2.8F, new Item.Properties().defaultDurability(391)));
+            () -> new Halberd(-3F, new Item.Properties().defaultDurability(391)));
 
     RegistryObject<Item> LANCE = registerItem("lance",
             () -> new Lance(-3.0F, new Item.Properties().defaultDurability(1), SCDamageType.PIERCING));
     RegistryObject<Item> WOODEN_LANCE = registerItem("wooden_lance",
             () -> new WoodenLance(-3.0F, new Item.Properties().defaultDurability(1), SCDamageType.PIERCING));
 
-    RegistryObject<Item> POLEAXE = registerItem("poleaxe",
-            () -> new AxeItem(ModToolMaterials.WEAPONS, 1, -2.8F, new Item.Properties().defaultDurability(391)));
+    RegistryObject<Item> POLEAXE = axe("poleaxe",-2.8F, 391);
 
-    RegistryObject<Item> POLEHAMMER = weapon("polehammer", -2.8F, 391);
-    RegistryObject<Item> BEC_DE_CORBIN = weapon("bec_de_corbin", -2.8F, 391);
+    RegistryObject<Item> POLEHAMMER = sword("polehammer", -2.8F, 391);
+    RegistryObject<Item> BEC_DE_CORBIN = sword("bec_de_corbin", -2.8F, 391);
 
-    RegistryObject<Item> MORNING_STAR = weapon("morning_star", -3.1F, 391);
+    RegistryObject<Item> MORNING_STAR = sword("morning_star", -3F, 391);
 
-    RegistryObject<Item> BARDICHE = weapon("bardiche", -3.0F, 391);
+    RegistryObject<Item> BARDICHE = sword("bardiche", -3.0F, 391);
 
-    RegistryObject<Item> GREATSWORD = weapon("greatsword", -3.2F, 391);
-    RegistryObject<Item> CLAYMORE = weapon("claymore", -3.2F, 391);
-    RegistryObject<Item> FLAMBERGE = weapon("flamberge", -3.2F, 391);
-    RegistryObject<Item> ZWEIHANDER = weapon("zweihander", -3.2F, 391);
+    RegistryObject<Item> GREATSWORD = sword("greatsword", -3.2F, 391);
+    RegistryObject<Item> CLAYMORE = sword("claymore", -3.2F, 391);
+    RegistryObject<Item> FLAMBERGE = sword("flamberge", -3.2F, 391);
+    RegistryObject<Item> ZWEIHANDER = sword("zweihander", -3.2F, 391);
 
     RegistryObject<Item> WARDART = registerItem("wardart",
             () -> new WarDart(-2.4F, new Item.Properties().defaultDurability(326)));
@@ -521,8 +516,11 @@ public interface ModItems {
     RegistryObject<Item> GILDED_CHAPERON = registerItem("gilded_chaperon",
             () -> new KHChaperon(new Item.Properties().stacksTo(1), true));
 
-    static RegistryObject<Item> weapon(String id, float attackSpeed, int durability) {
+    static RegistryObject<Item> sword(String id, float attackSpeed, int durability) {
         return registerItem(id, () -> new SwordItem(ModToolMaterials.WEAPONS, 1, attackSpeed, new Item.Properties().defaultDurability(durability)));
+    }
+    static RegistryObject<Item> axe(String id, float attackSpeed, int durability) {
+        return registerItem(id, () -> new AxeItem(ModToolMaterials.WEAPONS, 1, attackSpeed, new Item.Properties().defaultDurability(durability)));
     }
 
     static RegistryObject<Item> deco(String id) {

@@ -5,34 +5,30 @@
       "BLUDGEONING": {
         "level_0": 0.0,
         "level_1": 2.0,
-        "level_2": 3.0,
-        "level_3": 2.0,
-        "level_4": 1.0
+        "level_2": 4.0,
+        "level_3": 2.0
       },
       "PIERCING": {
         "level_0": 0.0,
-        "level_1": 7.0,
-        "level_2": 10.5,
-        "level_3": 7.0,
-        "level_4": 3.5
+        "level_1": 5.0,
+        "level_2": 8.0,
+        "level_3": 5.0
       },
       "SLASHING": {
         "level_0": 0.0,
-        "level_1": 6.0,
-        "level_2": 9.0,
-        "level_3": 6.0,
-        "level_4": 3.0
+        "level_1": 5.0,
+        "level_2": 8.0,
+        "level_3": 5.0
       }
     },
     "piercingAnimation": [
       2
     ],
     "radius": {
-      "level_0": 4.0,
-      "level_1": 4.7,
+      "level_0": 3.9,
+      "level_1": 4.0,
       "level_2": 5.5,
-      "level_3": 6.3,
-      "level_4": 7.0
+      "level_3": 7.0
     }
   },
   "usage": [

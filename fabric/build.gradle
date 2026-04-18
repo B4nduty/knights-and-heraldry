@@ -89,7 +89,7 @@ dependencies {
     modApi "com.terraformersmc:modmenu:${project.modmenu}"
 
     modCompileOnly "maven.modrinth:better-combat:${project.bettercombat}-fabric"
-    // modRuntimeOnly "maven.modrinth:better-combat:${project.bettercombat}-fabric"
+    modRuntimeOnly "maven.modrinth:better-combat:${project.bettercombat}-fabric"
 
     include modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${project.player_anim}")
 
