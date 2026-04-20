@@ -4,15 +4,15 @@
       "PIERCING": {
         "level_0": 0.0,
         "level_1": 6.0,
-        "level_2": 10.0,
-        "level_3": 6.0
+        "level_2": 9.0,
+        "level_3": 8.0
       }
     },
     "piercingAnimation": [],
     "radius": {
-      "level_0": 5.4,
-      "level_1": 5.5,
-      "level_2": 7.0,
+      "level_0": 5.5,
+      "level_1": 7.5,
+      "level_2": 8.0,
       "level_3": 8.5
     }
   },

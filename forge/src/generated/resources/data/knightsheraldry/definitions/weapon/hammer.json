@@ -3,26 +3,20 @@
     "damage": {
       "BLUDGEONING": {
         "level_0": 0.0,
-        "level_1": 6.5,
-        "level_2": 10.0,
-        "level_3": 6.5,
-        "level_4": 3.0
+        "level_1": 3.0,
+        "level_2": 15.0
       },
       "PIERCING": {
         "level_0": 0.0,
-        "level_1": 5.0,
-        "level_2": 8.0,
-        "level_3": 5.0,
-        "level_4": 2.5
+        "level_1": 1.0,
+        "level_2": 13.0
       }
     },
     "piercingAnimation": [],
     "radius": {
       "level_0": 2.0,
-      "level_1": 2.4,
-      "level_2": 2.9,
-      "level_3": 3.4,
-      "level_4": 4.0
+      "level_1": 3.5,
+      "level_2": 4.0
     }
   },
   "usage": [

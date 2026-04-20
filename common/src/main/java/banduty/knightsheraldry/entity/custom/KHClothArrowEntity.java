@@ -51,7 +51,7 @@ public class KHClothArrowEntity extends SCArrowEntity {
             behavior.aoeRadius = 5.0D;
             ArrowBehavior.EffectEntry nausea = new ArrowBehavior.EffectEntry();
             nausea.id = new ResourceLocation("minecraft", "nausea");
-            nausea.duration = 100;
+            nausea.duration = 200;
             nausea.amplifier = 0;
             ArrowBehavior.EffectEntry poison = new ArrowBehavior.EffectEntry();
             poison.id = new ResourceLocation("minecraft", "poison");

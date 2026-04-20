@@ -3,15 +3,13 @@
     "damage": {
       "PIERCING": {
         "level_0": 4.0,
-        "level_1": 7.0,
-        "level_2": 5.0
+        "level_1": 6.0
       }
     },
     "piercingAnimation": [],
     "radius": {
-      "level_0": 0.7,
-      "level_1": 1.2,
-      "level_2": 2.0
+      "level_0": 1.2,
+      "level_1": 2.0
     }
   },
   "usage": [

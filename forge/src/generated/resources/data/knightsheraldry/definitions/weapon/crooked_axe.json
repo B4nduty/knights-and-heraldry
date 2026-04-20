@@ -2,16 +2,18 @@
   "melee": {
     "damage": {
       "SLASHING": {
-        "level_0": 7.0,
-        "level_1": 11.0,
-        "level_2": 7.0
+        "level_0": 0.0,
+        "level_1": 2.0,
+        "level_2": 9.0,
+        "level_3": 7.0
       }
     },
     "piercingAnimation": [],
     "radius": {
       "level_0": 2.0,
-      "level_1": 3.0,
-      "level_2": 4.0
+      "level_1": 2.5,
+      "level_2": 3.5,
+      "level_3": 4.0
     }
   },
   "usage": [

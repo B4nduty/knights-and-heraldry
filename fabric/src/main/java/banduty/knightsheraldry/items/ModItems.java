@@ -54,20 +54,20 @@ public interface ModItems {
     Item LONGSWORD = sword("longsword", -2.5F, 365);
     Item V_LONGSWORD = sword("v_longsword", -2.5F, 365);
 
-    Item FALCHION = sword("falchion", -2.5F, 365);
-    Item SCIMITAR = sword("scimitar", -2.5F, 365);
+    Item FALCHION = sword("falchion", -2.2F, 365);
+    Item SCIMITAR = sword("scimitar", -2.2F, 365);
 
-    Item PITCHFORK = sword("pitchfork", -2.6F, 235);
+    Item PITCHFORK = sword("pitchfork", -2.8F, 235);
 
-    Item SPEAR = sword("spear", -3.2F, 235);
+    Item SPEAR = sword("spear", -2.6F, 235);
 
-    Item PIKE = sword("pike", -3.5F, 196);
+    Item PIKE = sword("pike", -2.8F, 196);
 
     Item BILLHOOK = registerItem("billhook",
-            new Billhook(-2.8F, new Item.Properties().defaultDurability(391)));
+            new Billhook(-2.4F, new Item.Properties().defaultDurability(391)));
 
-    Item GLAIVE = sword("glaive", -2.6F, 391);
-    Item CURVED_GLAIVE = sword("curved_glaive", -2.6F, 391);
+    Item GLAIVE = sword("glaive", -2.2F, 391);
+    Item CURVED_GLAIVE = sword("curved_glaive", -2.2F, 391);
 
     Item HALBERD = registerItem("halberd",
             new Halberd(-3F, new Item.Properties().defaultDurability(391)));
@@ -92,7 +92,7 @@ public interface ModItems {
     Item ZWEIHANDER = sword("zweihander", -3.2F, 391);
 
     Item WARDART = registerItem("wardart",
-            new WarDart(-2.4F, new Item.Properties().defaultDurability(326)));
+            new WarDart(-2.6F, new Item.Properties().defaultDurability(326)));
 
 
     Item QUILTED_COIF = registerItem("quilted_coif",

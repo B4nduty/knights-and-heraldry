@@ -60,20 +60,20 @@ public interface ModItems {
     RegistryObject<Item> LONGSWORD = sword("longsword", -2.5F, 365);
     RegistryObject<Item> V_LONGSWORD = sword("v_longsword", -2.5F, 365);
 
-    RegistryObject<Item> FALCHION = sword("falchion", -2.5F, 365);
-    RegistryObject<Item> SCIMITAR = sword("scimitar", -2.5F, 365);
+    RegistryObject<Item> FALCHION = sword("falchion", -2.2F, 365);
+    RegistryObject<Item> SCIMITAR = sword("scimitar", -2.2F, 365);
 
-    RegistryObject<Item> PITCHFORK = sword("pitchfork", -2.6F, 235);
+    RegistryObject<Item> PITCHFORK = sword("pitchfork", -2.8F, 235);
 
-    RegistryObject<Item> SPEAR = sword("spear", -3.2F, 235);
+    RegistryObject<Item> SPEAR = sword("spear", -2.6F, 235);
 
-    RegistryObject<Item> PIKE = sword("pike", -3.5F, 196);
+    RegistryObject<Item> PIKE = sword("pike", -2.8F, 196);
 
     RegistryObject<Item> BILLHOOK = registerItem("billhook",
-            () -> new Billhook(-2.8F, new Item.Properties().defaultDurability(391)));
+            () -> new Billhook(-2.4F, new Item.Properties().defaultDurability(391)));
 
-    RegistryObject<Item> GLAIVE = sword("glaive", -2.6F, 391);
-    RegistryObject<Item> CURVED_GLAIVE = sword("curved_glaive", -2.6F, 391);
+    RegistryObject<Item> GLAIVE = sword("glaive", -2.2F, 391);
+    RegistryObject<Item> CURVED_GLAIVE = sword("curved_glaive", -2.2F, 391);
 
     RegistryObject<Item> HALBERD = registerItem("halberd",
             () -> new Halberd(-3F, new Item.Properties().defaultDurability(391)));
@@ -98,7 +98,7 @@ public interface ModItems {
     RegistryObject<Item> ZWEIHANDER = sword("zweihander", -3.2F, 391);
 
     RegistryObject<Item> WARDART = registerItem("wardart",
-            () -> new WarDart(-2.4F, new Item.Properties().defaultDurability(326)));
+            () -> new WarDart(-2.6F, new Item.Properties().defaultDurability(326)));
 
 
     RegistryObject<Item> QUILTED_COIF = registerItem("quilted_coif",
