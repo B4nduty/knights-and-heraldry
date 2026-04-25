@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-20T21:13:51.2713185	Knights & Heraldry/Weapon Definitions
+// 1.20.1	2026-04-25T23:04:37.2988836	Knights & Heraldry/Weapon Definitions
 1b3c111686ceb32b6305d7c33c1a5dd6a03f2f7a data\knightsheraldry\definitions\weapon\heavy_crossbow.json
 c0a49fd3680f546376583ee17ea469ecbe7669b0 data\knightsheraldry\definitions\weapon\spear.json
 a52eed8b0650fcae7d1bde4eea00115cdf4b1226 data\knightsheraldry\definitions\weapon\longbow.json
@@ -38,7 +38,7 @@ e78fbbe76729c737e03e570d804db9eb9a4620f2 data\knightsheraldry\definitions\weapon
 f8d4dd4c76eb3d256444c5b005e4f891ed82f7d0 data\knightsheraldry\definitions\weapon\flamberge.json
 2997697adb51a7c41ccefc49b3b30fd062cdffe2 data\knightsheraldry\definitions\weapon\stiletto.json
 e580959f43b4f702ca8b49b0edb5e52340539fd9 data\knightsheraldry\definitions\weapon\broad_axe.json
-89ff034ac9e414db56023dd7efed8bff4a6cf17f data\knightsheraldry\definitions\weapon\ball_flail.json
 2e206bf121b5ddb77a66863a0f37796867720014 data\knightsheraldry\definitions\weapon\glaive.json
+89ff034ac9e414db56023dd7efed8bff4a6cf17f data\knightsheraldry\definitions\weapon\ball_flail.json
 ff17ae93ba6a001494406d08e9c47d966ccdf15c data\knightsheraldry\definitions\weapon\wardart.json
 b5fffd498f36ef108813134ed64049eddaeb1e52 data\knightsheraldry\definitions\weapon\bardiche.json
