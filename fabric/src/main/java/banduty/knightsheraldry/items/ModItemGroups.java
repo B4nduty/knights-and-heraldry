@@ -361,7 +361,7 @@ public interface ModItemGroups {
         group.tabs.add(KH_WEAPONS_TAB);
         group.tabs.add(KH_ARMORS_TAB);
         group.tabs.add(KH_DECO_TAB);
-        group.addButton(LinkButton.discord("https://discord.gg/AbtCqntN9S"));
+        group.addButton(LinkButton.discord("https://discord.gg/NvXG4ZWFXc"));
     }
     
     static void registerItemGroups() {
