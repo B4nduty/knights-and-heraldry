@@ -6,8 +6,8 @@
     "id": "crossbow",
     "maxUseTime": 72000,
     "rechargeTime": 5,
-    "soundEvent": "minecraft:entity.arrow.shoot",
-    "speed": 3.0,
+    "soundEvent": "minecraft:item.crossbow.shoot",
+    "speed": 4.0,
     "useAnim": "CROSSBOW"
   },
   "usage": [

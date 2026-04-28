@@ -36,7 +36,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage(4.0f, 6.0f)
                                 .levelRadii(1.2, 2.0)
-                                
+
                 ).build()
         );
         consumer.accept(ModItems.RAPIER,
@@ -46,7 +46,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage(5.0f, 8.0f)
                                 .levelRadii(3, 4.5)
-                                
+
                 ).build()
         );
         consumer.accept(Weapon.Builder.create().melee(
@@ -67,7 +67,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage()
                                 .levelRadii(2.0, 2.5, 3.5, 4.0)
-                                
+
                 ).build(),
                 ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE
         );
@@ -77,7 +77,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage(0, 2.0f, 9.0f, 7.0f)
                                 .piercingDamage()
                                 .levelRadii(2.0, 3.0, 3.5, 4.0)
-                                
+
                 ).build(),
                 ModItems.MACE, ModItems.SPIKED_MACE
         );
@@ -87,7 +87,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage(0.0f, 5.0f, 10.0f, 1.0f)
                                 .piercingDamage()
                                 .levelRadii(2.0, 2.5, 3.5, 4.0)
-                                
+
                 ).build(),
                 ModItems.FLAIL, ModItems.BALL_FLAIL
         );
@@ -97,7 +97,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage(0.0f, 3.0f, 15.0f)
                                 .piercingDamage(0.0f, 1.0f, 13.0f)
                                 .levelRadii(2.0, 3.5, 4.0)
-                                
+
                 ).build(),
                 ModItems.HAMMER, ModItems.WAR_HAMMER
         );
@@ -109,7 +109,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(2.0, 4.0, 5.0)
                                 .anim(3)
                                 .pierceAnim(2)
-                                
+
                 ).build(),
                 ModItems.LONGSWORD, ModItems.V_LONGSWORD
         );
@@ -119,7 +119,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage()
                                 .levelRadii(1.5, 3.5, 4.0)
-                                
+
                 ).build(),
                 ModItems.FALCHION, ModItems.SCIMITAR
         );
@@ -129,7 +129,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 3.0f, 11.0f, 7.0f)
                                 .levelRadii(3.0, 5.0, 5.5, 6.0)
-                                
+
                 ).build(),
                 ModItems.PITCHFORK
         );
@@ -139,7 +139,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 2.0f, 9.0f, 8.0f)
                                 .levelRadii(4.0, 4.5, 6.0, 7.5)
-                                
+
                 ).build(),
                 ModItems.SPEAR
         );
@@ -149,7 +149,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 6.0f, 9.0f, 8.0f)
                                 .levelRadii(5.5, 7.5, 8.0, 8.5)
-                                
+
                 ).build(),
                 ModItems.PIKE
         );
@@ -161,7 +161,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(4.0, 5.0, 6.5, 7.0)
                                 .anim(2)
                                 .pierceAnim(2)
-                                
+
                 ).build(),
                 ModItems.BILLHOOK
         );
@@ -173,7 +173,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(4.0, 5.0, 6.5, 7.0)
                                 .anim(3)
                                 .pierceAnim(1, 2)
-                                
+
                 ).build(),
                 ModItems.GLAIVE, ModItems.CURVED_GLAIVE
         );
@@ -185,7 +185,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(3.9, 4.0, 5.5, 7.0)
                                 .anim(2)
                                 .pierceAnim(2)
-                                
+
                 ).build(),
                 ModItems.HALBERD
         );
@@ -197,7 +197,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(3.0, 4.0, 5.5, 6.0)
                                 .anim(2)
                                 .pierceAnim(2)
-                                
+
                 ).build(),
                 ModItems.POLEAXE
         );
@@ -207,7 +207,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage(0.0f, 7.0f, 10.5f, 3.5f)
                                 .piercingDamage(0.0f, 5.0f, 7.5f, 2.5f)
                                 .levelRadii(3.0, 4.0, 5.5, 6.0)
-                                
+
                 ).build(),
                 ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN
         );
@@ -217,7 +217,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage(0.0f, 6.0f, 13.0f, 6.0f)
                                 .piercingDamage()
                                 .levelRadii(2.5, 3.0, 5.5, 6.0)
-                                
+
                 ).build(),
                 ModItems.MORNING_STAR
         );
@@ -227,7 +227,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage()
                                 .levelRadii(2.5, 3.0, 5.5, 6.0)
-                                
+
                 ).build(),
                 ModItems.BARDICHE
         );
@@ -240,7 +240,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .anim(3)
                                 .pierceAnim(2)
                                 .knockback(0.3)
-                                
+
                 ).build(),
                 ModItems.GREATSWORD, ModItems.CLAYMORE, ModItems.FLAMBERGE, ModItems.ZWEIHANDER
         );
@@ -250,7 +250,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 6.0f, 5.0f)
                                 .levelRadii(3.5, 4.5, 5.0)
-                                
+
                 ).build(),
                 ModItems.WARDART
         );
@@ -264,19 +264,19 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .needsFlintAndSteel(false)
                                 .useAnim(UseAnim.BOW)
                                 .soundEvent(SoundEvents.ARROW_SHOOT)
-                                
+
                 ).build(),
                 ModItems.LONGBOW
         );
         consumer.accept(Weapon.Builder.create().ranged(
                         Weapon.RangedBuilder.create("crossbow")
-                                .projectile(16, SCDamageType.PIERCING, 3f, 1)
+                                .projectile(16, SCDamageType.PIERCING, 4f, 1)
                                 .maxUseTime(72000)
                                 .rechargeTime(5)
                                 .needsFlintAndSteel(false)
                                 .useAnim(UseAnim.CROSSBOW)
-                                .soundEvent(SoundEvents.ARROW_SHOOT)
-                                
+                                .soundEvent(SoundEvents.CROSSBOW_SHOOT)
+
                 ).build(),
                 ModItems.HEAVY_CROSSBOW
         );
@@ -291,7 +291,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .ammoRequirement("item1", SCItems.BLACK_POWDER, 1)
                                 .ammoRequirement("item2", 1, Items.IRON_NUGGET, Items.GRAVEL)
                                 .ammoRequirement("item3", 1, Items.PAPER, Items.GRASS)
-                                
+
                 ).build(),
                 ModItems.ARQUEBUS
         );
@@ -306,7 +306,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .ammoRequirement("item1", SCItems.BLACK_POWDER, 2)
                                 .ammoRequirement("item2", 1, Items.IRON_NUGGET, Items.GRAVEL)
                                 .ammoRequirement("item3", 1, Items.PAPER, Items.GRASS)
-                                
+
                 ).build(),
                 ModItems.HANDGONNE
         );

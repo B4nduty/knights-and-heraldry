@@ -21,30 +21,55 @@ public class ModModelPredicates {
 
     private static void registerBowPredicates(Item item) {
         if (item instanceof HeavyCrossbow) {
-            ItemProperties.register(item, new ResourceLocation("pulling"), (stack, world, entity, seed) ->
-                    SCRangeWeaponUtil.getWeaponState(stack).isReloading() || SCRangeWeaponUtil.getWeaponState(stack).isCharged() ? 1.0F : 0.0F);
-
             ItemProperties.register(item, new ResourceLocation("pull"), (stack, world, entity, seed) -> {
-                if (entity == null || !WeaponDefinitionsStorage.isRanged(stack)) {
-                    return 0.0F;
-                } else if (SCRangeWeaponUtil.getWeaponState(stack).isCharged()) {
-                    return 1.0F;
-                } else {
-                    return (float) (stack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F / WeaponDefinitionsStorage.getData(stack).ranged().rechargeTime();
-                }
-            });
-            return;
-        }
+                if (!WeaponDefinitionsStorage.isRanged(stack)) return 0.0F;
 
-        ItemProperties.register(item, new ResourceLocation("pull"), (stack, world, entity, seed) -> {
-            if (entity == null) {
-                return 0.0F;
-            } else {
+                var state = SCRangeWeaponUtil.getWeaponState(stack);
+
+                // If charged, return 1.0
+                if (state.isCharged()) {
+                    return 1.0F;
+                }
+
+                if (!state.isReloading() || entity == null) {
+                    return 0.0F;
+                }
+
+                int used = stack.getUseDuration() - entity.getUseItemRemainingTicks();
+                if (used < 0) return 0.0F;
+
+                float pull = (float) used / 20.0F / WeaponDefinitionsStorage.getData(stack).ranged().rechargeTime();
+                pull = Math.min(pull, 1.0F);
+
+                // Return current pull if no cached value
+                return pull;
+            });
+
+            ItemProperties.register(item, new ResourceLocation("pulling"), (stack, world, entity, seed) -> {
+                if (entity == null || !WeaponDefinitionsStorage.isRanged(stack)) return 0.0F;
+
+                var state = SCRangeWeaponUtil.getWeaponState(stack);
+
+                // Don't show pulling when charged
+                if (state.isCharged()) return 0.0F;
+
+                return entity.isUsingItem() && entity.getUseItem() == stack && state.isReloading() ? 1.0F : 0.0F;
+            });
+
+            ItemProperties.register(item, new ResourceLocation("charged"), (stack, world, entity, seed) -> {
+                if (!WeaponDefinitionsStorage.isRanged(stack)) return 0.0F;
+                var state = SCRangeWeaponUtil.getWeaponState(stack);
+                return state.isCharged() ? 1.0F : 0.0F;
+            });
+        } else {
+            // Default bow behavior
+            ItemProperties.register(item, new ResourceLocation("pull"), (stack, world, entity, seed) -> {
+                if (entity == null) return 0.0F;
                 return entity.getUseItem() != stack ? 0.0F : (float) (stack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F;
-            }
-        });
-        ItemProperties.register(item, new ResourceLocation("pulling"), (stack, world, entity, seed) ->
-                entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
+            });
+            ItemProperties.register(item, new ResourceLocation("pulling"), (stack, world, entity, seed) ->
+                    entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
+        }
     }
 
     private static void registerEasterEggPredicates(Item item) {
@@ -69,8 +94,7 @@ public class ModModelPredicates {
     private static void registerWeaponPredicates(Item item) {
         ItemProperties.register(item, new ResourceLocation("charged"),
                 (stack, world, entity, seed) -> entity != null
-                        && (entity.getMainHandItem() == stack || entity.getOffhandItem() == stack) &&
-                        stack.hasTag() && stack.getTag().getBoolean("charged") ? 1.0F : 0.0F);
+                        && stack.hasTag() && stack.getTag().getBoolean("charged") ? 1.0F : 0.0F);
         ItemProperties.register(item, new ResourceLocation("blocking"),
                 (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
         ItemProperties.register(item, new ResourceLocation("bludgeoning"),

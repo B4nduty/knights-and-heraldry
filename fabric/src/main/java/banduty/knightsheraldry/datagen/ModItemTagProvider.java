@@ -19,27 +19,27 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void addTags(HolderLookup.Provider arg) {
         getOrCreateTagBuilder(SCTags.WEAPONS_3D.getTag())
-            .add(ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER, ModItems.SWORD,
-                    ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE,
-                    ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE, ModItems.SPIKED_MACE, ModItems.HAMMER,
-                    ModItems.WAR_HAMMER, ModItems.LONGSWORD, ModItems.V_LONGSWORD, ModItems.FALCHION, ModItems.SCIMITAR,
-                    ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE, ModItems.BILLHOOK,
-                    ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.LANCE, ModItems.WOODEN_LANCE,
-                    ModItems.POLEAXE, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN, ModItems.MORNING_STAR,
-                    ModItems.BARDICHE,  ModItems.WARDART, ModItems.GREATSWORD, ModItems.CLAYMORE,
-                    ModItems.FLAMBERGE, ModItems.ZWEIHANDER, ModItems.LONGBOW);
+                .add(ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER, ModItems.SWORD,
+                        ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE,
+                        ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE, ModItems.SPIKED_MACE, ModItems.HAMMER,
+                        ModItems.WAR_HAMMER, ModItems.LONGSWORD, ModItems.V_LONGSWORD, ModItems.FALCHION, ModItems.SCIMITAR,
+                        ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE, ModItems.BILLHOOK,
+                        ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.LANCE, ModItems.WOODEN_LANCE,
+                        ModItems.POLEAXE, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN, ModItems.MORNING_STAR,
+                        ModItems.BARDICHE, ModItems.WARDART, ModItems.GREATSWORD, ModItems.CLAYMORE,
+                        ModItems.FLAMBERGE, ModItems.ZWEIHANDER, ModItems.LONGBOW);
 
         getOrCreateTagBuilder(SCTags.BROKEN_WEAPONS.getTag())
-            .add(ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER, ModItems.SWORD,
-                    ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE,
-                    ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE,
-                    ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD,
-                    ModItems.V_LONGSWORD, ModItems.FALCHION, ModItems.SCIMITAR,
-                    ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE, ModItems.BILLHOOK,
-                    ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.POLEAXE,
-                    ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN, ModItems.MORNING_STAR,
-                    ModItems.BARDICHE,  ModItems.WARDART, ModItems.GREATSWORD, ModItems.CLAYMORE,
-                    ModItems.FLAMBERGE, ModItems.ZWEIHANDER, ModItems.FLAIL, ModItems.BALL_FLAIL);
+                .add(ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER, ModItems.SWORD,
+                        ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE, ModItems.BROAD_AXE,
+                        ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE, ModItems.MACE,
+                        ModItems.SPIKED_MACE, ModItems.HAMMER, ModItems.WAR_HAMMER, ModItems.LONGSWORD,
+                        ModItems.V_LONGSWORD, ModItems.FALCHION, ModItems.SCIMITAR,
+                        ModItems.PITCHFORK, ModItems.SPEAR, ModItems.PIKE, ModItems.BILLHOOK,
+                        ModItems.GLAIVE, ModItems.CURVED_GLAIVE, ModItems.HALBERD, ModItems.POLEAXE,
+                        ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN, ModItems.MORNING_STAR,
+                        ModItems.BARDICHE, ModItems.WARDART, ModItems.GREATSWORD, ModItems.CLAYMORE,
+                        ModItems.FLAMBERGE, ModItems.ZWEIHANDER, ModItems.FLAIL, ModItems.BALL_FLAIL);
 
         getOrCreateTagBuilder(SCTags.WEAPONS_SHIELD.getTag())
                 .add(ModItems.RAPIER, ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD, ModItems.AXE,

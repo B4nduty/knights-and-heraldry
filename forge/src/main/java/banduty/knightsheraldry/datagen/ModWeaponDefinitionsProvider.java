@@ -270,12 +270,12 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         );
         consumer.accept(Weapon.Builder.create().ranged(
                         Weapon.RangedBuilder.create("crossbow")
-                                .projectile(16, SCDamageType.PIERCING, 3f, 1)
+                                .projectile(16, SCDamageType.PIERCING, 4f, 1)
                                 .maxUseTime(72000)
                                 .rechargeTime(5)
                                 .needsFlintAndSteel(false)
                                 .useAnim(UseAnim.CROSSBOW)
-                                .soundEvent(SoundEvents.ARROW_SHOOT)
+                                .soundEvent(SoundEvents.CROSSBOW_SHOOT)
 
                 ).build(),
                 ModItems.HEAVY_CROSSBOW.get()

@@ -1,7 +1,8 @@
 package banduty.knightsheraldry.items.item.khrangeweapon;
 
-import banduty.knightsheraldry.client.item.HeavyCrossbowModel;
+import banduty.knightsheraldry.client.item.HeavyCrossbowRenderer;
 import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import software.bernie.geckolib.animatable.GeoItem;
@@ -10,7 +11,6 @@ import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.renderer.GeoItemRenderer;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
@@ -27,13 +27,13 @@ public class HeavyCrossbow extends Item implements GeoItem {
     @Override
     public void createRenderer(Consumer<Object> consumer) {
         consumer.accept(new RenderProvider() {
-            private GeoItemRenderer<HeavyCrossbow> renderer;
+            private HeavyCrossbowRenderer renderer;
 
             @Override
-            public GeoItemRenderer<HeavyCrossbow> getCustomRenderer() {
-                if (this.renderer == null)
-                    this.renderer = new GeoItemRenderer<>(new HeavyCrossbowModel());
-
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                if (this.renderer == null) {
+                    this.renderer = new HeavyCrossbowRenderer();
+                }
                 return this.renderer;
             }
         });
@@ -51,10 +51,14 @@ public class HeavyCrossbow extends Item implements GeoItem {
 
     private PlayState predicate(AnimationState<HeavyCrossbow> animationState) {
         ItemStack itemStack = animationState.getData(DataTickets.ITEMSTACK);
-        if (SCRangeWeaponUtil.getWeaponState(itemStack).isShooting()) animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));
-        else if (SCRangeWeaponUtil.getWeaponState(itemStack).isReloading()) animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
-        else if (SCRangeWeaponUtil.getWeaponState(itemStack).isCharged()) animationState.getController().setAnimation(RawAnimation.begin().then("charged", Animation.LoopType.HOLD_ON_LAST_FRAME));
-        else animationState.getController().setAnimation(RawAnimation.begin().then("unloaded", Animation.LoopType.HOLD_ON_LAST_FRAME));
+        if (SCRangeWeaponUtil.getWeaponState(itemStack).isShooting())
+            animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));
+        else if (SCRangeWeaponUtil.getWeaponState(itemStack).isReloading())
+            animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
+        else if (SCRangeWeaponUtil.getWeaponState(itemStack).isCharged())
+            animationState.getController().setAnimation(RawAnimation.begin().then("charged", Animation.LoopType.HOLD_ON_LAST_FRAME));
+        else
+            animationState.getController().setAnimation(RawAnimation.begin().then("unloaded", Animation.LoopType.HOLD_ON_LAST_FRAME));
         return PlayState.CONTINUE;
     }
 
