@@ -7,6 +7,7 @@ import banduty.knightsheraldry.items.ModItems;
 import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
+import banduty.knightsheraldry.networking.ModMessages;
 import banduty.knightsheraldry.util.itemdata.ItemTooltipComponent;
 import banduty.knightsheraldry.util.itemdata.ItemTooltipData;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
@@ -30,6 +31,7 @@ public class KnightsHeraldryForgeClient {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            ModMessages.register();
             for (Item item : ForgeRegistries.ITEMS) {
                 if (ForgeRegistries.ITEMS.getKey(item).getNamespace().equals(KnightsHeraldry.MOD_ID)) {
                     ModModelPredicates.registerModelPredicates(item);
