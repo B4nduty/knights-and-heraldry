@@ -6,6 +6,7 @@ import banduty.knightsheraldry.entity.ModEntities;
 import banduty.knightsheraldry.event.CanEquipHandler;
 import banduty.knightsheraldry.items.ModItemGroups;
 import banduty.knightsheraldry.items.ModItems;
+import banduty.knightsheraldry.networking.ModMessages;
 import banduty.knightsheraldry.recipes.ModRecipes;
 import banduty.knightsheraldry.sounds.ModSounds;
 import banduty.knightsheraldry.util.itemdata.KHHelmetDeco;
@@ -43,6 +44,7 @@ public class KnightsHeraldryForge {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        ModMessages.register();
         event.enqueueWork(KHHelmetDeco::registerHelmetDeco);
     }
 }
