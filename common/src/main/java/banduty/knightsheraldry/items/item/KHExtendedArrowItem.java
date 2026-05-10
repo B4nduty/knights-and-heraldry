@@ -5,6 +5,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.BiFunction;
 
@@ -18,7 +19,7 @@ public class KHExtendedArrowItem extends ArrowItem {
     }
 
     @Override
-    public AbstractArrow createArrow(Level level, ItemStack stack, LivingEntity shooter) {
+    public AbstractArrow createArrow(Level level, ItemStack ammo, LivingEntity shooter, @Nullable ItemStack weapon) {
         return arrowEntityFactory.apply(shooter, level);
     }
 }

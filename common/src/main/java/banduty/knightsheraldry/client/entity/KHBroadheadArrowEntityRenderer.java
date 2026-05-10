@@ -12,6 +12,6 @@ public class KHBroadheadArrowEntityRenderer extends ArrowRenderer<KHBroadheadArr
     }
 
     public ResourceLocation getTextureLocation(KHBroadheadArrowEntity arrowEntity) {
-        return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/arrow/broadhead_arrow.png");
+        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/arrow/broadhead_arrow.png");
     }
 }

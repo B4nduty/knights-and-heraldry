@@ -8,10 +8,10 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
-public class AccessoryLeggingsModel extends HumanoidModel<LivingEntity> {
+public final class AccessoryLeggingsModel extends HumanoidModel<LivingEntity> {
     private final ModelPart armorRightLeg;
     private final ModelPart armorLeftLeg;
-    public AccessoryLeggingsModel(ModelPart root) {
+    AccessoryLeggingsModel(ModelPart root) {
         super(root);
         this.setAllVisible(false);
         this.armorRightLeg = root.getChild("armorRightLeg");
@@ -43,11 +43,11 @@ public class AccessoryLeggingsModel extends HumanoidModel<LivingEntity> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
         this.armorRightLeg.copyFrom(this.rightLeg);
-        this.armorRightLeg.render(poseStack, vertices, light, overlay, red, green, blue, alpha);
+        this.armorRightLeg.render(poseStack, buffer, packedLight, packedOverlay, color);
 
         this.armorLeftLeg.copyFrom(this.leftLeg);
-        this.armorLeftLeg.render(poseStack, vertices, light, overlay, red, green, blue, alpha);
+        this.armorLeftLeg.render(poseStack, buffer, packedLight, packedOverlay, color);
     }
 }

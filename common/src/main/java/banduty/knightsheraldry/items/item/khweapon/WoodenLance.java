@@ -1,23 +1,20 @@
 package banduty.knightsheraldry.items.item.khweapon;
 
-import banduty.stoneycore.combat.melee.SCDamageType;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
-import net.minecraft.world.item.DyeableLeatherItem;
+import banduty.stoneycore.combat.damagetype.SCDamageType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.DyedItemColor;
 
-public class WoodenLance extends Lance implements DyeableLeatherItem {
+public class WoodenLance extends Lance {
+    int defaultColor = 10511680;
+
     public WoodenLance(float attackSpeed, Properties properties, SCDamageType onlyDamageType) {
         super(attackSpeed, properties, onlyDamageType);
     }
 
-    @Override
     public int getColor(ItemStack stack) {
-        CompoundTag tagElement = stack.getTagElement(TAG_DISPLAY);
-        if (tagElement != null && tagElement.contains(TAG_COLOR, Tag.TAG_ANY_NUMERIC)) {
-            return tagElement.getInt(TAG_COLOR);
-        }
-        return DEFAULT_LEATHER_COLOR;
+        DyedItemColor dyedItemColor = stack.get(DataComponents.DYED_COLOR);
+        return dyedItemColor != null ? dyedItemColor.rgb() : this.defaultColor;
     }
 
     @Override

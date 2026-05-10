@@ -25,6 +25,6 @@ public class ModEntityModelLayers {
     }
 
     private static ModelLayerLocation create(String id, String layer) {
-        return new ModelLayerLocation(new ResourceLocation(KnightsHeraldry.MOD_ID, id), layer);
+        return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, id), layer);
     }
 }

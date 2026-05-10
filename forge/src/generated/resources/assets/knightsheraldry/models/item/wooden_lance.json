@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "knightsheraldry:item/wooden_lance",
-    "layer1": "knightsheraldry:item/wooden_lance_overlay"
-  }
-}

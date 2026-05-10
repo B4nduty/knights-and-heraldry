@@ -1,17 +1,17 @@
 package banduty.knightsheraldry.items.item;
 
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.item.DyeableLeatherItem;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.DyedItemColor;
 
-public class DyeableItems extends Item implements DyeableLeatherItem {
+public class DyeableItems extends Item {
     public DyeableItems(Properties properties) {
         super(properties);
     }
 
-    public int getColor(ItemStack stack) {
-        CompoundTag compoundTag = stack.getTagElement("display");
-        return compoundTag != null && compoundTag.contains("color", 99) ? compoundTag.getInt("color") : 0xFFFFFF;
+    public static int getColor(ItemStack stack) {
+        DyedItemColor dyedItemColor = stack.get(DataComponents.DYED_COLOR);
+        return dyedItemColor != null ? dyedItemColor.rgb() : 0xFFFFFF;
     }
 }

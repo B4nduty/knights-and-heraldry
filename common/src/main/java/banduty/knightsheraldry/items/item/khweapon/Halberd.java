@@ -1,9 +1,10 @@
 package banduty.knightsheraldry.items.item.khweapon;
 
+import banduty.knightsheraldry.effect.KHEffects;
 import banduty.knightsheraldry.items.ModToolMaterials;
-import banduty.knightsheraldry.platform.Services;
+import banduty.stoneycore.combat.damagetype.SCDamageCalculator;
+import banduty.stoneycore.combat.damagetype.SCDamageType;
 import banduty.stoneycore.combat.melee.CombatSelect;
-import banduty.stoneycore.combat.melee.SCDamageType;
 import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -16,7 +17,8 @@ import net.minecraft.world.phys.Vec3;
 
 public class Halberd extends SwordItem {
     public Halberd(float attackSpeed, Properties properties) {
-        super(ModToolMaterials.WEAPONS, 1, attackSpeed, properties);
+        super(ModToolMaterials.WEAPONS,
+                properties.attributes(SwordItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
     }
 
     @Override
@@ -27,7 +29,7 @@ public class Halberd extends SwordItem {
             SCDamageType damageType = SCWeaponUtil.calculateDamageType(stack, CombatSelect.getComboCount(player));
 
             if (damageType.equals(SCDamageType.BLUDGEONING)) {
-                target.addEffect(new MobEffectInstance(Services.PLATFORM.getPinEffect(), 2 * 20));
+                target.addEffect(new MobEffectInstance(KHEffects.PIN, 2 * 20));
             }
 
             double maxDistance = SCWeaponUtil.getMaxDistance(this);
@@ -38,7 +40,7 @@ public class Halberd extends SwordItem {
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.position());
-                        double damage = SCDamageType.calculateSCDamage(player, SCWeaponUtil.calculateDamage(this, distance, damageType), damageType);
+                        double damage = SCDamageCalculator.applyArmor(player, SCWeaponUtil.calculateDamage(this, distance, damageType), damageType);
                         double maxDamage = SCWeaponUtil.getMaxDamage(damageType, this);
 
                         if (damage >= maxDamage) {

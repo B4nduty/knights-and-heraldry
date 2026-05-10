@@ -1,9 +1,12 @@
 package banduty.knightsheraldry.client.entity.armor;
 
 import banduty.knightsheraldry.KnightsHeraldry;
+import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
+import banduty.knightsheraldry.util.itemdata.HelmetDeco;
+import banduty.knightsheraldry.util.itemdata.KHDataComponents;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HorseModel;
@@ -14,13 +17,13 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.ItemStack;
 
 public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<Horse>> {
-    private static final ResourceLocation HORSE_ARMOR_TEXTURE_PLUME = new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/horse_barding_plume.png");
+    private static final ResourceLocation HORSE_ARMOR_TEXTURE_PLUME = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/horse_barding_plume.png");
     private HorseBardingModel<Horse> armorModel;
     private final EntityModelSet entityModelSet;
 
@@ -40,7 +43,7 @@ public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<H
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int light, Horse horse, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-        ItemStack armorStack = horse.getArmor();
+        ItemStack armorStack = horse.getItemBySlot(EquipmentSlot.BODY);
         if (!armorStack.isEmpty() && armorStack.getItem() instanceof HorseBardingArmorItem horseBardingArmorItem) {
             HorseBardingModel<Horse> model = getArmorModel(); // Get model lazily
 
@@ -50,41 +53,31 @@ public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<H
             model.setupAnim(horse, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
 
             // Base armor texture
-            ResourceLocation texture = new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/" + BuiltInRegistries.ITEM.getKey(armorStack.getItem()).getPath() + ".png");
+            ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/" + BuiltInRegistries.ITEM.getKey(armorStack.getItem()).getPath() + ".png");
             VertexConsumer vertexConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(texture));
-            model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
+            model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), 1);
 
-            // Overlay texture (dyed color)
-            int colorInt = horseBardingArmorItem.getColor(armorStack);
-            float[] colorFloat = new float[]{
-                    (colorInt >> 16 & 255) / 255.0F,
-                    (colorInt >> 8 & 255) / 255.0F,
-                    (colorInt & 255) / 255.0F
-            };
-            ResourceLocation textureOverlay = new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/" + BuiltInRegistries.ITEM.getKey(armorStack.getItem()).getPath() + "_overlay.png");
+            // Overlay texture (dyed colorN)
+            int color = horseBardingArmorItem.getColor(armorStack);
+            ResourceLocation textureOverlay = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/" + BuiltInRegistries.ITEM.getKey(armorStack.getItem()).getPath() + "_overlay.png");
             VertexConsumer vertexConsumerOverlay = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(textureOverlay));
-            model.renderToBuffer(poseStack, vertexConsumerOverlay, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), colorFloat[0], colorFloat[1], colorFloat[2], 1.0F);
+            model.renderToBuffer(poseStack, vertexConsumerOverlay, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), color);
 
-            CompoundTag tag = armorStack.getTag();
-            if (tag != null && tag.contains("HelmetDeco")) {
-                colorInt = getPlumeColor(armorStack);
+            int plumeColor = getPlumeColor(armorStack);
+            if (plumeColor != -1) {
+                VertexConsumer vertexConsumerPlume = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(HORSE_ARMOR_TEXTURE_PLUME));
+                model.plume.render(poseStack, vertexConsumerPlume, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), 0xFF000000 | plumeColor);
             }
-
-            colorFloat = new float[]{
-                    (colorInt >> 16 & 255) / 255.0F,
-                    (colorInt >> 8 & 255) / 255.0F,
-                    (colorInt & 255) / 255.0F
-            };
-            VertexConsumer vertexConsumerPlume = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(HORSE_ARMOR_TEXTURE_PLUME));
-            model.plume.render(poseStack, vertexConsumerPlume, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), colorFloat[0], colorFloat[1], colorFloat[2], 1.0F);
         }
     }
 
     private int getPlumeColor(ItemStack stack) {
-        CompoundTag tag = stack.getTag();
-        if (tag == null || !tag.contains("HelmetDeco")) return 0xFFFFFF;
+        HelmetDeco deco = stack.get(KHDataComponents.HELMET_DECO.get());
 
-        CompoundTag deco = tag.getCompound("HelmetDeco");
-        return deco.getInt("plume");
+        if (deco != null && deco.item() == KHItems.PLUME.get()) {
+            return deco.colorN();
+        }
+
+        return -1;
     }
 }

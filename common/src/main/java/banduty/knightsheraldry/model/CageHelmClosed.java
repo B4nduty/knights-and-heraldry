@@ -9,10 +9,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class CageHelmClosed extends HumanoidModel<LivingEntity> {
+public final class CageHelmClosed extends HumanoidModel<LivingEntity> {
 	private final ModelPart armorHead;
 
-	public CageHelmClosed(ModelPart root) {
+	CageHelmClosed(ModelPart root) {
 		super(root);
 		this.setAllVisible(false);
 		this.armorHead = root.getChild("armorHead");
@@ -49,8 +49,8 @@ public class CageHelmClosed extends HumanoidModel<LivingEntity> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
 		this.armorHead.copyFrom(this.head);
-		this.armorHead.render(poseStack, vertices, light, overlay, red, green, blue, alpha);
+		this.armorHead.render(poseStack, buffer, packedLight, packedOverlay, color);
 	}
 }

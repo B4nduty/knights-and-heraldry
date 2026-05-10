@@ -2,9 +2,10 @@ package banduty.knightsheraldry.items.item.khweapon;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.ModToolMaterials;
-import banduty.stoneycore.combat.melee.SCDamageType;
-import banduty.stoneycore.util.data.playerdata.IEntityDataSaver;
-import net.minecraft.nbt.CompoundTag;
+import banduty.stoneycore.combat.damagetype.SCDamageCalculator;
+import banduty.stoneycore.combat.damagetype.SCDamageType;
+import banduty.stoneycore.util.data.entitydata.IEntityDataSaver;
+import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -28,7 +29,8 @@ public class Lance extends SwordItem {
     private final SCDamageType onlyDamageType;
 
     public Lance(float attackSpeed, Properties properties, SCDamageType onlyDamageType) {
-        super(ModToolMaterials.WEAPONS, 1, attackSpeed, properties);
+        super(ModToolMaterials.WEAPONS,
+                properties.attributes(SwordItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
         this.onlyDamageType = onlyDamageType;
     }
 
@@ -55,8 +57,7 @@ public class Lance extends SwordItem {
 
                 if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)
                         && !player.getCooldowns().isOnCooldown(this)) {
-                    double test = ((IEntityDataSaver) player).stoneycore$getPersistentData().getFloat("speedHistory");
-                    double damage = SCDamageType.calculateSCDamage(livingEntity, getLanceDamage() *
+                    double damage = SCDamageCalculator.applyArmor(livingEntity, getLanceDamage() *
                                     ((IEntityDataSaver) player).stoneycore$getPersistentData().getFloat("speedHistory") * 10,
                             this.onlyDamageType);
 
@@ -64,8 +65,7 @@ public class Lance extends SwordItem {
 
                     if (livingEntity.isPassenger()) livingEntity.stopRiding();
 
-                    stack.hurtAndBreak(1, player,
-                            p -> p.broadcastBreakEvent(player.getUsedItemHand()));
+                    stack.hurtAndBreak(1, player, player.getEquipmentSlotForItem(stack));
 
                     targetedEntity.hurt(
                             player.level().damageSources().playerAttack(player),
@@ -124,17 +124,17 @@ public class Lance extends SwordItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, Level level, List<Component> list, TooltipFlag tooltipFlag) {
-        list.add(Component.translatable("text.tooltip.knightsheraldry.right_click-to-charge"));
-        list.add(Component.translatable("text.tooltip.knightsheraldry.on-charge"));
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        tooltipComponents.add(Component.translatable("text.tooltip.knightsheraldry.right_click-to-charge"));
+        tooltipComponents.add(Component.translatable("text.tooltip.knightsheraldry.on-charge"));
     }
 
     @Override
     public void onUseTick(Level level, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (!level.isClientSide() && user instanceof Player player && !player.getCooldowns().isOnCooldown(this)) {
-            int i = this.getUseDuration(stack) - remainingUseTicks;
+            int i = this.getUseDuration(stack, player) - remainingUseTicks;
             doChargeProgress(i, stack, user);
-            float f = (float) (stack.getUseDuration() - remainingUseTicks) / (float) 40;
+            float f = (float) (stack.getUseDuration(player) - remainingUseTicks) / (float) 40;
             if (f < 1.0F) {
                 this.charged = false;
             }
@@ -168,17 +168,15 @@ public class Lance extends SwordItem {
     }
 
     @Override
-    public int getUseDuration(ItemStack stack) {
+    public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return 100;
     }
 
     public static boolean isCharged(ItemStack stack) {
-        CompoundTag compoundTag = stack.getTag();
-        return compoundTag != null && compoundTag.getBoolean("charged");
+        return Boolean.TRUE.equals(stack.get(SCDataComponents.CHARGED.get()));
     }
 
     public static void setCharged(ItemStack stack, boolean charged) {
-        CompoundTag nbtCompound = stack.getOrCreateTag();
-        nbtCompound.putBoolean("charged", charged);
+        stack.set(SCDataComponents.CHARGED.get(), charged);
     }
 }

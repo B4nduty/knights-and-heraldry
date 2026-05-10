@@ -1,10 +1,13 @@
 package banduty.knightsheraldry.entity.custom;
 
 import banduty.knightsheraldry.data.ArrowBehavior;
+import banduty.knightsheraldry.entity.KHEntities;
+import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.platform.Services;
 import banduty.stoneycore.entity.custom.SCArrowEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -28,39 +31,44 @@ public class KHClothArrowEntity extends SCArrowEntity {
     private int groundTicks = 0;
     private boolean blockCollisioned = false;
 
-    public KHClothArrowEntity(LivingEntity shooter, Level level) {
-        super(Services.ENTITY.getClothEntity(), shooter, level);
+    public KHClothArrowEntity(EntityType<? extends KHClothArrowEntity> type, Level level) {
+        super(type, null, level);
     }
 
-    public KHClothArrowEntity(EntityType<KHClothArrowEntity> khClothArrowEntityEntityType, Level level) {
-        super(khClothArrowEntityEntityType, level);
+    public KHClothArrowEntity(LivingEntity shooter, Level level) {
+        super(KHEntities.CLOTH_ARROW.get(), shooter, level);
     }
 
     @Override
     protected ItemStack getPickupItem() {
-        return new ItemStack(Services.ENTITY.getClothItem());
+        return new ItemStack(KHItems.CLOTH_ARROW.get());
+    }
+
+    @Override
+    protected ItemStack getDefaultPickupItem() {
+        return new ItemStack(KHItems.CLOTH_ARROW.get());
     }
 
     private ArrowBehavior getBehavior() {
-        ArrowBehavior behavior = Services.PLATFORM.getBehavior(BuiltInRegistries.ITEM.getKey(Services.ENTITY.getClothItem()));
+        ArrowBehavior behavior = Services.PLATFORM.getBehavior(BuiltInRegistries.ITEM.getKey(KHItems.CLOTH_ARROW.get()));
         if (behavior == null) {
             behavior = new ArrowBehavior();
-            behavior.targetItemId = BuiltInRegistries.ITEM.getKey(Services.ENTITY.getClothItem());
+            behavior.targetItemId = BuiltInRegistries.ITEM.getKey(KHItems.CLOTH_ARROW.get());
             behavior.requireOnFire = true;
             behavior.groundBurnTicks = 100;
             behavior.aoeRadius = 5.0D;
             ArrowBehavior.EffectEntry nausea = new ArrowBehavior.EffectEntry();
-            nausea.id = new ResourceLocation("minecraft", "nausea");
+            nausea.id = ResourceLocation.fromNamespaceAndPath("minecraft", "nausea");
             nausea.duration = 200;
             nausea.amplifier = 0;
             ArrowBehavior.EffectEntry poison = new ArrowBehavior.EffectEntry();
-            poison.id = new ResourceLocation("minecraft", "poison");
+            poison.id = ResourceLocation.fromNamespaceAndPath("minecraft", "poison");
             poison.duration = 100;
             poison.amplifier = 0;
             behavior.effects.add(nausea);
             behavior.effects.add(poison);
             behavior.smoke.enabled = true;
-            behavior.smoke.particle = new ResourceLocation("minecraft", "campfire_cosy_smoke");
+            behavior.smoke.particle = ResourceLocation.fromNamespaceAndPath("minecraft", "campfire_cosy_smoke");
             behavior.smoke.count = 80;
             behavior.smoke.maxSpeed = 0.1D;
             behavior.igniteBlocks.radiusX = 2;
@@ -75,7 +83,7 @@ public class KHClothArrowEntity extends SCArrowEntity {
     protected void onSCEntityHit(EntityHitResult entityHitResult) {
         super.onSCEntityHit(entityHitResult);
         if (entityHitResult.getEntity() instanceof LivingEntity target) {
-            scHitEntity(target, new ItemStack(Services.ENTITY.getClothItem()), getBaseDamage());
+            scHitEntity(target, new ItemStack(KHItems.CLOTH_ARROW.get()), getBaseDamage());
         }
     }
 
@@ -106,7 +114,7 @@ public class KHClothArrowEntity extends SCArrowEntity {
             if (groundTicks >= behavior.groundBurnTicks) {
                 this.setSharedFlagOnFire(false);
                 this.setRemainingFireTicks(0);
-                this.setSecondsOnFire(0);
+                this.igniteForSeconds(0);
             } else groundTicks++;
             applySmokeEffectsToNearbyEntities(serverLevel, behavior);
         }
@@ -148,8 +156,10 @@ public class KHClothArrowEntity extends SCArrowEntity {
 
         for (LivingEntity entity : entitiesInRange) {
             for (ArrowBehavior.EffectEntry e : behavior.effects) {
-                MobEffect effect = BuiltInRegistries.MOB_EFFECT.get(e.id);
-                if (effect != null) entity.addEffect(new MobEffectInstance(effect, e.duration, e.amplifier));
+                MobEffect mobEffect = BuiltInRegistries.MOB_EFFECT.get(e.id);
+                if (mobEffect == null) continue;
+                Holder<MobEffect> effect = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(mobEffect);
+                entity.addEffect(new MobEffectInstance(effect, e.duration, e.amplifier));
             }
         }
     }

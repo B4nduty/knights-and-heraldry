@@ -1,6 +1,11 @@
 package banduty.knightsheraldry.items;
 
-import banduty.stoneycore.StoneyCore;
+import banduty.knightsheraldry.KnightsHeraldry;
+import banduty.stoneycore.platform.Services;
+import net.minecraft.Util;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
@@ -8,71 +13,28 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
+import java.util.EnumMap;
+import java.util.List;
 import java.util.function.Supplier;
 
-public enum ModArmorMaterials implements ArmorMaterial {
-    GAMBESON(165, new int[] {1, 4, 2, 1}, 15,
-            SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f, () -> Ingredient.of(Items.LEATHER)),
-    MAIL(256, new int[] {2, 6, 5, 2}, 12,
-            SoundEvents.ARMOR_EQUIP_CHAIN, 0f, 0f, () -> Ingredient.of(Items.CHAIN));
+public interface ModArmorMaterials {
+    Holder<ArmorMaterial> GAMBESON = register("gambeson", Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+        map.put(ArmorItem.Type.BOOTS, 1);
+        map.put(ArmorItem.Type.LEGGINGS, 2);
+        map.put(ArmorItem.Type.CHESTPLATE, 4);
+        map.put(ArmorItem.Type.HELMET, 1);
+    }), 15, SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f, () -> Ingredient.of(Items.LEATHER));
 
-    private static final int[] BASE_DURABILITY = {1, 1, 1, 1};
-    private final int durabilityMultiplier;
-    private final int[] protectionAmounts;
-    private final int enchantability;
-    private final SoundEvent equipSound;
-    private final float toughness;
-    private final float knockbackResistance;
-    private final Supplier<Ingredient> repairIngredient;
+    Holder<ArmorMaterial> MAIL = register("mail", Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+        map.put(ArmorItem.Type.BOOTS, 2);
+        map.put(ArmorItem.Type.LEGGINGS, 5);
+        map.put(ArmorItem.Type.CHESTPLATE, 6);
+        map.put(ArmorItem.Type.HELMET, 2);
+    }), 12, SoundEvents.ARMOR_EQUIP_CHAIN, 0f, 0f, () -> Ingredient.of(Items.CHAIN));
 
-    ModArmorMaterials(int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-        this.durabilityMultiplier = durabilityMultiplier;
-        this.protectionAmounts = protectionAmounts;
-        this.enchantability = enchantability;
-        this.equipSound = equipSound;
-        this.toughness = toughness;
-        this.knockbackResistance = knockbackResistance;
-        this.repairIngredient = repairIngredient;
-    }
-
-    @Override
-    public int getDurabilityForType(ArmorItem.Type type) {
-        return BASE_DURABILITY[type.ordinal()] * this.durabilityMultiplier;
-    }
-
-    @Override
-    public int getDefenseForType(ArmorItem.Type type) {
-        return protectionAmounts[type.ordinal()];
-    }
-
-    @Override
-    public int getEnchantmentValue() {
-        return this.enchantability;
-    }
-
-    @Override
-    public SoundEvent getEquipSound() {
-        return this.equipSound;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-        return this.repairIngredient.get();
-    }
-
-
-    @Override
-    public String getName() {
-        return StoneyCore.MOD_ID + ":" + "a";
-    }
-
-    @Override
-    public float getToughness() {
-        return this.toughness;
-    }
-
-    @Override
-    public float getKnockbackResistance() {
-        return this.knockbackResistance;
+    private static Holder<ArmorMaterial> register(String name, EnumMap<ArmorItem.Type, Integer> defense, int enchantmentValue, Holder<SoundEvent> equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+        List<ArmorMaterial.Layer> layers = List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, name)));
+        ArmorMaterial material = new ArmorMaterial(defense, enchantmentValue, equipSound, repairIngredient, layers, toughness, knockbackResistance);
+        return Services.PLATFORM.registerHolder(Registries.ARMOR_MATERIAL, name, () -> material);
     }
 }

@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.datagen;
 
-import banduty.knightsheraldry.entity.ModEntities;
-import banduty.knightsheraldry.items.ModItems;
+import banduty.knightsheraldry.entity.KHEntities;
+import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.datagen.DefinitionsProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.entity.EntityType;
@@ -14,25 +14,25 @@ public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
     @Override
     protected void generateDefinitions(ArmorConsumer biConsumer) {
         // Gambeson Set
-        biConsumer.accept(ModItems.QUILTED_COIF, Builder.create()
+        biConsumer.accept(KHItems.QUILTED_COIF.get(), Builder.create()
                         .weight(0.5)
                         .damageResistance(0.04, 0.1, 0)
                         .deflectChance(0.005, getAllArrows())
                         .build()
         );
-        biConsumer.accept(ModItems.GAMBESON, Builder.create()
+        biConsumer.accept(KHItems.GAMBESON.get(), Builder.create()
                         .weight(5.0)
                         .damageResistance(0.04, 0.1, 0)
                         .deflectChance(0.025, getAllArrows())
                         .build()
         );
-        biConsumer.accept(ModItems.GAMBESON_BREECHES, Builder.create()
+        biConsumer.accept(KHItems.GAMBESON_BREECHES.get(), Builder.create()
                         .weight(2.0)
                         .damageResistance(0.04, 0.1, 0)
                         .deflectChance(0.01, getAllArrows())
                         .build()
         );
-        biConsumer.accept(ModItems.GAMBESON_BOOTS, Builder.create()
+        biConsumer.accept(KHItems.GAMBESON_BOOTS.get(), Builder.create()
                         .weight(1.0)
                         .damageResistance(0.04, 0.1, 0)
                         .deflectChance(0.002, getAllArrows())
@@ -40,25 +40,25 @@ public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
         );
 
         // Mail Set
-        biConsumer.accept(ModItems.MAIL_COIF, Builder.create()
+        biConsumer.accept(KHItems.MAIL_COIF.get(), Builder.create()
                         .weight(2.5)
                         .damageResistance(0.1, 0.04, 0)
                         .deflectChance(0.04, getAllArrows())
                         .build()
         );
-        biConsumer.accept(ModItems.HAUBERK, Builder.create()
+        biConsumer.accept(KHItems.HAUBERK.get(), Builder.create()
                         .weight(10.0)
                         .damageResistance(0.1, 0.04, 0)
                         .deflectChance(0.07, getAllArrows())
                         .build()
         );
-        biConsumer.accept(ModItems.MAIL_BREECHES, Builder.create()
+        biConsumer.accept(KHItems.MAIL_BREECHES.get(), Builder.create()
                         .weight(8.0)
                         .damageResistance(0.1, 0.04, 0)
                         .deflectChance(0.05, getAllArrows())
                         .build()
         );
-        biConsumer.accept(ModItems.MAIL_BOOTS, Builder.create()
+        biConsumer.accept(KHItems.MAIL_BOOTS.get(), Builder.create()
                         .weight(3.0)
                         .damageResistance(0.1, 0.04, 0)
                         .deflectChance(0.02, getAllArrows())
@@ -66,17 +66,17 @@ public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
         );
 
         // Horse Armor
-        biConsumer.accept(ModItems.HORSE_BARDING, Builder.create()
+        biConsumer.accept(KHItems.HORSE_BARDING.get(), Builder.create()
                         .damageResistance(0.1, 0.04, 0)
                         .deflectChance(0.6, getAllArrows())
                         .build()
         );
-        biConsumer.accept(ModItems.DARK_HORSE_BARDING, Builder.create()
+        biConsumer.accept(KHItems.DARK_HORSE_BARDING.get(), Builder.create()
                         .damageResistance(0.1, 0.04, 0)
                         .deflectChance(0.6, getAllArrows())
                         .build()
         );
-        biConsumer.accept(ModItems.GOLDEN_HORSE_BARDING, Builder.create()
+        biConsumer.accept(KHItems.GOLDEN_HORSE_BARDING.get(), Builder.create()
                         .damageResistance(0.1, 0.04, 0)
                         .deflectChance(0.6, getAllArrows())
                         .build()
@@ -86,10 +86,10 @@ public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
     protected EntityType<?>[] getAllArrows() {
         return new EntityType<?>[] {
                 EntityType.ARROW,
-                ModEntities.BODKIN_ARROW,
-                ModEntities.BROADHEAD_ARROW,
-                ModEntities.CLOTH_ARROW,
-                ModEntities.SWALLOWTAIL_ARROW
+                KHEntities.BODKIN_ARROW.get(),
+                KHEntities.BROADHEAD_ARROW.get(),
+                KHEntities.CLOTH_ARROW.get(),
+                KHEntities.SWALLOWTAIL_ARROW.get()
         };
     }
 }

@@ -28,7 +28,7 @@ public class ArrowBehaviorManager implements SimpleSynchronousResourceReloadList
 
     @Override
     public ResourceLocation getFabricId() {
-        return new ResourceLocation(KnightsHeraldry.MOD_ID, "arrow_behavior_loader");
+        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "arrow_behavior_loader");
     }
 
     @Override

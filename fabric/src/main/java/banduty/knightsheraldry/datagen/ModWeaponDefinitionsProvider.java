@@ -1,8 +1,8 @@
 package banduty.knightsheraldry.datagen;
 
-import banduty.knightsheraldry.items.ModItems;
-import banduty.knightsheraldry.sounds.ModSounds;
-import banduty.stoneycore.combat.melee.SCDamageType;
+import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.sounds.KHSounds;
+import banduty.stoneycore.combat.damagetype.SCDamageType;
 import banduty.stoneycore.datagen.DefinitionsProvider;
 import banduty.stoneycore.items.SCItems;
 import net.minecraft.data.PackOutput;
@@ -18,7 +18,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
     @Override
     protected void generateDefinitions(WeaponConsumer consumer) {
         // Melee
-        consumer.accept(ModItems.DAGGER,
+        consumer.accept(KHItems.DAGGER.get(),
                 Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
                                 .slashingDamage(5f, 3f)
@@ -29,7 +29,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .pierceAnim(3)
                 ).build()
         );
-        consumer.accept(ModItems.STILETTO,
+        consumer.accept(KHItems.STILETTO.get(),
                 Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
                                 .slashingDamage()
@@ -39,7 +39,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
 
                 ).build()
         );
-        consumer.accept(ModItems.RAPIER,
+        consumer.accept(KHItems.RAPIER.get(),
                 Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
                                 .slashingDamage()
@@ -59,7 +59,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .pierceAnim(3)
 
                 ).build(),
-                ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD
+                KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -69,7 +69,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(2.0, 2.5, 3.5, 4.0)
 
                 ).build(),
-                ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE
+                KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -79,7 +79,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(2.0, 3.0, 3.5, 4.0)
 
                 ).build(),
-                ModItems.MACE, ModItems.SPIKED_MACE
+                KHItems.MACE.get(), KHItems.SPIKED_MACE.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -89,7 +89,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(2.0, 2.5, 3.5, 4.0)
 
                 ).build(),
-                ModItems.FLAIL, ModItems.BALL_FLAIL
+                KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -99,7 +99,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(2.0, 3.5, 4.0)
 
                 ).build(),
-                ModItems.HAMMER, ModItems.WAR_HAMMER
+                KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -111,7 +111,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .pierceAnim(2)
 
                 ).build(),
-                ModItems.LONGSWORD, ModItems.V_LONGSWORD
+                KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -121,7 +121,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(1.5, 3.5, 4.0)
 
                 ).build(),
-                ModItems.FALCHION, ModItems.SCIMITAR
+                KHItems.FALCHION.get(), KHItems.SCIMITAR.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -131,7 +131,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(3.0, 5.0, 5.5, 6.0)
 
                 ).build(),
-                ModItems.PITCHFORK
+                KHItems.PITCHFORK.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -141,7 +141,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(4.0, 4.5, 6.0, 7.5)
 
                 ).build(),
-                ModItems.SPEAR
+                KHItems.SPEAR.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -151,7 +151,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(5.5, 7.5, 8.0, 8.5)
 
                 ).build(),
-                ModItems.PIKE
+                KHItems.PIKE.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -163,7 +163,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .pierceAnim(2)
 
                 ).build(),
-                ModItems.BILLHOOK
+                KHItems.BILLHOOK.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -175,7 +175,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .pierceAnim(1, 2)
 
                 ).build(),
-                ModItems.GLAIVE, ModItems.CURVED_GLAIVE
+                KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -187,7 +187,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .pierceAnim(2)
 
                 ).build(),
-                ModItems.HALBERD
+                KHItems.HALBERD.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -199,7 +199,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .pierceAnim(2)
 
                 ).build(),
-                ModItems.POLEAXE
+                KHItems.POLEAXE.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -209,7 +209,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(3.0, 4.0, 5.5, 6.0)
 
                 ).build(),
-                ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN
+                KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -219,7 +219,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(2.5, 3.0, 5.5, 6.0)
 
                 ).build(),
-                ModItems.MORNING_STAR
+                KHItems.MORNING_STAR.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -229,7 +229,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(2.5, 3.0, 5.5, 6.0)
 
                 ).build(),
-                ModItems.BARDICHE
+                KHItems.BARDICHE.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -242,7 +242,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .knockback(0.3)
 
                 ).build(),
-                ModItems.GREATSWORD, ModItems.CLAYMORE, ModItems.FLAMBERGE, ModItems.ZWEIHANDER
+                KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get()
         );
         consumer.accept(Weapon.Builder.create().melee(
                         Weapon.MeleeBuilder.create()
@@ -252,7 +252,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(3.5, 4.5, 5.0)
 
                 ).build(),
-                ModItems.WARDART
+                KHItems.WARDART.get()
         );
 
         // Ranged Weapon
@@ -266,7 +266,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .soundEvent(SoundEvents.ARROW_SHOOT)
 
                 ).build(),
-                ModItems.LONGBOW
+                KHItems.LONGBOW.get()
         );
         consumer.accept(Weapon.Builder.create().ranged(
                         Weapon.RangedBuilder.create("crossbow")
@@ -278,7 +278,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .soundEvent(SoundEvents.CROSSBOW_SHOOT)
 
                 ).build(),
-                ModItems.HEAVY_CROSSBOW
+                KHItems.HEAVY_CROSSBOW.get()
         );
         consumer.accept(Weapon.Builder.create().ranged(
                         Weapon.RangedBuilder.create("musket")
@@ -287,13 +287,13 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .rechargeTime(15)
                                 .needsFlintAndSteel(false)
                                 .useAnim(UseAnim.BOW)
-                                .soundEvent(ModSounds.ARQUEBUS_CLOSE)
-                                .ammoRequirement("item1", SCItems.BLACK_POWDER, 1)
+                                .soundEvent(KHSounds.ARQUEBUS_CLOSE.get())
+                                .ammoRequirement("item1", SCItems.BLACK_POWDER.get(), 1)
                                 .ammoRequirement("item2", 1, Items.IRON_NUGGET, Items.GRAVEL)
-                                .ammoRequirement("item3", 1, Items.PAPER, Items.GRASS)
+                                .ammoRequirement("item3", 1, Items.PAPER, Items.SHORT_GRASS)
 
                 ).build(),
-                ModItems.ARQUEBUS
+                KHItems.ARQUEBUS.get()
         );
         consumer.accept(Weapon.Builder.create().ranged(
                         RangedBuilder.create("musket")
@@ -302,17 +302,17 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .rechargeTime(15)
                                 .needsFlintAndSteel(true)
                                 .useAnim(UseAnim.BOW)
-                                .soundEvent(ModSounds.ARQUEBUS_CLOSE)
-                                .ammoRequirement("item1", SCItems.BLACK_POWDER, 2)
+                                .soundEvent(KHSounds.ARQUEBUS_CLOSE.get())
+                                .ammoRequirement("item1", SCItems.BLACK_POWDER.get(), 2)
                                 .ammoRequirement("item2", 1, Items.IRON_NUGGET, Items.GRAVEL)
-                                .ammoRequirement("item3", 1, Items.PAPER, Items.GRASS)
+                                .ammoRequirement("item3", 1, Items.PAPER, Items.SHORT_GRASS)
 
                 ).build(),
-                ModItems.HANDGONNE
+                KHItems.HANDGONNE.get()
         );
 
         // Weapons
-        consumer.accept(Weapon.Builder.create().ammo(-0.2).build(), ModItems.BODKIN_ARROW);
-        consumer.accept(Weapon.Builder.create().ammo(0.05).build(), ModItems.SWALLOWTAIL_ARROW);
+        consumer.accept(Weapon.Builder.create().ammo(-0.2).build(), KHItems.BODKIN_ARROW.get());
+        consumer.accept(Weapon.Builder.create().ammo(0.05).build(), KHItems.SWALLOWTAIL_ARROW.get());
     }
 }

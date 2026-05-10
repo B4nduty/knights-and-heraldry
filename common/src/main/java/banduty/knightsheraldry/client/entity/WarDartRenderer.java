@@ -14,7 +14,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemDisplayContext;
 
 public class WarDartRenderer extends EntityRenderer<WarDartEntity> {
-    public static final ResourceLocation TEXTURE = new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/item/wardart_3d.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/item/wardart_3d.png");
     private final ItemRenderer itemRenderer;
     private final float scale;
 

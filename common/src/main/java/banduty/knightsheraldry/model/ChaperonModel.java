@@ -9,9 +9,9 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class ChaperonModel extends HumanoidModel<LivingEntity> {
+public final class ChaperonModel extends HumanoidModel<LivingEntity> {
     private final ModelPart armorHead;
-    public ChaperonModel(ModelPart root) {
+    ChaperonModel(ModelPart root) {
         super(root);
         this.setAllVisible(false);
         this.armorHead = root.getChild("armorHead");
@@ -36,10 +36,10 @@ public class ChaperonModel extends HumanoidModel<LivingEntity> {
         armorHead.addOrReplaceChild("cube_r4", CubeListBuilder.create().texOffs(84, 18).addBox(-5.5F, -1.0F, -5.5F, 11.0F, 2.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -6.0F, 0.0F, 0.0F, 0.0F, -0.0873F));
         return LayerDefinition.create(modelData, 128, 64);
     }
-    
+
     @Override
-    public void renderToBuffer(PoseStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
         this.armorHead.copyFrom(this.head);
-        this.armorHead.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+        this.armorHead.render(poseStack, buffer, packedLight, packedOverlay, color);
     }
 }

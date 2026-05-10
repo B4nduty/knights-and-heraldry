@@ -8,7 +8,7 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class CloakHoodModel extends HumanoidModel<LivingEntity> {
+public final class CloakHoodModel extends HumanoidModel<LivingEntity> {
 	public final ModelPart armorHead;
 	public final ModelPart armorBody;
 	public final ModelPart armorRightArm;
@@ -16,7 +16,7 @@ public class CloakHoodModel extends HumanoidModel<LivingEntity> {
 	public float cloakPitch;
 	public float cloakYaw;
 	public float cloakRoll;
-	public CloakHoodModel(ModelPart root) {
+	CloakHoodModel(ModelPart root) {
         super(root);
         this.armorHead = root.getChild("armorHead");
 		this.armorBody = root.getChild("armorBody");
@@ -75,9 +75,9 @@ public class CloakHoodModel extends HumanoidModel<LivingEntity> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
 		this.armorHead.copyFrom(this.head);
-		this.armorHead.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
+		this.armorHead.render(poseStack, buffer, packedLight, packedOverlay, color);
 
 		armorBody.xScale = body.xScale;
 		armorBody.yScale = body.yScale;
@@ -85,7 +85,7 @@ public class CloakHoodModel extends HumanoidModel<LivingEntity> {
 		armorBody.x = body.x;
 		armorBody.y = body.y;
 		armorBody.z = body.z;
-		this.armorBody.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
+		this.armorBody.render(poseStack, buffer, packedLight, packedOverlay, color);
 
 		armorRightArm.xScale = rightArm.xScale;
 		armorRightArm.yScale = rightArm.yScale;
@@ -93,7 +93,7 @@ public class CloakHoodModel extends HumanoidModel<LivingEntity> {
 		armorRightArm.x = rightArm.x;
 		armorRightArm.y = rightArm.y;
 		armorRightArm.z = rightArm.z;
-		this.armorRightArm.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
+		this.armorRightArm.render(poseStack, buffer, packedLight, packedOverlay, color);
 
 		armorLeftArm.xScale = leftArm.xScale;
 		armorLeftArm.yScale = leftArm.yScale;
@@ -101,7 +101,7 @@ public class CloakHoodModel extends HumanoidModel<LivingEntity> {
 		armorLeftArm.x = leftArm.x;
 		armorLeftArm.y = leftArm.y;
 		armorLeftArm.z = leftArm.z;
-		this.armorLeftArm.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
+		this.armorLeftArm.render(poseStack, buffer, packedLight, packedOverlay, color);
 	}
 
     @Override

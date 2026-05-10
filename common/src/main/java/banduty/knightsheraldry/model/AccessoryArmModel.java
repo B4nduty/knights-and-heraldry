@@ -7,11 +7,11 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class AccessoryArmModel extends HumanoidModel<LivingEntity> {
+public final class AccessoryArmModel extends HumanoidModel<LivingEntity> {
 	public final ModelPart armorRightArm;
 	public final ModelPart armorLeftArm;
 
-	public AccessoryArmModel(ModelPart root) {
+	AccessoryArmModel(ModelPart root) {
 		super(root);
 		this.armorRightArm = root.getChild("armorRightArm");
 		this.armorLeftArm = root.getChild("armorLeftArm");

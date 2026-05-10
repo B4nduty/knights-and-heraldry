@@ -5,17 +5,17 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 
 public class PinEffect extends MobEffect {
-    protected PinEffect(MobEffectCategory category, int color) {
+    public PinEffect(MobEffectCategory category, int color) {
         super(category, color);
     }
 
     @Override
-    public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
-        super.applyEffectTick(livingEntity, amplifier);
+    public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+        return true;
     }
 
     @Override
-    public boolean isDurationEffectTick(int duration, int amplifier) {
+    public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         return true;
     }
 }

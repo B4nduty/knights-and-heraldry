@@ -17,8 +17,8 @@
       "item3": {
         "amount": 1,
         "items": [
-          "minecraft:grass",
-          "minecraft:paper"
+          "minecraft:paper",
+          "minecraft:short_grass"
         ]
       }
     },

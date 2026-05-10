@@ -9,10 +9,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class AccessoryBootsModel extends HumanoidModel<LivingEntity> {
+public final class AccessoryBootsModel extends HumanoidModel<LivingEntity> {
     private final ModelPart armorRightBoot;
     private final ModelPart armorLeftBoot;
-    public AccessoryBootsModel(ModelPart root) {
+    AccessoryBootsModel(ModelPart root) {
         super(root);
         this.setAllVisible(false);
         this.armorRightBoot = root.getChild("armorRightBoot");
@@ -38,11 +38,11 @@ public class AccessoryBootsModel extends HumanoidModel<LivingEntity> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
         this.armorRightBoot.copyFrom(this.rightLeg);
-        this.armorRightBoot.render(poseStack, vertices, light, overlay, red, green, blue, alpha);
+        this.armorRightBoot.render(poseStack, buffer, packedLight, packedOverlay, color);
 
         this.armorLeftBoot.copyFrom(this.leftLeg);
-        this.armorLeftBoot.render(poseStack, vertices, light, overlay, red, green, blue, alpha);
+        this.armorLeftBoot.render(poseStack, buffer, packedLight, packedOverlay, color);
     }
 }

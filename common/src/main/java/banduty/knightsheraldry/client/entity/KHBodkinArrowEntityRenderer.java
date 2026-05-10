@@ -13,6 +13,6 @@ public class KHBodkinArrowEntityRenderer extends ArrowRenderer<KHBodkinArrowEnti
     }
 
     public @NotNull ResourceLocation getTextureLocation(KHBodkinArrowEntity arrowEntity) {
-        return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/arrow/bodkin_arrow.png");
+        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/arrow/bodkin_arrow.png");
     }
 }
