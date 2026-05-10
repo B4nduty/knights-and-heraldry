@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "stoneycore:smithing_hammer"
+    },
+    {
+      "item": "knightsheraldry:bec_de_corbin"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:polehammer"
+  }
+}

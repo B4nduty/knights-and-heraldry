@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "stoneycore:smithing_hammer"
+    },
+    {
+      "item": "knightsheraldry:flail"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:ball_flail"
+  }
+}

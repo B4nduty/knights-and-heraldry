@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ball_flail": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:ball_flail"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:manuscript/ball_flail"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ball_flail"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:manuscript/ball_flail"
+    ]
+  }
+}

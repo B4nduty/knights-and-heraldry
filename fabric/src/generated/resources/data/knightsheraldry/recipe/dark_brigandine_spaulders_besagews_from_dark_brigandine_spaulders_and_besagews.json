@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_brigandine_spaulders"
+    },
+    {
+      "item": "knightsheraldry:besagews"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:dark_brigandine_spaulders_besagews"
+  }
+}

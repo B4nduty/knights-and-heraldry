@@ -1,0 +1,53 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.85,
+  "hit_times": 7,
+  "ingredients": [
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:barbute"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "minecraft:copper_ingot"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "minecraft:bone_meal"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "minecraft:bone_meal"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "minecraft:basalt"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "minecraft:basalt"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:dark_barbute"
+  }
+}

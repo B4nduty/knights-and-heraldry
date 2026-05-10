@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:plume"
+    },
+    {
+      "item": "knightsheraldry:plume"
+    },
+    {
+      "item": "knightsheraldry:plume"
+    },
+    {
+      "item": "knightsheraldry:plume"
+    },
+    {
+      "item": "knightsheraldry:plume"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:fluffy_plume"
+  }
+}

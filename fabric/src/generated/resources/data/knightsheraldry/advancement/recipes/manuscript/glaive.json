@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glaive": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:glaive"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:manuscript/glaive"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_glaive"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:manuscript/glaive"
+    ]
+  }
+}

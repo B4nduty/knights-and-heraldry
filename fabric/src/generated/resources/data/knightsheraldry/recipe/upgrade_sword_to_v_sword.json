@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "stoneycore:smithing_hammer"
+    },
+    {
+      "item": "knightsheraldry:sword"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:v_sword"
+  }
+}
