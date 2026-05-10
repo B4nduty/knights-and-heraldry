@@ -1,15 +1,10 @@
 package banduty.knightsheraldry;
 
-import banduty.knightsheraldry.effect.ModEffects;
-import banduty.knightsheraldry.entity.ModEntities;
 import banduty.knightsheraldry.event.CanEquipHandler;
 import banduty.knightsheraldry.event.StartTickHandler;
 import banduty.knightsheraldry.event.UseItemHandler;
-import banduty.knightsheraldry.items.ModItemGroups;
-import banduty.knightsheraldry.items.ModItems;
-import banduty.knightsheraldry.recipes.ModRecipes;
-import banduty.knightsheraldry.sounds.ModSounds;
-import banduty.knightsheraldry.util.itemdata.KHHelmetDeco;
+import banduty.knightsheraldry.items.KHItemGroups;
+import banduty.knightsheraldry.networking.KHPayloadsClient;
 import banduty.knightsheraldry.util.loottable.ArchaeologyLootModifier;
 import banduty.knightsheraldry.util.loottable.ChestLootTableModifier;
 import banduty.knightsheraldry.util.loottable.VillagerTradesModifier;
@@ -23,13 +18,8 @@ public class KnightsHeraldryFabric implements ModInitializer {
     public void onInitialize() {
         KnightsHeraldry.init();
 
-        ModEffects.registerEffects();
-        ModEntities.registerEntities();
-        ModItems.registerItems();
-        ModItemGroups.registerItemGroups();
-        ModSounds.registerSounds();
-        KHHelmetDeco.registerHelmetDeco();
-        ModRecipes.registerRecipes();
+        KHPayloadsClient.init();
+        KHItemGroups.init();
 
         CanEquipCallback.EVENT.register(new CanEquipHandler());
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());

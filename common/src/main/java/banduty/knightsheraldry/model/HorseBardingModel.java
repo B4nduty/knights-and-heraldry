@@ -1,5 +1,8 @@
 package banduty.knightsheraldry.model;
 
+import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.util.itemdata.HelmetDeco;
+import banduty.knightsheraldry.util.itemdata.KHDataComponents;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -7,7 +10,7 @@ import net.minecraft.client.model.HorseModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.ItemStack;
@@ -86,13 +89,13 @@ public class HorseBardingModel<T extends AbstractHorse> extends HorseModel<T> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
         this.armorHead.copyFrom(this.headParts);
-        armorHead.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
+        armorHead.render(poseStack, buffer, packedLight, packedOverlay, color);
         this.armorBody.copyFrom(this.body);
         this.armorBody.y += 8f;
         this.armorBody.z += 3.75f;
-        armorBody.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
+        armorBody.render(poseStack, buffer, packedLight, packedOverlay, color);
     }
 
     @Override
@@ -102,14 +105,11 @@ public class HorseBardingModel<T extends AbstractHorse> extends HorseModel<T> {
 
         ItemStack armorStack = ItemStack.EMPTY;
         if (entity instanceof Horse horse) {
-            armorStack = horse.getArmor();
+            armorStack = horse.getItemBySlot(EquipmentSlot.BODY);
         }
 
-        CompoundTag tag = armorStack.getTag();
-        if (tag != null && tag.contains("HelmetDeco")) {
-            CompoundTag deco = tag.getCompound("HelmetDeco");
-            this.plume.visible = deco.getBoolean("plume");
-        }
+        HelmetDeco deco = armorStack.get(KHDataComponents.HELMET_DECO.get());
+        this.plume.visible = deco != null && deco.item() == KHItems.PLUME.get();
     }
 
     @Override

@@ -9,10 +9,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class SavoyardOpened extends HumanoidModel<LivingEntity> {
+public final class SavoyardOpened extends HumanoidModel<LivingEntity> {
     private final ModelPart armorHead;
 
-	public SavoyardOpened(ModelPart root) {
+	SavoyardOpened(ModelPart root) {
         super(root);
 		this.armorHead = root.getChild("armorHead");
 	}
@@ -40,9 +40,9 @@ public class SavoyardOpened extends HumanoidModel<LivingEntity> {
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+    @Override
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
         this.armorHead.copyFrom(this.head);
-        armorHead.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        armorHead.render(poseStack, buffer, packedLight, packedOverlay, color);
 	}
 }

@@ -21,7 +21,8 @@ import java.util.List;
 
 public class WarDart extends SwordItem {
     public WarDart(float attackSpeed, Properties properties) {
-        super(ModToolMaterials.WEAPONS, 1, attackSpeed, properties);
+        super(ModToolMaterials.WEAPONS,
+                properties.attributes(SwordItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
     }
 
     @Override
@@ -37,16 +38,16 @@ public class WarDart extends SwordItem {
     }
 
     @Override
-    public int getUseDuration(ItemStack stack) {
+    public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return 72000;
     }
 
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity user, int remainingUseTicks) {
         if (user instanceof Player player) {
-            int i = this.getUseDuration(stack) - remainingUseTicks;
+            int i = this.getUseDuration(stack, player) - remainingUseTicks;
             if (i >= 10 && !level.isClientSide()) {
-                stack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(user.getUsedItemHand()));
+                stack.hurtAndBreak(1, player, player.getEquipmentSlotForItem(stack));
                 WarDartEntity wardartEntity = new WarDartEntity(player, level, stack);
                 wardartEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
                 if (player.isCreative()) {
@@ -54,7 +55,7 @@ public class WarDart extends SwordItem {
                 }
 
                 level.addFreshEntity(wardartEntity);
-                level.playSound(user, user.getOnPos(), SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+                level.playSound(user, user.getOnPos(), SoundEvents.TRIDENT_THROW.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
                 if (!player.isCreative())  {
                     player.getInventory().removeItem(stack);
                     player.getCooldowns().addCooldown(this, Services.PLATFORM.getConfig().getWardartCooldown() * 20);
@@ -64,8 +65,8 @@ public class WarDart extends SwordItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, Level level, List<Component> list, TooltipFlag tooltipFlag) {
-        super.appendHoverText(itemStack, level, list, tooltipFlag);
-        list.add(Component.translatable("text.tooltip.knightsheraldry.throw-to-pin"));
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+        tooltipComponents.add(Component.translatable("text.tooltip.knightsheraldry.throw-to-pin"));
     }
 }

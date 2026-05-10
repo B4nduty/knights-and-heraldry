@@ -9,10 +9,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class CloseHelmClosed extends HumanoidModel<LivingEntity> {
+public final class CloseHelmClosed extends HumanoidModel<LivingEntity> {
 	private final ModelPart armorHead;
 
-	public CloseHelmClosed(ModelPart root) {
+	CloseHelmClosed(ModelPart root) {
         super(root);
         this.setAllVisible(false);
 		this.armorHead = root.getChild("armorHead");
@@ -42,9 +42,9 @@ public class CloseHelmClosed extends HumanoidModel<LivingEntity> {
         return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+    @Override
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
         this.armorHead.copyFrom(this.head);
-        this.armorHead.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        this.armorHead.render(poseStack, buffer, packedLight, packedOverlay, color);
 	}
 }

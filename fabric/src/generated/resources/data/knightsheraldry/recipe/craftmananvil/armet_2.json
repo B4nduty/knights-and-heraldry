@@ -1,0 +1,44 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.5,
+  "hit_times": 5,
+  "ingredients": [
+    {
+      "count": 1,
+      "stack": {
+        "components": {
+          "stoneycore:target_stack": {
+            "count": 1,
+            "id": "knightsheraldry:armet_2"
+          }
+        },
+        "count": 1,
+        "id": "stoneycore:manuscript"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:hot_iron"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:hot_iron"
+      }
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:target_stack": {
+        "count": 1,
+        "id": "knightsheraldry:armet_2"
+      }
+    },
+    "count": 1,
+    "id": "stoneycore:hot_iron"
+  }
+}

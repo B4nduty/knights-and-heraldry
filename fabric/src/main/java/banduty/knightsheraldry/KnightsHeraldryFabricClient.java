@@ -1,15 +1,16 @@
 package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.client.entity.*;
-import banduty.knightsheraldry.entity.ModEntities;
+import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.event.ItemTooltipHandler;
 import banduty.knightsheraldry.event.RenderFirstPersonAccessoryArmorHandler;
 import banduty.knightsheraldry.event.RenderOverlayAndAdditionsHandler;
-import banduty.knightsheraldry.items.ModItems;
+import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.items.item.DyeableItems;
 import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
-import banduty.knightsheraldry.networking.ModMessages;
+import banduty.knightsheraldry.networking.KHPayloadsClient;
 import banduty.knightsheraldry.util.itemdata.ItemTooltipComponent;
 import banduty.knightsheraldry.util.itemdata.ItemTooltipData;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
@@ -22,9 +23,10 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
 import java.util.Objects;
 
 public class KnightsHeraldryFabricClient implements ClientModInitializer {
@@ -32,29 +34,29 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.HORSE_BARDING_MODEL_LAYER, HorseBardingModel::getTexturedModelData);
 
-        ModMessages.registerS2CPackets();
+        KHPayloadsClient.registerS2CReceivers();
 
         RenderFirstPersonAccesoryArmorEvents.EVENT.register(new RenderFirstPersonAccessoryArmorHandler());
         RenderOverlayAndAdditionsEvents.EVENT.register(new RenderOverlayAndAdditionsHandler());
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
         TooltipComponentCallback.EVENT.register(data -> {
-            if (data instanceof ItemTooltipData itemData) {
-                return new ItemTooltipComponent(itemData.items());
+            if (data instanceof ItemTooltipData(List<ItemStack> items)) {
+                return new ItemTooltipComponent(items);
             }
             return null;
         });
 
-        EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
+        EntityRendererRegistry.register(KHEntities.WARDART_PROJECTILE.get(), WarDartRenderer::new);
 
         for (Item item : BuiltInRegistries.ITEM) {
-            if (item == ModItems.SWALLOWTAIL_ARROW)
-                EntityRendererRegistry.register(ModEntities.SWALLOWTAIL_ARROW, KHSwallowtailArrowEntityRenderer::new);
-            if (item == ModItems.BODKIN_ARROW)
-                EntityRendererRegistry.register(ModEntities.BODKIN_ARROW, KHBodkinArrowEntityRenderer::new);
-            if (item == ModItems.BROADHEAD_ARROW)
-                EntityRendererRegistry.register(ModEntities.BROADHEAD_ARROW, KHBroadheadArrowEntityRenderer::new);
-            if (item == ModItems.CLOTH_ARROW)
-                EntityRendererRegistry.register(ModEntities.CLOTH_ARROW, KHClothArrowEntityRenderer::new);
+            if (item == KHItems.SWALLOWTAIL_ARROW)
+                EntityRendererRegistry.register(KHEntities.SWALLOWTAIL_ARROW.get(), KHSwallowtailArrowEntityRenderer::new);
+            if (item == KHItems.BODKIN_ARROW)
+                EntityRendererRegistry.register(KHEntities.BODKIN_ARROW.get(), KHBodkinArrowEntityRenderer::new);
+            if (item == KHItems.BROADHEAD_ARROW)
+                EntityRendererRegistry.register(KHEntities.BROADHEAD_ARROW.get(), KHBroadheadArrowEntityRenderer::new);
+            if (item == KHItems.CLOTH_ARROW)
+                EntityRendererRegistry.register(KHEntities.CLOTH_ARROW.get(), KHClothArrowEntityRenderer::new);
             if (item instanceof TwoLayerDyeableItem twoLayerItem) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
                     if (tintIndex == 0) return twoLayerItem.getColor1(stack); // top
@@ -62,9 +64,9 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
                     return -1;
                 }, item);
             }
-            if (item instanceof DyeableLeatherItem dyeableItems)
+            if (item instanceof DyeableItems dyeableItems)
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
-                        tintIndex > 0 ? -1 : dyeableItems.getColor(stack), item);
+                        tintIndex > 0 ? -1 : DyeableItems.getColor(stack), item);
             if (Objects.equals(BuiltInRegistries.ITEM.getKey(item).getNamespace(), "knightsheraldry")) {
                 ModModelPredicates.registerModelPredicates(item);
             }

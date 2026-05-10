@@ -1,8 +1,6 @@
 {
   "parent": "minecraft:item/generated",
-  "overrides": [],
   "textures": {
-    "layer0": "knightsheraldry:item/dark_horse_barding",
-    "layer1": "knightsheraldry:item/dark_horse_barding_overlay"
+    "layer0": "knightsheraldry:item/dark_horse_barding"
   }
 }

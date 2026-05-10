@@ -12,6 +12,6 @@ public class KHClothArrowEntityRenderer extends ArrowRenderer<KHClothArrowEntity
     }
 
     public ResourceLocation getTextureLocation(KHClothArrowEntity arrowEntity) {
-        return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/arrow/cloth_arrow.png");
+        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/arrow/cloth_arrow.png");
     }
 }

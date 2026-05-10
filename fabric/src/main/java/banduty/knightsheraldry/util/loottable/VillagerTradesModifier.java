@@ -1,18 +1,19 @@
 package banduty.knightsheraldry.util.loottable;
 
-import banduty.knightsheraldry.items.ModItems;
+import banduty.knightsheraldry.items.KHItems;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class VillagerTradesModifier {
     // As I can't find the xp and maxUses of vanilla I will do my own
@@ -24,145 +25,136 @@ public class VillagerTradesModifier {
     private static final Map<VillagerProfession, Map<Integer, List<VillagerTrades.ItemListing>>> PROFESSION_TO_LEVELED_TRADE = new HashMap<>();
 
     public static void registerCustomTrades() {
-        PROFESSION_TO_LEVELED_TRADE.clear();
         registerArmorerTrades();
         registerFarmerTrades();
-        registerMasonTrades();
-        registerWeaponsmithTrades();
-        registerShepherdTrades();
         registerFletcherTrades();
+        registerShepherdTrades();
+        registerWeaponsmithTrades();
+        registerMasonTrades();
+    }
 
-        for (Map.Entry<VillagerProfession, Map<Integer, List<VillagerTrades.ItemListing>>> professionEntry : PROFESSION_TO_LEVELED_TRADE.entrySet()) {
-            VillagerProfession profession = professionEntry.getKey();
-            for (Map.Entry<Integer, List<VillagerTrades.ItemListing>> levelEntry : professionEntry.getValue().entrySet()) {
-                int level = levelEntry.getKey();
-                List<VillagerTrades.ItemListing> offers = levelEntry.getValue();
-                TradeOfferHelper.registerVillagerOffers(profession, level, factories -> factories.addAll(offers));
-            }
+    @SafeVarargs
+    private static void addTradeOffer(VillagerProfession profession, int level, int emeraldCount, int maxUses, int xp, Supplier<Item>... items) {
+        for (Supplier<Item> itemSupplier : items) {
+            TradeOfferHelper.registerVillagerOffers(profession, level, factories -> {
+                factories.add((entity, random) -> new MerchantOffer(
+                        new ItemCost(Items.EMERALD, emeraldCount),
+                        new ItemStack(itemSupplier.get()),
+                        maxUses,
+                        xp,
+                        0.05f
+                ));
+            });
         }
     }
 
-    private static void addTrade(VillagerProfession profession, int level, VillagerTrades.ItemListing factory) {
-        PROFESSION_TO_LEVELED_TRADE
-                .computeIfAbsent(profession, p -> new HashMap<>())
-                .computeIfAbsent(level, l -> new ArrayList<>())
-                .add(factory);
-    }
-
-    private static void addTradeOffer(VillagerProfession profession, int level, int emeraldCount, int maxUses, int xp, Item... items) {
-        addTrade(profession, level, (entity, random) -> {
-            Item item = items[random.nextInt(items.length)];
-            return new MerchantOffer(new ItemStack(Items.EMERALD, emeraldCount), new ItemStack(item, 1), maxUses, xp, 0.05f);
-        });
-    }
-
     private static void registerArmorerTrades() {
-        addTradeOffer(VillagerProfession.ARMORER, 1, 5, 3, 1, ModItems.QUILTED_COIF);
-        addTradeOffer(VillagerProfession.ARMORER, 1, 8, 3, 1, ModItems.GAMBESON);
-        addTradeOffer(VillagerProfession.ARMORER, 1, 5, 3, 1, ModItems.GAMBESON_BREECHES);
-        addTradeOffer(VillagerProfession.ARMORER, 1, 3, 3, 1, ModItems.GAMBESON_BOOTS);
+        addTradeOffer(VillagerProfession.ARMORER, 1, 5, 3, 1, KHItems.QUILTED_COIF);
+        addTradeOffer(VillagerProfession.ARMORER, 1, 8, 3, 1, KHItems.GAMBESON);
+        addTradeOffer(VillagerProfession.ARMORER, 1, 5, 3, 1, KHItems.GAMBESON_BREECHES);
+        addTradeOffer(VillagerProfession.ARMORER, 1, 3, 3, 1, KHItems.GAMBESON_BOOTS);
 
-        addTradeOffer(VillagerProfession.ARMORER, 2, 7, 6, 5, ModItems.MAIL_COIF);
-        addTradeOffer(VillagerProfession.ARMORER, 2, 12, 6, 5, ModItems.HAUBERK);
-        addTradeOffer(VillagerProfession.ARMORER, 2, 7, 6, 5, ModItems.MAIL_BREECHES);
-        addTradeOffer(VillagerProfession.ARMORER, 2, 5, 6, 5, ModItems.MAIL_BOOTS);
+        addTradeOffer(VillagerProfession.ARMORER, 2, 7, 6, 5, KHItems.MAIL_COIF);
+        addTradeOffer(VillagerProfession.ARMORER, 2, 12, 6, 5, KHItems.HAUBERK);
+        addTradeOffer(VillagerProfession.ARMORER, 2, 7, 6, 5, KHItems.MAIL_BREECHES);
+        addTradeOffer(VillagerProfession.ARMORER, 2, 5, 6, 5, KHItems.MAIL_BOOTS);
 
-        addTradeOffer(VillagerProfession.ARMORER, 1, 8, 3, 1, ModItems.MAIL_SPAULDERS);
-        addTradeOffer(VillagerProfession.ARMORER, 3, 15, 6, 10, ModItems.BRIGANDINE_SPAULDERS);
+        addTradeOffer(VillagerProfession.ARMORER, 1, 8, 3, 1, KHItems.MAIL_SPAULDERS);
+        addTradeOffer(VillagerProfession.ARMORER, 3, 15, 6, 10, KHItems.BRIGANDINE_SPAULDERS);
 
-        addTradeOffer(VillagerProfession.ARMORER, 2, 23, 6, 5, ModItems.BRIGANDINE);
-        addTradeOffer(VillagerProfession.ARMORER, 3, 26, 6, 10, ModItems.BRIG_BREASTPLATE);
-        addTradeOffer(VillagerProfession.ARMORER, 4, 29, 6, 15, ModItems.BRIG_BREASTPLATE_TASSETS);
+        addTradeOffer(VillagerProfession.ARMORER, 2, 23, 6, 5, KHItems.BRIGANDINE);
+        addTradeOffer(VillagerProfession.ARMORER, 3, 26, 6, 10, KHItems.BRIG_BREASTPLATE);
+        addTradeOffer(VillagerProfession.ARMORER, 4, 29, 6, 15, KHItems.BRIG_BREASTPLATE_TASSETS);
 
         addTradeOffer(VillagerProfession.ARMORER, 1, 9, 3, 1,
-                ModItems.BARBUTE,
-                ModItems.BASCINET,
-                ModItems.KETTLE_HELM,
-                ModItems.NASAL_HELM,
-                ModItems.VIKING_HELM,
-                ModItems.BURGONET
+                KHItems.BARBUTE,
+                KHItems.BASCINET,
+                KHItems.KETTLE_HELM,
+                KHItems.NASAL_HELM,
+                KHItems.VIKING_HELM,
+                KHItems.BURGONET
         );
 
-        addTradeOffer(VillagerProfession.ARMORER, 1, 11, 3, 1, ModItems.GAUNTLET);
-        addTradeOffer(VillagerProfession.ARMORER, 2, 21, 6, 5, ModItems.BRIGANDINE_HARNESS);
+        addTradeOffer(VillagerProfession.ARMORER, 1, 11, 3, 1, KHItems.GAUNTLET);
+        addTradeOffer(VillagerProfession.ARMORER, 2, 21, 6, 5, KHItems.BRIGANDINE_HARNESS);
 
-        addTradeOffer(VillagerProfession.ARMORER, 2, 21, 6, 5, ModItems.BRIGANDINE_CUISSES);
+        addTradeOffer(VillagerProfession.ARMORER, 2, 21, 6, 5, KHItems.BRIGANDINE_CUISSES);
 
-        addTradeOffer(VillagerProfession.ARMORER, 2, 12, 6, 5, ModItems.BEVOR);
+        addTradeOffer(VillagerProfession.ARMORER, 2, 12, 6, 5, KHItems.BEVOR);
 
-        addTradeOffer(VillagerProfession.ARMORER, 1, 3, 3, 1, ModItems.GREAVES);
+        addTradeOffer(VillagerProfession.ARMORER, 1, 3, 3, 1, KHItems.GREAVES);
 
-        addTradeOffer(VillagerProfession.ARMORER, 4, 11, 6, 15, ModItems.SABATONS);
+        addTradeOffer(VillagerProfession.ARMORER, 4, 11, 6, 15, KHItems.SABATONS);
 
-        addTradeOffer(VillagerProfession.ARMORER, 5, 4, 3, 20, ModItems.AVENTAIL);
+        addTradeOffer(VillagerProfession.ARMORER, 5, 4, 3, 20, KHItems.AVENTAIL);
 
-        addTradeOffer(VillagerProfession.ARMORER, 5, 4, 3, 20, ModItems.RIM_GUARDS);
-        addTradeOffer(VillagerProfession.ARMORER, 5, 3, 3, 20, ModItems.BESAGEWS);
+        addTradeOffer(VillagerProfession.ARMORER, 5, 4, 3, 20, KHItems.RIM_GUARDS);
+        addTradeOffer(VillagerProfession.ARMORER, 5, 3, 3, 20, KHItems.BESAGEWS);
 
-        addTradeOffer(VillagerProfession.ARMORER, 3, 12, 6, 10, ModItems.HORSE_BARDING);
+        addTradeOffer(VillagerProfession.ARMORER, 3, 12, 6, 10, KHItems.HORSE_BARDING);
     }
 
     private static void registerFarmerTrades() {
-        addTradeOffer(VillagerProfession.FARMER, 4, 6, 6, 15, ModItems.PITCHFORK);
+        addTradeOffer(VillagerProfession.FARMER, 4, 6, 6, 15, KHItems.PITCHFORK);
     }
 
     private static void registerMasonTrades() {
-        addTradeOffer(VillagerProfession.MASON, 1, 1, 3, 1, ModItems.WOODEN_LANCE);
+        addTradeOffer(VillagerProfession.MASON, 1, 1, 3, 1, KHItems.WOODEN_LANCE);
         addTradeOffer(VillagerProfession.MASON, 5, 7, 6, 1,
-                ModItems.TEUTONIC_SNAKES,
-                ModItems.TEUTONIC_BLACK_SNAKES,
-                ModItems.GOLD_HORNS,
-                ModItems.BLACK_HORNS,
-                ModItems.TEUTONIC_GOLD_WINGS,
-                ModItems.TEUTONIC_BLACK_WINGS,
-                ModItems.TEUTONIC_WINGS_BALL_ENDS,
-                ModItems.TEUTONIC_WINGS_SHARP_ENDS,
-                ModItems.DRAGON,
-                ModItems.LION,
-                ModItems.SNAKE,
-                ModItems.UNICORN,
-                ModItems.STAG,
-                ModItems.BOAR,
-                ModItems.EAGLE,
-                ModItems.PEGASUS
+                KHItems.TEUTONIC_SNAKES,
+                KHItems.TEUTONIC_BLACK_SNAKES,
+                KHItems.GOLD_HORNS,
+                KHItems.BLACK_HORNS,
+                KHItems.TEUTONIC_GOLD_WINGS,
+                KHItems.TEUTONIC_BLACK_WINGS,
+                KHItems.TEUTONIC_WINGS_BALL_ENDS,
+                KHItems.TEUTONIC_WINGS_SHARP_ENDS,
+                KHItems.DRAGON,
+                KHItems.LION,
+                KHItems.SNAKE,
+                KHItems.UNICORN,
+                KHItems.STAG,
+                KHItems.BOAR,
+                KHItems.EAGLE,
+                KHItems.PEGASUS
         );
     }
 
     private static void registerWeaponsmithTrades() {
-        addTradeOffer(VillagerProfession.WEAPONSMITH, 1,3, 3, 1, ModItems.DAGGER);
-        addTradeOffer(VillagerProfession.WEAPONSMITH, 3,15, 6, 10, ModItems.SWORD, ModItems.V_SWORD);
-        addTradeOffer(VillagerProfession.WEAPONSMITH, 3,10, 6, 10, ModItems.AXE,
-                ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE);
-        addTradeOffer(VillagerProfession.WEAPONSMITH, 4,10, 6, 15, ModItems.MACE, ModItems.SPIKED_MACE);
-        addTradeOffer(VillagerProfession.WEAPONSMITH, 2,10, 6, 5, ModItems.HAMMER, ModItems.WAR_HAMMER);
-        addTradeOffer(VillagerProfession.WEAPONSMITH, 3,12, 6, 10, ModItems.HEAVY_CROSSBOW);
-        addTradeOffer(VillagerProfession.WEAPONSMITH, 5,20, 3, 20, ModItems.ARQUEBUS, ModItems.HANDGONNE);
+        addTradeOffer(VillagerProfession.WEAPONSMITH, 1,3, 3, 1, KHItems.DAGGER);
+        addTradeOffer(VillagerProfession.WEAPONSMITH, 3,15, 6, 10, KHItems.SWORD, KHItems.V_SWORD);
+        addTradeOffer(VillagerProfession.WEAPONSMITH, 3,10, 6, 10, KHItems.AXE,
+                KHItems.BROAD_AXE, KHItems.CROOKED_AXE, KHItems.STRAIGHT_CROOKED_AXE);
+        addTradeOffer(VillagerProfession.WEAPONSMITH, 4,10, 6, 15, KHItems.MACE, KHItems.SPIKED_MACE);
+        addTradeOffer(VillagerProfession.WEAPONSMITH, 2,10, 6, 5, KHItems.HAMMER, KHItems.WAR_HAMMER);
+        addTradeOffer(VillagerProfession.WEAPONSMITH, 3,12, 6, 10, KHItems.HEAVY_CROSSBOW);
+        addTradeOffer(VillagerProfession.WEAPONSMITH, 5,20, 3, 20, KHItems.ARQUEBUS, KHItems.HANDGONNE);
     }
 
     private static void registerShepherdTrades() {
         addTradeOffer(VillagerProfession.SHEPHERD, 2,2, 6, 5,
-                ModItems.SURCOAT, ModItems.SURCOAT_SLEEVELESS);
+                KHItems.SURCOAT, KHItems.SURCOAT_SLEEVELESS);
         addTradeOffer(VillagerProfession.SHEPHERD, 3,2, 6, 10,
-                ModItems.CIVILIAN_SURCOAT, ModItems.GIORNEA);
+                KHItems.CIVILIAN_SURCOAT, KHItems.GIORNEA);
         addTradeOffer(VillagerProfession.SHEPHERD, 1,15, 3, 1,
-                ModItems.HOOD, ModItems.TORN_HOOD);
+                KHItems.HOOD, KHItems.TORN_HOOD);
         addTradeOffer(VillagerProfession.SHEPHERD, 4,20, 6, 1,
-                ModItems.JESTER_HOOD);
+                KHItems.JESTER_HOOD);
         addTradeOffer(VillagerProfession.SHEPHERD, 1,6, 3, 1,
-                ModItems.CLOAK, ModItems.TORN_CLOAK);
+                KHItems.CLOAK, KHItems.TORN_CLOAK);
         addTradeOffer(VillagerProfession.SHEPHERD, 2,30, 6, 5,
-                ModItems.HELMET_HOOD, ModItems.HELMET_TORN_HOOD);
-        addTradeOffer(VillagerProfession.SHEPHERD, 1,1, 3, 1, ModItems.CHAPERON);
-        addTradeOffer(VillagerProfession.SHEPHERD, 5,32, 3, 20, ModItems.GILDED_CHAPERON);
-        addTradeOffer(VillagerProfession.SHEPHERD, 3,5, 6, 10, ModItems.TORSE);
+                KHItems.HELMET_HOOD, KHItems.HELMET_TORN_HOOD);
+        addTradeOffer(VillagerProfession.SHEPHERD, 1,1, 3, 1, KHItems.CHAPERON);
+        addTradeOffer(VillagerProfession.SHEPHERD, 5,32, 3, 20, KHItems.GILDED_CHAPERON);
+        addTradeOffer(VillagerProfession.SHEPHERD, 3,5, 6, 10, KHItems.TORSE);
     }
 
     private static void registerFletcherTrades() {
-        addTradeOffer(VillagerProfession.FLETCHER, 1,6, 3, 1, ModItems.LONGBOW);
-        addTradeOffer(VillagerProfession.FLETCHER, 2,2, 6, 5, ModItems.SWALLOWTAIL_ARROW);
-        addTradeOffer(VillagerProfession.FLETCHER, 2,4, 6, 5, ModItems.BODKIN_ARROW);
-        addTradeOffer(VillagerProfession.FLETCHER, 1,1, 3, 1, ModItems.BROADHEAD_ARROW);
-        addTradeOffer(VillagerProfession.FLETCHER, 3,6, 6, 10, ModItems.CLOTH_ARROW);
-        addTradeOffer(VillagerProfession.FLETCHER, 4,3, 6, 15, ModItems.PLUME);
+        addTradeOffer(VillagerProfession.FLETCHER, 1,6, 3, 1, KHItems.LONGBOW);
+        addTradeOffer(VillagerProfession.FLETCHER, 2,2, 6, 5, KHItems.SWALLOWTAIL_ARROW);
+        addTradeOffer(VillagerProfession.FLETCHER, 2,4, 6, 5, KHItems.BODKIN_ARROW);
+        addTradeOffer(VillagerProfession.FLETCHER, 1,1, 3, 1, KHItems.BROADHEAD_ARROW);
+        addTradeOffer(VillagerProfession.FLETCHER, 3,6, 6, 10, KHItems.CLOTH_ARROW);
+        addTradeOffer(VillagerProfession.FLETCHER, 4,3, 6, 15, KHItems.PLUME);
     }
 }

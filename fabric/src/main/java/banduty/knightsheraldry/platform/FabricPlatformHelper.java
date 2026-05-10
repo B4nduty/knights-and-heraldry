@@ -1,18 +1,23 @@
 package banduty.knightsheraldry.platform;
 
+import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.config.FabricKHConfigImpl;
 import banduty.knightsheraldry.config.KHConfigImpl;
 import banduty.knightsheraldry.data.ArrowBehavior;
 import banduty.knightsheraldry.data.ArrowBehaviorManager;
-import banduty.knightsheraldry.effect.ModEffects;
+import banduty.knightsheraldry.networking.payload.VelocityS2CPacket;
 import banduty.knightsheraldry.platform.services.IPlatformHelper;
-import banduty.knightsheraldry.recipe.TwoLayerDyeRecipe;
-import banduty.knightsheraldry.recipes.HelmetDecoRecipe;
-import banduty.knightsheraldry.recipes.ModRecipes;
+import banduty.stoneycore.StoneyCore;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.server.level.ServerPlayer;
+
+import java.util.function.Supplier;
 
 public class FabricPlatformHelper implements IPlatformHelper {
     private final FabricKHConfigImpl config;
@@ -49,17 +54,23 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public MobEffect getPinEffect() {
-        return ModEffects.PIN;
+    public <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> entry) {
+        T result = Registry.register(registry, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, name), entry.get());
+        return () -> result;
     }
 
     @Override
-    public RecipeSerializer<HelmetDecoRecipe> getHelmetDecoRecipe() {
-        return ModRecipes.HELMET_DECO_SERIALIZER;
+    @SuppressWarnings("unchecked")
+    public <T> Holder<T> registerHolder(ResourceKey<Registry<T>> registryKey, String name, Supplier<T> value) {
+        return Registry.registerForHolder(
+                (Registry<T>) BuiltInRegistries.REGISTRY.get(registryKey.location()),
+                ResourceLocation.fromNamespaceAndPath(StoneyCore.MOD_ID, name),
+                value.get()
+        );
     }
 
     @Override
-    public RecipeSerializer<TwoLayerDyeRecipe> getTwoLayerDyeRecipe() {
-        return ModRecipes.TWO_LAYER_DYE_SERIALIZER;
+    public void syncSpeedHistory(ServerPlayer player, float speedHistory) {
+        ServerPlayNetworking.send(player, new VelocityS2CPacket(speedHistory));
     }
 }

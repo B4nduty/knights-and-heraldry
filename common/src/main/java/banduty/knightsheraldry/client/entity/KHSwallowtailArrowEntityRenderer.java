@@ -12,6 +12,6 @@ public class KHSwallowtailArrowEntityRenderer extends ArrowRenderer<KHSwallowTai
     }
 
     public ResourceLocation getTextureLocation(KHSwallowTailArrowEntity arrowEntity) {
-        return new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/arrow/swallowtail_arrow.png");
+        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/arrow/swallowtail_arrow.png");
     }
 }

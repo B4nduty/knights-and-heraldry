@@ -41,8 +41,8 @@ public class HelmetDecoModel extends HumanoidModel<LivingEntity> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
         this.armorHead.copyFrom(this.head);
-        this.armorHead.render(poseStack, vertexConsumer, light, overlay, red, green, blue, alpha);
+        this.armorHead.render(poseStack, buffer, packedLight, packedOverlay, color);
 	}
 }

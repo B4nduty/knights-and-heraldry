@@ -1,43 +1,42 @@
-package banduty.knightsheraldry.recipe;
+package banduty.knightsheraldry.recipes;
 
 import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
-import banduty.knightsheraldry.platform.Services;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.inventory.CraftingContainer;
+import banduty.knightsheraldry.util.itemdata.KHDataComponents;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TwoLayerDyeRecipe extends CustomRecipe {
 
-    public TwoLayerDyeRecipe(ResourceLocation id, CraftingBookCategory category) {
-        super(id, category);
+    public TwoLayerDyeRecipe(CraftingBookCategory category) {
+        super(category);
     }
 
     @Override
-    public boolean matches(CraftingContainer container, Level level) {
-
+    public boolean matches(CraftingInput input, Level level) {
         ItemStack dyeable = ItemStack.EMPTY;
         int dyeCount = 0;
 
-        for (int i = 0; i < container.getContainerSize(); i++) {
-            ItemStack stack = container.getItem(i);
-
-            if (stack.isEmpty())
-                continue;
+        for (int i = 0; i < input.size(); i++) {
+            ItemStack stack = input.getItem(i);
+            if (stack.isEmpty()) continue;
 
             if (stack.getItem() instanceof TwoLayerDyeableItem) {
-                if (!dyeable.isEmpty())
-                    return false; // multiple dyeable items
+                if (!dyeable.isEmpty()) return false;
                 dyeable = stack;
             } else if (stack.getItem() instanceof DyeItem) {
                 dyeCount++;
             } else {
-                return false; // invalid ingredient
+                return false;
             }
         }
 
@@ -45,66 +44,39 @@ public class TwoLayerDyeRecipe extends CustomRecipe {
     }
 
     @Override
-    public ItemStack assemble(CraftingContainer container, RegistryAccess registryAccess) {
-
+    public ItemStack assemble(CraftingInput input, HolderLookup.Provider registries) {
         ItemStack dyeableStack = ItemStack.EMPTY;
-        int dyeCount = 0;
-        int[] dyes = new int[2];
+        List<Integer> dyes = new ArrayList<>();
 
-        for (int i = 0; i < container.getContainerSize(); i++) {
-
-            ItemStack stack = container.getItem(i);
-            if (stack.isEmpty())
-                continue;
+        for (int i = 0; i < input.size(); i++) {
+            ItemStack stack = input.getItem(i);
+            if (stack.isEmpty()) continue;
 
             if (stack.getItem() instanceof TwoLayerDyeableItem) {
                 dyeableStack = stack.copy();
             } else if (stack.getItem() instanceof DyeItem dye) {
-
-                if (dyeCount < 2) {
-                    dyes[dyeCount] = getColorFromComponents(
-                            dye.getDyeColor().getTextureDiffuseColors()
-                    );
-                    dyeCount++;
-                }
+                dyes.add(dye.getDyeColor().getTextureDiffuseColor());
             }
         }
 
-        if (dyeableStack.isEmpty() || dyeCount == 0)
-            return ItemStack.EMPTY;
+        if (dyeableStack.isEmpty() || dyes.isEmpty()) return ItemStack.EMPTY;
 
-        TwoLayerDyeableItem item =
-                (TwoLayerDyeableItem) dyeableStack.getItem();
+        boolean hasColor1 = dyeableStack.has(KHDataComponents.COLOR_1.get());
+        boolean hasColor2 = dyeableStack.has(KHDataComponents.COLOR_2.get());
 
-        boolean hasColor1 = dyeableStack.hasTag()
-                && dyeableStack.getTag().contains("color1");
-
-        boolean hasColor2 = dyeableStack.hasTag()
-                && dyeableStack.getTag().contains("color2");
-
-        /* ============================= */
-        /* ===== TWO DYES: OVERRIDE ==== */
-        /* ============================= */
-
-        if (dyeCount == 2) {
-            item.setColor1(dyeableStack, dyes[0]);
-            item.setColor2(dyeableStack, dyes[1]);
-            return dyeableStack;
-        }
-
-        /* ============================= */
-        /* ===== ONE DYE: SMART FILL ==== */
-        /* ============================= */
-
-        int newColor = dyes[0];
-
-        if (!hasColor1) {
-            item.setColor1(dyeableStack, newColor);
-        } else if (!hasColor2) {
-            item.setColor2(dyeableStack, newColor);
+        if (dyes.size() == 2) {
+            dyeableStack.set(KHDataComponents.COLOR_1.get(), new DyedItemColor(dyes.get(0), true));
+            dyeableStack.set(KHDataComponents.COLOR_2.get(), new DyedItemColor(dyes.get(1), true));
         } else {
-            // both exist → overwrite second
-            item.setColor2(dyeableStack, newColor);
+            int newColor = dyes.getFirst();
+            if (!hasColor1) {
+                dyeableStack.set(KHDataComponents.COLOR_1.get(), new DyedItemColor(newColor, true));
+            } else if (!hasColor2) {
+                dyeableStack.set(KHDataComponents.COLOR_2.get(), new DyedItemColor(newColor, true));
+            } else {
+                // overwrite second if both exist
+                dyeableStack.set(KHDataComponents.COLOR_2.get(), new DyedItemColor(newColor, true));
+            }
         }
 
         return dyeableStack;
@@ -117,13 +89,6 @@ public class TwoLayerDyeRecipe extends CustomRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return Services.PLATFORM.getTwoLayerDyeRecipe();
-    }
-
-    private static int getColorFromComponents(float[] components) {
-        int r = Math.round(components[0] * 255);
-        int g = Math.round(components[1] * 255);
-        int b = Math.round(components[2] * 255);
-        return (r << 16) | (g << 8) | b;
+        return KHRecipes.TWO_LAYER_DYE_SERIALIZER.get();
     }
 }

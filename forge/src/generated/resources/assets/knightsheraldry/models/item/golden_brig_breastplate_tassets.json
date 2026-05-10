@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "knightsheraldry:item/golden_brig_breastplate_tassets",
-    "layer1": "knightsheraldry:item/golden_brig_breastplate_tassets_overlay"
-  }
-}

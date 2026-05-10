@@ -1,13 +1,11 @@
 package banduty.knightsheraldry.entity.custom;
 
-import banduty.knightsheraldry.platform.Services;
-import banduty.stoneycore.combat.melee.SCDamageType;
-import banduty.stoneycore.util.definitionsloader.WeaponDefinitionsStorage;
+import banduty.knightsheraldry.effect.KHEffects;
+import banduty.knightsheraldry.entity.KHEntities;
+import banduty.knightsheraldry.items.KHItems;
+import banduty.stoneycore.combat.damagetype.SCDamageType;
 import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -26,12 +24,12 @@ public class WarDartEntity extends AbstractArrow {
 
     public WarDartEntity(EntityType<? extends AbstractArrow> entityEntityType, Level level) {
         super(entityEntityType, level);
-        this.wardartStack = new ItemStack(Services.ENTITY.getWardartItem());
+        this.wardartStack = new ItemStack(KHItems.WARDART.get());
     }
 
     public WarDartEntity(LivingEntity livingEntity, Level level, ItemStack stack) {
-        super(Services.ENTITY.getWardartEntity(), livingEntity, level);
-        this.wardartStack = new ItemStack(Services.ENTITY.getWardartItem());
+        super(KHEntities.WARDART_PROJECTILE.get(), livingEntity, level, stack, stack);
+        this.wardartStack = new ItemStack(KHItems.WARDART.get());
         this.wardartStack = stack.copy();
     }
 
@@ -41,8 +39,8 @@ public class WarDartEntity extends AbstractArrow {
     }
 
     @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
-        return new ClientboundAddEntityPacket(this);
+    protected ItemStack getDefaultPickupItem() {
+        return this.wardartStack.copy();
     }
 
     @Override
@@ -64,7 +62,7 @@ public class WarDartEntity extends AbstractArrow {
     @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         if (entityHitResult.getEntity() instanceof LivingEntity livingEntity) {
-            livingEntity.addEffect(new MobEffectInstance(Services.PLATFORM.getPinEffect(), 100, 0));
+            livingEntity.addEffect(new MobEffectInstance(KHEffects.PIN, 100, 0));
             livingEntity.hurt(this.damageSources().genericKill(),
                     (float) SCWeaponUtil.getMaxDamage(SCDamageType.PIERCING, this.getPickupItem().getItem()));
         }

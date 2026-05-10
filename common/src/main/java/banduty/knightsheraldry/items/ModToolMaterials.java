@@ -1,16 +1,19 @@
 package banduty.knightsheraldry.items;
 
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements Tier {
-    WEAPONS(0, 100, 0.0F, -1.0F, 14, () ->
+    WEAPONS(BlockTags.INCORRECT_FOR_IRON_TOOL, 100, 0.0F, -1.0F, 14, () ->
             Ingredient.of(Items.IRON_INGOT));
 
-    private final int miningLevel;
+    private final TagKey<Block> incorrectBlocksForDrops;
     private final int itemDurability;
     private final float speed;
     private final float attackDamage;
@@ -18,14 +21,14 @@ public enum ModToolMaterials implements Tier {
     private final Supplier<Ingredient> repairIngredient;
 
     ModToolMaterials(
-            int miningLevel,
+            TagKey<Block> incorrectBlocksForDrops,
             int itemDurability,
             float miningSpeed,
             float attackDamage,
             int enchantability,
             Supplier<Ingredient> repairIngredient
     ) {
-        this.miningLevel = miningLevel;
+        this.incorrectBlocksForDrops = incorrectBlocksForDrops;
         this.itemDurability = itemDurability;
         this.speed = miningSpeed;
         this.attackDamage = attackDamage;
@@ -49,11 +52,6 @@ public enum ModToolMaterials implements Tier {
     }
 
     @Override
-    public int getLevel() {
-        return this.miningLevel;
-    }
-
-    @Override
     public int getEnchantmentValue() {
         return this.enchantability;
     }
@@ -61,5 +59,10 @@ public enum ModToolMaterials implements Tier {
     @Override
     public Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
+    }
+
+    @Override
+    public TagKey<Block> getIncorrectBlocksForDrops() {
+        return this.incorrectBlocksForDrops;
     }
 }

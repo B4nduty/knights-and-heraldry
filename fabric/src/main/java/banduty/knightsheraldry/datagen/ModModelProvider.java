@@ -1,11 +1,11 @@
 package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.items.ModItems;
+import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.util.itemdata.HelmetDeco;
 import banduty.stoneycore.StoneyCore;
 import banduty.stoneycore.datagen.FabricModelProviderPlus;
-import banduty.stoneycore.items.manuscript.Manuscript;
+import banduty.stoneycore.items.custom.manuscript.Manuscript;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.BlockModelGenerators;
@@ -28,158 +28,158 @@ public class ModModelProvider extends FabricModelProviderPlus {
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
-        itemModelGenerators.generateFlatItem(ModItems.CHAPERON, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.BROADHEAD_ARROW, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.BODKIN_ARROW, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.SWALLOWTAIL_ARROW, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.HOOD, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.TORN_HOOD, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.HELMET_HOOD, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.HELMET_TORN_HOOD, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.CLOAK, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.TORN_CLOAK, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.SURCOAT, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.SURCOAT_SLEEVELESS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.CIVILIAN_SURCOAT, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.GIORNEA, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.AVENTAIL, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.BEVOR, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.DARK_BEVOR, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.GOLDEN_BEVOR, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.RIM_GUARDS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.BESAGEWS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.QUILTED_COIF, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.GAMBESON_BREECHES, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.GAMBESON_BOOTS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.MAIL_COIF, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.HAUBERK, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.MAIL_BREECHES, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.MAIL_BOOTS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.LONGBOW, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.LANCE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.CHAPERON.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.BROADHEAD_ARROW.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.BODKIN_ARROW.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.SWALLOWTAIL_ARROW.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.HOOD.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.TORN_HOOD.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.HELMET_HOOD.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.HELMET_TORN_HOOD.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.CLOAK.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.TORN_CLOAK.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.SURCOAT.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.SURCOAT_SLEEVELESS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.CIVILIAN_SURCOAT.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.GIORNEA.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.AVENTAIL.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.BEVOR.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.DARK_BEVOR.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.GOLDEN_BEVOR.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.RIM_GUARDS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.BESAGEWS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.QUILTED_COIF.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.GAMBESON_BREECHES.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.GAMBESON_BOOTS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MAIL_COIF.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.HAUBERK.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MAIL_BREECHES.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MAIL_BOOTS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.LONGBOW.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.LANCE.get(), ModelTemplates.FLAT_ITEM);
 
         registerSimpleItems(itemModelGenerators);
 
         registerManuscriptsItems(itemModelGenerators);
 
-        generateBannerPatternModels(ModItems.SURCOAT, ModelTemplates.FLAT_ITEM, itemModelGenerators);
-        generateBannerPatternModels(ModItems.SURCOAT_SLEEVELESS, ModelTemplates.FLAT_ITEM, itemModelGenerators);
+        generateBannerPatternModels(KHItems.SURCOAT.get(), ModelTemplates.FLAT_ITEM, itemModelGenerators);
+        generateBannerPatternModels(KHItems.SURCOAT_SLEEVELESS.get(), ModelTemplates.FLAT_ITEM, itemModelGenerators);
 
         registerHelmetDecoItems(itemModelGenerators);
 
         // Dyeable Items
-        registerItemWConditions(ModItems.BRIGANDINE_HARNESS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_BRIGANDINE_HARNESS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE_HARNESS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.BRIGANDINE_CUISSES, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_BRIGANDINE_CUISSES, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE_CUISSES, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.JESTER_HOOD, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.HORSE_BARDING, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_HORSE_BARDING, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_HORSE_BARDING, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GILDED_CHAPERON, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GAMBESON, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.WOODEN_LANCE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.BRIGANDINE_HARNESS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.DARK_BRIGANDINE_HARNESS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.GOLDEN_BRIGANDINE_HARNESS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.BRIGANDINE_CUISSES.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.DARK_BRIGANDINE_CUISSES.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.GOLDEN_BRIGANDINE_CUISSES.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.JESTER_HOOD.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.HORSE_BARDING.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.DARK_HORSE_BARDING.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.GOLDEN_HORSE_BARDING.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.GILDED_CHAPERON.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.GAMBESON.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.WOODEN_LANCE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
 
-        registerItemWConditions(ModItems.BRIGANDINE_SPAULDERS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.BRIGANDINE_SPAULDERS_BESAGEWS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_BRIGANDINE_SPAULDERS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE_SPAULDERS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.BRIGANDINE_SPAULDERS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.DARK_BRIGANDINE_SPAULDERS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
 
-        registerItemWConditions(ModItems.BRIGANDINE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_BRIGANDINE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_BRIGANDINE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.BRIGANDINE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.DARK_BRIGANDINE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.GOLDEN_BRIGANDINE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
 
-        registerItemWConditions(ModItems.BRIG_BREASTPLATE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_BRIG_BREASTPLATE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_BRIG_BREASTPLATE, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.BRIG_BREASTPLATE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.DARK_BRIG_BREASTPLATE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.GOLDEN_BRIG_BREASTPLATE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
 
-        registerItemWConditions(ModItems.BRIG_BREASTPLATE_TASSETS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.DARK_BRIG_BREASTPLATE_TASSETS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(ModItems.GOLDEN_BRIG_BREASTPLATE_TASSETS, ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.BRIG_BREASTPLATE_TASSETS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.DARK_BRIG_BREASTPLATE_TASSETS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerItemWConditions(KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
     }
 
     private void registerSimpleItems(ItemModelGenerators itemModelGenerators) {
         Item[] simpleHandheldItems = {
-                ModItems.DAGGER, ModItems.STILETTO, ModItems.RAPIER,
-                ModItems.SWORD, ModItems.V_SWORD, ModItems.ARMING_SWORD,
-                ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE, ModItems.STRAIGHT_CROOKED_AXE,
-                ModItems.MACE, ModItems.SPIKED_MACE,
-                ModItems.HAMMER, ModItems.WAR_HAMMER,
-                ModItems.LONGSWORD, ModItems.V_LONGSWORD,
-                ModItems.FALCHION, ModItems.SCIMITAR,
-                ModItems.PITCHFORK,
-                ModItems.SPEAR,
-                ModItems.PIKE,
-                ModItems.BILLHOOK,
-                ModItems.GLAIVE, ModItems.CURVED_GLAIVE,
-                ModItems.HALBERD,
-                ModItems.POLEAXE,
-                ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN,
-                ModItems.MORNING_STAR,
-                ModItems.BARDICHE,
-                ModItems.GREATSWORD, ModItems.CLAYMORE, ModItems.FLAMBERGE, ModItems.ZWEIHANDER,
-                ModItems.WARDART
+                KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(),
+                KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(),
+                KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(),
+                KHItems.MACE.get(), KHItems.SPIKED_MACE.get(),
+                KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(),
+                KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(),
+                KHItems.FALCHION.get(), KHItems.SCIMITAR.get(),
+                KHItems.PITCHFORK.get(),
+                KHItems.SPEAR.get(),
+                KHItems.PIKE.get(),
+                KHItems.BILLHOOK.get(),
+                KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(),
+                KHItems.HALBERD.get(),
+                KHItems.POLEAXE.get(),
+                KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(),
+                KHItems.MORNING_STAR.get(),
+                KHItems.BARDICHE.get(),
+                KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(),
+                KHItems.WARDART.get()
         };
 
         Item[] simpleArmor = {
-                ModItems.MAIL_SPAULDERS, ModItems.MAIL_SPAULDERS_BESAGEWS, ModItems.GOLDEN_MAIL_SPAULDERS,
-                ModItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS,
-                ModItems.PLATE_SPAULDERS, ModItems.PLATE_SPAULDERS_BESAGEWS,
-                ModItems.PLATE_SPAULDERS_RIMMED, ModItems.PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.DARK_PLATE_SPAULDERS,
-                ModItems.DARK_PLATE_SPAULDERS_BESAGEWS, ModItems.DARK_PLATE_SPAULDERS_RIMMED, ModItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED,
-                ModItems.GOLDEN_PLATE_SPAULDERS, ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS, ModItems.GOLDEN_PLATE_SPAULDERS_RIMMED,
-                ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED,
-                ModItems.PLATE_CUIRASS, ModItems.GOLDEN_PLATE_CUIRASS, ModItems.DARK_PLATE_CUIRASS,
-                ModItems.PLATE_CUIRASS_TASSETS, ModItems.DARK_PLATE_CUIRASS_TASSETS, ModItems.GOLDEN_PLATE_CUIRASS_TASSETS,
-                ModItems.MAXIMILLIAN_CUIRASS, ModItems.DARK_MAXIMILLIAN_CUIRASS, ModItems.GOLDEN_MAXIMILLIAN_CUIRASS,
-                ModItems.MAXIMILLIAN_CUIRASS_TASSETS, ModItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS, ModItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS,
-                ModItems.XIIII_PLATE_CUIRASS, ModItems.XIIII_PLATE_CUIRASS_TASSETS, ModItems.XIIII_PLATE_BREASTPLATE,
-                ModItems.DARK_XIIII_PLATE_CUIRASS, ModItems.DARK_XIIII_PLATE_CUIRASS_TASSETS, ModItems.DARK_XIIII_PLATE_BREASTPLATE,
-                ModItems.GOLDEN_XIIII_PLATE_CUIRASS, ModItems.GOLDEN_XIIII_PLATE_CUIRASS_TASSETS, ModItems.GOLDEN_XIIII_PLATE_BREASTPLATE,
-                ModItems.GREAVES, ModItems.DARK_GREAVES, ModItems.GOLDEN_GREAVES,
-                ModItems.SABATONS, ModItems.DARK_SABATONS, ModItems.GOLDEN_SABATONS,
-                ModItems.BARBUTE, ModItems.DARK_BARBUTE, ModItems.GOLDEN_BARBUTE,
-                ModItems.BASCINET, ModItems.DARK_BASCINET, ModItems.GOLDEN_BASCINET,
-                ModItems.KETTLE_HELM, ModItems.DARK_KETTLE_HELM, ModItems.GOLDEN_KETTLE_HELM,
-                ModItems.NASAL_HELM, ModItems.DARK_NASAL_HELM, ModItems.GOLDEN_NASAL_HELM,
-                ModItems.VIKING_HELM, ModItems.DARK_VIKING_HELM, ModItems.GOLDEN_VIKING_HELM,
-                ModItems.BURGONET, ModItems.DARK_BURGONET, ModItems.GOLDEN_BURGONET,
-                ModItems.FROGMOUTH, ModItems.DARK_FROGMOUTH, ModItems.GOLDEN_FROGMOUTH,
-                ModItems.GAUNTLET, ModItems.DARK_GAUNTLET, ModItems.GOLDEN_GAUNTLET,
-                ModItems.PLATE_HARNESS, ModItems.DARK_PLATE_HARNESS, ModItems.GOLDEN_PLATE_HARNESS,
-                ModItems.PLATE_CUISSES, ModItems.DARK_PLATE_CUISSES, ModItems.GOLDEN_PLATE_CUISSES,
-                ModItems.GREAT_HELM, ModItems.DARK_GREAT_HELM, ModItems.GOLDEN_GREAT_HELM,
-                ModItems.GREAT_HELM_2, ModItems.DARK_GREAT_HELM_2, ModItems.GOLDEN_GREAT_HELM_2
+                KHItems.MAIL_SPAULDERS.get(), KHItems.MAIL_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_MAIL_SPAULDERS.get(),
+                KHItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS.get(),
+                KHItems.PLATE_SPAULDERS.get(), KHItems.PLATE_SPAULDERS_BESAGEWS.get(),
+                KHItems.PLATE_SPAULDERS_RIMMED.get(), KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS.get(),
+                KHItems.DARK_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.DARK_PLATE_SPAULDERS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(),
+                KHItems.GOLDEN_PLATE_SPAULDERS.get(), KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get(),
+                KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(),
+                KHItems.PLATE_CUIRASS.get(), KHItems.GOLDEN_PLATE_CUIRASS.get(), KHItems.DARK_PLATE_CUIRASS.get(),
+                KHItems.PLATE_CUIRASS_TASSETS.get(), KHItems.DARK_PLATE_CUIRASS_TASSETS.get(), KHItems.GOLDEN_PLATE_CUIRASS_TASSETS.get(),
+                KHItems.MAXIMILLIAN_CUIRASS.get(), KHItems.DARK_MAXIMILLIAN_CUIRASS.get(), KHItems.GOLDEN_MAXIMILLIAN_CUIRASS.get(),
+                KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get(), KHItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS.get(), KHItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS.get(),
+                KHItems.XIIII_PLATE_CUIRASS.get(), KHItems.XIIII_PLATE_CUIRASS_TASSETS.get(), KHItems.XIIII_PLATE_BREASTPLATE.get(),
+                KHItems.DARK_XIIII_PLATE_CUIRASS.get(), KHItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get(), KHItems.DARK_XIIII_PLATE_BREASTPLATE.get(),
+                KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get(), KHItems.GOLDEN_XIIII_PLATE_CUIRASS_TASSETS.get(), KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get(),
+                KHItems.GREAVES.get(), KHItems.DARK_GREAVES.get(), KHItems.GOLDEN_GREAVES.get(),
+                KHItems.SABATONS.get(), KHItems.DARK_SABATONS.get(), KHItems.GOLDEN_SABATONS.get(),
+                KHItems.BARBUTE.get(), KHItems.DARK_BARBUTE.get(), KHItems.GOLDEN_BARBUTE.get(),
+                KHItems.BASCINET.get(), KHItems.DARK_BASCINET.get(), KHItems.GOLDEN_BASCINET.get(),
+                KHItems.KETTLE_HELM.get(), KHItems.DARK_KETTLE_HELM.get(), KHItems.GOLDEN_KETTLE_HELM.get(),
+                KHItems.NASAL_HELM.get(), KHItems.DARK_NASAL_HELM.get(), KHItems.GOLDEN_NASAL_HELM.get(),
+                KHItems.VIKING_HELM.get(), KHItems.DARK_VIKING_HELM.get(), KHItems.GOLDEN_VIKING_HELM.get(),
+                KHItems.BURGONET.get(), KHItems.DARK_BURGONET.get(), KHItems.GOLDEN_BURGONET.get(),
+                KHItems.FROGMOUTH.get(), KHItems.DARK_FROGMOUTH.get(), KHItems.GOLDEN_FROGMOUTH.get(),
+                KHItems.GAUNTLET.get(), KHItems.DARK_GAUNTLET.get(), KHItems.GOLDEN_GAUNTLET.get(),
+                KHItems.PLATE_HARNESS.get(), KHItems.DARK_PLATE_HARNESS.get(), KHItems.GOLDEN_PLATE_HARNESS.get(),
+                KHItems.PLATE_CUISSES.get(), KHItems.DARK_PLATE_CUISSES.get(), KHItems.GOLDEN_PLATE_CUISSES.get(),
+                KHItems.GREAT_HELM.get(), KHItems.DARK_GREAT_HELM.get(), KHItems.GOLDEN_GREAT_HELM.get(),
+                KHItems.GREAT_HELM_2.get(), KHItems.DARK_GREAT_HELM_2.get(), KHItems.GOLDEN_GREAT_HELM_2.get()
         };
 
         Item[] openVisorHelmet = {
-                ModItems.ARMET, ModItems.DARK_ARMET, ModItems.GOLDEN_ARMET,
-                ModItems.ARMET_2, ModItems.DARK_ARMET_2, ModItems.GOLDEN_ARMET_2,
-                ModItems.VISORED_BARBUTE, ModItems.DARK_VISORED_BARBUTE, ModItems.GOLDEN_VISORED_BARBUTE,
-                ModItems.HOUNDSKULL, ModItems.DARK_HOUNDSKULL, ModItems.GOLDEN_HOUNDSKULL,
-                ModItems.CAGE, ModItems.DARK_CAGE, ModItems.GOLDEN_CAGE,
-                ModItems.VISORED_BASCINET, ModItems.DARK_VISORED_BASCINET, ModItems.GOLDEN_VISORED_BASCINET,
-                ModItems.SALLET, ModItems.DARK_SALLET, ModItems.GOLDEN_SALLET,
-                ModItems.BURGONET_FALLING_BUFFE, ModItems.DARK_BURGONET_FALLING_BUFFE, ModItems.GOLDEN_BURGONET_FALLING_BUFFE,
-                ModItems.CLOSE_HELM, ModItems.DARK_CLOSE_HELM, ModItems.GOLDEN_CLOSE_HELM,
-                ModItems.GREAT_ARMET, ModItems.DARK_GREAT_ARMET, ModItems.GOLDEN_GREAT_ARMET,
-                ModItems.GREAT_ARMET_2, ModItems.DARK_GREAT_ARMET_2, ModItems.GOLDEN_GREAT_ARMET_2,
-                ModItems.GREAT_BASCINET, ModItems.DARK_GREAT_BASCINET, ModItems.GOLDEN_GREAT_BASCINET,
-                ModItems.GREAT_HOUNDSKUL_BASCINET, ModItems.DARK_GREAT_HOUNDSKUL_BASCINET, ModItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET,
-                ModItems.MAXIMILLIAN_HELMET, ModItems.DARK_MAXIMILLIAN_HELMET, ModItems.GOLDEN_MAXIMILLIAN_HELMET,
-                ModItems.SAVOYARD, ModItems.DARK_SAVOYARD, ModItems.GOLDEN_SAVOYARD
+                KHItems.ARMET.get(), KHItems.DARK_ARMET.get(), KHItems.GOLDEN_ARMET.get(),
+                KHItems.ARMET_2.get(), KHItems.DARK_ARMET_2.get(), KHItems.GOLDEN_ARMET_2.get(),
+                KHItems.VISORED_BARBUTE.get(), KHItems.DARK_VISORED_BARBUTE.get(), KHItems.GOLDEN_VISORED_BARBUTE.get(),
+                KHItems.HOUNDSKULL.get(), KHItems.DARK_HOUNDSKULL.get(), KHItems.GOLDEN_HOUNDSKULL.get(),
+                KHItems.CAGE.get(), KHItems.DARK_CAGE.get(), KHItems.GOLDEN_CAGE.get(),
+                KHItems.VISORED_BASCINET.get(), KHItems.DARK_VISORED_BASCINET.get(), KHItems.GOLDEN_VISORED_BASCINET.get(),
+                KHItems.SALLET.get(), KHItems.DARK_SALLET.get(), KHItems.GOLDEN_SALLET.get(),
+                KHItems.BURGONET_FALLING_BUFFE.get(), KHItems.DARK_BURGONET_FALLING_BUFFE.get(), KHItems.GOLDEN_BURGONET_FALLING_BUFFE.get(),
+                KHItems.CLOSE_HELM.get(), KHItems.DARK_CLOSE_HELM.get(), KHItems.GOLDEN_CLOSE_HELM.get(),
+                KHItems.GREAT_ARMET.get(), KHItems.DARK_GREAT_ARMET.get(), KHItems.GOLDEN_GREAT_ARMET.get(),
+                KHItems.GREAT_ARMET_2.get(), KHItems.DARK_GREAT_ARMET_2.get(), KHItems.GOLDEN_GREAT_ARMET_2.get(),
+                KHItems.GREAT_BASCINET.get(), KHItems.DARK_GREAT_BASCINET.get(), KHItems.GOLDEN_GREAT_BASCINET.get(),
+                KHItems.GREAT_HOUNDSKUL_BASCINET.get(), KHItems.DARK_GREAT_HOUNDSKUL_BASCINET.get(), KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get(),
+                KHItems.MAXIMILLIAN_HELMET.get(), KHItems.DARK_MAXIMILLIAN_HELMET.get(), KHItems.GOLDEN_MAXIMILLIAN_HELMET.get(),
+                KHItems.SAVOYARD.get(), KHItems.DARK_SAVOYARD.get(), KHItems.GOLDEN_SAVOYARD.get()
         };
 
         for (Item item : simpleHandheldItems) {
-            registerItemWConditions(item, ModelTemplates.FLAT_HANDHELD_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "broken"), 1));
+            registerItemWConditions(item, ModelTemplates.FLAT_HANDHELD_ITEM, itemModelGenerators, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "broken"), 1));
         }
 
         for (Item item : openVisorHelmet) {
-            registerItemWConditions(item, ModelTemplates.FLAT_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "open"), 1));
+            registerItemWConditions(item, ModelTemplates.FLAT_ITEM, itemModelGenerators, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1));
         }
 
         for (Item item : simpleArmor) {
@@ -188,149 +188,149 @@ public class ModModelProvider extends FabricModelProviderPlus {
     }
 
     private void registerHelmetDecoItems(ItemModelGenerators itemModelGenerators) {
-        for (Item deco : HelmetDeco.getRegisteredItems()) {
-            if (deco == ModItems.TORSE) continue;
-            itemModelGenerators.generateFlatItem(deco, ModelTemplates.FLAT_ITEM);
+        for (HelmetDeco deco : HelmetDeco.all()) {
+            if (deco.item() == KHItems.TORSE) continue;
+            itemModelGenerators.generateFlatItem(deco.item(), ModelTemplates.FLAT_ITEM);
         }
     }
 
     private void registerManuscriptsItems(ItemModelGenerators itemModelGenerators) {
         Map<Item, Manuscript.Types> itemTypesMap = Map.<Item, Manuscript.Types>ofEntries(
-                Map.entry(ModItems.DAGGER, Manuscript.Types.BROAD),
-                Map.entry(ModItems.STILETTO, Manuscript.Types.BROAD),
-                Map.entry(ModItems.RAPIER, Manuscript.Types.BROAD),
-                Map.entry(ModItems.SWORD, Manuscript.Types.SWORDS),
-                Map.entry(ModItems.V_SWORD, Manuscript.Types.SWORDS),
-                Map.entry(ModItems.ARMING_SWORD, Manuscript.Types.SWORDS),
-                Map.entry(ModItems.AXE, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.BROAD_AXE, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.CROOKED_AXE, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.STRAIGHT_CROOKED_AXE, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.MACE, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.SPIKED_MACE, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.FLAIL, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.BALL_FLAIL, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.HAMMER, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.WAR_HAMMER, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.LONGSWORD, Manuscript.Types.LONGSWORDS),
-                Map.entry(ModItems.V_LONGSWORD, Manuscript.Types.LONGSWORDS),
-                Map.entry(ModItems.FALCHION, Manuscript.Types.SWORDS),
-                Map.entry(ModItems.SCIMITAR, Manuscript.Types.SWORDS),
-                Map.entry(ModItems.PITCHFORK, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.SPEAR, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.PIKE, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.BILLHOOK, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.GLAIVE, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.CURVED_GLAIVE, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.HALBERD, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.LANCE, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.WOODEN_LANCE, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.POLEAXE, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.POLEHAMMER, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.BEC_DE_CORBIN, Manuscript.Types.LONG_HAFTED),
-                Map.entry(ModItems.MORNING_STAR, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.BARDICHE, Manuscript.Types.SHORT_HAFTED),
-                Map.entry(ModItems.GREATSWORD, Manuscript.Types.GREATSWORDS),
-                Map.entry(ModItems.CLAYMORE, Manuscript.Types.GREATSWORDS),
-                Map.entry(ModItems.FLAMBERGE, Manuscript.Types.GREATSWORDS),
-                Map.entry(ModItems.ZWEIHANDER, Manuscript.Types.GREATSWORDS),
-                Map.entry(ModItems.WARDART, Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.DAGGER.get(), Manuscript.Types.BROAD),
+                Map.entry(KHItems.STILETTO.get(), Manuscript.Types.BROAD),
+                Map.entry(KHItems.RAPIER.get(), Manuscript.Types.BROAD),
+                Map.entry(KHItems.SWORD.get(), Manuscript.Types.SWORDS),
+                Map.entry(KHItems.V_SWORD.get(), Manuscript.Types.SWORDS),
+                Map.entry(KHItems.ARMING_SWORD.get(), Manuscript.Types.SWORDS),
+                Map.entry(KHItems.AXE.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.BROAD_AXE.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.CROOKED_AXE.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.STRAIGHT_CROOKED_AXE.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.MACE.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.SPIKED_MACE.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.FLAIL.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.BALL_FLAIL.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.HAMMER.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.WAR_HAMMER.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.LONGSWORD.get(), Manuscript.Types.LONGSWORDS),
+                Map.entry(KHItems.V_LONGSWORD.get(), Manuscript.Types.LONGSWORDS),
+                Map.entry(KHItems.FALCHION.get(), Manuscript.Types.SWORDS),
+                Map.entry(KHItems.SCIMITAR.get(), Manuscript.Types.SWORDS),
+                Map.entry(KHItems.PITCHFORK.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.SPEAR.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.PIKE.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.BILLHOOK.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.GLAIVE.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.CURVED_GLAIVE.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.HALBERD.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.LANCE.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.WOODEN_LANCE.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.POLEAXE.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.POLEHAMMER.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.BEC_DE_CORBIN.get(), Manuscript.Types.LONG_HAFTED),
+                Map.entry(KHItems.MORNING_STAR.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.BARDICHE.get(), Manuscript.Types.SHORT_HAFTED),
+                Map.entry(KHItems.GREATSWORD.get(), Manuscript.Types.GREATSWORDS),
+                Map.entry(KHItems.CLAYMORE.get(), Manuscript.Types.GREATSWORDS),
+                Map.entry(KHItems.FLAMBERGE.get(), Manuscript.Types.GREATSWORDS),
+                Map.entry(KHItems.ZWEIHANDER.get(), Manuscript.Types.GREATSWORDS),
+                Map.entry(KHItems.WARDART.get(), Manuscript.Types.LONG_HAFTED),
 
-                Map.entry(ModItems.QUILTED_COIF, Manuscript.Types.COIF),
-                Map.entry(ModItems.GAMBESON, Manuscript.Types.COAT),
-                Map.entry(ModItems.GAMBESON_BREECHES, Manuscript.Types.BREECHES),
-                Map.entry(ModItems.GAMBESON_BOOTS, Manuscript.Types.BOOTS),
+                Map.entry(KHItems.QUILTED_COIF.get(), Manuscript.Types.COIF),
+                Map.entry(KHItems.GAMBESON.get(), Manuscript.Types.COAT),
+                Map.entry(KHItems.GAMBESON_BREECHES.get(), Manuscript.Types.BREECHES),
+                Map.entry(KHItems.GAMBESON_BOOTS.get(), Manuscript.Types.BOOTS),
 
-                Map.entry(ModItems.MAIL_COIF, Manuscript.Types.COIF),
-                Map.entry(ModItems.HAUBERK, Manuscript.Types.COAT),
-                Map.entry(ModItems.MAIL_BREECHES, Manuscript.Types.BREECHES),
-                Map.entry(ModItems.MAIL_BOOTS, Manuscript.Types.BOOTS),
+                Map.entry(KHItems.MAIL_COIF.get(), Manuscript.Types.COIF),
+                Map.entry(KHItems.HAUBERK.get(), Manuscript.Types.COAT),
+                Map.entry(KHItems.MAIL_BREECHES.get(), Manuscript.Types.BREECHES),
+                Map.entry(KHItems.MAIL_BOOTS.get(), Manuscript.Types.BOOTS),
 
-                Map.entry(ModItems.MAIL_SPAULDERS, Manuscript.Types.SPAULDERS),
-                Map.entry(ModItems.BRIGANDINE_SPAULDERS, Manuscript.Types.SPAULDERS),
-                Map.entry(ModItems.PLATE_SPAULDERS, Manuscript.Types.SPAULDERS),
+                Map.entry(KHItems.MAIL_SPAULDERS.get(), Manuscript.Types.SPAULDERS),
+                Map.entry(KHItems.BRIGANDINE_SPAULDERS.get(), Manuscript.Types.SPAULDERS),
+                Map.entry(KHItems.PLATE_SPAULDERS.get(), Manuscript.Types.SPAULDERS),
 
-                Map.entry(ModItems.BRIGANDINE, Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.BRIGANDINE.get(), Manuscript.Types.BREASTPLATE),
 
-                Map.entry(ModItems.BRIG_BREASTPLATE, Manuscript.Types.BREASTPLATE),
-                Map.entry(ModItems.BRIG_BREASTPLATE_TASSETS, Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.BRIG_BREASTPLATE.get(), Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.BRIG_BREASTPLATE_TASSETS.get(), Manuscript.Types.BREASTPLATE),
 
-                Map.entry(ModItems.PLATE_CUIRASS, Manuscript.Types.BREASTPLATE),
-                Map.entry(ModItems.PLATE_CUIRASS_TASSETS, Manuscript.Types.BREASTPLATE),
-                Map.entry(ModItems.MAXIMILLIAN_CUIRASS, Manuscript.Types.BREASTPLATE),
-                Map.entry(ModItems.MAXIMILLIAN_CUIRASS_TASSETS, Manuscript.Types.BREASTPLATE),
-                Map.entry(ModItems.XIIII_PLATE_CUIRASS, Manuscript.Types.BREASTPLATE),
-                Map.entry(ModItems.XIIII_PLATE_CUIRASS_TASSETS, Manuscript.Types.BREASTPLATE),
-                Map.entry(ModItems.XIIII_PLATE_BREASTPLATE, Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.PLATE_CUIRASS.get(), Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.PLATE_CUIRASS_TASSETS.get(), Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.MAXIMILLIAN_CUIRASS.get(), Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get(), Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.XIIII_PLATE_CUIRASS.get(), Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.XIIII_PLATE_CUIRASS_TASSETS.get(), Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.XIIII_PLATE_BREASTPLATE.get(), Manuscript.Types.BREASTPLATE),
 
-                Map.entry(ModItems.RIM_GUARDS, Manuscript.Types.RIM_GUARDS),
-                Map.entry(ModItems.BESAGEWS, Manuscript.Types.BESAGEWS),
+                Map.entry(KHItems.RIM_GUARDS.get(), Manuscript.Types.RIM_GUARDS),
+                Map.entry(KHItems.BESAGEWS.get(), Manuscript.Types.BESAGEWS),
 
-                Map.entry(ModItems.BARBUTE, Manuscript.Types.HELMET),
-                Map.entry(ModItems.BASCINET, Manuscript.Types.HELMET),
-                Map.entry(ModItems.KETTLE_HELM, Manuscript.Types.HELMET),
-                Map.entry(ModItems.NASAL_HELM, Manuscript.Types.HELMET),
-                Map.entry(ModItems.VIKING_HELM, Manuscript.Types.HELMET),
-                Map.entry(ModItems.BURGONET, Manuscript.Types.HELMET),
+                Map.entry(KHItems.BARBUTE.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.BASCINET.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.KETTLE_HELM.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.NASAL_HELM.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.VIKING_HELM.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.BURGONET.get(), Manuscript.Types.HELMET),
 
-                Map.entry(ModItems.ARMET, Manuscript.Types.HELMET),
-                Map.entry(ModItems.ARMET_2, Manuscript.Types.HELMET),
-                Map.entry(ModItems.VISORED_BARBUTE, Manuscript.Types.HELMET),
-                Map.entry(ModItems.HOUNDSKULL, Manuscript.Types.HELMET),
-                Map.entry(ModItems.CAGE, Manuscript.Types.HELMET),
-                Map.entry(ModItems.VISORED_BASCINET, Manuscript.Types.HELMET),
-                Map.entry(ModItems.GREAT_HELM, Manuscript.Types.HELMET),
-                Map.entry(ModItems.SALLET, Manuscript.Types.HELMET),
-                Map.entry(ModItems.BURGONET_FALLING_BUFFE, Manuscript.Types.HELMET),
-                Map.entry(ModItems.CLOSE_HELM, Manuscript.Types.HELMET),
+                Map.entry(KHItems.ARMET.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.ARMET_2.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.VISORED_BARBUTE.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.HOUNDSKULL.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.CAGE.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.VISORED_BASCINET.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.GREAT_HELM.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.SALLET.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.BURGONET_FALLING_BUFFE.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.CLOSE_HELM.get(), Manuscript.Types.HELMET),
 
-                Map.entry(ModItems.FROGMOUTH, Manuscript.Types.HELMET),
-                Map.entry(ModItems.GREAT_ARMET, Manuscript.Types.HELMET),
-                Map.entry(ModItems.GREAT_ARMET_2, Manuscript.Types.HELMET),
-                Map.entry(ModItems.GREAT_BASCINET, Manuscript.Types.HELMET),
-                Map.entry(ModItems.GREAT_HOUNDSKUL_BASCINET, Manuscript.Types.HELMET),
-                Map.entry(ModItems.MAXIMILLIAN_HELMET, Manuscript.Types.HELMET),
-                Map.entry(ModItems.SAVOYARD, Manuscript.Types.HELMET),
+                Map.entry(KHItems.FROGMOUTH.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.GREAT_ARMET.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.GREAT_ARMET_2.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.GREAT_BASCINET.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.GREAT_HOUNDSKUL_BASCINET.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.MAXIMILLIAN_HELMET.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.SAVOYARD.get(), Manuscript.Types.HELMET),
 
-                Map.entry(ModItems.GAUNTLET, Manuscript.Types.GAUNTLETS),
-                Map.entry(ModItems.BRIGANDINE_HARNESS, Manuscript.Types.GAUNTLETS),
-                Map.entry(ModItems.PLATE_HARNESS, Manuscript.Types.GAUNTLETS),
+                Map.entry(KHItems.GAUNTLET.get(), Manuscript.Types.GAUNTLETS),
+                Map.entry(KHItems.BRIGANDINE_HARNESS.get(), Manuscript.Types.GAUNTLETS),
+                Map.entry(KHItems.PLATE_HARNESS.get(), Manuscript.Types.GAUNTLETS),
 
-                Map.entry(ModItems.BRIGANDINE_CUISSES, Manuscript.Types.CHAUSSES),
-                Map.entry(ModItems.PLATE_CUISSES, Manuscript.Types.CHAUSSES),
+                Map.entry(KHItems.BRIGANDINE_CUISSES.get(), Manuscript.Types.CHAUSSES),
+                Map.entry(KHItems.PLATE_CUISSES.get(), Manuscript.Types.CHAUSSES),
 
-                Map.entry(ModItems.GREAVES, Manuscript.Types.GREAVES),
+                Map.entry(KHItems.GREAVES.get(), Manuscript.Types.GREAVES),
 
-                Map.entry(ModItems.SABATONS, Manuscript.Types.BOOTS),
+                Map.entry(KHItems.SABATONS.get(), Manuscript.Types.BOOTS),
 
-                Map.entry(ModItems.SURCOAT, Manuscript.Types.CLOTH),
-                Map.entry(ModItems.SURCOAT_SLEEVELESS, Manuscript.Types.CLOTH),
-                Map.entry(ModItems.CIVILIAN_SURCOAT, Manuscript.Types.CLOTH),
-                Map.entry(ModItems.GIORNEA, Manuscript.Types.CLOTH),
+                Map.entry(KHItems.SURCOAT.get(), Manuscript.Types.CLOTH),
+                Map.entry(KHItems.SURCOAT_SLEEVELESS.get(), Manuscript.Types.CLOTH),
+                Map.entry(KHItems.CIVILIAN_SURCOAT.get(), Manuscript.Types.CLOTH),
+                Map.entry(KHItems.GIORNEA.get(), Manuscript.Types.CLOTH),
 
-                Map.entry(ModItems.CLOAK, Manuscript.Types.COAT),
-                Map.entry(ModItems.TORN_CLOAK, Manuscript.Types.COAT),
+                Map.entry(KHItems.CLOAK.get(), Manuscript.Types.COAT),
+                Map.entry(KHItems.TORN_CLOAK.get(), Manuscript.Types.COAT),
 
-                Map.entry(ModItems.HOOD, Manuscript.Types.COIF),
-                Map.entry(ModItems.TORN_HOOD, Manuscript.Types.COIF),
-                Map.entry(ModItems.JESTER_HOOD, Manuscript.Types.COIF),
-                Map.entry(ModItems.HELMET_HOOD, Manuscript.Types.COIF),
-                Map.entry(ModItems.HELMET_TORN_HOOD, Manuscript.Types.COIF),
+                Map.entry(KHItems.HOOD.get(), Manuscript.Types.COIF),
+                Map.entry(KHItems.TORN_HOOD.get(), Manuscript.Types.COIF),
+                Map.entry(KHItems.JESTER_HOOD.get(), Manuscript.Types.COIF),
+                Map.entry(KHItems.HELMET_HOOD.get(), Manuscript.Types.COIF),
+                Map.entry(KHItems.HELMET_TORN_HOOD.get(), Manuscript.Types.COIF),
 
-                Map.entry(ModItems.LONGBOW, Manuscript.Types.LONGBOW),
+                Map.entry(KHItems.LONGBOW.get(), Manuscript.Types.LONGBOW),
 
-                Map.entry(ModItems.HEAVY_CROSSBOW, Manuscript.Types.CROSSBOW),
+                Map.entry(KHItems.HEAVY_CROSSBOW.get(), Manuscript.Types.CROSSBOW),
 
-                Map.entry(ModItems.ARQUEBUS, Manuscript.Types.ARQUEBUS),
+                Map.entry(KHItems.ARQUEBUS.get(), Manuscript.Types.ARQUEBUS),
 
-                Map.entry(ModItems.HANDGONNE, Manuscript.Types.HANDGONNE),
+                Map.entry(KHItems.HANDGONNE.get(), Manuscript.Types.HANDGONNE),
 
-                Map.entry(ModItems.SWALLOWTAIL_ARROW, Manuscript.Types.SWALLOWTAIL),
-                Map.entry(ModItems.BODKIN_ARROW, Manuscript.Types.BODKIN),
-                Map.entry(ModItems.BROADHEAD_ARROW, Manuscript.Types.BROAD),
-                Map.entry(ModItems.CLOTH_ARROW, Manuscript.Types.CLOTH),
+                Map.entry(KHItems.SWALLOWTAIL_ARROW.get(), Manuscript.Types.SWALLOWTAIL),
+                Map.entry(KHItems.BODKIN_ARROW.get(), Manuscript.Types.BODKIN),
+                Map.entry(KHItems.BROADHEAD_ARROW.get(), Manuscript.Types.BROAD),
+                Map.entry(KHItems.CLOTH_ARROW.get(), Manuscript.Types.CLOTH),
 
-                Map.entry(ModItems.HORSE_BARDING, Manuscript.Types.HORSE)
+                Map.entry(KHItems.HORSE_BARDING.get(), Manuscript.Types.HORSE)
         );
 
         for (Map.Entry<Item, Manuscript.Types> entry : itemTypesMap.entrySet()) {
@@ -341,7 +341,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
             String itemPath = itemId.getPath();
 
             registerWCustomName(item, ModelTemplates.FLAT_ITEM, itemModelGenerators, "manuscript_" + itemPath,
-                    new ResourceLocation(StoneyCore.MOD_ID, "item/" + "manuscript_" + type.name().toLowerCase()));
+                    ResourceLocation.fromNamespaceAndPath(StoneyCore.MOD_ID, "item/" + "manuscript_" + type.name().toLowerCase()));
         }
     }
 }

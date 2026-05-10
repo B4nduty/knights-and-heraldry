@@ -1,6 +1,6 @@
 package banduty.knightsheraldry.event;
 
-import banduty.knightsheraldry.items.ModItems;
+import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.armor.accessory.KHCloseHelmet;
 import banduty.knightsheraldry.items.armor.accessory.KHHelmetAccessory;
 import banduty.knightsheraldry.items.armor.accessory.KHSavoyard;
@@ -25,7 +25,7 @@ public class StartTickHandler implements ServerTickEvents.StartTick {
         if (AccessoriesCapability.getOptionally(serverPlayer).isPresent()) {
             for (SlotEntryReference equipped : AccessoriesCapability.get(serverPlayer).getAllEquipped()) {
                 ItemStack accessoryStack = equipped.stack();
-                if (accessoryStack.getItem() == ModItems.HELMET_HOOD || accessoryStack.getItem() == ModItems.HELMET_TORN_HOOD) {
+                if (accessoryStack.getItem() == KHItems.HELMET_HOOD.get() || accessoryStack.getItem() == KHItems.HELMET_TORN_HOOD.get()) {
                     itemStack = accessoryStack;
                 }
 

@@ -2,11 +2,13 @@ package banduty.knightsheraldry.platform.services;
 
 import banduty.knightsheraldry.config.KHConfigImpl;
 import banduty.knightsheraldry.data.ArrowBehavior;
-import banduty.knightsheraldry.recipe.TwoLayerDyeRecipe;
-import banduty.knightsheraldry.recipes.HelmetDecoRecipe;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.server.level.ServerPlayer;
+
+import java.util.function.Supplier;
 
 public interface IPlatformHelper {
 
@@ -46,9 +48,9 @@ public interface IPlatformHelper {
 
     ArrowBehavior getBehavior(ResourceLocation key);
 
-    MobEffect getPinEffect();
+    <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> entry);
 
-    RecipeSerializer<HelmetDecoRecipe> getHelmetDecoRecipe();
+    <T> Holder<T> registerHolder(ResourceKey<Registry<T>> registryKey, String name, java.util.function.Supplier<T> value);
 
-    RecipeSerializer<TwoLayerDyeRecipe> getTwoLayerDyeRecipe();
+    void syncSpeedHistory(ServerPlayer player, float speedHistory);
 }

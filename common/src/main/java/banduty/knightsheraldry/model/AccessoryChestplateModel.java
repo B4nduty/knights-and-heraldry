@@ -9,12 +9,12 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class AccessoryChestplateModel extends HumanoidModel<LivingEntity> {
+public final class AccessoryChestplateModel extends HumanoidModel<LivingEntity> {
 	private final ModelPart armorBody;
 	private final ModelPart armorRightArm;
 	private final ModelPart armorLeftArm;
 
-	public AccessoryChestplateModel(ModelPart root) {
+	AccessoryChestplateModel(ModelPart root) {
 		super(root);
 		this.setAllVisible(false);
 		this.armorBody = root.getChild("armorBody");
@@ -115,17 +115,17 @@ public class AccessoryChestplateModel extends HumanoidModel<LivingEntity> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
 		this.armorBody.copyFrom(this.body);
 		this.armorBody.xScale += 0.05F;
 		this.armorBody.yScale += 0.05F;
 		this.armorBody.zScale += 0.1F;
-		this.armorBody.render(poseStack, vertices, light, overlay, red, green, blue, alpha);
+		this.armorBody.render(poseStack, buffer, packedLight, packedOverlay, color);
 
 		this.armorRightArm.copyFrom(this.rightArm);
-		this.armorRightArm.render(poseStack, vertices, light, overlay, red, green, blue, alpha);
+		this.armorRightArm.render(poseStack, buffer, packedLight, packedOverlay, color);
 
 		this.armorLeftArm.copyFrom(this.leftArm);
-		this.armorLeftArm.render(poseStack, vertices, light, overlay, red, green, blue, alpha);
+		this.armorLeftArm.render(poseStack, buffer, packedLight, packedOverlay, color);
 	}
 }

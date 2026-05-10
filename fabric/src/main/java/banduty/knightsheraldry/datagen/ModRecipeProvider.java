@@ -1,20 +1,21 @@
 package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.items.ModItems;
+import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.util.itemdata.HelmetDeco;
-import banduty.stoneycore.datagen.BannerRecipeBuilder;
 import banduty.stoneycore.datagen.CraftmanAnvilRecipeJsonBuilder;
 import banduty.stoneycore.datagen.ManuscriptRecipeBuilder;
 import banduty.stoneycore.items.SCItems;
-import banduty.stoneycore.items.hotiron.HotIron;
-import banduty.stoneycore.items.manuscript.Manuscript;
+import banduty.stoneycore.items.custom.hotiron.HotIron;
+import banduty.stoneycore.items.custom.manuscript.Manuscript;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -22,514 +23,513 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
-    public ModRecipeProvider(FabricDataOutput output) {
-        super(output);
+    public ModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(output, registriesFuture);
     }
 
     @Override
-    public void buildRecipes(Consumer<FinishedRecipe> exporter) {
-        createWeaponCycle(exporter, ModItems.ARMING_SWORD, ModItems.SWORD, ModItems.V_SWORD);
-        createWeaponCycle(exporter, ModItems.STRAIGHT_CROOKED_AXE, ModItems.AXE, ModItems.BROAD_AXE, ModItems.CROOKED_AXE);
-        createWeaponCycle(exporter, ModItems.MACE, ModItems.SPIKED_MACE);
-        createWeaponCycle(exporter, ModItems.FLAIL, ModItems.BALL_FLAIL);
-        createWeaponCycle(exporter, ModItems.HAMMER, ModItems.WAR_HAMMER);
-        createWeaponCycle(exporter, ModItems.LONGSWORD, ModItems.V_LONGSWORD);
-        createWeaponCycle(exporter, ModItems.FALCHION, ModItems.SCIMITAR);
-        createWeaponCycle(exporter, ModItems.POLEHAMMER, ModItems.BEC_DE_CORBIN);
-        createWeaponCycle(exporter, ModItems.GREATSWORD, ModItems.CLAYMORE,
-                ModItems.FLAMBERGE, ModItems.ZWEIHANDER);
+    public void buildRecipes(RecipeOutput exporter) {
+        createWeaponCycle(exporter, KHItems.ARMING_SWORD.get(), KHItems.SWORD.get(), KHItems.V_SWORD.get());
+        createWeaponCycle(exporter, KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get());
+        createWeaponCycle(exporter, KHItems.MACE.get(), KHItems.SPIKED_MACE.get());
+        createWeaponCycle(exporter, KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get());
+        createWeaponCycle(exporter, KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get());
+        createWeaponCycle(exporter, KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get());
+        createWeaponCycle(exporter, KHItems.FALCHION.get(), KHItems.SCIMITAR.get());
+        createWeaponCycle(exporter, KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get());
+        createWeaponCycle(exporter, KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(),
+                KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get());
 
-        createDecoRecipe(exporter, ModItems.BARBUTE);
-        createDecoRecipe(exporter, ModItems.BASCINET);
-        createDecoRecipe(exporter, ModItems.KETTLE_HELM);
-        createDecoRecipe(exporter, ModItems.NASAL_HELM);
-        createDecoRecipe(exporter, ModItems.VIKING_HELM);
-        createDecoRecipe(exporter, ModItems.BURGONET);
-        createDecoRecipe(exporter, ModItems.ARMET);
-        createDecoRecipe(exporter, ModItems.ARMET_2);
-        createDecoRecipe(exporter, ModItems.VISORED_BARBUTE);
-        createDecoRecipe(exporter, ModItems.HOUNDSKULL);
-        createDecoRecipe(exporter, ModItems.CAGE);
-        createDecoRecipe(exporter, ModItems.VISORED_BASCINET);
-        createDecoRecipe(exporter, ModItems.GREAT_HELM);
-        createDecoRecipe(exporter, ModItems.GREAT_HELM_2);
-        createDecoRecipe(exporter, ModItems.SALLET);
-        createDecoRecipe(exporter, ModItems.BURGONET_FALLING_BUFFE);
-        createDecoRecipe(exporter, ModItems.CLOSE_HELM);
-        createDecoRecipe(exporter, ModItems.FROGMOUTH);
-        createDecoRecipe(exporter, ModItems.GREAT_ARMET);
-        createDecoRecipe(exporter, ModItems.GREAT_ARMET_2);
-        createDecoRecipe(exporter, ModItems.GREAT_BASCINET);
-        createDecoRecipe(exporter, ModItems.GREAT_HOUNDSKUL_BASCINET);
-        createDecoRecipe(exporter, ModItems.MAXIMILLIAN_HELMET);
-        createDecoRecipe(exporter, ModItems.SAVOYARD);
+        createDecoRecipe(exporter, KHItems.BARBUTE.get());
+        createDecoRecipe(exporter, KHItems.BASCINET.get());
+        createDecoRecipe(exporter, KHItems.KETTLE_HELM.get());
+        createDecoRecipe(exporter, KHItems.NASAL_HELM.get());
+        createDecoRecipe(exporter, KHItems.VIKING_HELM.get());
+        createDecoRecipe(exporter, KHItems.BURGONET.get());
+        createDecoRecipe(exporter, KHItems.ARMET.get());
+        createDecoRecipe(exporter, KHItems.ARMET_2.get());
+        createDecoRecipe(exporter, KHItems.VISORED_BARBUTE.get());
+        createDecoRecipe(exporter, KHItems.HOUNDSKULL.get());
+        createDecoRecipe(exporter, KHItems.CAGE.get());
+        createDecoRecipe(exporter, KHItems.VISORED_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.GREAT_HELM.get());
+        createDecoRecipe(exporter, KHItems.GREAT_HELM_2.get());
+        createDecoRecipe(exporter, KHItems.SALLET.get());
+        createDecoRecipe(exporter, KHItems.BURGONET_FALLING_BUFFE.get());
+        createDecoRecipe(exporter, KHItems.CLOSE_HELM.get());
+        createDecoRecipe(exporter, KHItems.FROGMOUTH.get());
+        createDecoRecipe(exporter, KHItems.GREAT_ARMET.get());
+        createDecoRecipe(exporter, KHItems.GREAT_ARMET_2.get());
+        createDecoRecipe(exporter, KHItems.GREAT_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.GREAT_HOUNDSKUL_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.MAXIMILLIAN_HELMET.get());
+        createDecoRecipe(exporter, KHItems.SAVOYARD.get());
 
-        createDecoRecipe(exporter, ModItems.DARK_BARBUTE);
-        createDecoRecipe(exporter, ModItems.DARK_BASCINET);
-        createDecoRecipe(exporter, ModItems.DARK_KETTLE_HELM);
-        createDecoRecipe(exporter, ModItems.DARK_NASAL_HELM);
-        createDecoRecipe(exporter, ModItems.DARK_VIKING_HELM);
-        createDecoRecipe(exporter, ModItems.DARK_BURGONET);
-        createDecoRecipe(exporter, ModItems.DARK_ARMET);
-        createDecoRecipe(exporter, ModItems.DARK_ARMET_2);
-        createDecoRecipe(exporter, ModItems.DARK_VISORED_BARBUTE);
-        createDecoRecipe(exporter, ModItems.DARK_HOUNDSKULL);
-        createDecoRecipe(exporter, ModItems.DARK_CAGE);
-        createDecoRecipe(exporter, ModItems.DARK_VISORED_BASCINET);
-        createDecoRecipe(exporter, ModItems.DARK_GREAT_HELM);
-        createDecoRecipe(exporter, ModItems.DARK_GREAT_HELM_2);
-        createDecoRecipe(exporter, ModItems.DARK_SALLET);
-        createDecoRecipe(exporter, ModItems.DARK_CLOSE_HELM);
-        createDecoRecipe(exporter, ModItems.DARK_BURGONET_FALLING_BUFFE);
-        createDecoRecipe(exporter, ModItems.DARK_FROGMOUTH);
-        createDecoRecipe(exporter, ModItems.DARK_GREAT_ARMET);
-        createDecoRecipe(exporter, ModItems.DARK_GREAT_ARMET_2);
-        createDecoRecipe(exporter, ModItems.DARK_GREAT_BASCINET);
-        createDecoRecipe(exporter, ModItems.DARK_GREAT_HOUNDSKUL_BASCINET);
-        createDecoRecipe(exporter, ModItems.DARK_MAXIMILLIAN_HELMET);
-        createDecoRecipe(exporter, ModItems.DARK_SAVOYARD);
+        createDecoRecipe(exporter, KHItems.DARK_BARBUTE.get());
+        createDecoRecipe(exporter, KHItems.DARK_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.DARK_KETTLE_HELM.get());
+        createDecoRecipe(exporter, KHItems.DARK_NASAL_HELM.get());
+        createDecoRecipe(exporter, KHItems.DARK_VIKING_HELM.get());
+        createDecoRecipe(exporter, KHItems.DARK_BURGONET.get());
+        createDecoRecipe(exporter, KHItems.DARK_ARMET.get());
+        createDecoRecipe(exporter, KHItems.DARK_ARMET_2.get());
+        createDecoRecipe(exporter, KHItems.DARK_VISORED_BARBUTE.get());
+        createDecoRecipe(exporter, KHItems.DARK_HOUNDSKULL.get());
+        createDecoRecipe(exporter, KHItems.DARK_CAGE.get());
+        createDecoRecipe(exporter, KHItems.DARK_VISORED_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.DARK_GREAT_HELM.get());
+        createDecoRecipe(exporter, KHItems.DARK_GREAT_HELM_2.get());
+        createDecoRecipe(exporter, KHItems.DARK_SALLET.get());
+        createDecoRecipe(exporter, KHItems.DARK_CLOSE_HELM.get());
+        createDecoRecipe(exporter, KHItems.DARK_BURGONET_FALLING_BUFFE.get());
+        createDecoRecipe(exporter, KHItems.DARK_FROGMOUTH.get());
+        createDecoRecipe(exporter, KHItems.DARK_GREAT_ARMET.get());
+        createDecoRecipe(exporter, KHItems.DARK_GREAT_ARMET_2.get());
+        createDecoRecipe(exporter, KHItems.DARK_GREAT_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.DARK_GREAT_HOUNDSKUL_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.DARK_MAXIMILLIAN_HELMET.get());
+        createDecoRecipe(exporter, KHItems.DARK_SAVOYARD.get());
 
-        createDecoRecipe(exporter, ModItems.GOLDEN_BARBUTE);
-        createDecoRecipe(exporter, ModItems.GOLDEN_BASCINET);
-        createDecoRecipe(exporter, ModItems.GOLDEN_KETTLE_HELM);
-        createDecoRecipe(exporter, ModItems.GOLDEN_NASAL_HELM);
-        createDecoRecipe(exporter, ModItems.GOLDEN_VIKING_HELM);
-        createDecoRecipe(exporter, ModItems.GOLDEN_BURGONET);
-        createDecoRecipe(exporter, ModItems.GOLDEN_ARMET);
-        createDecoRecipe(exporter, ModItems.GOLDEN_ARMET_2);
-        createDecoRecipe(exporter, ModItems.GOLDEN_VISORED_BARBUTE);
-        createDecoRecipe(exporter, ModItems.GOLDEN_HOUNDSKULL);
-        createDecoRecipe(exporter, ModItems.GOLDEN_CAGE);
-        createDecoRecipe(exporter, ModItems.GOLDEN_VISORED_BASCINET);
-        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_HELM);
-        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_HELM_2);
-        createDecoRecipe(exporter, ModItems.GOLDEN_SALLET);
-        createDecoRecipe(exporter, ModItems.GOLDEN_CLOSE_HELM);
-        createDecoRecipe(exporter, ModItems.GOLDEN_BURGONET_FALLING_BUFFE);
-        createDecoRecipe(exporter, ModItems.GOLDEN_FROGMOUTH);
-        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_ARMET);
-        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_ARMET_2);
-        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_BASCINET);
-        createDecoRecipe(exporter, ModItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET);
-        createDecoRecipe(exporter, ModItems.GOLDEN_MAXIMILLIAN_HELMET);
-        createDecoRecipe(exporter, ModItems.GOLDEN_SAVOYARD);
+        createDecoRecipe(exporter, KHItems.GOLDEN_BARBUTE.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_KETTLE_HELM.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_NASAL_HELM.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_VIKING_HELM.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_BURGONET.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_ARMET.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_ARMET_2.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_VISORED_BARBUTE.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_HOUNDSKULL.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_CAGE.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_VISORED_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_HELM.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_HELM_2.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_SALLET.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_CLOSE_HELM.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_BURGONET_FALLING_BUFFE.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_FROGMOUTH.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_ARMET.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_ARMET_2.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_MAXIMILLIAN_HELMET.get());
+        createDecoRecipe(exporter, KHItems.GOLDEN_SAVOYARD.get());
 
-        createDecoPlumeRecipe(exporter, ModItems.HORSE_BARDING);
-        createDecoPlumeRecipe(exporter, ModItems.DARK_HORSE_BARDING);
-        createDecoPlumeRecipe(exporter, ModItems.GOLDEN_HORSE_BARDING);
+        createDecoPlumeRecipe(exporter, KHItems.HORSE_BARDING.get());
+        createDecoPlumeRecipe(exporter, KHItems.DARK_HORSE_BARDING.get());
+        createDecoPlumeRecipe(exporter, KHItems.GOLDEN_HORSE_BARDING.get());
 
-        createEasyRecipe(exporter, ModItems.MAIL_SPAULDERS_BESAGEWS, ModItems.MAIL_SPAULDERS, ModItems.BESAGEWS);
-        createEasyRecipe(exporter, ModItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS, ModItems.GOLDEN_MAIL_SPAULDERS, ModItems.BESAGEWS);
-        createEasyRecipe(exporter, ModItems.BRIGANDINE_SPAULDERS_BESAGEWS, ModItems.BRIGANDINE_SPAULDERS, ModItems.BESAGEWS);
-        createEasyRecipe(exporter, ModItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS, ModItems.DARK_BRIGANDINE_SPAULDERS, ModItems.BESAGEWS);
-        createEasyRecipe(exporter, ModItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS, ModItems.GOLDEN_BRIGANDINE_SPAULDERS, ModItems.BESAGEWS);
-        createEasyRecipe(exporter, ModItems.PLATE_SPAULDERS_BESAGEWS, ModItems.PLATE_SPAULDERS, ModItems.BESAGEWS);
-        createEasyRecipe(exporter, ModItems.DARK_PLATE_SPAULDERS_BESAGEWS, ModItems.DARK_PLATE_SPAULDERS, ModItems.BESAGEWS);
-        createEasyRecipe(exporter, ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS, ModItems.GOLDEN_PLATE_SPAULDERS, ModItems.BESAGEWS);
-        createEasyRecipe(exporter, ModItems.PLATE_SPAULDERS_RIMMED, ModItems.PLATE_SPAULDERS, ModItems.RIM_GUARDS);
-        createEasyRecipe(exporter, ModItems.DARK_PLATE_SPAULDERS_RIMMED, ModItems.DARK_PLATE_SPAULDERS, ModItems.RIM_GUARDS);
-        createEasyRecipe(exporter, ModItems.GOLDEN_PLATE_SPAULDERS_RIMMED, ModItems.GOLDEN_PLATE_SPAULDERS, ModItems.RIM_GUARDS);
-        createEasyRecipe(exporter, ModItems.PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.PLATE_SPAULDERS, ModItems.BESAGEWS, ModItems.RIM_GUARDS);
-        createEasyRecipe(exporter, ModItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.DARK_PLATE_SPAULDERS, ModItems.BESAGEWS, ModItems.RIM_GUARDS);
-        createEasyRecipe(exporter, ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.GOLDEN_PLATE_SPAULDERS, ModItems.BESAGEWS, ModItems.RIM_GUARDS);
-        createEasyRecipe(exporter, ModItems.PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.PLATE_SPAULDERS_BESAGEWS, ModItems.RIM_GUARDS);
-        createEasyRecipe(exporter, ModItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.DARK_PLATE_SPAULDERS_BESAGEWS, ModItems.RIM_GUARDS);
-        createEasyRecipe(exporter, ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS, ModItems.RIM_GUARDS);
-        createEasyRecipe(exporter, ModItems.PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.PLATE_SPAULDERS_RIMMED, ModItems.BESAGEWS);
-        createEasyRecipe(exporter, ModItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.DARK_PLATE_SPAULDERS_RIMMED, ModItems.BESAGEWS);
-        createEasyRecipe(exporter, ModItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED, ModItems.GOLDEN_PLATE_SPAULDERS_RIMMED, ModItems.BESAGEWS);
+        createEasyRecipe(exporter, KHItems.MAIL_SPAULDERS_BESAGEWS.get(), KHItems.MAIL_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, KHItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_MAIL_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.BRIGANDINE_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, KHItems.PLATE_SPAULDERS_BESAGEWS.get(), KHItems.PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.DARK_PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, KHItems.PLATE_SPAULDERS_RIMMED.get(), KHItems.PLATE_SPAULDERS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, KHItems.DARK_PLATE_SPAULDERS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get(), KHItems.GOLDEN_PLATE_SPAULDERS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.GOLDEN_PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.PLATE_SPAULDERS_BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.PLATE_SPAULDERS_RIMMED.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS_RIMMED.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get(), KHItems.BESAGEWS.get());
 
-    /*    ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SURCOAT, 1)
-                .requires(ModItems.SURCOAT)
+    /*    ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.SURCOAT, 1.get())
+                .requires(KHItems.SURCOAT.get())
                 .requires(ItemTags.BANNERS)
-                .unlockedBy(getHasName(ModItems.SURCOAT), has(ModItems.SURCOAT))
+                .unlockedBy(getHasName(KHItems.SURCOAT), has(KHItems.SURCOAT))
                 .unlockedBy(getHasName(Items.WHITE_BANNER), has(Items.WHITE_BANNER))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, "surcoat_with_banner"));
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "surcoat_with_banner"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SURCOAT_SLEEVELESS, 1)
-                .requires(ModItems.SURCOAT_SLEEVELESS)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.SURCOAT_SLEEVELESS, 1.get())
+                .requires(KHItems.SURCOAT_SLEEVELESS.get())
                 .requires(ItemTags.BANNERS)
-                .unlockedBy(getHasName(ModItems.SURCOAT_SLEEVELESS), has(ModItems.SURCOAT_SLEEVELESS))
+                .unlockedBy(getHasName(KHItems.SURCOAT_SLEEVELESS), has(KHItems.SURCOAT_SLEEVELESS))
                 .unlockedBy(getHasName(Items.WHITE_BANNER), has(Items.WHITE_BANNER))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, "sleeveless_surcoat_with_banner"));*/
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "sleeveless_surcoat_with_banner"));*/
 
-     /*   ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TORSE)
-                .requires(ModItems.TORSE)
+     /*   ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TORSE.get())
+                .requires(KHItems.TORSE.get())
                 .requires(ModTags.DYES.getTag())
-                .unlockedBy(getHasName(ModItems.TORSE), has(ModItems.TORSE))
+                .unlockedBy(getHasName(KHItems.TORSE), has(KHItems.TORSE))
                 .unlockedBy("has_" + ModTags.DYES.getTag(), has(ModTags.DYES.getTag()))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(ModItems.TORSE).getPath() + "_dye"));
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(KHItems.TORSE).getPath() + "_dye"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TORSE)
-                .requires(ModItems.TORSE)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TORSE.get())
+                .requires(KHItems.TORSE.get())
+                .requires(ModTags.DYES.getTag().get())
                 .requires(ModTags.DYES.getTag())
-                .requires(ModTags.DYES.getTag())
-                .unlockedBy(getHasName(ModItems.TORSE), has(ModItems.TORSE))
+                .unlockedBy(getHasName(KHItems.TORSE), has(KHItems.TORSE))
                 .unlockedBy("has_" + ModTags.DYES.getTag(), has(ModTags.DYES.getTag()))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(ModItems.TORSE).getPath() + "_dye_double"));
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(KHItems.TORSE).getPath() + "_dye_double"));
 */
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TRI_PLUME)
-                .requires(ModItems.PLUME)
-                .requires(ModItems.PLUME)
-                .requires(ModItems.PLUME)
-                .unlockedBy(getHasName(ModItems.PLUME), has(ModItems.PLUME))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, getSimpleRecipeName(ModItems.TRI_PLUME)));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TRI_PLUME.get())
+                .requires(KHItems.PLUME.get())
+                .requires(KHItems.PLUME.get())
+                .requires(KHItems.PLUME.get())
+                .unlockedBy(getHasName(KHItems.PLUME.get()), has(KHItems.PLUME.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.TRI_PLUME.get())));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.FLUFFY_PLUME)
-                .requires(ModItems.PLUME)
-                .requires(ModItems.PLUME)
-                .requires(ModItems.PLUME)
-                .requires(ModItems.PLUME)
-                .requires(ModItems.PLUME)
-                .unlockedBy(getHasName(ModItems.PLUME), has(ModItems.PLUME))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, getSimpleRecipeName(ModItems.FLUFFY_PLUME)));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.FLUFFY_PLUME.get())
+                .requires(KHItems.PLUME.get())
+                .requires(KHItems.PLUME.get())
+                .requires(KHItems.PLUME.get())
+                .requires(KHItems.PLUME.get())
+                .requires(KHItems.PLUME.get())
+                .unlockedBy(getHasName(KHItems.PLUME.get()), has(KHItems.PLUME.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.FLUFFY_PLUME.get())));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.FLUFFY_PLUME)
-                .requires(ModItems.TRI_PLUME)
-                .requires(ModItems.PLUME)
-                .requires(ModItems.PLUME)
-                .unlockedBy(getHasName(ModItems.TRI_PLUME), has(ModItems.TRI_PLUME))
-                .unlockedBy(getHasName(ModItems.PLUME), has(ModItems.PLUME))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, getSimpleRecipeName(ModItems.FLUFFY_PLUME) + "_2"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.FLUFFY_PLUME.get())
+                .requires(KHItems.TRI_PLUME.get())
+                .requires(KHItems.PLUME.get())
+                .requires(KHItems.PLUME.get())
+                .unlockedBy(getHasName(KHItems.TRI_PLUME.get()), has(KHItems.TRI_PLUME.get()))
+                .unlockedBy(getHasName(KHItems.PLUME.get()), has(KHItems.PLUME.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.FLUFFY_PLUME.get()) + "_2"));
 
         // Golden
-        createSmithingRecipe(exporter, ModItems.GOLDEN_MAIL_SPAULDERS, 7, 0.7f,
-                new ItemStack(ModItems.MAIL_SPAULDERS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BRIGANDINE_SPAULDERS, 7, 0.7f,
-                new ItemStack(ModItems.BRIGANDINE_SPAULDERS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_PLATE_SPAULDERS, 7, 0.7f,
-                new ItemStack(ModItems.PLATE_SPAULDERS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BRIGANDINE, 7, 0.7f,
-                new ItemStack(ModItems.BRIGANDINE), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BRIG_BREASTPLATE, 7, 0.7f,
-                new ItemStack(ModItems.BRIG_BREASTPLATE), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BRIG_BREASTPLATE_TASSETS, 7, 0.7f,
-                new ItemStack(ModItems.BRIG_BREASTPLATE_TASSETS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_PLATE_CUIRASS, 7, 0.7f,
-                new ItemStack(ModItems.PLATE_CUIRASS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_PLATE_CUIRASS_TASSETS, 7, 0.7f,
-                new ItemStack(ModItems.PLATE_CUIRASS_TASSETS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_MAXIMILLIAN_CUIRASS, 7, 0.7f,
-                new ItemStack(ModItems.MAXIMILLIAN_CUIRASS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS, 7, 0.7f,
-                new ItemStack(ModItems.MAXIMILLIAN_CUIRASS_TASSETS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_XIIII_PLATE_CUIRASS, 7, 0.7f,
-                new ItemStack(ModItems.XIIII_PLATE_CUIRASS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_XIIII_PLATE_CUIRASS_TASSETS, 7, 0.7f,
-                new ItemStack(ModItems.XIIII_PLATE_CUIRASS_TASSETS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_XIIII_PLATE_BREASTPLATE, 7, 0.7f,
-                new ItemStack(ModItems.XIIII_PLATE_BREASTPLATE), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BARBUTE, 7, 0.7f,
-                new ItemStack(ModItems.BARBUTE), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BASCINET, 7, 0.7f,
-                new ItemStack(ModItems.BASCINET), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_KETTLE_HELM, 7, 0.7f,
-                new ItemStack(ModItems.KETTLE_HELM), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_NASAL_HELM, 7, 0.7f,
-                new ItemStack(ModItems.NASAL_HELM), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_VIKING_HELM, 7, 0.7f,
-                new ItemStack(ModItems.VIKING_HELM), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BURGONET, 7, 0.7f,
-                new ItemStack(ModItems.BURGONET), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_ARMET, 7, 0.7f,
-                new ItemStack(ModItems.ARMET), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_ARMET_2, 7, 0.7f,
-                new ItemStack(ModItems.ARMET_2), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_VISORED_BARBUTE, 7, 0.7f,
-                new ItemStack(ModItems.VISORED_BARBUTE), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_HOUNDSKULL, 7, 0.7f,
-                new ItemStack(ModItems.HOUNDSKULL), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_CAGE, 7, 0.7f,
-                new ItemStack(ModItems.CAGE), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_VISORED_BASCINET, 7, 0.7f,
-                new ItemStack(ModItems.VISORED_BASCINET), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_GREAT_HELM, 7, 0.7f,
-                new ItemStack(ModItems.GREAT_HELM), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_GREAT_HELM_2, 7, 0.7f,
-                new ItemStack(ModItems.GREAT_HELM_2), new ItemStack(Items.GOLD_INGOT, 3), new ItemStack(Items.IRON_INGOT, 2));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_FROGMOUTH, 7, 0.7f,
-                new ItemStack(ModItems.FROGMOUTH), new ItemStack(Items.GOLD_INGOT, 3), new ItemStack(Items.IRON_INGOT, 2));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_GREAT_ARMET, 7, 0.7f,
-                new ItemStack(ModItems.GREAT_ARMET), new ItemStack(Items.GOLD_INGOT, 3), new ItemStack(Items.IRON_INGOT, 2));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_GREAT_ARMET_2, 7, 0.7f,
-                new ItemStack(ModItems.GREAT_ARMET_2), new ItemStack(Items.GOLD_INGOT, 3), new ItemStack(Items.IRON_INGOT, 2));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_SALLET, 7, 0.7f,
-                new ItemStack(ModItems.SALLET), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BURGONET_FALLING_BUFFE, 7, 0.7f,
-                new ItemStack(ModItems.BURGONET_FALLING_BUFFE), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_CLOSE_HELM, 7, 0.7f,
-                new ItemStack(ModItems.CLOSE_HELM), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_GREAT_BASCINET, 7, 0.7f,
-                new ItemStack(ModItems.GREAT_BASCINET), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET, 7, 0.7f,
-                new ItemStack(ModItems.GREAT_HOUNDSKUL_BASCINET), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_MAXIMILLIAN_HELMET, 7, 0.7f,
-                new ItemStack(ModItems.MAXIMILLIAN_HELMET), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_SAVOYARD, 7, 0.7f,
-                new ItemStack(ModItems.SAVOYARD), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_GAUNTLET, 7, 0.7f,
-                new ItemStack(ModItems.GAUNTLET), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BRIGANDINE_HARNESS, 7, 0.7f,
-                new ItemStack(ModItems.BRIGANDINE_HARNESS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_PLATE_HARNESS, 7, 0.7f,
-                new ItemStack(ModItems.PLATE_HARNESS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BRIGANDINE_CUISSES, 7, 0.7f,
-                new ItemStack(ModItems.BRIGANDINE_CUISSES), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_PLATE_CUISSES, 7, 0.7f,
-                new ItemStack(ModItems.PLATE_CUISSES), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_GREAVES, 7, 0.7f,
-                new ItemStack(ModItems.GREAVES), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_SABATONS, 7, 0.7f,
-                new ItemStack(ModItems.SABATONS), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_BEVOR, 7, 0.7f,
-                new ItemStack(ModItems.BEVOR), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, ModItems.GOLDEN_HORSE_BARDING, 7, 0.7f,
-                new ItemStack(ModItems.HORSE_BARDING), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_MAIL_SPAULDERS.get(), 7, 0.7f,
+                new ItemStack(KHItems.MAIL_SPAULDERS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), 7, 0.7f,
+                new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_PLATE_SPAULDERS.get(), 7, 0.7f,
+                new ItemStack(KHItems.PLATE_SPAULDERS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BRIGANDINE.get(), 7, 0.7f,
+                new ItemStack(KHItems.BRIGANDINE.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BRIG_BREASTPLATE.get(), 7, 0.7f,
+                new ItemStack(KHItems.BRIG_BREASTPLATE.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get(), 7, 0.7f,
+                new ItemStack(KHItems.BRIG_BREASTPLATE_TASSETS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_PLATE_CUIRASS.get(), 7, 0.7f,
+                new ItemStack(KHItems.PLATE_CUIRASS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_PLATE_CUIRASS_TASSETS.get(), 7, 0.7f,
+                new ItemStack(KHItems.PLATE_CUIRASS_TASSETS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_MAXIMILLIAN_CUIRASS.get(), 7, 0.7f,
+                new ItemStack(KHItems.MAXIMILLIAN_CUIRASS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS.get(), 7, 0.7f,
+                new ItemStack(KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get(), 7, 0.7f,
+                new ItemStack(KHItems.XIIII_PLATE_CUIRASS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_XIIII_PLATE_CUIRASS_TASSETS.get(), 7, 0.7f,
+                new ItemStack(KHItems.XIIII_PLATE_CUIRASS_TASSETS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get(), 7, 0.7f,
+                new ItemStack(KHItems.XIIII_PLATE_BREASTPLATE.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BARBUTE.get(), 7, 0.7f,
+                new ItemStack(KHItems.BARBUTE.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BASCINET.get(), 7, 0.7f,
+                new ItemStack(KHItems.BASCINET.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_KETTLE_HELM.get(), 7, 0.7f,
+                new ItemStack(KHItems.KETTLE_HELM.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_NASAL_HELM.get(), 7, 0.7f,
+                new ItemStack(KHItems.NASAL_HELM.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_VIKING_HELM.get(), 7, 0.7f,
+                new ItemStack(KHItems.VIKING_HELM.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BURGONET.get(), 7, 0.7f,
+                new ItemStack(KHItems.BURGONET.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_ARMET.get(), 7, 0.7f,
+                new ItemStack(KHItems.ARMET.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_ARMET_2.get(), 7, 0.7f,
+                new ItemStack(KHItems.ARMET_2.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_VISORED_BARBUTE.get(), 7, 0.7f,
+                new ItemStack(KHItems.VISORED_BARBUTE.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_HOUNDSKULL.get(), 7, 0.7f,
+                new ItemStack(KHItems.HOUNDSKULL.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_CAGE.get(), 7, 0.7f,
+                new ItemStack(KHItems.CAGE.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_VISORED_BASCINET.get(), 7, 0.7f,
+                new ItemStack(KHItems.VISORED_BASCINET.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_GREAT_HELM.get(), 7, 0.7f,
+                new ItemStack(KHItems.GREAT_HELM.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_GREAT_HELM_2.get(), 7, 0.7f,
+                new ItemStack(KHItems.GREAT_HELM_2.get()), new ItemStack(Items.GOLD_INGOT, 3), new ItemStack(Items.IRON_INGOT, 2));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_FROGMOUTH.get(), 7, 0.7f,
+                new ItemStack(KHItems.FROGMOUTH.get()), new ItemStack(Items.GOLD_INGOT, 3), new ItemStack(Items.IRON_INGOT, 2));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_GREAT_ARMET.get(), 7, 0.7f,
+                new ItemStack(KHItems.GREAT_ARMET.get()), new ItemStack(Items.GOLD_INGOT, 3), new ItemStack(Items.IRON_INGOT, 2));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_GREAT_ARMET_2.get(), 7, 0.7f,
+                new ItemStack(KHItems.GREAT_ARMET_2.get()), new ItemStack(Items.GOLD_INGOT, 3), new ItemStack(Items.IRON_INGOT, 2));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_SALLET.get(), 7, 0.7f,
+                new ItemStack(KHItems.SALLET.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BURGONET_FALLING_BUFFE.get(), 7, 0.7f,
+                new ItemStack(KHItems.BURGONET_FALLING_BUFFE.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_CLOSE_HELM.get(), 7, 0.7f,
+                new ItemStack(KHItems.CLOSE_HELM.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_GREAT_BASCINET.get(), 7, 0.7f,
+                new ItemStack(KHItems.GREAT_BASCINET.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get(), 7, 0.7f,
+                new ItemStack(KHItems.GREAT_HOUNDSKUL_BASCINET.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_MAXIMILLIAN_HELMET.get(), 7, 0.7f,
+                new ItemStack(KHItems.MAXIMILLIAN_HELMET.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_SAVOYARD.get(), 7, 0.7f,
+                new ItemStack(KHItems.SAVOYARD.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_GAUNTLET.get(), 7, 0.7f,
+                new ItemStack(KHItems.GAUNTLET.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BRIGANDINE_HARNESS.get(), 7, 0.7f,
+                new ItemStack(KHItems.BRIGANDINE_HARNESS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_PLATE_HARNESS.get(), 7, 0.7f,
+                new ItemStack(KHItems.PLATE_HARNESS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BRIGANDINE_CUISSES.get(), 7, 0.7f,
+                new ItemStack(KHItems.BRIGANDINE_CUISSES.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_PLATE_CUISSES.get(), 7, 0.7f,
+                new ItemStack(KHItems.PLATE_CUISSES.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_GREAVES.get(), 7, 0.7f,
+                new ItemStack(KHItems.GREAVES.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_SABATONS.get(), 7, 0.7f,
+                new ItemStack(KHItems.SABATONS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BEVOR.get(), 7, 0.7f,
+                new ItemStack(KHItems.BEVOR.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_HORSE_BARDING.get(), 7, 0.7f,
+                new ItemStack(KHItems.HORSE_BARDING.get()), new ItemStack(Items.GOLD_INGOT, 5));
 
         // Darkened
-        createSmithingRecipe(exporter, ModItems.DARK_BRIGANDINE_SPAULDERS, 7, 0.85f,
-                new ItemStack(ModItems.BRIGANDINE_SPAULDERS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BRIGANDINE_SPAULDERS.get(), 7, 0.85f,
+                new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_PLATE_SPAULDERS, 7, 0.85f,
-                new ItemStack(ModItems.PLATE_SPAULDERS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_PLATE_SPAULDERS.get(), 7, 0.85f,
+                new ItemStack(KHItems.PLATE_SPAULDERS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_BRIGANDINE, 7, 0.85f,
-                new ItemStack(ModItems.BRIGANDINE), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BRIGANDINE.get(), 7, 0.85f,
+                new ItemStack(KHItems.BRIGANDINE.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_BRIG_BREASTPLATE, 7, 0.85f,
-                new ItemStack(ModItems.BRIG_BREASTPLATE), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BRIG_BREASTPLATE.get(), 7, 0.85f,
+                new ItemStack(KHItems.BRIG_BREASTPLATE.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_BRIG_BREASTPLATE_TASSETS, 7, 0.85f,
-                new ItemStack(ModItems.BRIG_BREASTPLATE_TASSETS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BRIG_BREASTPLATE_TASSETS.get(), 7, 0.85f,
+                new ItemStack(KHItems.BRIG_BREASTPLATE_TASSETS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_PLATE_CUIRASS, 7, 0.85f,
-                new ItemStack(ModItems.PLATE_CUIRASS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_PLATE_CUIRASS.get(), 7, 0.85f,
+                new ItemStack(KHItems.PLATE_CUIRASS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_PLATE_CUIRASS_TASSETS, 7, 0.85f,
-                new ItemStack(ModItems.PLATE_CUIRASS_TASSETS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_PLATE_CUIRASS_TASSETS.get(), 7, 0.85f,
+                new ItemStack(KHItems.PLATE_CUIRASS_TASSETS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_MAXIMILLIAN_CUIRASS, 7, 0.85f,
-                new ItemStack(ModItems.MAXIMILLIAN_CUIRASS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_MAXIMILLIAN_CUIRASS.get(), 7, 0.85f,
+                new ItemStack(KHItems.MAXIMILLIAN_CUIRASS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS, 7, 0.85f,
-                new ItemStack(ModItems.MAXIMILLIAN_CUIRASS_TASSETS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS.get(), 7, 0.85f,
+                new ItemStack(KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_XIIII_PLATE_CUIRASS, 7, 0.85f,
-                new ItemStack(ModItems.XIIII_PLATE_CUIRASS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_XIIII_PLATE_CUIRASS.get(), 7, 0.85f,
+                new ItemStack(KHItems.XIIII_PLATE_CUIRASS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_XIIII_PLATE_CUIRASS_TASSETS, 7, 0.85f,
-                new ItemStack(ModItems.XIIII_PLATE_CUIRASS_TASSETS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get(), 7, 0.85f,
+                new ItemStack(KHItems.XIIII_PLATE_CUIRASS_TASSETS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_XIIII_PLATE_BREASTPLATE, 7, 0.85f,
-                new ItemStack(ModItems.XIIII_PLATE_BREASTPLATE), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_XIIII_PLATE_BREASTPLATE.get(), 7, 0.85f,
+                new ItemStack(KHItems.XIIII_PLATE_BREASTPLATE.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_BARBUTE, 7, 0.85f,
-                new ItemStack(ModItems.BARBUTE), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BARBUTE.get(), 7, 0.85f,
+                new ItemStack(KHItems.BARBUTE.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_BASCINET, 7, 0.85f,
-                new ItemStack(ModItems.BASCINET), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BASCINET.get(), 7, 0.85f,
+                new ItemStack(KHItems.BASCINET.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_KETTLE_HELM, 7, 0.85f,
-                new ItemStack(ModItems.KETTLE_HELM), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_KETTLE_HELM.get(), 7, 0.85f,
+                new ItemStack(KHItems.KETTLE_HELM.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_NASAL_HELM, 7, 0.85f,
-                new ItemStack(ModItems.NASAL_HELM), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_NASAL_HELM.get(), 7, 0.85f,
+                new ItemStack(KHItems.NASAL_HELM.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_VIKING_HELM, 7, 0.85f,
-                new ItemStack(ModItems.VIKING_HELM), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_VIKING_HELM.get(), 7, 0.85f,
+                new ItemStack(KHItems.VIKING_HELM.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_BURGONET, 7, 0.85f,
-                new ItemStack(ModItems.BURGONET), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BURGONET.get(), 7, 0.85f,
+                new ItemStack(KHItems.BURGONET.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_ARMET, 7, 0.85f,
-                new ItemStack(ModItems.ARMET), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_ARMET.get(), 7, 0.85f,
+                new ItemStack(KHItems.ARMET.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_ARMET_2, 7, 0.85f,
-                new ItemStack(ModItems.ARMET_2), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_ARMET_2.get(), 7, 0.85f,
+                new ItemStack(KHItems.ARMET_2.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_VISORED_BARBUTE, 7, 0.85f,
-                new ItemStack(ModItems.VISORED_BARBUTE), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_VISORED_BARBUTE.get(), 7, 0.85f,
+                new ItemStack(KHItems.VISORED_BARBUTE.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_HOUNDSKULL, 7, 0.85f,
-                new ItemStack(ModItems.HOUNDSKULL), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_HOUNDSKULL.get(), 7, 0.85f,
+                new ItemStack(KHItems.HOUNDSKULL.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_CAGE, 7, 0.85f,
-                new ItemStack(ModItems.CAGE), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_CAGE.get(), 7, 0.85f,
+                new ItemStack(KHItems.CAGE.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_VISORED_BASCINET, 7, 0.85f,
-                new ItemStack(ModItems.VISORED_BASCINET), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_VISORED_BASCINET.get(), 7, 0.85f,
+                new ItemStack(KHItems.VISORED_BASCINET.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_GREAT_HELM, 7, 0.85f,
-                new ItemStack(ModItems.GREAT_HELM), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_GREAT_HELM.get(), 7, 0.85f,
+                new ItemStack(KHItems.GREAT_HELM.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_GREAT_HELM_2, 7, 0.85f,
-                new ItemStack(ModItems.GREAT_HELM_2), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_GREAT_HELM_2.get(), 7, 0.85f,
+                new ItemStack(KHItems.GREAT_HELM_2.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_SALLET, 7, 0.85f,
-                new ItemStack(ModItems.SALLET), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_SALLET.get(), 7, 0.85f,
+                new ItemStack(KHItems.SALLET.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_BURGONET_FALLING_BUFFE, 7, 0.85f,
-                new ItemStack(ModItems.BURGONET_FALLING_BUFFE), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BURGONET_FALLING_BUFFE.get(), 7, 0.85f,
+                new ItemStack(KHItems.BURGONET_FALLING_BUFFE.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_CLOSE_HELM, 7, 0.85f,
-                new ItemStack(ModItems.CLOSE_HELM), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_CLOSE_HELM.get(), 7, 0.85f,
+                new ItemStack(KHItems.CLOSE_HELM.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_FROGMOUTH, 7, 0.85f,
-                new ItemStack(ModItems.FROGMOUTH), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_FROGMOUTH.get(), 7, 0.85f,
+                new ItemStack(KHItems.FROGMOUTH.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_GREAT_ARMET, 7, 0.85f,
-                new ItemStack(ModItems.GREAT_ARMET), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_GREAT_ARMET.get(), 7, 0.85f,
+                new ItemStack(KHItems.GREAT_ARMET.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_GREAT_ARMET_2, 7, 0.85f,
-                new ItemStack(ModItems.GREAT_ARMET_2), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_GREAT_ARMET_2.get(), 7, 0.85f,
+                new ItemStack(KHItems.GREAT_ARMET_2.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_GREAT_BASCINET, 7, 0.85f,
-                new ItemStack(ModItems.GREAT_BASCINET), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_GREAT_BASCINET.get(), 7, 0.85f,
+                new ItemStack(KHItems.GREAT_BASCINET.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_GREAT_HOUNDSKUL_BASCINET, 7, 0.85f,
-                new ItemStack(ModItems.GREAT_HOUNDSKUL_BASCINET), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_GREAT_HOUNDSKUL_BASCINET.get(), 7, 0.85f,
+                new ItemStack(KHItems.GREAT_HOUNDSKUL_BASCINET.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_MAXIMILLIAN_HELMET, 7, 0.85f,
-                new ItemStack(ModItems.MAXIMILLIAN_HELMET), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_MAXIMILLIAN_HELMET.get(), 7, 0.85f,
+                new ItemStack(KHItems.MAXIMILLIAN_HELMET.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_SAVOYARD, 7, 0.85f,
-                new ItemStack(ModItems.SAVOYARD), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_SAVOYARD.get(), 7, 0.85f,
+                new ItemStack(KHItems.SAVOYARD.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_GAUNTLET, 7, 0.85f,
-                new ItemStack(ModItems.GAUNTLET), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_GAUNTLET.get(), 7, 0.85f,
+                new ItemStack(KHItems.GAUNTLET.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_BRIGANDINE_HARNESS, 7, 0.85f,
-                new ItemStack(ModItems.BRIGANDINE_HARNESS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BRIGANDINE_HARNESS.get(), 7, 0.85f,
+                new ItemStack(KHItems.BRIGANDINE_HARNESS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_PLATE_HARNESS, 7, 0.85f,
-                new ItemStack(ModItems.PLATE_HARNESS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_PLATE_HARNESS.get(), 7, 0.85f,
+                new ItemStack(KHItems.PLATE_HARNESS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_BRIGANDINE_CUISSES, 7, 0.85f,
-                new ItemStack(ModItems.BRIGANDINE_CUISSES), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BRIGANDINE_CUISSES.get(), 7, 0.85f,
+                new ItemStack(KHItems.BRIGANDINE_CUISSES.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_PLATE_CUISSES, 7, 0.85f,
-                new ItemStack(ModItems.PLATE_CUISSES), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_PLATE_CUISSES.get(), 7, 0.85f,
+                new ItemStack(KHItems.PLATE_CUISSES.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_GREAVES, 7, 0.85f,
-                new ItemStack(ModItems.GREAVES), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_GREAVES.get(), 7, 0.85f,
+                new ItemStack(KHItems.GREAVES.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_SABATONS, 7, 0.85f,
-                new ItemStack(ModItems.SABATONS), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_SABATONS.get(), 7, 0.85f,
+                new ItemStack(KHItems.SABATONS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_BEVOR, 7, 0.85f,
-                new ItemStack(ModItems.BEVOR), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_BEVOR.get(), 7, 0.85f,
+                new ItemStack(KHItems.BEVOR.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, ModItems.DARK_HORSE_BARDING, 7, 0.85f,
-                new ItemStack(ModItems.HORSE_BARDING), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_HORSE_BARDING.get(), 7, 0.85f,
+                new ItemStack(KHItems.HORSE_BARDING.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
 
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.DAGGER, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.STILETTO, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.RAPIER, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.SWORD, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.V_SWORD, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.ARMING_SWORD, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.AXE, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.BROAD_AXE, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.CROOKED_AXE, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.STRAIGHT_CROOKED_AXE, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.MACE, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.SPIKED_MACE, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.FLAIL, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.BALL_FLAIL, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.HAMMER, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.WAR_HAMMER, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.LONGSWORD, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.V_LONGSWORD, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.FALCHION, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.SCIMITAR, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.PITCHFORK, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.SPEAR, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.PIKE, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.BILLHOOK, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.GLAIVE, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.CURVED_GLAIVE, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.HALBERD, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.LANCE, new ItemStack(SCItems.HOT_IRON), ItemTags.LOGS);
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.POLEAXE, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.POLEHAMMER, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.BEC_DE_CORBIN, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.MORNING_STAR, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.BARDICHE, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.GREATSWORD, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.CLAYMORE, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.FLAMBERGE, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.ZWEIHANDER, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.WARDART, new ItemStack(SCItems.HOT_IRON), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.DAGGER.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.STILETTO.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.RAPIER.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.SWORD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.V_SWORD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.ARMING_SWORD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.AXE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BROAD_AXE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.CROOKED_AXE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.STRAIGHT_CROOKED_AXE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.MACE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.SPIKED_MACE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.FLAIL.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BALL_FLAIL.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.HAMMER.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.WAR_HAMMER.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.LONGSWORD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.V_LONGSWORD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.FALCHION.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.SCIMITAR.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PITCHFORK.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.SPEAR.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PIKE.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BILLHOOK.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.GLAIVE.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.CURVED_GLAIVE.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.HALBERD.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.LANCE.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.LOGS);
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.POLEAXE.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.POLEHAMMER.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.BEC_DE_CORBIN.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.MORNING_STAR.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BARDICHE.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.GREATSWORD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.CLAYMORE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.FLAMBERGE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.ZWEIHANDER.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.WARDART.get(), new ItemStack(SCItems.HOT_IRON.get()), ItemTags.PLANKS);
 
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.MAIL_COIF, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.CHAIN));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.HAUBERK, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.CHAIN));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.MAIL_BREECHES, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.CHAIN));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.MAIL_BOOTS, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.CHAIN));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.MAIL_SPAULDERS, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.CHAIN));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.BRIGANDINE_SPAULDERS, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.LEATHER));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.PLATE_SPAULDERS, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.BRIGANDINE, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.LEATHER));
-        createCraftmanAnvilRecipe(exporter, 5, 1.0f, ModItems.BRIG_BREASTPLATE, new ItemStack(ModItems.BRIGANDINE), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 1.0f, ModItems.BRIG_BREASTPLATE_TASSETS, new ItemStack(ModItems.BRIG_BREASTPLATE), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.PLATE_CUIRASS, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 1.0f, ModItems.PLATE_CUIRASS_TASSETS, new ItemStack(ModItems.PLATE_CUIRASS), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.MAXIMILLIAN_CUIRASS, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 1.0f, ModItems.MAXIMILLIAN_CUIRASS_TASSETS, new ItemStack(ModItems.MAXIMILLIAN_CUIRASS), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.XIIII_PLATE_CUIRASS, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 1.0f, ModItems.XIIII_PLATE_CUIRASS_TASSETS, new ItemStack(ModItems.XIIII_PLATE_CUIRASS), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.XIIII_PLATE_BREASTPLATE, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.RIM_GUARDS, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.BESAGEWS, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.BARBUTE, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.BASCINET, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.KETTLE_HELM, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.NASAL_HELM, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.VIKING_HELM, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.BURGONET, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.ARMET, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.ARMET_2, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.75f, ModItems.VISORED_BARBUTE, new ItemStack(ModItems.BARBUTE), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.HOUNDSKULL, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.CAGE, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.75f, ModItems.VISORED_BASCINET, new ItemStack(ModItems.BASCINET), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.GREAT_HELM, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, false, 3, 1.0f, ModItems.GREAT_HELM_2, false, new ItemStack(ModItems.GREAT_HELM), new ItemStack(Items.GOLD_INGOT));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.SALLET, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.BURGONET_FALLING_BUFFE, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.CLOSE_HELM, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.FROGMOUTH, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.GREAT_ARMET, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.GREAT_ARMET_2, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.GREAT_BASCINET, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.GREAT_HOUNDSKUL_BASCINET, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.MAXIMILLIAN_HELMET, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.GAUNTLET, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.BRIGANDINE_HARNESS, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.LEATHER));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.PLATE_HARNESS, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.BRIGANDINE_CUISSES, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.LEATHER));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.PLATE_CUISSES, new ItemStack(SCItems.HOT_IRON), new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.GREAVES, new ItemStack(SCItems.HOT_IRON));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.SABATONS, new ItemStack(SCItems.HOT_IRON));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.MAIL_COIF.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.CHAIN));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.HAUBERK.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.CHAIN));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.MAIL_BREECHES.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.CHAIN));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.MAIL_BOOTS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.CHAIN));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.MAIL_SPAULDERS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.CHAIN));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.LEATHER));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.PLATE_SPAULDERS.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BRIGANDINE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.LEATHER));
+        createCraftmanAnvilRecipe(exporter, 5, 1.0f, KHItems.BRIG_BREASTPLATE.get(), new ItemStack(KHItems.BRIGANDINE.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.BRIG_BREASTPLATE_TASSETS.get(), new ItemStack(KHItems.BRIG_BREASTPLATE.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.PLATE_CUIRASS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.PLATE_CUIRASS_TASSETS.get(), new ItemStack(KHItems.PLATE_CUIRASS.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.MAXIMILLIAN_CUIRASS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get(), new ItemStack(KHItems.MAXIMILLIAN_CUIRASS.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.XIIII_PLATE_CUIRASS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.XIIII_PLATE_CUIRASS_TASSETS.get(), new ItemStack(KHItems.XIIII_PLATE_CUIRASS.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.XIIII_PLATE_BREASTPLATE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.RIM_GUARDS.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BESAGEWS.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BARBUTE.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BASCINET.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.KETTLE_HELM.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.NASAL_HELM.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.VIKING_HELM.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BURGONET.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.ARMET.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.ARMET_2.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.75f, KHItems.VISORED_BARBUTE.get(), new ItemStack(KHItems.BARBUTE.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.HOUNDSKULL.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.CAGE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.75f, KHItems.VISORED_BASCINET.get(), new ItemStack(KHItems.BASCINET.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.GREAT_HELM.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, false, 3, 1.0f, KHItems.GREAT_HELM_2.get(), false, new ItemStack(KHItems.GREAT_HELM.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.SALLET.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BURGONET_FALLING_BUFFE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.CLOSE_HELM.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.FROGMOUTH.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.GREAT_ARMET.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.GREAT_ARMET_2.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.GREAT_BASCINET.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.GREAT_HOUNDSKUL_BASCINET.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.MAXIMILLIAN_HELMET.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.GAUNTLET.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BRIGANDINE_HARNESS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.LEATHER));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.PLATE_HARNESS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BRIGANDINE_CUISSES.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.LEATHER));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.PLATE_CUISSES.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.GREAVES.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.SABATONS.get(), new ItemStack(SCItems.HOT_IRON.get()));
 
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.SWALLOWTAIL_ARROW, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.FEATHER));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, ModItems.BODKIN_ARROW, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.FEATHER));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, ModItems.BROADHEAD_ARROW, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.FEATHER));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, ModItems.CLOTH_ARROW, ItemTags.WOOL, new ItemStack(Items.FEATHER));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.SWALLOWTAIL_ARROW.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.FEATHER));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BODKIN_ARROW.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.FEATHER));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BROADHEAD_ARROW.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.FEATHER));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.CLOTH_ARROW.get(), ItemTags.WOOL, new ItemStack(Items.FEATHER));
 
-        createCraftmanAnvilRecipe(exporter, 9, 0.25f, ModItems.HORSE_BARDING, new ItemStack(SCItems.HOT_IRON), new ItemStack(Items.IRON_HORSE_ARMOR));
+        createCraftmanAnvilRecipe(exporter, 9, 0.25f, KHItems.HORSE_BARDING.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.IRON_HORSE_ARMOR));
 
-        createBannerRecipe(exporter, ModItems.SURCOAT);
-        createBannerRecipe(exporter, ModItems.SURCOAT_SLEEVELESS);
+        createBannerRecipe(exporter, KHItems.SURCOAT.get());
+        createBannerRecipe(exporter, KHItems.SURCOAT_SLEEVELESS.get());
     }
 
-    private void createCraftmanAnvilRecipe(Consumer<FinishedRecipe> exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, String path, Object... requiress) {
+    private void createCraftmanAnvilRecipe(RecipeOutput exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, String path, Object... requiress) {
         ItemStack resultStack = new ItemStack(output);
         if (outputHotIron) resultStack = HotIron.createForStack(resultStack);
 
@@ -543,90 +543,86 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         }
 
         for (Object requires : requiress) {
-            if (requires instanceof ItemStack itemStack) {
-                int count = itemStack.getCount();
-                for (int i = 0; i < count; i++) {
-                    ItemStack singleStack = itemStack.copy();
-                    singleStack.setCount(1);
-                    builder.requires(singleStack);
+            switch (requires) {
+                case ItemStack itemStack -> {
+                    int count = itemStack.getCount();
+                    for (int i = 0; i < count; i++) {
+                        ItemStack singleStack = itemStack.copy();
+                        singleStack.setCount(1);
+                        builder.requires(singleStack);
+                    }
                 }
-            } else if (requires instanceof Item item) {
-                builder.requires(new ItemStack(item));
-            } else if (requires instanceof TagKey) {
-                @SuppressWarnings("unchecked")
-                TagKey<Item> itemTag = (TagKey<Item>) requires;
-                builder.requires(itemTag);
-            } else {
-                System.out.println("Unhandled type: " + requires.getClass().getName());
+                case Item item -> builder.requires(new ItemStack(item));
+                case TagKey tagKey -> {
+                    @SuppressWarnings("unchecked")
+                    TagKey<Item> itemTag = (TagKey<Item>) requires;
+                    builder.requires(itemTag, 1);
+                }
+                default -> System.out.println("Unhandled type: " + requires.getClass().getName());
             }
         }
 
         if (path.isEmpty()) path = "craftmananvil/" + BuiltInRegistries.ITEM.getKey(output).getPath();
 
-        builder.save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, path));
+        builder.save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, path));
     }
 
-    private void createCraftmanAnvilRecipe(Consumer<FinishedRecipe> exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, Object... requiress) {
+    private void createCraftmanAnvilRecipe(RecipeOutput exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, Object... requiress) {
         createCraftmanAnvilRecipe(exporter, createManuscript, hitTime, chance, output, outputHotIron, "", requiress);
     }
 
-    private void createCraftmanAnvilRecipe(Consumer<FinishedRecipe> exporter, int hitTime, float chance, Item output, Object... requiress) {
+    private void createCraftmanAnvilRecipe(RecipeOutput exporter, int hitTime, float chance, Item output, Object... requiress) {
         createCraftmanAnvilRecipe(exporter, true, hitTime, chance, output, true, "", requiress);
     }
 
-    private void createSmithingRecipe(Consumer<FinishedRecipe> exporter, Item output, int hitTime, float chance, Object... requiress) {
+    private void createSmithingRecipe(RecipeOutput exporter, Item output, int hitTime, float chance, Object... requiress) {
         createCraftmanAnvilRecipe(exporter, false, hitTime, chance, output, false, "", requiress);
     }
 
-    private void createManuscriptRecipe(Consumer<FinishedRecipe> exporter, Item base) {
+    private void createManuscriptRecipe(RecipeOutput exporter, Item base) {
         NonNullList<Ingredient> ingredients = NonNullList.create();
         ingredients.add(Ingredient.of(Items.PAPER));
-        ingredients.add(Ingredient.of(SCItems.SMITHING_HAMMER));
+        ingredients.add(Ingredient.of(SCItems.SMITHING_HAMMER.get()));
         ingredients.add(Ingredient.of(base));
 
-        exporter.accept(new ManuscriptRecipeBuilder(
-                new ResourceLocation(KnightsHeraldry.MOD_ID, "manuscript/" + getItemName(base)),
-                SCItems.MANUSCRIPT,
-                ingredients
-        ));
+        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(
+                KnightsHeraldry.MOD_ID,
+                "manuscript/" + getItemName(base)
+        );
+
+        new ManuscriptRecipeBuilder(SCItems.MANUSCRIPT.get(), ingredients)
+                .unlockedBy(getHasName(base), has(base))
+                .save(exporter, recipeId);
     }
 
-    private void createBannerRecipe(Consumer<FinishedRecipe> exporter, Item targetItem) {
-
-        NonNullList<Ingredient> ingredients = NonNullList.create();
-
-        // Any banner
-        ingredients.add(Ingredient.of(net.minecraft.tags.ItemTags.BANNERS));
-
-        // The armor/surcoat/etc
-        ingredients.add(Ingredient.of(targetItem));
-
-        exporter.accept(new BannerRecipeBuilder(
-                new ResourceLocation(KnightsHeraldry.MOD_ID,
-                        "banner_pattern/" + getItemName(targetItem)),
-                targetItem,
-                ingredients,
-                CraftingBookCategory.MISC,
-                getItemName(targetItem)
-        ));
+    private void createBannerRecipe(RecipeOutput exporter, Item targetItem) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, targetItem)
+                .requires(ItemTags.BANNERS)
+                .requires(targetItem)
+                .unlockedBy("has_item", RecipeProvider.has(targetItem))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "banner_pattern/" + getItemName(targetItem)));
     }
 
-    private void createDecoRecipe(Consumer<FinishedRecipe> exporter, Item helmet) {
+    private void createDecoRecipe(RecipeOutput exporter, Item helmet) {
         String helmetName = BuiltInRegistries.ITEM.getKey(helmet).getPath();
 
-        for (HelmetDeco deco : HelmetDeco.getValues()) {
+        for (HelmetDeco deco : HelmetDeco.all()) {
             NonNullList<Ingredient> ingredients = NonNullList.create();
             ingredients.add(Ingredient.of(helmet));
             ingredients.add(Ingredient.of(deco.item()));
 
-            exporter.accept(new HelmetDecoRecipeBuilder(
-                    new ResourceLocation(KnightsHeraldry.MOD_ID, "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(deco.item()).getPath()),
-                    ingredients
-            ));
+            // Create the ID
+            ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
+                    "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(deco.item()).getPath());
+
+            // Use .save() instead of exporter.accept()
+            new HelmetDecoRecipeBuilder(ingredients)
+                    .unlockedBy(getHasName(helmet), has(helmet))
+                    .save(exporter, recipeId);
         }
 
-        var group0 = HelmetDeco.getValues().stream().filter(d -> d.group() == 0).toList();
-        var group1 = HelmetDeco.getValues().stream().filter(d -> d.group() == 1).toList();
+        var group0 = HelmetDeco.all().stream().filter(d -> d.group() == 0).toList();
+        var group1 = HelmetDeco.all().stream().filter(d -> d.group() == 1).toList();
 
         for (HelmetDeco deco0 : group0) {
             for (HelmetDeco deco1 : group1) {
@@ -635,48 +631,53 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 ingredients.add(Ingredient.of(deco0.item()));
                 ingredients.add(Ingredient.of(deco1.item()));
 
-                exporter.accept(new HelmetDecoRecipeBuilder(
-                        new ResourceLocation(KnightsHeraldry.MOD_ID, "deco/" + helmetName + "_" +
+                ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
+                        "deco/" + helmetName + "_" +
                                 BuiltInRegistries.ITEM.getKey(deco0.item()).getPath() + "_" +
-                                BuiltInRegistries.ITEM.getKey(deco1.item()).getPath()),
-                        ingredients
-                ));
+                                BuiltInRegistries.ITEM.getKey(deco1.item()).getPath());
+
+                // Use .save()
+                new HelmetDecoRecipeBuilder(ingredients)
+                        .unlockedBy(getHasName(helmet), has(helmet))
+                        .save(exporter, recipeId);
             }
         }
     }
 
-    private void createDecoPlumeRecipe(Consumer<FinishedRecipe> exporter, Item helmet) {
+    private void createDecoPlumeRecipe(RecipeOutput exporter, Item helmet) {
         String helmetName = BuiltInRegistries.ITEM.getKey(helmet).getPath();
 
         NonNullList<Ingredient> ingredients = NonNullList.create();
         ingredients.add(Ingredient.of(helmet));
-        ingredients.add(Ingredient.of(ModItems.PLUME));
+        ingredients.add(Ingredient.of(KHItems.PLUME.get()));
 
-        exporter.accept(new HelmetDecoRecipeBuilder(
-                new ResourceLocation(KnightsHeraldry.MOD_ID, "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(ModItems.PLUME).getPath()),
-                ingredients
-        ));
+        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
+                "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(KHItems.PLUME.get()).getPath());
 
+        // Use .save()
+        new HelmetDecoRecipeBuilder(ingredients)
+                .unlockedBy(getHasName(helmet), has(helmet))
+                .save(exporter, recipeId);
     }
 
-    private void createWeaponCycle(Consumer<FinishedRecipe> exporter, Item... weapons) {
+    private void createWeaponCycle(RecipeOutput exporter, Item... weapons) {
         for (int i = 0; i < weapons.length; i++) {
             Item current = weapons[i];
             Item next = weapons[(i + 1) % weapons.length];
 
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, next, 1)
-                    .requires(SCItems.SMITHING_HAMMER)
+                    .requires(SCItems.SMITHING_HAMMER.get())
                     .requires(current)
-                    .unlockedBy(getHasName(SCItems.SMITHING_HAMMER), has(SCItems.SMITHING_HAMMER))
+                    .unlockedBy(getHasName(SCItems.SMITHING_HAMMER.get()), has(SCItems.SMITHING_HAMMER.get()))
                     .unlockedBy(getHasName(current), has(current))
-                    .save(exporter, new ResourceLocation(
+                    .save(exporter, ResourceLocation.fromNamespaceAndPath(
                             KnightsHeraldry.MOD_ID,
                             "upgrade_" + BuiltInRegistries.ITEM.getKey(current).getPath() + "_to_" + BuiltInRegistries.ITEM.getKey(next).getPath()
                     ));
         }
     }
 
-    private void createEasyRecipe(Consumer<FinishedRecipe> exporter, Item finalItem, Item principal, Item... attachments) {
+    private void createEasyRecipe(RecipeOutput exporter, Item finalItem, Item principal, Item... attachments) {
         ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, finalItem, 1)
                 .requires(principal)
                 .unlockedBy(getHasName(principal), has(principal));
@@ -692,7 +693,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             recipeId.append("_and_").append(BuiltInRegistries.ITEM.getKey(attachment).getPath());
         }
 
-        builder.save(exporter, new ResourceLocation(
+        builder.save(exporter, ResourceLocation.fromNamespaceAndPath(
                 KnightsHeraldry.MOD_ID,
                 recipeId.toString()
         ));

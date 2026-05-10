@@ -5,6 +5,7 @@ plugins {
 
 repositories {
     mavenLocal()
+    maven { url "https://jitpack.io" }
     maven { url "https://maven.shedaniel.me" }
     maven { url 'https://maven.wispforest.io/releases/' }
     maven {
@@ -75,8 +76,6 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
 
-    compileOnly project(":common")
-
     modImplementation "banduty.stoneycore:stoneycore-fabric-${minecraft_version}:${stoneycore}"
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei}"
@@ -84,32 +83,40 @@ dependencies {
     modCompileOnlyApi("mezz.jei:jei-${project.minecraft_version}-fabric-api:${project.jei}")
     modRuntimeOnly("mezz.jei:jei-${project.minecraft_version}-fabric:${project.jei}")
 
-    modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.1:${project.geckolib}"
+    modImplementation "software.bernie.geckolib:geckolib-fabric-1.21.1:${project.geckolib}"
 
     modApi "com.terraformersmc:modmenu:${project.modmenu}"
 
     modCompileOnly "maven.modrinth:better-combat:${project.bettercombat}-fabric"
     modRuntimeOnly "maven.modrinth:better-combat:${project.bettercombat}-fabric"
 
+    implementation include("com.github.ZsoltMolnarrr:TinyConfig:3.1.0")
+
     include modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${project.player_anim}")
 
-    modImplementation "io.wispforest:owo-lib:${project.owo_version}"
-    include "io.wispforest:owo-sentinel:${project.owo_version}"
-
-    annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
+    modImplementation "io.wispforest:owo-lib:${project.owo_version_fabric}"
+    annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version_fabric}")
+    include "io.wispforest:owo-sentinel:${project.owo_version_fabric}"
 
     modImplementation("io.wispforest:accessories-fabric:${project.accessories}")
-
-    include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_version}")
 
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDirs += ['src/generated/resources']
+        }
+    }
+}
+
 loom {
-    if (project(":common").file("src/main/resources/${mod_id}.accesswidener").exists()) {
-        accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
+    def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath.set(aw)
     }
     mixin {
         defaultRefmapName.set("${mod_id}.refmap.json")
@@ -141,16 +148,4 @@ loom {
             vmArg "java.base/java.lang=ALL-UNNAMED"
         }
     }
-}
-
-sourceSets {
-    main {
-        resources {
-            srcDir 'src/generated/resources'
-        }
-    }
-}
-
-processResources {
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }

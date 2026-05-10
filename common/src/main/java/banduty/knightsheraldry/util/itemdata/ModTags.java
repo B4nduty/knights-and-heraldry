@@ -12,7 +12,7 @@ public enum ModTags {
     private final TagKey<Item> tag;
 
     ModTags(String name) {
-        this.tag = TagKey.create(Registries.ITEM, new ResourceLocation(KnightsHeraldry.MOD_ID, name));
+        this.tag = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, name));
     }
 
     public TagKey<Item> getTag() {

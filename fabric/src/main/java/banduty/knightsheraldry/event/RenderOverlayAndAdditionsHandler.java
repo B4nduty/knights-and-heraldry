@@ -1,11 +1,11 @@
 package banduty.knightsheraldry.event;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.items.ModItems;
+import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.model.HelmetDecoModel;
 import banduty.knightsheraldry.util.itemdata.HelmetDeco;
 import banduty.stoneycore.event.custom.RenderOverlayAndAdditionsEvents;
-import banduty.stoneycore.items.armor.SCAccessoryItem;
+import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import io.wispforest.accessories.api.client.AccessoryRenderer;
@@ -16,15 +16,14 @@ import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 
 @Environment(EnvType.CLIENT)
 public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditionsEvents {
-    private static final ResourceLocation SURCOAT_OVERLAY_TEXTURE = new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/accessories/surcoat_overlay.png");
-    private static final ResourceLocation CIVILIAN_BELT_TEXTURE = new ResourceLocation(KnightsHeraldry.MOD_ID, "textures/entity/accessories/civilian_belt.png");
+    private static final ResourceLocation SURCOAT_OVERLAY_TEXTURE = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/accessories/surcoat_overlay.png");
+    private static final ResourceLocation CIVILIAN_BELT_TEXTURE = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/accessories/civilian_belt.png");
 
     @Override
     public void onRenderOverlayAndAdditionsEvents(LivingEntity entity, ItemStack stack,
@@ -38,7 +37,7 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
             ArmorRenderer.renderPart(poseStack, multiBufferSource, light, stack, model, SURCOAT_OVERLAY_TEXTURE);
         }
 
-        if (stack.getItem() == ModItems.CIVILIAN_SURCOAT || stack.getItem() == ModItems.GIORNEA) {
+        if (stack.getItem() == KHItems.CIVILIAN_SURCOAT.get() || stack.getItem() == KHItems.GIORNEA.get()) {
             ArmorRenderer.renderPart(poseStack, multiBufferSource, light, stack, model, CIVILIAN_BELT_TEXTURE);
         }
 
@@ -49,38 +48,24 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
 
     private void renderHelmetDecoIfNeeded(LivingEntity entity, ItemStack stack, PoseStack poseStack,
                                           MultiBufferSource multiBufferSource, int light) {
-        CompoundTag nbt = stack.getTag();
-        if (nbt == null) return;
-
         String basePath = "textures/entity/accessories/deco/";
 
-        for (HelmetDeco deco : HelmetDeco.getValues()) {
+        for (HelmetDeco deco : HelmetDeco.all()) {
             String key = deco.getNbtKey();
 
-            if (deco.color() == 2) {
-                if (nbt.contains(key) && nbt.getCompound(key).contains("color1")) {
-                    float[] color = getColorFromNbt(nbt.getCompound(key).getInt("color1"));
-                    ResourceLocation texture = new ResourceLocation(KnightsHeraldry.MOD_ID, basePath + key + "_base.png");
-                    renderHelmetDeco(entity, poseStack, multiBufferSource, light, texture, color);
-                }
-                if (nbt.contains(key) && nbt.getCompound(key).contains("color2")) {
-                    float[] color = getColorFromNbt(nbt.getCompound(key).getInt("color2"));
-                    ResourceLocation texture = new ResourceLocation(KnightsHeraldry.MOD_ID, basePath + key + "_stripe.png");
-                    renderHelmetDeco(entity, poseStack, multiBufferSource, light, texture, color);
-                }
-                continue;
+            int i = 0;
+            for (Integer color : deco.colors()) {
+                String path = basePath + key + "_" + (deco.colors().size() <= 1 ? (i == 1 ? "_base" : "stripe") : "") + ".png";
+                ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, path);
+                renderHelmetDeco(entity, poseStack, multiBufferSource, light, texture, color);
+                i++;
             }
-
-            if (!nbt.contains(key)) continue;
-            float[] color = deco.color() == 1 ? getColorFromNbt(nbt.getInt(key)) : new float[]{1.0F, 1.0F, 1.0F};
-            ResourceLocation texture = new ResourceLocation(KnightsHeraldry.MOD_ID, basePath + key + ".png");
-            renderHelmetDeco(entity, poseStack, multiBufferSource, light, texture, color);
         }
     }
 
     private void renderHelmetDeco(LivingEntity entity, PoseStack poseStack,
                                   MultiBufferSource multiBufferSource, int light,
-                                  ResourceLocation texture, float[] color) {
+                                  ResourceLocation texture, int color) {
         HumanoidModel<LivingEntity> model =
                 new HelmetDecoModel(HelmetDecoModel.getTexturedModelData().bakeRoot());
         VertexConsumer consumer =
@@ -91,10 +76,9 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
 
 
     private void renderModel(LivingEntity entity, HumanoidModel<LivingEntity> model,
-                             PoseStack poseStack, VertexConsumer consumer, int light, float[] color) {
+                             PoseStack poseStack, VertexConsumer consumer, int light, int color) {
         AccessoryRenderer.followBodyRotations(entity, model);
-        model.renderToBuffer(poseStack, consumer, light, OverlayTexture.NO_OVERLAY,
-                color[0], color[1], color[2], 1.0F);
+        model.renderToBuffer(poseStack, consumer, light, OverlayTexture.NO_OVERLAY, color);
     }
 
     private ResourceLocation getVariantTexture(ResourceLocation baseTexture, String stackName) {
@@ -108,14 +92,14 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
         int lastSlashIndex = path.lastIndexOf('/');
         if (lastSlashIndex == -1) {
             String newPath = variantPrefix + path;
-            return new ResourceLocation(baseTexture.getNamespace(), newPath);
+            return ResourceLocation.fromNamespaceAndPath(baseTexture.getNamespace(), newPath);
         }
 
         String directory = path.substring(0, lastSlashIndex + 1);
         String filename = path.substring(lastSlashIndex + 1);
         String newPath = directory + variantPrefix + filename;
 
-        return new ResourceLocation(baseTexture.getNamespace(), newPath);
+        return ResourceLocation.fromNamespaceAndPath(baseTexture.getNamespace(), newPath);
     }
 
     private String getVariantPrefix(String stackName) {
@@ -128,20 +112,12 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
     }
 
     private boolean isSurcoat(ItemStack stack) {
-        return stack.getItem() == ModItems.SURCOAT || stack.getItem() == ModItems.SURCOAT_SLEEVELESS;
-    }
-
-    private float[] getColorFromNbt(int colorInt) {
-        return new float[]{
-                (colorInt >> 16 & 255) / 255.0F,
-                (colorInt >> 8 & 255) / 255.0F,
-                (colorInt & 0xFF) / 255.0F
-        };
+        return stack.getItem() == KHItems.SURCOAT.get() || stack.getItem() == KHItems.SURCOAT_SLEEVELESS.get();
     }
 
     private ResourceLocation getResourceLocationWithSuffix(ItemStack stack) {
-        if (!(stack.getItem() instanceof SCAccessoryItem item)) return new ResourceLocation("");
+        if (!(stack.getItem() instanceof SCAccessoryItem item)) return ResourceLocation.fromNamespaceAndPath("", "");
         String path = item.getTexturePath(stack).getPath().replace(".png", "") + "_overlay" + ".png";
-        return new ResourceLocation(item.getTexturePath(stack).getNamespace(), path);
+        return ResourceLocation.fromNamespaceAndPath(item.getTexturePath(stack).getNamespace(), path);
     }
 }

@@ -25,7 +25,7 @@ public class ArrowBehavior {
 
     public static class SmokeConfig {
         public boolean enabled = true;
-        public ResourceLocation particle = new ResourceLocation("minecraft", "campfire_cosy_smoke");
+        public ResourceLocation particle = ResourceLocation.fromNamespaceAndPath("minecraft", "campfire_cosy_smoke");
         public int count = 80;
         public double maxSpeed = 0.1D;
     }

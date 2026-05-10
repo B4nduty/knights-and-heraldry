@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:dark_plate_spaulders_rimmed"
+    },
+    {
+      "item": "knightsheraldry:besagews"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:dark_plate_spaulders_besagews_rimmed"
+  }
+}

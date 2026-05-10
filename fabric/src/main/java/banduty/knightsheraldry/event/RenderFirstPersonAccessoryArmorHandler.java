@@ -1,10 +1,10 @@
 package banduty.knightsheraldry.event;
 
+import banduty.knightsheraldry.items.item.DyeableItems;
 import banduty.knightsheraldry.model.AccessoryArmModel;
 import banduty.stoneycore.entity.custom.AbstractSiegeEntity;
 import banduty.stoneycore.event.custom.RenderFirstPersonAccesoryArmorEvents;
-import banduty.stoneycore.items.armor.SCAccessoryItem;
-import banduty.stoneycore.util.DyeUtil;
+import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -27,21 +27,21 @@ public class RenderFirstPersonAccessoryArmorHandler implements RenderFirstPerson
         if (scAccessoryItem.getModels(stack).firstPerson().isEmpty()) return;
 
         AccessoryArmModel model = (AccessoryArmModel) scAccessoryItem.getModels(stack).firstPerson().get();
-        float[] color = DyeUtil.getFloatDyeColor(stack);
+        int color = DyeableItems.getColor(stack);
         ResourceLocation texturePath = scAccessoryItem.getTexturePath(stack);
 
         VertexConsumer baseConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(texturePath));
-        renderArm(localPlayer, model, poseStack, baseConsumer, light, scAccessoryItem.getRenderSettings(stack).overlay() ? color : new float[]{1, 1, 1}, arm);
+        renderArm(localPlayer, model, poseStack, baseConsumer, light, scAccessoryItem.getRenderSettings(stack).overlay() ? color : -1, arm);
 
         if (scAccessoryItem.getRenderSettings(stack).overlay()) {
             VertexConsumer overlayConsumer = multiBufferSource.getBuffer(
                     RenderType.armorCutoutNoCull(getOverlayResourceLocation(stack)));
-            renderArm(localPlayer, model, poseStack, overlayConsumer, light, new float[]{1, 1, 1}, arm);
+            renderArm(localPlayer, model, poseStack, overlayConsumer, light, -1, arm);
         }
     }
 
     private void renderArm(LocalPlayer localPlayer, AccessoryArmModel model, PoseStack poseStack, VertexConsumer consumer,
-                           int light, float[] color, HumanoidArm arm) {
+                           int light, int color, HumanoidArm arm) {
         PlayerModel<?> playerModel = ((PlayerModel<?>) ((LivingEntityRenderer<?, ?>)
                 Minecraft.getInstance().getEntityRenderDispatcher().getRenderer(localPlayer)).getModel());
 
@@ -52,20 +52,20 @@ public class RenderFirstPersonAccessoryArmorHandler implements RenderFirstPerson
         if (arm == HumanoidArm.RIGHT) {
             poseStack.translate(armOffset, 0.015F, 0.0F);
             model.armorRightArm.copyFrom(playerModel.rightArm);
-            model.armorRightArm.render(poseStack, consumer, light, OverlayTexture.NO_OVERLAY, color[0], color[1], color[2], 1.0F);
+            model.armorRightArm.render(poseStack, consumer, light, OverlayTexture.NO_OVERLAY, color);
         } else {
             poseStack.translate(-armOffset, 0.015F, 0.0F);
             model.armorLeftArm.copyFrom(playerModel.leftArm);
-            model.armorLeftArm.render(poseStack, consumer, light, OverlayTexture.NO_OVERLAY, color[0], color[1], color[2], 1.0F);
+            model.armorLeftArm.render(poseStack, consumer, light, OverlayTexture.NO_OVERLAY, color);
         }
         poseStack.popPose();
     }
 
     private @NotNull ResourceLocation getOverlayResourceLocation(ItemStack stack) {
-        if (!(stack.getItem() instanceof SCAccessoryItem scAccessoryItem)) return new ResourceLocation("");
+        if (!(stack.getItem() instanceof SCAccessoryItem scAccessoryItem)) return ResourceLocation.fromNamespaceAndPath("", "");
         ResourceLocation originalResourceLocation = scAccessoryItem.getTexturePath(stack);
         if (originalResourceLocation == null) {
-            return new ResourceLocation("");
+            return ResourceLocation.fromNamespaceAndPath("", "");
         }
 
         String texturePath = originalResourceLocation.getPath();
@@ -73,6 +73,6 @@ public class RenderFirstPersonAccessoryArmorHandler implements RenderFirstPerson
             texturePath = texturePath.substring(0, texturePath.length() - 4);
         }
 
-        return new ResourceLocation(originalResourceLocation.getNamespace(), texturePath + "_overlay.png");
+        return ResourceLocation.fromNamespaceAndPath(originalResourceLocation.getNamespace(), texturePath + "_overlay.png");
     }
 }
