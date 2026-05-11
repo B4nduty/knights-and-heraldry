@@ -2,7 +2,7 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.sounds.KHSounds;
-import banduty.stoneycore.combat.melee.SCDamageType;
+import banduty.stoneycore.combat.damagetype.SCDamageType;
 import banduty.stoneycore.datagen.DefinitionsProvider;
 import banduty.stoneycore.items.SCItems;
 import net.minecraft.data.PackOutput;
@@ -290,7 +290,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .soundEvent(KHSounds.ARQUEBUS_CLOSE.get())
                                 .ammoRequirement("item1", SCItems.BLACK_POWDER.get(), 1)
                                 .ammoRequirement("item2", 1, Items.IRON_NUGGET, Items.GRAVEL)
-                                .ammoRequirement("item3", 1, Items.PAPER, Items.GRASS)
+                                .ammoRequirement("item3", 1, Items.PAPER, Items.SHORT_GRASS)
 
                 ).build(),
                 KHItems.ARQUEBUS.get()
@@ -305,7 +305,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .soundEvent(KHSounds.ARQUEBUS_CLOSE.get())
                                 .ammoRequirement("item1", SCItems.BLACK_POWDER.get(), 2)
                                 .ammoRequirement("item2", 1, Items.IRON_NUGGET, Items.GRAVEL)
-                                .ammoRequirement("item3", 1, Items.PAPER, Items.GRASS)
+                                .ammoRequirement("item3", 1, Items.PAPER, Items.SHORT_GRASS)
 
                 ).build(),
                 KHItems.HANDGONNE.get()

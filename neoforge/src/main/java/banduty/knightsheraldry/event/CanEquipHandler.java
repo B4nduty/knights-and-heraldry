@@ -17,9 +17,19 @@ public class CanEquipHandler implements CanEquipCallback {
         if (itemStack.getItem() == KHItems.HELMET_HOOD.get() || itemStack.getItem() == KHItems.HELMET_TORN_HOOD.get()) {
             if (AccessoriesCapability.getOptionally(slotReference.entity()).isPresent()) {
                 for (SlotEntryReference equipped : AccessoriesCapability.get(slotReference.entity()).getAllEquipped()) {
-                    if (equipped.stack().getItem() instanceof KHHelmetAccessory) return TriState.DEFAULT;
-                    if (equipped.stack().getItem() instanceof KHCloseHelmet) return TriState.DEFAULT;
-                    if (equipped.stack().getItem() instanceof KHSavoyard) return TriState.DEFAULT;
+                    switch (equipped.stack().getItem()) {
+                        case KHHelmetAccessory khHelmetAccessory -> {
+                            return TriState.DEFAULT;
+                        }
+                        case KHCloseHelmet khCloseHelmet -> {
+                            return TriState.DEFAULT;
+                        }
+                        case KHSavoyard khSavoyard -> {
+                            return TriState.DEFAULT;
+                        }
+                        default -> {
+                        }
+                    }
                 }
             }
             return TriState.FALSE;

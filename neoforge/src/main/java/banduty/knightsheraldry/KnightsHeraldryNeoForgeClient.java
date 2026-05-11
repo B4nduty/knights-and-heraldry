@@ -4,6 +4,7 @@ import banduty.knightsheraldry.client.entity.*;
 import banduty.knightsheraldry.client.item.SurcoatWithBannerModel;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.items.item.DyeableItems;
 import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
@@ -13,25 +14,23 @@ import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.ModelEvent;
-import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.ModelEvent;
+import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
-@Mod.EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public class KnightsHeraldryForgeClient {
+@EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+public class KnightsHeraldryNeoForgeClient {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            for (Item item : ForgeRegistries.ITEMS) {
-                if (ForgeRegistries.ITEMS.getKey(item).getNamespace().equals(KnightsHeraldry.MOD_ID)) {
+            for (Item item : BuiltInRegistries.ITEM) {
+                if (BuiltInRegistries.ITEM.getKey(item).getNamespace().equals(KnightsHeraldry.MOD_ID)) {
                     ModModelPredicates.registerModelPredicates(item);
                 }
             }
@@ -49,16 +48,16 @@ public class KnightsHeraldryForgeClient {
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
-        for (Item item : ForgeRegistries.ITEMS.getValues()) {
+        for (Item item : BuiltInRegistries.ITEM.stream().toList()) {
             if (item instanceof TwoLayerDyeableItem twoLayerItem) {
                 event.register((stack, tintIndex) -> {
                     if (tintIndex == 0) return twoLayerItem.getColor1(stack);
                     if (tintIndex == 1) return twoLayerItem.getColor2(stack);
                     return -1;
                 }, item);
-            } else if (item instanceof DyeableLeatherItem dyeableItems) {
+            } else if (item instanceof DyeableItems dyeableItems) {
                 event.register((stack, tintIndex) ->
-                        tintIndex > 0 ? -1 : dyeableItems.getColor(stack), item);
+                        tintIndex > 0 ? -1 : DyeableItems.getColor(stack), item);
             }
         }
     }
@@ -70,7 +69,7 @@ public class KnightsHeraldryForgeClient {
 
     @SubscribeEvent
     public static void registerLoaders(ModelEvent.RegisterGeometryLoaders event) {
-        event.register("surcoat_with_banner", SurcoatWithBannerModel.INSTANCE);
+        event.register(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "surcoat_with_banner"), SurcoatWithBannerModel.INSTANCE);
     }
 
     @SubscribeEvent
@@ -90,15 +89,10 @@ public class KnightsHeraldryForgeClient {
         };
 
         for (Item item : patternedItems) {
-
-            String basePath = BuiltInRegistries.ITEM.getKey(item).getPath();
-            String namespace = BuiltInRegistries.ITEM.getKey(item).getNamespace();
-
+            ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
             for (String pattern : patterns) {
-
-                String modelPath = item + "/" + pattern;
-
-                event.register(new ModelResourceLocation(namespace, modelPath, "inventory"));
+                ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(id.getNamespace(), id.getPath() + "/" + pattern);
+                event.register(ModelResourceLocation.inventory(modelLoc));
             }
         }
 
@@ -155,26 +149,16 @@ public class KnightsHeraldryForgeClient {
 
         // ===== register 3D models =====
         for (Item item : weapons3D) {
-
             ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
-
-            event.register(new ModelResourceLocation(
-                    id.getNamespace(),
-                    id.getPath() + "_3d",
-                    "inventory"
-            ));
+            ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(id.getNamespace(), id.getPath() + "_3d");
+            event.register(ModelResourceLocation.inventory(modelLoc));
         }
 
         // ===== register icon models =====
         for (Item item : weaponsIcon) {
-
             ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
-
-            event.register(new ModelResourceLocation(
-                    id.getNamespace(),
-                    id.getPath() + "_icon",
-                    "inventory"
-            ));
+            ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(id.getNamespace(), id.getPath() + "_icon");
+            event.register(ModelResourceLocation.inventory(modelLoc));
         }
 
         // Manuscript Items
@@ -318,7 +302,8 @@ public class KnightsHeraldryForgeClient {
 
         for (Item item : manuscriptItems) {
             String itemName = BuiltInRegistries.ITEM.getKey(item).getPath();
-            event.register(new ModelResourceLocation(KnightsHeraldry.MOD_ID, "manuscript_" + itemName, "inventory"));
+            ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "manuscript_" + itemName);
+            event.register(ModelResourceLocation.inventory(modelLoc));
         }
     }
 

@@ -290,7 +290,7 @@ public class ModAccessoriesDefinitionsProvider extends DefinitionsProvider.Acces
             }
 
             if (stats.visorNamespace != null && stats.visorType != null) {
-                builder.visor(new ResourceLocation(stats.visorNamespace, stats.visorType));
+                builder.visor(ResourceLocation.fromNamespaceAndPath(stats.visorNamespace, stats.visorType));
             }
 
             consumer.accept(item, builder.build());

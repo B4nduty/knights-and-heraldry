@@ -1,5 +1,6 @@
 package banduty.knightsheraldry.data;
 
+import banduty.knightsheraldry.KnightsHeraldry;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -7,14 +8,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
-import net.minecraftforge.event.AddReloadListenerEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.neoforge.event.AddReloadListenerEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Mod.EventBusSubscriber(modid = "knightsheraldry", bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(modid = KnightsHeraldry.MOD_ID)
 public class ArrowBehaviorManager extends SimpleJsonResourceReloadListener {
     public static final ArrowBehaviorManager INSTANCE = new ArrowBehaviorManager();
 
@@ -40,7 +41,6 @@ public class ArrowBehaviorManager extends SimpleJsonResourceReloadListener {
                 }
             } catch (Exception e) {
                 System.err.println("Failed to parse arrow behavior: " + location);
-                e.printStackTrace();
             }
         });
     }

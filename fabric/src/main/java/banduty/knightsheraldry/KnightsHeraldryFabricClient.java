@@ -34,6 +34,7 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.HORSE_BARDING_MODEL_LAYER, HorseBardingModel::getTexturedModelData);
 
+        KHPayloadsClient.init();
         KHPayloadsClient.registerS2CReceivers();
 
         RenderFirstPersonAccesoryArmorEvents.EVENT.register(new RenderFirstPersonAccessoryArmorHandler());

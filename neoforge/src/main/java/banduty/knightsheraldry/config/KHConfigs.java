@@ -1,19 +1,16 @@
 package banduty.knightsheraldry.config;
 
-import com.electronwill.nightconfig.core.file.CommentedFileConfig;
-import net.minecraftforge.common.ForgeConfigSpec;
-
-import java.nio.file.Path;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class KHConfigs {
 
-    public static final ForgeConfigSpec SPEC;
-    public static final ForgeConfigSpec.IntValue lanceCooldown;
-    public static final ForgeConfigSpec.BooleanValue damageTamedEntities;
-    public static final ForgeConfigSpec.IntValue wardartCooldown;
+    public static final ModConfigSpec SPEC;
+    public static final ModConfigSpec.IntValue lanceCooldown;
+    public static final ModConfigSpec.BooleanValue damageTamedEntities;
+    public static final ModConfigSpec.IntValue wardartCooldown;
 
     static {
-        final ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        final ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         lanceCooldown = builder
                 .comment("Lance Cooldown")
@@ -28,16 +25,6 @@ public class KHConfigs {
                 .defineInRange("wardartCooldown", 15, 0, Integer.MAX_VALUE);
 
         SPEC = builder.build();
-    }
-
-    public static void loadConfig(ForgeConfigSpec spec, Path path) {
-        final CommentedFileConfig configData = CommentedFileConfig.builder(path)
-                .sync()
-                .autosave()
-                .preserveInsertionOrder()
-                .build();
-        configData.load();
-        spec.setConfig(configData);
     }
 }
 

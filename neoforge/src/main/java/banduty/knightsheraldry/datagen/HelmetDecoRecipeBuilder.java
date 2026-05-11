@@ -1,41 +1,69 @@
 package banduty.knightsheraldry.datagen;
 
-import banduty.knightsheraldry.recipes.KHRecipes;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import banduty.knightsheraldry.recipes.HelmetDecoRecipe;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.core.NonNullList;
-import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
+import org.jetbrains.annotations.Nullable;
 
-public record HelmetDecoRecipeBuilder(ResourceLocation id, NonNullList<Ingredient> ingredients) implements FinishedRecipe {
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-    @Override
-    public void serializeRecipeData(JsonObject json) {
-        JsonArray jsonArray = new JsonArray();
-        for (Ingredient ingredient : ingredients) {
-            jsonArray.add(ingredient.toJson());
-        }
-        json.add("ingredients", jsonArray);
+public class HelmetDecoRecipeBuilder implements RecipeBuilder {
+    private final NonNullList<Ingredient> ingredients;
+    private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+    @Nullable
+    private String group;
+
+    public HelmetDecoRecipeBuilder(NonNullList<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public static HelmetDecoRecipeBuilder decoration(NonNullList<Ingredient> ingredients) {
+        return new HelmetDecoRecipeBuilder(ingredients);
     }
 
     @Override
-    public ResourceLocation getId() { return id; }
-
-    @Override
-    public RecipeSerializer<?> getType() {
-        return KHRecipes.HELMET_DECO_SERIALIZER.get();
+    public RecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
+        this.criteria.put(name, criterion);
+        return this;
     }
 
     @Override
-    public JsonObject serializeRecipe() {
-        JsonObject json = new JsonObject();
-        json.addProperty("type", "knightsheraldry:helmet_deco_crafting");
-        serializeRecipeData(json);
-        return json;
+    public RecipeBuilder group(@Nullable String group) {
+        this.group = group;
+        return this;
     }
 
-    @Override public JsonObject serializeAdvancement() { return null; }
-    @Override public ResourceLocation getAdvancementId() { return null; }
+    @Override
+    public Item getResult() {
+        return Items.AIR;
+    }
+
+    @Override
+    public void save(RecipeOutput exporter, ResourceLocation id) {
+        Advancement.Builder advancementBuilder = exporter.advancement()
+                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+                .rewards(AdvancementRewards.Builder.recipe(id))
+                .requirements(AdvancementRequirements.Strategy.OR);
+
+        this.criteria.forEach(advancementBuilder::addCriterion);
+
+        AdvancementHolder advancementHolder = advancementBuilder.build(id.withPrefix("recipes/"));
+
+        HelmetDecoRecipe recipe = new HelmetDecoRecipe(CraftingBookCategory.EQUIPMENT);
+
+        exporter.accept(id, recipe, advancementHolder);
+    }
 }

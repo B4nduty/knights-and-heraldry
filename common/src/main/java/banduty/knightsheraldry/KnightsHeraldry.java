@@ -8,6 +8,7 @@ import banduty.knightsheraldry.platform.Services;
 import banduty.knightsheraldry.recipes.KHRecipes;
 import banduty.knightsheraldry.sounds.KHSounds;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
+import banduty.knightsheraldry.util.itemdata.KHHelmetDeco;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +25,7 @@ public class KnightsHeraldry {
         KHRecipes.init();
         KHSounds.init();
         KHDataComponents.init();
+        KHHelmetDeco.init();
 
         if (Services.PLATFORM.isModLoaded(KnightsHeraldry.MOD_ID)) {
             LOG.info("Hello to knightsheraldry");

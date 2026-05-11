@@ -3,17 +3,17 @@ package banduty.knightsheraldry.datagen;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.util.itemdata.HelmetDeco;
-import banduty.stoneycore.datagen.BannerRecipeBuilder;
 import banduty.stoneycore.datagen.CraftmanAnvilRecipeJsonBuilder;
 import banduty.stoneycore.datagen.ManuscriptRecipeBuilder;
 import banduty.stoneycore.items.SCItems;
-import banduty.stoneycore.items.hotiron.HotIron;
-import banduty.stoneycore.items.manuscript.Manuscript;
+import banduty.stoneycore.items.custom.hotiron.HotIron;
+import banduty.stoneycore.items.custom.manuscript.Manuscript;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -22,18 +22,18 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider {
-    public ModRecipeProvider(PackOutput output) {
-        super(output);
+
+    public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+        super(output, registries);
     }
 
     @Override
-    public void buildRecipes(Consumer<FinishedRecipe> exporter) {
+    public void buildRecipes(RecipeOutput exporter) {
         createWeaponCycle(exporter, KHItems.ARMING_SWORD.get(), KHItems.SWORD.get(), KHItems.V_SWORD.get());
         createWeaponCycle(exporter, KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get());
         createWeaponCycle(exporter, KHItems.MACE.get(), KHItems.SPIKED_MACE.get());
@@ -150,21 +150,21 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(ItemTags.BANNERS)
                 .unlockedBy(getHasName(ModItems.SURCOAT.get()), has(ModItems.SURCOAT.get()))
                 .unlockedBy(getHasName(Items.WHITE_BANNER), has(Items.WHITE_BANNER))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, "surcoat_with_banner"));
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "surcoat_with_banner"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SURCOAT_SLEEVELESS.get(), 1)
                 .requires(ModItems.SURCOAT_SLEEVELESS.get())
                 .requires(ItemTags.BANNERS)
                 .unlockedBy(getHasName(ModItems.SURCOAT_SLEEVELESS.get()), has(ModItems.SURCOAT_SLEEVELESS.get()))
                 .unlockedBy(getHasName(Items.WHITE_BANNER), has(Items.WHITE_BANNER))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, "sleeveless_surcoat_with_banner"));
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "sleeveless_surcoat_with_banner"));
 */
        /* ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TORSE.get())
                 .requires(ModItems.TORSE.get())
                 .requires(ModTags.DYES.getTag())
                 .unlockedBy(getHasName(ModItems.TORSE.get()), has(ModItems.TORSE.get()))
                 .unlockedBy("has_" + ModTags.DYES.getTag(), has(ModTags.DYES.getTag()))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(ModItems.TORSE.get()).getPath() + "_dye"));
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(ModItems.TORSE.get()).getPath() + "_dye"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TORSE.get())
                 .requires(ModItems.TORSE.get())
@@ -172,14 +172,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(ModTags.DYES.getTag())
                 .unlockedBy(getHasName(ModItems.TORSE.get()), has(ModItems.TORSE.get()))
                 .unlockedBy("has_" + ModTags.DYES.getTag(), has(ModTags.DYES.getTag()))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(ModItems.TORSE.get()).getPath() + "_dye_double"));
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(ModItems.TORSE.get()).getPath() + "_dye_double"));
 */
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TRI_PLUME.get())
                 .requires(KHItems.PLUME.get())
                 .requires(KHItems.PLUME.get())
                 .requires(KHItems.PLUME.get())
                 .unlockedBy(getHasName(KHItems.PLUME.get()), has(KHItems.PLUME.get()))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.TRI_PLUME.get())));
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.TRI_PLUME.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.FLUFFY_PLUME.get())
                 .requires(KHItems.PLUME.get())
@@ -188,7 +188,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(KHItems.PLUME.get())
                 .requires(KHItems.PLUME.get())
                 .unlockedBy(getHasName(KHItems.PLUME.get()), has(KHItems.PLUME.get()))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.FLUFFY_PLUME.get())));
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.FLUFFY_PLUME.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.FLUFFY_PLUME.get())
                 .requires(KHItems.TRI_PLUME.get())
@@ -196,7 +196,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(KHItems.PLUME.get())
                 .unlockedBy(getHasName(KHItems.TRI_PLUME.get()), has(KHItems.TRI_PLUME.get()))
                 .unlockedBy(getHasName(KHItems.PLUME.get()), has(KHItems.PLUME.get()))
-                .save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.FLUFFY_PLUME.get()) + "_2"));
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.FLUFFY_PLUME.get()) + "_2"));
 
         // Golden
         createSmithingRecipe(exporter, KHItems.GOLDEN_MAIL_SPAULDERS.get(), 7, 0.7f,
@@ -529,7 +529,7 @@ public class ModRecipeProvider extends RecipeProvider {
         createBannerRecipe(exporter, KHItems.SURCOAT_SLEEVELESS.get());
     }
 
-    private void createCraftmanAnvilRecipe(Consumer<FinishedRecipe> exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, String path, Object... requiress) {
+    private void createCraftmanAnvilRecipe(RecipeOutput exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, String path, Object... requiress) {
         ItemStack resultStack = new ItemStack(output);
         if (outputHotIron) resultStack = HotIron.createForStack(resultStack);
 
@@ -555,7 +555,7 @@ public class ModRecipeProvider extends RecipeProvider {
             } else if (requires instanceof TagKey) {
                 @SuppressWarnings("unchecked")
                 TagKey<Item> itemTag = (TagKey<Item>) requires;
-                builder.requires(itemTag);
+                builder.requires(itemTag, 1);
             } else {
                 System.out.println("Unhandled type: " + requires.getClass().getName());
             }
@@ -563,65 +563,63 @@ public class ModRecipeProvider extends RecipeProvider {
 
         if (path.isEmpty()) path = "craftmananvil/" + BuiltInRegistries.ITEM.getKey(output).getPath();
 
-        builder.save(exporter, new ResourceLocation(KnightsHeraldry.MOD_ID, path));
+        builder.save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, path));
     }
 
-    private void createCraftmanAnvilRecipe(Consumer<FinishedRecipe> exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, Object... requiress) {
+    private void createCraftmanAnvilRecipe(RecipeOutput exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, Object... requiress) {
         createCraftmanAnvilRecipe(exporter, createManuscript, hitTime, chance, output, outputHotIron, "", requiress);
     }
 
-    private void createCraftmanAnvilRecipe(Consumer<FinishedRecipe> exporter, int hitTime, float chance, Item output, Object... requiress) {
+    private void createCraftmanAnvilRecipe(RecipeOutput exporter, int hitTime, float chance, Item output, Object... requiress) {
         createCraftmanAnvilRecipe(exporter, true, hitTime, chance, output, true, "", requiress);
     }
 
-    private void createSmithingRecipe(Consumer<FinishedRecipe> exporter, Item output, int hitTime, float chance, Object... requiress) {
+    private void createSmithingRecipe(RecipeOutput exporter, Item output, int hitTime, float chance, Object... requiress) {
         createCraftmanAnvilRecipe(exporter, false, hitTime, chance, output, false, "", requiress);
     }
 
-    private void createManuscriptRecipe(Consumer<FinishedRecipe> exporter, Item base) {
+    private void createManuscriptRecipe(RecipeOutput exporter, Item base) {
         NonNullList<Ingredient> ingredients = NonNullList.create();
         ingredients.add(Ingredient.of(Items.PAPER));
         ingredients.add(Ingredient.of(SCItems.SMITHING_HAMMER.get()));
         ingredients.add(Ingredient.of(base));
 
-        exporter.accept(new ManuscriptRecipeBuilder(
-                new ResourceLocation(KnightsHeraldry.MOD_ID, "manuscript/" + getItemName(base)),
-                SCItems.MANUSCRIPT.get(),
-                ingredients
-        ));
+        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(
+                KnightsHeraldry.MOD_ID,
+                "manuscript/" + getItemName(base)
+        );
+
+        new ManuscriptRecipeBuilder(SCItems.MANUSCRIPT.get(), ingredients)
+                .unlockedBy(getHasName(base), has(base))
+                .save(exporter, recipeId);
     }
 
-    private void createBannerRecipe(Consumer<FinishedRecipe> exporter, Item targetItem) {
-        NonNullList<Ingredient> ingredients = NonNullList.create();
-
-        ingredients.add(Ingredient.of(net.minecraft.tags.ItemTags.BANNERS));
-
-        ingredients.add(Ingredient.of(targetItem));
-
-        exporter.accept(new BannerRecipeBuilder(
-                new ResourceLocation(KnightsHeraldry.MOD_ID, "banner_pattern/" + getItemName(targetItem)),
-                targetItem,
-                ingredients,
-                CraftingBookCategory.MISC
-        ));
+    private void createBannerRecipe(RecipeOutput exporter, Item targetItem) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, targetItem)
+                .requires(ItemTags.BANNERS)
+                .requires(targetItem)
+                .unlockedBy("has_item", RecipeProvider.has(targetItem))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "banner_pattern/" + getItemName(targetItem)));
     }
 
-    private void createDecoRecipe(Consumer<FinishedRecipe> exporter, Item helmet) {
+    private void createDecoRecipe(RecipeOutput exporter, Item helmet) {
         String helmetName = BuiltInRegistries.ITEM.getKey(helmet).getPath();
 
-        for (HelmetDeco deco : HelmetDeco.getValues()) {
+        for (HelmetDeco deco : HelmetDeco.all()) {
             NonNullList<Ingredient> ingredients = NonNullList.create();
             ingredients.add(Ingredient.of(helmet));
             ingredients.add(Ingredient.of(deco.item()));
 
-            exporter.accept(new HelmetDecoRecipeBuilder(
-                    new ResourceLocation(KnightsHeraldry.MOD_ID, "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(deco.item()).getPath()),
-                    ingredients
-            ));
+            ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
+                    "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(deco.item()).getPath());
+
+            new HelmetDecoRecipeBuilder(ingredients)
+                    .unlockedBy(getHasName(helmet), has(helmet))
+                    .save(exporter, recipeId);
         }
 
-        var group0 = HelmetDeco.getValues().stream().filter(d -> d.group() == 0).toList();
-        var group1 = HelmetDeco.getValues().stream().filter(d -> d.group() == 1).toList();
+        var group0 = HelmetDeco.all().stream().filter(d -> d.group() == 0).toList();
+        var group1 = HelmetDeco.all().stream().filter(d -> d.group() == 1).toList();
 
         for (HelmetDeco deco0 : group0) {
             for (HelmetDeco deco1 : group1) {
@@ -630,31 +628,35 @@ public class ModRecipeProvider extends RecipeProvider {
                 ingredients.add(Ingredient.of(deco0.item()));
                 ingredients.add(Ingredient.of(deco1.item()));
 
-                exporter.accept(new HelmetDecoRecipeBuilder(
-                        new ResourceLocation(KnightsHeraldry.MOD_ID, "deco/" + helmetName + "_" +
+                ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
+                        "deco/" + helmetName + "_" +
                                 BuiltInRegistries.ITEM.getKey(deco0.item()).getPath() + "_" +
-                                BuiltInRegistries.ITEM.getKey(deco1.item()).getPath()),
-                        ingredients
-                ));
+                                BuiltInRegistries.ITEM.getKey(deco1.item()).getPath());
+
+                new HelmetDecoRecipeBuilder(ingredients)
+                        .unlockedBy(getHasName(helmet), has(helmet))
+                        .save(exporter, recipeId);
             }
         }
     }
 
-    private void createDecoPlumeRecipe(Consumer<FinishedRecipe> exporter, Item helmet) {
+    private void createDecoPlumeRecipe(RecipeOutput exporter, Item helmet) {
         String helmetName = BuiltInRegistries.ITEM.getKey(helmet).getPath();
 
         NonNullList<Ingredient> ingredients = NonNullList.create();
         ingredients.add(Ingredient.of(helmet));
         ingredients.add(Ingredient.of(KHItems.PLUME.get()));
 
-        exporter.accept(new HelmetDecoRecipeBuilder(
-                new ResourceLocation(KnightsHeraldry.MOD_ID, "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(KHItems.PLUME.get()).getPath()),
-                ingredients
-        ));
+        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
+                "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(KHItems.PLUME.get()).getPath());
+
+        new HelmetDecoRecipeBuilder(ingredients)
+                .unlockedBy(getHasName(helmet), has(helmet))
+                .save(exporter, recipeId);
     }
 
 
-    private void createWeaponCycle(Consumer<FinishedRecipe> exporter, Item... weapons) {
+    private void createWeaponCycle(RecipeOutput exporter, Item... weapons) {
         for (int i = 0; i < weapons.length; i++) {
             Item current = weapons[i];
             Item next = weapons[(i + 1) % weapons.length];
@@ -664,14 +666,14 @@ public class ModRecipeProvider extends RecipeProvider {
                     .requires(current)
                     .unlockedBy(getHasName(SCItems.SMITHING_HAMMER.get()), has(SCItems.SMITHING_HAMMER.get()))
                     .unlockedBy(getHasName(current), has(current))
-                    .save(exporter, new ResourceLocation(
+                    .save(exporter, ResourceLocation.fromNamespaceAndPath(
                             KnightsHeraldry.MOD_ID,
                             "upgrade_" + BuiltInRegistries.ITEM.getKey(current).getPath() + "_to_" + BuiltInRegistries.ITEM.getKey(next).getPath()
                     ));
         }
     }
 
-    private void createEasyRecipe(Consumer<FinishedRecipe> exporter, Item finalItem, Item principal, Item... attachments) {
+    private void createEasyRecipe(RecipeOutput exporter, Item finalItem, Item principal, Item... attachments) {
         ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, finalItem, 1)
                 .requires(principal)
                 .unlockedBy(getHasName(principal), has(principal));
@@ -687,7 +689,7 @@ public class ModRecipeProvider extends RecipeProvider {
             recipeId.append("_and_").append(BuiltInRegistries.ITEM.getKey(attachment).getPath());
         }
 
-        builder.save(exporter, new ResourceLocation(
+        builder.save(exporter, ResourceLocation.fromNamespaceAndPath(
                 KnightsHeraldry.MOD_ID,
                 recipeId.toString()
         ));

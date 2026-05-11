@@ -12,9 +12,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.geometry.IGeometryBakingContext;
-import net.minecraftforge.client.model.geometry.IGeometryLoader;
-import net.minecraftforge.client.model.geometry.IUnbakedGeometry;
+import net.neoforged.neoforge.client.model.geometry.IGeometryBakingContext;
+import net.neoforged.neoforge.client.model.geometry.IGeometryLoader;
+import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 
 import java.util.List;
 import java.util.function.Function;
@@ -25,14 +25,14 @@ public class SurcoatWithBannerModel implements IUnbakedGeometry<SurcoatWithBanne
     @Override
     public BakedModel bake(IGeometryBakingContext context, ModelBaker baker,
                            Function<Material, TextureAtlasSprite> spriteGetter,
-                           ModelState modelState, ItemOverrides overrides,
-                           ResourceLocation modelLocation) {
+                           ModelState modelState, ItemOverrides overrides) {
+        ResourceLocation modelLocation = ResourceLocation.parse(context.getModelName());
 
         String modelPath = modelLocation.getPath();
         String baseModelPath = modelPath.replace("_with_banner", "");
 
         BakedModel baseModel = baker.bake(
-                new ResourceLocation(modelLocation.getNamespace(), baseModelPath),
+                ResourceLocation.fromNamespaceAndPath(modelLocation.getNamespace(), baseModelPath),
                 modelState, spriteGetter
         );
 
@@ -79,7 +79,7 @@ public class SurcoatWithBannerModel implements IUnbakedGeometry<SurcoatWithBanne
 
         @Override
         public boolean isCustomRenderer() {
-            return true; // This is key - tells Minecraft to use custom renderer
+            return true;
         }
 
         @Override

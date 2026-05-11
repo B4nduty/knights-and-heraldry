@@ -4,18 +4,18 @@ import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.util.itemdata.HelmetDeco;
 import banduty.stoneycore.StoneyCore;
-import banduty.stoneycore.datagen.ForgeModelProviderPlus;
-import banduty.stoneycore.items.manuscript.Manuscript;
+import banduty.stoneycore.datagen.NeoForgeModelProviderPlus;
+import banduty.stoneycore.items.custom.manuscript.Manuscript;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ModModelProvider extends ForgeModelProviderPlus {
+public class ModModelProvider extends NeoForgeModelProviderPlus {
 
     public ModModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, KnightsHeraldry.MOD_ID, existingFileHelper);
@@ -78,8 +78,8 @@ public class ModModelProvider extends ForgeModelProviderPlus {
         for (Item item : dyeable) dyeableItem(item);
 
         // --- Helmet Deco ---
-        for (Item deco : HelmetDeco.getRegisteredItems()) {
-            if (deco != KHItems.TORSE.get()) simpleItem(deco);
+        for (HelmetDeco deco : HelmetDeco.all()) {
+            if (deco.item() != KHItems.TORSE.get()) simpleItem(deco.item());
         }
 
         // --- Manuscripts ---
@@ -119,7 +119,7 @@ public class ModModelProvider extends ForgeModelProviderPlus {
                 KHItems.ZWEIHANDER.get(), KHItems.WARDART.get()
         };
         for (Item item : brokenItems) {
-            registerItemWConditions(item, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "broken"), 1));
+            registerItemWConditions(item, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "broken"), 1));
         }
 
         Item[] openVisorHelmets = {
@@ -140,7 +140,7 @@ public class ModModelProvider extends ForgeModelProviderPlus {
                 KHItems.SAVOYARD.get(), KHItems.DARK_SAVOYARD.get(), KHItems.GOLDEN_SAVOYARD.get()
         };
         for (Item item : openVisorHelmets)
-            registerItemWConditions(item, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "open"), 1));
+            registerItemWConditions(item, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1));
 
         Item[] simpleArmor = {
                 KHItems.MAIL_SPAULDERS.get(), KHItems.MAIL_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_MAIL_SPAULDERS.get(),
@@ -297,7 +297,7 @@ public class ModModelProvider extends ForgeModelProviderPlus {
             String manuscriptType = entry.getValue().name().toLowerCase();
 
             withExistingParent("manuscript_" + path, "item/generated")
-                    .texture("layer0", new ResourceLocation(StoneyCore.MOD_ID, "item/manuscript_" + manuscriptType));
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(StoneyCore.MOD_ID, "item/manuscript_" + manuscriptType));
         }
     }
 
