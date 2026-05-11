@@ -1,0 +1,38 @@
+{
+  "ranged": {
+    "ammoRequirement": {
+      "item1": {
+        "amount": 1,
+        "items": [
+          "stoneycore:black_powder"
+        ]
+      },
+      "item2": {
+        "amount": 1,
+        "items": [
+          "minecraft:iron_nugget",
+          "minecraft:gravel"
+        ]
+      },
+      "item3": {
+        "amount": 1,
+        "items": [
+          "minecraft:paper",
+          "minecraft:short_grass"
+        ]
+      }
+    },
+    "baseDamage": 21.0,
+    "damageType": "BLUDGEONING",
+    "divergence": 2.0,
+    "id": "musket",
+    "maxUseTime": 1,
+    "rechargeTime": 15,
+    "soundEvent": "stoneycore:arquebus_close",
+    "speed": 5.9,
+    "useAnim": "BOW"
+  },
+  "usage": [
+    "RANGED"
+  ]
+}

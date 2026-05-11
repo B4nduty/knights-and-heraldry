@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "stoneycore:dark_plate_spaulders_besagews"
+    },
+    {
+      "item": "stoneycore:rim_guards"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "stoneycore:dark_plate_spaulders_besagews_rimmed"
+  }
+}

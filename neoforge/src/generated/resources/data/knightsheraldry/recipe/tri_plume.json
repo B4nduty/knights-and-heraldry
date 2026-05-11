@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "stoneycore:plume"
+    },
+    {
+      "item": "stoneycore:plume"
+    },
+    {
+      "item": "stoneycore:plume"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "stoneycore:tri_plume"
+  }
+}

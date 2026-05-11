@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:manuscript/war_hammer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_war_hammer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stoneycore:war_hammer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_war_hammer"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:manuscript/war_hammer"
+    ]
+  }
+}

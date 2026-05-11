@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "knightsheraldry:item/dark_brig_breastplate",
+    "layer1": "knightsheraldry:item/dark_brig_breastplate_overlay"
+  }
+}

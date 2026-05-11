@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "stoneycore:smithing_hammer"
+    },
+    {
+      "item": "stoneycore:flamberge"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "stoneycore:zweihander"
+  }
+}

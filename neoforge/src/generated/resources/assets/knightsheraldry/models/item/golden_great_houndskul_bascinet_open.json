@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "knightsheraldry:item/golden_great_houndskul_bascinet_open"
+  }
+}

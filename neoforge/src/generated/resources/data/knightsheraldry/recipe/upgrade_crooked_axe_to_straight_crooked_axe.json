@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "stoneycore:smithing_hammer"
+    },
+    {
+      "item": "stoneycore:crooked_axe"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "stoneycore:straight_crooked_axe"
+  }
+}

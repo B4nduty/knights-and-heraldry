@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:manuscript/xiiii_plate_breastplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_xiiii_plate_breastplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stoneycore:xiiii_plate_breastplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_xiiii_plate_breastplate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:manuscript/xiiii_plate_breastplate"
+    ]
+  }
+}

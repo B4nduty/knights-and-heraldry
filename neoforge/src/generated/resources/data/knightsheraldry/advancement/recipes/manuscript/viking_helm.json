@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:manuscript/viking_helm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_viking_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stoneycore:viking_helm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_viking_helm"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:manuscript/viking_helm"
+    ]
+  }
+}

@@ -8,15 +8,17 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraftforge.event.village.VillagerTradesEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 
-@Mod.EventBusSubscriber(modid = KnightsHeraldry.MOD_ID)
+@EventBusSubscriber(modid = KnightsHeraldry.MOD_ID)
 public class VillagerTradesModifier {
 
     @SubscribeEvent
@@ -45,12 +47,19 @@ public class VillagerTradesModifier {
     private static void addTradeOffer(Int2ObjectMap<List<VillagerTrades.ItemListing>> trades,
                                       int level, int emeraldCount, int maxUses, int xp, Supplier<Item>... itemSuppliers) {
         List<VillagerTrades.ItemListing> list = trades.get(level);
+        if (list == null) return;
+
         list.add((entity, random) -> {
             Item item = itemSuppliers[random.nextInt(itemSuppliers.length)].get();
+            // In 1.21.1, MerchantOffer uses ItemCost for the price
             return new MerchantOffer(
-                    new ItemStack(Items.EMERALD, emeraldCount),
+                    new ItemCost(Items.EMERALD, emeraldCount),
+                    Optional.empty(), // Secondary cost (optional)
                     new ItemStack(item, 1),
-                    maxUses, xp, 0.05f);
+                    maxUses,
+                    xp,
+                    0.05f // Price multiplier
+            );
         });
     }
 

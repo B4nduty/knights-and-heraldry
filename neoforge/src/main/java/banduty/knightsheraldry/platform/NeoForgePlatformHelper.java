@@ -4,12 +4,9 @@ import banduty.knightsheraldry.config.ForgeKHConfigImpl;
 import banduty.knightsheraldry.config.KHConfigImpl;
 import banduty.knightsheraldry.data.ArrowBehavior;
 import banduty.knightsheraldry.data.ArrowBehaviorManager;
+import banduty.knightsheraldry.networking.payload.VelocityS2CPacket;
 import banduty.knightsheraldry.platform.services.IPlatformHelper;
 import banduty.stoneycore.StoneyCore;
-import net.bettercombat.api.AttackHand;
-import net.bettercombat.logic.PlayerAttackHelper;
-import net.bettercombat.logic.PlayerAttackProperties;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -18,9 +15,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import software.bernie.geckolib.animation.Animation;
-import software.bernie.geckolib.animation.RawAnimation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -85,21 +81,8 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public RawAnimation loadAnimation(Minecraft client) {
-        if (client.player == null) return RawAnimation.begin().then("standby", Animation.LoopType.LOOP);
-        AttackHand hand = PlayerAttackHelper.getCurrentAttack(client.player, ((PlayerAttackProperties)client.player).getComboCount());
-        RawAnimation animation;
-        if (hand != null && client.player.getAttackStrengthScale(0) < (1.0 - hand.upswingRate())) {
-            animation = RawAnimation.begin().then("attack", Animation.LoopType.LOOP);
-        } else {
-            animation = RawAnimation.begin().then("standby", Animation.LoopType.LOOP);
-        }
-        return animation;
-    }
-
-    @Override
     public void syncSpeedHistory(ServerPlayer player, float speedHistory) {
-
+        PacketDistributor.sendToPlayer(player, new VelocityS2CPacket(speedHistory));
     }
 
     public static void registerRegistries(IEventBus eventBus) {

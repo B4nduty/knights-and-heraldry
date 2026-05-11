@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_besagews": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stoneycore:besagews"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_plate_spaulders_rimmed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stoneycore:plate_spaulders_rimmed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:plate_spaulders_besagews_rimmed_from_plate_spaulders_rimmed_and_besagews"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_plate_spaulders_rimmed",
+      "has_besagews"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:plate_spaulders_besagews_rimmed_from_plate_spaulders_rimmed_and_besagews"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "stoneycore:golden_plate_spaulders"
+    },
+    {
+      "item": "stoneycore:besagews"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "stoneycore:golden_plate_spaulders_besagews"
+  }
+}

@@ -1,37 +1,37 @@
 package banduty.knightsheraldry.networking.payload;
 
-import banduty.stoneycore.util.data.playerdata.IEntityDataSaver;
+import banduty.knightsheraldry.KnightsHeraldry;
+import banduty.stoneycore.util.data.entitydata.IEntityDataSaver;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraftforge.network.NetworkEvent;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-import java.util.function.Supplier;
+public record VelocityS2CPacket(float speedHistory) implements CustomPacketPayload {
+    public static final Type<VelocityS2CPacket> TYPE = new Type<>(
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "velocity_packet")
+    );
 
-public record VelocityS2CPacket(float speedHistory) {
+    public static final StreamCodec<RegistryFriendlyByteBuf, VelocityS2CPacket> STREAM_CODEC = StreamCodec.composite(
+            ByteBufCodecs.FLOAT, VelocityS2CPacket::speedHistory,
+            VelocityS2CPacket::new
+    );
 
-    public static void handle(VelocityS2CPacket msg, Supplier<NetworkEvent.Context> ctx) {
-        NetworkEvent.Context context = ctx.get();
+    @Override
+    public Type<? extends CustomPacketPayload> type() { return TYPE; }
 
-        if (context.getDirection().getReceptionSide().isClient()) {
-            context.enqueueWork(() -> {
-                Minecraft mc = Minecraft.getInstance();
+    public void handle(IPayloadContext context) {
+        context.enqueueWork(() -> {
+            Minecraft mc = Minecraft.getInstance();
 
-                if (mc.player != null) {
-                    ((IEntityDataSaver) mc.player)
-                            .stoneycore$getPersistentData()
-                            .putFloat("speedHistory", msg.speedHistory);
-                }
-            });
-        }
-
-        context.setPacketHandled(true);
-    }
-
-    public static VelocityS2CPacket decode(FriendlyByteBuf buf) {
-        return new VelocityS2CPacket(buf.readFloat());
-    }
-
-    public static void encode(VelocityS2CPacket msg, FriendlyByteBuf buf) {
-        buf.writeFloat(msg.speedHistory);
+            if (mc.player != null) {
+                ((IEntityDataSaver) mc.player)
+                        .stoneycore$getPersistentData()
+                        .putFloat("speedHistory", speedHistory);
+            }
+        });
     }
 }

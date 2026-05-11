@@ -7,13 +7,13 @@ import io.wispforest.accessories.api.slot.SlotEntryReference;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RenderNameTagEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.RenderNameTagEvent;
+import net.neoforged.neoforge.common.util.TriState;
 
-@Mod.EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
+@EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, bus = EventBusSubscriber.Bus.GAME, value = Dist.CLIENT)
 public class RenderNameTagHandler {
     @SubscribeEvent
     public static void onRenderNameTag(RenderNameTagEvent event) {
@@ -25,7 +25,7 @@ public class RenderNameTagHandler {
                     ItemStack itemStack = equipped.stack();
 
                     if (isHidingNameHood(itemStack)) {
-                        event.setResult(Event.Result.DENY);
+                        event.setCanRender(TriState.FALSE);
                         return;
                     }
                 }

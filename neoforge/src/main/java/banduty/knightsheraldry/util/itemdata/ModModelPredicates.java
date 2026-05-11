@@ -2,6 +2,7 @@ package banduty.knightsheraldry.util.itemdata;
 
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
+import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import banduty.stoneycore.util.definitionsloader.WeaponDefinitionsStorage;
 import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -22,7 +23,7 @@ public class ModModelPredicates {
 
     private static void registerBowPredicates(Item item) {
         if (item instanceof HeavyCrossbow) {
-            ItemProperties.register(item, new ResourceLocation("pull"), (stack, world, entity, seed) -> {
+            ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","pull"), (stack, world, entity, seed) -> {
                 if (!WeaponDefinitionsStorage.isRanged(stack)) return 0.0F;
 
                 var state = SCRangeWeaponUtil.getWeaponState(stack);
@@ -36,7 +37,7 @@ public class ModModelPredicates {
                     return 0.0F;
                 }
 
-                int used = stack.getUseDuration() - entity.getUseItemRemainingTicks();
+                int used = stack.getUseDuration(entity) - entity.getUseItemRemainingTicks();
                 if (used < 0) return 0.0F;
 
                 float pull = (float) used / 20.0F / WeaponDefinitionsStorage.getData(stack).ranged().rechargeTime();
@@ -46,7 +47,7 @@ public class ModModelPredicates {
                 return pull;
             });
 
-            ItemProperties.register(item, new ResourceLocation("pulling"), (stack, world, entity, seed) -> {
+            ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","pulling"), (stack, world, entity, seed) -> {
                 if (entity == null || !WeaponDefinitionsStorage.isRanged(stack)) return 0.0F;
 
                 var state = SCRangeWeaponUtil.getWeaponState(stack);
@@ -57,25 +58,25 @@ public class ModModelPredicates {
                 return entity.isUsingItem() && entity.getUseItem() == stack && state.isReloading() ? 1.0F : 0.0F;
             });
 
-            ItemProperties.register(item, new ResourceLocation("charged"), (stack, world, entity, seed) -> {
+            ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","charged"), (stack, world, entity, seed) -> {
                 if (!WeaponDefinitionsStorage.isRanged(stack)) return 0.0F;
                 var state = SCRangeWeaponUtil.getWeaponState(stack);
                 return state.isCharged() ? 1.0F : 0.0F;
             });
         } else {
             // Default bow behavior
-            ItemProperties.register(item, new ResourceLocation("pull"), (stack, world, entity, seed) -> {
+            ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","pull"), (stack, world, entity, seed) -> {
                 if (entity == null) return 0.0F;
-                return entity.getUseItem() != stack ? 0.0F : (float) (stack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F;
+                return entity.getUseItem() != stack ? 0.0F : (float) (stack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F;
             });
-            ItemProperties.register(item, new ResourceLocation("pulling"), (stack, world, entity, seed) ->
+            ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","pulling"), (stack, world, entity, seed) ->
                     entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
         }
     }
 
     private static void registerEasterEggPredicates(Item item) {
         if (item == KHItems.LONGBOW.get())
-            ItemProperties.register(item, ResourceLocation.tryParse("longbow_xxxl"), (stack, world, entity, seed) -> {
+            ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("", "longbow_xxxl"), (stack, world, entity, seed) -> {
                 String displayName = stack.getDisplayName().getString();
                 String translatable = Component.translatable("item.knightsheraldry.easter_egg.longbow_xxxl").getString();
                 String cleanDisplayName = displayName;
@@ -87,25 +88,25 @@ public class ModModelPredicates {
     }
 
     private static void registerArmorPredicates(Item item) {
-        ItemProperties.register(item, ResourceLocation.tryParse("open"),
-                (stack, world, entity, seed) -> stack.hasTag() &&
-                        stack.getTag().getBoolean("visorOpen") ? 1.0F : 0.0F);
+        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("", "open"),
+                (stack, world, entity, seed) ->
+                        Boolean.TRUE.equals(stack.get(SCDataComponents.VISOR_OPEN.get())) ? 1.0F : 0.0F);
     }
 
     private static void registerWeaponPredicates(Item item) {
-        ItemProperties.register(item, ResourceLocation.tryParse("charged"),
-                (stack, world, entity, seed) -> entity != null
-                        && stack.hasTag() && stack.getTag().getBoolean("charged") ? 1.0F : 0.0F);
-        ItemProperties.register(item, ResourceLocation.tryParse("blocking"),
+        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","charged"),
+                (stack, world, entity, seed) ->
+                        Boolean.TRUE.equals(stack.get(SCDataComponents.CHARGED.get())) ? 1.0F : 0.0F);
+        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","blocking"),
                 (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
-        ItemProperties.register(item, ResourceLocation.tryParse("bludgeoning"),
-                (stack, world, entity, seed) -> stack.hasTag() &&
-                        stack.getTag().getBoolean("bludgeoning") ? 1.0F : 0.0F);
-        ItemProperties.register(item, ResourceLocation.tryParse("ignited"),
-                (stack, world, entity, seed) -> stack.hasTag() &&
-                        stack.getTag().getBoolean("ignited") ? 1.0F : 0.0F);
-        ItemProperties.register(item, ResourceLocation.tryParse("extinguished"),
-                (stack, world, entity, seed) -> stack.hasTag() &&
-                        stack.getTag().getBoolean("extinguished") ? 1.0F : 0.0F);
+        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","bludgeoning"),
+                (stack, world, entity, seed) ->
+                        Boolean.TRUE.equals(stack.get(SCDataComponents.BLUDGEONING.get())) ? 1.0F : 0.0F);
+        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","ignited"),
+                (stack, world, entity, seed) ->
+                        Boolean.TRUE.equals(stack.get(SCDataComponents.IGNITED.get())) ? 1.0F : 0.0F);
+        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","extinguished"),
+                (stack, world, entity, seed) ->
+                        Boolean.TRUE.equals(stack.get(KHDataComponents.EXTINGUISHED.get())) ? 1.0F : 0.0F);
     }
 }

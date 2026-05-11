@@ -1,0 +1,53 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.7,
+  "hit_times": 7,
+  "ingredients": [
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:savoyard"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "stoneycore:golden_savoyard"
+  }
+}

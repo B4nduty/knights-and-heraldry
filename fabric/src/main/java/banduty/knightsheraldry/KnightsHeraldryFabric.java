@@ -4,6 +4,7 @@ import banduty.knightsheraldry.event.CanEquipHandler;
 import banduty.knightsheraldry.event.StartTickHandler;
 import banduty.knightsheraldry.event.UseItemHandler;
 import banduty.knightsheraldry.items.KHItemGroups;
+import banduty.knightsheraldry.util.itemdata.KHHelmetDeco;
 import banduty.knightsheraldry.util.loottable.ArchaeologyLootModifier;
 import banduty.knightsheraldry.util.loottable.ChestLootTableModifier;
 import banduty.knightsheraldry.util.loottable.VillagerTradesModifier;
@@ -18,6 +19,7 @@ public class KnightsHeraldryFabric implements ModInitializer {
         KnightsHeraldry.init();
 
         KHItemGroups.init();
+        KHHelmetDeco.init();
 
         CanEquipCallback.EVENT.register(new CanEquipHandler());
         ServerTickEvents.START_SERVER_TICK.register(new StartTickHandler());

@@ -6,9 +6,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public interface ModItemGroups {
         return new ItemStack(item);
     }
 
-    RegistryObject<CreativeModeTab> KH_WEAPONS_TAB = CREATIVE_MODE_TABS.register("kh_weapons",
+    DeferredHolder<CreativeModeTab, CreativeModeTab> KH_WEAPONS_TAB = CREATIVE_MODE_TABS.register("kh_weapons",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(KHItems.ZWEIHANDER.get()))
                     .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_weapons"))
@@ -76,7 +76,7 @@ public interface ModItemGroups {
                         ));
                     }).build());
 
-    RegistryObject<CreativeModeTab> KH_ARMORS_TAB = CREATIVE_MODE_TABS.register("kh_armors",
+    DeferredHolder<CreativeModeTab, CreativeModeTab> KH_ARMORS_TAB = CREATIVE_MODE_TABS.register("kh_armors",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(KHItems.QUILTED_COIF.get()))
                     .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_armors"))
@@ -297,7 +297,7 @@ public interface ModItemGroups {
                         ));
                     }).build());
 
-    RegistryObject<CreativeModeTab> KH_DECO_TAB = CREATIVE_MODE_TABS.register("kh_deco",
+    DeferredHolder<CreativeModeTab, CreativeModeTab> KH_DECO_TAB = CREATIVE_MODE_TABS.register("kh_deco",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(KHItems.PLUME.get()))
                     .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_deco"))

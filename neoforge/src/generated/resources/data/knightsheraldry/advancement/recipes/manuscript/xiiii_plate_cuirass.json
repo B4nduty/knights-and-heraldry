@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:manuscript/xiiii_plate_cuirass"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_xiiii_plate_cuirass": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stoneycore:xiiii_plate_cuirass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_xiiii_plate_cuirass"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:manuscript/xiiii_plate_cuirass"
+    ]
+  }
+}

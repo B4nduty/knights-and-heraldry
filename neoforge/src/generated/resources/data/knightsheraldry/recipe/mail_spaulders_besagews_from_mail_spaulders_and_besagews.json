@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "stoneycore:mail_spaulders"
+    },
+    {
+      "item": "stoneycore:besagews"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "stoneycore:mail_spaulders_besagews"
+  }
+}

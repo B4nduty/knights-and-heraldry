@@ -3,44 +3,40 @@ package banduty.knightsheraldry.event;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.item.khweapon.Lance;
 import banduty.knightsheraldry.util.playerdata.PlayerVelocity;
-import banduty.stoneycore.util.data.playerdata.IEntityDataSaver;
+import banduty.stoneycore.util.data.entitydata.IEntityDataSaver;
+import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
-@Mod.EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class PlayerTickHandler {
 
     @SubscribeEvent
-    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (event.phase != TickEvent.Phase.START) return;
-        if (!(event.player instanceof ServerPlayer player)) return;
+    public static void onPlayerTick(PlayerTickEvent.Post event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
 
         ItemStack lanceStack = getLanceStack(player);
 
         if (lanceStack.isEmpty()) return;
 
-        CompoundTag tag = lanceStack.getTag();
-        if (tag == null || !tag.getBoolean("charged")) return;
+        if (Boolean.FALSE.equals(lanceStack.get(SCDataComponents.CHARGED.get()))) return;
 
         float velocity = calculateVelocity(player);
 
-        if (player instanceof IEntityDataSaver)
-            PlayerVelocity.updateSpeedHistory((IEntityDataSaver) player, velocity);
+        if (player instanceof IEntityDataSaver dataSaver)
+            PlayerVelocity.updateSpeedHistory(dataSaver, velocity);
     }
 
     private static ItemStack getLanceStack(Player player) {
-        ItemStack mainHand = player.getMainHandItem();
-        if (mainHand.getItem() instanceof Lance) return mainHand;
-
-        ItemStack offHand = player.getOffhandItem();
-        if (offHand.getItem() instanceof Lance) return offHand;
+        if (player.getMainHandItem().getItem() instanceof Lance) return player.getMainHandItem();
+        if (player.getOffhandItem().getItem() instanceof Lance) return player.getOffhandItem();
 
         return ItemStack.EMPTY;
     }

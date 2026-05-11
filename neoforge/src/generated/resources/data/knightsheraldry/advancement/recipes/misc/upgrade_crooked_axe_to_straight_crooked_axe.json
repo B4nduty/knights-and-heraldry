@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crooked_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stoneycore:crooked_axe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_smithing_hammer": {
+      "conditions": {
+        "items": [
+          {
+            "items": "stoneycore:smithing_hammer"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:upgrade_crooked_axe_to_straight_crooked_axe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_smithing_hammer",
+      "has_crooked_axe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:upgrade_crooked_axe_to_straight_crooked_axe"
+    ]
+  }
+}

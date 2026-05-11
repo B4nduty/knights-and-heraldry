@@ -19,13 +19,12 @@ public class KnightsHeraldry {
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
     public static void init() {
+        KHItems.init();
         KHEffects.init();
         KHEntities.init();
-        KHItems.init();
         KHRecipes.init();
         KHSounds.init();
         KHDataComponents.init();
-        KHHelmetDeco.init();
 
         if (Services.PLATFORM.isModLoaded(KnightsHeraldry.MOD_ID)) {
             LOG.info("Hello to knightsheraldry");
