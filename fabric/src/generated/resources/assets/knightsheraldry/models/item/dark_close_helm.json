@@ -4,7 +4,7 @@
     {
       "model": "knightsheraldry:item/dark_close_helm_open",
       "predicate": {
-        "knightsheraldry:open": 1
+        "minecraft:open": 1
       }
     }
   ],

@@ -1,6 +1,5 @@
 package banduty.knightsheraldry.datagen;
 
-import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.ModItems;
 import banduty.knightsheraldry.util.itemdata.HelmetDeco;
 import banduty.stoneycore.StoneyCore;
@@ -175,11 +174,11 @@ public class ModModelProvider extends FabricModelProviderPlus {
         };
 
         for (Item item : simpleHandheldItems) {
-            registerItemWConditions(item, ModelTemplates.FLAT_HANDHELD_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "broken"), 1));
+            registerItemWConditions(item, ModelTemplates.FLAT_HANDHELD_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation("broken"), 1));
         }
 
         for (Item item : openVisorHelmet) {
-            registerItemWConditions(item, ModelTemplates.FLAT_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation(KnightsHeraldry.MOD_ID, "open"), 1));
+            registerItemWConditions(item, ModelTemplates.FLAT_ITEM, itemModelGenerators, new OverrideCondition(new ResourceLocation("open"), 1));
         }
 
         for (Item item : simpleArmor) {

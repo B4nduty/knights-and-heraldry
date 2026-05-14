@@ -4,7 +4,7 @@
     {
       "model": "knightsheraldry:item/golden_armet_open",
       "predicate": {
-        "knightsheraldry:open": 1
+        "minecraft:open": 1
       }
     }
   ],

@@ -4,7 +4,7 @@
     {
       "model": "knightsheraldry:item/straight_crooked_axe_broken",
       "predicate": {
-        "knightsheraldry:broken": 1
+        "minecraft:broken": 1
       }
     }
   ],

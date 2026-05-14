@@ -4,7 +4,7 @@
     {
       "model": "knightsheraldry:item/broad_axe_broken",
       "predicate": {
-        "knightsheraldry:broken": 1.0
+        "stoneycore:broken": 1.0
       }
     }
   ],
