@@ -1,5 +1,6 @@
 package banduty.knightsheraldry.util.itemdata;
 
+import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.ModItems;
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import banduty.stoneycore.util.definitionsloader.WeaponDefinitionsStorage;
@@ -22,7 +23,7 @@ public class ModModelPredicates {
 
     private static void registerBowPredicates(Item item) {
         if (item instanceof HeavyCrossbow) {
-            ItemProperties.register(item, new ResourceLocation("pull"), (stack, world, entity, seed) -> {
+            ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "pull"), (stack, world, entity, seed) -> {
                 if (!WeaponDefinitionsStorage.isRanged(stack)) return 0.0F;
 
                 var state = SCRangeWeaponUtil.getWeaponState(stack);
@@ -46,7 +47,7 @@ public class ModModelPredicates {
                 return pull;
             });
 
-            ItemProperties.register(item, new ResourceLocation("pulling"), (stack, world, entity, seed) -> {
+            ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "pulling"), (stack, world, entity, seed) -> {
                 if (entity == null || !WeaponDefinitionsStorage.isRanged(stack)) return 0.0F;
 
                 var state = SCRangeWeaponUtil.getWeaponState(stack);
@@ -57,25 +58,25 @@ public class ModModelPredicates {
                 return entity.isUsingItem() && entity.getUseItem() == stack && state.isReloading() ? 1.0F : 0.0F;
             });
 
-            ItemProperties.register(item, new ResourceLocation("charged"), (stack, world, entity, seed) -> {
+            ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "charged"), (stack, world, entity, seed) -> {
                 if (!WeaponDefinitionsStorage.isRanged(stack)) return 0.0F;
                 var state = SCRangeWeaponUtil.getWeaponState(stack);
                 return state.isCharged() ? 1.0F : 0.0F;
             });
         } else {
             // Default bow behavior
-            ItemProperties.register(item, new ResourceLocation("pull"), (stack, world, entity, seed) -> {
+            ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "pull"), (stack, world, entity, seed) -> {
                 if (entity == null) return 0.0F;
                 return entity.getUseItem() != stack ? 0.0F : (float) (stack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F;
             });
-            ItemProperties.register(item, new ResourceLocation("pulling"), (stack, world, entity, seed) ->
+            ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "pulling"), (stack, world, entity, seed) ->
                     entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
         }
     }
 
     private static void registerEasterEggPredicates(Item item) {
         if (item == ModItems.LONGBOW.get())
-            ItemProperties.register(item, ResourceLocation.tryParse("longbow_xxxl"), (stack, world, entity, seed) -> {
+            ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "longbow_xxxl"), (stack, world, entity, seed) -> {
                 String displayName = stack.getDisplayName().getString();
                 String translatable = Component.translatable("item.knightsheraldry.easter_egg.longbow_xxxl").getString();
                 String cleanDisplayName = displayName;
@@ -87,24 +88,24 @@ public class ModModelPredicates {
     }
 
     private static void registerArmorPredicates(Item item) {
-        ItemProperties.register(item, ResourceLocation.tryParse("open"),
+        ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "open"),
                 (stack, world, entity, seed) -> stack.hasTag() &&
                         stack.getTag().getBoolean("visorOpen") ? 1.0F : 0.0F);
     }
 
     private static void registerWeaponPredicates(Item item) {
-        ItemProperties.register(item, ResourceLocation.tryParse("charged"),
+        ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "charged"),
                 (stack, world, entity, seed) -> entity != null
                         && stack.hasTag() && stack.getTag().getBoolean("charged") ? 1.0F : 0.0F);
-        ItemProperties.register(item, ResourceLocation.tryParse("blocking"),
+        ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "blocking"),
                 (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
-        ItemProperties.register(item, ResourceLocation.tryParse("bludgeoning"),
+        ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "bludgeoning"),
                 (stack, world, entity, seed) -> stack.hasTag() &&
                         stack.getTag().getBoolean("bludgeoning") ? 1.0F : 0.0F);
-        ItemProperties.register(item, ResourceLocation.tryParse("ignited"),
+        ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "ignited"),
                 (stack, world, entity, seed) -> stack.hasTag() &&
                         stack.getTag().getBoolean("ignited") ? 1.0F : 0.0F);
-        ItemProperties.register(item, ResourceLocation.tryParse("extinguished"),
+        ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "extinguished"),
                 (stack, world, entity, seed) -> stack.hasTag() &&
                         stack.getTag().getBoolean("extinguished") ? 1.0F : 0.0F);
     }

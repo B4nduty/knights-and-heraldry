@@ -4,7 +4,7 @@
 		"layer0": "knightsheraldry:item/lance_3d"
 	},
 	"overrides": [
-		{ "predicate": { "charged": 1 }, "model": "knightsheraldry:item/lance_3d_charged" }
+		{ "predicate": { "knightsheraldry:charged": 1 }, "model": "knightsheraldry:item/lance_3d_charged" }
 	],
 	"display": {
 		"thirdperson_righthand": {

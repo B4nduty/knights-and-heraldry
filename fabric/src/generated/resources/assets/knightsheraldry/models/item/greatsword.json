@@ -4,7 +4,7 @@
     {
       "model": "knightsheraldry:item/greatsword_broken",
       "predicate": {
-        "minecraft:broken": 1
+        "stoneycore:broken": 1
       }
     }
   ],

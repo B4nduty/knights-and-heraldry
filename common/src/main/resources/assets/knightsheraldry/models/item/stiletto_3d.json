@@ -5,7 +5,7 @@
     "layer0": "knightsheraldry:item/stiletto_3d"
   },
   "overrides": [
-    { "predicate": { "broken": 1 }, "model": "knightsheraldry:item/stiletto_3d_broken" }
+    { "predicate": { "stoneycore:broken": 1 }, "model": "knightsheraldry:item/stiletto_3d_broken" }
   ],
   "display": {
     "thirdperson_righthand": {

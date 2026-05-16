@@ -4,7 +4,7 @@
     {
       "model": "knightsheraldry:item/sword_broken",
       "predicate": {
-        "minecraft:broken": 1
+        "stoneycore:broken": 1
       }
     }
   ],
