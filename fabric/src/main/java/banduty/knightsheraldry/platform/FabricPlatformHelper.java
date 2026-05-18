@@ -7,7 +7,6 @@ import banduty.knightsheraldry.data.ArrowBehavior;
 import banduty.knightsheraldry.data.ArrowBehaviorManager;
 import banduty.knightsheraldry.networking.payload.VelocityS2CPacket;
 import banduty.knightsheraldry.platform.services.IPlatformHelper;
-import banduty.stoneycore.StoneyCore;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Holder;
@@ -64,7 +63,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public <T> Holder<T> registerHolder(ResourceKey<Registry<T>> registryKey, String name, Supplier<T> value) {
         return Registry.registerForHolder(
                 (Registry<T>) BuiltInRegistries.REGISTRY.get(registryKey.location()),
-                ResourceLocation.fromNamespaceAndPath(StoneyCore.MOD_ID, name),
+                ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, name),
                 value.get()
         );
     }

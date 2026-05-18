@@ -1,0 +1,98 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_armet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:armet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_barbute": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:barbute"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_bascinet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:bascinet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_burgonet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:burgonet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_kettle_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:kettle_helm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_nasal_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:nasal_helm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/armet_torse"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_viking_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:viking_helm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_barbute",
+      "has_bascinet",
+      "has_kettle_helm",
+      "has_nasal_helm",
+      "has_viking_helm",
+      "has_burgonet",
+      "has_armet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/armet_torse"
+    ]
+  }
+}

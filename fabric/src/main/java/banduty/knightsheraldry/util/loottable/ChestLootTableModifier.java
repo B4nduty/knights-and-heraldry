@@ -2,6 +2,7 @@ package banduty.knightsheraldry.util.loottable;
 
 import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.items.SCItems;
+import banduty.stoneycore.util.data.itemdata.ItemStackHolder;
 import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.world.item.Item;
@@ -103,7 +104,7 @@ public class ChestLootTableModifier {
 
             poolBuilder.add(
                     LootItem.lootTableItem(SCItems.MANUSCRIPT.get())
-                            .apply(SetComponentsFunction.setComponent(SCDataComponents.TARGET_STACK.get(), weaponStack))
+                            .apply(SetComponentsFunction.setComponent(SCDataComponents.TARGET_STACK.get(), new ItemStackHolder(weaponStack)))
                             .setWeight(1)
             );
         }

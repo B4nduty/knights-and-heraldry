@@ -189,7 +189,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
 
     private void registerHelmetDecoItems(ItemModelGenerators itemModelGenerators) {
         for (HelmetDeco deco : HelmetDeco.all()) {
-            if (deco.item() == KHItems.TORSE) continue;
+            if (deco.item() == KHItems.TORSE.get()) continue;
             itemModelGenerators.generateFlatItem(deco.item(), ModelTemplates.FLAT_ITEM);
         }
     }

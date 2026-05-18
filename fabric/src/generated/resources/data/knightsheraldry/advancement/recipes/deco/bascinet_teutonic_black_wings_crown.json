@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_barbute": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:barbute"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_bascinet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:bascinet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/bascinet_teutonic_black_wings_crown"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_barbute",
+      "has_bascinet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/bascinet_teutonic_black_wings_crown"
+    ]
+  }
+}

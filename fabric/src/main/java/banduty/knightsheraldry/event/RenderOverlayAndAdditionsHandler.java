@@ -81,36 +81,6 @@ public class RenderOverlayAndAdditionsHandler implements RenderOverlayAndAdditio
         model.renderToBuffer(poseStack, consumer, light, OverlayTexture.NO_OVERLAY, color);
     }
 
-    private ResourceLocation getVariantTexture(ResourceLocation baseTexture, String stackName) {
-        String variantPrefix = getVariantPrefix(stackName);
-        if (variantPrefix == null) {
-            return baseTexture;
-        }
-
-        String path = baseTexture.getPath();
-
-        int lastSlashIndex = path.lastIndexOf('/');
-        if (lastSlashIndex == -1) {
-            String newPath = variantPrefix + path;
-            return ResourceLocation.fromNamespaceAndPath(baseTexture.getNamespace(), newPath);
-        }
-
-        String directory = path.substring(0, lastSlashIndex + 1);
-        String filename = path.substring(lastSlashIndex + 1);
-        String newPath = directory + variantPrefix + filename;
-
-        return ResourceLocation.fromNamespaceAndPath(baseTexture.getNamespace(), newPath);
-    }
-
-    private String getVariantPrefix(String stackName) {
-        if (stackName.contains("dark_")) {
-            return "dark_";
-        } else if (stackName.contains("golden_")) {
-            return "golden_";
-        }
-        return null;
-    }
-
     private boolean isSurcoat(ItemStack stack) {
         return stack.getItem() == KHItems.SURCOAT.get() || stack.getItem() == KHItems.SURCOAT_SLEEVELESS.get();
     }

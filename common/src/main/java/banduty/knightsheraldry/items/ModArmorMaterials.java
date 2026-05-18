@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.items;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.stoneycore.platform.Services;
+import banduty.knightsheraldry.platform.Services;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;

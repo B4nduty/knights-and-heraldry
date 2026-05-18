@@ -1,0 +1,65 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_barbute": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:barbute"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_bascinet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:bascinet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_kettle_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:kettle_helm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_nasal_helm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:nasal_helm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:deco/nasal_helm_stag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_barbute",
+      "has_bascinet",
+      "has_kettle_helm",
+      "has_nasal_helm"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:deco/nasal_helm_stag"
+    ]
+  }
+}
