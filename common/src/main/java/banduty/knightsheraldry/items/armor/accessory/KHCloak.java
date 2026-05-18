@@ -5,6 +5,7 @@ import banduty.knightsheraldry.model.CloakHoodModel;
 import banduty.knightsheraldry.model.KHModels;
 import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
 import io.wispforest.accessories.api.AccessoryItem;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
@@ -28,7 +29,8 @@ public class KHCloak extends AccessoryItem implements SCAccessoryItem {
 
     @Override
     public ResourceLocation getTexturePath(ItemStack itemStack) {
-        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + this + ".png");
+        String itemName = BuiltInRegistries.ITEM.getKey(this).getPath();
+        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + itemName + ".png");
     }
 
     @Override
