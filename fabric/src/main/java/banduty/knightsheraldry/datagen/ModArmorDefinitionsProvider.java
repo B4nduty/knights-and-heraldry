@@ -1,10 +1,8 @@
 package banduty.knightsheraldry.datagen;
 
-import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.datagen.DefinitionsProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.entity.EntityType;
 
 public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
     public ModArmorDefinitionsProvider(PackOutput output) {
@@ -17,25 +15,25 @@ public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
         biConsumer.accept(KHItems.QUILTED_COIF.get(), Builder.create()
                         .weight(0.5)
                         .damageResistance(0.04, 0.1, 0)
-                        .deflectChance(0.005, getAllArrows())
+                        .deflectChance(0.005)
                         .build()
         );
         biConsumer.accept(KHItems.GAMBESON.get(), Builder.create()
                         .weight(5.0)
                         .damageResistance(0.04, 0.1, 0)
-                        .deflectChance(0.025, getAllArrows())
+                        .deflectChance(0.025)
                         .build()
         );
         biConsumer.accept(KHItems.GAMBESON_BREECHES.get(), Builder.create()
                         .weight(2.0)
                         .damageResistance(0.04, 0.1, 0)
-                        .deflectChance(0.01, getAllArrows())
+                        .deflectChance(0.01)
                         .build()
         );
         biConsumer.accept(KHItems.GAMBESON_BOOTS.get(), Builder.create()
                         .weight(1.0)
                         .damageResistance(0.04, 0.1, 0)
-                        .deflectChance(0.002, getAllArrows())
+                        .deflectChance(0.002)
                         .build()
         );
 
@@ -43,53 +41,43 @@ public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
         biConsumer.accept(KHItems.MAIL_COIF.get(), Builder.create()
                         .weight(2.5)
                         .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.04, getAllArrows())
+                        .deflectChance(0.04)
                         .build()
         );
         biConsumer.accept(KHItems.HAUBERK.get(), Builder.create()
                         .weight(10.0)
                         .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.07, getAllArrows())
+                        .deflectChance(0.07)
                         .build()
         );
         biConsumer.accept(KHItems.MAIL_BREECHES.get(), Builder.create()
                         .weight(8.0)
                         .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.05, getAllArrows())
+                        .deflectChance(0.05)
                         .build()
         );
         biConsumer.accept(KHItems.MAIL_BOOTS.get(), Builder.create()
                         .weight(3.0)
                         .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.02, getAllArrows())
+                        .deflectChance(0.02)
                         .build()
         );
 
         // Horse Armor
         biConsumer.accept(KHItems.HORSE_BARDING.get(), Builder.create()
                         .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.6, getAllArrows())
+                        .deflectChance(0.6)
                         .build()
         );
         biConsumer.accept(KHItems.DARK_HORSE_BARDING.get(), Builder.create()
                         .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.6, getAllArrows())
+                        .deflectChance(0.6)
                         .build()
         );
         biConsumer.accept(KHItems.GOLDEN_HORSE_BARDING.get(), Builder.create()
                         .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.6, getAllArrows())
+                        .deflectChance(0.6)
                         .build()
         );
-    }
-
-    protected EntityType<?>[] getAllArrows() {
-        return new EntityType<?>[] {
-                EntityType.ARROW,
-                KHEntities.BODKIN_ARROW.get(),
-                KHEntities.BROADHEAD_ARROW.get(),
-                KHEntities.CLOTH_ARROW.get(),
-                KHEntities.SWALLOWTAIL_ARROW.get()
-        };
     }
 }

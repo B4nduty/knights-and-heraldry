@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"gui_light": "front",
 	"textures": {
 		"0": "knightsheraldry:item/spiked_mace_3d",
 		"particle": "knightsheraldry:item/spiked_mace_3d"

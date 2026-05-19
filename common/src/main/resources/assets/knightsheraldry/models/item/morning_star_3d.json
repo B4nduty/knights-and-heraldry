@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"gui_light": "front",
 	"textures": {
 		"0": "knightsheraldry:item/morning_star_3d",
 		"particle": "knightsheraldry:item/morning_star_3d"
