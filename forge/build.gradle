@@ -130,6 +130,7 @@ dependencies {
     modApi "me.shedaniel.cloth:cloth-config-forge:${cloth_config}"
 
     modImplementation "curse.maven:item-nbt-viewer-514135:4578522"
+    modImplementation("curse.maven:model-gap-fix-676136:5200949")
 }
 
 jar {
