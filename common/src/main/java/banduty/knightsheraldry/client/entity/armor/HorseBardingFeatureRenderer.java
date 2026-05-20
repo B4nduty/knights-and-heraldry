@@ -21,6 +21,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.DyedItemColor;
 
 public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<Horse>> {
     private static final ResourceLocation HORSE_ARMOR_TEXTURE_PLUME = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/horse_barding_plume.png");
@@ -58,7 +59,7 @@ public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<H
             model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), 1);
 
             // Overlay texture (dyed colorN)
-            int color = horseBardingArmorItem.getColor(armorStack);
+            int color = DyedItemColor.getOrDefault(armorStack, horseBardingArmorItem.getDefaultColor());
             ResourceLocation textureOverlay = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/" + BuiltInRegistries.ITEM.getKey(armorStack.getItem()).getPath() + "_overlay.png");
             VertexConsumer vertexConsumerOverlay = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(textureOverlay));
             model.renderToBuffer(poseStack, vertexConsumerOverlay, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), color);

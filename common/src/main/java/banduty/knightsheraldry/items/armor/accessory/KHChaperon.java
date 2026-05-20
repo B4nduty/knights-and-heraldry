@@ -28,4 +28,9 @@ public class KHChaperon extends AccessoryItem implements SCAccessoryItem {
     public RenderSettings getRenderSettings(ItemStack stack) {
         return new SCAccessoryItem.RenderSettings(hasOverlay, false, true);
     }
+
+    @Override
+    public int getDefaultColor() {
+        return 0xFFA06440;
+    }
 }

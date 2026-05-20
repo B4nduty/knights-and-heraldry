@@ -36,4 +36,9 @@ public class KHCloak extends AccessoryItem implements SCAccessoryItem {
     public RenderSettings getRenderSettings(ItemStack stack) {
         return new RenderSettings(overlay, true, false);
     }
+
+    @Override
+    public int getDefaultColor() {
+        return 0xFFA06440;
+    }
 }

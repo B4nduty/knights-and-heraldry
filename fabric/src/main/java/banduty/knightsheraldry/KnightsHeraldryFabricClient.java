@@ -6,6 +6,7 @@ import banduty.knightsheraldry.event.ItemTooltipHandler;
 import banduty.knightsheraldry.event.RenderFirstPersonAccessoryArmorHandler;
 import banduty.knightsheraldry.event.RenderOverlayAndAdditionsHandler;
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
@@ -63,6 +64,7 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
                 KHItems.DARK_BRIGANDINE_SPAULDERS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(),
                 KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get(),
                 KHItems.BRIGANDINE.get(), KHItems.DARK_BRIGANDINE.get(), KHItems.GOLDEN_BRIGANDINE.get(),
+                KHItems.BRIG_BREASTPLATE.get(), KHItems.DARK_BRIG_BREASTPLATE.get(), KHItems.GOLDEN_BRIG_BREASTPLATE.get(),
                 KHItems.BRIGANDINE_HARNESS.get(), KHItems.DARK_BRIGANDINE_HARNESS.get(), KHItems.GOLDEN_BRIGANDINE_HARNESS.get(),
                 KHItems.BRIGANDINE_CUISSES.get(), KHItems.DARK_BRIGANDINE_CUISSES.get(), KHItems.GOLDEN_BRIGANDINE_CUISSES.get(),
                 KHItems.CLOAK.get(), KHItems.TORN_CLOAK.get(), KHItems.HOOD.get(), KHItems.TORN_HOOD.get(),
@@ -72,17 +74,18 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
                 KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get(), KHItems.TORSE.get()
         };
         for (Item item : items) {
-            if (item instanceof SCDyeableUnderArmor || item instanceof SCAccessoryItem) {
+            if (item instanceof SCDyeableUnderArmor || item instanceof SCAccessoryItem || item instanceof HorseBardingArmorItem) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
                     if (tintIndex > 0) {
                         return -1;
                     }
 
                     int defaultColor = -1;
-                    if (stack.getItem() instanceof SCDyeableUnderArmor dyeable) {
-                        defaultColor = dyeable.getDefaultColor();
-                    } else if (stack.getItem() instanceof SCAccessoryItem accessory) {
-                        defaultColor = accessory.getDefaultColor();
+                    switch (stack.getItem()) {
+                        case SCDyeableUnderArmor dyeable -> defaultColor = dyeable.getDefaultColor();
+                        case SCAccessoryItem accessory -> defaultColor = accessory.getDefaultColor();
+                        case HorseBardingArmorItem horseBardingArmorItem -> defaultColor = horseBardingArmorItem.getDefaultColor();
+                        default -> {}
                     }
 
                     return DyedItemColor.getOrDefault(stack, defaultColor);

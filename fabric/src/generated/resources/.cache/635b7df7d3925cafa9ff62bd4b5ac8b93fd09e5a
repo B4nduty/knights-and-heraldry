@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-20T11:15:08.444875	Knights & Heraldry/Armor Definitions
+// 1.21.1	2026-05-21T00:17:53.7861918	Knights & Heraldry/Armor Definitions
 d7c5165c886e0872cba3fb978b3e72e71d90cfe8 data\knightsheraldry\definitions\armor\hauberk.json
 7067f50bd622dea3f721561098a33aa19d8c1420 data\knightsheraldry\definitions\armor\gambeson_boots.json
 210a87b26c735a83bcd0bc5450b067cf4972f52e data\knightsheraldry\definitions\armor\golden_horse_barding.json
@@ -8,5 +8,5 @@ d7c5165c886e0872cba3fb978b3e72e71d90cfe8 data\knightsheraldry\definitions\armor\
 210a87b26c735a83bcd0bc5450b067cf4972f52e data\knightsheraldry\definitions\armor\dark_horse_barding.json
 a13872e0ce5cd81c8d360e2826d82541f8cde174 data\knightsheraldry\definitions\armor\gambeson.json
 55c507e18eae301641dd80c7039cf8ab87b93424 data\knightsheraldry\definitions\armor\mail_boots.json
-a9e6468cfd6a1e6b2605f912154188b8e0e86a09 data\knightsheraldry\definitions\armor\mail_coif.json
 1315b310fdbf7d0520abb757f9adf257b2fa8b34 data\knightsheraldry\definitions\armor\quilted_coif.json
+a9e6468cfd6a1e6b2605f912154188b8e0e86a09 data\knightsheraldry\definitions\armor\mail_coif.json
