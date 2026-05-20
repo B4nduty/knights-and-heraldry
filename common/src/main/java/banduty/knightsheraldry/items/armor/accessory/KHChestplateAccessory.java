@@ -4,11 +4,9 @@ import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.model.KHModels;
 import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
 import io.wispforest.accessories.api.AccessoryItem;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class KHChestplateAccessory extends AccessoryItem implements SCAccessoryItem {
@@ -20,7 +18,7 @@ public class KHChestplateAccessory extends AccessoryItem implements SCAccessoryI
         super(properties);
         this.ingredient = ingredient;
         this.overlay = false;
-        this.defaultColor = 0xffffff;
+        this.defaultColor = -1;
     }
 
     public KHChestplateAccessory(Properties properties, int defaultColor, Ingredient ingredient) {
@@ -49,9 +47,8 @@ public class KHChestplateAccessory extends AccessoryItem implements SCAccessoryI
     }
 
     @Override
-    public int getColor(ItemStack itemStack) {
-        DyedItemColor dyedItemColor = itemStack.get(DataComponents.DYED_COLOR);
-        return dyedItemColor != null ? dyedItemColor.rgb() : this.defaultColor;
+    public int getDefaultColor() {
+        return defaultColor;
     }
 
     @Override

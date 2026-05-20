@@ -46,11 +46,6 @@ public class KHCloseHelmet extends AccessoryItem implements SCAccessoryItem, Dec
     }
 
     @Override
-    public int getColor(ItemStack stack) {
-        return 0;
-    }
-
-    @Override
     public boolean isValidRepairItem(ItemStack stack, ItemStack ingredient) {
         return this.ingredient.test(ingredient) || super.isValidRepairItem(stack, ingredient);
     }

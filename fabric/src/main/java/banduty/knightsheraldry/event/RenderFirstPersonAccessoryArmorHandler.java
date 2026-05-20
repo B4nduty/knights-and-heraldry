@@ -1,6 +1,5 @@
 package banduty.knightsheraldry.event;
 
-import banduty.knightsheraldry.items.item.DyeableItems;
 import banduty.knightsheraldry.model.AccessoryArmModel;
 import banduty.stoneycore.entity.custom.AbstractSiegeEntity;
 import banduty.stoneycore.event.custom.RenderFirstPersonAccesoryArmorEvents;
@@ -17,6 +16,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.DyedItemColor;
 import org.jetbrains.annotations.NotNull;
 
 public class RenderFirstPersonAccessoryArmorHandler implements RenderFirstPersonAccesoryArmorEvents {
@@ -27,7 +27,7 @@ public class RenderFirstPersonAccessoryArmorHandler implements RenderFirstPerson
         if (scAccessoryItem.getModels(stack).firstPerson().isEmpty()) return;
 
         AccessoryArmModel model = (AccessoryArmModel) scAccessoryItem.getModels(stack).firstPerson().get();
-        int color = DyeableItems.getColor(stack);
+        int color = DyedItemColor.getOrDefault(stack, -1);
         ResourceLocation texturePath = scAccessoryItem.getTexturePath(stack);
 
         VertexConsumer baseConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(texturePath));

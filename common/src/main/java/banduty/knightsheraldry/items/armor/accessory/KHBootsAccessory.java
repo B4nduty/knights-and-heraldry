@@ -29,11 +29,6 @@ public class KHBootsAccessory extends AccessoryItem implements SCAccessoryItem {
     }
 
     @Override
-    public int getColor(ItemStack stack) {
-        return 0;
-    }
-
-    @Override
     public boolean isValidRepairItem(ItemStack stack, ItemStack ingredient) {
         return this.ingredient.test(ingredient) || super.isValidRepairItem(stack, ingredient);
     }

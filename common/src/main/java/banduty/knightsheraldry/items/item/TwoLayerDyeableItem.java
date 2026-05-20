@@ -11,14 +11,14 @@ public class TwoLayerDyeableItem extends Item {
         super(properties);
     }
 
-    public int getColor1(ItemStack stack) {
+    public static int getColor1(ItemStack stack) {
         DyedItemColor dyedItemColor = stack.get(KHDataComponents.COLOR_1.get());
-        return dyedItemColor != null ? dyedItemColor.rgb() : 0xFFFFFF;
+        return dyedItemColor != null ? dyedItemColor.rgb() : -1;
     }
 
-    public int getColor2(ItemStack stack) {
+    public static int getColor2(ItemStack stack) {
         DyedItemColor dyedItemColor = stack.get(KHDataComponents.COLOR_2.get());
-        return dyedItemColor != null ? dyedItemColor.rgb() : 0xFFFFFF;
+        return dyedItemColor != null ? dyedItemColor.rgb() : -1;
     }
 
     public void setColor1(ItemStack stack, int color) {

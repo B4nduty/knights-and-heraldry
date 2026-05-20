@@ -68,38 +68,38 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerHelmetDecoItems(itemModelGenerators);
 
         // Dyeable Items
-        registerItemWConditions(KHItems.BRIGANDINE_HARNESS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.DARK_BRIGANDINE_HARNESS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.GOLDEN_BRIGANDINE_HARNESS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.BRIGANDINE_CUISSES.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.DARK_BRIGANDINE_CUISSES.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.GOLDEN_BRIGANDINE_CUISSES.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.JESTER_HOOD.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.HORSE_BARDING.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.DARK_HORSE_BARDING.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.GOLDEN_HORSE_BARDING.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.GILDED_CHAPERON.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.GAMBESON.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.WOODEN_LANCE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerDyeableItems(KHItems.BRIGANDINE_HARNESS.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.DARK_BRIGANDINE_HARNESS.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.GOLDEN_BRIGANDINE_HARNESS.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.BRIGANDINE_CUISSES.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.DARK_BRIGANDINE_CUISSES.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.GOLDEN_BRIGANDINE_CUISSES.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.JESTER_HOOD.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.HORSE_BARDING.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.DARK_HORSE_BARDING.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.GOLDEN_HORSE_BARDING.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.GILDED_CHAPERON.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.GAMBESON.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.WOODEN_LANCE.get(), itemModelGenerators);
 
-        registerItemWConditions(KHItems.BRIGANDINE_SPAULDERS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.DARK_BRIGANDINE_SPAULDERS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerDyeableItems(KHItems.BRIGANDINE_SPAULDERS.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.DARK_BRIGANDINE_SPAULDERS.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get(), itemModelGenerators);
 
-        registerItemWConditions(KHItems.BRIGANDINE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.DARK_BRIGANDINE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.GOLDEN_BRIGANDINE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerDyeableItems(KHItems.BRIGANDINE.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.DARK_BRIGANDINE.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.GOLDEN_BRIGANDINE.get(), itemModelGenerators);
 
-        registerItemWConditions(KHItems.BRIG_BREASTPLATE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.DARK_BRIG_BREASTPLATE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.GOLDEN_BRIG_BREASTPLATE.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerDyeableItems(KHItems.BRIG_BREASTPLATE.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.DARK_BRIG_BREASTPLATE.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.GOLDEN_BRIG_BREASTPLATE.get(), itemModelGenerators);
 
-        registerItemWConditions(KHItems.BRIG_BREASTPLATE_TASSETS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.DARK_BRIG_BREASTPLATE_TASSETS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
-        registerItemWConditions(KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get(), ModelTemplates.TWO_LAYERED_ITEM, itemModelGenerators);
+        registerDyeableItems(KHItems.BRIG_BREASTPLATE_TASSETS.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.DARK_BRIG_BREASTPLATE_TASSETS.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get(), itemModelGenerators);
     }
 
     private void registerSimpleItems(ItemModelGenerators itemModelGenerators) {
@@ -175,15 +175,15 @@ public class ModModelProvider extends FabricModelProviderPlus {
         };
 
         for (Item item : simpleHandheldItems) {
-            registerItemWConditions(item, ModelTemplates.FLAT_HANDHELD_ITEM, itemModelGenerators, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "broken"), 1));
+            registerItemWConditions(item, itemModelGenerators, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "broken"), 1));
         }
 
         for (Item item : openVisorHelmet) {
-            registerItemWConditions(item, ModelTemplates.FLAT_ITEM, itemModelGenerators, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1));
+            registerItemWConditions(item, itemModelGenerators, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1));
         }
 
         for (Item item : simpleArmor) {
-            registerItemWConditions(item, ModelTemplates.FLAT_ITEM, itemModelGenerators);
+            registerItemWConditions(item, itemModelGenerators);
         }
     }
 
@@ -192,6 +192,10 @@ public class ModModelProvider extends FabricModelProviderPlus {
             if (deco.item() == KHItems.TORSE.get()) continue;
             itemModelGenerators.generateFlatItem(deco.item(), ModelTemplates.FLAT_ITEM);
         }
+    }
+
+    private void registerDyeableItems(Item item, ItemModelGenerators itemModelGenerators) {
+        registerItemWConditions(item, itemModelGenerators, false, true);
     }
 
     private void registerManuscriptsItems(ItemModelGenerators itemModelGenerators) {

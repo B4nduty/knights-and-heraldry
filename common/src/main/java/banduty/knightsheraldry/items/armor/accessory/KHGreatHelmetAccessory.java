@@ -2,7 +2,6 @@ package banduty.knightsheraldry.items.armor.accessory;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.DecoableItem;
-import banduty.knightsheraldry.model.GreatHelm;
 import banduty.knightsheraldry.model.KHModels;
 import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
 import io.wispforest.accessories.api.AccessoryItem;
@@ -33,11 +32,6 @@ public class KHGreatHelmetAccessory extends AccessoryItem implements SCAccessory
     public ResourceLocation getTexturePath(ItemStack itemStack) {
         String itemName = BuiltInRegistries.ITEM.getKey(this).getPath();
         return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + itemName + ".png");
-    }
-
-    @Override
-    public int getColor(ItemStack stack) {
-        return 0;
     }
 
     @Override

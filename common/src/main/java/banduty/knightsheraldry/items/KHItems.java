@@ -7,7 +7,6 @@ import banduty.knightsheraldry.entity.custom.KHClothArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import banduty.knightsheraldry.items.armor.accessory.*;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
-import banduty.knightsheraldry.items.item.DyeableItems;
 import banduty.knightsheraldry.items.item.KHExtendedArrowItem;
 import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
 import banduty.knightsheraldry.items.item.khammo.ClothArrow;
@@ -483,11 +482,11 @@ public interface KHItems {
             () -> new HorseBardingArmorItem(7, new Item.Properties().stacksTo(1)));
 
     Supplier<Item> PLUME = registerItem("plume",
-            () -> new DyeableItems(new Item.Properties().stacksTo(1)));
+            () -> new Item(new Item.Properties().stacksTo(1)));
     Supplier<Item> TRI_PLUME = registerItem("tri_plume",
-            () -> new DyeableItems(new Item.Properties().stacksTo(1)));
+            () -> new Item(new Item.Properties().stacksTo(1)));
     Supplier<Item> FLUFFY_PLUME = registerItem("fluffy_plume",
-            () -> new DyeableItems(new Item.Properties().stacksTo(1)));
+            () -> new Item(new Item.Properties().stacksTo(1)));
     Supplier<Item> TORSE = registerItem("torse",
             () -> new TwoLayerDyeableItem(new Item.Properties().stacksTo(1)));
     Supplier<Item> TEUTONIC_SNAKES = deco("teutonic_snakes");

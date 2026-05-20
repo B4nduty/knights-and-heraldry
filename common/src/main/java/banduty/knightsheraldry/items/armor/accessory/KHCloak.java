@@ -1,7 +1,6 @@
 package banduty.knightsheraldry.items.armor.accessory;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.model.CloakHoodModel;
 import banduty.knightsheraldry.model.KHModels;
 import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
 import io.wispforest.accessories.api.AccessoryItem;
@@ -36,10 +35,5 @@ public class KHCloak extends AccessoryItem implements SCAccessoryItem {
     @Override
     public RenderSettings getRenderSettings(ItemStack stack) {
         return new RenderSettings(overlay, true, false);
-    }
-
-    @Override
-    public int getColor(ItemStack stack) {
-        return 0;
     }
 }

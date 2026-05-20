@@ -1,15 +1,12 @@
 package banduty.knightsheraldry.items.armor.accessory;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.model.AccessoryLeggingsModel;
 import banduty.knightsheraldry.model.KHModels;
 import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
 import io.wispforest.accessories.api.AccessoryItem;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class KHLeggingsAccessory extends AccessoryItem implements SCAccessoryItem {
@@ -21,7 +18,7 @@ public class KHLeggingsAccessory extends AccessoryItem implements SCAccessoryIte
         super(properties);
         this.ingredient = ingredient;
         this.overlay = false;
-        this.defaultColor = 0xffffff;
+        this.defaultColor = -1;
     }
 
     public KHLeggingsAccessory(Properties properties, boolean overlay, int defaultColor, Ingredient ingredient) {
@@ -53,8 +50,7 @@ public class KHLeggingsAccessory extends AccessoryItem implements SCAccessoryIte
     }
 
     @Override
-    public int getColor(ItemStack itemStack) {
-        DyedItemColor dyedItemColor = itemStack.get(DataComponents.DYED_COLOR);
-        return dyedItemColor != null ? dyedItemColor.rgb() : this.defaultColor;
+    public int getDefaultColor() {
+        return this.defaultColor;
     }
 }

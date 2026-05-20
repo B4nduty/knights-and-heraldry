@@ -4,17 +4,19 @@ import banduty.knightsheraldry.client.entity.*;
 import banduty.knightsheraldry.client.item.SurcoatWithBannerModel;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.items.item.DyeableItems;
 import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
 import banduty.knightsheraldry.util.itemdata.ItemTooltipComponent;
 import banduty.knightsheraldry.util.itemdata.ItemTooltipData;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
+import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
+import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -48,16 +50,45 @@ public class KnightsHeraldryNeoForgeClient {
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
-        for (Item item : BuiltInRegistries.ITEM.stream().toList()) {
-            if (item instanceof TwoLayerDyeableItem twoLayerItem) {
+        event.register((stack, tintIndex) -> {
+            if (tintIndex == 0) return TwoLayerDyeableItem.getColor1(stack);
+            if (tintIndex == 1) return TwoLayerDyeableItem.getColor2(stack);
+            return -1;
+        }, KHItems.TORSE.get());
+
+        Item[] items = new Item[]{
+                KHItems.WOODEN_LANCE.get(), KHItems.QUILTED_COIF.get(), KHItems.GAMBESON.get(), KHItems.GAMBESON_BREECHES.get(),
+                KHItems.GAMBESON_BOOTS.get(), KHItems.BRIGANDINE_SPAULDERS.get(), KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(),
+                KHItems.DARK_BRIGANDINE_SPAULDERS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(),
+                KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get(),
+                KHItems.BRIGANDINE.get(), KHItems.DARK_BRIGANDINE.get(), KHItems.GOLDEN_BRIGANDINE.get(),
+                KHItems.BRIGANDINE_HARNESS.get(), KHItems.DARK_BRIGANDINE_HARNESS.get(), KHItems.GOLDEN_BRIGANDINE_HARNESS.get(),
+                KHItems.BRIGANDINE_CUISSES.get(), KHItems.DARK_BRIGANDINE_CUISSES.get(), KHItems.GOLDEN_BRIGANDINE_CUISSES.get(),
+                KHItems.CLOAK.get(), KHItems.TORN_CLOAK.get(), KHItems.HOOD.get(), KHItems.TORN_HOOD.get(),
+                KHItems.JESTER_HOOD.get(), KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get(),
+                KHItems.HORSE_BARDING.get(), KHItems.DARK_HORSE_BARDING.get(), KHItems.GOLDEN_HORSE_BARDING.get(),
+                KHItems.PLUME.get(), KHItems.TRI_PLUME.get(), KHItems.FLUFFY_PLUME.get(),
+                KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get()
+        };
+        for (Item item : items) {
+            if (item instanceof SCDyeableUnderArmor || item instanceof SCAccessoryItem) {
                 event.register((stack, tintIndex) -> {
-                    if (tintIndex == 0) return twoLayerItem.getColor1(stack);
-                    if (tintIndex == 1) return twoLayerItem.getColor2(stack);
-                    return -1;
+                    if (tintIndex != 0) {
+                        return -1;
+                    }
+
+                    int defaultColor = -1;
+                    if (stack.getItem() instanceof SCDyeableUnderArmor dyeable) {
+                        defaultColor = dyeable.getDefaultColor();
+                    } else if (stack.getItem() instanceof SCAccessoryItem accessory) {
+                        defaultColor = accessory.getDefaultColor();
+                    }
+
+                    return DyedItemColor.getOrDefault(stack, defaultColor);
                 }, item);
-            } else if (item instanceof DyeableItems dyeableItems) {
+            } else {
                 event.register((stack, tintIndex) ->
-                        tintIndex > 0 ? -1 : DyeableItems.getColor(stack), item);
+                        tintIndex > 0 ? -1 : DyedItemColor.getOrDefault(stack, -1), item);
             }
         }
     }

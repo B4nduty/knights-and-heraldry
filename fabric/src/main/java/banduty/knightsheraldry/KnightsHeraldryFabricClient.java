@@ -6,7 +6,6 @@ import banduty.knightsheraldry.event.ItemTooltipHandler;
 import banduty.knightsheraldry.event.RenderFirstPersonAccessoryArmorHandler;
 import banduty.knightsheraldry.event.RenderOverlayAndAdditionsHandler;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.items.item.DyeableItems;
 import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
@@ -16,6 +15,8 @@ import banduty.knightsheraldry.util.itemdata.ItemTooltipData;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
 import banduty.stoneycore.event.custom.RenderFirstPersonAccesoryArmorEvents;
 import banduty.stoneycore.event.custom.RenderOverlayAndAdditionsEvents;
+import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
+import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -25,6 +26,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.DyedItemColor;
 
 import java.util.List;
 import java.util.Objects;
@@ -49,26 +51,56 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(KHEntities.WARDART_PROJECTILE.get(), WarDartRenderer::new);
 
-        for (Item item : BuiltInRegistries.ITEM) {
-            if (item == KHItems.SWALLOWTAIL_ARROW)
-                EntityRendererRegistry.register(KHEntities.SWALLOWTAIL_ARROW.get(), KHSwallowtailArrowEntityRenderer::new);
-            if (item == KHItems.BODKIN_ARROW)
-                EntityRendererRegistry.register(KHEntities.BODKIN_ARROW.get(), KHBodkinArrowEntityRenderer::new);
-            if (item == KHItems.BROADHEAD_ARROW)
-                EntityRendererRegistry.register(KHEntities.BROADHEAD_ARROW.get(), KHBroadheadArrowEntityRenderer::new);
-            if (item == KHItems.CLOTH_ARROW)
-                EntityRendererRegistry.register(KHEntities.CLOTH_ARROW.get(), KHClothArrowEntityRenderer::new);
-            if (item instanceof TwoLayerDyeableItem twoLayerItem) {
+        EntityRendererRegistry.register(KHEntities.SWALLOWTAIL_ARROW.get(), KHSwallowtailArrowEntityRenderer::new);
+        EntityRendererRegistry.register(KHEntities.BODKIN_ARROW.get(), KHBodkinArrowEntityRenderer::new);
+        EntityRendererRegistry.register(KHEntities.BROADHEAD_ARROW.get(), KHBroadheadArrowEntityRenderer::new);
+        EntityRendererRegistry.register(KHEntities.CLOTH_ARROW.get(), KHClothArrowEntityRenderer::new);
+
+
+        Item[] items = new Item[]{
+                KHItems.WOODEN_LANCE.get(), KHItems.QUILTED_COIF.get(), KHItems.GAMBESON.get(), KHItems.GAMBESON_BREECHES.get(),
+                KHItems.GAMBESON_BOOTS.get(), KHItems.BRIGANDINE_SPAULDERS.get(), KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(),
+                KHItems.DARK_BRIGANDINE_SPAULDERS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(),
+                KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get(),
+                KHItems.BRIGANDINE.get(), KHItems.DARK_BRIGANDINE.get(), KHItems.GOLDEN_BRIGANDINE.get(),
+                KHItems.BRIGANDINE_HARNESS.get(), KHItems.DARK_BRIGANDINE_HARNESS.get(), KHItems.GOLDEN_BRIGANDINE_HARNESS.get(),
+                KHItems.BRIGANDINE_CUISSES.get(), KHItems.DARK_BRIGANDINE_CUISSES.get(), KHItems.GOLDEN_BRIGANDINE_CUISSES.get(),
+                KHItems.CLOAK.get(), KHItems.TORN_CLOAK.get(), KHItems.HOOD.get(), KHItems.TORN_HOOD.get(),
+                KHItems.JESTER_HOOD.get(), KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get(),
+                KHItems.HORSE_BARDING.get(), KHItems.DARK_HORSE_BARDING.get(), KHItems.GOLDEN_HORSE_BARDING.get(),
+                KHItems.PLUME.get(), KHItems.TRI_PLUME.get(), KHItems.FLUFFY_PLUME.get(),
+                KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get(), KHItems.TORSE.get()
+        };
+        for (Item item : items) {
+            if (item instanceof SCDyeableUnderArmor || item instanceof SCAccessoryItem) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-                    if (tintIndex == 0) return twoLayerItem.getColor1(stack); // top
-                    if (tintIndex == 1) return twoLayerItem.getColor2(stack); // bottom
+                    if (tintIndex > 0) {
+                        return -1;
+                    }
+
+                    int defaultColor = -1;
+                    if (stack.getItem() instanceof SCDyeableUnderArmor dyeable) {
+                        defaultColor = dyeable.getDefaultColor();
+                    } else if (stack.getItem() instanceof SCAccessoryItem accessory) {
+                        defaultColor = accessory.getDefaultColor();
+                    }
+
+                    return DyedItemColor.getOrDefault(stack, defaultColor);
+                }, item);
+            } else if (item instanceof TwoLayerDyeableItem) {
+                ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+                    if (tintIndex == 0) return TwoLayerDyeableItem.getColor1(stack); // top
+                    if (tintIndex == 1) return TwoLayerDyeableItem.getColor2(stack); // bottom
                     return -1;
                 }, item);
-            }
-            if (item instanceof DyeableItems dyeableItems)
+            } else {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
-                        tintIndex > 0 ? -1 : DyeableItems.getColor(stack), item);
-            if (Objects.equals(BuiltInRegistries.ITEM.getKey(item).getNamespace(), "knightsheraldry")) {
+                        tintIndex > 0 ? -1 : DyedItemColor.getOrDefault(stack, -1), item);
+            }
+        }
+
+        for (Item item : BuiltInRegistries.ITEM) {
+            if (Objects.equals(BuiltInRegistries.ITEM.getKey(item).getNamespace(), KnightsHeraldry.MOD_ID)) {
                 ModModelPredicates.registerModelPredicates(item);
             }
         }
