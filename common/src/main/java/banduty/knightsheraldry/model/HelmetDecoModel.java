@@ -10,11 +10,13 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class HelmetDecoModel extends HumanoidModel<LivingEntity> {
 	private final ModelPart armorHead;
+
 	public HelmetDecoModel(ModelPart root) {
         super(root);
         this.setAllVisible(false);
 		this.armorHead = root.getChild("armorHead");
 	}
+
 	public static LayerDefinition getTexturedModelData() {
         MeshDefinition modelData = HumanoidModel.createMesh(CubeDeformation.NONE, 0f);
 		PartDefinition modelPartData = modelData.getRoot();

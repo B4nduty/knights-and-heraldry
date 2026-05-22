@@ -8,6 +8,26 @@
       "stack": {
         "components": {
           "stoneycore:target_stack": {
+            "components": {
+              "minecraft:attribute_modifiers": {
+                "modifiers": [
+                  {
+                    "type": "minecraft:generic.armor",
+                    "amount": 2.0,
+                    "id": "minecraft:armor.boots",
+                    "operation": "add_value",
+                    "slot": "feet"
+                  },
+                  {
+                    "type": "minecraft:generic.armor_toughness",
+                    "amount": 0.0,
+                    "id": "minecraft:armor.boots",
+                    "operation": "add_value",
+                    "slot": "feet"
+                  }
+                ]
+              }
+            },
             "count": 1,
             "id": "knightsheraldry:mail_boots"
           }
@@ -34,6 +54,26 @@
   "result": {
     "components": {
       "stoneycore:target_stack": {
+        "components": {
+          "minecraft:attribute_modifiers": {
+            "modifiers": [
+              {
+                "type": "minecraft:generic.armor",
+                "amount": 2.0,
+                "id": "minecraft:armor.boots",
+                "operation": "add_value",
+                "slot": "feet"
+              },
+              {
+                "type": "minecraft:generic.armor_toughness",
+                "amount": 0.0,
+                "id": "minecraft:armor.boots",
+                "operation": "add_value",
+                "slot": "feet"
+              }
+            ]
+          }
+        },
         "count": 1,
         "id": "knightsheraldry:mail_boots"
       }

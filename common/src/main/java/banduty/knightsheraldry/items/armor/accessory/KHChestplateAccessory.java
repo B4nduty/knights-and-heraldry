@@ -1,54 +1,41 @@
 package banduty.knightsheraldry.items.armor.accessory;
 
-import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.model.KHModels;
-import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
-import io.wispforest.accessories.api.AccessoryItem;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import banduty.knightsheraldry.client.item.armor.KHChestplateAccessoryRenderer;
+import banduty.stoneycore.client.render.AccessoryRenderProvider;
+import banduty.stoneycore.client.render.AccessoryRenderer;
+import banduty.stoneycore.items.custom.armor.SCAccessory;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
-public class KHChestplateAccessory extends AccessoryItem implements SCAccessoryItem {
+public class KHChestplateAccessory extends Item implements SCAccessory, AccessoryRenderProvider {
     private final Ingredient ingredient;
-    boolean overlay;
+    boolean hasOverlay;
     int defaultColor;
+
+    public AccessoryRenderer cachedRenderer;
 
     public KHChestplateAccessory(Properties properties, Ingredient ingredient) {
         super(properties);
         this.ingredient = ingredient;
-        this.overlay = false;
+        this.hasOverlay = false;
         this.defaultColor = -1;
     }
 
     public KHChestplateAccessory(Properties properties, int defaultColor, Ingredient ingredient) {
         super(properties);
         this.ingredient = ingredient;
-        this.overlay = false;
+        this.hasOverlay = false;
         this.defaultColor = defaultColor;
     }
 
     public KHChestplateAccessory(Properties properties, boolean overlay, int defaultColor, Ingredient ingredient) {
         super(properties);
         this.ingredient = ingredient;
-        this.overlay = overlay;
+        this.hasOverlay = overlay;
         this.defaultColor = defaultColor;
-    }
-
-    @Override
-    public ModelBundle getModels(ItemStack itemStack) {
-        return ModelBundle.ofBaseAndFirstPerson(KHModels.getChestplateModel(), KHModels.getArmModel());
-    }
-
-    @Override
-    public ResourceLocation getTexturePath(ItemStack itemStack) {
-        String itemName = BuiltInRegistries.ITEM.getKey(this).getPath();
-        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + itemName + ".png");
-    }
-
-    @Override
-    public int getDefaultColor() {
-        return defaultColor;
     }
 
     @Override
@@ -56,9 +43,24 @@ public class KHChestplateAccessory extends AccessoryItem implements SCAccessoryI
         return this.ingredient.test(ingredient) || super.isValidRepairItem(stack, ingredient);
     }
 
-    @Override
-    public RenderSettings getRenderSettings(ItemStack stack) {
-        return new RenderSettings(overlay, false, false);
+    public int getDefaultColor() {
+        return defaultColor;
     }
 
+    @Override
+    public ArmorItem.@NotNull Type getArmorSlot() {
+        return ArmorItem.Type.CHESTPLATE;
+    }
+
+    @Override
+    public AccessoryRenderer getRenderer() {
+        if (this.cachedRenderer == null) {
+            this.cachedRenderer = new KHChestplateAccessoryRenderer();
+        }
+        return this.cachedRenderer;
+    }
+
+    public boolean hasOverlay() {
+        return hasOverlay;
+    }
 }

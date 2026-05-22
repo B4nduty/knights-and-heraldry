@@ -1,6 +1,6 @@
 package banduty.knightsheraldry.items.item.khrangeweapon;
 
-import banduty.knightsheraldry.client.item.HeavyCrossbowRenderer;
+import banduty.knightsheraldry.client.item.weapon.HeavyCrossbowRenderer;
 import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.Item;

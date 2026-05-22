@@ -8,12 +8,14 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public final class AccessoryOpenHelmetModel extends HumanoidModel<LivingEntity> {
+public class AccessoryOpenHelmetModel extends HumanoidModel<LivingEntity> {
         private final ModelPart armorHead;
-        AccessoryOpenHelmetModel(ModelPart root) {
+
+        public AccessoryOpenHelmetModel(ModelPart root) {
                 super(root);
                 this.armorHead = root.getChild("armorHead");
         }
+
         public static LayerDefinition getTexturedModelData() {
                 MeshDefinition modelData = HumanoidModel.createMesh(CubeDeformation.NONE, 0f);
                 PartDefinition modelPartData = modelData.getRoot();

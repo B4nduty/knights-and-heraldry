@@ -9,10 +9,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public final class CageHelmClosed extends HumanoidModel<LivingEntity> {
+public class CageHelmClosed extends HumanoidModel<LivingEntity> {
 	private final ModelPart armorHead;
 
-	CageHelmClosed(ModelPart root) {
+	public CageHelmClosed(ModelPart root) {
 		super(root);
 		this.setAllVisible(false);
 		this.armorHead = root.getChild("armorHead");

@@ -9,10 +9,11 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public final class AccessoryBootsModel extends HumanoidModel<LivingEntity> {
+public class AccessoryBootsModel extends HumanoidModel<LivingEntity> {
     private final ModelPart armorRightBoot;
     private final ModelPart armorLeftBoot;
-    AccessoryBootsModel(ModelPart root) {
+
+    public AccessoryBootsModel(ModelPart root) {
         super(root);
         this.setAllVisible(false);
         this.armorRightBoot = root.getChild("armorRightBoot");

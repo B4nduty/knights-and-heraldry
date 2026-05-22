@@ -1,18 +1,21 @@
 package banduty.knightsheraldry.items.armor.accessory;
 
-import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.model.KHModels;
-import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
-import io.wispforest.accessories.api.AccessoryItem;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import banduty.knightsheraldry.client.item.armor.KHLeggingsAccessoryRenderer;
+import banduty.stoneycore.client.render.AccessoryRenderProvider;
+import banduty.stoneycore.client.render.AccessoryRenderer;
+import banduty.stoneycore.items.custom.armor.SCAccessory;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
-public class KHLeggingsAccessory extends AccessoryItem implements SCAccessoryItem {
+public class KHLeggingsAccessory extends Item implements SCAccessory, AccessoryRenderProvider {
     private final Ingredient ingredient;
     boolean overlay;
     int defaultColor;
+
+    public AccessoryRenderer cachedRenderer;
 
     public KHLeggingsAccessory(Properties properties, Ingredient ingredient) {
         super(properties);
@@ -29,27 +32,23 @@ public class KHLeggingsAccessory extends AccessoryItem implements SCAccessoryIte
     }
 
     @Override
-    public ModelBundle getModels(ItemStack itemStack) {
-        return ModelBundle.ofBase(KHModels.getLeggingsModel());
-    }
-
-    @Override
-    public ResourceLocation getTexturePath(ItemStack itemStack) {
-        String itemName = BuiltInRegistries.ITEM.getKey(this).getPath();
-        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + itemName + ".png");
-    }
-
-    @Override
     public boolean isValidRepairItem(ItemStack stack, ItemStack ingredient) {
         return this.ingredient.test(ingredient) || super.isValidRepairItem(stack, ingredient);
     }
 
     @Override
-    public RenderSettings getRenderSettings(ItemStack stack) {
-        return new RenderSettings(overlay, false, false);
+    public ArmorItem.@NotNull Type getArmorSlot() {
+        return ArmorItem.Type.LEGGINGS;
     }
 
     @Override
+    public AccessoryRenderer getRenderer() {
+        if (this.cachedRenderer == null) {
+            this.cachedRenderer = new KHLeggingsAccessoryRenderer();
+        }
+        return this.cachedRenderer;
+    }
+
     public int getDefaultColor() {
         return this.defaultColor;
     }

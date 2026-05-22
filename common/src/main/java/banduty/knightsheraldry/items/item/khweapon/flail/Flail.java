@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.items.item.khweapon.flail;
 
-import banduty.knightsheraldry.client.item.FlailModel;
-import banduty.knightsheraldry.client.item.FlailRenderer;
+import banduty.knightsheraldry.client.item.weapon.FlailModel;
+import banduty.knightsheraldry.client.item.weapon.FlailRenderer;
 import banduty.knightsheraldry.items.ModToolMaterials;
 import net.minecraft.world.item.SwordItem;
 import software.bernie.geckolib.animatable.GeoItem;

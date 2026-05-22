@@ -9,9 +9,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public final class ChaperonModel extends HumanoidModel<LivingEntity> {
+public class ChaperonModel extends HumanoidModel<LivingEntity> {
     private final ModelPart armorHead;
-    ChaperonModel(ModelPart root) {
+
+    public ChaperonModel(ModelPart root) {
         super(root);
         this.setAllVisible(false);
         this.armorHead = root.getChild("armorHead");

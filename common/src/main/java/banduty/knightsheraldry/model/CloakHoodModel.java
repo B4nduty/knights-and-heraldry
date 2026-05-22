@@ -8,7 +8,7 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public final class CloakHoodModel extends HumanoidModel<LivingEntity> {
+public class CloakHoodModel extends HumanoidModel<LivingEntity> {
 	public final ModelPart armorHead;
 	public final ModelPart armorBody;
 	public final ModelPart armorRightArm;
@@ -16,13 +16,15 @@ public final class CloakHoodModel extends HumanoidModel<LivingEntity> {
 	public float cloakPitch;
 	public float cloakYaw;
 	public float cloakRoll;
-	CloakHoodModel(ModelPart root) {
+
+	public CloakHoodModel(ModelPart root) {
         super(root);
         this.armorHead = root.getChild("armorHead");
 		this.armorBody = root.getChild("armorBody");
 		this.armorRightArm = root.getChild("armorRightArm");
 		this.armorLeftArm = root.getChild("armorLeftArm");
 	}
+
 	public static LayerDefinition getTexturedModelData() {
         MeshDefinition modelData = HumanoidModel.createMesh(CubeDeformation.NONE, 0f);
 		PartDefinition modelPartData = modelData.getRoot();

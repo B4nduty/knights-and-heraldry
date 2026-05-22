@@ -1,6 +1,6 @@
 package banduty.knightsheraldry.recipes;
 
-import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
+import banduty.knightsheraldry.items.item.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.DyeItem;
@@ -30,7 +30,7 @@ public class TwoLayerDyeRecipe extends CustomRecipe {
             ItemStack stack = input.getItem(i);
             if (stack.isEmpty()) continue;
 
-            if (stack.getItem() instanceof TwoLayerDyeableItem) {
+            if (stack.getItem() instanceof TwoLayerDyeableDeco) {
                 if (!dyeable.isEmpty()) return false;
                 dyeable = stack;
             } else if (stack.getItem() instanceof DyeItem) {
@@ -52,7 +52,7 @@ public class TwoLayerDyeRecipe extends CustomRecipe {
             ItemStack stack = input.getItem(i);
             if (stack.isEmpty()) continue;
 
-            if (stack.getItem() instanceof TwoLayerDyeableItem) {
+            if (stack.getItem() instanceof TwoLayerDyeableDeco) {
                 dyeableStack = stack.copy();
             } else if (stack.getItem() instanceof DyeItem dye) {
                 dyes.add(dye.getDyeColor().getTextureDiffuseColor());

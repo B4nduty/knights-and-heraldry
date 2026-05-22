@@ -2,9 +2,9 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.util.itemdata.HelmetDeco;
 import banduty.stoneycore.StoneyCore;
 import banduty.stoneycore.datagen.FabricModelProviderPlus;
+import banduty.stoneycore.items.custom.armor.deco.Deco;
 import banduty.stoneycore.items.custom.manuscript.Manuscript;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -188,7 +188,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
     }
 
     private void registerHelmetDecoItems(ItemModelGenerators itemModelGenerators) {
-        for (HelmetDeco deco : HelmetDeco.all()) {
+        for (Deco deco : Deco.all()) {
             if (deco.item() == KHItems.TORSE.get()) continue;
             itemModelGenerators.generateFlatItem(deco.item(), ModelTemplates.FLAT_ITEM);
         }

@@ -8,10 +8,11 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
-public final class AccessoryLeggingsModel extends HumanoidModel<LivingEntity> {
+public class AccessoryLeggingsModel extends HumanoidModel<LivingEntity> {
     private final ModelPart armorRightLeg;
     private final ModelPart armorLeftLeg;
-    AccessoryLeggingsModel(ModelPart root) {
+
+    public AccessoryLeggingsModel(ModelPart root) {
         super(root);
         this.setAllVisible(false);
         this.armorRightLeg = root.getChild("armorRightLeg");

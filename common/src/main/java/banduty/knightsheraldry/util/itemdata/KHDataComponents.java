@@ -17,9 +17,8 @@ public interface KHDataComponents {
             builder -> builder.persistent(DyedItemColor.CODEC).networkSynchronized(DyedItemColor.STREAM_CODEC));
     Supplier<DataComponentType<DyedItemColor>> COLOR_2 = register("color_2",
             builder -> builder.persistent(DyedItemColor.CODEC).networkSynchronized(DyedItemColor.STREAM_CODEC));
-    Supplier<DataComponentType<HelmetDeco>> HELMET_DECO = register("helmet_deco",
-            builder -> builder.persistent(HelmetDeco.CODEC).networkSynchronized(HelmetDeco.STREAM_CODEC));
-    Supplier<DataComponentType<Boolean>> EXTINGUISHED = register("extinguished", b -> b.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+    Supplier<DataComponentType<Boolean>> EXTINGUISHED = register("extinguished",
+            b -> b.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
 
     @SuppressWarnings("unchecked")
     private static <T> Supplier<DataComponentType<T>> register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {

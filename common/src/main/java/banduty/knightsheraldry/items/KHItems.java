@@ -6,9 +6,10 @@ import banduty.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHClothArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import banduty.knightsheraldry.items.armor.accessory.*;
+import banduty.knightsheraldry.items.armor.deco.HelmetDecoItem;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.items.item.KHExtendedArrowItem;
-import banduty.knightsheraldry.items.item.TwoLayerDyeableItem;
+import banduty.knightsheraldry.items.item.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.items.item.khammo.ClothArrow;
 import banduty.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
@@ -429,29 +430,29 @@ public interface KHItems {
     Supplier<Item> BESAGEWS = registerItem("besagews", () -> new Item(new Item.Properties().stacksTo(1)));
 
     Supplier<Item> SURCOAT = registerItem("surcoat",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), Ingredient.of(Items.LEATHER)));
+            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
     Supplier<Item> SURCOAT_SLEEVELESS = registerItem("surcoat_sleeveless",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), Ingredient.of(Items.LEATHER)));
+            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
     Supplier<Item> CIVILIAN_SURCOAT = registerItem("civilian_surcoat",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), Ingredient.of(Items.LEATHER)));
+            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
     Supplier<Item> GIORNEA = registerItem("giornea",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), Ingredient.of(Items.LEATHER)));
+            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
 
     Supplier<Item> CLOAK = registerItem("cloak",
-            () -> new KHCloak(new Item.Properties().stacksTo(1)));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), 1));
     Supplier<Item> TORN_CLOAK = registerItem("torn_cloak",
-            () -> new KHCloak(new Item.Properties().stacksTo(1)));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), 1));
 
     Supplier<Item> HOOD = registerItem("hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1)));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), 0));
     Supplier<Item> TORN_HOOD = registerItem("torn_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1)));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), 0));
     Supplier<Item> JESTER_HOOD = registerItem("jester_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), true));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), 0, true));
     Supplier<Item> HELMET_HOOD = registerItem("helmet_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1)));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), 1));
     Supplier<Item> HELMET_TORN_HOOD = registerItem("helmet_torn_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1)));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), 1));
 
     Supplier<Item> LONGBOW = registerItem("longbow",
             () -> new Item(new Item.Properties().stacksTo(1).durability(666)));
@@ -481,14 +482,11 @@ public interface KHItems {
     Supplier<Item> GOLDEN_HORSE_BARDING = registerItem("golden_horse_barding",
             () -> new HorseBardingArmorItem(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> PLUME = registerItem("plume",
-            () -> new Item(new Item.Properties().stacksTo(1)));
-    Supplier<Item> TRI_PLUME = registerItem("tri_plume",
-            () -> new Item(new Item.Properties().stacksTo(1)));
-    Supplier<Item> FLUFFY_PLUME = registerItem("fluffy_plume",
-            () -> new Item(new Item.Properties().stacksTo(1)));
+    Supplier<Item> PLUME = deco("plume");
+    Supplier<Item> TRI_PLUME = deco("tri_plume");
+    Supplier<Item> FLUFFY_PLUME = deco("fluffy_plume");
     Supplier<Item> TORSE = registerItem("torse",
-            () -> new TwoLayerDyeableItem(new Item.Properties().stacksTo(1)));
+            () -> new TwoLayerDyeableDeco(new Item.Properties().stacksTo(1)));
     Supplier<Item> TEUTONIC_SNAKES = deco("teutonic_snakes");
     Supplier<Item> TEUTONIC_BLACK_SNAKES = deco("teutonic_black_snakes");
     Supplier<Item> GOLD_HORNS = deco("gold_horns");
@@ -519,7 +517,7 @@ public interface KHItems {
     }
 
     static Supplier<Item> deco(String id) {
-        return registerItem(id, () -> new Item(new Item.Properties().stacksTo(1)));
+        return registerItem(id, () -> new HelmetDecoItem(new Item.Properties().stacksTo(1)));
     }
 
     private static Supplier<Item> registerItem(String name, Supplier<Item> itemSupplier) {

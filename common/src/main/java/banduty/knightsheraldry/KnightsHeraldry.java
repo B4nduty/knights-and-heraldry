@@ -8,7 +8,6 @@ import banduty.knightsheraldry.platform.Services;
 import banduty.knightsheraldry.recipes.KHRecipes;
 import banduty.knightsheraldry.sounds.KHSounds;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
-import banduty.knightsheraldry.util.itemdata.KHHelmetDeco;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

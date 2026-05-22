@@ -100,8 +100,6 @@ dependencies {
 
     implementation "dev.kosmx.player-anim:player-animation-lib-forge:${project.player_anim}"
 
-    implementation "io.wispforest:accessories-neoforge:${accessories}"
-
     api "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config}"
 }
 

@@ -2,9 +2,9 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.util.itemdata.HelmetDeco;
 import banduty.stoneycore.StoneyCore;
 import banduty.stoneycore.datagen.NeoForgeModelProviderPlus;
+import banduty.stoneycore.items.custom.armor.deco.Deco;
 import banduty.stoneycore.items.custom.manuscript.Manuscript;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -78,7 +78,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
         for (Item item : dyeable) dyeableItem(item);
 
         // --- Helmet Deco ---
-        for (HelmetDeco deco : HelmetDeco.all()) {
+        for (Deco deco : Deco.all()) {
             if (deco.item() != KHItems.TORSE.get()) simpleItem(deco.item());
         }
 

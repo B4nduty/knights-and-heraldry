@@ -2,7 +2,6 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.util.itemdata.HelmetDeco;
 import banduty.stoneycore.datagen.CraftmanAnvilRecipeJsonBuilder;
 import banduty.stoneycore.datagen.ManuscriptRecipeBuilder;
 import banduty.stoneycore.items.SCItems;
@@ -44,85 +43,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createWeaponCycle(exporter, KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get());
         createWeaponCycle(exporter, KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(),
                 KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get());
-
-        createDecoRecipe(exporter, KHItems.BARBUTE.get());
-        createDecoRecipe(exporter, KHItems.BASCINET.get());
-        createDecoRecipe(exporter, KHItems.KETTLE_HELM.get());
-        createDecoRecipe(exporter, KHItems.NASAL_HELM.get());
-        createDecoRecipe(exporter, KHItems.VIKING_HELM.get());
-        createDecoRecipe(exporter, KHItems.BURGONET.get());
-        createDecoRecipe(exporter, KHItems.ARMET.get());
-        createDecoRecipe(exporter, KHItems.ARMET_2.get());
-        createDecoRecipe(exporter, KHItems.VISORED_BARBUTE.get());
-        createDecoRecipe(exporter, KHItems.HOUNDSKULL.get());
-        createDecoRecipe(exporter, KHItems.CAGE.get());
-        createDecoRecipe(exporter, KHItems.VISORED_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.GREAT_HELM.get());
-        createDecoRecipe(exporter, KHItems.GREAT_HELM_2.get());
-        createDecoRecipe(exporter, KHItems.SALLET.get());
-        createDecoRecipe(exporter, KHItems.BURGONET_FALLING_BUFFE.get());
-        createDecoRecipe(exporter, KHItems.CLOSE_HELM.get());
-        createDecoRecipe(exporter, KHItems.FROGMOUTH.get());
-        createDecoRecipe(exporter, KHItems.GREAT_ARMET.get());
-        createDecoRecipe(exporter, KHItems.GREAT_ARMET_2.get());
-        createDecoRecipe(exporter, KHItems.GREAT_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.GREAT_HOUNDSKUL_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.MAXIMILLIAN_HELMET.get());
-        createDecoRecipe(exporter, KHItems.SAVOYARD.get());
-
-        createDecoRecipe(exporter, KHItems.DARK_BARBUTE.get());
-        createDecoRecipe(exporter, KHItems.DARK_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.DARK_KETTLE_HELM.get());
-        createDecoRecipe(exporter, KHItems.DARK_NASAL_HELM.get());
-        createDecoRecipe(exporter, KHItems.DARK_VIKING_HELM.get());
-        createDecoRecipe(exporter, KHItems.DARK_BURGONET.get());
-        createDecoRecipe(exporter, KHItems.DARK_ARMET.get());
-        createDecoRecipe(exporter, KHItems.DARK_ARMET_2.get());
-        createDecoRecipe(exporter, KHItems.DARK_VISORED_BARBUTE.get());
-        createDecoRecipe(exporter, KHItems.DARK_HOUNDSKULL.get());
-        createDecoRecipe(exporter, KHItems.DARK_CAGE.get());
-        createDecoRecipe(exporter, KHItems.DARK_VISORED_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.DARK_GREAT_HELM.get());
-        createDecoRecipe(exporter, KHItems.DARK_GREAT_HELM_2.get());
-        createDecoRecipe(exporter, KHItems.DARK_SALLET.get());
-        createDecoRecipe(exporter, KHItems.DARK_CLOSE_HELM.get());
-        createDecoRecipe(exporter, KHItems.DARK_BURGONET_FALLING_BUFFE.get());
-        createDecoRecipe(exporter, KHItems.DARK_FROGMOUTH.get());
-        createDecoRecipe(exporter, KHItems.DARK_GREAT_ARMET.get());
-        createDecoRecipe(exporter, KHItems.DARK_GREAT_ARMET_2.get());
-        createDecoRecipe(exporter, KHItems.DARK_GREAT_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.DARK_GREAT_HOUNDSKUL_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.DARK_MAXIMILLIAN_HELMET.get());
-        createDecoRecipe(exporter, KHItems.DARK_SAVOYARD.get());
-
-        createDecoRecipe(exporter, KHItems.GOLDEN_BARBUTE.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_KETTLE_HELM.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_NASAL_HELM.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_VIKING_HELM.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_BURGONET.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_ARMET.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_ARMET_2.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_VISORED_BARBUTE.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_HOUNDSKULL.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_CAGE.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_VISORED_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_HELM.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_HELM_2.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_SALLET.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_CLOSE_HELM.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_BURGONET_FALLING_BUFFE.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_FROGMOUTH.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_ARMET.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_ARMET_2.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_MAXIMILLIAN_HELMET.get());
-        createDecoRecipe(exporter, KHItems.GOLDEN_SAVOYARD.get());
-
-        createDecoPlumeRecipe(exporter, KHItems.HORSE_BARDING.get());
-        createDecoPlumeRecipe(exporter, KHItems.DARK_HORSE_BARDING.get());
-        createDecoPlumeRecipe(exporter, KHItems.GOLDEN_HORSE_BARDING.get());
 
         createEasyRecipe(exporter, KHItems.MAIL_SPAULDERS_BESAGEWS.get(), KHItems.MAIL_SPAULDERS.get(), KHItems.BESAGEWS.get());
         createEasyRecipe(exporter, KHItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_MAIL_SPAULDERS.get(), KHItems.BESAGEWS.get());
@@ -601,63 +521,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .requires(targetItem)
                 .unlockedBy("has_item", RecipeProvider.has(targetItem))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "banner_pattern/" + getItemName(targetItem)));
-    }
-
-    private void createDecoRecipe(RecipeOutput exporter, Item helmet) {
-        String helmetName = BuiltInRegistries.ITEM.getKey(helmet).getPath();
-
-        for (HelmetDeco deco : HelmetDeco.all()) {
-            NonNullList<Ingredient> ingredients = NonNullList.create();
-            ingredients.add(Ingredient.of(helmet));
-            ingredients.add(Ingredient.of(deco.item()));
-
-            // Create the ID
-            ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
-                    "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(deco.item()).getPath());
-
-            // Use .save() instead of exporter.accept()
-            new HelmetDecoRecipeBuilder(ingredients)
-                    .unlockedBy(getHasName(helmet), has(helmet))
-                    .save(exporter, recipeId);
-        }
-
-        var group0 = HelmetDeco.all().stream().filter(d -> d.group() == 0).toList();
-        var group1 = HelmetDeco.all().stream().filter(d -> d.group() == 1).toList();
-
-        for (HelmetDeco deco0 : group0) {
-            for (HelmetDeco deco1 : group1) {
-                NonNullList<Ingredient> ingredients = NonNullList.create();
-                ingredients.add(Ingredient.of(helmet));
-                ingredients.add(Ingredient.of(deco0.item()));
-                ingredients.add(Ingredient.of(deco1.item()));
-
-                ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
-                        "deco/" + helmetName + "_" +
-                                BuiltInRegistries.ITEM.getKey(deco0.item()).getPath() + "_" +
-                                BuiltInRegistries.ITEM.getKey(deco1.item()).getPath());
-
-                // Use .save()
-                new HelmetDecoRecipeBuilder(ingredients)
-                        .unlockedBy(getHasName(helmet), has(helmet))
-                        .save(exporter, recipeId);
-            }
-        }
-    }
-
-    private void createDecoPlumeRecipe(RecipeOutput exporter, Item helmet) {
-        String helmetName = BuiltInRegistries.ITEM.getKey(helmet).getPath();
-
-        NonNullList<Ingredient> ingredients = NonNullList.create();
-        ingredients.add(Ingredient.of(helmet));
-        ingredients.add(Ingredient.of(KHItems.PLUME.get()));
-
-        ResourceLocation recipeId = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
-                "deco/" + helmetName + "_" + BuiltInRegistries.ITEM.getKey(KHItems.PLUME.get()).getPath());
-
-        // Use .save()
-        new HelmetDecoRecipeBuilder(ingredients)
-                .unlockedBy(getHasName(helmet), has(helmet))
-                .save(exporter, recipeId);
     }
 
     private void createWeaponCycle(RecipeOutput exporter, Item... weapons) {

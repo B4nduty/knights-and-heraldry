@@ -2,9 +2,9 @@ package banduty.knightsheraldry.event;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
-import io.wispforest.accessories.api.AccessoriesCapability;
-import io.wispforest.accessories.api.slot.SlotEntryReference;
+import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
@@ -20,23 +20,15 @@ public class RenderNameTagHandler {
         Entity entity = event.getEntity();
 
         if (entity instanceof Player player) {
-            AccessoriesCapability.getOptionally(player).ifPresent(capability -> {
-                for (SlotEntryReference equipped : capability.getAllEquipped()) {
-                    ItemStack itemStack = equipped.stack();
+            ItemStack itemStack = player.getItemBySlot(EquipmentSlot.HEAD);
+            for (ItemStack accessoryStack : SCUnderArmor.getAccessories(itemStack)) {
+                if (accessoryStack.getItem() == KHItems.HOOD.get() || accessoryStack.getItem() == KHItems.TORN_HOOD.get() ||
+                        accessoryStack.getItem() == KHItems.HELMET_HOOD.get() || accessoryStack.getItem() == KHItems.HELMET_TORN_HOOD.get()) {
 
-                    if (isHidingNameHood(itemStack)) {
-                        event.setCanRender(TriState.FALSE);
-                        return;
-                    }
+                    event.setCanRender(TriState.FALSE);
+                    return;
                 }
-            });
+            }
         }
-    }
-
-    private static boolean isHidingNameHood(ItemStack stack) {
-        return stack.is(KHItems.HOOD.get()) ||
-                stack.is(KHItems.TORN_HOOD.get()) ||
-                stack.is(KHItems.HELMET_HOOD.get()) ||
-                stack.is(KHItems.HELMET_TORN_HOOD.get());
     }
 }

@@ -9,10 +9,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public final class SavoyardClosed extends HumanoidModel<LivingEntity> {
+public class SavoyardClosed extends HumanoidModel<LivingEntity> {
     private final ModelPart armorHead;
 
-    SavoyardClosed(ModelPart root) {
+    public SavoyardClosed(ModelPart root) {
         super(root);
         this.armorHead = root.getChild("armorHead");
 	}

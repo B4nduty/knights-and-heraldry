@@ -9,10 +9,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public final class CloseHelmOpened extends HumanoidModel<LivingEntity> {
+public class CloseHelmOpened extends HumanoidModel<LivingEntity> {
 	private final ModelPart armorHead;
 
-	CloseHelmOpened(ModelPart root) {
+    public CloseHelmOpened(ModelPart root) {
         super(root);
         this.setAllVisible(false);
 		this.armorHead = root.getChild("armorHead");

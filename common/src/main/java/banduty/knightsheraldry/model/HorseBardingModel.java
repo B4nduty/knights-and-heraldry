@@ -1,8 +1,7 @@
 package banduty.knightsheraldry.model;
 
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.util.itemdata.HelmetDeco;
-import banduty.knightsheraldry.util.itemdata.KHDataComponents;
+import banduty.stoneycore.items.custom.armor.deco.Deco;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -14,6 +13,8 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.ItemStack;
+
+import java.util.Optional;
 
 public class HorseBardingModel<T extends AbstractHorse> extends HorseModel<T> {
     private final ModelPart armorHead;
@@ -108,8 +109,15 @@ public class HorseBardingModel<T extends AbstractHorse> extends HorseModel<T> {
             armorStack = horse.getItemBySlot(EquipmentSlot.BODY);
         }
 
-        HelmetDeco deco = armorStack.get(KHDataComponents.HELMET_DECO.get());
-        this.plume.visible = deco != null && deco.item() == KHItems.PLUME.get();
+        for (ItemStack itemStack : Deco.getDeco(armorStack)) {
+            Optional<Deco> deco = Deco.getFromItem(itemStack.getItem());
+            if (deco.isEmpty()) continue;
+            if (deco.get().item() == KHItems.PLUME.get()) {
+                this.plume.visible = true;
+                break;
+            }
+        }
+
     }
 
     @Override

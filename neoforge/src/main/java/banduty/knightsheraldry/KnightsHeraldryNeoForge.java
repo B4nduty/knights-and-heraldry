@@ -1,12 +1,10 @@
 package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.config.KHConfigs;
-import banduty.knightsheraldry.event.CanEquipHandler;
 import banduty.knightsheraldry.items.ModItemGroups;
 import banduty.knightsheraldry.platform.NeoForgePlatformHelper;
-import banduty.knightsheraldry.util.itemdata.KHHelmetDeco;
+import banduty.knightsheraldry.items.armor.deco.KHDeco;
 import banduty.knightsheraldry.util.loottable.ModLootTable;
-import io.wispforest.accessories.api.events.CanEquipCallback;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -27,11 +25,9 @@ public class KnightsHeraldryNeoForge {
         modEventBus.addListener(this::commonSetup);
 
         NeoForgePlatformHelper.registerRegistries(modEventBus);
-
-        CanEquipCallback.EVENT.register(new CanEquipHandler());
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(KHHelmetDeco::init);
+        event.enqueueWork(KHDeco::init);
     }
 }

@@ -1,4 +1,4 @@
-// 1.21.1	2026-05-21T00:17:53.7825665	Knights & Heraldry/Model Definitions
+// 1.21.1	2026-05-22T12:10:24.5988092	Knights & Heraldry/Model Definitions
 8a2d286d96581489b7094489fcd6107e0e3266c6 assets\knightsheraldry\models\item\golden_frogmouth.json
 97467af627d833535e1ba66fa5812c1706152132 assets\knightsheraldry\models\item\dark_brigandine.json
 a138a6c7fcad45607a2ccd24e0f2d532fa8b0a45 assets\knightsheraldry\models\item\manuscript_brigandine.json
@@ -80,8 +80,8 @@ ee15c1313868d97c171dd80f5f2d5d6b6acec033 assets\knightsheraldry\models\item\curv
 2cc7f53b3e5db84ff0b7ceb4d0a96e88ccac3c54 assets\knightsheraldry\models\item\dark_gauntlet.json
 0e5219f650beee0ffd5a0b1e9fd46c20bb83003f assets\knightsheraldry\models\item\dark_sabatons.json
 cdb95974d98e674424400a592b276e7a755ab6e3 assets\knightsheraldry\models\item\rim_guards.json
-dc4b6150bd1e91bde24a4b66f28c46437dc0a540 assets\knightsheraldry\models\item\dark_bascinet.json
 eb87895526a09f22e62e59463b32cba46f8cdd74 assets\knightsheraldry\models\item\manuscript_spear.json
+dc4b6150bd1e91bde24a4b66f28c46437dc0a540 assets\knightsheraldry\models\item\dark_bascinet.json
 db5613294e4998cf238a56d431201d831a499723 assets\knightsheraldry\models\item\dark_brig_breastplate.json
 2f2f9c5710c6ee16b44dff1ee9fc9b5bc590b2c3 assets\knightsheraldry\models\item\great_houndskul_bascinet_open.json
 3f46dec640c8ce1ee1b765129a0010de1ef9f2f9 assets\knightsheraldry\models\item\manuscript_jester_hood.json
@@ -316,8 +316,8 @@ bca1a000cf1da514df0717d979f7f1f6af5ff380 assets\knightsheraldry\models\item\surc
 c387a95b6ef43acd1598a1b8e4de535611f65864 assets\knightsheraldry\models\item\dark_great_bascinet_open.json
 53dbbff1d08fd3e774ae6437f6e172ad5f641a66 assets\knightsheraldry\models\item\dark_kettle_helm.json
 4b5664b1439fc3373fb511760f19f0d41dabc497 assets\knightsheraldry\models\item\surcoat_sleeveless\br.json
-1ffb002e41b7fc305589367a791f4ace99ee5213 assets\knightsheraldry\models\item\golden_brigandine.json
 b5e90502ada706dd7afbe6a3f41b029efce4c778 assets\knightsheraldry\models\item\dark_horse_barding.json
+1ffb002e41b7fc305589367a791f4ace99ee5213 assets\knightsheraldry\models\item\golden_brigandine.json
 04118e6f4f7a650ca8f87740435582226c4b0ce8 assets\knightsheraldry\models\item\dark_plate_cuisses.json
 fd49d002778999b29cba56515b4187dda0dfce74 assets\knightsheraldry\models\item\eagle.json
 eb87895526a09f22e62e59463b32cba46f8cdd74 assets\knightsheraldry\models\item\manuscript_lance.json

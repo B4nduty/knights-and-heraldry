@@ -1,41 +1,21 @@
 package banduty.knightsheraldry.items.armor.accessory;
 
-import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.items.DecoableItem;
-import banduty.knightsheraldry.model.KHModels;
-import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
-import io.wispforest.accessories.api.AccessoryItem;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
+import banduty.knightsheraldry.client.item.armor.KHGreatHelmetAccessoryRenderer;
+import banduty.stoneycore.client.render.AccessoryRenderProvider;
+import banduty.stoneycore.client.render.AccessoryRenderer;
+import banduty.stoneycore.items.custom.armor.SCAccessory;
 import net.minecraft.world.item.crafting.Ingredient;
 
-public class KHGreatHelmetAccessory extends AccessoryItem implements SCAccessoryItem, DecoableItem {
-    private final Ingredient ingredient;
-
+public class KHGreatHelmetAccessory extends KHHelmetAccessory implements SCAccessory, AccessoryRenderProvider {
     public KHGreatHelmetAccessory(Properties properties, Ingredient ingredient) {
-        super(properties);
-        this.ingredient = ingredient;
+        super(properties, ingredient);
     }
 
     @Override
-    public ModelBundle getModels(ItemStack itemStack) {
-        return ModelBundle.ofBase(KHModels.getGreatHelmModel());
-    }
-
-    @Override
-    public boolean hasOpenVisor(ItemStack stack) {
-        return false;
-    }
-
-    @Override
-    public ResourceLocation getTexturePath(ItemStack itemStack) {
-        String itemName = BuiltInRegistries.ITEM.getKey(this).getPath();
-        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + itemName + ".png");
-    }
-
-    @Override
-    public boolean isValidRepairItem(ItemStack stack, ItemStack ingredient) {
-        return this.ingredient.test(ingredient) || super.isValidRepairItem(stack, ingredient);
+    public AccessoryRenderer getRenderer() {
+        if (this.cachedRenderer == null) {
+            this.cachedRenderer = new KHGreatHelmetAccessoryRenderer();
+        }
+        return this.cachedRenderer;
     }
 }

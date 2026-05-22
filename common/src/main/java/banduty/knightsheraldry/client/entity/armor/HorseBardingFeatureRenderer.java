@@ -5,8 +5,7 @@ import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
-import banduty.knightsheraldry.util.itemdata.HelmetDeco;
-import banduty.knightsheraldry.util.itemdata.KHDataComponents;
+import banduty.stoneycore.items.custom.armor.deco.Deco;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HorseModel;
@@ -22,6 +21,8 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.DyedItemColor;
+
+import java.util.Optional;
 
 public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<Horse>> {
     private static final ResourceLocation HORSE_ARMOR_TEXTURE_PLUME = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/horse_barding_plume.png");
@@ -73,10 +74,12 @@ public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<H
     }
 
     private int getPlumeColor(ItemStack stack) {
-        HelmetDeco deco = stack.get(KHDataComponents.HELMET_DECO.get());
-
-        if (deco != null && deco.item() == KHItems.PLUME.get()) {
-            return deco.colorN();
+        for (ItemStack itemStack : Deco.getDeco(stack)) {
+            Optional<Deco> deco = Deco.getFromItem(itemStack.getItem());
+            if (deco.isEmpty()) continue;
+            if (deco.get().item() == KHItems.PLUME.get()) {
+                return DyedItemColor.getOrDefault(itemStack, -1);
+            }
         }
 
         return -1;

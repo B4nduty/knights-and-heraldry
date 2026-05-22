@@ -10,9 +10,6 @@ import net.minecraft.world.item.crafting.SimpleCraftingRecipeSerializer;
 import java.util.function.Supplier;
 
 public interface KHRecipes {
-    Supplier<RecipeSerializer<HelmetDecoRecipe>> HELMET_DECO_SERIALIZER = registerSerializer("helmet_deco_crafting",
-            new SimpleCraftingRecipeSerializer<>(HelmetDecoRecipe::new));
-
     Supplier<RecipeSerializer<TwoLayerDyeRecipe>> TWO_LAYER_DYE_SERIALIZER = registerSerializer("two_layer_dyeing",
             new SimpleCraftingRecipeSerializer<>(TwoLayerDyeRecipe::new));
 

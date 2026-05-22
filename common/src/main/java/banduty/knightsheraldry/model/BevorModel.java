@@ -9,10 +9,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public final class BevorModel extends HumanoidModel<LivingEntity> {
+public class BevorModel extends HumanoidModel<LivingEntity> {
     private final ModelPart bevor;
 
-    BevorModel(ModelPart root) {
+    public BevorModel(ModelPart root) {
         super(root);
         this.setAllVisible(false);
         this.bevor = root.getChild("bevor");

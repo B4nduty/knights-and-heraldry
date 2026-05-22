@@ -1,6 +1,6 @@
 package banduty.knightsheraldry.items.item.khrangeweapon;
 
-import banduty.knightsheraldry.client.item.ArquebusModel;
+import banduty.knightsheraldry.client.item.weapon.ArquebusModel;
 import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

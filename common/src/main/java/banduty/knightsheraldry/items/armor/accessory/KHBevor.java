@@ -1,32 +1,19 @@
 package banduty.knightsheraldry.items.armor.accessory;
 
-import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.model.KHModels;
-import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
+import banduty.knightsheraldry.client.item.armor.KHBevorAccessoryRenderer;
+import banduty.stoneycore.client.render.AccessoryRenderer;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class KHBevor extends KHHelmetAccessory {
-    boolean hasOverlay;
-
     public KHBevor(Properties properties, Ingredient ingredient) {
         super(properties, ingredient);
     }
 
-    public ModelBundle getModels(ItemStack itemStack) {
-        return SCAccessoryItem.ModelBundle.ofBase(KHModels.getBevorModel());
-    }
-
     @Override
-    public ResourceLocation getTexturePath(ItemStack itemStack) {
-        String itemName = BuiltInRegistries.ITEM.getKey(this).getPath();
-        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + itemName + ".png");
-    }
-
-    @Override
-    public SCAccessoryItem.RenderSettings getRenderSettings(ItemStack stack) {
-        return new SCAccessoryItem.RenderSettings(hasOverlay, false, true);
+    public AccessoryRenderer getRenderer() {
+        if (this.cachedRenderer == null) {
+            this.cachedRenderer = new KHBevorAccessoryRenderer();
+        }
+        return this.cachedRenderer;
     }
 }

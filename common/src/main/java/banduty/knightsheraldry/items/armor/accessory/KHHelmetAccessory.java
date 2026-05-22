@@ -1,18 +1,20 @@
 package banduty.knightsheraldry.items.armor.accessory;
 
-import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.items.DecoableItem;
-import banduty.knightsheraldry.model.KHModels;
-import banduty.stoneycore.items.custom.armor.SCAccessoryItem;
-import io.wispforest.accessories.api.AccessoryItem;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import banduty.knightsheraldry.client.item.armor.KHHelmetAccessoryRenderer;
+import banduty.stoneycore.client.render.AccessoryRenderProvider;
+import banduty.stoneycore.client.render.AccessoryRenderer;
+import banduty.stoneycore.items.custom.armor.SCAccessory;
+import banduty.stoneycore.items.custom.armor.deco.DecorableItem;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
-public class KHHelmetAccessory extends AccessoryItem implements SCAccessoryItem, DecoableItem {
+public class KHHelmetAccessory extends DecorableItem implements SCAccessory, AccessoryRenderProvider {
     private final boolean openVisor;
     private final Ingredient ingredient;
+
+    public AccessoryRenderer cachedRenderer;
 
     public KHHelmetAccessory(Properties properties, Ingredient ingredient) {
         super(properties);
@@ -27,26 +29,25 @@ public class KHHelmetAccessory extends AccessoryItem implements SCAccessoryItem,
     }
 
     @Override
-    public ModelBundle getModels(ItemStack itemStack) {
-        if (openVisor) {
-            return ModelBundle.ofBaseAndVisor(KHModels.getHelmetModel(), KHModels.getOpenHelmetModel());
-        }
-        return ModelBundle.ofBase(KHModels.getHelmetModel());
-    }
-
-    @Override
     public boolean hasOpenVisor(ItemStack stack) {
         return openVisor;
     }
 
     @Override
-    public ResourceLocation getTexturePath(ItemStack itemStack) {
-        String itemName = BuiltInRegistries.ITEM.getKey(this).getPath();
-        return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/accessories/" + itemName + ".png");
+    public boolean isValidRepairItem(ItemStack stack, ItemStack ingredient) {
+        return this.ingredient.test(ingredient) || super.isValidRepairItem(stack, ingredient);
     }
 
     @Override
-    public boolean isValidRepairItem(ItemStack stack, ItemStack ingredient) {
-        return this.ingredient.test(ingredient) || super.isValidRepairItem(stack, ingredient);
+    public ArmorItem.@NotNull Type getArmorSlot() {
+        return ArmorItem.Type.HELMET;
+    }
+
+    @Override
+    public AccessoryRenderer getRenderer() {
+        if (this.cachedRenderer == null) {
+            this.cachedRenderer = new KHHelmetAccessoryRenderer();
+        }
+        return this.cachedRenderer;
     }
 }

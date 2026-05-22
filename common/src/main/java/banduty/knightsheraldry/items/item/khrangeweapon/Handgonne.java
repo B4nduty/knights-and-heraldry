@@ -1,6 +1,6 @@
 package banduty.knightsheraldry.items.item.khrangeweapon;
 
-import banduty.knightsheraldry.client.item.HandgonneModel;
+import banduty.knightsheraldry.client.item.weapon.HandgonneModel;
 import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
