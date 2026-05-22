@@ -9,24 +9,28 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
 
 public class KHLeggingsAccessory extends Item implements SCAccessory, AccessoryRenderProvider {
     private final Ingredient ingredient;
+    private final int numberSlot;
     boolean overlay;
     int defaultColor;
 
     public AccessoryRenderer cachedRenderer;
 
-    public KHLeggingsAccessory(Properties properties, Ingredient ingredient) {
+    public KHLeggingsAccessory(Properties properties, Ingredient ingredient, int numberSlot) {
         super(properties);
         this.ingredient = ingredient;
+        this.numberSlot = numberSlot;
         this.overlay = false;
         this.defaultColor = -1;
     }
 
-    public KHLeggingsAccessory(Properties properties, boolean overlay, int defaultColor, Ingredient ingredient) {
+    public KHLeggingsAccessory(Properties properties, boolean overlay, int defaultColor, Ingredient ingredient, int numberSlot) {
         super(properties);
         this.ingredient = ingredient;
+        this.numberSlot = numberSlot;
         this.overlay = overlay;
         this.defaultColor = defaultColor;
     }
@@ -51,5 +55,10 @@ public class KHLeggingsAccessory extends Item implements SCAccessory, AccessoryR
 
     public int getDefaultColor() {
         return this.defaultColor;
+    }
+
+    @Override
+    public @Range(from = 0L, to = 2147483647L) int numberSlot() {
+        return numberSlot;
     }
 }

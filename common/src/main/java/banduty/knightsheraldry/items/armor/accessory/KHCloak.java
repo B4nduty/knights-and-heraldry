@@ -5,6 +5,7 @@ import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.client.render.AccessoryRenderProvider;
 import banduty.stoneycore.client.render.AccessoryRenderer;
 import banduty.stoneycore.items.custom.armor.SCAccessory;
+import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -15,19 +16,22 @@ import org.jetbrains.annotations.Range;
 public class KHCloak extends Item implements SCAccessory, AccessoryRenderProvider {
     boolean hasOverlay;
     int numberSlot;
+    ArmorItem.Type armorType;
 
     public AccessoryRenderer cachedRenderer;
 
-    public KHCloak(Properties properties, int numberSlot) {
+    public KHCloak(Properties properties, int numberSlot, ArmorItem.@NotNull Type armorType) {
         super(properties);
         this.hasOverlay = false;
         this.numberSlot = numberSlot;
+        this.armorType = armorType;
     }
 
-    public KHCloak(Properties properties, int numberSlot, boolean hasOverlay) {
+    public KHCloak(Properties properties, int numberSlot, boolean hasOverlay, ArmorItem.@NotNull Type armorType) {
         super(properties);
         this.hasOverlay = hasOverlay;
         this.numberSlot = numberSlot;
+        this.armorType = armorType;
     }
 
     public boolean hasOverlay() {
@@ -36,7 +40,7 @@ public class KHCloak extends Item implements SCAccessory, AccessoryRenderProvide
 
     @Override
     public ArmorItem.@NotNull Type getArmorSlot() {
-        return ArmorItem.Type.HELMET;
+        return armorType;
     }
 
     @Override
@@ -52,10 +56,11 @@ public class KHCloak extends Item implements SCAccessory, AccessoryRenderProvide
     }
 
     @Override
-    public boolean canEquip(ItemStack stack, Player player) {
-        if (this != KHItems.HELMET_HOOD.get() || this != KHItems.HELMET_TORN_HOOD.get()) return SCAccessory.super.canEquip(stack, player);
-        for (ItemStack itemStack : player.getArmorSlots()) {
-            if (itemStack.getItem() instanceof KHHelmetAccessory) return true;
+    public boolean canEquip(ItemStack underArmorStack, Player player) {
+        if (this != KHItems.HELMET_HOOD.get() && this != KHItems.HELMET_TORN_HOOD.get()) return SCAccessory.super.canEquip(underArmorStack, player);
+        for (ItemStack accessories : SCUnderArmor.getAccessories(underArmorStack)) {
+            if (accessories.getItem() instanceof KHCloak) return false;
+            if (accessories.getItem() instanceof KHHelmetAccessory) return true;
         }
         return false;
     }

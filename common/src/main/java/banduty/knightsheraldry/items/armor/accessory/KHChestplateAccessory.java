@@ -9,31 +9,36 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
 
 public class KHChestplateAccessory extends Item implements SCAccessory, AccessoryRenderProvider {
     private final Ingredient ingredient;
+    private final int numberSlot;
     boolean hasOverlay;
     int defaultColor;
 
     public AccessoryRenderer cachedRenderer;
 
-    public KHChestplateAccessory(Properties properties, Ingredient ingredient) {
+    public KHChestplateAccessory(Properties properties, Ingredient ingredient, int numberSlot) {
         super(properties);
         this.ingredient = ingredient;
+        this.numberSlot = numberSlot;
         this.hasOverlay = false;
         this.defaultColor = -1;
     }
 
-    public KHChestplateAccessory(Properties properties, int defaultColor, Ingredient ingredient) {
+    public KHChestplateAccessory(Properties properties, int defaultColor, Ingredient ingredient, int numberSlot) {
         super(properties);
         this.ingredient = ingredient;
+        this.numberSlot = numberSlot;
         this.hasOverlay = false;
         this.defaultColor = defaultColor;
     }
 
-    public KHChestplateAccessory(Properties properties, boolean overlay, int defaultColor, Ingredient ingredient) {
+    public KHChestplateAccessory(Properties properties, boolean overlay, int defaultColor, Ingredient ingredient, int numberSlot) {
         super(properties);
         this.ingredient = ingredient;
+        this.numberSlot = numberSlot;
         this.hasOverlay = overlay;
         this.defaultColor = defaultColor;
     }
@@ -62,5 +67,10 @@ public class KHChestplateAccessory extends Item implements SCAccessory, Accessor
 
     public boolean hasOverlay() {
         return hasOverlay;
+    }
+
+    @Override
+    public @Range(from = 0L, to = 2147483647L) int numberSlot() {
+        return numberSlot;
     }
 }
