@@ -2,7 +2,7 @@ package banduty.knightsheraldry.entity;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.entity.custom.*;
-import banduty.stoneycore.platform.Services;
+import banduty.knightsheraldry.platform.Services;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.Entity;

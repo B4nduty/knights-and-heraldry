@@ -50,7 +50,7 @@ public interface IPlatformHelper {
 
     <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> entry);
 
-    <T> Holder<T> registerHolder(ResourceKey<Registry<T>> registryKey, String name, java.util.function.Supplier<T> value);
+    <T> Holder<T> registerHolder(ResourceKey<Registry<T>> registryKey, String name, Supplier<T> value);
 
     void syncSpeedHistory(ServerPlayer player, float speedHistory);
 }
