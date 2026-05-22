@@ -6,34 +6,34 @@
   "overrides": [
     {
       "predicate": {
-        "pulling": 1
+        "knightsheraldry:pulling": 1
       },
       "model": "knightsheraldry:item/heavy_crossbow_icon_0"
     },
     {
       "predicate": {
-        "pulling": 1,
-        "pull": 0.3
+        "knightsheraldry:pulling": 1,
+        "knightsheraldry:pull": 0.3
       },
       "model": "knightsheraldry:item/heavy_crossbow_icon_1"
     },
     {
       "predicate": {
-        "pulling": 1,
-        "pull": 0.5
+        "knightsheraldry:pulling": 1,
+        "knightsheraldry:pull": 0.5
       },
       "model": "knightsheraldry:item/heavy_crossbow_icon_2"
     },
     {
       "predicate": {
-        "pulling": 1,
-        "pull": 0.7
+        "knightsheraldry:pulling": 1,
+        "knightsheraldry:pull": 0.7
       },
       "model": "knightsheraldry:item/heavy_crossbow_icon_3"
     },
     {
       "predicate": {
-        "charged": 1
+        "knightsheraldry:charged": 1
       },
       "model": "knightsheraldry:item/heavy_crossbow_arrow"
     }

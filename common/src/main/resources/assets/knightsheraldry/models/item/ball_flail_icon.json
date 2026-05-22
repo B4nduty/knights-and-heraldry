@@ -4,7 +4,7 @@
     {
       "model": "knightsheraldry:item/ball_flail_icon_broken",
       "predicate": {
-        "broken": 1
+        "stoneycore:broken": 1
       }
     }
   ],

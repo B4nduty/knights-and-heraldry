@@ -1,29 +1,30 @@
 {
+	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "knightsheraldry:item/v_sword_3d_broken"
+		"layer0": "knightsheraldry:item/axe_3d_broken"
 	},
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [-132, -136, 31],
-			"translation": [-1.25, 2.75, 3.75],
+			"rotation": [0, -90, 0],
+			"translation": [-0.25, 10, 0.75],
 			"scale": [2, 2, 1]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [-132, -136, 31],
-			"translation": [-1.25, 2.75, 3.75],
+			"rotation": [0, 90, 0],
+			"translation": [-0.25, 10, 0.75],
 			"scale": [2, 2, 1]
 		},
 		"firstperson_righthand": {
-			"rotation": [-180, -136, 31],
-			"translation": [-1.25, 2.75, 3.75],
-			"scale": [2, 2, 1]
+			"rotation": [0, -90, -6],
+			"translation": [0.63, 8.2, 1.63],
+			"scale": [1.36, 1.36, 0.68]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-180, -136, 31],
-			"translation": [-1.25, 2.75, 3.75],
-			"scale": [2, 2, 1]
+			"rotation": [0, 90, 6],
+			"translation": [0.63, 8.2, 1.63],
+			"scale": [1.36, 1.36, 0.68]
 		},
 		"ground": {
 			"rotation": [-180, 0, 0],

@@ -21,12 +21,12 @@ public record VelocityS2CPacket(float speed) implements CustomPacketPayload {
         return ID;
     }
 
-    public static void handle(VelocityS2CPacket payload, ClientPlayNetworking.Context context) {
+    public void handle(ClientPlayNetworking.Context context) {
         context.client().execute(() -> {
             if (context.player() != null) {
                 ((IEntityDataSaver) context.player())
                         .stoneycore$getPersistentData()
-                        .putFloat("speedHistory", payload.speed());
+                        .putFloat("speedHistory", speed);
             }
         });
     }
