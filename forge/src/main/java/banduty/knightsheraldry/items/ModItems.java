@@ -517,7 +517,7 @@ public interface ModItems {
             () -> new KHChaperon(new Item.Properties().stacksTo(1), true));
 
     static RegistryObject<Item> sword(String id, float attackSpeed, int durability) {
-        return registerItem(id, () -> new SwordItem(ModToolMaterials.WEAPONS, 1, attackSpeed, new Item.Properties().defaultDurability(durability)));
+        return registerItem(id, () -> new SwordShieldItem(ModToolMaterials.WEAPONS, 1, attackSpeed, new Item.Properties().defaultDurability(durability)));
     }
     static RegistryObject<Item> axe(String id, float attackSpeed, int durability) {
         return registerItem(id, () -> new AxeItem(ModToolMaterials.WEAPONS, 1, attackSpeed, new Item.Properties().defaultDurability(durability)));

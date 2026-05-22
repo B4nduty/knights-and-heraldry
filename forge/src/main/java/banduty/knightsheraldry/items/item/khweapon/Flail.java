@@ -3,9 +3,13 @@ package banduty.knightsheraldry.items.item.khweapon;
 import banduty.knightsheraldry.client.item.FlailModel;
 import banduty.knightsheraldry.client.item.FlailRenderer;
 import banduty.knightsheraldry.items.ModToolMaterials;
+import banduty.stoneycore.util.data.itemdata.SCTags;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -52,5 +56,11 @@ public class Flail extends SwordItem implements GeoItem {
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
+    }
+
+    @Override
+    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+        if (stack.is(SCTags.WEAPONS_SHIELD.getTag())) return ToolActions.DEFAULT_SHIELD_ACTIONS.contains(toolAction);
+        return super.canPerformAction(stack, toolAction);
     }
 }

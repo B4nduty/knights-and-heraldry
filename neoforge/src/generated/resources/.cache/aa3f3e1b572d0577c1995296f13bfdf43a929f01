@@ -1,0 +1,14 @@
+// 1.21.1	2026-05-11T21:08:45.0707066	Tags for minecraft:item mod id knightsheraldry
+8061d5d413981a328042730a9df36a0887d21151 data/knightsheraldry/tags/item/dyes.json
+6b2b465094cd328c7f5b7d0af6a746398f566f47 data/minecraft/tags/item/freeze_immune_wearables.json
+d07d4d653abd4fbd95aaa42df7ccd4234809f99b data/stoneycore/tags/item/banner_compatible.json
+e97904284b2497e638f1ecf069b969be720c5d7e data/stoneycore/tags/item/broken_weapons.json
+af34758866ab81048565305de848d7598ea7e8ec data/stoneycore/tags/item/geo_2d_items.json
+4f8c24403916cb7c0f32cec2bfb278138e453129 data/stoneycore/tags/item/hide_name_tag.json
+3602151e9cb93f5d7294ef92af221ca02be312dc data/stoneycore/tags/item/weapons_3d.json
+0f109c44b23483558b70fe89fff5977f3862a121 data/stoneycore/tags/item/weapons_bypass_block.json
+b84f9cf99d43a48b5a09c28f3a3fd5dfd5e8d636 data/stoneycore/tags/item/weapons_damage_behind.json
+4cf07e8ccd8e96df2d3bacecaf8e7f58a551a6ae data/stoneycore/tags/item/weapons_disable_shield.json
+cf116f7e7693bf4c4e56887052f6b4d2b4ab5a9b data/stoneycore/tags/item/weapons_harvest.json
+cfde828a573308e04f6adf4e334446ec7fa95a11 data/stoneycore/tags/item/weapons_ignores_armor.json
+08b4c5b471e91468129e38145e614ceea46a79b1 data/stoneycore/tags/item/weapons_shield.json
