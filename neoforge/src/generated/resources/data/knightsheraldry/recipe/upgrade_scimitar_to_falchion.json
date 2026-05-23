@@ -6,11 +6,11 @@
       "item": "stoneycore:smithing_hammer"
     },
     {
-      "item": "stoneycore:scimitar"
+      "item": "knightsheraldry:scimitar"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:falchion"
+    "id": "knightsheraldry:falchion"
   }
 }

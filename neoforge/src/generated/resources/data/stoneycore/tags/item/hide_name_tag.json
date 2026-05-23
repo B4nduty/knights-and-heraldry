@@ -1,9 +1,9 @@
 {
   "values": [
-    "stoneycore:hood",
-    "stoneycore:torn_hood",
-    "stoneycore:jester_hood",
-    "stoneycore:helmet_hood",
-    "stoneycore:helmet_torn_hood"
+    "knightsheraldry:hood",
+    "knightsheraldry:torn_hood",
+    "knightsheraldry:jester_hood",
+    "knightsheraldry:helmet_hood",
+    "knightsheraldry:helmet_torn_hood"
   ]
 }

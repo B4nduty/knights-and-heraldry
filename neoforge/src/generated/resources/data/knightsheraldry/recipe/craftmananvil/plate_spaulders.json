@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:plate_spaulders"
+            "id": "knightsheraldry:plate_spaulders"
           }
         },
         "count": 1,
@@ -28,7 +28,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:plate_spaulders"
+        "id": "knightsheraldry:plate_spaulders"
       }
     },
     "count": 1,

@@ -6,11 +6,11 @@
       "item": "stoneycore:smithing_hammer"
     },
     {
-      "item": "stoneycore:war_hammer"
+      "item": "knightsheraldry:war_hammer"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:hammer"
+    "id": "knightsheraldry:hammer"
   }
 }

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "stoneycore:besagews"
+            "items": "knightsheraldry:besagews"
           }
         ]
       },
@@ -15,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": "stoneycore:golden_mail_spaulders"
+            "items": "knightsheraldry:golden_mail_spaulders"
           }
         ]
       },

@@ -6,11 +6,11 @@
       "item": "stoneycore:smithing_hammer"
     },
     {
-      "item": "stoneycore:ball_flail"
+      "item": "knightsheraldry:ball_flail"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:flail"
+    "id": "knightsheraldry:flail"
   }
 }

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "stoneycore:plate_spaulders"
+            "items": "knightsheraldry:plate_spaulders"
           }
         ]
       },
@@ -15,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": "stoneycore:rim_guards"
+            "items": "knightsheraldry:rim_guards"
           }
         ]
       },

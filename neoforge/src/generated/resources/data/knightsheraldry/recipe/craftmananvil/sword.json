@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:sword"
+            "id": "knightsheraldry:sword"
           }
         },
         "count": 1,
@@ -35,7 +35,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:sword"
+        "id": "knightsheraldry:sword"
       }
     },
     "count": 1,

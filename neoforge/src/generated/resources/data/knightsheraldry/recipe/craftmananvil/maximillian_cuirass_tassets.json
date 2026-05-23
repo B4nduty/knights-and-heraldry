@@ -7,7 +7,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:maximillian_cuirass_tassets"
+            "id": "knightsheraldry:maximillian_cuirass_tassets"
           }
         },
         "count": 1,
@@ -18,7 +18,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:maximillian_cuirass"
+        "id": "knightsheraldry:maximillian_cuirass"
       }
     },
     {
@@ -33,7 +33,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:maximillian_cuirass_tassets"
+        "id": "knightsheraldry:maximillian_cuirass_tassets"
       }
     },
     "count": 1,

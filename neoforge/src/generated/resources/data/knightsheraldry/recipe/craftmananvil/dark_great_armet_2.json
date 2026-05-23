@@ -7,7 +7,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:great_armet_2"
+        "id": "knightsheraldry:great_armet_2"
       }
     },
     {
@@ -48,6 +48,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:dark_great_armet_2"
+    "id": "knightsheraldry:dark_great_armet_2"
   }
 }

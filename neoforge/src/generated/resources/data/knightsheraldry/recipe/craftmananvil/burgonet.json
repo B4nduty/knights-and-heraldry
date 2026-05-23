@@ -8,7 +8,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:burgonet"
+            "id": "knightsheraldry:burgonet"
           }
         },
         "count": 1,
@@ -27,7 +27,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:burgonet"
+        "id": "knightsheraldry:burgonet"
       }
     },
     "count": 1,

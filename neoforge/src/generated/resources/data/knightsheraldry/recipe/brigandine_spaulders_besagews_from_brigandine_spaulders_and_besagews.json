@@ -3,14 +3,14 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "stoneycore:brigandine_spaulders"
+      "item": "knightsheraldry:brigandine_spaulders"
     },
     {
-      "item": "stoneycore:besagews"
+      "item": "knightsheraldry:besagews"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:brigandine_spaulders_besagews"
+    "id": "knightsheraldry:brigandine_spaulders_besagews"
   }
 }

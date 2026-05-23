@@ -6,11 +6,11 @@
       "item": "stoneycore:smithing_hammer"
     },
     {
-      "item": "stoneycore:polehammer"
+      "item": "knightsheraldry:polehammer"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:bec_de_corbin"
+    "id": "knightsheraldry:bec_de_corbin"
   }
 }

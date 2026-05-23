@@ -8,7 +8,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:viking_helm"
+            "id": "knightsheraldry:viking_helm"
           }
         },
         "count": 1,
@@ -27,7 +27,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:viking_helm"
+        "id": "knightsheraldry:viking_helm"
       }
     },
     "count": 1,

@@ -6,11 +6,11 @@
       "item": "stoneycore:smithing_hammer"
     },
     {
-      "item": "stoneycore:crooked_axe"
+      "item": "knightsheraldry:crooked_axe"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:straight_crooked_axe"
+    "id": "knightsheraldry:straight_crooked_axe"
   }
 }

@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:morning_star"
+            "id": "knightsheraldry:morning_star"
           }
         },
         "count": 1,
@@ -33,7 +33,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:morning_star"
+        "id": "knightsheraldry:morning_star"
       }
     },
     "count": 1,

@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:horse_barding"
+            "id": "knightsheraldry:horse_barding"
           }
         },
         "count": 1,
@@ -35,7 +35,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:horse_barding"
+        "id": "knightsheraldry:horse_barding"
       }
     },
     "count": 1,

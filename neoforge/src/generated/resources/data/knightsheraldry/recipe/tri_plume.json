@@ -3,17 +3,17 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "stoneycore:plume"
+      "item": "knightsheraldry:plume"
     },
     {
-      "item": "stoneycore:plume"
+      "item": "knightsheraldry:plume"
     },
     {
-      "item": "stoneycore:plume"
+      "item": "knightsheraldry:plume"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:tri_plume"
+    "id": "knightsheraldry:tri_plume"
   }
 }

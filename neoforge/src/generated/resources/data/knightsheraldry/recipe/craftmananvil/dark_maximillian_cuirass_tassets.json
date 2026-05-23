@@ -7,7 +7,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:maximillian_cuirass_tassets"
+        "id": "knightsheraldry:maximillian_cuirass_tassets"
       }
     },
     {
@@ -48,6 +48,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:dark_maximillian_cuirass_tassets"
+    "id": "knightsheraldry:dark_maximillian_cuirass_tassets"
   }
 }

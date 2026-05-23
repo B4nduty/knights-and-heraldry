@@ -7,7 +7,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:plate_cuisses"
+        "id": "knightsheraldry:plate_cuisses"
       }
     },
     {
@@ -48,6 +48,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:golden_plate_cuisses"
+    "id": "knightsheraldry:golden_plate_cuisses"
   }
 }

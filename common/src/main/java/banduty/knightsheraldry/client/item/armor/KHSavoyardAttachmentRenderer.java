@@ -20,7 +20,9 @@ import net.minecraft.world.item.component.DyedItemColor;
 
 public class KHSavoyardAttachmentRenderer implements ArmorAttachmentRenderer {
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, LivingEntity entity, ItemStack itemStack, HumanoidModel<LivingEntity> contextModel) {
+    public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, LivingEntity livingEntity,
+                       ItemStack itemStack, HumanoidModel<LivingEntity> humanoidModel,
+                       float v, float v1, float v2, float v3, float v4, float v5) {
         HumanoidModel<LivingEntity> model;
         if (!(itemStack.getItem() instanceof KHSavoyard khSavoyard)) return;
         if (khSavoyard.hasOpenVisor(itemStack)) {
@@ -28,11 +30,11 @@ public class KHSavoyardAttachmentRenderer implements ArmorAttachmentRenderer {
             if (current) model = new SavoyardOpened(SavoyardOpened.getTexturedModelData().bakeRoot());
             else model = new SavoyardClosed(SavoyardClosed.getTexturedModelData().bakeRoot());
         } else model = new SavoyardClosed(SavoyardClosed.getTexturedModelData().bakeRoot());
-        contextModel.copyPropertiesTo(model);
-        VertexConsumer baseConsumer = bufferSource.getBuffer(RenderType.armorCutoutNoCull(
+        humanoidModel.copyPropertiesTo(model);
+        VertexConsumer baseConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(
                 ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
                         BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png")));
         int color = DyedItemColor.getOrDefault(itemStack, -1);
-        model.renderToBuffer(poseStack, baseConsumer, packedLight, OverlayTexture.NO_OVERLAY, color);
+        model.renderToBuffer(poseStack, baseConsumer, i, OverlayTexture.NO_OVERLAY, color);
     }
 }

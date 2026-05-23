@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:visored_bascinet"
+            "id": "knightsheraldry:visored_bascinet"
           }
         },
         "count": 1,
@@ -20,7 +20,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:bascinet"
+        "id": "knightsheraldry:bascinet"
       }
     },
     {
@@ -35,7 +35,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:visored_bascinet"
+        "id": "knightsheraldry:visored_bascinet"
       }
     },
     "count": 1,

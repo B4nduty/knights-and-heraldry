@@ -7,7 +7,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:horse_barding"
+        "id": "knightsheraldry:horse_barding"
       }
     },
     {
@@ -48,6 +48,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:dark_horse_barding"
+    "id": "knightsheraldry:dark_horse_barding"
   }
 }

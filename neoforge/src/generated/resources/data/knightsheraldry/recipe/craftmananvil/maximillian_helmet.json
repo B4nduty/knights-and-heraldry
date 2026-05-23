@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:maximillian_helmet"
+            "id": "knightsheraldry:maximillian_helmet"
           }
         },
         "count": 1,
@@ -35,7 +35,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:maximillian_helmet"
+        "id": "knightsheraldry:maximillian_helmet"
       }
     },
     "count": 1,

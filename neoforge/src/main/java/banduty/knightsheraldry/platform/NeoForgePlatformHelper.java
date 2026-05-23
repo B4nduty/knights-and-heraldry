@@ -1,12 +1,12 @@
 package banduty.knightsheraldry.platform;
 
-import banduty.knightsheraldry.config.ForgeKHConfigImpl;
+import banduty.knightsheraldry.KnightsHeraldry;
+import banduty.knightsheraldry.config.NeoForgeKHConfigImpl;
 import banduty.knightsheraldry.config.KHConfigImpl;
 import banduty.knightsheraldry.data.ArrowBehavior;
 import banduty.knightsheraldry.data.ArrowBehaviorManager;
 import banduty.knightsheraldry.networking.payload.VelocityS2CPacket;
 import banduty.knightsheraldry.platform.services.IPlatformHelper;
-import banduty.stoneycore.StoneyCore;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -24,16 +24,16 @@ import java.util.function.Supplier;
 
 public class NeoForgePlatformHelper implements IPlatformHelper {
     private static final Map<ResourceKey<? extends Registry<?>>, DeferredRegister<?>> REGISTRIES = new HashMap<>();
-    private final ForgeKHConfigImpl config;
+    private final NeoForgeKHConfigImpl config;
 
     public NeoForgePlatformHelper() {
-        this.config = new ForgeKHConfigImpl();
+        this.config = new NeoForgeKHConfigImpl();
     }
 
     @Override
     public String getPlatformName() {
 
-        return "Forge";
+        return "NeoForge";
     }
 
     @Override
@@ -63,7 +63,7 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
     public <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> entry) {
         DeferredRegister<T> deferredRegister = (DeferredRegister<T>) REGISTRIES.computeIfAbsent(
                 registry.key(),
-                k -> DeferredRegister.create(registry.key(), StoneyCore.MOD_ID)
+                k -> DeferredRegister.create(registry.key(), KnightsHeraldry.MOD_ID)
         );
 
         return deferredRegister.register(name, entry);
@@ -74,7 +74,7 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
     public <T> Holder<T> registerHolder(ResourceKey<Registry<T>> registryKey, String name, Supplier<T> value) {
         DeferredRegister<T> deferredRegister = (DeferredRegister<T>) REGISTRIES.computeIfAbsent(
                 registryKey,
-                k -> DeferredRegister.create(registryKey, StoneyCore.MOD_ID)
+                k -> DeferredRegister.create(registryKey, KnightsHeraldry.MOD_ID)
         );
 
         return deferredRegister.register(name, value);

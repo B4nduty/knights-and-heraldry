@@ -8,7 +8,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:dagger"
+            "id": "knightsheraldry:dagger"
           }
         },
         "count": 1,
@@ -34,7 +34,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:dagger"
+        "id": "knightsheraldry:dagger"
       }
     },
     "count": 1,

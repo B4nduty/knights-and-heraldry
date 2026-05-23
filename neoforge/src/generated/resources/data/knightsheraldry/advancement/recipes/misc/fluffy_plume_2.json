@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "stoneycore:plume"
+            "items": "knightsheraldry:plume"
           }
         ]
       },
@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "items": "stoneycore:tri_plume"
+            "items": "knightsheraldry:tri_plume"
           }
         ]
       },

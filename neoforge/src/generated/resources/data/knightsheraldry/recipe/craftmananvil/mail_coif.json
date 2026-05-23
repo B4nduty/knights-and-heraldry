@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:mail_coif"
+            "id": "knightsheraldry:mail_coif"
           }
         },
         "count": 1,
@@ -35,7 +35,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:mail_coif"
+        "id": "knightsheraldry:mail_coif"
       }
     },
     "count": 1,

@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:brigandine_cuisses"
+            "id": "knightsheraldry:brigandine_cuisses"
           }
         },
         "count": 1,
@@ -35,7 +35,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:brigandine_cuisses"
+        "id": "knightsheraldry:brigandine_cuisses"
       }
     },
     "count": 1,

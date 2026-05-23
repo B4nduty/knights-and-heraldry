@@ -1,9 +1,9 @@
 {
   "values": [
-    "stoneycore:flail",
-    "stoneycore:ball_flail",
-    "stoneycore:heavy_crossbow",
-    "stoneycore:arquebus",
-    "stoneycore:handgonne"
+    "knightsheraldry:flail",
+    "knightsheraldry:ball_flail",
+    "knightsheraldry:heavy_crossbow",
+    "knightsheraldry:arquebus",
+    "knightsheraldry:handgonne"
   ]
 }

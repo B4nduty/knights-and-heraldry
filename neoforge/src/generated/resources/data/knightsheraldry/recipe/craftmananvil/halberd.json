@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:halberd"
+            "id": "knightsheraldry:halberd"
           }
         },
         "count": 1,
@@ -33,7 +33,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:halberd"
+        "id": "knightsheraldry:halberd"
       }
     },
     "count": 1,

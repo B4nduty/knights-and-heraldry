@@ -7,7 +7,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:kettle_helm"
+        "id": "knightsheraldry:kettle_helm"
       }
     },
     {
@@ -48,6 +48,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:dark_kettle_helm"
+    "id": "knightsheraldry:dark_kettle_helm"
   }
 }

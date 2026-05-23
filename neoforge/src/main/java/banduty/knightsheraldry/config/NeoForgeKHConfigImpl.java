@@ -1,6 +1,6 @@
 package banduty.knightsheraldry.config;
 
-public class ForgeKHConfigImpl extends KHConfigImpl {
+public class NeoForgeKHConfigImpl extends KHConfigImpl {
     @Override
     public int getLanceCooldown() {
         return KHConfigs.lanceCooldown.get();

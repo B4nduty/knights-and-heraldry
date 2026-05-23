@@ -8,7 +8,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:broadhead_arrow"
+            "id": "knightsheraldry:broadhead_arrow"
           }
         },
         "count": 1,
@@ -34,7 +34,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:broadhead_arrow"
+        "id": "knightsheraldry:broadhead_arrow"
       }
     },
     "count": 1,

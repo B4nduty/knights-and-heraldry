@@ -6,11 +6,11 @@
       "item": "stoneycore:smithing_hammer"
     },
     {
-      "item": "stoneycore:claymore"
+      "item": "knightsheraldry:claymore"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:flamberge"
+    "id": "knightsheraldry:flamberge"
   }
 }

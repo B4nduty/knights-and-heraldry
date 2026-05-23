@@ -8,7 +8,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:brig_breastplate"
+            "id": "knightsheraldry:brig_breastplate"
           }
         },
         "count": 1,
@@ -19,7 +19,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:brigandine"
+        "id": "knightsheraldry:brigandine"
       }
     },
     {
@@ -34,7 +34,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:brig_breastplate"
+        "id": "knightsheraldry:brig_breastplate"
       }
     },
     "count": 1,

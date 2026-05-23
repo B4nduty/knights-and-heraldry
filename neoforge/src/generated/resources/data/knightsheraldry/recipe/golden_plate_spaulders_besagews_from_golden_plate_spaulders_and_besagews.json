@@ -3,14 +3,14 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "stoneycore:golden_plate_spaulders"
+      "item": "knightsheraldry:golden_plate_spaulders"
     },
     {
-      "item": "stoneycore:besagews"
+      "item": "knightsheraldry:besagews"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:golden_plate_spaulders_besagews"
+    "id": "knightsheraldry:golden_plate_spaulders_besagews"
   }
 }

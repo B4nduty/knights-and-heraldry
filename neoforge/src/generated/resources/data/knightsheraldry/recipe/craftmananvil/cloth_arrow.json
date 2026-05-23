@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:cloth_arrow"
+            "id": "knightsheraldry:cloth_arrow"
           }
         },
         "count": 1,
@@ -33,7 +33,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:cloth_arrow"
+        "id": "knightsheraldry:cloth_arrow"
       }
     },
     "count": 1,

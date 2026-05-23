@@ -3,14 +3,14 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "stoneycore:dark_brigandine_spaulders"
+      "item": "knightsheraldry:dark_brigandine_spaulders"
     },
     {
-      "item": "stoneycore:besagews"
+      "item": "knightsheraldry:besagews"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:dark_brigandine_spaulders_besagews"
+    "id": "knightsheraldry:dark_brigandine_spaulders_besagews"
   }
 }

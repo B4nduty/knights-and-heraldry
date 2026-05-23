@@ -3,14 +3,14 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "stoneycore:dark_plate_spaulders"
+      "item": "knightsheraldry:dark_plate_spaulders"
     },
     {
-      "item": "stoneycore:rim_guards"
+      "item": "knightsheraldry:rim_guards"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:dark_plate_spaulders_rimmed"
+    "id": "knightsheraldry:dark_plate_spaulders_rimmed"
   }
 }

@@ -9,7 +9,7 @@
         "components": {
           "stoneycore:target_stack": {
             "count": 1,
-            "id": "stoneycore:plate_harness"
+            "id": "knightsheraldry:plate_harness"
           }
         },
         "count": 1,
@@ -35,7 +35,7 @@
     "components": {
       "stoneycore:target_stack": {
         "count": 1,
-        "id": "stoneycore:plate_harness"
+        "id": "knightsheraldry:plate_harness"
       }
     },
     "count": 1,

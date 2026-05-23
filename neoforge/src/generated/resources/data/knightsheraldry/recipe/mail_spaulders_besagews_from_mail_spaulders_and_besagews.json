@@ -3,14 +3,14 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "stoneycore:mail_spaulders"
+      "item": "knightsheraldry:mail_spaulders"
     },
     {
-      "item": "stoneycore:besagews"
+      "item": "knightsheraldry:besagews"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:mail_spaulders_besagews"
+    "id": "knightsheraldry:mail_spaulders_besagews"
   }
 }

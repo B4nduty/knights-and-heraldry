@@ -3,23 +3,23 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "stoneycore:plume"
+      "item": "knightsheraldry:plume"
     },
     {
-      "item": "stoneycore:plume"
+      "item": "knightsheraldry:plume"
     },
     {
-      "item": "stoneycore:plume"
+      "item": "knightsheraldry:plume"
     },
     {
-      "item": "stoneycore:plume"
+      "item": "knightsheraldry:plume"
     },
     {
-      "item": "stoneycore:plume"
+      "item": "knightsheraldry:plume"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:fluffy_plume"
+    "id": "knightsheraldry:fluffy_plume"
   }
 }

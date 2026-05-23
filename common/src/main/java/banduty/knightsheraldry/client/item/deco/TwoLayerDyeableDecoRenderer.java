@@ -6,7 +6,6 @@ import banduty.knightsheraldry.model.HelmetDecoModel;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -18,25 +17,24 @@ import net.minecraft.world.item.ItemStack;
 
 public class TwoLayerDyeableDecoRenderer implements ArmorAttachmentRenderer {
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, LivingEntity entity, ItemStack decoStack, HumanoidModel<LivingEntity> contextModel) {
+    public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, LivingEntity livingEntity,
+                       ItemStack itemStack, HumanoidModel<LivingEntity> humanoidModel,
+                       float v, float v1, float v2, float v3, float v4, float v5) {
         HumanoidModel<LivingEntity> model = new HelmetDecoModel(HelmetDecoModel.getTexturedModelData().bakeRoot());
-        if (!(decoStack.getItem() instanceof TwoLayerDyeableDeco)) return;
-        contextModel.copyPropertiesTo(model);
-        model.setupAnim(entity, entity.walkAnimation.position(), entity.walkAnimation.speed(),
-                (float) entity.tickCount + Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true),
-                entity.getYHeadRot() - entity.yBodyRot,
-                entity.getXRot());
+        if (!(itemStack.getItem() instanceof TwoLayerDyeableDeco)) return;
+        humanoidModel.copyPropertiesTo(model);
+        model.setupAnim(livingEntity, v, v1, v3, v4, v5);
 
-        VertexConsumer baseConsumer = bufferSource.getBuffer(RenderType.armorCutoutNoCull(
+        VertexConsumer baseConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(
                 ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/deco/" +
-                        BuiltInRegistries.ITEM.getKey(decoStack.getItem()).getPath() + "_base.png")));
-        int colorBase = TwoLayerDyeableDeco.getColor1(decoStack);
-        model.renderToBuffer(poseStack, baseConsumer, packedLight, OverlayTexture.NO_OVERLAY, colorBase);
+                        BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "_base.png")));
+        int colorBase = TwoLayerDyeableDeco.getColor1(itemStack);
+        model.renderToBuffer(poseStack, baseConsumer, i, OverlayTexture.NO_OVERLAY, colorBase);
 
-        VertexConsumer stripeConsumer = bufferSource.getBuffer(RenderType.armorCutoutNoCull(
+        VertexConsumer stripeConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(
                 ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/deco/" +
-                        BuiltInRegistries.ITEM.getKey(decoStack.getItem()).getPath() + "_stripe.png")));
-        int colorStripe = TwoLayerDyeableDeco.getColor2(decoStack);
-        model.renderToBuffer(poseStack, stripeConsumer, packedLight, OverlayTexture.NO_OVERLAY, colorStripe);
+                        BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "_stripe.png")));
+        int colorStripe = TwoLayerDyeableDeco.getColor2(itemStack);
+        model.renderToBuffer(poseStack, stripeConsumer, i, OverlayTexture.NO_OVERLAY, colorStripe);
     }
 }

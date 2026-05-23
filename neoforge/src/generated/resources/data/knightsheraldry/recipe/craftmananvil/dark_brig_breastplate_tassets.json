@@ -7,7 +7,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:brig_breastplate_tassets"
+        "id": "knightsheraldry:brig_breastplate_tassets"
       }
     },
     {
@@ -48,6 +48,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:dark_brig_breastplate_tassets"
+    "id": "knightsheraldry:dark_brig_breastplate_tassets"
   }
 }

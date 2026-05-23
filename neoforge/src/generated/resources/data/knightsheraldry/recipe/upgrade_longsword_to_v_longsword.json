@@ -6,11 +6,11 @@
       "item": "stoneycore:smithing_hammer"
     },
     {
-      "item": "stoneycore:longsword"
+      "item": "knightsheraldry:longsword"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:v_longsword"
+    "id": "knightsheraldry:v_longsword"
   }
 }

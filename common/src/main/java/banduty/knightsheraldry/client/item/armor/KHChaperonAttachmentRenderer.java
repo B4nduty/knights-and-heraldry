@@ -17,19 +17,19 @@ import net.minecraft.world.item.component.DyedItemColor;
 
 public class KHChaperonAttachmentRenderer implements ArmorAttachmentRenderer {
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, LivingEntity entity, ItemStack itemStack, HumanoidModel<LivingEntity> contextModel) {
+    public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, LivingEntity livingEntity, ItemStack itemStack, HumanoidModel<LivingEntity> humanoidModel, float v, float v1, float v2, float v3, float v4, float v5) {
         HumanoidModel<LivingEntity> model = new ChaperonModel(ChaperonModel.getTexturedModelData().bakeRoot());
         if (!(itemStack.getItem() instanceof KHChaperon khChaperon)) return;
-        contextModel.copyPropertiesTo(model);
-        VertexConsumer baseConsumer = bufferSource.getBuffer(RenderType.armorCutoutNoCull(
+        humanoidModel.copyPropertiesTo(model);
+        VertexConsumer baseConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(
                 ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/chaperon.png")));
         int color = DyedItemColor.getOrDefault(itemStack, khChaperon.getDefaultColor());
-        model.renderToBuffer(poseStack, baseConsumer, packedLight, OverlayTexture.NO_OVERLAY, color);
+        model.renderToBuffer(poseStack, baseConsumer, i, OverlayTexture.NO_OVERLAY, color);
 
         if (khChaperon.hasOverlay()) {
-            VertexConsumer baseConsumer2 = bufferSource.getBuffer(RenderType.armorCutoutNoCull(
+            VertexConsumer baseConsumer2 = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(
                     ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/chaperon_overlay.png")));
-            model.renderToBuffer(poseStack, baseConsumer2, packedLight, OverlayTexture.NO_OVERLAY, -1);
+            model.renderToBuffer(poseStack, baseConsumer2, i, OverlayTexture.NO_OVERLAY, -1);
         }
     }
 }

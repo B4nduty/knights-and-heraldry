@@ -463,22 +463,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         }
 
         for (Object requires : requiress) {
-            switch (requires) {
-                case ItemStack itemStack -> {
-                    int count = itemStack.getCount();
-                    for (int i = 0; i < count; i++) {
-                        ItemStack singleStack = itemStack.copy();
-                        singleStack.setCount(1);
-                        builder.requires(singleStack);
-                    }
+            if (requires instanceof ItemStack itemStack) {
+                int count = itemStack.getCount();
+                for (int i = 0; i < count; i++) {
+                    ItemStack singleStack = itemStack.copy();
+                    singleStack.setCount(1);
+                    builder.requires(singleStack);
                 }
-                case Item item -> builder.requires(new ItemStack(item));
-                case TagKey tagKey -> {
-                    @SuppressWarnings("unchecked")
-                    TagKey<Item> itemTag = (TagKey<Item>) requires;
-                    builder.requires(itemTag, 1);
-                }
-                default -> System.out.println("Unhandled type: " + requires.getClass().getName());
+            } else if (requires instanceof Item item) {
+                builder.requires(new ItemStack(item));
+            } else if (requires instanceof TagKey) {
+                @SuppressWarnings("unchecked")
+                TagKey<Item> itemTag = (TagKey<Item>) requires;
+                builder.requires(itemTag, 1);
+            } else {
+                System.out.println("Unhandled type: " + requires.getClass().getName());
             }
         }
 

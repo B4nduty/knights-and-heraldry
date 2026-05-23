@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "stoneycore:besagews"
+            "items": "knightsheraldry:besagews"
           }
         ]
       },
@@ -15,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": "stoneycore:golden_plate_spaulders"
+            "items": "knightsheraldry:golden_plate_spaulders"
           }
         ]
       },
@@ -25,7 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": "stoneycore:rim_guards"
+            "items": "knightsheraldry:rim_guards"
           }
         ]
       },

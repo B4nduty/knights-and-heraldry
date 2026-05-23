@@ -7,7 +7,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:barbute"
+        "id": "knightsheraldry:barbute"
       }
     },
     {
@@ -48,6 +48,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:golden_barbute"
+    "id": "knightsheraldry:golden_barbute"
   }
 }

@@ -7,7 +7,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:plate_harness"
+        "id": "knightsheraldry:plate_harness"
       }
     },
     {
@@ -48,6 +48,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:dark_plate_harness"
+    "id": "knightsheraldry:dark_plate_harness"
   }
 }

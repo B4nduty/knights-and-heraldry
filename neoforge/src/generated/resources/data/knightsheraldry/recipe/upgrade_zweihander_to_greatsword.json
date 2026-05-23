@@ -6,11 +6,11 @@
       "item": "stoneycore:smithing_hammer"
     },
     {
-      "item": "stoneycore:zweihander"
+      "item": "knightsheraldry:zweihander"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:greatsword"
+    "id": "knightsheraldry:greatsword"
   }
 }

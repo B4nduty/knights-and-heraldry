@@ -6,11 +6,11 @@
       "tag": "minecraft:banners"
     },
     {
-      "item": "stoneycore:surcoat_sleeveless"
+      "item": "knightsheraldry:surcoat_sleeveless"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:surcoat_sleeveless"
+    "id": "knightsheraldry:surcoat_sleeveless"
   }
 }

@@ -6,11 +6,11 @@
       "item": "stoneycore:smithing_hammer"
     },
     {
-      "item": "stoneycore:spiked_mace"
+      "item": "knightsheraldry:spiked_mace"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:mace"
+    "id": "knightsheraldry:mace"
   }
 }

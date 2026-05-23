@@ -28,7 +28,7 @@
     "id": "musket",
     "maxUseTime": 1,
     "rechargeTime": 15,
-    "soundEvent": "stoneycore:arquebus_close",
+    "soundEvent": "knightsheraldry:arquebus_close",
     "speed": 5.9,
     "useAnim": "BOW"
   },

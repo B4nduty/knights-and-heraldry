@@ -7,7 +7,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "stoneycore:xiiii_plate_breastplate"
+        "id": "knightsheraldry:xiiii_plate_breastplate"
       }
     },
     {
@@ -48,6 +48,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:dark_xiiii_plate_breastplate"
+    "id": "knightsheraldry:dark_xiiii_plate_breastplate"
   }
 }

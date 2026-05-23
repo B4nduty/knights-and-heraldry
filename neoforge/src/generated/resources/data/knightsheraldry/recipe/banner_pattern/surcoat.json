@@ -6,11 +6,11 @@
       "tag": "minecraft:banners"
     },
     {
-      "item": "stoneycore:surcoat"
+      "item": "knightsheraldry:surcoat"
     }
   ],
   "result": {
     "count": 1,
-    "id": "stoneycore:surcoat"
+    "id": "knightsheraldry:surcoat"
   }
 }
