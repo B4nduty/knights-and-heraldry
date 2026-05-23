@@ -5,7 +5,7 @@ import banduty.knightsheraldry.entity.custom.KHBodkinArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHClothArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
-import banduty.knightsheraldry.items.armor.accessory.*;
+import banduty.knightsheraldry.items.armor.attachment.*;
 import banduty.knightsheraldry.items.armor.deco.HelmetDecoItem;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.items.item.KHExtendedArrowItem;
@@ -116,210 +116,210 @@ public interface KHItems {
             () -> new SCUnderArmor(ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS, new Item.Properties().durability(512)));
 
     Supplier<Item> MAIL_SPAULDERS = registerItem("mail_spaulders",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(96), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(96), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> MAIL_SPAULDERS_BESAGEWS = registerItem("mail_spaulders_besagews",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(96), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(96), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> GOLDEN_MAIL_SPAULDERS = registerItem("golden_mail_spaulders",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(115), Ingredient.of(Items.GOLD_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(115), Ingredient.of(Items.GOLD_INGOT), 1));
     Supplier<Item> GOLDEN_MAIL_SPAULDERS_BESAGEWS = registerItem("golden_mail_spaulders_besagews",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(115), Ingredient.of(Items.GOLD_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(115), Ingredient.of(Items.GOLD_INGOT), 1));
     Supplier<Item> BRIGANDINE_SPAULDERS = registerItem("brigandine_spaulders",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(109), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(109), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 1));
     Supplier<Item> BRIGANDINE_SPAULDERS_BESAGEWS = registerItem("brigandine_spaulders_besagews",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(109), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(109), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 1));
     Supplier<Item> DARK_BRIGANDINE_SPAULDERS = registerItem("dark_brigandine_spaulders",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(120), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(120), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 1));
     Supplier<Item> DARK_BRIGANDINE_SPAULDERS_BESAGEWS = registerItem("dark_brigandine_spaulders_besagews",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(120), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(120), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 1));
     Supplier<Item> GOLDEN_BRIGANDINE_SPAULDERS = registerItem("golden_brigandine_spaulders",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(131), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(131), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 1));
     Supplier<Item> GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS = registerItem("golden_brigandine_spaulders_besagews",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(131), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(131), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 1));
     Supplier<Item> PLATE_SPAULDERS = registerItem("plate_spaulders",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> PLATE_SPAULDERS_BESAGEWS = registerItem("plate_spaulders_besagews",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> PLATE_SPAULDERS_RIMMED = registerItem("plate_spaulders_rimmed",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> PLATE_SPAULDERS_BESAGEWS_RIMMED = registerItem("plate_spaulders_besagews_rimmed",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> DARK_PLATE_SPAULDERS = registerItem("dark_plate_spaulders",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> DARK_PLATE_SPAULDERS_BESAGEWS = registerItem("dark_plate_spaulders_besagews",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> DARK_PLATE_SPAULDERS_RIMMED = registerItem("dark_plate_spaulders_rimmed",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED = registerItem("dark_plate_spaulders_besagews_rimmed",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> GOLDEN_PLATE_SPAULDERS = registerItem("golden_plate_spaulders",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT), 1));
     Supplier<Item> GOLDEN_PLATE_SPAULDERS_BESAGEWS = registerItem("golden_plate_spaulders_besagews",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT), 1));
     Supplier<Item> GOLDEN_PLATE_SPAULDERS_RIMMED = registerItem("golden_plate_spaulders_rimmed",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT), 1));
     Supplier<Item> GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED = registerItem("golden_plate_spaulders_besagews_rimmed",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT), 1));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT), 1));
 
     Supplier<Item> BRIGANDINE = registerItem("brigandine",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(423), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(423), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
     Supplier<Item> DARK_BRIGANDINE = registerItem("dark_brigandine",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(465), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(465), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
     Supplier<Item> GOLDEN_BRIGANDINE = registerItem("golden_brigandine",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(508), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(508), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 0));
 
     Supplier<Item> BRIG_BREASTPLATE = registerItem("brig_breastplate",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(546), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(546), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
     Supplier<Item> DARK_BRIG_BREASTPLATE = registerItem("dark_brig_breastplate",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(601), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(601), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
     Supplier<Item> GOLDEN_BRIG_BREASTPLATE = registerItem("golden_brig_breastplate",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(655), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(655), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 0));
     Supplier<Item> BRIG_BREASTPLATE_TASSETS = registerItem("brig_breastplate_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(546), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(546), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
     Supplier<Item> DARK_BRIG_BREASTPLATE_TASSETS = registerItem("dark_brig_breastplate_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(601), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(601), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
     Supplier<Item> GOLDEN_BRIG_BREASTPLATE_TASSETS = registerItem("golden_brig_breastplate_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(655), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(655), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 0));
 
     Supplier<Item> PLATE_CUIRASS = registerItem("plate_cuirass",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> DARK_PLATE_CUIRASS = registerItem("dark_plate_cuirass",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> GOLDEN_PLATE_CUIRASS = registerItem("golden_plate_cuirass",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
     Supplier<Item> PLATE_CUIRASS_TASSETS = registerItem("plate_cuirass_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> DARK_PLATE_CUIRASS_TASSETS = registerItem("dark_plate_cuirass_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> GOLDEN_PLATE_CUIRASS_TASSETS = registerItem("golden_plate_cuirass_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
     Supplier<Item> MAXIMILLIAN_CUIRASS = registerItem("maximillian_cuirass",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> DARK_MAXIMILLIAN_CUIRASS = registerItem("dark_maximillian_cuirass",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> GOLDEN_MAXIMILLIAN_CUIRASS = registerItem("golden_maximillian_cuirass",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
     Supplier<Item> MAXIMILLIAN_CUIRASS_TASSETS = registerItem("maximillian_cuirass_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> DARK_MAXIMILLIAN_CUIRASS_TASSETS = registerItem("dark_maximillian_cuirass_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS = registerItem("golden_maximillian_cuirass_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
     Supplier<Item> XIIII_PLATE_CUIRASS = registerItem("xiiii_plate_cuirass",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> DARK_XIIII_PLATE_CUIRASS = registerItem("dark_xiiii_plate_cuirass",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> GOLDEN_XIIII_PLATE_CUIRASS = registerItem("golden_xiiii_plate_cuirass",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
     Supplier<Item> XIIII_PLATE_CUIRASS_TASSETS = registerItem("xiiii_plate_cuirass_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> DARK_XIIII_PLATE_CUIRASS_TASSETS = registerItem("dark_xiiii_plate_cuirass_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> GOLDEN_XIIII_PLATE_CUIRASS_TASSETS = registerItem("golden_xiiii_plate_cuirass_tassets",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
     Supplier<Item> XIIII_PLATE_BREASTPLATE = registerItem("xiiii_plate_breastplate",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> DARK_XIIII_PLATE_BREASTPLATE = registerItem("dark_xiiii_plate_breastplate",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> GOLDEN_XIIII_PLATE_BREASTPLATE = registerItem("golden_xiiii_plate_breastplate",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT), 0));
 
     Supplier<Item> BARBUTE = registerItem("barbute",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_BARBUTE = registerItem("dark_barbute",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_BARBUTE = registerItem("golden_barbute",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> BASCINET = registerItem("bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_BASCINET = registerItem("dark_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_BASCINET = registerItem("golden_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> KETTLE_HELM = registerItem("kettle_helm",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_KETTLE_HELM = registerItem("dark_kettle_helm",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_KETTLE_HELM = registerItem("golden_kettle_helm",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> NASAL_HELM = registerItem("nasal_helm",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_NASAL_HELM = registerItem("dark_nasal_helm",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_NASAL_HELM = registerItem("golden_nasal_helm",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> VIKING_HELM = registerItem("viking_helm",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_VIKING_HELM = registerItem("dark_viking_helm",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_VIKING_HELM = registerItem("golden_viking_helm",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> BURGONET = registerItem("burgonet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_BURGONET = registerItem("dark_burgonet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_BURGONET = registerItem("golden_burgonet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> ARMET = registerItem("armet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_ARMET = registerItem("dark_armet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_ARMET = registerItem("golden_armet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> ARMET_2 = registerItem("armet_2",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_ARMET_2 = registerItem("dark_armet_2",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_ARMET_2 = registerItem("golden_armet_2",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> VISORED_BARBUTE = registerItem("visored_barbute",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_VISORED_BARBUTE = registerItem("dark_visored_barbute",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_VISORED_BARBUTE = registerItem("golden_visored_barbute",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> HOUNDSKULL = registerItem("houndskull",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_HOUNDSKULL = registerItem("dark_houndskull",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_HOUNDSKULL = registerItem("golden_houndskull",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> CAGE = registerItem("cage",
-            () -> new KHCageHelmetAccessory(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHCageHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_CAGE = registerItem("dark_cage",
-            () -> new KHCageHelmetAccessory(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHCageHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_CAGE = registerItem("golden_cage",
-            () -> new KHCageHelmetAccessory(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHCageHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> VISORED_BASCINET = registerItem("visored_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_VISORED_BASCINET = registerItem("dark_visored_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_VISORED_BASCINET = registerItem("golden_visored_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> GREAT_HELM = registerItem("great_helm",
-            () -> new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).durability(250), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(250), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_GREAT_HELM = registerItem("dark_great_helm",
-            () -> new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).durability(275), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(275), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_GREAT_HELM = registerItem("golden_great_helm",
-            () -> new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).durability(300), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(300), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> GREAT_HELM_2 = registerItem("great_helm_2",
-            () -> new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).durability(250), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(250), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_GREAT_HELM_2 = registerItem("dark_great_helm_2",
-            () -> new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).durability(275), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(275), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_GREAT_HELM_2 = registerItem("golden_great_helm_2",
-            () -> new KHGreatHelmetAccessory(new Item.Properties().stacksTo(1).durability(300), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(300), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> SALLET = registerItem("sallet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_SALLET = registerItem("dark_sallet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_SALLET = registerItem("golden_sallet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> BURGONET_FALLING_BUFFE = registerItem("burgonet_falling_buffe",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_BURGONET_FALLING_BUFFE = registerItem("dark_burgonet_falling_buffe",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_BURGONET_FALLING_BUFFE = registerItem("golden_burgonet_falling_buffe",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> CLOSE_HELM = registerItem("close_helm",
             () -> new KHCloseHelmet(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_CLOSE_HELM = registerItem("dark_close_helm",
@@ -328,41 +328,41 @@ public interface KHItems {
             () -> new KHCloseHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> FROGMOUTH = registerItem("frogmouth",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(354), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(354), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_FROGMOUTH = registerItem("dark_frogmouth",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(389), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(389), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_FROGMOUTH = registerItem("golden_frogmouth",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(425), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(425), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> GREAT_ARMET = registerItem("great_armet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_GREAT_ARMET = registerItem("dark_great_armet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_GREAT_ARMET = registerItem("golden_great_armet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> GREAT_ARMET_2 = registerItem("great_armet_2",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_GREAT_ARMET_2 = registerItem("dark_great_armet_2",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_GREAT_ARMET_2 = registerItem("golden_great_armet_2",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> GREAT_BASCINET = registerItem("great_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_GREAT_BASCINET = registerItem("dark_great_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_GREAT_BASCINET = registerItem("golden_great_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> GREAT_HOUNDSKUL_BASCINET = registerItem("great_houndskul_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_GREAT_HOUNDSKUL_BASCINET = registerItem("dark_great_houndskul_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_GREAT_HOUNDSKUL_BASCINET = registerItem("golden_great_houndskul_bascinet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> MAXIMILLIAN_HELMET = registerItem("maximillian_helmet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_MAXIMILLIAN_HELMET = registerItem("dark_maximillian_helmet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_MAXIMILLIAN_HELMET = registerItem("golden_maximillian_helmet",
-            () -> new KHHelmetAccessory(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> SAVOYARD = registerItem("savoyard",
             () -> new KHSavoyard(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_SAVOYARD = registerItem("dark_savoyard",
@@ -371,50 +371,50 @@ public interface KHItems {
             () -> new KHSavoyard(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> GAUNTLET = registerItem("gauntlet",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT), 2));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT), 2));
     Supplier<Item> DARK_GAUNTLET = registerItem("dark_gauntlet",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(99), Ingredient.of(Items.IRON_INGOT), 2));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(99), Ingredient.of(Items.IRON_INGOT), 2));
     Supplier<Item> GOLDEN_GAUNTLET = registerItem("golden_gauntlet",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(108), Ingredient.of(Items.GOLD_INGOT), 2));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(108), Ingredient.of(Items.GOLD_INGOT), 2));
     Supplier<Item> BRIGANDINE_HARNESS = registerItem("brigandine_harness",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(100), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 2));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(100), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 2));
     Supplier<Item> DARK_BRIGANDINE_HARNESS = registerItem("dark_brigandine_harness",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(110), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 2));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(110), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 2));
     Supplier<Item> GOLDEN_BRIGANDINE_HARNESS = registerItem("golden_brigandine_harness",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(120), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 2));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(120), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 2));
     Supplier<Item> PLATE_HARNESS = registerItem("plate_harness",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(116), Ingredient.of(Items.IRON_INGOT), 2));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(116), Ingredient.of(Items.IRON_INGOT), 2));
     Supplier<Item> DARK_PLATE_HARNESS = registerItem("dark_plate_harness",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(128), Ingredient.of(Items.IRON_INGOT), 2));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(128), Ingredient.of(Items.IRON_INGOT), 2));
     Supplier<Item> GOLDEN_PLATE_HARNESS = registerItem("golden_plate_harness",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(139), Ingredient.of(Items.GOLD_INGOT), 2));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(139), Ingredient.of(Items.GOLD_INGOT), 2));
 
     Supplier<Item> BRIGANDINE_CUISSES = registerItem("brigandine_cuisses",
-            () -> new KHLeggingsAccessory(new Item.Properties().stacksTo(1).durability(187), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
+            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(187), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
     Supplier<Item> DARK_BRIGANDINE_CUISSES = registerItem("dark_brigandine_cuisses",
-            () -> new KHLeggingsAccessory(new Item.Properties().stacksTo(1).durability(206), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
+            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(206), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER), 0));
     Supplier<Item> GOLDEN_BRIGANDINE_CUISSES = registerItem("golden_brigandine_cuisses",
-            () -> new KHLeggingsAccessory(new Item.Properties().stacksTo(1).durability(224), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 0));
+            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(224), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER), 0));
     Supplier<Item> PLATE_CUISSES = registerItem("plate_cuisses",
-            () -> new KHLeggingsAccessory(new Item.Properties().stacksTo(1).durability(203), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(203), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> DARK_PLATE_CUISSES = registerItem("dark_plate_cuisses",
-            () -> new KHLeggingsAccessory(new Item.Properties().stacksTo(1).durability(223), Ingredient.of(Items.IRON_INGOT), 0));
+            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(223), Ingredient.of(Items.IRON_INGOT), 0));
     Supplier<Item> GOLDEN_PLATE_CUISSES = registerItem("golden_plate_cuisses",
-            () -> new KHLeggingsAccessory(new Item.Properties().stacksTo(1).durability(244), Ingredient.of(Items.GOLD_INGOT), 0));
+            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(244), Ingredient.of(Items.GOLD_INGOT), 0));
 
     Supplier<Item> GREAVES = registerItem("greaves",
-            () -> new KHLeggingsAccessory(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> DARK_GREAVES = registerItem("dark_greaves",
-            () -> new KHLeggingsAccessory(new Item.Properties().stacksTo(1).durability(99), Ingredient.of(Items.IRON_INGOT), 1));
+            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(99), Ingredient.of(Items.IRON_INGOT), 1));
     Supplier<Item> GOLDEN_GREAVES = registerItem("golden_greaves",
-            () -> new KHLeggingsAccessory(new Item.Properties().stacksTo(1).durability(108), Ingredient.of(Items.GOLD_INGOT), 1));
+            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(108), Ingredient.of(Items.GOLD_INGOT), 1));
 
     Supplier<Item> SABATONS = registerItem("sabatons",
-            () -> new KHBootsAccessory(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHBootsAttachment(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_SABATONS = registerItem("dark_sabatons",
-            () -> new KHBootsAccessory(new Item.Properties().stacksTo(1).durability(99), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHBootsAttachment(new Item.Properties().stacksTo(1).durability(99), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_SABATONS = registerItem("golden_sabatons",
-            () -> new KHBootsAccessory(new Item.Properties().stacksTo(1).durability(108), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHBootsAttachment(new Item.Properties().stacksTo(1).durability(108), Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> BEVOR = registerItem("bevor",
             () -> new KHBevor(new Item.Properties().stacksTo(1).durability(100), Ingredient.of(Items.IRON_INGOT)));
@@ -423,20 +423,20 @@ public interface KHItems {
     Supplier<Item> GOLDEN_BEVOR = registerItem("golden_bevor",
             () -> new KHBevor(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> AVENTAIL = registerItem("aventail",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT), 3));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT), 3));
 
     Supplier<Item> RIM_GUARDS = registerItem("rim_guards", () -> new Item(new Item.Properties().stacksTo(1)));
 
     Supplier<Item> BESAGEWS = registerItem("besagews", () -> new Item(new Item.Properties().stacksTo(1)));
 
     Supplier<Item> SURCOAT = registerItem("surcoat",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER), 4));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER), 4));
     Supplier<Item> SURCOAT_SLEEVELESS = registerItem("surcoat_sleeveless",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER), 4));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER), 4));
     Supplier<Item> CIVILIAN_SURCOAT = registerItem("civilian_surcoat",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER), 4));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER), 4));
     Supplier<Item> GIORNEA = registerItem("giornea",
-            () -> new KHChestplateAccessory(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER), 4));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER), 4));
 
     Supplier<Item> CLOAK = registerItem("cloak",
             () -> new KHCloak(new Item.Properties().stacksTo(1), 5, ArmorItem.Type.CHESTPLATE));

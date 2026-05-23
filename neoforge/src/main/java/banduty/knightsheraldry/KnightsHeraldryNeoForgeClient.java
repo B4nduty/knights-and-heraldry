@@ -4,10 +4,10 @@ import banduty.knightsheraldry.client.entity.*;
 import banduty.knightsheraldry.client.item.SurcoatWithBannerModel;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.items.armor.accessory.KHChaperon;
-import banduty.knightsheraldry.items.armor.accessory.KHChestplateAccessory;
-import banduty.knightsheraldry.items.armor.accessory.KHCloak;
-import banduty.knightsheraldry.items.armor.accessory.KHLeggingsAccessory;
+import banduty.knightsheraldry.items.armor.attachment.KHChaperon;
+import banduty.knightsheraldry.items.armor.attachment.KHChestplateAttachment;
+import banduty.knightsheraldry.items.armor.attachment.KHCloak;
+import banduty.knightsheraldry.items.armor.attachment.KHLeggingsAttachment;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.items.item.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.model.HorseBardingModel;
@@ -74,8 +74,8 @@ public class KnightsHeraldryNeoForgeClient {
                 KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get(), KHItems.TORSE.get()
         };
         for (Item item : items) {
-            if (item instanceof SCDyeableUnderArmor || item instanceof KHChestplateAccessory || item instanceof KHCloak
-                    || item instanceof HorseBardingArmorItem || item instanceof KHLeggingsAccessory || item instanceof KHChaperon) {
+            if (item instanceof SCDyeableUnderArmor || item instanceof KHChestplateAttachment || item instanceof KHCloak
+                    || item instanceof HorseBardingArmorItem || item instanceof KHLeggingsAttachment || item instanceof KHChaperon) {
                 event.register((stack, tintIndex) -> {
                     if (tintIndex != 0) {
                         return -1;
@@ -84,9 +84,9 @@ public class KnightsHeraldryNeoForgeClient {
                     int defaultColor = -1;
                     switch (stack.getItem()) {
                         case SCDyeableUnderArmor dyeable -> defaultColor = dyeable.getDefaultColor();
-                        case KHChestplateAccessory khChestplateAccessory -> defaultColor = khChestplateAccessory.getDefaultColor();
+                        case KHChestplateAttachment khChestplateAttachment -> defaultColor = khChestplateAttachment.getDefaultColor();
                         case KHCloak khCloak -> defaultColor = khCloak.getDefaultColor();
-                        case KHLeggingsAccessory khLeggingsAccessoryCloak -> defaultColor = khLeggingsAccessoryCloak.getDefaultColor();
+                        case KHLeggingsAttachment khLeggingsAttachment -> defaultColor = khLeggingsAttachment.getDefaultColor();
                         case KHChaperon khChaperon -> defaultColor = khChaperon.getDefaultColor();
                         case HorseBardingArmorItem horseBardingArmorItem -> defaultColor = horseBardingArmorItem.getDefaultColor();
                         default -> {}

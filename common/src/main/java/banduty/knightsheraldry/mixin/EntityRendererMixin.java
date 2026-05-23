@@ -21,9 +21,9 @@ public class EntityRendererMixin<T extends Entity> {
     private void stoneycore$onRenderLabelIfPresent(T entity, Component displayName, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, float partialTick, CallbackInfo ci) {
         if (entity instanceof Player player) {
             ItemStack itemStack = player.getItemBySlot(EquipmentSlot.HEAD);
-            for (ItemStack accessoryStack : SCUnderArmor.getAccessories(itemStack)) {
-                if (accessoryStack.getItem() == KHItems.HOOD.get() || accessoryStack.getItem() == KHItems.TORN_HOOD.get() ||
-                        accessoryStack.getItem() == KHItems.HELMET_HOOD.get() || accessoryStack.getItem() == KHItems.HELMET_TORN_HOOD.get()) ci.cancel();
+            for (ItemStack armorAttachment : SCUnderArmor.getArmorAttachments(itemStack)) {
+                if (armorAttachment.getItem() == KHItems.HOOD.get() || armorAttachment.getItem() == KHItems.TORN_HOOD.get() ||
+                        armorAttachment.getItem() == KHItems.HELMET_HOOD.get() || armorAttachment.getItem() == KHItems.HELMET_TORN_HOOD.get()) ci.cancel();
             }
         }
     }

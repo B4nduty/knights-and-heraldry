@@ -2,15 +2,15 @@ package banduty.knightsheraldry.items.item;
 
 import banduty.knightsheraldry.client.item.deco.TwoLayerDyeableDecoRenderer;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
-import banduty.stoneycore.client.render.AccessoryRenderProvider;
-import banduty.stoneycore.client.render.AccessoryRenderer;
+import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
+import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.DyedItemColor;
 
-public class TwoLayerDyeableDeco extends Item implements AccessoryRenderProvider {
+public class TwoLayerDyeableDeco extends Item implements ArmorAttachmentRenderProvider {
 
-    public AccessoryRenderer cachedRenderer;
+    public ArmorAttachmentRenderer cachedRenderer;
 
     public TwoLayerDyeableDeco(Properties properties) {
         super(properties);
@@ -37,7 +37,7 @@ public class TwoLayerDyeableDeco extends Item implements AccessoryRenderProvider
     }
 
     @Override
-    public AccessoryRenderer getRenderer() {
+    public ArmorAttachmentRenderer getRenderer() {
         if (this.cachedRenderer == null) {
             this.cachedRenderer = new TwoLayerDyeableDecoRenderer();
         }

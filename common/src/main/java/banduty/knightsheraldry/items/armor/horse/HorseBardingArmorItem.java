@@ -1,6 +1,6 @@
 package banduty.knightsheraldry.items.armor.horse;
 
-import banduty.stoneycore.items.custom.armor.SCAccessory;
+import banduty.stoneycore.items.custom.armor.ArmorAttachment;
 import banduty.stoneycore.items.custom.armor.deco.Deco;
 import banduty.stoneycore.items.custom.armor.deco.DecoContents;
 import banduty.stoneycore.items.custom.armor.deco.DecoTooltip;
@@ -65,7 +65,7 @@ public class HorseBardingArmorItem extends AnimalArmorItem {
     public boolean overrideOtherStackedOnMe(ItemStack helmetStack, ItemStack incomingStack, Slot slot, ClickAction action, Player player, SlotAccess access) {
         if (action != ClickAction.SECONDARY || !slot.allowModification(player)) return false;
         if (Deco.getFromItem(incomingStack.getItem()).isEmpty()) return false;
-        if (!(helmetStack.getItem() instanceof SCAccessory scAccessory && Deco.getFromItem(incomingStack.getItem()).get().allowedArmorTypes().contains(scAccessory.getArmorSlot()))) return false;
+        if (!(helmetStack.getItem() instanceof ArmorAttachment armorAttachment && Deco.getFromItem(incomingStack.getItem()).get().allowedArmorTypes().contains(armorAttachment.getArmorSlot()))) return false;
 
         DecoContents contents = helmetStack.getOrDefault(SCDataComponents.DECO_CONTENTS.get(), DecoContents.EMPTY);
         DecoContents.Mutable mutable = new DecoContents.Mutable(contents);

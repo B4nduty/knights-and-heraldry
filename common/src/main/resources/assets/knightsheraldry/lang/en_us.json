@@ -268,7 +268,5 @@
   "event.knightsheraldry.recharge_time": "Recharge Time: %s sec",
   "event.knightsheraldry.recharged": "Has been Recharged",
   "item.knightsheraldry.easter_egg.longbow_xxxl": "Longbow XXXL",
-  "accessories.slot.surcoat": "Surcoat",
-  "accessories.slot_group.surcoat": "Surcoat",
   "sounds.knightsheraldry.arquebus_close": "Shot fired"
 }

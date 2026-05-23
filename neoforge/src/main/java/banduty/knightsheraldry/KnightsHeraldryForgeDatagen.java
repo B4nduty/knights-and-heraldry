@@ -23,7 +23,7 @@ public class KnightsHeraldryForgeDatagen {
         generator.addProvider(event.includeClient(), new ModModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new ModItemTagProvider(packOutput, lookupProvider, existingFileHelper));
-        generator.addProvider(event.includeServer(), new ModAccessoriesDefinitionsProvider(packOutput));
+        generator.addProvider(event.includeServer(), new ModAttachmentDefinitionsProvider(packOutput));
         generator.addProvider(event.includeServer(), new ModArmorDefinitionsProvider(packOutput));
         generator.addProvider(event.includeServer(), new ModWeaponDefinitionsProvider(packOutput));
     }

@@ -16,10 +16,10 @@ public class PiglinAIMixin {
     @Inject(method = "isWearingGold", at = @At("HEAD"), cancellable = true)
     private static void isWearingGold(LivingEntity livingEntity, CallbackInfoReturnable<Boolean> cir) {
         for (ItemStack itemStack : livingEntity.getArmorSlots()) {
-            for (ItemStack accessoryStack : SCUnderArmor.getAccessories(itemStack)) {
-                if (accessoryStack.isEmpty()) continue;
+            for (ItemStack armorAttachment : SCUnderArmor.getArmorAttachments(itemStack)) {
+                if (armorAttachment.isEmpty()) continue;
 
-                ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(accessoryStack.getItem());
+                ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(armorAttachment.getItem());
                 if (itemId.getPath().startsWith("golden_")) {
                     cir.setReturnValue(true);
                     return;

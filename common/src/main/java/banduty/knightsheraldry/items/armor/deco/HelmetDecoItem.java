@@ -1,19 +1,19 @@
 package banduty.knightsheraldry.items.armor.deco;
 
 import banduty.knightsheraldry.client.item.deco.HelmetDecoRenderer;
-import banduty.stoneycore.client.render.AccessoryRenderProvider;
-import banduty.stoneycore.client.render.AccessoryRenderer;
+import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
+import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import net.minecraft.world.item.Item;
 
-public class HelmetDecoItem extends Item implements AccessoryRenderProvider {
+public class HelmetDecoItem extends Item implements ArmorAttachmentRenderProvider {
     public HelmetDecoItem(Properties properties) {
         super(properties);
     }
 
-    public AccessoryRenderer cachedRenderer;
+    public ArmorAttachmentRenderer cachedRenderer;
 
     @Override
-    public AccessoryRenderer getRenderer() {
+    public ArmorAttachmentRenderer getRenderer() {
         if (this.cachedRenderer == null) {
             this.cachedRenderer = new HelmetDecoRenderer();
         }

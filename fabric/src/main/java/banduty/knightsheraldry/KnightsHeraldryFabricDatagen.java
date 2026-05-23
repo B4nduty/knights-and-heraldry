@@ -12,7 +12,7 @@ public class KnightsHeraldryFabricDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(ModRecipeProvider::new);
         pack.addProvider(ModItemTagProvider::new);
         pack.addProvider(ModModelProvider::new);
-        pack.addProvider((FabricDataGenerator.Pack.Factory<ModAccessoriesDefinitionsProvider>) ModAccessoriesDefinitionsProvider::new);
+        pack.addProvider((FabricDataGenerator.Pack.Factory<ModAttachmentDefinitionsProvider>) ModAttachmentDefinitionsProvider::new);
         pack.addProvider((FabricDataGenerator.Pack.Factory<ModArmorDefinitionsProvider>) ModArmorDefinitionsProvider::new);
         pack.addProvider((FabricDataGenerator.Pack.Factory<ModWeaponDefinitionsProvider>) ModWeaponDefinitionsProvider::new);
     }

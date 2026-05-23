@@ -21,9 +21,9 @@ public class RenderNameTagHandler {
 
         if (entity instanceof Player player) {
             ItemStack itemStack = player.getItemBySlot(EquipmentSlot.HEAD);
-            for (ItemStack accessoryStack : SCUnderArmor.getAccessories(itemStack)) {
-                if (accessoryStack.getItem() == KHItems.HOOD.get() || accessoryStack.getItem() == KHItems.TORN_HOOD.get() ||
-                        accessoryStack.getItem() == KHItems.HELMET_HOOD.get() || accessoryStack.getItem() == KHItems.HELMET_TORN_HOOD.get()) {
+            for (ItemStack armorAttachments : SCUnderArmor.getArmorAttachments(itemStack)) {
+                if (armorAttachments.getItem() == KHItems.HOOD.get() || armorAttachments.getItem() == KHItems.TORN_HOOD.get() ||
+                        armorAttachments.getItem() == KHItems.HELMET_HOOD.get() || armorAttachments.getItem() == KHItems.HELMET_TORN_HOOD.get()) {
 
                     event.setCanRender(TriState.FALSE);
                     return;
