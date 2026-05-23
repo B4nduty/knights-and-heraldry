@@ -2,12 +2,14 @@ package banduty.knightsheraldry.entity.custom;
 
 import banduty.knightsheraldry.platform.Services;
 import banduty.stoneycore.combat.melee.SCDamageType;
-import banduty.stoneycore.util.definitionsloader.WeaponDefinitionsStorage;
 import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -23,6 +25,8 @@ import net.minecraft.world.phys.HitResult;
 
 public class WarDartEntity extends AbstractArrow {
     private ItemStack wardartStack;
+    private static final EntityDataAccessor<Boolean> ID_FOIL =
+            SynchedEntityData.defineId(WarDartEntity.class, EntityDataSerializers.BOOLEAN);
 
     public WarDartEntity(EntityType<? extends AbstractArrow> entityEntityType, Level level) {
         super(entityEntityType, level);
@@ -33,6 +37,7 @@ public class WarDartEntity extends AbstractArrow {
         super(Services.ENTITY.getWardartEntity(), livingEntity, level);
         this.wardartStack = new ItemStack(Services.ENTITY.getWardartItem());
         this.wardartStack = stack.copy();
+        this.entityData.set(ID_FOIL, stack.hasFoil());
     }
 
     @Override
@@ -75,20 +80,20 @@ public class WarDartEntity extends AbstractArrow {
         HitResult.Type type = hitResult.getType();
         if (!this.level().isClientSide()) {
             if (type == HitResult.Type.BLOCK) {
-                BlockHitResult blockHitResult = (BlockHitResult)hitResult;
+                BlockHitResult blockHitResult = (BlockHitResult) hitResult;
                 this.onHitBlock(blockHitResult);
                 BlockPos blockPos = blockHitResult.getBlockPos();
                 this.level().gameEvent(GameEvent.PROJECTILE_LAND, blockPos, GameEvent.Context.of(this, this.level().getBlockState(blockPos)));
             }
 
             if (type == HitResult.Type.ENTITY) {
-                Entity entity = ((EntityHitResult)hitResult).getEntity();
+                Entity entity = ((EntityHitResult) hitResult).getEntity();
                 this.level().gameEvent(GameEvent.PROJECTILE_LAND, hitResult.getLocation(), GameEvent.Context.of(this, null));
                 this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01, -0.1, -0.01));
                 this.setPos(this.position().add(0, -1, 0));
                 if (entity instanceof LivingEntity livingEntity) {
                     if (livingEntity instanceof Player player && player.isCreative()) return;
-                    this.onHitEntity((EntityHitResult)hitResult);
+                    this.onHitEntity((EntityHitResult) hitResult);
                 }
             }
         }
@@ -97,5 +102,15 @@ public class WarDartEntity extends AbstractArrow {
     @Override
     public boolean shouldRenderAtSqrDistance(double distance) {
         return true;
+    }
+
+    public boolean isFoil() {
+        return this.entityData.get(ID_FOIL);
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(ID_FOIL, false);
     }
 }

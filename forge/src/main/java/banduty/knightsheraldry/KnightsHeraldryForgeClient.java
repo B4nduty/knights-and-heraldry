@@ -66,6 +66,7 @@ public class KnightsHeraldryForgeClient {
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModEntityModelLayers.HORSE_BARDING_MODEL_LAYER, HorseBardingModel::getTexturedModelData);
+        event.registerLayerDefinition(WarDartModel.LAYER_LOCATION, WarDartModel::createLayer);
     }
 
     @SubscribeEvent

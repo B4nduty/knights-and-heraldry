@@ -1,10 +1,20 @@
 {
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "knightsheraldry:item/cloth_arrow"
-  },
-  "overrides": [
-    { "predicate": { "knightsheraldry:ignited": 1 }, "model": "knightsheraldry:item/cloth_arrow_ignited" },
-    { "predicate": { "knightsheraldry:extinguished": 1 }, "model": "knightsheraldry:item/cloth_arrow_extinguished" }
-  ]
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer0": "knightsheraldry:item/cloth_arrow"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "knightsheraldry:ignited": 1
+            },
+            "model": "knightsheraldry:item/cloth_arrow_ignited"
+        },
+        {
+            "predicate": {
+                "knightsheraldry:extinguished": 1
+            },
+            "model": "knightsheraldry:item/cloth_arrow_extinguished"
+        }
+    ]
 }

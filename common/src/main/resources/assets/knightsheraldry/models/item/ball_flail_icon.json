@@ -1,14 +1,14 @@
 {
-  "parent": "item/generated",
-  "overrides": [
-    {
-      "model": "knightsheraldry:item/ball_flail_icon_broken",
-      "predicate": {
-        "stoneycore:broken": 1
-      }
+    "parent": "item/generated",
+    "overrides": [
+        {
+            "model": "knightsheraldry:item/ball_flail_icon_broken",
+            "predicate": {
+                "stoneycore:broken": 1
+            }
+        }
+    ],
+    "textures": {
+        "layer0": "knightsheraldry:item/ball_flail_icon"
     }
-  ],
-  "textures": {
-    "layer0": "knightsheraldry:item/ball_flail_icon"
-  }
 }
