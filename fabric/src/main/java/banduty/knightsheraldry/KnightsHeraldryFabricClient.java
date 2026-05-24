@@ -21,7 +21,9 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.Item;
 
@@ -70,5 +72,19 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
                 ModModelPredicates.registerModelPredicates(item);
             }
         }
+        ItemProperties.register(
+                ModItems.WARDART,
+                new ResourceLocation("throwing"),
+                (stack, world, entity, seed) -> {
+                    if (entity == null) {
+                        return 0.0F;
+                    }
+
+                    return entity.isUsingItem()
+                            && entity.getUseItem() == stack
+                            ? 1.0F
+                            : 0.0F;
+                }
+        );
     }
 }

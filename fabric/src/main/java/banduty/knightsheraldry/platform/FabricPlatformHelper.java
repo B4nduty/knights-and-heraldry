@@ -5,6 +5,7 @@ import banduty.knightsheraldry.config.KHConfigImpl;
 import banduty.knightsheraldry.data.ArrowBehavior;
 import banduty.knightsheraldry.data.ArrowBehaviorManager;
 import banduty.knightsheraldry.effect.ModEffects;
+import banduty.knightsheraldry.items.ModItems;
 import banduty.knightsheraldry.platform.services.IPlatformHelper;
 import banduty.knightsheraldry.recipe.TwoLayerDyeRecipe;
 import banduty.knightsheraldry.recipes.HelmetDecoRecipe;
@@ -12,6 +13,7 @@ import banduty.knightsheraldry.recipes.ModRecipes;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
 public class FabricPlatformHelper implements IPlatformHelper {
@@ -61,5 +63,10 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public RecipeSerializer<TwoLayerDyeRecipe> getTwoLayerDyeRecipe() {
         return ModRecipes.TWO_LAYER_DYE_SERIALIZER;
+    }
+
+    @Override
+    public Item getWarDart() {
+        return ModItems.WARDART;
     }
 }
