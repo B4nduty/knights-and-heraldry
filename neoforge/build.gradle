@@ -96,7 +96,6 @@ dependencies {
     implementation "software.bernie.geckolib:geckolib-neoforge-1.21.1:${project.geckolib}"
 
     compileOnly "maven.modrinth:better-combat:${project.bettercombat}-neoforge"
-    runtimeOnly "maven.modrinth:better-combat:${project.bettercombat}-neoforge"
 
     implementation "dev.kosmx.player-anim:player-animation-lib-forge:${project.player_anim}"
 

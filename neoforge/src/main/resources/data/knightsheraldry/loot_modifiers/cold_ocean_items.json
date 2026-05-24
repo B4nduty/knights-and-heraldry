@@ -2,7 +2,7 @@
   "type": "knightsheraldry:add_archaeology_items",
   "conditions": [
     {
-      "condition": "forge:loot_table_id",
+      "condition": "neoforge:loot_table_id",
       "loot_table_id": "minecraft:archaeology/ocean_ruin_cold"
     }
   ],

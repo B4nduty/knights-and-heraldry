@@ -27,7 +27,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
-@EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, value = Dist.CLIENT)
 public class KnightsHeraldryNeoForgeClient {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
@@ -130,8 +130,8 @@ public class KnightsHeraldryNeoForgeClient {
         for (Item item : patternedItems) {
             ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
             for (String pattern : patterns) {
-                ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(id.getNamespace(), id.getPath() + "/" + pattern);
-                event.register(ModelResourceLocation.inventory(modelLoc));
+                ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(id.getNamespace(), "item/" + id.getPath() + "/" + pattern);
+                event.register(ModelResourceLocation.standalone(modelLoc));
             }
         }
 
@@ -189,15 +189,15 @@ public class KnightsHeraldryNeoForgeClient {
         // ===== register 3D models =====
         for (Item item : weapons3D) {
             ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
-            ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(id.getNamespace(), id.getPath() + "_3d");
-            event.register(ModelResourceLocation.inventory(modelLoc));
+            ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(id.getNamespace(), "item/" + id.getPath() + "_3d");
+            event.register(ModelResourceLocation.standalone(modelLoc));
         }
 
         // ===== register icon models =====
         for (Item item : weaponsIcon) {
             ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
-            ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(id.getNamespace(), id.getPath() + "_icon");
-            event.register(ModelResourceLocation.inventory(modelLoc));
+            ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(id.getNamespace(), "item/" + id.getPath() + "_icon");
+            event.register(ModelResourceLocation.standalone(modelLoc));
         }
 
         // Manuscript Items
@@ -341,8 +341,8 @@ public class KnightsHeraldryNeoForgeClient {
 
         for (Item item : manuscriptItems) {
             String itemName = BuiltInRegistries.ITEM.getKey(item).getPath();
-            ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "manuscript_" + itemName);
-            event.register(ModelResourceLocation.inventory(modelLoc));
+            ResourceLocation modelLoc = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "item/" +"manuscript_" + itemName);
+            event.register(ModelResourceLocation.standalone(modelLoc));
         }
     }
 }
