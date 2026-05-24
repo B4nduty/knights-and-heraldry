@@ -12,7 +12,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.List;
 
-public interface ModItemGroups {
+public interface KHItemGroups {
     DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, KnightsHeraldry.MOD_ID);
 

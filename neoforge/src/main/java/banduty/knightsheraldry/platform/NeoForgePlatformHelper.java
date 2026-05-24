@@ -5,6 +5,7 @@ import banduty.knightsheraldry.config.NeoForgeKHConfigImpl;
 import banduty.knightsheraldry.config.KHConfigImpl;
 import banduty.knightsheraldry.data.ArrowBehavior;
 import banduty.knightsheraldry.data.ArrowBehaviorManager;
+import banduty.knightsheraldry.items.KHItemGroups;
 import banduty.knightsheraldry.networking.payload.VelocityS2CPacket;
 import banduty.knightsheraldry.platform.services.IPlatformHelper;
 import net.minecraft.core.Holder;
@@ -12,6 +13,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
@@ -83,6 +85,11 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
     @Override
     public void syncSpeedHistory(ServerPlayer player, float speedHistory) {
         PacketDistributor.sendToPlayer(player, new VelocityS2CPacket(speedHistory));
+    }
+
+    @Override
+    public boolean isCreativeModeTab(CreativeModeTab creativeModeTab) {
+        return creativeModeTab == KHItemGroups.KH_WEAPONS_TAB.get() || creativeModeTab == KHItemGroups.KH_ARMORS_TAB.get() || creativeModeTab == KHItemGroups.KH_DECO_TAB.get();
     }
 
     public static void registerRegistries(IEventBus eventBus) {

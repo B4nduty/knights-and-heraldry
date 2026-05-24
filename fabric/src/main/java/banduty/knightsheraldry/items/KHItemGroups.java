@@ -1,15 +1,9 @@
 package banduty.knightsheraldry.items;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.stoneycore.StoneyCore;
-import io.wispforest.owo.itemgroup.Icon;
-import io.wispforest.owo.itemgroup.OwoItemGroup;
-import io.wispforest.owo.itemgroup.gui.ItemGroupButton;
-import io.wispforest.owo.itemgroup.gui.ItemGroupTab;
-import net.minecraft.ChatFormatting;
-import net.minecraft.Util;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.ConfirmLinkScreen;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -19,392 +13,319 @@ import net.minecraft.world.level.ItemLike;
 import java.util.List;
 
 public interface KHItemGroups {
-    ResourceLocation DISCORD_ICON = ResourceLocation.fromNamespaceAndPath(StoneyCore.MOD_ID, "textures/gui/button/discord.png");
-    ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath(StoneyCore.MOD_ID, "textures/gui/group.png");
-    ResourceLocation TABS = ResourceLocation.fromNamespaceAndPath(StoneyCore.MOD_ID, "textures/gui/tabs.png");
 
     private static ItemStack itemStack(ItemLike item) {
         return new ItemStack(item);
     }
 
-    private static void deco(CreativeModeTab.ItemDisplayParameters ctx, CreativeModeTab.Output stacks) {
-        stacks.acceptAll(List.of(
-                itemStack(KHItems.PLUME.get()),
-                itemStack(KHItems.TRI_PLUME.get()),
-                itemStack(KHItems.FLUFFY_PLUME.get()),
-                itemStack(KHItems.TORSE.get()),
-                itemStack(KHItems.TEUTONIC_SNAKES.get()),
-                itemStack(KHItems.TEUTONIC_BLACK_SNAKES.get()),
-                itemStack(KHItems.GOLD_HORNS.get()),
-                itemStack(KHItems.BLACK_HORNS.get()),
-                itemStack(KHItems.TEUTONIC_GOLD_WINGS.get()),
-                itemStack(KHItems.TEUTONIC_BLACK_WINGS.get()),
-                itemStack(KHItems.TEUTONIC_WINGS_BALL_ENDS.get()),
-                itemStack(KHItems.TEUTONIC_WINGS_SHARP_ENDS.get()),
-                itemStack(KHItems.DRAGON.get()),
-                itemStack(KHItems.LION.get()),
-                itemStack(KHItems.SNAKE.get()),
-                itemStack(KHItems.UNICORN.get()),
-                itemStack(KHItems.STAG.get()),
-                itemStack(KHItems.BOAR.get()),
-                itemStack(KHItems.EAGLE.get()),
-                itemStack(KHItems.PEGASUS.get())
-        ));
-    }
-
-    private static void weapons(CreativeModeTab.ItemDisplayParameters ctx, CreativeModeTab.Output stacks) {
-        stacks.acceptAll(List.of(
-                itemStack(KHItems.DAGGER.get()),
-                itemStack(KHItems.STILETTO.get()),
-                itemStack(KHItems.RAPIER.get()),
-                itemStack(KHItems.SWORD.get()),
-                itemStack(KHItems.V_SWORD.get()),
-                itemStack(KHItems.ARMING_SWORD.get()),
-                itemStack(KHItems.AXE.get()),
-                itemStack(KHItems.BROAD_AXE.get()),
-                itemStack(KHItems.CROOKED_AXE.get()),
-                itemStack(KHItems.STRAIGHT_CROOKED_AXE.get()),
-                itemStack(KHItems.MACE.get()),
-                itemStack(KHItems.SPIKED_MACE.get()),
-                itemStack(KHItems.FLAIL.get()),
-                itemStack(KHItems.BALL_FLAIL.get()),
-                itemStack(KHItems.HAMMER.get()),
-                itemStack(KHItems.WAR_HAMMER.get()),
-                itemStack(KHItems.LONGSWORD.get()),
-                itemStack(KHItems.V_LONGSWORD.get()),
-                itemStack(KHItems.FALCHION.get()),
-                itemStack(KHItems.SCIMITAR.get()),
-                itemStack(KHItems.PITCHFORK.get()),
-                itemStack(KHItems.SPEAR.get()),
-                itemStack(KHItems.PIKE.get()),
-                itemStack(KHItems.BILLHOOK.get()),
-                itemStack(KHItems.GLAIVE.get()),
-                itemStack(KHItems.CURVED_GLAIVE.get()),
-                itemStack(KHItems.HALBERD.get()),
-                itemStack(KHItems.LANCE.get()),
-                itemStack(KHItems.WOODEN_LANCE.get()),
-                itemStack(KHItems.POLEAXE.get()),
-                itemStack(KHItems.POLEHAMMER.get()),
-                itemStack(KHItems.BEC_DE_CORBIN.get()),
-                itemStack(KHItems.MORNING_STAR.get()),
-                itemStack(KHItems.BARDICHE.get()),
-                itemStack(KHItems.GREATSWORD.get()),
-                itemStack(KHItems.CLAYMORE.get()),
-                itemStack(KHItems.FLAMBERGE.get()),
-                itemStack(KHItems.ZWEIHANDER.get()),
-                itemStack(KHItems.WARDART.get()),
-
-                itemStack(KHItems.LONGBOW.get()),
-                itemStack(KHItems.HEAVY_CROSSBOW.get()),
-                itemStack(KHItems.ARQUEBUS.get()),
-                itemStack(KHItems.HANDGONNE.get()),
-
-                itemStack(KHItems.SWALLOWTAIL_ARROW.get()),
-                itemStack(KHItems.BODKIN_ARROW.get()),
-                itemStack(KHItems.BROADHEAD_ARROW.get()),
-                itemStack(KHItems.CLOTH_ARROW.get())
-        ));
-    }
-
-    private static void armors(CreativeModeTab.ItemDisplayParameters ctx, CreativeModeTab.Output stacks) {
-        stacks.acceptAll(List.of(
-                itemStack(KHItems.QUILTED_COIF.get()),
-                itemStack(KHItems.GAMBESON.get()),
-                itemStack(KHItems.GAMBESON_BREECHES.get()),
-                itemStack(KHItems.GAMBESON_BOOTS.get()),
-
-                itemStack(KHItems.MAIL_COIF.get()),
-                itemStack(KHItems.HAUBERK.get()),
-                itemStack(KHItems.MAIL_BREECHES.get()),
-                itemStack(KHItems.MAIL_BOOTS.get()),
-
-                itemStack(KHItems.BARBUTE.get()),
-                itemStack(KHItems.BASCINET.get()),
-                itemStack(KHItems.KETTLE_HELM.get()),
-                itemStack(KHItems.NASAL_HELM.get()),
-                itemStack(KHItems.VIKING_HELM.get()),
-                itemStack(KHItems.BURGONET.get()),
-
-                itemStack(KHItems.DARK_BARBUTE.get()),
-                itemStack(KHItems.DARK_BASCINET.get()),
-                itemStack(KHItems.DARK_KETTLE_HELM.get()),
-                itemStack(KHItems.DARK_NASAL_HELM.get()),
-                itemStack(KHItems.DARK_VIKING_HELM.get()),
-                itemStack(KHItems.DARK_BURGONET.get()),
-
-                itemStack(KHItems.GOLDEN_BARBUTE.get()),
-                itemStack(KHItems.GOLDEN_BASCINET.get()),
-                itemStack(KHItems.GOLDEN_KETTLE_HELM.get()),
-                itemStack(KHItems.GOLDEN_NASAL_HELM.get()),
-                itemStack(KHItems.GOLDEN_VIKING_HELM.get()),
-                itemStack(KHItems.GOLDEN_BURGONET.get()),
-
-                itemStack(KHItems.ARMET.get()),
-                itemStack(KHItems.ARMET_2.get()),
-                itemStack(KHItems.VISORED_BARBUTE.get()),
-                itemStack(KHItems.HOUNDSKULL.get()),
-                itemStack(KHItems.CAGE.get()),
-                itemStack(KHItems.VISORED_BASCINET.get()),
-                itemStack(KHItems.GREAT_HELM.get()),
-                itemStack(KHItems.GREAT_HELM_2.get()),
-                itemStack(KHItems.SALLET.get()),
-                itemStack(KHItems.BURGONET_FALLING_BUFFE.get()),
-                itemStack(KHItems.CLOSE_HELM.get()),
-
-                itemStack(KHItems.DARK_ARMET.get()),
-                itemStack(KHItems.DARK_ARMET_2.get()),
-                itemStack(KHItems.DARK_VISORED_BARBUTE.get()),
-                itemStack(KHItems.DARK_HOUNDSKULL.get()),
-                itemStack(KHItems.DARK_CAGE.get()),
-                itemStack(KHItems.DARK_VISORED_BASCINET.get()),
-                itemStack(KHItems.DARK_GREAT_HELM.get()),
-                itemStack(KHItems.DARK_GREAT_HELM_2.get()),
-                itemStack(KHItems.DARK_SALLET.get()),
-                itemStack(KHItems.DARK_BURGONET_FALLING_BUFFE.get()),
-                itemStack(KHItems.DARK_CLOSE_HELM.get()),
-
-                itemStack(KHItems.GOLDEN_ARMET.get()),
-                itemStack(KHItems.GOLDEN_ARMET_2.get()),
-                itemStack(KHItems.GOLDEN_VISORED_BARBUTE.get()),
-                itemStack(KHItems.GOLDEN_HOUNDSKULL.get()),
-                itemStack(KHItems.GOLDEN_CAGE.get()),
-                itemStack(KHItems.GOLDEN_VISORED_BASCINET.get()),
-                itemStack(KHItems.GOLDEN_GREAT_HELM.get()),
-                itemStack(KHItems.GOLDEN_GREAT_HELM_2.get()),
-                itemStack(KHItems.GOLDEN_SALLET.get()),
-                itemStack(KHItems.GOLDEN_BURGONET_FALLING_BUFFE.get()),
-                itemStack(KHItems.GOLDEN_CLOSE_HELM.get()),
-
-                itemStack(KHItems.FROGMOUTH.get()),
-                itemStack(KHItems.GREAT_ARMET.get()),
-                itemStack(KHItems.GREAT_ARMET_2.get()),
-                itemStack(KHItems.GREAT_BASCINET.get()),
-                itemStack(KHItems.GREAT_HOUNDSKUL_BASCINET.get()),
-                itemStack(KHItems.MAXIMILLIAN_HELMET.get()),
-                itemStack(KHItems.SAVOYARD.get()),
-
-                itemStack(KHItems.DARK_FROGMOUTH.get()),
-                itemStack(KHItems.DARK_GREAT_ARMET.get()),
-                itemStack(KHItems.DARK_GREAT_ARMET_2.get()),
-                itemStack(KHItems.DARK_GREAT_BASCINET.get()),
-                itemStack(KHItems.DARK_GREAT_HOUNDSKUL_BASCINET.get()),
-                itemStack(KHItems.DARK_MAXIMILLIAN_HELMET.get()),
-                itemStack(KHItems.DARK_SAVOYARD.get()),
-
-                itemStack(KHItems.GOLDEN_FROGMOUTH.get()),
-                itemStack(KHItems.GOLDEN_GREAT_ARMET.get()),
-                itemStack(KHItems.GOLDEN_GREAT_ARMET_2.get()),
-                itemStack(KHItems.GOLDEN_GREAT_BASCINET.get()),
-                itemStack(KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get()),
-                itemStack(KHItems.GOLDEN_MAXIMILLIAN_HELMET.get()),
-                itemStack(KHItems.GOLDEN_SAVOYARD.get()),
-
-                itemStack(KHItems.AVENTAIL.get()),
-                itemStack(KHItems.BEVOR.get()),
-                itemStack(KHItems.DARK_BEVOR.get()),
-                itemStack(KHItems.GOLDEN_BEVOR.get()),
-
-                itemStack(KHItems.CHAPERON.get()),
-                itemStack(KHItems.GILDED_CHAPERON.get()),
-
-                itemStack(KHItems.BRIGANDINE.get()),
-                itemStack(KHItems.BRIG_BREASTPLATE.get()),
-                itemStack(KHItems.BRIG_BREASTPLATE_TASSETS.get()),
-                itemStack(KHItems.PLATE_CUIRASS.get()),
-                itemStack(KHItems.PLATE_CUIRASS_TASSETS.get()),
-                itemStack(KHItems.MAXIMILLIAN_CUIRASS.get()),
-                itemStack(KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get()),
-                itemStack(KHItems.XIIII_PLATE_CUIRASS.get()),
-                itemStack(KHItems.XIIII_PLATE_CUIRASS_TASSETS.get()),
-                itemStack(KHItems.XIIII_PLATE_BREASTPLATE.get()),
-
-                itemStack(KHItems.DARK_BRIGANDINE.get()),
-                itemStack(KHItems.DARK_BRIG_BREASTPLATE.get()),
-                itemStack(KHItems.DARK_BRIG_BREASTPLATE_TASSETS.get()),
-                itemStack(KHItems.DARK_PLATE_CUIRASS.get()),
-                itemStack(KHItems.DARK_PLATE_CUIRASS_TASSETS.get()),
-                itemStack(KHItems.DARK_MAXIMILLIAN_CUIRASS.get()),
-                itemStack(KHItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS.get()),
-                itemStack(KHItems.DARK_XIIII_PLATE_CUIRASS.get()),
-                itemStack(KHItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get()),
-                itemStack(KHItems.DARK_XIIII_PLATE_BREASTPLATE.get()),
-
-                itemStack(KHItems.GOLDEN_BRIGANDINE.get()),
-                itemStack(KHItems.GOLDEN_BRIG_BREASTPLATE.get()),
-                itemStack(KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get()),
-                itemStack(KHItems.GOLDEN_PLATE_CUIRASS.get()),
-                itemStack(KHItems.GOLDEN_PLATE_CUIRASS_TASSETS.get()),
-                itemStack(KHItems.GOLDEN_MAXIMILLIAN_CUIRASS.get()),
-                itemStack(KHItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS.get()),
-                itemStack(KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get()),
-                itemStack(KHItems.GOLDEN_XIIII_PLATE_CUIRASS_TASSETS.get()),
-                itemStack(KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get()),
-
-                itemStack(KHItems.SURCOAT.get()),
-                itemStack(KHItems.SURCOAT_SLEEVELESS.get()),
-                itemStack(KHItems.CIVILIAN_SURCOAT.get()),
-                itemStack(KHItems.GIORNEA.get()),
-
-                itemStack(KHItems.RIM_GUARDS.get()),
-                itemStack(KHItems.BESAGEWS.get()),
-
-                itemStack(KHItems.MAIL_SPAULDERS.get()),
-                itemStack(KHItems.BRIGANDINE_SPAULDERS.get()),
-                itemStack(KHItems.PLATE_SPAULDERS.get()),
-                itemStack(KHItems.MAIL_SPAULDERS_BESAGEWS.get()),
-                itemStack(KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get()),
-                itemStack(KHItems.PLATE_SPAULDERS_BESAGEWS.get()),
-                itemStack(KHItems.PLATE_SPAULDERS_RIMMED.get()),
-                itemStack(KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED.get()),
-
-                itemStack(KHItems.DARK_BRIGANDINE_SPAULDERS.get()),
-                itemStack(KHItems.DARK_PLATE_SPAULDERS.get()),
-                itemStack(KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get()),
-                itemStack(KHItems.DARK_PLATE_SPAULDERS_BESAGEWS.get()),
-                itemStack(KHItems.DARK_PLATE_SPAULDERS_RIMMED.get()),
-                itemStack(KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get()),
-
-                itemStack(KHItems.GOLDEN_MAIL_SPAULDERS.get()),
-                itemStack(KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get()),
-                itemStack(KHItems.GOLDEN_PLATE_SPAULDERS.get()),
-                itemStack(KHItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS.get()),
-                itemStack(KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get()),
-                itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS.get()),
-                itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get()),
-                itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get()),
-
-                itemStack(KHItems.GAUNTLET.get()),
-                itemStack(KHItems.BRIGANDINE_HARNESS.get()),
-                itemStack(KHItems.PLATE_HARNESS.get()),
-
-                itemStack(KHItems.DARK_GAUNTLET.get()),
-                itemStack(KHItems.DARK_BRIGANDINE_HARNESS.get()),
-                itemStack(KHItems.DARK_PLATE_HARNESS.get()),
-
-                itemStack(KHItems.GOLDEN_GAUNTLET.get()),
-                itemStack(KHItems.GOLDEN_BRIGANDINE_HARNESS.get()),
-                itemStack(KHItems.GOLDEN_PLATE_HARNESS.get()),
-
-                itemStack(KHItems.BRIGANDINE_CUISSES.get()),
-                itemStack(KHItems.PLATE_CUISSES.get()),
-
-                itemStack(KHItems.DARK_BRIGANDINE_CUISSES.get()),
-                itemStack(KHItems.DARK_PLATE_CUISSES.get()),
-
-                itemStack(KHItems.GOLDEN_BRIGANDINE_CUISSES.get()),
-                itemStack(KHItems.GOLDEN_PLATE_CUISSES.get()),
-
-                itemStack(KHItems.GREAVES.get()),
-
-                itemStack(KHItems.DARK_GREAVES.get()),
-
-                itemStack(KHItems.GOLDEN_GREAVES.get()),
-
-                itemStack(KHItems.SABATONS.get()),
-
-                itemStack(KHItems.DARK_SABATONS.get()),
-
-                itemStack(KHItems.GOLDEN_SABATONS.get()),
-
-                itemStack(KHItems.HOOD.get()),
-                itemStack(KHItems.TORN_HOOD.get()),
-                itemStack(KHItems.JESTER_HOOD.get()),
-                itemStack(KHItems.HELMET_HOOD.get()),
-                itemStack(KHItems.HELMET_TORN_HOOD.get()),
-
-                itemStack(KHItems.CLOAK.get()),
-                itemStack(KHItems.TORN_CLOAK.get()),
-
-                itemStack(KHItems.HORSE_BARDING.get()),
-
-                itemStack(KHItems.DARK_HORSE_BARDING.get()),
-
-                itemStack(KHItems.GOLDEN_HORSE_BARDING.get())
-        ));
-    }
-
-    ItemGroupTab KH_WEAPONS_TAB = new ItemGroupTab(
-            Icon.of(KHItems.ZWEIHANDER.get()),
-            Component.translatable("component.itemgroup.knightsheraldry.tab.kh_weapons").withStyle(ChatFormatting.WHITE),
-            KHItemGroups::weapons,
-            TABS,
-            true
-    );
-
-    ItemGroupTab KH_DECO_TAB = new ItemGroupTab(
-            Icon.of(KHItems.PLUME.get()),
-            Component.translatable("component.itemgroup.knightsheraldry.tab.kh_deco").withStyle(ChatFormatting.WHITE),
-            KHItemGroups::deco,
-            TABS,
-            true
-    );
-
-    ItemGroupTab KH_ARMORS_TAB = new ItemGroupTab(
-            Icon.of(KHItems.QUILTED_COIF.get()),
-            Component.translatable("component.itemgroup.knightsheraldry.tab.kh_armors").withStyle(ChatFormatting.WHITE),
-            KHItemGroups::armors,
-            TABS,
-            true
-    );
-
-    OwoItemGroup KH_TAB = OwoItemGroup
-        .builder(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_tab"), () -> Icon.of(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
-                "icon.png"), 0, 0, 16, 16))
-            .backgroundTexture(BACKGROUND)
-            .initializer(KHItemGroups::initializeGroup)
-            .displaySingleTab()
+    CreativeModeTab KH_WEAPONS_TAB = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(KHItems.ZWEIHANDER.get()))
+            .backgroundTexture(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/gui/container/creative_inventory/tab_items.png"))
+            .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_weapons"))
+            .displayItems((parameters, output) -> output.acceptAll(List.of(
+                    itemStack(KHItems.DAGGER.get()),
+                    itemStack(KHItems.STILETTO.get()),
+                    itemStack(KHItems.RAPIER.get()),
+                    itemStack(KHItems.SWORD.get()),
+                    itemStack(KHItems.V_SWORD.get()),
+                    itemStack(KHItems.ARMING_SWORD.get()),
+                    itemStack(KHItems.AXE.get()),
+                    itemStack(KHItems.BROAD_AXE.get()),
+                    itemStack(KHItems.CROOKED_AXE.get()),
+                    itemStack(KHItems.STRAIGHT_CROOKED_AXE.get()),
+                    itemStack(KHItems.MACE.get()),
+                    itemStack(KHItems.SPIKED_MACE.get()),
+                    itemStack(KHItems.FLAIL.get()),
+                    itemStack(KHItems.BALL_FLAIL.get()),
+                    itemStack(KHItems.HAMMER.get()),
+                    itemStack(KHItems.WAR_HAMMER.get()),
+                    itemStack(KHItems.LONGSWORD.get()),
+                    itemStack(KHItems.V_LONGSWORD.get()),
+                    itemStack(KHItems.FALCHION.get()),
+                    itemStack(KHItems.SCIMITAR.get()),
+                    itemStack(KHItems.PITCHFORK.get()),
+                    itemStack(KHItems.SPEAR.get()),
+                    itemStack(KHItems.PIKE.get()),
+                    itemStack(KHItems.BILLHOOK.get()),
+                    itemStack(KHItems.GLAIVE.get()),
+                    itemStack(KHItems.CURVED_GLAIVE.get()),
+                    itemStack(KHItems.HALBERD.get()),
+                    itemStack(KHItems.LANCE.get()),
+                    itemStack(KHItems.WOODEN_LANCE.get()),
+                    itemStack(KHItems.POLEAXE.get()),
+                    itemStack(KHItems.POLEHAMMER.get()),
+                    itemStack(KHItems.BEC_DE_CORBIN.get()),
+                    itemStack(KHItems.MORNING_STAR.get()),
+                    itemStack(KHItems.BARDICHE.get()),
+                    itemStack(KHItems.GREATSWORD.get()),
+                    itemStack(KHItems.CLAYMORE.get()),
+                    itemStack(KHItems.FLAMBERGE.get()),
+                    itemStack(KHItems.ZWEIHANDER.get()),
+                    itemStack(KHItems.WARDART.get()),
+                    itemStack(KHItems.LONGBOW.get()),
+                    itemStack(KHItems.HEAVY_CROSSBOW.get()),
+                    itemStack(KHItems.ARQUEBUS.get()),
+                    itemStack(KHItems.HANDGONNE.get()),
+                    itemStack(KHItems.SWALLOWTAIL_ARROW.get()),
+                    itemStack(KHItems.BODKIN_ARROW.get()),
+                    itemStack(KHItems.BROADHEAD_ARROW.get()),
+                    itemStack(KHItems.CLOTH_ARROW.get())
+            )))
             .build();
 
-    private static void initializeGroup(OwoItemGroup group) {
-        group.tabs.add(KH_WEAPONS_TAB);
-        group.tabs.add(KH_ARMORS_TAB);
-        group.tabs.add(KH_DECO_TAB);
-        group.addButton(LinkButton.discord("https://discord.gg/NvXG4ZWFXc"));
-    }
-    
+    CreativeModeTab KH_ARMORS_TAB = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(KHItems.QUILTED_COIF.get()))
+            .backgroundTexture(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/gui/container/creative_inventory/tab_items.png"))
+            .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_armors"))
+            .displayItems((parameters, output) -> output.acceptAll(List.of(
+                    itemStack(KHItems.QUILTED_COIF.get()),
+                    itemStack(KHItems.GAMBESON.get()),
+                    itemStack(KHItems.GAMBESON_BREECHES.get()),
+                    itemStack(KHItems.GAMBESON_BOOTS.get()),
+
+                    itemStack(KHItems.MAIL_COIF.get()),
+                    itemStack(KHItems.HAUBERK.get()),
+                    itemStack(KHItems.MAIL_BREECHES.get()),
+                    itemStack(KHItems.MAIL_BOOTS.get()),
+
+                    itemStack(KHItems.BARBUTE.get()),
+                    itemStack(KHItems.BASCINET.get()),
+                    itemStack(KHItems.KETTLE_HELM.get()),
+                    itemStack(KHItems.NASAL_HELM.get()),
+                    itemStack(KHItems.VIKING_HELM.get()),
+                    itemStack(KHItems.BURGONET.get()),
+
+                    itemStack(KHItems.DARK_BARBUTE.get()),
+                    itemStack(KHItems.DARK_BASCINET.get()),
+                    itemStack(KHItems.DARK_KETTLE_HELM.get()),
+                    itemStack(KHItems.DARK_NASAL_HELM.get()),
+                    itemStack(KHItems.DARK_VIKING_HELM.get()),
+                    itemStack(KHItems.DARK_BURGONET.get()),
+
+                    itemStack(KHItems.GOLDEN_BARBUTE.get()),
+                    itemStack(KHItems.GOLDEN_BASCINET.get()),
+                    itemStack(KHItems.GOLDEN_KETTLE_HELM.get()),
+                    itemStack(KHItems.GOLDEN_NASAL_HELM.get()),
+                    itemStack(KHItems.GOLDEN_VIKING_HELM.get()),
+                    itemStack(KHItems.GOLDEN_BURGONET.get()),
+
+                    itemStack(KHItems.ARMET.get()),
+                    itemStack(KHItems.ARMET_2.get()),
+                    itemStack(KHItems.VISORED_BARBUTE.get()),
+                    itemStack(KHItems.HOUNDSKULL.get()),
+                    itemStack(KHItems.CAGE.get()),
+                    itemStack(KHItems.VISORED_BASCINET.get()),
+                    itemStack(KHItems.GREAT_HELM.get()),
+                    itemStack(KHItems.GREAT_HELM_2.get()),
+                    itemStack(KHItems.SALLET.get()),
+                    itemStack(KHItems.BURGONET_FALLING_BUFFE.get()),
+                    itemStack(KHItems.CLOSE_HELM.get()),
+
+                    itemStack(KHItems.DARK_ARMET.get()),
+                    itemStack(KHItems.DARK_ARMET_2.get()),
+                    itemStack(KHItems.DARK_VISORED_BARBUTE.get()),
+                    itemStack(KHItems.DARK_HOUNDSKULL.get()),
+                    itemStack(KHItems.DARK_CAGE.get()),
+                    itemStack(KHItems.DARK_VISORED_BASCINET.get()),
+                    itemStack(KHItems.DARK_GREAT_HELM.get()),
+                    itemStack(KHItems.DARK_GREAT_HELM_2.get()),
+                    itemStack(KHItems.DARK_SALLET.get()),
+                    itemStack(KHItems.DARK_BURGONET_FALLING_BUFFE.get()),
+                    itemStack(KHItems.DARK_CLOSE_HELM.get()),
+
+                    itemStack(KHItems.GOLDEN_ARMET.get()),
+                    itemStack(KHItems.GOLDEN_ARMET_2.get()),
+                    itemStack(KHItems.GOLDEN_VISORED_BARBUTE.get()),
+                    itemStack(KHItems.GOLDEN_HOUNDSKULL.get()),
+                    itemStack(KHItems.GOLDEN_CAGE.get()),
+                    itemStack(KHItems.GOLDEN_VISORED_BASCINET.get()),
+                    itemStack(KHItems.GOLDEN_GREAT_HELM.get()),
+                    itemStack(KHItems.GOLDEN_GREAT_HELM_2.get()),
+                    itemStack(KHItems.GOLDEN_SALLET.get()),
+                    itemStack(KHItems.GOLDEN_BURGONET_FALLING_BUFFE.get()),
+                    itemStack(KHItems.GOLDEN_CLOSE_HELM.get()),
+
+                    itemStack(KHItems.FROGMOUTH.get()),
+                    itemStack(KHItems.GREAT_ARMET.get()),
+                    itemStack(KHItems.GREAT_ARMET_2.get()),
+                    itemStack(KHItems.GREAT_BASCINET.get()),
+                    itemStack(KHItems.GREAT_HOUNDSKUL_BASCINET.get()),
+                    itemStack(KHItems.MAXIMILLIAN_HELMET.get()),
+                    itemStack(KHItems.SAVOYARD.get()),
+
+                    itemStack(KHItems.AVENTAIL.get()),
+                    itemStack(KHItems.BEVOR.get()),
+                    itemStack(KHItems.DARK_BEVOR.get()),
+                    itemStack(KHItems.GOLDEN_BEVOR.get()),
+
+                    itemStack(KHItems.DARK_FROGMOUTH.get()),
+                    itemStack(KHItems.DARK_GREAT_ARMET.get()),
+                    itemStack(KHItems.DARK_GREAT_ARMET_2.get()),
+                    itemStack(KHItems.DARK_GREAT_BASCINET.get()),
+                    itemStack(KHItems.DARK_GREAT_HOUNDSKUL_BASCINET.get()),
+                    itemStack(KHItems.DARK_MAXIMILLIAN_HELMET.get()),
+                    itemStack(KHItems.DARK_SAVOYARD.get()),
+
+                    itemStack(KHItems.GOLDEN_FROGMOUTH.get()),
+                    itemStack(KHItems.GOLDEN_GREAT_ARMET.get()),
+                    itemStack(KHItems.GOLDEN_GREAT_ARMET_2.get()),
+                    itemStack(KHItems.GOLDEN_GREAT_BASCINET.get()),
+                    itemStack(KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get()),
+                    itemStack(KHItems.GOLDEN_MAXIMILLIAN_HELMET.get()),
+                    itemStack(KHItems.GOLDEN_SAVOYARD.get()),
+
+                    itemStack(KHItems.CHAPERON.get()),
+                    itemStack(KHItems.GILDED_CHAPERON.get()),
+
+                    itemStack(KHItems.BRIGANDINE.get()),
+                    itemStack(KHItems.BRIG_BREASTPLATE.get()),
+                    itemStack(KHItems.BRIG_BREASTPLATE_TASSETS.get()),
+                    itemStack(KHItems.PLATE_CUIRASS.get()),
+                    itemStack(KHItems.PLATE_CUIRASS_TASSETS.get()),
+                    itemStack(KHItems.MAXIMILLIAN_CUIRASS.get()),
+                    itemStack(KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get()),
+                    itemStack(KHItems.XIIII_PLATE_CUIRASS.get()),
+                    itemStack(KHItems.XIIII_PLATE_CUIRASS_TASSETS.get()),
+                    itemStack(KHItems.XIIII_PLATE_BREASTPLATE.get()),
+
+                    itemStack(KHItems.DARK_BRIGANDINE.get()),
+                    itemStack(KHItems.DARK_BRIG_BREASTPLATE.get()),
+                    itemStack(KHItems.DARK_BRIG_BREASTPLATE_TASSETS.get()),
+                    itemStack(KHItems.DARK_PLATE_CUIRASS.get()),
+                    itemStack(KHItems.DARK_PLATE_CUIRASS_TASSETS.get()),
+                    itemStack(KHItems.DARK_MAXIMILLIAN_CUIRASS.get()),
+                    itemStack(KHItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS.get()),
+                    itemStack(KHItems.DARK_XIIII_PLATE_CUIRASS.get()),
+                    itemStack(KHItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get()),
+                    itemStack(KHItems.DARK_XIIII_PLATE_BREASTPLATE.get()),
+
+                    itemStack(KHItems.GOLDEN_BRIGANDINE.get()),
+                    itemStack(KHItems.GOLDEN_BRIG_BREASTPLATE.get()),
+                    itemStack(KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get()),
+                    itemStack(KHItems.GOLDEN_PLATE_CUIRASS.get()),
+                    itemStack(KHItems.GOLDEN_PLATE_CUIRASS_TASSETS.get()),
+                    itemStack(KHItems.GOLDEN_MAXIMILLIAN_CUIRASS.get()),
+                    itemStack(KHItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS.get()),
+                    itemStack(KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get()),
+                    itemStack(KHItems.GOLDEN_XIIII_PLATE_CUIRASS_TASSETS.get()),
+                    itemStack(KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get()),
+
+                    itemStack(KHItems.SURCOAT.get()),
+                    itemStack(KHItems.SURCOAT_SLEEVELESS.get()),
+                    itemStack(KHItems.CIVILIAN_SURCOAT.get()),
+                    itemStack(KHItems.GIORNEA.get()),
+
+                    itemStack(KHItems.RIM_GUARDS.get()),
+                    itemStack(KHItems.BESAGEWS.get()),
+
+                    itemStack(KHItems.MAIL_SPAULDERS.get()),
+                    itemStack(KHItems.BRIGANDINE_SPAULDERS.get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get()),
+                    itemStack(KHItems.MAIL_SPAULDERS_BESAGEWS.get()),
+                    itemStack(KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get()),
+                    itemStack(KHItems.PLATE_SPAULDERS_BESAGEWS.get()),
+                    itemStack(KHItems.PLATE_SPAULDERS_RIMMED.get()),
+                    itemStack(KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED.get()),
+
+                    itemStack(KHItems.DARK_BRIGANDINE_SPAULDERS.get()),
+                    itemStack(KHItems.DARK_PLATE_SPAULDERS.get()),
+                    itemStack(KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get()),
+                    itemStack(KHItems.DARK_PLATE_SPAULDERS_BESAGEWS.get()),
+                    itemStack(KHItems.DARK_PLATE_SPAULDERS_RIMMED.get()),
+                    itemStack(KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get()),
+
+                    itemStack(KHItems.GOLDEN_MAIL_SPAULDERS.get()),
+                    itemStack(KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get()),
+                    itemStack(KHItems.GOLDEN_PLATE_SPAULDERS.get()),
+                    itemStack(KHItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS.get()),
+                    itemStack(KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get()),
+                    itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS.get()),
+                    itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get()),
+                    itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get()),
+
+                    itemStack(KHItems.GAUNTLET.get()),
+                    itemStack(KHItems.BRIGANDINE_HARNESS.get()),
+                    itemStack(KHItems.PLATE_HARNESS.get()),
+
+                    itemStack(KHItems.DARK_GAUNTLET.get()),
+                    itemStack(KHItems.DARK_BRIGANDINE_HARNESS.get()),
+                    itemStack(KHItems.DARK_PLATE_HARNESS.get()),
+
+                    itemStack(KHItems.GOLDEN_GAUNTLET.get()),
+                    itemStack(KHItems.GOLDEN_BRIGANDINE_HARNESS.get()),
+                    itemStack(KHItems.GOLDEN_PLATE_HARNESS.get()),
+
+                    itemStack(KHItems.BRIGANDINE_CUISSES.get()),
+                    itemStack(KHItems.PLATE_CUISSES.get()),
+
+                    itemStack(KHItems.DARK_BRIGANDINE_CUISSES.get()),
+                    itemStack(KHItems.DARK_PLATE_CUISSES.get()),
+
+                    itemStack(KHItems.GOLDEN_BRIGANDINE_CUISSES.get()),
+                    itemStack(KHItems.GOLDEN_PLATE_CUISSES.get()),
+
+                    itemStack(KHItems.GREAVES.get()),
+
+                    itemStack(KHItems.DARK_GREAVES.get()),
+
+                    itemStack(KHItems.GOLDEN_GREAVES.get()),
+
+                    itemStack(KHItems.SABATONS.get()),
+
+                    itemStack(KHItems.DARK_SABATONS.get()),
+
+                    itemStack(KHItems.GOLDEN_SABATONS.get()),
+
+                    itemStack(KHItems.HOOD.get()),
+                    itemStack(KHItems.TORN_HOOD.get()),
+                    itemStack(KHItems.JESTER_HOOD.get()),
+                    itemStack(KHItems.HELMET_HOOD.get()),
+                    itemStack(KHItems.HELMET_TORN_HOOD.get()),
+
+                    itemStack(KHItems.CLOAK.get()),
+                    itemStack(KHItems.TORN_CLOAK.get()),
+
+                    itemStack(KHItems.HORSE_BARDING.get()),
+
+                    itemStack(KHItems.DARK_HORSE_BARDING.get()),
+
+                    itemStack(KHItems.GOLDEN_HORSE_BARDING.get()))))
+            .build();
+
+    CreativeModeTab KH_DECO_TAB = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(KHItems.PLUME.get()))
+            .backgroundTexture(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/gui/container/creative_inventory/tab_items.png"))
+            .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_deco"))
+            .displayItems((parameters, output) -> output.acceptAll(List.of(
+                    itemStack(KHItems.PLUME.get()),
+                    itemStack(KHItems.TRI_PLUME.get()),
+                    itemStack(KHItems.FLUFFY_PLUME.get()),
+                    itemStack(KHItems.TORSE.get()),
+                    itemStack(KHItems.TEUTONIC_SNAKES.get()),
+                    itemStack(KHItems.TEUTONIC_BLACK_SNAKES.get()),
+                    itemStack(KHItems.GOLD_HORNS.get()),
+                    itemStack(KHItems.BLACK_HORNS.get()),
+                    itemStack(KHItems.TEUTONIC_GOLD_WINGS.get()),
+                    itemStack(KHItems.TEUTONIC_BLACK_WINGS.get()),
+                    itemStack(KHItems.TEUTONIC_WINGS_BALL_ENDS.get()),
+                    itemStack(KHItems.TEUTONIC_WINGS_SHARP_ENDS.get()),
+                    itemStack(KHItems.DRAGON.get()),
+                    itemStack(KHItems.LION.get()),
+                    itemStack(KHItems.SNAKE.get()),
+                    itemStack(KHItems.UNICORN.get()),
+                    itemStack(KHItems.STAG.get()),
+                    itemStack(KHItems.BOAR.get()),
+                    itemStack(KHItems.EAGLE.get()),
+                    itemStack(KHItems.PEGASUS.get())
+            )))
+            .build();
+
     static void init() {
-        KH_TAB.initialize();
-    }
-
-    class LinkButton implements OwoItemGroup.ButtonDefinition {
-        private final Icon icon;
-        private final Component tooltip;
-        private final ResourceLocation texture;
-
-        public LinkButton(CreativeModeTab group, Icon icon, String name, ResourceLocation texture) {
-            this.icon = icon;
-            this.tooltip = OwoItemGroup.ButtonDefinition.tooltipFor(group, "button", name);
-            this.texture = texture;
-        }
-
-        public static ItemGroupButton discord(String url) {
-            return link(Icon.of(DISCORD_ICON, 0, 0, 16, 16), "discord", url);
-        }
-
-        public static ItemGroupButton link(Icon icon, String name, String url) {
-            return new ItemGroupButton(KH_TAB, icon, name, TABS, () -> {
-                final var client = Minecraft.getInstance();
-                var screen = client.screen;
-                client.setScreen(new ConfirmLinkScreen(confirmed -> {
-                    if (confirmed) Util.getPlatform().openUri(url);
-                    client.setScreen(screen);
-                }, url, true));
-            });
-        }
-
-        @Override
-        public ResourceLocation texture() {
-            return this.texture;
-        }
-
-        @Override
-        public Icon icon() {
-            return icon;
-        }
-
-        @Override
-        public Component tooltip() {
-            return tooltip;
-        }
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+                ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_weapons"), KH_WEAPONS_TAB);
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+                ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_armors"), KH_ARMORS_TAB);
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+                ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_deco"), KH_DECO_TAB);
     }
 }

@@ -11,9 +11,10 @@
     "PowderSnowBlockMixin"
   ],
   "client": [
-    "HorseRendererMixin",
     "AbstractClientPlayerMixin",
-    "EntityRendererMixin"
+    "CreativeModeInventoryScreenMixin",
+    "EntityRendererMixin",
+    "HorseRendererMixin"
   ],
   "server": [
   ],

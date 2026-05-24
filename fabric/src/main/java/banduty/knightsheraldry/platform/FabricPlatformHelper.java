@@ -5,6 +5,7 @@ import banduty.knightsheraldry.config.FabricKHConfigImpl;
 import banduty.knightsheraldry.config.KHConfigImpl;
 import banduty.knightsheraldry.data.ArrowBehavior;
 import banduty.knightsheraldry.data.ArrowBehaviorManager;
+import banduty.knightsheraldry.items.KHItemGroups;
 import banduty.knightsheraldry.networking.payload.VelocityS2CPacket;
 import banduty.knightsheraldry.platform.services.IPlatformHelper;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -15,6 +16,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.CreativeModeTab;
 
 import java.util.function.Supplier;
 
@@ -71,5 +73,10 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public void syncSpeedHistory(ServerPlayer player, float speedHistory) {
         ServerPlayNetworking.send(player, new VelocityS2CPacket(speedHistory));
+    }
+
+    @Override
+    public boolean isCreativeModeTab(CreativeModeTab creativeModeTab) {
+        return creativeModeTab == KHItemGroups.KH_WEAPONS_TAB || creativeModeTab == KHItemGroups.KH_ARMORS_TAB || creativeModeTab == KHItemGroups.KH_DECO_TAB;
     }
 }
