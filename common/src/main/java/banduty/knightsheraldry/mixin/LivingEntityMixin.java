@@ -56,9 +56,13 @@ public abstract class LivingEntityMixin {
 
     @Unique
     private void handleSwallowtailArrowTimer(Player player) {
+        if (!((IEntityDataSaver) player).stoneycore$getPersistentData().contains("swallowtailArrowCount")) {
+            return;
+        }
+
         int swallowtailArrowCount = ((IEntityDataSaver) player).stoneycore$getPersistentData().getInt("swallowtailArrowCount");
 
-        if (swallowtailArrowCount >= 0) {
+        if (swallowtailArrowCount > 0) {
             int stuckArrows = player.getArrowCount();
             if (stuckArrows > 0) {
                 if (this.stuckSwallowTailArrowTimer <= 0) {
@@ -66,9 +70,17 @@ public abstract class LivingEntityMixin {
                 }
 
                 if (--this.stuckSwallowTailArrowTimer <= 0) {
-                    ((IEntityDataSaver) player).stoneycore$getPersistentData().putInt("swallowtailArrowCount", swallowtailArrowCount - 1);
+                    int nextCount = swallowtailArrowCount - 1;
+                    if (nextCount <= 0) {
+                        // Completely purge the NBT key when it reaches zero so data serialization saves clean empty states
+                        ((IEntityDataSaver) player).stoneycore$getPersistentData().remove("swallowtailArrowCount");
+                    } else {
+                        ((IEntityDataSaver) player).stoneycore$getPersistentData().putInt("swallowtailArrowCount", nextCount);
+                    }
                 }
             }
+        } else if (swallowtailArrowCount == 0) {
+            ((IEntityDataSaver) player).stoneycore$getPersistentData().remove("swallowtailArrowCount");
         }
     }
 }
