@@ -1,8 +1,8 @@
 package banduty.knightsheraldry.items;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.core.Registry;
+import banduty.knightsheraldry.platform.Services;
+import banduty.stoneycore.items.itemgroup.SCItemGroup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -11,18 +11,62 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public interface KHItemGroups {
+
+    ResourceLocation SCROLLER_SPRITE = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/scroller");
+    ResourceLocation SCROLLER_DISABLED_SPRITE = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/scroller_disabled");
+
+    ResourceLocation[] UNSELECTED_TOP_TABS = new ResourceLocation[]{
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_unselected_1"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_unselected_2"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_unselected_3"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_unselected_4"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_unselected_5"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_unselected_6"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_unselected_7")
+    };
+    ResourceLocation[] SELECTED_TOP_TABS = new ResourceLocation[]{
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_selected_1"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_selected_2"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_selected_3"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_selected_4"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_selected_5"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_selected_6"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_top_selected_7")
+    };
+    ResourceLocation[] UNSELECTED_BOTTOM_TABS = new ResourceLocation[]{
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_unselected_1"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_unselected_2"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_unselected_3"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_unselected_4"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_unselected_5"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_unselected_6"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_unselected_7")
+    };
+    ResourceLocation[] SELECTED_BOTTOM_TABS = new ResourceLocation[]{
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_selected_1"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_selected_2"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_selected_3"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_selected_4"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_selected_5"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_selected_6"),
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "creative_inventory/tab_bottom_selected_7")
+    };
 
     private static ItemStack itemStack(ItemLike item) {
         return new ItemStack(item);
     }
 
-    CreativeModeTab KH_WEAPONS_TAB = FabricItemGroup.builder()
+    Supplier<CreativeModeTab> KH_WEAPONS_TAB = register("kh_weapons", () -> SCItemGroup.create(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_weapons"))
             .icon(() -> new ItemStack(KHItems.ZWEIHANDER.get()))
             .backgroundTexture(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/gui/container/creative_inventory/tab_items.png"))
+            .scrollerSprites(SCROLLER_SPRITE, SCROLLER_DISABLED_SPRITE)
+            .topTabSprites(UNSELECTED_TOP_TABS, SELECTED_TOP_TABS)
+            .bottomTabSprites(UNSELECTED_BOTTOM_TABS, SELECTED_BOTTOM_TABS)
             .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_weapons"))
-            .displayItems((parameters, output) -> output.acceptAll(List.of(
+            .appendItems((output) -> output.acceptAll(List.of(
                     itemStack(KHItems.DAGGER.get()),
                     itemStack(KHItems.STILETTO.get()),
                     itemStack(KHItems.RAPIER.get()),
@@ -71,13 +115,16 @@ public interface KHItemGroups {
                     itemStack(KHItems.BROADHEAD_ARROW.get()),
                     itemStack(KHItems.CLOTH_ARROW.get())
             )))
-            .build();
+            .build());
 
-    CreativeModeTab KH_ARMORS_TAB = FabricItemGroup.builder()
+    Supplier<CreativeModeTab> KH_ARMORS_TAB = register("kh_armors", () -> SCItemGroup.create(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_armors"))
             .icon(() -> new ItemStack(KHItems.QUILTED_COIF.get()))
             .backgroundTexture(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/gui/container/creative_inventory/tab_items.png"))
+            .scrollerSprites(SCROLLER_SPRITE, SCROLLER_DISABLED_SPRITE)
+            .topTabSprites(UNSELECTED_TOP_TABS, SELECTED_TOP_TABS)
+            .bottomTabSprites(UNSELECTED_BOTTOM_TABS, SELECTED_BOTTOM_TABS)
             .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_armors"))
-            .displayItems((parameters, output) -> output.acceptAll(List.of(
+            .appendItems((output) -> output.acceptAll(List.of(
                     itemStack(KHItems.QUILTED_COIF.get()),
                     itemStack(KHItems.GAMBESON.get()),
                     itemStack(KHItems.GAMBESON_BREECHES.get()),
@@ -290,13 +337,16 @@ public interface KHItemGroups {
                     itemStack(KHItems.DARK_HORSE_BARDING.get()),
 
                     itemStack(KHItems.GOLDEN_HORSE_BARDING.get()))))
-            .build();
+            .build());
 
-    CreativeModeTab KH_DECO_TAB = FabricItemGroup.builder()
+    Supplier<CreativeModeTab> KH_DECO_TAB = register("kh_deco", () -> SCItemGroup.create(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_deco"))
             .icon(() -> new ItemStack(KHItems.PLUME.get()))
             .backgroundTexture(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/gui/container/creative_inventory/tab_items.png"))
+            .scrollerSprites(SCROLLER_SPRITE, SCROLLER_DISABLED_SPRITE)
+            .topTabSprites(UNSELECTED_TOP_TABS, SELECTED_TOP_TABS)
+            .bottomTabSprites(UNSELECTED_BOTTOM_TABS, SELECTED_BOTTOM_TABS)
             .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_deco"))
-            .displayItems((parameters, output) -> output.acceptAll(List.of(
+            .appendItems((output) -> output.acceptAll(List.of(
                     itemStack(KHItems.PLUME.get()),
                     itemStack(KHItems.TRI_PLUME.get()),
                     itemStack(KHItems.FLUFFY_PLUME.get()),
@@ -318,14 +368,13 @@ public interface KHItemGroups {
                     itemStack(KHItems.EAGLE.get()),
                     itemStack(KHItems.PEGASUS.get())
             )))
-            .build();
+            .build());
+
+    private static Supplier<CreativeModeTab> register(String name, Supplier<CreativeModeTab> itemSupplier) {
+        return Services.PLATFORM.register(BuiltInRegistries.CREATIVE_MODE_TAB, name, itemSupplier);
+    }
 
     static void init() {
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_weapons"), KH_WEAPONS_TAB);
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_armors"), KH_ARMORS_TAB);
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
-                ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_deco"), KH_DECO_TAB);
+        KnightsHeraldry.LOG.info("Registering ItemGroups for " + KnightsHeraldry.MOD_ID);
     }
 }

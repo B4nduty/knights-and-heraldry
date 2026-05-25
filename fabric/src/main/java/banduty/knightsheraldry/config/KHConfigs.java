@@ -1,25 +1,20 @@
 package banduty.knightsheraldry.config;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import blue.endless.jankson.Comment;
-import io.wispforest.owo.config.Option;
-import io.wispforest.owo.config.annotation.*;
+import me.shedaniel.autoconfig.ConfigData;
+import me.shedaniel.autoconfig.annotation.Config;
+import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
-@Modmenu(modId = KnightsHeraldry.MOD_ID)
-@Config(name = KnightsHeraldry.MOD_ID, wrapperName = "KHConfig")
-public class KHConfigs {
-    @SectionHeader("lance")
-    @Comment("Lance Cooldown")
-    @RangeConstraint(min = 0, max = 180)
-    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    public int getLanceCooldown = 30;
-    @Comment("Damage Tamed Entities")
-    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    public boolean getDamageTamedEntities = false;
+@Config(name = KnightsHeraldry.MOD_ID)
+@Config.Gui.Background("minecraft:textures/block/oak_planks.png")
+public class KHConfigs implements ConfigData {
 
-    @SectionHeader("warDart")
-    @Comment("WarDart throw Cooldown")
-    @RangeConstraint(min = 0, max = 180)
-    @Sync(Option.SyncMode.OVERRIDE_CLIENT)
-    public int getWardartCooldown = 15;
+    @ConfigEntry.Gui.Tooltip
+    public int lanceCooldown = 30;
+
+    @ConfigEntry.Gui.Tooltip
+    public boolean damageTamedEntities = false;
+
+    @ConfigEntry.Gui.Tooltip
+    public int wardartCooldown = 15;
 }

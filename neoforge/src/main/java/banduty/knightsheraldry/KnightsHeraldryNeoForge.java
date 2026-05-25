@@ -1,7 +1,6 @@
 package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.config.KHConfigs;
-import banduty.knightsheraldry.items.KHItemGroups;
 import banduty.knightsheraldry.platform.NeoForgePlatformHelper;
 import banduty.knightsheraldry.items.armor.deco.KHDeco;
 import banduty.knightsheraldry.util.loottable.ModLootTable;
@@ -19,7 +18,6 @@ public class KnightsHeraldryNeoForge {
 
         modContainer.registerConfig(ModConfig.Type.COMMON, KHConfigs.SPEC);
 
-        KHItemGroups.register(modEventBus);
         ModLootTable.registerLootTables(modEventBus);
 
         modEventBus.addListener(this::commonSetup);

@@ -12,7 +12,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import java.util.concurrent.CompletableFuture;
 
 @EventBusSubscriber(modid = KnightsHeraldry.MOD_ID)
-public class KnightsHeraldryForgeDatagen {
+public class KnightsHeraldryNeoForgeDatagen {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();

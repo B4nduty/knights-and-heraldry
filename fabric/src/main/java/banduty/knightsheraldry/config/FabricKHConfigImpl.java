@@ -1,18 +1,15 @@
 package banduty.knightsheraldry.config;
 
+import banduty.knightsheraldry.KnightsHeraldryFabric;
+
 public class FabricKHConfigImpl extends KHConfigImpl {
-    private final KHConfig config;
-
-    public FabricKHConfigImpl() {
-        this.config = KHConfig.createAndLoad();
-    }
 
     @Override
-    public int getLanceCooldown() { return config.getLanceCooldown(); }
+    public int getLanceCooldown() { return KnightsHeraldryFabric.CONFIG.lanceCooldown; }
 
     @Override
-    public boolean getDamageTamedEntities() { return config.getDamageTamedEntities(); }
+    public boolean getDamageTamedEntities() { return KnightsHeraldryFabric.CONFIG.damageTamedEntities; }
 
     @Override
-    public int getWardartCooldown() { return config.getWardartCooldown(); }
+    public int getWardartCooldown() { return KnightsHeraldryFabric.CONFIG.wardartCooldown; }
 }

@@ -12,7 +12,6 @@
   ],
   "client": [
     "AbstractClientPlayerMixin",
-    "CreativeModeInventoryScreenMixin",
     "EntityRendererMixin",
     "HorseRendererMixin"
   ],
