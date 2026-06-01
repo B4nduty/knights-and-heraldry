@@ -8,26 +8,6 @@
       "stack": {
         "components": {
           "stoneycore:target_stack": {
-            "components": {
-              "minecraft:attribute_modifiers": {
-                "modifiers": [
-                  {
-                    "type": "minecraft:generic.armor",
-                    "amount": 5.0,
-                    "id": "minecraft:armor.leggings",
-                    "operation": "add_value",
-                    "slot": "legs"
-                  },
-                  {
-                    "type": "minecraft:generic.armor_toughness",
-                    "amount": 0.0,
-                    "id": "minecraft:armor.leggings",
-                    "operation": "add_value",
-                    "slot": "legs"
-                  }
-                ]
-              }
-            },
             "count": 1,
             "id": "knightsheraldry:mail_breeches"
           }
@@ -54,26 +34,6 @@
   "result": {
     "components": {
       "stoneycore:target_stack": {
-        "components": {
-          "minecraft:attribute_modifiers": {
-            "modifiers": [
-              {
-                "type": "minecraft:generic.armor",
-                "amount": 5.0,
-                "id": "minecraft:armor.leggings",
-                "operation": "add_value",
-                "slot": "legs"
-              },
-              {
-                "type": "minecraft:generic.armor_toughness",
-                "amount": 0.0,
-                "id": "minecraft:armor.leggings",
-                "operation": "add_value",
-                "slot": "legs"
-              }
-            ]
-          }
-        },
         "count": 1,
         "id": "knightsheraldry:mail_breeches"
       }

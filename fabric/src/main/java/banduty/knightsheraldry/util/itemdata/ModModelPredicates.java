@@ -97,8 +97,6 @@ public class ModModelPredicates {
         ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "charged"),
                 (stack, world, entity, seed) ->
                         Boolean.TRUE.equals(stack.get(SCDataComponents.CHARGED.get())) ? 1.0F : 0.0F);
-        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "blocking"),
-                (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
         ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "bludgeoning"),
                 (stack, world, entity, seed) ->
                         Boolean.TRUE.equals(stack.get(SCDataComponents.BLUDGEONING.get()))? 1.0F : 0.0F);

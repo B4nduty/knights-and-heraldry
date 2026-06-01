@@ -97,8 +97,6 @@ public class ModModelPredicates {
         ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","charged"),
                 (stack, world, entity, seed) ->
                         Boolean.TRUE.equals(stack.get(SCDataComponents.CHARGED.get())) ? 1.0F : 0.0F);
-        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","blocking"),
-                (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
         ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("","bludgeoning"),
                 (stack, world, entity, seed) ->
                         Boolean.TRUE.equals(stack.get(SCDataComponents.BLUDGEONING.get())) ? 1.0F : 0.0F);

@@ -8,26 +8,6 @@
       "stack": {
         "components": {
           "stoneycore:target_stack": {
-            "components": {
-              "minecraft:attribute_modifiers": {
-                "modifiers": [
-                  {
-                    "type": "minecraft:generic.armor",
-                    "amount": 6.0,
-                    "id": "minecraft:armor.chestplate",
-                    "operation": "add_value",
-                    "slot": "chest"
-                  },
-                  {
-                    "type": "minecraft:generic.armor_toughness",
-                    "amount": 0.0,
-                    "id": "minecraft:armor.chestplate",
-                    "operation": "add_value",
-                    "slot": "chest"
-                  }
-                ]
-              }
-            },
             "count": 1,
             "id": "knightsheraldry:hauberk"
           }
@@ -54,26 +34,6 @@
   "result": {
     "components": {
       "stoneycore:target_stack": {
-        "components": {
-          "minecraft:attribute_modifiers": {
-            "modifiers": [
-              {
-                "type": "minecraft:generic.armor",
-                "amount": 6.0,
-                "id": "minecraft:armor.chestplate",
-                "operation": "add_value",
-                "slot": "chest"
-              },
-              {
-                "type": "minecraft:generic.armor_toughness",
-                "amount": 0.0,
-                "id": "minecraft:armor.chestplate",
-                "operation": "add_value",
-                "slot": "chest"
-              }
-            ]
-          }
-        },
         "count": 1,
         "id": "knightsheraldry:hauberk"
       }

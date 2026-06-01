@@ -14,7 +14,6 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -65,35 +64,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createEasyRecipe(exporter, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS_RIMMED.get(), KHItems.BESAGEWS.get());
         createEasyRecipe(exporter, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get(), KHItems.BESAGEWS.get());
 
-    /*    ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.SURCOAT, 1.get())
-                .requires(KHItems.SURCOAT.get())
-                .requires(ItemTags.BANNERS)
-                .unlockedBy(getHasName(KHItems.SURCOAT), has(KHItems.SURCOAT))
-                .unlockedBy(getHasName(Items.WHITE_BANNER), has(Items.WHITE_BANNER))
-                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "surcoat_with_banner"));
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.SURCOAT_SLEEVELESS, 1.get())
-                .requires(KHItems.SURCOAT_SLEEVELESS.get())
-                .requires(ItemTags.BANNERS)
-                .unlockedBy(getHasName(KHItems.SURCOAT_SLEEVELESS), has(KHItems.SURCOAT_SLEEVELESS))
-                .unlockedBy(getHasName(Items.WHITE_BANNER), has(Items.WHITE_BANNER))
-                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "sleeveless_surcoat_with_banner"));*/
-
-     /*   ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TORSE.get())
-                .requires(KHItems.TORSE.get())
-                .requires(ModTags.DYES.getTag())
-                .unlockedBy(getHasName(KHItems.TORSE), has(KHItems.TORSE))
-                .unlockedBy("has_" + ModTags.DYES.getTag(), has(ModTags.DYES.getTag()))
-                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(KHItems.TORSE).getPath() + "_dye"));
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TORSE.get())
-                .requires(KHItems.TORSE.get())
-                .requires(ModTags.DYES.getTag().get())
-                .requires(ModTags.DYES.getTag())
-                .unlockedBy(getHasName(KHItems.TORSE), has(KHItems.TORSE))
-                .unlockedBy("has_" + ModTags.DYES.getTag(), has(ModTags.DYES.getTag()))
-                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, BuiltInRegistries.ITEM.getKey(KHItems.TORSE).getPath() + "_dye_double"));
-*/
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TRI_PLUME.get())
                 .requires(KHItems.PLUME.get())
                 .requires(KHItems.PLUME.get())
@@ -444,9 +414,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.CLOTH_ARROW.get(), ItemTags.WOOL, new ItemStack(Items.FEATHER));
 
         createCraftmanAnvilRecipe(exporter, 9, 0.25f, KHItems.HORSE_BARDING.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.IRON_HORSE_ARMOR));
-
-        createBannerRecipe(exporter, KHItems.SURCOAT.get());
-        createBannerRecipe(exporter, KHItems.SURCOAT_SLEEVELESS.get());
     }
 
     private void createCraftmanAnvilRecipe(RecipeOutput exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, String path, Object... requiress) {
@@ -512,14 +479,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         new ManuscriptRecipeBuilder(SCItems.MANUSCRIPT.get(), ingredients)
                 .unlockedBy(getHasName(base), has(base))
                 .save(exporter, recipeId);
-    }
-
-    private void createBannerRecipe(RecipeOutput exporter, Item targetItem) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, targetItem)
-                .requires(ItemTags.BANNERS)
-                .requires(targetItem)
-                .unlockedBy("has_item", RecipeProvider.has(targetItem))
-                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "banner_pattern/" + getItemName(targetItem)));
     }
 
     private void createWeaponCycle(RecipeOutput exporter, Item... weapons) {

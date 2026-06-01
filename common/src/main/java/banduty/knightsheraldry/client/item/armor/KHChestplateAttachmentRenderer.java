@@ -16,12 +16,15 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.DyedItemColor;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 
 public class KHChestplateAttachmentRenderer implements ArmorAttachmentRenderer {
     @Override
@@ -40,6 +43,25 @@ public class KHChestplateAttachmentRenderer implements ArmorAttachmentRenderer {
                     BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png");
             VertexConsumer overlayConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(textureOverlayPath));
             model.renderToBuffer(poseStack, overlayConsumer, i, OverlayTexture.NO_OVERLAY, -1);
+        }
+
+        BannerPatternLayers patterns = itemStack.get(DataComponents.BANNER_PATTERNS);
+        if (patterns != null && !patterns.layers().isEmpty()) {
+            for (BannerPatternLayers.Layer layer : patterns.layers()) {
+                ResourceLocation patternId = layer.pattern().unwrapKey().map(ResourceKey::location).orElse(null);
+                if (patternId == null) continue;
+
+                String patternName = patternId.getPath();
+                if (patternName.contains("/")) {
+                    patternName = patternName.substring(patternName.lastIndexOf('/') + 1);
+                }
+
+                ResourceLocation texturePatternPath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
+                        "textures/entity/attachment/banner_pattern/" +
+                        BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "/" + patternName + ".png");
+                VertexConsumer overlayConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(texturePatternPath));
+                model.renderToBuffer(poseStack, overlayConsumer, i, OverlayTexture.NO_OVERLAY, layer.color().getTextureDiffuseColor());
+            }
         }
     }
 
