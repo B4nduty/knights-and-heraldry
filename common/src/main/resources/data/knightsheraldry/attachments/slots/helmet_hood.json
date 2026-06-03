@@ -1,0 +1,9 @@
+{
+  "slot": "helmet_hood",
+  "armor": "helmet",
+  "items": [
+    "knightsheraldry:helmet_hood",
+    "knightsheraldry:helmet_torn_hood"
+  ],
+  "icon": "knightsheraldry:container/icon/helmet_hood"
+}

@@ -1,0 +1,10 @@
+{
+  "slot": "greaves",
+  "armor": "leggings",
+  "items": [
+    "knightsheraldry:greaves",
+    "knightsheraldry:dark_greaves",
+    "knightsheraldry:golden_greaves"
+  ],
+  "icon": "knightsheraldry:container/icon/greaves"
+}

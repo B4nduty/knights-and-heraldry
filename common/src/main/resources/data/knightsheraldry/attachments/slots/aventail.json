@@ -1,0 +1,8 @@
+{
+  "slot": "aventail",
+  "armor": "chestplate",
+  "items": [
+    "knightsheraldry:aventail"
+  ],
+  "icon": "knightsheraldry:container/icon/aventail"
+}

@@ -1,0 +1,11 @@
+{
+  "slot": "surcoat",
+  "armor": "chestplate",
+  "items": [
+    "knightsheraldry:surcoat",
+    "knightsheraldry:surcoat_sleeveless",
+    "knightsheraldry:civilian_surcoat",
+    "knightsheraldry:giornea"
+  ],
+  "icon": "knightsheraldry:container/icon/surcoat"
+}

@@ -1,0 +1,9 @@
+{
+  "slot": "cloak",
+  "armor": "chestplate",
+  "items": [
+    "knightsheraldry:cloak",
+    "knightsheraldry:torn_cloak"
+  ],
+  "icon": "knightsheraldry:container/icon/cloak"
+}

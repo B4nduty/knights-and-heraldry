@@ -1,0 +1,10 @@
+{
+  "slot": "sabatons",
+  "armor": "boots",
+  "items": [
+    "knightsheraldry:sabatons",
+    "knightsheraldry:dark_sabatons",
+    "knightsheraldry:golden_sabatons"
+  ],
+  "icon": "knightsheraldry:container/icon/sabatons"
+}

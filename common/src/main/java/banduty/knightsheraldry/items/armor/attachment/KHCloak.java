@@ -11,26 +11,22 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Range;
 
 public class KHCloak extends Item implements ArmorAttachment, ArmorAttachmentRenderProvider {
     boolean hasOverlay;
-    int numberSlot;
     ArmorItem.Type armorType;
 
     public ArmorAttachmentRenderer cachedRenderer;
 
-    public KHCloak(Properties properties, int numberSlot, ArmorItem.@NotNull Type armorType) {
+    public KHCloak(Properties properties, ArmorItem.@NotNull Type armorType) {
         super(properties);
         this.hasOverlay = false;
-        this.numberSlot = numberSlot;
         this.armorType = armorType;
     }
 
-    public KHCloak(Properties properties, int numberSlot, boolean hasOverlay, ArmorItem.@NotNull Type armorType) {
+    public KHCloak(Properties properties, boolean hasOverlay, ArmorItem.@NotNull Type armorType) {
         super(properties);
         this.hasOverlay = hasOverlay;
-        this.numberSlot = numberSlot;
         this.armorType = armorType;
     }
 
@@ -63,10 +59,5 @@ public class KHCloak extends Item implements ArmorAttachment, ArmorAttachmentRen
             if (armorAttachments.getItem() instanceof KHHelmetAttachment) return true;
         }
         return false;
-    }
-
-    @Override
-    public @Range(from = 0L, to = 2147483647L) int numberSlot() {
-        return numberSlot;
     }
 }
