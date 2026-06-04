@@ -193,6 +193,8 @@ public interface KHItemGroups {
                     itemStack(KHItems.GOLDEN_CLOSE_HELM.get()),
 
                     itemStack(KHItems.SALLET_BEVOR.get()),
+                    itemStack(KHItems.DARK_SALLET_BEVOR.get()),
+                    itemStack(KHItems.GOLDEN_SALLET_BEVOR.get()),
 
                     itemStack(KHItems.FROGMOUTH.get()),
                     itemStack(KHItems.GREAT_ARMET.get()),

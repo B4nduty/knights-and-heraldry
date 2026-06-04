@@ -329,6 +329,10 @@ public interface KHItems {
 
     Supplier<Item> SALLET_BEVOR = registerItem("sallet_bevor",
             () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
+    Supplier<Item> DARK_SALLET_BEVOR = registerItem("dark_sallet_bevor",
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
+    Supplier<Item> GOLDEN_SALLET_BEVOR = registerItem("golden_sallet_bevor",
+            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
 
     Supplier<Item> FROGMOUTH = registerItem("frogmouth",
             () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(354), Ingredient.of(Items.IRON_INGOT)));

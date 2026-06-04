@@ -439,9 +439,6 @@ public class ModRecipeProvider extends RecipeProvider {
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.CLOTH_ARROW.get(), ItemTags.WOOL, new ItemStack(Items.FEATHER));
 
         createCraftmanAnvilRecipe(exporter, 9, 0.25f, KHItems.HORSE_BARDING.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.IRON_HORSE_ARMOR));
-
-        createBannerRecipe(exporter, KHItems.SURCOAT.get());
-        createBannerRecipe(exporter, KHItems.SURCOAT_SLEEVELESS.get());
     }
 
     private void createCraftmanAnvilRecipe(RecipeOutput exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, String path, Object... requiress) {
@@ -507,14 +504,6 @@ public class ModRecipeProvider extends RecipeProvider {
         new ManuscriptRecipeBuilder(SCItems.MANUSCRIPT.get(), ingredients)
                 .unlockedBy(getHasName(base), has(base))
                 .save(exporter, recipeId);
-    }
-
-    private void createBannerRecipe(RecipeOutput exporter, Item targetItem) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, targetItem)
-                .requires(ItemTags.BANNERS)
-                .requires(targetItem)
-                .unlockedBy("has_item", RecipeProvider.has(targetItem))
-                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "banner_pattern/" + getItemName(targetItem)));
     }
 
     private void createWeaponCycle(RecipeOutput exporter, Item... weapons) {

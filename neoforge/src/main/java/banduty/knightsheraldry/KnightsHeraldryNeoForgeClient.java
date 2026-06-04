@@ -287,8 +287,6 @@ public class KnightsHeraldryNeoForgeClient {
                 KHItems.BURGONET_FALLING_BUFFE.get(),
                 KHItems.CLOSE_HELM.get(),
 
-                KHItems.SALLET_BEVOR.get(),
-
                 KHItems.FROGMOUTH.get(),
                 KHItems.GREAT_ARMET.get(),
                 KHItems.GREAT_ARMET_2.get(),
