@@ -201,9 +201,6 @@ public interface KHItemGroups {
                     itemStack(KHItems.SAVOYARD.get()),
 
                     itemStack(KHItems.AVENTAIL.get()),
-                    itemStack(KHItems.BEVOR.get()),
-                    itemStack(KHItems.DARK_BEVOR.get()),
-                    itemStack(KHItems.GOLDEN_BEVOR.get()),
 
                     itemStack(KHItems.DARK_FROGMOUTH.get()),
                     itemStack(KHItems.DARK_GREAT_ARMET.get()),

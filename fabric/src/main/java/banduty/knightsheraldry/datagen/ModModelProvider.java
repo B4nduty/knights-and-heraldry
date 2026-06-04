@@ -43,9 +43,6 @@ public class ModModelProvider extends FabricModelProviderPlus {
         itemModelGenerators.generateFlatItem(KHItems.CIVILIAN_SURCOAT.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(KHItems.GIORNEA.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(KHItems.AVENTAIL.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.BEVOR.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.DARK_BEVOR.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.GOLDEN_BEVOR.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(KHItems.RIM_GUARDS.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(KHItems.BESAGEWS.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(KHItems.QUILTED_COIF.get(), ModelTemplates.FLAT_ITEM);

@@ -30,8 +30,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.SWALLOWTAIL_ARROW.get(), KHItems.HOOD.get(), KHItems.TORN_HOOD.get(),
                 KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get(), KHItems.CLOAK.get(),
                 KHItems.TORN_CLOAK.get(), KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get(),
-                KHItems.AVENTAIL.get(), KHItems.BEVOR.get(), KHItems.DARK_BEVOR.get(),
-                KHItems.GOLDEN_BEVOR.get(), KHItems.RIM_GUARDS.get(), KHItems.BESAGEWS.get(),
+                KHItems.AVENTAIL.get(), KHItems.RIM_GUARDS.get(), KHItems.BESAGEWS.get(),
                 KHItems.QUILTED_COIF.get(), KHItems.GAMBESON_BREECHES.get(), KHItems.GAMBESON_BOOTS.get(),
                 KHItems.MAIL_COIF.get(), KHItems.HAUBERK.get(), KHItems.MAIL_BREECHES.get(),
                 KHItems.MAIL_BOOTS.get(), KHItems.LANCE.get(),
@@ -89,7 +88,15 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
     protected void registerSurcoatWithBanner(Item surcoatItem) {
         String path = BuiltInRegistries.ITEM.getKey(surcoatItem).getPath();
 
-        String[] patterns = new String[]{"bl", "bo", "br", "bri", "bs", "bt", "bts", "cbo", "cr", "cre", "cs", "dls", "drs", "flo", "glb", "gra", "gru", "hh", "hhb", "ld", "ls", "lud", "mc", "moj", "mr", "ms", "pig", "rd", "rs", "rud", "sc", "sku", "ss", "tl", "tr", "ts", "tt", "tts", "vh", "vhr"};
+        String[] patterns = new String[]{
+                "border", "bricks", "circle", "creeper", "cross", "curly_border", "diagonal_left", "diagonal_right",
+                "diagonal_up_left", "diagonal_up_right", "flow", "flower", "globe", "gradient", "gradient_up", "guster", "half_horizontal",
+                "half_horizontal_bottom", "half_vertical", "half_vertical_right", "mojang", "piglin", "rhombus", "skull",
+                "small_stripes", "square_bottom_left", "square_bottom_right", "square_top_left", "square_top_right",
+                "straight_cross", "stripe_bottom", "stripe_center", "stripe_downleft", "stripe_downright", "stripe_left",
+                "stripe_middle", "stripe_right", "stripe_top", "triangle_bottom", "triangle_top", "triangles_bottom",
+                "triangles_top"
+        };
 
         for (String pattern : patterns) {
             String modelName = "item/" + path + "/" + pattern;

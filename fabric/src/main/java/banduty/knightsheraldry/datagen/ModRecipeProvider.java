@@ -177,8 +177,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new ItemStack(KHItems.GREAVES.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, KHItems.GOLDEN_SABATONS.get(), 7, 0.7f,
                 new ItemStack(KHItems.SABATONS.get()), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, KHItems.GOLDEN_BEVOR.get(), 7, 0.7f,
-                new ItemStack(KHItems.BEVOR.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, KHItems.GOLDEN_HORSE_BARDING.get(), 7, 0.7f,
                 new ItemStack(KHItems.HORSE_BARDING.get()), new ItemStack(Items.GOLD_INGOT, 5));
 
@@ -311,9 +309,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
         createSmithingRecipe(exporter, KHItems.DARK_SABATONS.get(), 7, 0.85f,
                 new ItemStack(KHItems.SABATONS.get()), new ItemStack(Items.COPPER_INGOT),
-                new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, KHItems.DARK_BEVOR.get(), 7, 0.85f,
-                new ItemStack(KHItems.BEVOR.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
         createSmithingRecipe(exporter, KHItems.DARK_HORSE_BARDING.get(), 7, 0.85f,
                 new ItemStack(KHItems.HORSE_BARDING.get()), new ItemStack(Items.COPPER_INGOT),

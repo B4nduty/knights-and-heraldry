@@ -252,10 +252,6 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
 
     private static Map<Item, ArmorStats> createExtraMap() {
         Map<Item, ArmorStats> map = new HashMap<>();
-        map.put(KHItems.BEVOR.get(), new ArmorStats(0.5, 0.0, 0.5, 0.0, false, "head"));
-        map.put(KHItems.DARK_BEVOR.get(), new ArmorStats(1.5, 0.0, 0.6, 0.0, false, "head"));
-        map.put(KHItems.GOLDEN_BEVOR.get(), new ArmorStats(0.5, 0.0, 0.5, 0.0, false, "head"));
-
         map.put(KHItems.AVENTAIL.get(), new ArmorStats(2.0, 0.0, 1.5, 0.0, false, "chest"));
         return map;
     }

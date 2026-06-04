@@ -80,8 +80,6 @@ public class VillagerTradesModifier {
 
         addTradeOffer(VillagerProfession.ARMORER, 2, 21, 6, 5, KHItems.BRIGANDINE_CUISSES);
 
-        addTradeOffer(VillagerProfession.ARMORER, 2, 12, 6, 5, KHItems.BEVOR);
-
         addTradeOffer(VillagerProfession.ARMORER, 1, 3, 3, 1, KHItems.GREAVES);
 
         addTradeOffer(VillagerProfession.ARMORER, 4, 11, 6, 15, KHItems.SABATONS);

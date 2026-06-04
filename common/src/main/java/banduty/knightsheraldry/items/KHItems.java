@@ -416,12 +416,6 @@ public interface KHItems {
     Supplier<Item> GOLDEN_SABATONS = registerItem("golden_sabatons",
             () -> new KHBootsAttachment(new Item.Properties().stacksTo(1).durability(108), Ingredient.of(Items.GOLD_INGOT)));
 
-    Supplier<Item> BEVOR = registerItem("bevor",
-            () -> new KHBevor(new Item.Properties().stacksTo(1).durability(100), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_BEVOR = registerItem("dark_bevor",
-            () -> new KHBevor(new Item.Properties().stacksTo(1).durability(110), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_BEVOR = registerItem("golden_bevor",
-            () -> new KHBevor(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> AVENTAIL = registerItem("aventail",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
 

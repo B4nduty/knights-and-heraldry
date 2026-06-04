@@ -89,7 +89,6 @@ public class VillagerTradesModifier {
         addTradeOffer(trades, 1, 11, 3, 1, KHItems.GAUNTLET);
         addTradeOffer(trades, 2, 21, 6, 5, KHItems.BRIGANDINE_HARNESS);
         addTradeOffer(trades, 2, 21, 6, 5, KHItems.BRIGANDINE_CUISSES);
-        addTradeOffer(trades, 2, 12, 6, 5, KHItems.BEVOR);
         addTradeOffer(trades, 1, 3, 3, 1, KHItems.GREAVES);
         addTradeOffer(trades, 4, 11, 6, 15, KHItems.SABATONS);
         addTradeOffer(trades, 5, 4, 3, 20, KHItems.AVENTAIL);
