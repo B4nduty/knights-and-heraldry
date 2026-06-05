@@ -1,28 +1,30 @@
 {
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
 	"parent": "item/handheld",
 	"textures": {
 		"layer0": "knightsheraldry:item/wardart_3d"
 	},
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [0, -90, 180],
-			"translation": [-0.25, -5.75, -0.75],
+			"rotation": [0, -90, -180],
+			"translation": [-0.25, -5.75, 0.75],
 			"scale": [4, 4, 1]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [0, -90, 180],
-			"translation": [-0.25, -5.75, -0.75],
+			"rotation": [0, -90, -180],
+			"translation": [-0.25, -5.75, 1.75],
 			"scale": [4, 4, 1]
 		},
 		"firstperson_righthand": {
-			"rotation": [-9, -87, 75],
-			"translation": [-2.25, 3.5, -3.25],
-			"scale": [3, 3, 1]
+			"rotation": [0, -88, 25],
+			"translation": [4, 4.2, -3.37],
+			"scale": [2.72, 2.72, 0.68]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-9, -87, 75],
-			"translation": [-2.25, 3.5, -3.25],
-			"scale": [3, 3, 1]
+			"rotation": [0, 88, -25],
+			"translation": [4, 4.2, -3.37],
+			"scale": [2.72, 2.72, 0.68]
 		},
 		"ground": {
 			"rotation": [-180, 0, 0],
@@ -35,8 +37,7 @@
 			"scale": [2, 2, 1]
 		},
 		"fixed": {
-			"rotation": [180, 0, 0],
-			"translation": [0, 0, 0],
+			"rotation": [-180, 0, 0],
 			"scale": [4, 4, 1]
 		}
 	}

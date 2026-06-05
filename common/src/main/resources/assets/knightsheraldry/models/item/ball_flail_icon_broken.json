@@ -1,6 +1,6 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "knightsheraldry:item/ball_flail_icon_broken"
-  }
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "knightsheraldry:item/ball_flail_icon_broken"
+    }
 }

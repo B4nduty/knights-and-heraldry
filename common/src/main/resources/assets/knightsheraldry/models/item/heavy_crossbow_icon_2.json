@@ -1,6 +1,6 @@
 {
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "knightsheraldry:item/heavy_crossbow_icon_2"
-	}
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "knightsheraldry:item/heavy_crossbow_icon_2"
+    }
 }
