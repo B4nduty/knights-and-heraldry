@@ -130,6 +130,9 @@ public interface KHItemGroups {
                     itemStack(KHItems.GAMBESON_BREECHES.get()),
                     itemStack(KHItems.GAMBESON_BOOTS.get()),
 
+                    itemStack(KHItems.ARMING_DOUBLET.get()),
+                    itemStack(KHItems.ARMING_HOSE.get()),
+
                     itemStack(KHItems.MAIL_COIF.get()),
                     itemStack(KHItems.HAUBERK.get()),
                     itemStack(KHItems.MAIL_BREECHES.get()),
@@ -141,6 +144,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.NASAL_HELM.get()),
                     itemStack(KHItems.VIKING_HELM.get()),
                     itemStack(KHItems.BURGONET.get()),
+                    itemStack(KHItems.VISORLESS_SALLET.get()),
 
                     itemStack(KHItems.DARK_BARBUTE.get()),
                     itemStack(KHItems.DARK_BASCINET.get()),
@@ -148,6 +152,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.DARK_NASAL_HELM.get()),
                     itemStack(KHItems.DARK_VIKING_HELM.get()),
                     itemStack(KHItems.DARK_BURGONET.get()),
+                    itemStack(KHItems.DARK_VISORLESS_SALLET.get()),
 
                     itemStack(KHItems.GOLDEN_BARBUTE.get()),
                     itemStack(KHItems.GOLDEN_BASCINET.get()),
@@ -155,6 +160,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.GOLDEN_NASAL_HELM.get()),
                     itemStack(KHItems.GOLDEN_VIKING_HELM.get()),
                     itemStack(KHItems.GOLDEN_BURGONET.get()),
+                    itemStack(KHItems.GOLDEN_VISORLESS_SALLET.get()),
 
                     itemStack(KHItems.ARMET.get()),
                     itemStack(KHItems.ARMET_2.get()),
@@ -167,6 +173,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.SALLET.get()),
                     itemStack(KHItems.BURGONET_FALLING_BUFFE.get()),
                     itemStack(KHItems.CLOSE_HELM.get()),
+                    itemStack(KHItems.BLACK_SALLET.get()),
 
                     itemStack(KHItems.DARK_ARMET.get()),
                     itemStack(KHItems.DARK_ARMET_2.get()),
@@ -179,6 +186,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.DARK_SALLET.get()),
                     itemStack(KHItems.DARK_BURGONET_FALLING_BUFFE.get()),
                     itemStack(KHItems.DARK_CLOSE_HELM.get()),
+                    itemStack(KHItems.DARK_BLACK_SALLET.get()),
 
                     itemStack(KHItems.GOLDEN_ARMET.get()),
                     itemStack(KHItems.GOLDEN_ARMET_2.get()),
@@ -191,6 +199,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.GOLDEN_SALLET.get()),
                     itemStack(KHItems.GOLDEN_BURGONET_FALLING_BUFFE.get()),
                     itemStack(KHItems.GOLDEN_CLOSE_HELM.get()),
+                    itemStack(KHItems.GOLDEN_BLACK_SALLET.get()),
 
                     itemStack(KHItems.SALLET_BEVOR.get()),
                     itemStack(KHItems.DARK_SALLET_BEVOR.get()),
@@ -203,6 +212,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.GREAT_HOUNDSKUL_BASCINET.get()),
                     itemStack(KHItems.MAXIMILLIAN_HELMET.get()),
                     itemStack(KHItems.SAVOYARD.get()),
+                    itemStack(KHItems.ARAGONESE_SALLET.get()),
 
                     itemStack(KHItems.AVENTAIL.get()),
 
@@ -213,6 +223,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.DARK_GREAT_HOUNDSKUL_BASCINET.get()),
                     itemStack(KHItems.DARK_MAXIMILLIAN_HELMET.get()),
                     itemStack(KHItems.DARK_SAVOYARD.get()),
+                    itemStack(KHItems.DARK_ARAGONESE_SALLET.get()),
 
                     itemStack(KHItems.GOLDEN_FROGMOUTH.get()),
                     itemStack(KHItems.GOLDEN_GREAT_ARMET.get()),
@@ -221,42 +232,35 @@ public interface KHItemGroups {
                     itemStack(KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get()),
                     itemStack(KHItems.GOLDEN_MAXIMILLIAN_HELMET.get()),
                     itemStack(KHItems.GOLDEN_SAVOYARD.get()),
+                    itemStack(KHItems.GOLDEN_ARAGONESE_SALLET.get()),
 
                     itemStack(KHItems.CHAPERON.get()),
                     itemStack(KHItems.GILDED_CHAPERON.get()),
 
                     itemStack(KHItems.BRIGANDINE.get()),
-                    itemStack(KHItems.BRIG_BREASTPLATE.get()),
-                    itemStack(KHItems.BRIG_BREASTPLATE_TASSETS.get()),
                     itemStack(KHItems.PLATE_CUIRASS.get()),
-                    itemStack(KHItems.PLATE_CUIRASS_TASSETS.get()),
                     itemStack(KHItems.MAXIMILLIAN_CUIRASS.get()),
-                    itemStack(KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get()),
                     itemStack(KHItems.XIIII_PLATE_CUIRASS.get()),
-                    itemStack(KHItems.XIIII_PLATE_CUIRASS_TASSETS.get()),
                     itemStack(KHItems.XIIII_PLATE_BREASTPLATE.get()),
 
                     itemStack(KHItems.DARK_BRIGANDINE.get()),
-                    itemStack(KHItems.DARK_BRIG_BREASTPLATE.get()),
-                    itemStack(KHItems.DARK_BRIG_BREASTPLATE_TASSETS.get()),
                     itemStack(KHItems.DARK_PLATE_CUIRASS.get()),
-                    itemStack(KHItems.DARK_PLATE_CUIRASS_TASSETS.get()),
                     itemStack(KHItems.DARK_MAXIMILLIAN_CUIRASS.get()),
-                    itemStack(KHItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS.get()),
                     itemStack(KHItems.DARK_XIIII_PLATE_CUIRASS.get()),
-                    itemStack(KHItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get()),
                     itemStack(KHItems.DARK_XIIII_PLATE_BREASTPLATE.get()),
 
                     itemStack(KHItems.GOLDEN_BRIGANDINE.get()),
-                    itemStack(KHItems.GOLDEN_BRIG_BREASTPLATE.get()),
-                    itemStack(KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get()),
                     itemStack(KHItems.GOLDEN_PLATE_CUIRASS.get()),
-                    itemStack(KHItems.GOLDEN_PLATE_CUIRASS_TASSETS.get()),
                     itemStack(KHItems.GOLDEN_MAXIMILLIAN_CUIRASS.get()),
-                    itemStack(KHItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS.get()),
                     itemStack(KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get()),
-                    itemStack(KHItems.GOLDEN_XIIII_PLATE_CUIRASS_TASSETS.get()),
                     itemStack(KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get()),
+
+                    itemStack(KHItems.PLACKART.get()),
+                    itemStack(KHItems.DARK_PLACKART.get()),
+                    itemStack(KHItems.GOLDEN_PLACKART.get()),
+                    itemStack(KHItems.PLACKART_WITH_TASSETS.get()),
+                    itemStack(KHItems.DARK_PLACKART_WITH_TASSETS.get()),
+                    itemStack(KHItems.GOLDEN_PLACKART_WITH_TASSETS.get()),
 
                     itemStack(KHItems.SURCOAT.get()),
                     itemStack(KHItems.SURCOAT_SLEEVELESS.get()),

@@ -24,6 +24,7 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
     }
 
     private static final String VISOR_DOUBLE_EYESLIT = "double_eyeslit";
+    private static final String VISOR_DOUBLE_EYESLIT_WITH_PEEK = "double_eyeslit_with_peek";
     private static final String VISOR_SINGLE_EYESLIT = "single_eyeslit";
     private static final String VISOR_DOUBLE_EYESLIT_BREATHES_RIGHT = "double_eyeslit_breathes_right";
     private static final String VISOR_FOUR_BARS = "four_bars";
@@ -69,14 +70,6 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.DARK_BRIGANDINE, new ArmorStats(2.0, 3.0, 6.6, 0.0, false, "chest"));
         map.put(KHItems.GOLDEN_BRIGANDINE, new ArmorStats(1.0, 3.0, 6.3, 0.0, false, "chest"));
 
-        map.put(KHItems.BRIG_BREASTPLATE, new ArmorStats(1.0, 4.0, 7.5, 0.0, false, "chest"));
-        map.put(KHItems.DARK_BRIG_BREASTPLATE, new ArmorStats(2.0, 4.0, 8.3, 0.0, false, "chest"));
-        map.put(KHItems.GOLDEN_BRIG_BREASTPLATE, new ArmorStats(1.0, 4.0, 7.9, 0.0, false, "chest"));
-
-        map.put(KHItems.BRIG_BREASTPLATE_TASSETS, new ArmorStats(2.0, 4.0, 8.5, 0.0, false, "chest"));
-        map.put(KHItems.DARK_BRIG_BREASTPLATE_TASSETS, new ArmorStats(3.0, 4.0, 9.4, 0.0, false, "chest"));
-        map.put(KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS, new ArmorStats(2.0, 4.0, 8.9, 0.0, false, "chest"));
-
         map.put(KHItems.PLATE_CUIRASS, new ArmorStats(2.0, 3.0, 8.0, 0.15, true, "chest"));
         map.put(KHItems.DARK_PLATE_CUIRASS, new ArmorStats(3.0, 3.0, 8.8, 0.15, true, "chest"));
         map.put(KHItems.GOLDEN_PLATE_CUIRASS, new ArmorStats(2.0, 3.0, 8.4, 0.15, true, "chest"));
@@ -89,21 +82,17 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.DARK_XIIII_PLATE_CUIRASS, new ArmorStats(3.0, 3.0, 8.8, 0.15, true, "chest"));
         map.put(KHItems.GOLDEN_XIIII_PLATE_CUIRASS, new ArmorStats(2.0, 3.0, 8.4, 0.15, true, "chest"));
 
-        map.put(KHItems.PLATE_CUIRASS_TASSETS, new ArmorStats(3.0, 4.0, 11.0, 0.20, true, "chest"));
-        map.put(KHItems.DARK_PLATE_CUIRASS_TASSETS, new ArmorStats(4.0, 4.0, 12.1, 0.20, true, "chest"));
-        map.put(KHItems.GOLDEN_PLATE_CUIRASS_TASSETS, new ArmorStats(3.0, 4.0, 11.6, 0.20, true, "chest"));
-
-        map.put(KHItems.MAXIMILLIAN_CUIRASS_TASSETS, new ArmorStats(3.0, 4.0, 11.0, 0.20, true, "chest"));
-        map.put(KHItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS, new ArmorStats(4.0, 4.0, 12.1, 0.20, true, "chest"));
-        map.put(KHItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS, new ArmorStats(3.0, 4.0, 11.6, 0.20, true, "chest"));
-
-        map.put(KHItems.XIIII_PLATE_CUIRASS_TASSETS, new ArmorStats(3.0, 4.0, 11.0, 0.20, true, "chest"));
-        map.put(KHItems.DARK_XIIII_PLATE_CUIRASS_TASSETS, new ArmorStats(4.0, 4.0, 12.1, 0.20, true, "chest"));
-        map.put(KHItems.GOLDEN_XIIII_PLATE_CUIRASS_TASSETS, new ArmorStats(3.0, 4.0, 11.6, 0.20, true, "chest"));
-
         map.put(KHItems.XIIII_PLATE_BREASTPLATE, new ArmorStats(1.0, 3.0, 7.5, 0.10, true, "chest"));
         map.put(KHItems.DARK_XIIII_PLATE_BREASTPLATE, new ArmorStats(2.0, 3.0, 8.25, 0.10, true, "chest"));
         map.put(KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE, new ArmorStats(1.0, 3.0, 7.9, 0.10, true, "chest"));
+
+        map.put(KHItems.PLACKART, new ArmorStats(0.5, 0.5, 2.0, 0.04, true, "chest"));
+        map.put(KHItems.DARK_PLACKART, new ArmorStats(0.5, 0.5, 2.3, 0.04, true, "chest"));
+        map.put(KHItems.GOLDEN_PLACKART, new ArmorStats(0.5, 0.5, 2.2, 0.04, true, "chest"));
+
+        map.put(KHItems.PLACKART_WITH_TASSETS, new ArmorStats(1.0, 1.0, 3.0, 0.05, true, "chest"));
+        map.put(KHItems.DARK_PLACKART_WITH_TASSETS, new ArmorStats(1.0, 1.0, 3.3, 0.05, true, "chest"));
+        map.put(KHItems.GOLDEN_PLACKART_WITH_TASSETS, new ArmorStats(1.0, 1.0, 3.2, 0.05, true, "chest"));
         return map;
     }
 
@@ -133,6 +122,10 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.VIKING_HELM, new ArmorStats(1.0, 1.0, 2.0, 0.05, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
         map.put(KHItems.DARK_VIKING_HELM, new ArmorStats(2.0, 1.0, 2.2, 0.05, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
         map.put(KHItems.GOLDEN_VIKING_HELM, new ArmorStats(1.0, 1.0, 2.1, 0.05, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+
+        map.put(KHItems.VISORLESS_SALLET, new ArmorStats(1.0, 1.0, 2.0, 0.05, false, "head"));
+        map.put(KHItems.DARK_VISORLESS_SALLET, new ArmorStats(2.0, 1.0, 2.2, 0.05, false, "head"));
+        map.put(KHItems.GOLDEN_VISORLESS_SALLET, new ArmorStats(1.0, 1.0, 2.1, 0.05, false, "head"));
 
         // Second tier helmets
         map.put(KHItems.ARMET, new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
@@ -179,10 +172,14 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.DARK_GREAT_HELM_2, new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
         map.put(KHItems.GOLDEN_GREAT_HELM_2, new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BREATHES_BOTH));
 
+        map.put(KHItems.BLACK_SALLET, new ArmorStats(2.0, 2.0, 3.0, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_WITH_PEEK));
+        map.put(KHItems.DARK_BLACK_SALLET, new ArmorStats(3.0, 2.0, 3.3, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_WITH_PEEK));
+        map.put(KHItems.GOLDEN_BLACK_SALLET, new ArmorStats(2.0, 2.0, 3.2, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_WITH_PEEK));
+
         // Second to Third tier helmets
         map.put(KHItems.SALLET_BEVOR, new ArmorStats(2.5, 2.0, 3.5, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
-        map.put(KHItems.DARK_SALLET_BEVOR, new ArmorStats(2.5, 2.0, 3.5, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
-        map.put(KHItems.GOLDEN_SALLET_BEVOR, new ArmorStats(2.5, 2.0, 3.5, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(KHItems.DARK_SALLET_BEVOR, new ArmorStats(3.5, 2.0, 3.8, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(KHItems.GOLDEN_SALLET_BEVOR, new ArmorStats(2.5, 2.0, 3.7, 0.10, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
 
         // Third tier helmets
         map.put(KHItems.FROGMOUTH, new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_V_SHAPE));
@@ -212,6 +209,10 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.SAVOYARD, new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
         map.put(KHItems.DARK_SAVOYARD, new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
         map.put(KHItems.GOLDEN_SAVOYARD, new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
+
+        map.put(KHItems.ARAGONESE_SALLET, new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(KHItems.DARK_ARAGONESE_SALLET, new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(KHItems.GOLDEN_ARAGONESE_SALLET, new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
 
         return map;
     }

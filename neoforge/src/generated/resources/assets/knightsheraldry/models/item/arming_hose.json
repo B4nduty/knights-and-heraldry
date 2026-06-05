@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "knightsheraldry:item/arming_hose",
+    "layer1": "knightsheraldry:item/arming_hose_overlay"
+  }
+}

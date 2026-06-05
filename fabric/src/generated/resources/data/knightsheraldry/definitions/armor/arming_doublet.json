@@ -1,0 +1,9 @@
+{
+  "damageResistance": {
+    "BLUDGEONING": 0.07,
+    "PIERCING": 0.0,
+    "SLASHING": 0.07
+  },
+  "deflectChance": 0.05,
+  "weight": 7.5
+}

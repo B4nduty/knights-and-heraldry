@@ -37,6 +37,20 @@ public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
                         .build()
         );
 
+        // Arming Set
+        biConsumer.accept(KHItems.ARMING_DOUBLET.get(), Builder.create()
+                .weight(7.5)
+                .damageResistance(0.07, 0.07, 0)
+                .deflectChance(0.05)
+                .build()
+        );
+        biConsumer.accept(KHItems.ARMING_HOSE.get(), Builder.create()
+                .weight(5.0)
+                .damageResistance(0.07, 0.07, 0)
+                .deflectChance(0.03)
+                .build()
+        );
+
         // Mail Set
         biConsumer.accept(KHItems.MAIL_COIF.get(), Builder.create()
                         .weight(2.5)

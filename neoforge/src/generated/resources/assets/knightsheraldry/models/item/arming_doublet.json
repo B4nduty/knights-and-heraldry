@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "knightsheraldry:item/arming_doublet",
+    "layer1": "knightsheraldry:item/arming_doublet_overlay"
+  }
+}

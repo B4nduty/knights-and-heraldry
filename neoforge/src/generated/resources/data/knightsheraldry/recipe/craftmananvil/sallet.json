@@ -1,26 +1,13 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.5,
+  "chance": 0.75,
   "hit_times": 5,
   "ingredients": [
     {
       "count": 1,
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:sallet"
-          }
-        },
         "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
-      "count": 1,
-      "stack": {
-        "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:visorless_sallet"
       }
     },
     {
@@ -32,13 +19,7 @@
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:sallet"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:sallet"
   }
 }

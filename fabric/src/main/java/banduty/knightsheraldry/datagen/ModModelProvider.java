@@ -77,6 +77,8 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerDyeableItems(KHItems.GOLDEN_HORSE_BARDING.get(), itemModelGenerators);
         registerDyeableItems(KHItems.GILDED_CHAPERON.get(), itemModelGenerators);
         registerDyeableItems(KHItems.GAMBESON.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.ARMING_DOUBLET.get(), itemModelGenerators);
+        registerDyeableItems(KHItems.ARMING_HOSE.get(), itemModelGenerators);
         registerDyeableItems(KHItems.WOODEN_LANCE.get(), itemModelGenerators);
 
         registerDyeableItems(KHItems.BRIGANDINE_SPAULDERS.get(), itemModelGenerators);
@@ -89,14 +91,6 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerDyeableItems(KHItems.BRIGANDINE.get(), itemModelGenerators);
         registerDyeableItems(KHItems.DARK_BRIGANDINE.get(), itemModelGenerators);
         registerDyeableItems(KHItems.GOLDEN_BRIGANDINE.get(), itemModelGenerators);
-
-        registerDyeableItems(KHItems.BRIG_BREASTPLATE.get(), itemModelGenerators);
-        registerDyeableItems(KHItems.DARK_BRIG_BREASTPLATE.get(), itemModelGenerators);
-        registerDyeableItems(KHItems.GOLDEN_BRIG_BREASTPLATE.get(), itemModelGenerators);
-
-        registerDyeableItems(KHItems.BRIG_BREASTPLATE_TASSETS.get(), itemModelGenerators);
-        registerDyeableItems(KHItems.DARK_BRIG_BREASTPLATE_TASSETS.get(), itemModelGenerators);
-        registerDyeableItems(KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get(), itemModelGenerators);
     }
 
     private void registerSimpleItems(ItemModelGenerators itemModelGenerators) {
@@ -131,12 +125,12 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 KHItems.GOLDEN_PLATE_SPAULDERS.get(), KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get(),
                 KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(),
                 KHItems.PLATE_CUIRASS.get(), KHItems.GOLDEN_PLATE_CUIRASS.get(), KHItems.DARK_PLATE_CUIRASS.get(),
-                KHItems.PLATE_CUIRASS_TASSETS.get(), KHItems.DARK_PLATE_CUIRASS_TASSETS.get(), KHItems.GOLDEN_PLATE_CUIRASS_TASSETS.get(),
                 KHItems.MAXIMILLIAN_CUIRASS.get(), KHItems.DARK_MAXIMILLIAN_CUIRASS.get(), KHItems.GOLDEN_MAXIMILLIAN_CUIRASS.get(),
-                KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get(), KHItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS.get(), KHItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS.get(),
-                KHItems.XIIII_PLATE_CUIRASS.get(), KHItems.XIIII_PLATE_CUIRASS_TASSETS.get(), KHItems.XIIII_PLATE_BREASTPLATE.get(),
-                KHItems.DARK_XIIII_PLATE_CUIRASS.get(), KHItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get(), KHItems.DARK_XIIII_PLATE_BREASTPLATE.get(),
-                KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get(), KHItems.GOLDEN_XIIII_PLATE_CUIRASS_TASSETS.get(), KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get(),
+                KHItems.XIIII_PLATE_CUIRASS.get(), KHItems.XIIII_PLATE_BREASTPLATE.get(),
+                KHItems.PLACKART.get(), KHItems.DARK_PLACKART.get(), KHItems.GOLDEN_PLACKART.get(),
+                KHItems.PLACKART_WITH_TASSETS.get(), KHItems.DARK_PLACKART_WITH_TASSETS.get(), KHItems.GOLDEN_PLACKART_WITH_TASSETS.get(),
+                KHItems.DARK_XIIII_PLATE_CUIRASS.get(), KHItems.DARK_XIIII_PLATE_BREASTPLATE.get(),
+                KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get(), KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get(),
                 KHItems.GREAVES.get(), KHItems.DARK_GREAVES.get(), KHItems.GOLDEN_GREAVES.get(),
                 KHItems.SABATONS.get(), KHItems.DARK_SABATONS.get(), KHItems.GOLDEN_SABATONS.get(),
                 KHItems.BARBUTE.get(), KHItems.DARK_BARBUTE.get(), KHItems.GOLDEN_BARBUTE.get(),
@@ -145,6 +139,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 KHItems.NASAL_HELM.get(), KHItems.DARK_NASAL_HELM.get(), KHItems.GOLDEN_NASAL_HELM.get(),
                 KHItems.VIKING_HELM.get(), KHItems.DARK_VIKING_HELM.get(), KHItems.GOLDEN_VIKING_HELM.get(),
                 KHItems.BURGONET.get(), KHItems.DARK_BURGONET.get(), KHItems.GOLDEN_BURGONET.get(),
+                KHItems.VISORLESS_SALLET.get(), KHItems.DARK_VISORLESS_SALLET.get(), KHItems.GOLDEN_VISORLESS_SALLET.get(),
                 KHItems.FROGMOUTH.get(), KHItems.DARK_FROGMOUTH.get(), KHItems.GOLDEN_FROGMOUTH.get(),
                 KHItems.GAUNTLET.get(), KHItems.DARK_GAUNTLET.get(), KHItems.GOLDEN_GAUNTLET.get(),
                 KHItems.PLATE_HARNESS.get(), KHItems.DARK_PLATE_HARNESS.get(), KHItems.GOLDEN_PLATE_HARNESS.get(),
@@ -169,6 +164,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 KHItems.GREAT_HOUNDSKUL_BASCINET.get(), KHItems.DARK_GREAT_HOUNDSKUL_BASCINET.get(), KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get(),
                 KHItems.MAXIMILLIAN_HELMET.get(), KHItems.DARK_MAXIMILLIAN_HELMET.get(), KHItems.GOLDEN_MAXIMILLIAN_HELMET.get(),
                 KHItems.SAVOYARD.get(), KHItems.DARK_SAVOYARD.get(), KHItems.GOLDEN_SAVOYARD.get(),
+                KHItems.ARAGONESE_SALLET.get(), KHItems.DARK_ARAGONESE_SALLET.get(), KHItems.GOLDEN_ARAGONESE_SALLET.get(),
 
                 KHItems.SALLET_BEVOR.get() ,KHItems.DARK_SALLET_BEVOR.get(), KHItems.GOLDEN_SALLET_BEVOR.get()
         };
@@ -244,6 +240,9 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 Map.entry(KHItems.GAMBESON_BREECHES.get(), Manuscript.Types.BREECHES),
                 Map.entry(KHItems.GAMBESON_BOOTS.get(), Manuscript.Types.BOOTS),
 
+                Map.entry(KHItems.ARMING_DOUBLET.get(), Manuscript.Types.COAT),
+                Map.entry(KHItems.ARMING_HOSE.get(), Manuscript.Types.BREECHES),
+
                 Map.entry(KHItems.MAIL_COIF.get(), Manuscript.Types.COIF),
                 Map.entry(KHItems.HAUBERK.get(), Manuscript.Types.COAT),
                 Map.entry(KHItems.MAIL_BREECHES.get(), Manuscript.Types.BREECHES),
@@ -255,16 +254,13 @@ public class ModModelProvider extends FabricModelProviderPlus {
 
                 Map.entry(KHItems.BRIGANDINE.get(), Manuscript.Types.BREASTPLATE),
 
-                Map.entry(KHItems.BRIG_BREASTPLATE.get(), Manuscript.Types.BREASTPLATE),
-                Map.entry(KHItems.BRIG_BREASTPLATE_TASSETS.get(), Manuscript.Types.BREASTPLATE),
-
                 Map.entry(KHItems.PLATE_CUIRASS.get(), Manuscript.Types.BREASTPLATE),
-                Map.entry(KHItems.PLATE_CUIRASS_TASSETS.get(), Manuscript.Types.BREASTPLATE),
                 Map.entry(KHItems.MAXIMILLIAN_CUIRASS.get(), Manuscript.Types.BREASTPLATE),
-                Map.entry(KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get(), Manuscript.Types.BREASTPLATE),
                 Map.entry(KHItems.XIIII_PLATE_CUIRASS.get(), Manuscript.Types.BREASTPLATE),
-                Map.entry(KHItems.XIIII_PLATE_CUIRASS_TASSETS.get(), Manuscript.Types.BREASTPLATE),
                 Map.entry(KHItems.XIIII_PLATE_BREASTPLATE.get(), Manuscript.Types.BREASTPLATE),
+
+                Map.entry(KHItems.PLACKART.get(), Manuscript.Types.BREASTPLATE),
+                Map.entry(KHItems.PLACKART_WITH_TASSETS.get(), Manuscript.Types.BREASTPLATE),
 
                 Map.entry(KHItems.RIM_GUARDS.get(), Manuscript.Types.RIM_GUARDS),
                 Map.entry(KHItems.BESAGEWS.get(), Manuscript.Types.BESAGEWS),
@@ -275,6 +271,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 Map.entry(KHItems.NASAL_HELM.get(), Manuscript.Types.HELMET),
                 Map.entry(KHItems.VIKING_HELM.get(), Manuscript.Types.HELMET),
                 Map.entry(KHItems.BURGONET.get(), Manuscript.Types.HELMET),
+                Map.entry(KHItems.VISORLESS_SALLET.get(), Manuscript.Types.HELMET),
 
                 Map.entry(KHItems.ARMET.get(), Manuscript.Types.HELMET),
                 Map.entry(KHItems.ARMET_2.get(), Manuscript.Types.HELMET),
@@ -283,7 +280,6 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 Map.entry(KHItems.CAGE.get(), Manuscript.Types.HELMET),
                 Map.entry(KHItems.VISORED_BASCINET.get(), Manuscript.Types.HELMET),
                 Map.entry(KHItems.GREAT_HELM.get(), Manuscript.Types.HELMET),
-                Map.entry(KHItems.SALLET.get(), Manuscript.Types.HELMET),
                 Map.entry(KHItems.BURGONET_FALLING_BUFFE.get(), Manuscript.Types.HELMET),
                 Map.entry(KHItems.CLOSE_HELM.get(), Manuscript.Types.HELMET),
 

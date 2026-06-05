@@ -1,0 +1,25 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.25,
+  "hit_times": 10,
+  "ingredients": [
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:sallet_bevor"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:hot_iron"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:aragonese_sallet"
+  }
+}

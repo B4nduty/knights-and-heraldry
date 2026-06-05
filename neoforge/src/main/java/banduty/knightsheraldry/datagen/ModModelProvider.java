@@ -68,9 +68,10 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.BRIGANDINE_CUISSES.get(), KHItems.DARK_BRIGANDINE_CUISSES.get(), KHItems.GOLDEN_BRIGANDINE_CUISSES.get(),
                 KHItems.JESTER_HOOD.get(), KHItems.HORSE_BARDING.get(), KHItems.DARK_HORSE_BARDING.get(),
                 KHItems.GOLDEN_HORSE_BARDING.get(), KHItems.GILDED_CHAPERON.get(), KHItems.GAMBESON.get(),
-                KHItems.WOODEN_LANCE.get(), KHItems.BRIGANDINE.get(), KHItems.BRIG_BREASTPLATE.get(), KHItems.BRIG_BREASTPLATE_TASSETS.get(),
-                KHItems.DARK_BRIGANDINE.get(), KHItems.DARK_BRIG_BREASTPLATE.get(), KHItems.DARK_BRIG_BREASTPLATE_TASSETS.get(),
-                KHItems.GOLDEN_BRIGANDINE.get(), KHItems.GOLDEN_BRIG_BREASTPLATE.get(), KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get(),
+                KHItems.ARMING_DOUBLET.get(), KHItems.ARMING_HOSE.get(),
+                KHItems.WOODEN_LANCE.get(), KHItems.BRIGANDINE.get(),
+                KHItems.DARK_BRIGANDINE.get(),
+                KHItems.GOLDEN_BRIGANDINE.get(),
                 KHItems.BRIGANDINE_SPAULDERS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(),
                 KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get()
         };
@@ -145,6 +146,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.GREAT_HOUNDSKUL_BASCINET.get(), KHItems.DARK_GREAT_HOUNDSKUL_BASCINET.get(), KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get(),
                 KHItems.MAXIMILLIAN_HELMET.get(), KHItems.DARK_MAXIMILLIAN_HELMET.get(), KHItems.GOLDEN_MAXIMILLIAN_HELMET.get(),
                 KHItems.SAVOYARD.get(), KHItems.DARK_SAVOYARD.get(), KHItems.GOLDEN_SAVOYARD.get(),
+                KHItems.ARAGONESE_SALLET.get(), KHItems.DARK_ARAGONESE_SALLET.get(), KHItems.GOLDEN_ARAGONESE_SALLET.get(),
                 KHItems.SALLET_BEVOR.get(), KHItems.DARK_SALLET_BEVOR.get(), KHItems.GOLDEN_SALLET_BEVOR.get(),
         };
         for (Item item : openVisorHelmets)
@@ -158,12 +160,12 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.GOLDEN_PLATE_SPAULDERS.get(), KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get(),
                 KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(),
                 KHItems.PLATE_CUIRASS.get(), KHItems.GOLDEN_PLATE_CUIRASS.get(), KHItems.DARK_PLATE_CUIRASS.get(),
-                KHItems.PLATE_CUIRASS_TASSETS.get(), KHItems.DARK_PLATE_CUIRASS_TASSETS.get(), KHItems.GOLDEN_PLATE_CUIRASS_TASSETS.get(),
                 KHItems.MAXIMILLIAN_CUIRASS.get(), KHItems.DARK_MAXIMILLIAN_CUIRASS.get(), KHItems.GOLDEN_MAXIMILLIAN_CUIRASS.get(),
-                KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get(), KHItems.DARK_MAXIMILLIAN_CUIRASS_TASSETS.get(), KHItems.GOLDEN_MAXIMILLIAN_CUIRASS_TASSETS.get(),
-                KHItems.XIIII_PLATE_CUIRASS.get(), KHItems.XIIII_PLATE_CUIRASS_TASSETS.get(), KHItems.XIIII_PLATE_BREASTPLATE.get(),
-                KHItems.DARK_XIIII_PLATE_CUIRASS.get(), KHItems.DARK_XIIII_PLATE_CUIRASS_TASSETS.get(), KHItems.DARK_XIIII_PLATE_BREASTPLATE.get(),
-                KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get(), KHItems.GOLDEN_XIIII_PLATE_CUIRASS_TASSETS.get(), KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get(),
+                KHItems.XIIII_PLATE_CUIRASS.get(), KHItems.XIIII_PLATE_BREASTPLATE.get(),
+                KHItems.PLACKART.get(), KHItems.DARK_PLACKART.get(), KHItems.GOLDEN_PLACKART.get(),
+                KHItems.PLACKART_WITH_TASSETS.get(), KHItems.DARK_PLACKART_WITH_TASSETS.get(), KHItems.GOLDEN_PLACKART_WITH_TASSETS.get(),
+                KHItems.DARK_XIIII_PLATE_CUIRASS.get(), KHItems.DARK_XIIII_PLATE_BREASTPLATE.get(),
+                KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get(), KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get(),
                 KHItems.GREAVES.get(), KHItems.DARK_GREAVES.get(), KHItems.GOLDEN_GREAVES.get(),
                 KHItems.SABATONS.get(), KHItems.DARK_SABATONS.get(), KHItems.GOLDEN_SABATONS.get(),
                 KHItems.BARBUTE.get(), KHItems.DARK_BARBUTE.get(), KHItems.GOLDEN_BARBUTE.get(),
@@ -172,13 +174,12 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.NASAL_HELM.get(), KHItems.DARK_NASAL_HELM.get(), KHItems.GOLDEN_NASAL_HELM.get(),
                 KHItems.VIKING_HELM.get(), KHItems.DARK_VIKING_HELM.get(), KHItems.GOLDEN_VIKING_HELM.get(),
                 KHItems.BURGONET.get(), KHItems.DARK_BURGONET.get(), KHItems.GOLDEN_BURGONET.get(),
+                KHItems.VISORLESS_SALLET.get(), KHItems.DARK_VISORLESS_SALLET.get(), KHItems.GOLDEN_VISORLESS_SALLET.get(),
                 KHItems.FROGMOUTH.get(), KHItems.DARK_FROGMOUTH.get(), KHItems.GOLDEN_FROGMOUTH.get(),
                 KHItems.GAUNTLET.get(), KHItems.DARK_GAUNTLET.get(), KHItems.GOLDEN_GAUNTLET.get(),
                 KHItems.PLATE_HARNESS.get(), KHItems.DARK_PLATE_HARNESS.get(), KHItems.GOLDEN_PLATE_HARNESS.get(),
                 KHItems.PLATE_CUISSES.get(), KHItems.DARK_PLATE_CUISSES.get(), KHItems.GOLDEN_PLATE_CUISSES.get(),
                 KHItems.BRIGANDINE.get(), KHItems.DARK_BRIGANDINE.get(), KHItems.GOLDEN_BRIGANDINE.get(),
-                KHItems.BRIG_BREASTPLATE.get(), KHItems.DARK_BRIG_BREASTPLATE.get(), KHItems.GOLDEN_BRIG_BREASTPLATE.get(),
-                KHItems.BRIG_BREASTPLATE_TASSETS.get(), KHItems.DARK_BRIG_BREASTPLATE_TASSETS.get(), KHItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get(),
                 KHItems.GREAT_HELM.get(), KHItems.DARK_GREAT_HELM.get(), KHItems.GOLDEN_GREAT_HELM.get(),
                 KHItems.GREAT_HELM_2.get(), KHItems.DARK_GREAT_HELM_2.get(), KHItems.GOLDEN_GREAT_HELM_2.get()
         };
@@ -230,6 +231,8 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
         itemTypesMap.put(KHItems.GAMBESON.get(), Manuscript.Types.COAT);
         itemTypesMap.put(KHItems.GAMBESON_BREECHES.get(), Manuscript.Types.BREECHES);
         itemTypesMap.put(KHItems.GAMBESON_BOOTS.get(), Manuscript.Types.BOOTS);
+        itemTypesMap.put(KHItems.ARMING_DOUBLET.get(), Manuscript.Types.COAT);
+        itemTypesMap.put(KHItems.ARMING_HOSE.get(), Manuscript.Types.BREECHES);
         itemTypesMap.put(KHItems.MAIL_COIF.get(), Manuscript.Types.COIF);
         itemTypesMap.put(KHItems.HAUBERK.get(), Manuscript.Types.COAT);
         itemTypesMap.put(KHItems.MAIL_BREECHES.get(), Manuscript.Types.BREECHES);
@@ -238,15 +241,12 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
         itemTypesMap.put(KHItems.BRIGANDINE_SPAULDERS.get(), Manuscript.Types.SPAULDERS);
         itemTypesMap.put(KHItems.PLATE_SPAULDERS.get(), Manuscript.Types.SPAULDERS);
         itemTypesMap.put(KHItems.BRIGANDINE.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.BRIG_BREASTPLATE.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.BRIG_BREASTPLATE_TASSETS.get(), Manuscript.Types.BREASTPLATE);
         itemTypesMap.put(KHItems.PLATE_CUIRASS.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.PLATE_CUIRASS_TASSETS.get(), Manuscript.Types.BREASTPLATE);
         itemTypesMap.put(KHItems.MAXIMILLIAN_CUIRASS.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.MAXIMILLIAN_CUIRASS_TASSETS.get(), Manuscript.Types.BREASTPLATE);
         itemTypesMap.put(KHItems.XIIII_PLATE_CUIRASS.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.XIIII_PLATE_CUIRASS_TASSETS.get(), Manuscript.Types.BREASTPLATE);
         itemTypesMap.put(KHItems.XIIII_PLATE_BREASTPLATE.get(), Manuscript.Types.BREASTPLATE);
+        itemTypesMap.put(KHItems.PLACKART.get(), Manuscript.Types.BREASTPLATE);
+        itemTypesMap.put(KHItems.PLACKART_WITH_TASSETS.get(), Manuscript.Types.BREASTPLATE);
         itemTypesMap.put(KHItems.RIM_GUARDS.get(), Manuscript.Types.RIM_GUARDS);
         itemTypesMap.put(KHItems.BESAGEWS.get(), Manuscript.Types.BESAGEWS);
         itemTypesMap.put(KHItems.BARBUTE.get(), Manuscript.Types.HELMET);
@@ -255,6 +255,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
         itemTypesMap.put(KHItems.NASAL_HELM.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.VIKING_HELM.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.BURGONET.get(), Manuscript.Types.HELMET);
+        itemTypesMap.put(KHItems.VISORLESS_SALLET.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.ARMET.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.ARMET_2.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.VISORED_BARBUTE.get(), Manuscript.Types.HELMET);
@@ -262,7 +263,6 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
         itemTypesMap.put(KHItems.CAGE.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.VISORED_BASCINET.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.GREAT_HELM.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.SALLET.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.BURGONET_FALLING_BUFFE.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.CLOSE_HELM.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.FROGMOUTH.get(), Manuscript.Types.HELMET);
