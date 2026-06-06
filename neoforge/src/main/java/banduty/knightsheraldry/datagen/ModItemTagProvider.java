@@ -105,9 +105,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get()
                 );
 
-        tag(SCTags.BYPASS_MELEE_USE.getTag())
-                .add(KHItems.WARDART.get());
-
         tag(ItemTags.DYEABLE)
                 .add(KHItems.WOODEN_LANCE.get(), KHItems.QUILTED_COIF.get(), KHItems.GAMBESON.get(), KHItems.GAMBESON_BREECHES.get(),
                         KHItems.GAMBESON_BOOTS.get(), KHItems.ARMING_DOUBLET.get(), KHItems.ARMING_HOSE.get(),
