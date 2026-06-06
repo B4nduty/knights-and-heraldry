@@ -17,22 +17,23 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.function.Supplier;
 
-public interface ModArmorMaterials {
-    Holder<ArmorMaterial> GAMBESON = register("gambeson", Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+public final class ModArmorMaterials {
+    private ModArmorMaterials() {}
+    public static final Holder<ArmorMaterial> GAMBESON = register("gambeson", Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 1);
         map.put(ArmorItem.Type.LEGGINGS, 2);
         map.put(ArmorItem.Type.CHESTPLATE, 4);
         map.put(ArmorItem.Type.HELMET, 1);
     }), 15, SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f, () -> Ingredient.of(Items.LEATHER));
 
-    Holder<ArmorMaterial> ARMING = register("arming", Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+    public static final Holder<ArmorMaterial> ARMING = register("arming", Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 1);
         map.put(ArmorItem.Type.LEGGINGS, 3);
         map.put(ArmorItem.Type.CHESTPLATE, 5);
         map.put(ArmorItem.Type.HELMET, 1);
     }), 15, SoundEvents.ARMOR_EQUIP_LEATHER, 0f, 0f, () -> Ingredient.of(Items.LEATHER));
 
-    Holder<ArmorMaterial> MAIL = register("mail", Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+    public static final Holder<ArmorMaterial> MAIL = register("mail", Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 2);
         map.put(ArmorItem.Type.LEGGINGS, 5);
         map.put(ArmorItem.Type.CHESTPLATE, 6);
@@ -43,5 +44,9 @@ public interface ModArmorMaterials {
         List<ArmorMaterial.Layer> layers = List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, name)));
         ArmorMaterial material = new ArmorMaterial(defense, enchantmentValue, equipSound, repairIngredient, layers, toughness, knockbackResistance);
         return Services.PLATFORM.registerHolder(Registries.ARMOR_MATERIAL, name, () -> material);
+    }
+
+    public static void init() {
+        KnightsHeraldry.LOG.info("Registering Mod Armor Materials for " + KnightsHeraldry.MOD_ID);
     }
 }
