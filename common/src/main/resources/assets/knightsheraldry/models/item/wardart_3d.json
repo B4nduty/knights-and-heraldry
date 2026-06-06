@@ -6,7 +6,7 @@
   "overrides": [
     {
       "predicate": {
-        "throwing": 1
+        "knightsheraldry:throwing": 1
       },
       "model": "knightsheraldry:item/wardart_3d_charged"
     },
@@ -19,7 +19,7 @@
     {
       "predicate": {
         "stoneycore:broken": 1,
-        "throwing": 1
+        "knightsheraldry:throwing": 1
       },
       "model": "knightsheraldry:item/wardart_3d_broken_charged"
     }

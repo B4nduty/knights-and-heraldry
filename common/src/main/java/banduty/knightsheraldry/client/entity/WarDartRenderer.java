@@ -3,6 +3,7 @@ package banduty.knightsheraldry.client.entity;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.entity.custom.WarDartEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -11,17 +12,16 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.item.ItemDisplayContext;
 
 public class WarDartRenderer extends EntityRenderer<WarDartEntity> {
-    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/item/wardart_3d.png");
-    private final ItemRenderer itemRenderer;
-    private final float scale;
+    private final WarDartModel model;
+    public static final ResourceLocation TEXTURE =
+            ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
+                    "textures/entity/wardart/wardart.png");
 
     public WarDartRenderer(EntityRendererProvider.Context ctx, float scale) {
         super(ctx);
-        this.itemRenderer = ctx.getItemRenderer();
-        this.scale = scale;
+        this.model = new WarDartModel(ctx.bakeLayer(WarDartModel.LAYER_LOCATION));
     }
 
     public WarDartRenderer(EntityRendererProvider.Context context) {
@@ -30,10 +30,10 @@ public class WarDartRenderer extends EntityRenderer<WarDartEntity> {
 
     public void render(WarDartEntity warDartEntity, float yaw, float tickDelta, PoseStack poseStack, MultiBufferSource multiBufferSource, int light) {
         poseStack.pushPose();
-        poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(tickDelta, warDartEntity.yRotO, warDartEntity.getYRot()) - 115.0F));
-        poseStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(tickDelta, warDartEntity.xRotO, warDartEntity.getXRot()) - 90.0F));
-        poseStack.translate(0, -1, 0);
-        this.itemRenderer.renderStatic(warDartEntity.getStack(), ItemDisplayContext.FIRST_PERSON_LEFT_HAND, light, OverlayTexture.NO_OVERLAY, poseStack, multiBufferSource, warDartEntity.level(), warDartEntity.getId());
+        poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(tickDelta, warDartEntity.yRotO, warDartEntity.getYRot()) - 90.0F));
+        poseStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(tickDelta, warDartEntity.xRotO, warDartEntity.getXRot()) + 90.0F));
+        VertexConsumer vertexconsumer = ItemRenderer.getFoilBufferDirect(multiBufferSource, this.model.renderType(this.getTextureLocation(warDartEntity)), false, warDartEntity.isFoil());
+        this.model.renderToBuffer(poseStack, vertexconsumer, light, OverlayTexture.NO_OVERLAY);
         poseStack.popPose();
         super.render(warDartEntity, yaw, tickDelta, poseStack, multiBufferSource, light);
     }
