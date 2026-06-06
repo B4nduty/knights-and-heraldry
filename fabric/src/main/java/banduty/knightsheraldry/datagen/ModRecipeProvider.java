@@ -426,8 +426,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void createCraftmanAnvilRecipe(RecipeOutput exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, String path, Object... requiress) {
-        ItemStack resultStack = new ItemStack(output);
-        if (outputHotIron) resultStack = HotIron.createForStack(resultStack);
+        ItemStack rawOutputStack = new ItemStack(output);
+
+        ItemStack resultStack = rawOutputStack;
+        if (outputHotIron) resultStack = HotIron.createForStack(rawOutputStack);
 
         CraftmanAnvilRecipeJsonBuilder builder = CraftmanAnvilRecipeJsonBuilder.create(resultStack)
                 .hitTimes(hitTime)
@@ -435,7 +437,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         if (createManuscript) {
             createManuscriptRecipe(exporter, output);
-            builder.requires(Manuscript.createForStack(new ItemStack(output)));
+            ItemStack manuscriptTarget = new ItemStack(output);
+            builder.requires(Manuscript.createForStack(manuscriptTarget));
         }
 
         for (Object requires : requiress) {

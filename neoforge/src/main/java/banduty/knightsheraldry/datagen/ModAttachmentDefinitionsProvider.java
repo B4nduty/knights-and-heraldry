@@ -209,9 +209,9 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.DARK_SAVOYARD.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
         map.put(KHItems.GOLDEN_SAVOYARD.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
 
-        map.put(KHItems.ARAGONESE_SALLET.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(KHItems.DARK_ARAGONESE_SALLET.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
-        map.put(KHItems.GOLDEN_ARAGONESE_SALLET.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(KHItems.ARAGONESE_SALLET.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(KHItems.DARK_ARAGONESE_SALLET.get(), new ArmorStats(4.0, 3.0, 4.4, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(KHItems.GOLDEN_ARAGONESE_SALLET.get(), new ArmorStats(3.0, 3.0, 4.2, 0.15, true, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
 
         return map;
     }

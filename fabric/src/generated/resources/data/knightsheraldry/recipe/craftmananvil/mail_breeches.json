@@ -8,6 +8,19 @@
       "stack": {
         "components": {
           "stoneycore:target_stack": {
+            "components": {
+              "minecraft:attribute_modifiers": {
+                "modifiers": [
+                  {
+                    "type": "minecraft:generic.armor",
+                    "amount": 5.0,
+                    "id": "minecraft:generic.armor.legs",
+                    "operation": "add_value",
+                    "slot": "legs"
+                  }
+                ]
+              }
+            },
             "count": 1,
             "id": "knightsheraldry:mail_breeches"
           }
@@ -34,6 +47,19 @@
   "result": {
     "components": {
       "stoneycore:target_stack": {
+        "components": {
+          "minecraft:attribute_modifiers": {
+            "modifiers": [
+              {
+                "type": "minecraft:generic.armor",
+                "amount": 5.0,
+                "id": "minecraft:generic.armor.legs",
+                "operation": "add_value",
+                "slot": "legs"
+              }
+            ]
+          }
+        },
         "count": 1,
         "id": "knightsheraldry:mail_breeches"
       }

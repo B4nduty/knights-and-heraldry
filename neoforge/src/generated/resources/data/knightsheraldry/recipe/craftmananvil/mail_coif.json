@@ -8,6 +8,19 @@
       "stack": {
         "components": {
           "stoneycore:target_stack": {
+            "components": {
+              "minecraft:attribute_modifiers": {
+                "modifiers": [
+                  {
+                    "type": "minecraft:generic.armor",
+                    "amount": 2.0,
+                    "id": "minecraft:generic.armor.head",
+                    "operation": "add_value",
+                    "slot": "head"
+                  }
+                ]
+              }
+            },
             "count": 1,
             "id": "knightsheraldry:mail_coif"
           }
@@ -34,6 +47,19 @@
   "result": {
     "components": {
       "stoneycore:target_stack": {
+        "components": {
+          "minecraft:attribute_modifiers": {
+            "modifiers": [
+              {
+                "type": "minecraft:generic.armor",
+                "amount": 2.0,
+                "id": "minecraft:generic.armor.head",
+                "operation": "add_value",
+                "slot": "head"
+              }
+            ]
+          }
+        },
         "count": 1,
         "id": "knightsheraldry:mail_coif"
       }
