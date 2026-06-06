@@ -163,7 +163,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.MAXIMILLIAN_CUIRASS.get(), KHItems.DARK_MAXIMILLIAN_CUIRASS.get(), KHItems.GOLDEN_MAXIMILLIAN_CUIRASS.get(),
                 KHItems.XIIII_PLATE_CUIRASS.get(), KHItems.XIIII_PLATE_BREASTPLATE.get(),
                 KHItems.PLACKART.get(), KHItems.DARK_PLACKART.get(), KHItems.GOLDEN_PLACKART.get(),
-                KHItems.PLACKART_WITH_TASSETS.get(), KHItems.DARK_PLACKART_WITH_TASSETS.get(), KHItems.GOLDEN_PLACKART_WITH_TASSETS.get(),
+                KHItems.TASSETS.get(), KHItems.DARK_TASSETS.get(), KHItems.GOLDEN_TASSETS.get(),
                 KHItems.DARK_XIIII_PLATE_CUIRASS.get(), KHItems.DARK_XIIII_PLATE_BREASTPLATE.get(),
                 KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get(), KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get(),
                 KHItems.GREAVES.get(), KHItems.DARK_GREAVES.get(), KHItems.GOLDEN_GREAVES.get(),
@@ -246,7 +246,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
         itemTypesMap.put(KHItems.XIIII_PLATE_CUIRASS.get(), Manuscript.Types.BREASTPLATE);
         itemTypesMap.put(KHItems.XIIII_PLATE_BREASTPLATE.get(), Manuscript.Types.BREASTPLATE);
         itemTypesMap.put(KHItems.PLACKART.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.PLACKART_WITH_TASSETS.get(), Manuscript.Types.BREASTPLATE);
+        itemTypesMap.put(KHItems.TASSETS.get(), Manuscript.Types.BREASTPLATE);
         itemTypesMap.put(KHItems.RIM_GUARDS.get(), Manuscript.Types.RIM_GUARDS);
         itemTypesMap.put(KHItems.BESAGEWS.get(), Manuscript.Types.BESAGEWS);
         itemTypesMap.put(KHItems.BARBUTE.get(), Manuscript.Types.HELMET);

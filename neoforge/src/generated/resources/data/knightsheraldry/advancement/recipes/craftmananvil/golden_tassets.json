@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "knightsheraldry:craftmananvil/golden_plackart_with_tassets"
+        "recipe": "knightsheraldry:craftmananvil/golden_tassets"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "knightsheraldry:craftmananvil/golden_plackart_with_tassets"
+      "knightsheraldry:craftmananvil/golden_tassets"
     ]
   }
 }

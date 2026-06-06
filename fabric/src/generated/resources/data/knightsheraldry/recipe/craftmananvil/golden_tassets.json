@@ -7,7 +7,7 @@
       "count": 1,
       "stack": {
         "count": 1,
-        "id": "knightsheraldry:plackart_with_tassets"
+        "id": "knightsheraldry:tassets"
       }
     },
     {
@@ -48,6 +48,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "knightsheraldry:golden_plackart_with_tassets"
+    "id": "knightsheraldry:golden_tassets"
   }
 }

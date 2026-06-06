@@ -89,7 +89,7 @@ public abstract class ModelBakeryMixin {
                 KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(), KHItems.WARDART.get(), KHItems.QUILTED_COIF.get(), KHItems.GAMBESON.get(),
                 KHItems.GAMBESON_BREECHES.get(), KHItems.GAMBESON_BOOTS.get(), KHItems.MAIL_COIF.get(), KHItems.HAUBERK.get(), KHItems.MAIL_BREECHES.get(),
                 KHItems.MAIL_BOOTS.get(), KHItems.MAIL_SPAULDERS.get(), KHItems.BRIGANDINE_SPAULDERS.get(), KHItems.PLATE_SPAULDERS.get(), KHItems.BRIGANDINE.get(),
-                KHItems.PLATE_CUIRASS.get(), KHItems.MAXIMILLIAN_CUIRASS.get(), KHItems.XIIII_PLATE_CUIRASS.get(), KHItems.PLACKART.get(),
+                KHItems.PLATE_CUIRASS.get(), KHItems.MAXIMILLIAN_CUIRASS.get(), KHItems.XIIII_PLATE_CUIRASS.get(), KHItems.PLACKART.get(), KHItems.TASSETS.get(),
                 KHItems.XIIII_PLATE_BREASTPLATE.get(), KHItems.BARBUTE.get(), KHItems.BASCINET.get(), KHItems.KETTLE_HELM.get(), KHItems.NASAL_HELM.get(),
                 KHItems.VIKING_HELM.get(), KHItems.BURGONET.get(), KHItems.VISORLESS_SALLET.get(), KHItems.ARMET.get(), KHItems.ARMET_2.get(), KHItems.VISORED_BARBUTE.get(), KHItems.HOUNDSKULL.get(),
                 KHItems.CAGE.get(), KHItems.VISORED_BASCINET.get(), KHItems.GREAT_HELM.get(), KHItems.BURGONET_FALLING_BUFFE.get(),

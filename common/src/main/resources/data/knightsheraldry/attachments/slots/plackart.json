@@ -4,10 +4,7 @@
   "items": [
     "knightsheraldry:plackart",
     "knightsheraldry:dark_plackart",
-    "knightsheraldry:golden_plackart",
-    "knightsheraldry:plackart_with_tassets",
-    "knightsheraldry:dark_plackart_with_tassets",
-    "knightsheraldry:golden_plackart_with_tassets"
+    "knightsheraldry:golden_plackart"
   ],
   "icon": "knightsheraldry:container/icon/plackart",
   "required_slot": "breastplate"

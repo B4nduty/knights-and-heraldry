@@ -258,9 +258,9 @@ public interface KHItemGroups {
                     itemStack(KHItems.PLACKART.get()),
                     itemStack(KHItems.DARK_PLACKART.get()),
                     itemStack(KHItems.GOLDEN_PLACKART.get()),
-                    itemStack(KHItems.PLACKART_WITH_TASSETS.get()),
-                    itemStack(KHItems.DARK_PLACKART_WITH_TASSETS.get()),
-                    itemStack(KHItems.GOLDEN_PLACKART_WITH_TASSETS.get()),
+                    itemStack(KHItems.TASSETS.get()),
+                    itemStack(KHItems.DARK_TASSETS.get()),
+                    itemStack(KHItems.GOLDEN_TASSETS.get()),
 
                     itemStack(KHItems.SURCOAT.get()),
                     itemStack(KHItems.SURCOAT_SLEEVELESS.get()),

@@ -56,7 +56,6 @@ public class ChestLootTableModifier {
                 KHItems.WARDART,
                 KHItems.XIIII_PLATE_CUIRASS,
                 KHItems.XIIII_PLATE_BREASTPLATE,
-                KHItems.PLACKART,
                 KHItems.FROGMOUTH,
                 KHItems.GREAT_ARMET
         );
@@ -79,7 +78,8 @@ public class ChestLootTableModifier {
                 KHItems.HALBERD,
                 KHItems.LANCE,
                 KHItems.ARMET,
-                KHItems.VISORED_BARBUTE
+                KHItems.VISORED_BARBUTE,
+                KHItems.TASSETS
         );
     }
 

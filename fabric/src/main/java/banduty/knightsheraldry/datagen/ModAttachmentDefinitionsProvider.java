@@ -90,9 +90,9 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.DARK_PLACKART, new ArmorStats(0.5, 0.5, 2.3, 0.04, true, "chest"));
         map.put(KHItems.GOLDEN_PLACKART, new ArmorStats(0.5, 0.5, 2.2, 0.04, true, "chest"));
 
-        map.put(KHItems.PLACKART_WITH_TASSETS, new ArmorStats(1.0, 1.0, 3.0, 0.05, true, "chest"));
-        map.put(KHItems.DARK_PLACKART_WITH_TASSETS, new ArmorStats(1.0, 1.0, 3.3, 0.05, true, "chest"));
-        map.put(KHItems.GOLDEN_PLACKART_WITH_TASSETS, new ArmorStats(1.0, 1.0, 3.2, 0.05, true, "chest"));
+        map.put(KHItems.TASSETS, new ArmorStats(1.0, 1.0, 3.0, 0.05, true, "chest"));
+        map.put(KHItems.DARK_TASSETS, new ArmorStats(1.0, 1.0, 3.3, 0.05, true, "chest"));
+        map.put(KHItems.GOLDEN_TASSETS, new ArmorStats(1.0, 1.0, 3.2, 0.05, true, "chest"));
         return map;
     }
 

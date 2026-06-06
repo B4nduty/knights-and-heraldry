@@ -137,8 +137,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 new ItemStack(KHItems.XIIII_PLATE_BREASTPLATE.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, KHItems.GOLDEN_PLACKART.get(), 7, 0.7f,
                 new ItemStack(KHItems.PLACKART.get()), new ItemStack(Items.GOLD_INGOT, 5));
-        createSmithingRecipe(exporter, KHItems.GOLDEN_PLACKART_WITH_TASSETS.get(), 7, 0.7f,
-                new ItemStack(KHItems.PLACKART_WITH_TASSETS.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_TASSETS.get(), 7, 0.7f,
+                new ItemStack(KHItems.TASSETS.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, KHItems.GOLDEN_BARBUTE.get(), 7, 0.7f,
                 new ItemStack(KHItems.BARBUTE.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, KHItems.GOLDEN_BASCINET.get(), 7, 0.7f,
@@ -237,8 +237,8 @@ public class ModRecipeProvider extends RecipeProvider {
         createSmithingRecipe(exporter, KHItems.DARK_PLACKART.get(), 7, 0.85f,
                 new ItemStack(KHItems.PLACKART.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
-        createSmithingRecipe(exporter, KHItems.DARK_PLACKART_WITH_TASSETS.get(), 7, 0.85f,
-                new ItemStack(KHItems.PLACKART_WITH_TASSETS.get()), new ItemStack(Items.COPPER_INGOT),
+        createSmithingRecipe(exporter, KHItems.DARK_TASSETS.get(), 7, 0.85f,
+                new ItemStack(KHItems.TASSETS.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
         createSmithingRecipe(exporter, KHItems.DARK_BARBUTE.get(), 7, 0.85f,
                 new ItemStack(KHItems.BARBUTE.get()), new ItemStack(Items.COPPER_INGOT),
@@ -401,6 +401,7 @@ public class ModRecipeProvider extends RecipeProvider {
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.XIIII_PLATE_CUIRASS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.XIIII_PLATE_BREASTPLATE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.PLACKART.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.TASSETS.get(), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.RIM_GUARDS.get(), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BESAGEWS.get(), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BARBUTE.get(), new ItemStack(SCItems.HOT_IRON.get()));
@@ -449,10 +450,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 new ItemStack(KHItems.SALLET.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createSmithingRecipe(exporter, KHItems.ARAGONESE_SALLET.get(), 10, 0.25f,
                 new ItemStack(KHItems.SALLET_BEVOR.get()), new ItemStack(SCItems.HOT_IRON.get()));
-
-
-        createSmithingRecipe(exporter, KHItems.PLACKART_WITH_TASSETS.get(), 10, 0.1f,
-                new ItemStack(KHItems.PLACKART.get()), new ItemStack(SCItems.HOT_IRON.get()));
     }
 
     private void createCraftmanAnvilRecipe(RecipeOutput exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, String path, Object... requiress) {

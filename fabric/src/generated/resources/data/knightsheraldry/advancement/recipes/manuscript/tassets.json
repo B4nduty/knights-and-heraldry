@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tassets": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:tassets"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:manuscript/tassets"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tassets"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:manuscript/tassets"
+    ]
+  }
+}
