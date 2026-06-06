@@ -1,13 +1,13 @@
-// 1.21.1	2026-06-06T10:51:13.1758087	Knights & Heraldry/Tags for minecraft:item
+// 1.21.1	2026-06-06T18:39:37.0637902	Knights & Heraldry/Tags for minecraft:item
 8793bdca822b0a681f3fc5b8aab17bfb571f5d2d data\stoneycore\tags\item\weapons_shield.json
 5a3efd59188c7eb4908c2a978515d7fd86d7387f data\stoneycore\tags\item\weapons_ignores_armor.json
 ae2d76abbda35283d0ffa5d5e6ceabd66d529e15 data\stoneycore\tags\item\weapons_disable_shield.json
-05085ba4ddfe9d3ff5ecc203af6e6a9b76ebfd77 data\stoneycore\tags\item\hide_name_tag.json
 4c2b151d5dbd1f21c9ee2d0887d3531f1894fb4e data\minecraft\tags\item\dyeable.json
+05085ba4ddfe9d3ff5ecc203af6e6a9b76ebfd77 data\stoneycore\tags\item\hide_name_tag.json
 71e3fa75c60a73d641f71c86fa6baee10003c7c7 data\stoneycore\tags\item\weapons_bypass_block.json
 bae2dc6d8df52a378e2dde0846307654c55d4c5a data\stoneycore\tags\item\weapons_damage_behind.json
 b750e4b97137d7142b65cd7fae3729753f04d647 data\stoneycore\tags\item\banner_compatible.json
-b8e10f3049780ed7e8edb2f9df7b3bc099ca9ab4 data\stoneycore\tags\item\broken_weapons.json
+d94fcfd7596775fb562eaf7f2ad70acf1510f872 data\stoneycore\tags\item\broken_weapons.json
 d5b55ec5c681d8c2d8d9037a06a8dee8ff25c1eb data\stoneycore\tags\item\weapons_3d.json
 94390fd215d2d3885bc658500140673942554aab data\stoneycore\tags\item\geo_2d_items.json
 e303c9e2abfa13cd1ed3354f33220eb4eb62be18 data\knightsheraldry\tags\item\dyes.json

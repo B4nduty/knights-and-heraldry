@@ -113,19 +113,7 @@ public class ModModelPredicates {
                         Boolean.TRUE.equals(stack.get(KHDataComponents.EXTINGUISHED.get())) ? 1.0F : 0.0F);
         ItemProperties.register(item,
                 ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "throwing"),
-                (stack, world, entity, seed) -> {
-
-                    float value =
-                            entity != null
-                                    && entity.isUsingItem()
-                                    && entity.getUseItem() == stack
-                                    ? 1.0F
-                                    : 0.0F;
-
-                    System.out.println("Throwing predicate = " + value);
-
-                    return value;
-                }
-        );
+                (stack, world, entity, seed) -> entity != null
+                        && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
     }
 }
