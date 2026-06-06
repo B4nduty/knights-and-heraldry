@@ -30,6 +30,7 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.HORSE_BARDING_MODEL_LAYER, HorseBardingModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(WarDartModel.LAYER_LOCATION, WarDartModel::createLayer);
 
         KHPayloadsClient.init();
         KHPayloadsClient.registerS2CReceivers();
@@ -70,12 +71,16 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
                     int defaultColor = -1;
                     switch (stack.getItem()) {
                         case SCDyeableUnderArmor dyeable -> defaultColor = dyeable.getDefaultColor();
-                        case KHChestplateAttachment khChestplateAttachment -> defaultColor = khChestplateAttachment.getDefaultColor();
+                        case KHChestplateAttachment khChestplateAttachment ->
+                                defaultColor = khChestplateAttachment.getDefaultColor();
                         case KHCloak khCloak -> defaultColor = khCloak.getDefaultColor();
-                        case KHLeggingsAttachment khLeggingsAttachment -> defaultColor = khLeggingsAttachment.getDefaultColor();
+                        case KHLeggingsAttachment khLeggingsAttachment ->
+                                defaultColor = khLeggingsAttachment.getDefaultColor();
                         case KHChaperon khChaperon -> defaultColor = khChaperon.getDefaultColor();
-                        case HorseBardingArmorItem horseBardingArmorItem -> defaultColor = horseBardingArmorItem.getDefaultColor();
-                        default -> {}
+                        case HorseBardingArmorItem horseBardingArmorItem ->
+                                defaultColor = horseBardingArmorItem.getDefaultColor();
+                        default -> {
+                        }
                     }
 
                     return DyedItemColor.getOrDefault(stack, defaultColor);

@@ -6,6 +6,7 @@ import banduty.knightsheraldry.platform.Services;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -55,11 +56,12 @@ public class WarDart extends SwordItem {
                 }
 
                 level.addFreshEntity(wardartEntity);
-                level.playSound(user, user.getOnPos(), SoundEvents.TRIDENT_THROW.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
-                if (!player.isCreative())  {
+                level.playSound(null, wardartEntity, SoundEvents.TRIDENT_THROW.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                if (!player.isCreative()) {
                     player.getInventory().removeItem(stack);
                     player.getCooldowns().addCooldown(this, Services.PLATFORM.getConfig().getWardartCooldown() * 20);
                 }
+                player.awardStat(Stats.ITEM_USED.get(this));
             }
         }
     }
