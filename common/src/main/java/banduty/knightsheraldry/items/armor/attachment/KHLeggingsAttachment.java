@@ -64,6 +64,10 @@ public class KHLeggingsAttachment extends Item implements ArmorAttachment, Armor
         return this.defaultColor;
     }
 
+    public boolean hasOverlay() {
+        return overlay;
+    }
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
