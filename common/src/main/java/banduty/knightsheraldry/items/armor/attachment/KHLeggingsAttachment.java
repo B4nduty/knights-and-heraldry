@@ -52,4 +52,8 @@ public class KHLeggingsAttachment extends Item implements ArmorAttachment, Armor
     public int getDefaultColor() {
         return this.defaultColor;
     }
+
+    public boolean hasOverlay() {
+        return overlay;
+    }
 }

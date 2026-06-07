@@ -29,5 +29,11 @@ public class KHLeggingsAttachmentRenderer implements ArmorAttachmentRenderer {
                         BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png")));
         int color = DyedItemColor.getOrDefault(itemStack, khLeggingsAttachment.getDefaultColor());
         model.renderToBuffer(poseStack, baseConsumer, i, OverlayTexture.NO_OVERLAY, color);
+        if (khLeggingsAttachment.hasOverlay()) {
+            VertexConsumer baseConsumerOverlay = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(
+                    ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
+                            BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "_overlay.png")));
+            model.renderToBuffer(poseStack, baseConsumerOverlay, i, OverlayTexture.NO_OVERLAY, -1);
+        }
     }
 }
