@@ -41,7 +41,7 @@ public final class ModArmorMaterials {
     }), 12, SoundEvents.ARMOR_EQUIP_CHAIN, 0f, 0f, () -> Ingredient.of(Items.CHAIN));
 
     private static Holder<ArmorMaterial> register(String name, EnumMap<ArmorItem.Type, Integer> defense, int enchantmentValue, Holder<SoundEvent> equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-        List<ArmorMaterial.Layer> layers = List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, name)));
+        List<ArmorMaterial.Layer> layers = List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, name), "", false));
         ArmorMaterial material = new ArmorMaterial(defense, enchantmentValue, equipSound, repairIngredient, layers, toughness, knockbackResistance);
         return Services.PLATFORM.registerHolder(Registries.ARMOR_MATERIAL, name, () -> material);
     }
