@@ -13,6 +13,25 @@
     }
   ],
   "result": {
+    "components": {
+      "stoneycore:target_stack": {
+        "components": {
+          "minecraft:attribute_modifiers": {
+            "modifiers": [
+              {
+                "type": "minecraft:generic.armor",
+                "amount": 6.0,
+                "id": "minecraft:generic.armor.chest",
+                "operation": "add_value",
+                "slot": "chest"
+              }
+            ]
+          }
+        },
+        "count": 1,
+        "id": "knightsheraldry:hauberk"
+      }
+    },
     "count": 1,
     "id": "stoneycore:manuscript"
   }

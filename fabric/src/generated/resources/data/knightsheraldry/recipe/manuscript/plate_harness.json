@@ -13,6 +13,12 @@
     }
   ],
   "result": {
+    "components": {
+      "stoneycore:target_stack": {
+        "count": 1,
+        "id": "knightsheraldry:plate_harness"
+      }
+    },
     "count": 1,
     "id": "stoneycore:manuscript"
   }

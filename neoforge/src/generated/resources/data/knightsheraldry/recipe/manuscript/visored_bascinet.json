@@ -13,6 +13,12 @@
     }
   ],
   "result": {
+    "components": {
+      "stoneycore:target_stack": {
+        "count": 1,
+        "id": "knightsheraldry:visored_bascinet"
+      }
+    },
     "count": 1,
     "id": "stoneycore:manuscript"
   }

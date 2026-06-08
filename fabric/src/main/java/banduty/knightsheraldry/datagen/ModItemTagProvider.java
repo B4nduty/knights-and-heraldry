@@ -91,7 +91,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         KHItems.JESTER_HOOD.get(), KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get(),
                         KHItems.HORSE_BARDING.get(), KHItems.DARK_HORSE_BARDING.get(), KHItems.GOLDEN_HORSE_BARDING.get(),
                         KHItems.PLUME.get(), KHItems.TRI_PLUME.get(), KHItems.FLUFFY_PLUME.get(),
-                        KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get());
+                        KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get(),
+                        KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get());
 
         getOrCreateTagBuilder(ModTags.DYES.getTag())
                 .add(Items.BLACK_DYE, Items.BLUE_DYE, Items.BROWN_DYE, Items.LIGHT_BLUE_DYE, Items.CYAN_DYE, Items.GRAY_DYE, Items.GREEN_DYE, Items.LIGHT_GRAY_DYE,
