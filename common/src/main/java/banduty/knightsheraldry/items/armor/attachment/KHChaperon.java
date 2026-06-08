@@ -4,9 +4,7 @@ import banduty.knightsheraldry.client.item.armor.KHChaperonAttachmentRenderer;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
-import org.jetbrains.annotations.NotNull;
 
 public class KHChaperon extends Item implements ArmorAttachment, ArmorAttachmentRenderProvider {
     boolean hasOverlay;
@@ -20,11 +18,6 @@ public class KHChaperon extends Item implements ArmorAttachment, ArmorAttachment
 
     public boolean hasOverlay() {
         return hasOverlay;
-    }
-
-    @Override
-    public ArmorItem.@NotNull Type getArmorSlot() {
-        return ArmorItem.Type.HELMET;
     }
 
     @Override

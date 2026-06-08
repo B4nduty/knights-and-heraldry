@@ -9,7 +9,7 @@ import banduty.knightsheraldry.items.armor.attachment.KHChestplateAttachment;
 import banduty.knightsheraldry.items.armor.attachment.KHCloak;
 import banduty.knightsheraldry.items.armor.attachment.KHLeggingsAttachment;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
-import banduty.knightsheraldry.items.item.TwoLayerDyeableDeco;
+import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;

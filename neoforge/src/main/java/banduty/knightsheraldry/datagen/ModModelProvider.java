@@ -4,7 +4,6 @@ import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.StoneyCore;
 import banduty.stoneycore.datagen.NeoForgeModelProviderPlus;
-import banduty.stoneycore.items.custom.armor.deco.Deco;
 import banduty.stoneycore.items.custom.manuscript.Manuscript;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -76,11 +75,6 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get()
         };
         for (Item item : dyeable) dyeableItem(item);
-
-        // --- Helmet Deco ---
-        for (Deco deco : Deco.all()) {
-            if (deco.item() != KHItems.TORSE.get()) simpleItem(deco.item());
-        }
 
         // --- Manuscripts ---
         registerManuscriptsItems();

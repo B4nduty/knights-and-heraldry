@@ -4,7 +4,6 @@ import banduty.knightsheraldry.client.item.armor.KHHelmetAttachmentRenderer;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
-import banduty.stoneycore.items.custom.armor.deco.DecorableItem;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
 import banduty.stoneycore.util.data.itemdata.SCDataComponents;
@@ -14,14 +13,14 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 
 import static banduty.stoneycore.util.SCInventoryItemFinder.findUnderArmor;
 
-public class KHHelmetAttachment extends DecorableItem implements ArmorAttachment, ArmorAttachmentRenderProvider {
+public class KHHelmetAttachment extends Item implements ArmorAttachment, ArmorAttachmentRenderProvider {
     private final boolean openVisor;
     private final Ingredient ingredient;
 
@@ -50,11 +49,6 @@ public class KHHelmetAttachment extends DecorableItem implements ArmorAttachment
     }
 
     @Override
-    public ArmorItem.@NotNull Type getArmorSlot() {
-        return ArmorItem.Type.HELMET;
-    }
-
-    @Override
     public ArmorAttachmentRenderer getRenderer() {
         if (this.cachedRenderer == null) {
             this.cachedRenderer = new KHHelmetAttachmentRenderer();
@@ -66,14 +60,14 @@ public class KHHelmetAttachment extends DecorableItem implements ArmorAttachment
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (level.isClientSide) {
-            ItemStack target = findUnderArmor(player, getArmorSlot());
+            ItemStack target = findUnderArmor(player, ArmorItem.Type.HELMET);
             if (!target.isEmpty()) {
                 return InteractionResultHolder.sidedSuccess(stack, true);
             }
             return InteractionResultHolder.pass(stack);
         }
 
-        ItemStack target = findUnderArmor(player, getArmorSlot());
+        ItemStack target = findUnderArmor(player, ArmorItem.Type.HELMET);
 
         if (!target.isEmpty() && target.getItem() instanceof SCUnderArmor underArmor) {
 

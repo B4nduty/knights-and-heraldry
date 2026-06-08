@@ -5,7 +5,8 @@ import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
-import banduty.stoneycore.items.custom.armor.deco.Deco;
+import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
+import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HorseModel;
@@ -21,8 +22,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.DyedItemColor;
-
-import java.util.Optional;
 
 public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<Horse>> {
     private static final ResourceLocation HORSE_ARMOR_TEXTURE_PLUME = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/horse_barding_plume.png");
@@ -57,7 +56,7 @@ public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<H
             // Base armor texture
             ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/horse/armor/" + BuiltInRegistries.ITEM.getKey(armorStack.getItem()).getPath() + ".png");
             VertexConsumer vertexConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(texture));
-            model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), 1);
+            model.renderToBuffer(poseStack, vertexConsumer, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), -1);
 
             // Overlay texture (dyed colorN)
             int color = DyedItemColor.getOrDefault(armorStack, horseBardingArmorItem.getDefaultColor());
@@ -66,19 +65,18 @@ public class HorseBardingFeatureRenderer extends RenderLayer<Horse, HorseModel<H
             model.renderToBuffer(poseStack, vertexConsumerOverlay, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), color);
 
             int plumeColor = getPlumeColor(armorStack);
-            if (plumeColor != -1) {
-                VertexConsumer vertexConsumerPlume = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(HORSE_ARMOR_TEXTURE_PLUME));
-                model.plume.render(poseStack, vertexConsumerPlume, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), 0xFF000000 | plumeColor);
-            }
+            VertexConsumer vertexConsumerPlume = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(HORSE_ARMOR_TEXTURE_PLUME));
+            model.plume.render(poseStack, vertexConsumerPlume, light, LivingEntityRenderer.getOverlayCoords(horse, 0.0F), plumeColor);
         }
     }
 
     private int getPlumeColor(ItemStack stack) {
-        for (ItemStack itemStack : Deco.getDeco(stack)) {
-            Optional<Deco> deco = Deco.getFromItem(itemStack.getItem());
-            if (deco.isEmpty()) continue;
-            if (deco.get().item() == KHItems.PLUME.get()) {
-                return DyedItemColor.getOrDefault(itemStack, -1);
+        UnderArmorContents contents = stack.get(SCDataComponents.UNDER_ARMOR_CONTENTS.get());
+        if (contents == null || contents.isEmpty()) return -1;
+
+        for (ItemStack attachmentStack : contents.attachments()) {
+            if (attachmentStack.is(KHItems.PLUME.get())) {
+                return DyedItemColor.getOrDefault(attachmentStack, -1);
             }
         }
 

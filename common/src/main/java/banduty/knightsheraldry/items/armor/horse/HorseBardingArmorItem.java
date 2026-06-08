@@ -1,9 +1,7 @@
 package banduty.knightsheraldry.items.armor.horse;
 
-import banduty.stoneycore.items.custom.armor.ArmorAttachment;
-import banduty.stoneycore.items.custom.armor.deco.Deco;
-import banduty.stoneycore.items.custom.armor.deco.DecoContents;
-import banduty.stoneycore.items.custom.armor.deco.DecoTooltip;
+import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
+import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorTooltip;
 import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -18,6 +16,8 @@ import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class HorseBardingArmorItem extends AnimalArmorItem {
 
@@ -34,55 +34,42 @@ public class HorseBardingArmorItem extends AnimalArmorItem {
     }
 
     @Override
-    public boolean overrideStackedOnOther(ItemStack itemStack, Slot slot, ClickAction action, Player player) {
-        if (action != ClickAction.SECONDARY) return false;
-
-        ItemStack slotItem = slot.getItem();
-        DecoContents contents = itemStack.getOrDefault(SCDataComponents.DECO_CONTENTS.get(), DecoContents.EMPTY);
-        DecoContents.Mutable mutable = new DecoContents.Mutable(contents);
-
-        if (slotItem.isEmpty()) {
-            ItemStack extracted = mutable.removeLast();
-            if (!extracted.isEmpty()) {
-                slot.safeInsert(extracted);
-                itemStack.set(SCDataComponents.DECO_CONTENTS.get(), mutable.toImmutable());
-                playRemoveSound(player);
-                return true;
-            }
-        } else {
-            int inserted = mutable.tryInsert(slotItem, itemStack.getItem());
-            if (inserted > 0) {
-                slotItem.shrink(inserted);
-                itemStack.set(SCDataComponents.DECO_CONTENTS.get(), mutable.toImmutable());
-                playInsertSound(player);
-                return true;
-            }
-        }
-        return false;
+    public boolean overrideStackedOnOther(ItemStack bardingStack, Slot slot, ClickAction action, Player player) {
+        return handleStackInteraction(bardingStack, action, player, slot::getItem, slot::set);
     }
 
     @Override
-    public boolean overrideOtherStackedOnMe(ItemStack helmetStack, ItemStack incomingStack, Slot slot, ClickAction action, Player player, SlotAccess access) {
-        if (action != ClickAction.SECONDARY || !slot.allowModification(player)) return false;
-        if (Deco.getFromItem(incomingStack.getItem()).isEmpty()) return false;
-        if (!(helmetStack.getItem() instanceof ArmorAttachment armorAttachment && Deco.getFromItem(incomingStack.getItem()).get().allowedArmorTypes().contains(armorAttachment.getArmorSlot()))) return false;
+    public boolean overrideOtherStackedOnMe(ItemStack bardingStack, ItemStack incomingStack, Slot slot, ClickAction action, Player player, SlotAccess access) {
+        return handleStackInteraction(bardingStack, action, player, () -> incomingStack, access::set);
+    }
 
-        DecoContents contents = helmetStack.getOrDefault(SCDataComponents.DECO_CONTENTS.get(), DecoContents.EMPTY);
-        DecoContents.Mutable mutable = new DecoContents.Mutable(contents);
+    private boolean handleStackInteraction(ItemStack bardingStack, ClickAction action, Player player,
+                                           Supplier<ItemStack> incomingSupplier, Consumer<ItemStack> outputCons) {
+        if (action != ClickAction.SECONDARY) return false;
+
+        ItemStack incomingStack = incomingSupplier.get();
+        UnderArmorContents contents = bardingStack.getOrDefault(SCDataComponents.UNDER_ARMOR_CONTENTS.get(), UnderArmorContents.EMPTY);
+        UnderArmorContents.Mutable mutable = new UnderArmorContents.Mutable(contents);
 
         if (incomingStack.isEmpty()) {
             ItemStack extracted = mutable.removeLast();
             if (!extracted.isEmpty()) {
-                access.set(extracted);
-                helmetStack.set(SCDataComponents.DECO_CONTENTS.get(), mutable.toImmutable());
+                bardingStack.set(SCDataComponents.UNDER_ARMOR_CONTENTS.get(), mutable.toImmutable());
+                outputCons.accept(extracted);
                 playRemoveSound(player);
                 return true;
             }
         } else {
-            int inserted = mutable.tryInsert(incomingStack, helmetStack.getItem());
-            if (inserted > 0) {
-                incomingStack.shrink(inserted);
-                helmetStack.set(SCDataComponents.DECO_CONTENTS.get(), mutable.toImmutable());
+            ItemStack result = mutable.tryInsert(incomingStack, player, bardingStack);
+
+            if (result != null) {
+                incomingStack.shrink(1);
+
+                if (!result.isEmpty()) {
+                    outputCons.accept(result);
+                }
+
+                bardingStack.set(SCDataComponents.UNDER_ARMOR_CONTENTS.get(), mutable.toImmutable());
                 playInsertSound(player);
                 return true;
             }
@@ -92,11 +79,8 @@ public class HorseBardingArmorItem extends AnimalArmorItem {
 
     @Override
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
-        DecoContents contents = stack.get(SCDataComponents.DECO_CONTENTS.get());
-        if (contents == null || contents.isEmpty()) {
-            return Optional.empty();
-        }
-        return Optional.of(new DecoTooltip(contents));
+        UnderArmorContents contents = stack.get(SCDataComponents.UNDER_ARMOR_CONTENTS.get());
+        return Optional.of(new UnderArmorTooltip(contents, this.getType()));
     }
 
     private void playInsertSound(Player player) {

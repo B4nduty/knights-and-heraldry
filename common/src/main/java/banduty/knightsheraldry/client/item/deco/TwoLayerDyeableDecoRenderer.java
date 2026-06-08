@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.client.item.deco;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.items.item.TwoLayerDyeableDeco;
+import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.model.HelmetDecoModel;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;

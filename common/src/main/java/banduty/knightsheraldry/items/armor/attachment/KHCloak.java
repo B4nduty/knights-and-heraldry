@@ -44,11 +44,6 @@ public class KHCloak extends Item implements ArmorAttachment, ArmorAttachmentRen
     }
 
     @Override
-    public ArmorItem.@NotNull Type getArmorSlot() {
-        return armorType;
-    }
-
-    @Override
     public ArmorAttachmentRenderer getRenderer() {
         if (this.cachedRenderer == null) {
             this.cachedRenderer = new KHCloakAttachmentRenderer();
@@ -77,14 +72,14 @@ public class KHCloak extends Item implements ArmorAttachment, ArmorAttachmentRen
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (level.isClientSide) {
-            ItemStack target = findUnderArmor(player, getArmorSlot());
+            ItemStack target = findUnderArmor(player, armorType);
             if (!target.isEmpty()) {
                 return InteractionResultHolder.sidedSuccess(stack, true);
             }
             return InteractionResultHolder.pass(stack);
         }
 
-        ItemStack target = findUnderArmor(player, getArmorSlot());
+        ItemStack target = findUnderArmor(player, armorType);
 
         if (!target.isEmpty() && target.getItem() instanceof SCUnderArmor underArmor) {
 

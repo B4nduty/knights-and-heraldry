@@ -4,7 +4,6 @@ import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.StoneyCore;
 import banduty.stoneycore.datagen.FabricModelProviderPlus;
-import banduty.stoneycore.items.custom.armor.deco.Deco;
 import banduty.stoneycore.items.custom.manuscript.Manuscript;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -61,8 +60,6 @@ public class ModModelProvider extends FabricModelProviderPlus {
 
         generateBannerPatternModels(KHItems.SURCOAT.get(), ModelTemplates.FLAT_ITEM, itemModelGenerators);
         generateBannerPatternModels(KHItems.SURCOAT_SLEEVELESS.get(), ModelTemplates.FLAT_ITEM, itemModelGenerators);
-
-        registerHelmetDecoItems(itemModelGenerators);
 
         // Dyeable Items
         registerDyeableItems(KHItems.BRIGANDINE_HARNESS.get(), itemModelGenerators);
@@ -179,13 +176,6 @@ public class ModModelProvider extends FabricModelProviderPlus {
 
         for (Item item : simpleArmor) {
             registerItemWConditions(item, itemModelGenerators);
-        }
-    }
-
-    private void registerHelmetDecoItems(ItemModelGenerators itemModelGenerators) {
-        for (Deco deco : Deco.all()) {
-            if (deco.item() == KHItems.TORSE.get()) continue;
-            itemModelGenerators.generateFlatItem(deco.item(), ModelTemplates.FLAT_ITEM);
         }
     }
 

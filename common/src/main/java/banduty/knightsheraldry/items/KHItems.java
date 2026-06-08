@@ -6,10 +6,10 @@ import banduty.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHClothArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import banduty.knightsheraldry.items.armor.attachment.*;
-import banduty.knightsheraldry.items.armor.deco.HelmetDecoItem;
+import banduty.knightsheraldry.items.armor.deco.DecoItem;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.items.item.KHExtendedArrowItem;
-import banduty.knightsheraldry.items.item.TwoLayerDyeableDeco;
+import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.items.item.khammo.ClothArrow;
 import banduty.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
@@ -523,7 +523,7 @@ public interface KHItems {
     }
 
     static Supplier<Item> deco(String id) {
-        return registerItem(id, () -> new HelmetDecoItem(new Item.Properties().stacksTo(1)));
+        return registerItem(id, () -> new DecoItem(new Item.Properties().stacksTo(1)));
     }
 
     private static Supplier<Item> registerItem(String name, Supplier<Item> itemSupplier) {

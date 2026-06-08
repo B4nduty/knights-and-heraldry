@@ -2,7 +2,6 @@ package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.config.KHConfigs;
 import banduty.knightsheraldry.event.UseItemHandler;
-import banduty.knightsheraldry.items.armor.deco.KHDeco;
 import banduty.knightsheraldry.util.loottable.ArchaeologyLootModifier;
 import banduty.knightsheraldry.util.loottable.ChestLootTableModifier;
 import banduty.knightsheraldry.util.loottable.VillagerTradesModifier;
@@ -16,8 +15,6 @@ public class KnightsHeraldryFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         KnightsHeraldry.init();
-
-        KHDeco.init();
 
         UseItemCallback.EVENT.register(new UseItemHandler());
         ArchaeologyLootModifier.registerArchaeologyLoot();

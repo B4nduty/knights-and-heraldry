@@ -1,14 +1,12 @@
-package banduty.knightsheraldry.items.item;
+package banduty.knightsheraldry.items.armor.deco;
 
 import banduty.knightsheraldry.client.item.deco.TwoLayerDyeableDecoRenderer;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.DyedItemColor;
 
-public class TwoLayerDyeableDeco extends Item implements ArmorAttachmentRenderProvider {
+public class TwoLayerDyeableDeco extends DecoItem {
 
     public ArmorAttachmentRenderer cachedRenderer;
 
@@ -24,16 +22,6 @@ public class TwoLayerDyeableDeco extends Item implements ArmorAttachmentRenderPr
     public static int getColor2(ItemStack stack) {
         DyedItemColor dyedItemColor = stack.get(KHDataComponents.COLOR_2.get());
         return dyedItemColor != null ? dyedItemColor.rgb() : -1;
-    }
-
-    public void setColor1(ItemStack stack, int color) {
-        DyedItemColor dyedItemColor = new DyedItemColor(color, true);
-        stack.set(KHDataComponents.COLOR_1.get(), dyedItemColor);
-    }
-
-    public void setColor2(ItemStack stack, int color) {
-        DyedItemColor dyedItemColor = new DyedItemColor(color, true);
-        stack.set(KHDataComponents.COLOR_2.get(), dyedItemColor);
     }
 
     @Override

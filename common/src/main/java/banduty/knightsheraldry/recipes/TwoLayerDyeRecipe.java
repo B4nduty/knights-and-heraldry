@@ -1,6 +1,6 @@
 package banduty.knightsheraldry.recipes;
 
-import banduty.knightsheraldry.items.item.TwoLayerDyeableDeco;
+import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.DyeItem;

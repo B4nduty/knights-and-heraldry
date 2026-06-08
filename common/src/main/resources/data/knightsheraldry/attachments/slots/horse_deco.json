@@ -1,0 +1,8 @@
+{
+  "slot": "horse_deco",
+  "armor": "body",
+  "items": [
+    "knightsheraldry:plume"
+  ],
+  "icon": "knightsheraldry:container/icon/deco"
+}

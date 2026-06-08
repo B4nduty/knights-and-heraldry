@@ -1,7 +1,8 @@
 package banduty.knightsheraldry.model;
 
 import banduty.knightsheraldry.items.KHItems;
-import banduty.stoneycore.items.custom.armor.deco.Deco;
+import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
+import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -13,8 +14,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.item.ItemStack;
-
-import java.util.Optional;
 
 public class HorseBardingModel<T extends AbstractHorse> extends HorseModel<T> {
     private final ModelPart armorHead;
@@ -109,15 +108,15 @@ public class HorseBardingModel<T extends AbstractHorse> extends HorseModel<T> {
             armorStack = horse.getItemBySlot(EquipmentSlot.BODY);
         }
 
-        for (ItemStack itemStack : Deco.getDeco(armorStack)) {
-            Optional<Deco> deco = Deco.getFromItem(itemStack.getItem());
-            if (deco.isEmpty()) continue;
-            if (deco.get().item() == KHItems.PLUME.get()) {
+        UnderArmorContents contents = armorStack.get(SCDataComponents.UNDER_ARMOR_CONTENTS.get());
+        if (contents == null || contents.isEmpty()) return;
+
+        for (ItemStack attachmentStack : contents.attachments()) {
+            if (attachmentStack.is(KHItems.PLUME.get())) {
                 this.plume.visible = true;
                 break;
             }
         }
-
     }
 
     @Override

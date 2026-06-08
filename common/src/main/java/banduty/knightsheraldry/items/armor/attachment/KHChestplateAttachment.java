@@ -17,7 +17,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 
 import static banduty.stoneycore.util.SCInventoryItemFinder.findUnderArmor;
 
@@ -59,11 +58,6 @@ public class KHChestplateAttachment extends Item implements ArmorAttachment, Arm
     }
 
     @Override
-    public ArmorItem.@NotNull Type getArmorSlot() {
-        return ArmorItem.Type.CHESTPLATE;
-    }
-
-    @Override
     public ArmorAttachmentRenderer getRenderer() {
         if (this.cachedRenderer == null) {
             this.cachedRenderer = new KHChestplateAttachmentRenderer();
@@ -79,14 +73,14 @@ public class KHChestplateAttachment extends Item implements ArmorAttachment, Arm
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (level.isClientSide) {
-            ItemStack target = findUnderArmor(player, getArmorSlot());
+            ItemStack target = findUnderArmor(player, ArmorItem.Type.CHESTPLATE);
             if (!target.isEmpty()) {
                 return InteractionResultHolder.sidedSuccess(stack, true);
             }
             return InteractionResultHolder.pass(stack);
         }
 
-        ItemStack target = findUnderArmor(player, getArmorSlot());
+        ItemStack target = findUnderArmor(player, ArmorItem.Type.CHESTPLATE);
 
         if (!target.isEmpty() && target.getItem() instanceof SCUnderArmor underArmor) {
 

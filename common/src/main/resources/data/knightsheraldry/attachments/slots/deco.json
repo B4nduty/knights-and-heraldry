@@ -1,0 +1,28 @@
+{
+  "slot": "deco",
+  "armor": "helmet",
+  "items": [
+    "knightsheraldry:plume",
+    "knightsheraldry:tri_plume",
+    "knightsheraldry:fluffy_plume",
+    "knightsheraldry:torse",
+    "knightsheraldry:teutonic_snakes",
+    "knightsheraldry:teutonic_black_snakes",
+    "knightsheraldry:gold_horns",
+    "knightsheraldry:black_horns",
+    "knightsheraldry:teutonic_gold_wings",
+    "knightsheraldry:teutonic_black_wings",
+    "knightsheraldry:teutonic_wings_ball_ends",
+    "knightsheraldry:teutonic_wings_sharp_ends",
+    "knightsheraldry:dragon",
+    "knightsheraldry:lion",
+    "knightsheraldry:snake",
+    "knightsheraldry:unicorn",
+    "knightsheraldry:stag",
+    "knightsheraldry:boar",
+    "knightsheraldry:eagle",
+    "knightsheraldry:pegasus"
+  ],
+  "required_slot": "head",
+  "icon": "knightsheraldry:container/icon/deco"
+}
