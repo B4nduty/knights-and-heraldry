@@ -1,4 +1,4 @@
-// 1.21.1	2026-06-08T16:15:59.2578458	Knights & Heraldry/Recipes
+// 1.21.1	2026-06-08T16:24:54.032521	Knights & Heraldry/Recipes
 d1eb669d0dc01a51355b9d07c9ccbf1f5a960ee4 data\knightsheraldry\advancement\recipes\craftmananvil\golden_savoyard.json
 f059999dd038ff11da13eb40c807fc1b0b216fad data\knightsheraldry\advancement\recipes\manuscript\greaves.json
 525438b13b69efad526d373d73caf2d15da7ad9c data\knightsheraldry\advancement\recipes\manuscript\mail_coif.json
@@ -322,8 +322,8 @@ d7c79a7a2e44aa8a49771f31aeff7edfb22b973a data\knightsheraldry\recipe\craftmananv
 806cc51972011f7c72048519a954aa5e4a54421b data\knightsheraldry\recipe\manuscript\kettle_helm.json
 8a76fb3df68a6f057f2c297ce1730403707f6038 data\knightsheraldry\advancement\recipes\misc\golden_brigandine_spaulders_besagews_from_golden_brigandine_spaulders_and_besagews.json
 b401b2cbc855d2dcecd2e3c7452949c7d6255992 data\knightsheraldry\recipe\upgrade_v_sword_to_arming_sword.json
-88fe6c0c233c325147ca81a688c6d4ac61e5e2af data\knightsheraldry\advancement\recipes\misc\upgrade_sword_to_v_sword.json
 02856c74da5e711e8d78714fa270b013a62c794e data\knightsheraldry\recipe\craftmananvil\dark_sallet_bevor.json
+88fe6c0c233c325147ca81a688c6d4ac61e5e2af data\knightsheraldry\advancement\recipes\misc\upgrade_sword_to_v_sword.json
 03e85a6410eb71187f7f40aab50af304fe4b25cb data\knightsheraldry\advancement\recipes\craftmananvil\broad_axe.json
 18940b8c2bc8853f68d869c07c46f01102aec543 data\knightsheraldry\recipe\craftmananvil\dark_plate_cuirass.json
 0f64d161448662fbd98b516a53ac05905fa0bd76 data\knightsheraldry\recipe\mail_spaulders_besagews_from_mail_spaulders_and_besagews.json

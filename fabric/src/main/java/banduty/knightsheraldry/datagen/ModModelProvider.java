@@ -54,6 +54,26 @@ public class ModModelProvider extends FabricModelProviderPlus {
         itemModelGenerators.generateFlatItem(KHItems.LONGBOW.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(KHItems.LANCE.get(), ModelTemplates.FLAT_ITEM);
 
+        itemModelGenerators.generateFlatItem(KHItems.PLUME.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.TRI_PLUME.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.FLUFFY_PLUME.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_SNAKES.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_BLACK_SNAKES.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.GOLD_HORNS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.BLACK_HORNS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_GOLD_WINGS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_BLACK_WINGS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_WINGS_BALL_ENDS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_WINGS_SHARP_ENDS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.DRAGON.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.LION.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.SNAKE.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.UNICORN.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.STAG.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.BOAR.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.EAGLE.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.PEGASUS.get(), ModelTemplates.FLAT_ITEM);
+
         registerSimpleItems(itemModelGenerators);
 
         registerManuscriptsItems(itemModelGenerators);
