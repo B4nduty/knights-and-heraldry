@@ -14,7 +14,7 @@ public enum ModToolMaterials implements Tier {
             Ingredient.of(Items.IRON_INGOT));
 
     private final TagKey<Block> incorrectBlocksForDrops;
-    private final int itemDurability;
+    private int itemDurability;
     private final float speed;
     private final float attackDamage;
     private final int enchantability;
@@ -64,5 +64,40 @@ public enum ModToolMaterials implements Tier {
     @Override
     public TagKey<Block> getIncorrectBlocksForDrops() {
         return this.incorrectBlocksForDrops;
+    }
+
+    public Tier setUses(int itemDurability) {
+        this.itemDurability = itemDurability;
+        return new Tier() {
+            @Override
+            public int getUses() {
+                return itemDurability;
+            }
+
+            @Override
+            public float getSpeed() {
+                return speed;
+            }
+
+            @Override
+            public float getAttackDamageBonus() {
+                return attackDamage;
+            }
+
+            @Override
+            public TagKey<Block> getIncorrectBlocksForDrops() {
+                return incorrectBlocksForDrops;
+            }
+
+            @Override
+            public int getEnchantmentValue() {
+                return enchantability;
+            }
+
+            @Override
+            public Ingredient getRepairIngredient() {
+                return repairIngredient.get();
+            }
+        };
     }
 }
