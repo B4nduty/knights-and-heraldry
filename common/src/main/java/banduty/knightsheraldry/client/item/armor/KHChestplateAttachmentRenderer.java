@@ -40,7 +40,7 @@ public class KHChestplateAttachmentRenderer implements ArmorAttachmentRenderer {
 
         if (khChestplate.hasOverlay()) {
             ResourceLocation textureOverlayPath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
-                    BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png");
+                    BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "_overlay.png");
             VertexConsumer overlayConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(textureOverlayPath));
             model.renderToBuffer(poseStack, overlayConsumer, i, OverlayTexture.NO_OVERLAY, -1);
         }
