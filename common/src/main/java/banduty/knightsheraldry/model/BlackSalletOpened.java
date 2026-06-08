@@ -22,11 +22,17 @@ public class BlackSalletOpened extends HumanoidModel<LivingEntity> {
 
 		PartDefinition headh = partdefinition.addOrReplaceChild("headh", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition helmet = headh.addOrReplaceChild("helmet", CubeListBuilder.create().texOffs(80, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.6F)), PartPose.offsetAndRotation(0.0F, -5.3F, -0.5F, -0.3054F, 0.0F, 0.0F));
+		PartDefinition bone = headh.addOrReplaceChild("bone", CubeListBuilder.create(), PartPose.offset(0.0F, -7.4F, 4.5F));
 
-		PartDefinition tail_r1 = helmet.addOrReplaceChild("tail_r1", CubeListBuilder.create().texOffs(43, 2).addBox(-2.5F, -2.696F, -2.5F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.755F)), PartPose.offsetAndRotation(-0.0033F, -4.504F, 3.2884F, 2.6662F, -0.7268F, -2.812F));
+		PartDefinition visor2 = bone.addOrReplaceChild("visor2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -2.5744F, 0.0F, 3.1416F));
 
-		PartDefinition visor_r1 = helmet.addOrReplaceChild("visor_r1", CubeListBuilder.create().texOffs(72, 25).addBox(-2.5F, -5.75F, -2.5F, 5.0F, 6.0F, 5.0F, new CubeDeformation(0.755F)), PartPose.offsetAndRotation(-0.0033F, -1.75F, -4.6F, -0.4754F, 0.7268F, -0.3295F));
+		PartDefinition visor_r1 = visor2.addOrReplaceChild("visor_r1", CubeListBuilder.create().texOffs(72, 37).addBox(2.0889F, -0.9167F, -7.0856F, 5.0F, 6.0F, 5.0F, new CubeDeformation(0.75F)), PartPose.offsetAndRotation(-0.0033F, 1.5098F, 6.3071F, -0.4754F, 0.7268F, -0.3295F));
+
+		PartDefinition helmet = bone.addOrReplaceChild("helmet", CubeListBuilder.create().texOffs(80, 0).addBox(-4.0F, -2.6131F, -6.9176F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.6F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.5236F, 0.0F, 0.0F));
+
+		PartDefinition visor = bone.addOrReplaceChild("visor", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.48F, 0.0F, 0.0F));
+
+		PartDefinition visor_r2 = visor.addOrReplaceChild("visor_r2", CubeListBuilder.create().texOffs(72, 25).addBox(0.629F, -1.5677F, -5.6257F, 5.0F, 7.0F, 5.0F, new CubeDeformation(0.75F)), PartPose.offsetAndRotation(-0.0033F, 1.1609F, -1.6853F, -0.4754F, 0.7268F, -0.3295F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
