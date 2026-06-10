@@ -249,11 +249,11 @@ public interface KHItems {
     Supplier<Item> GOLDEN_BURGONET = registerItem("golden_burgonet",
             () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> VISORLESS_SALLET = registerItem("visorless_sallet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_VISORLESS_SALLET = registerItem("dark_visorless_sallet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_VISORLESS_SALLET = registerItem("golden_visorless_sallet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> ARMET = registerItem("armet",
             () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
@@ -304,11 +304,11 @@ public interface KHItems {
     Supplier<Item> GOLDEN_GREAT_HELM_2 = registerItem("golden_great_helm_2",
             () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(300), Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> SALLET = registerItem("sallet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_SALLET = registerItem("dark_sallet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_SALLET = registerItem("golden_sallet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
     Supplier<Item> BURGONET_FALLING_BUFFE = registerItem("burgonet_falling_buffe",
             () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_BURGONET_FALLING_BUFFE = registerItem("dark_burgonet_falling_buffe",
@@ -329,11 +329,11 @@ public interface KHItems {
             () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> SALLET_BEVOR = registerItem("sallet_bevor",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_SALLET_BEVOR = registerItem("dark_sallet_bevor",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_SALLET_BEVOR = registerItem("golden_sallet_bevor",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> FROGMOUTH = registerItem("frogmouth",
             () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(354), Ingredient.of(Items.IRON_INGOT)));

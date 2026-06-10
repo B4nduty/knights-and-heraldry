@@ -1,5 +1,6 @@
 package banduty.knightsheraldry.util.itemdata;
 
+import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import banduty.stoneycore.util.data.itemdata.SCDataComponents;
@@ -84,6 +85,11 @@ public class ModModelPredicates {
                     cleanDisplayName = displayName.substring(1, displayName.length() - 1);
                 }
                 return Objects.equals(cleanDisplayName, translatable) ? 1.0F : 0.0F;
+            });
+        if (item == KHItems.BLACK_SALLET.get() || item == KHItems.DARK_BLACK_SALLET.get() || item == KHItems.GOLDEN_BLACK_SALLET.get())
+            ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "rat"), (stack, world, entity, seed) -> {
+                String customName = stack.getHoverName().getString();
+                return customName.contains("Rat") ? 1.0F : 0.0F;
             });
     }
 

@@ -88,7 +88,7 @@ public class ModModelPredicates {
         if (item == KHItems.BLACK_SALLET.get() || item == KHItems.DARK_BLACK_SALLET.get() || item == KHItems.GOLDEN_BLACK_SALLET.get())
             ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "rat"), (stack, world, entity, seed) -> {
                 String customName = stack.getHoverName().getString();
-                return customName.endsWith(" Rat") ? 1.0F : 0.0F;
+                return customName.contains("Rat") ? 1.0F : 0.0F;
             });
     }
 
