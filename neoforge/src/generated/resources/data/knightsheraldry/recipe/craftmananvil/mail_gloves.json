@@ -1,0 +1,36 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.9,
+  "ingredients": [
+    {
+      "count": 1,
+      "stack": {
+        "components": {
+          "stoneycore:target_stack": {
+            "count": 1,
+            "id": "knightsheraldry:mail_gloves"
+          }
+        },
+        "count": 1,
+        "id": "stoneycore:manuscript"
+      }
+    },
+    {
+      "count": 1,
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:hot_iron"
+      }
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:target_stack": {
+        "count": 1,
+        "id": "knightsheraldry:mail_gloves"
+      }
+    },
+    "count": 1,
+    "id": "stoneycore:hot_iron"
+  }
+}

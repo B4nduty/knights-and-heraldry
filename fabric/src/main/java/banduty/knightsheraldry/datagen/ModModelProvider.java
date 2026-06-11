@@ -158,6 +158,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 KHItems.BURGONET.get(), KHItems.DARK_BURGONET.get(), KHItems.GOLDEN_BURGONET.get(),
                 KHItems.VISORLESS_SALLET.get(), KHItems.DARK_VISORLESS_SALLET.get(), KHItems.GOLDEN_VISORLESS_SALLET.get(),
                 KHItems.FROGMOUTH.get(), KHItems.DARK_FROGMOUTH.get(), KHItems.GOLDEN_FROGMOUTH.get(),
+                KHItems.LEATHER_GLOVES.get(), KHItems.MAIL_GLOVES.get(),
                 KHItems.GAUNTLET.get(), KHItems.DARK_GAUNTLET.get(), KHItems.GOLDEN_GAUNTLET.get(),
                 KHItems.PLATE_HARNESS.get(), KHItems.DARK_PLATE_HARNESS.get(), KHItems.GOLDEN_PLATE_HARNESS.get(),
                 KHItems.PLATE_CUISSES.get(), KHItems.DARK_PLATE_CUISSES.get(), KHItems.GOLDEN_PLATE_CUISSES.get(),
@@ -300,6 +301,9 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 Map.entry(KHItems.GREAT_HOUNDSKUL_BASCINET.get(), Manuscript.Types.HELMET),
                 Map.entry(KHItems.MAXIMILLIAN_HELMET.get(), Manuscript.Types.HELMET),
                 Map.entry(KHItems.SAVOYARD.get(), Manuscript.Types.HELMET),
+
+                Map.entry(KHItems.LEATHER_GLOVES.get(), Manuscript.Types.GAUNTLETS),
+                Map.entry(KHItems.MAIL_GLOVES.get(), Manuscript.Types.GAUNTLETS),
 
                 Map.entry(KHItems.GAUNTLET.get(), Manuscript.Types.GAUNTLETS),
                 Map.entry(KHItems.BRIGANDINE_HARNESS.get(), Manuscript.Types.GAUNTLETS),

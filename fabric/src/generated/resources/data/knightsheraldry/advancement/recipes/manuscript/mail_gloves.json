@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mail_gloves": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:mail_gloves"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:manuscript/mail_gloves"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mail_gloves"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:manuscript/mail_gloves"
+    ]
+  }
+}

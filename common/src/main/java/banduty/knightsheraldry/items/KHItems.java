@@ -384,6 +384,11 @@ public interface KHItems {
     Supplier<Item> GOLDEN_ARAGONESE_SALLET = registerItem("golden_aragonese_sallet",
             () -> new KHAragoneseSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
 
+    Supplier<Item> LEATHER_GLOVES = registerItem("leather_gloves",
+            () -> new KHGlove(new Item.Properties().stacksTo(1).durability(90), 0xFFA06440, Ingredient.of(Items.LEATHER)));
+    Supplier<Item> MAIL_GLOVES = registerItem("mail_gloves",
+            () -> new KHGlove(new Item.Properties().stacksTo(1).durability(100), Ingredient.of(Items.IRON_INGOT)));
+
     Supplier<Item> GAUNTLET = registerItem("gauntlet",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_GAUNTLET = registerItem("dark_gauntlet",

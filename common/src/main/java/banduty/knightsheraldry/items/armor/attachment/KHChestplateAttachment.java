@@ -21,7 +21,7 @@ import net.minecraft.world.level.Level;
 import static banduty.stoneycore.util.SCInventoryItemFinder.findUnderArmor;
 
 public class KHChestplateAttachment extends Item implements ArmorAttachment, ArmorAttachmentRenderProvider {
-    private final Ingredient ingredient;
+    Ingredient ingredient;
     boolean hasOverlay;
     int defaultColor;
 

@@ -1,0 +1,25 @@
+{
+  "type": "stoneycore:manuscript_crafting",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "stoneycore:smithing_hammer"
+    },
+    {
+      "item": "knightsheraldry:leather_gloves"
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:target_stack": {
+        "count": 1,
+        "id": "knightsheraldry:leather_gloves"
+      }
+    },
+    "count": 1,
+    "id": "stoneycore:manuscript"
+  }
+}

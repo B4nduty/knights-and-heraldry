@@ -87,7 +87,9 @@ public class VillagerTradesModifier {
                 KHItems.NASAL_HELM, KHItems.VIKING_HELM, KHItems.BURGONET, KHItems.VISORLESS_SALLET
         );
 
-        addTradeOffer(trades, 1, 11, 3, 1, KHItems.GAUNTLET);
+        addTradeOffer(trades, 1, 2, 3, 1, KHItems.LEATHER_GLOVES);
+        addTradeOffer(trades, 2, 5, 3, 1, KHItems.MAIL_GLOVES);
+        addTradeOffer(trades, 4, 11, 3, 1, KHItems.GAUNTLET);
         addTradeOffer(trades, 2, 21, 6, 5, KHItems.BRIGANDINE_HARNESS);
         addTradeOffer(trades, 2, 21, 6, 5, KHItems.BRIGANDINE_CUISSES);
         addTradeOffer(trades, 1, 3, 3, 1, KHItems.GREAVES);

@@ -295,6 +295,9 @@ public interface KHItemGroups {
                     itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get()),
                     itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get()),
 
+                    itemStack(KHItems.LEATHER_GLOVES.get()),
+                    itemStack(KHItems.MAIL_GLOVES.get()),
+
                     itemStack(KHItems.GAUNTLET.get()),
                     itemStack(KHItems.BRIGANDINE_HARNESS.get()),
                     itemStack(KHItems.PLATE_HARNESS.get()),

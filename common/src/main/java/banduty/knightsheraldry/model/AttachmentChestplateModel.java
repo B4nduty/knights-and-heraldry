@@ -11,8 +11,8 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class AttachmentChestplateModel extends HumanoidModel<LivingEntity> {
 	private final ModelPart armorBody;
-	private final ModelPart armorRightArm;
-	private final ModelPart armorLeftArm;
+	public final ModelPart armorRightArm;
+	public final ModelPart armorLeftArm;
 
 	public AttachmentChestplateModel(ModelPart root) {
 		super(root);

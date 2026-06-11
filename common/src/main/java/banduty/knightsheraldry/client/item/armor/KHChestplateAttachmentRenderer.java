@@ -2,10 +2,8 @@ package banduty.knightsheraldry.client.item.armor;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.armor.attachment.KHChestplateAttachment;
-import banduty.knightsheraldry.model.AttachmentArmModel;
 import banduty.knightsheraldry.model.AttachmentChestplateModel;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
-import banduty.stoneycore.entity.custom.AbstractSiegeEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -36,7 +34,7 @@ public class KHChestplateAttachmentRenderer implements ArmorAttachmentRenderer {
                 ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
                         BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png")));
         int color = DyedItemColor.getOrDefault(itemStack, khChestplate.getDefaultColor());
-        model.renderToBuffer(poseStack, baseConsumer, i, OverlayTexture.NO_OVERLAY, khChestplate.hasOverlay() ? color : -1);
+        model.renderToBuffer(poseStack, baseConsumer, i, OverlayTexture.NO_OVERLAY, color);
 
         if (khChestplate.hasOverlay()) {
             ResourceLocation textureOverlayPath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
@@ -67,38 +65,33 @@ public class KHChestplateAttachmentRenderer implements ArmorAttachmentRenderer {
 
     @Override
     public void onRenderInFirstPerson(LocalPlayer player, ItemStack itemStack, PoseStack poseStack, MultiBufferSource multiBufferSource, int light, HumanoidArm arm) {
-        AttachmentArmModel model = new AttachmentArmModel(AttachmentArmModel.getTexturedModelData().bakeRoot());
+        AttachmentChestplateModel model = new AttachmentChestplateModel(AttachmentChestplateModel.getTexturedModelData().bakeRoot());
         if (!(itemStack.getItem() instanceof KHChestplateAttachment khChestplate)) return;
         int color = DyedItemColor.getOrDefault(itemStack, khChestplate.getDefaultColor());
         ResourceLocation texturePath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
                 BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png");
 
         VertexConsumer baseConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(texturePath));
-        renderArm(player, model, poseStack, baseConsumer, light, khChestplate.hasOverlay() ? color : -1, arm);
+        renderArm(player, model, poseStack, baseConsumer, light, color, arm);
 
         if (khChestplate.hasOverlay()) {
             ResourceLocation textureOverlayPath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
-                    BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png");
+                    BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "_overlay.png");
             VertexConsumer overlayConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(textureOverlayPath));
             renderArm(player, model, poseStack, overlayConsumer, light, -1, arm);
         }
     }
 
-    private void renderArm(LocalPlayer localPlayer, AttachmentArmModel model, PoseStack poseStack, VertexConsumer consumer,
+    private void renderArm(LocalPlayer localPlayer, AttachmentChestplateModel model, PoseStack poseStack, VertexConsumer consumer,
                            int light, int color, HumanoidArm arm) {
         PlayerModel<?> playerModel = ((PlayerModel<?>) ((LivingEntityRenderer<?, ?>)
                 Minecraft.getInstance().getEntityRenderDispatcher().getRenderer(localPlayer)).getModel());
 
-        float armOffset = 0.125f; // This is 2px in model units
-        if (localPlayer.getVehicle() instanceof AbstractSiegeEntity) armOffset -= 0.0625f;
-
         poseStack.pushPose();
         if (arm == HumanoidArm.RIGHT) {
-            poseStack.translate(armOffset, 0.015F, 0.0F);
             model.armorRightArm.copyFrom(playerModel.rightArm);
             model.armorRightArm.render(poseStack, consumer, light, OverlayTexture.NO_OVERLAY, color);
         } else {
-            poseStack.translate(-armOffset, 0.015F, 0.0F);
             model.armorLeftArm.copyFrom(playerModel.leftArm);
             model.armorLeftArm.render(poseStack, consumer, light, OverlayTexture.NO_OVERLAY, color);
         }

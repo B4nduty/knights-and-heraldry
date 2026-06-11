@@ -119,6 +119,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         KHItems.HORSE_BARDING.get(), KHItems.DARK_HORSE_BARDING.get(), KHItems.GOLDEN_HORSE_BARDING.get(),
                         KHItems.PLUME.get(), KHItems.TRI_PLUME.get(), KHItems.FLUFFY_PLUME.get(),
                         KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get(),
+                        KHItems.LEATHER_GLOVES.get(),
                         KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get());
 
         tag(ModTags.DYES.getTag())

@@ -1,0 +1,9 @@
+{
+  "slot": "gloves",
+  "armor": "chestplate",
+  "items": [
+    "knightsheraldry:leather_gloves",
+    "knightsheraldry:mail_gloves"
+  ],
+  "icon": "knightsheraldry:container/icon/gloves"
+}

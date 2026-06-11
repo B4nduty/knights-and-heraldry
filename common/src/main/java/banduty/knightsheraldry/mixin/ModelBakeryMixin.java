@@ -94,7 +94,7 @@ public abstract class ModelBakeryMixin {
                 KHItems.VIKING_HELM.get(), KHItems.BURGONET.get(), KHItems.VISORLESS_SALLET.get(), KHItems.ARMET.get(), KHItems.ARMET_2.get(), KHItems.VISORED_BARBUTE.get(), KHItems.HOUNDSKULL.get(),
                 KHItems.CAGE.get(), KHItems.VISORED_BASCINET.get(), KHItems.GREAT_HELM.get(), KHItems.BURGONET_FALLING_BUFFE.get(),
                 KHItems.CLOSE_HELM.get(), KHItems.FROGMOUTH.get(), KHItems.GREAT_ARMET.get(), KHItems.GREAT_ARMET_2.get(), KHItems.GREAT_BASCINET.get(),
-                KHItems.GREAT_HOUNDSKUL_BASCINET.get(), KHItems.MAXIMILLIAN_HELMET.get(), KHItems.SAVOYARD.get(), KHItems.GAUNTLET.get(), KHItems.BRIGANDINE_HARNESS.get(),
+                KHItems.GREAT_HOUNDSKUL_BASCINET.get(), KHItems.MAXIMILLIAN_HELMET.get(), KHItems.SAVOYARD.get(), KHItems.LEATHER_GLOVES.get(), KHItems.MAIL_GLOVES.get(), KHItems.GAUNTLET.get(), KHItems.BRIGANDINE_HARNESS.get(),
                 KHItems.PLATE_HARNESS.get(), KHItems.BRIGANDINE_CUISSES.get(), KHItems.PLATE_CUISSES.get(), KHItems.GREAVES.get(), KHItems.SABATONS.get(),
                 KHItems.SURCOAT.get(), KHItems.SURCOAT_SLEEVELESS.get(), KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get(), KHItems.CLOAK.get(),
                 KHItems.TORN_CLOAK.get(), KHItems.HOOD.get(), KHItems.TORN_HOOD.get(), KHItems.JESTER_HOOD.get(), KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get(),

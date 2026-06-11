@@ -28,7 +28,7 @@
     "id": "musket",
     "maxUseTime": 1,
     "needsFlintAndSteel": true,
-    "rechargeTime": 15,
+    "rechargeTime": 300,
     "soundEvent": "knightsheraldry:arquebus_close",
     "speed": 4.3,
     "useAnim": "BOW"

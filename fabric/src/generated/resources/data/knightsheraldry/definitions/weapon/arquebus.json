@@ -27,7 +27,7 @@
     "divergence": 2.0,
     "id": "musket",
     "maxUseTime": 1,
-    "rechargeTime": 15,
+    "rechargeTime": 300,
     "soundEvent": "knightsheraldry:arquebus_close",
     "speed": 5.9,
     "useAnim": "BOW"

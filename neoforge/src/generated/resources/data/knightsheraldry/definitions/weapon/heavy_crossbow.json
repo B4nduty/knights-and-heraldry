@@ -5,7 +5,7 @@
     "divergence": 1.0,
     "id": "crossbow",
     "maxUseTime": 72000,
-    "rechargeTime": 5,
+    "rechargeTime": 100,
     "soundEvent": "minecraft:item.crossbow.shoot",
     "speed": 4.0,
     "useAnim": "CROSSBOW"

@@ -4,7 +4,7 @@
     "damageType": "PIERCING",
     "divergence": 1.0,
     "maxUseTime": 72000,
-    "rechargeTime": 3,
+    "rechargeTime": 60,
     "soundEvent": "minecraft:entity.arrow.shoot",
     "speed": 3.7,
     "useAnim": "BOW"

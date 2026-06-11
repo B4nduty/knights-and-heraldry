@@ -1,5 +1,5 @@
 {
-  "slot": "hand",
+  "slot": "arm",
   "armor": "chestplate",
   "items": [
     "knightsheraldry:gauntlet",
@@ -12,5 +12,5 @@
     "knightsheraldry:dark_plate_harness",
     "knightsheraldry:golden_plate_harness"
   ],
-  "icon": "knightsheraldry:container/icon/hand"
+  "icon": "knightsheraldry:container/icon/arm"
 }

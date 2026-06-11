@@ -397,7 +397,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.GREAT_BASCINET.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.GREAT_HOUNDSKUL_BASCINET.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.MAXIMILLIAN_HELMET.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.GAUNTLET.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.LEATHER_GLOVES.get(), new ItemStack(Items.LEATHER));
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.MAIL_GLOVES.get(), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.GAUNTLET.get(), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BRIGANDINE_HARNESS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.LEATHER));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.PLATE_HARNESS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BRIGANDINE_CUISSES.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.LEATHER));

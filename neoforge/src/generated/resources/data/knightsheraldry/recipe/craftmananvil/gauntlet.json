@@ -1,6 +1,7 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.9,
+  "chance": 0.5,
+  "hit_times": 5,
   "ingredients": [
     {
       "count": 1,
