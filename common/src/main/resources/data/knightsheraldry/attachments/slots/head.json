@@ -88,7 +88,9 @@
     "knightsheraldry:golden_aragonese_sallet",
     "knightsheraldry:hood",
     "knightsheraldry:torn_hood",
-    "knightsheraldry:jester_hood"
+    "knightsheraldry:jester_hood",
+    "knightsheraldry:chaperon",
+    "knightsheraldry:gilded_chaperon"
   ],
   "icon": "knightsheraldry:container/icon/head"
 }
