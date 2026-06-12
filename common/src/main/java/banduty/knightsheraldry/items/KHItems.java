@@ -7,9 +7,9 @@ import banduty.knightsheraldry.entity.custom.KHClothArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import banduty.knightsheraldry.items.armor.attachment.*;
 import banduty.knightsheraldry.items.armor.deco.DecoItem;
+import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.items.item.KHExtendedArrowItem;
-import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.items.item.khammo.ClothArrow;
 import banduty.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
@@ -39,10 +39,10 @@ public interface KHItems {
     Supplier<Item> V_SWORD = sword("v_sword", -2.4F, 326);
     Supplier<Item> ARMING_SWORD = sword("arming_sword", -2.4F, 326);
 
-    Supplier<Item> AXE = axe("axe",-2.6F, 391);
+    Supplier<Item> AXE = axe("axe", -2.6F, 391);
     Supplier<Item> BROAD_AXE = axe("broad_axe", -2.6F, 391);
-    Supplier<Item> CROOKED_AXE = axe("crooked_axe",-2.6F, 391);
-    Supplier<Item> STRAIGHT_CROOKED_AXE = axe("straight_crooked_axe",-2.6F, 391);
+    Supplier<Item> CROOKED_AXE = axe("crooked_axe", -2.6F, 391);
+    Supplier<Item> STRAIGHT_CROOKED_AXE = axe("straight_crooked_axe", -2.6F, 391);
 
     Supplier<Item> MACE = sword("mace", -2.6F, 430);
     Supplier<Item> SPIKED_MACE = sword("spiked_mace", -2.6F, 430);
@@ -81,7 +81,7 @@ public interface KHItems {
     Supplier<Item> WOODEN_LANCE = registerItem("wooden_lance",
             () -> new WoodenLance(-3.0F, new Item.Properties().durability(1), SCDamageType.PIERCING));
 
-    Supplier<Item> POLEAXE = axe("poleaxe",-2.8F, 391);
+    Supplier<Item> POLEAXE = axe("poleaxe", -2.8F, 391);
 
     Supplier<Item> POLEHAMMER = sword("polehammer", -2.8F, 391);
     Supplier<Item> BEC_DE_CORBIN = sword("bec_de_corbin", -2.8F, 391);
@@ -109,7 +109,7 @@ public interface KHItems {
             () -> new SCDyeableUnderArmor(ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS, new Item.Properties().durability(165), 0xFFA06440));
 
     Supplier<Item> MAIL_COIF = registerItem("mail_coif",
-            () -> new SCUnderArmor(ModArmorMaterials.MAIL,  ArmorItem.Type.HELMET, new Item.Properties().durability(512)));
+            () -> new SCUnderArmor(ModArmorMaterials.MAIL, ArmorItem.Type.HELMET, new Item.Properties().durability(512)));
     Supplier<Item> HAUBERK = registerItem("hauberk",
             () -> new SCUnderArmor(ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(1536)));
     Supplier<Item> MAIL_BREECHES = registerItem("mail_breeches",
@@ -449,7 +449,7 @@ public interface KHItems {
     Supplier<Item> CIVILIAN_SURCOAT = registerItem("civilian_surcoat",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
     Supplier<Item> GIORNEA = registerItem("giornea",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), false, -1, Ingredient.of(Items.LEATHER)));
 
     Supplier<Item> CLOAK = registerItem("cloak",
             () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.CHESTPLATE));
@@ -534,6 +534,7 @@ public interface KHItems {
             }
         });
     }
+
     static Supplier<Item> axe(String id, float attackSpeed, int durability) {
         return registerItem(id, () -> new AxeItem(ModToolMaterials.WEAPONS,
                 new Item.Properties().attributes(AxeItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed))) {

@@ -100,6 +100,8 @@ dependencies {
     implementation "dev.kosmx.player-anim:player-animation-lib-forge:${project.player_anim}"
 
     api "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config}"
+
+    implementation "curse.maven:spark-361579:6225208"
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }

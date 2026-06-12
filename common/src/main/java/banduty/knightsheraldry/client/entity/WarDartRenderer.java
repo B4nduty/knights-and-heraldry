@@ -28,6 +28,7 @@ public class WarDartRenderer extends EntityRenderer<WarDartEntity> {
         this(context, 1.0F);
     }
 
+    @Override
     public void render(WarDartEntity warDartEntity, float yaw, float tickDelta, PoseStack poseStack, MultiBufferSource multiBufferSource, int light) {
         poseStack.pushPose();
         poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(tickDelta, warDartEntity.yRotO, warDartEntity.getYRot()) - 90.0F));
@@ -38,6 +39,7 @@ public class WarDartRenderer extends EntityRenderer<WarDartEntity> {
         super.render(warDartEntity, yaw, tickDelta, poseStack, multiBufferSource, light);
     }
 
+    @Override
     public ResourceLocation getTextureLocation(WarDartEntity entity) {
         return TEXTURE;
     }
