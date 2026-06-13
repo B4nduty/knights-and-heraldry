@@ -8,14 +8,15 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import org.jetbrains.annotations.Nullable;
 
 public class KHBroadheadArrowEntity extends SCArrowEntity {
     public KHBroadheadArrowEntity(EntityType<? extends KHBroadheadArrowEntity> type, Level level) {
-        super(type, null, level);
+        super(type, level);
     }
 
-    public KHBroadheadArrowEntity(LivingEntity shooter, Level level) {
-        super(KHEntities.BROADHEAD_ARROW.get(), shooter, level);
+    public KHBroadheadArrowEntity(LivingEntity shooter, Level level, ItemStack stack, @Nullable ItemStack firedFromWeapon) {
+        super(KHEntities.BROADHEAD_ARROW.get(), shooter, level, stack, firedFromWeapon);
     }
 
     @Override

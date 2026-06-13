@@ -25,12 +25,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.function.BiFunction;
 
 public class ClothArrow extends KHExtendedArrowItem {
     static final int IGNITE_DURATION_TICKS = 20 * 60;
 
-    public ClothArrow(Properties properties, BiFunction<LivingEntity, Level, AbstractArrow> arrowEntityFactory) {
+    public ClothArrow(Properties properties, ArrowFactory arrowEntityFactory) {
         super(properties, arrowEntityFactory);
     }
 
@@ -109,7 +108,8 @@ public class ClothArrow extends KHExtendedArrowItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player user, InteractionHand hand) {
         ItemStack itemStack = user.getItemInHand(hand);
         ItemStack offHandStack;
-        if (Boolean.TRUE.equals(itemStack.get(KHDataComponents.EXTINGUISHED.get()))) return super.use(level, user, hand);
+        if (Boolean.TRUE.equals(itemStack.get(KHDataComponents.EXTINGUISHED.get())))
+            return super.use(level, user, hand);
         if (itemStack == user.getMainHandItem()) offHandStack = user.getOffhandItem();
         else offHandStack = user.getMainHandItem();
         if (offHandStack.is(Items.WATER_BUCKET) && Boolean.TRUE.equals(itemStack.get(SCDataComponents.IGNITED.get()))) {

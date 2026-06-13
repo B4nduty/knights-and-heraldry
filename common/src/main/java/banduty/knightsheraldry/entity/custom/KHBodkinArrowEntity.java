@@ -12,15 +12,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import org.jetbrains.annotations.Nullable;
 
 public class KHBodkinArrowEntity extends SCArrowEntity {
 
     public KHBodkinArrowEntity(EntityType<? extends KHBodkinArrowEntity> type, Level level) {
-        super(type, null, level);
+        super(type, level);
     }
 
-    public KHBodkinArrowEntity(LivingEntity shooter, Level level) {
-        super(KHEntities.BODKIN_ARROW.get(), shooter, level);
+    public KHBodkinArrowEntity(LivingEntity shooter, Level level, ItemStack stack, @Nullable ItemStack firedFromWeapon) {
+        super(KHEntities.BODKIN_ARROW.get(), shooter, level, stack, firedFromWeapon);
     }
 
     @Override
@@ -52,7 +53,9 @@ public class KHBodkinArrowEntity extends SCArrowEntity {
 
         damageDealt = CombatRules.getDamageAfterAbsorb(target, (float) damageDealt, target.damageSources().generic(), (float) armor, (float) armorToughness);
 
-        if (this.getOwner() instanceof Player player) target.hurt(target.level().damageSources().playerAttack(player), (float) damageDealt);
-        else if (this.getOwner() instanceof LivingEntity livingEntity) target.hurt(target.level().damageSources().mobAttack(livingEntity), (float) damageDealt);
+        if (this.getOwner() instanceof Player player)
+            target.hurt(target.level().damageSources().playerAttack(player), (float) damageDealt);
+        else if (this.getOwner() instanceof LivingEntity livingEntity)
+            target.hurt(target.level().damageSources().mobAttack(livingEntity), (float) damageDealt);
     }
 }

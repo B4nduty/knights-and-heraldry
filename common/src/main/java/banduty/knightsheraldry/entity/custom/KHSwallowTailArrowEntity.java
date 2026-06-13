@@ -10,16 +10,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import org.jetbrains.annotations.Nullable;
 
 public class KHSwallowTailArrowEntity extends SCArrowEntity {
+
     private Player stuckPlayer;
 
     public KHSwallowTailArrowEntity(EntityType<? extends KHSwallowTailArrowEntity> type, Level level) {
-        super(type, null, level);
+        super(type, level);
     }
 
-    public KHSwallowTailArrowEntity(LivingEntity shooter, Level level) {
-        super(KHEntities.SWALLOWTAIL_ARROW.get(), shooter, level);
+    public KHSwallowTailArrowEntity(LivingEntity shooter, Level level, ItemStack stack, @Nullable ItemStack firedFromWeapon) {
+        super(KHEntities.SWALLOWTAIL_ARROW.get(), shooter, level, stack, firedFromWeapon);
     }
 
     @Override
@@ -35,7 +37,10 @@ public class KHSwallowTailArrowEntity extends SCArrowEntity {
     @Override
     protected void onSCEntityHit(EntityHitResult entityHitResult) {
         super.onSCEntityHit(entityHitResult);
-        LivingEntity target = (LivingEntity) entityHitResult.getEntity();
+
+        if (!(entityHitResult.getEntity() instanceof LivingEntity target)) {
+            return;
+        }
 
         if (target instanceof Player player && stuckPlayer == null) {
             if (player.isCreative()) return;
@@ -44,11 +49,21 @@ public class KHSwallowTailArrowEntity extends SCArrowEntity {
             updateSwallowTailArrowCount(player);
         }
 
-        scHitEntity(target, new ItemStack(KHItems.SWALLOWTAIL_ARROW.get()), getBaseDamage());
+        scHitEntity(
+                target,
+                new ItemStack(KHItems.SWALLOWTAIL_ARROW.get()),
+                getBaseDamage()
+        );
     }
 
     private void updateSwallowTailArrowCount(Player player) {
-        int currentCount = ((IEntityDataSaver) player).stoneycore$getPersistentData().getInt("swallowtailArrowCount");
-        ((IEntityDataSaver) player).stoneycore$getPersistentData().putInt("swallowtailArrowCount", currentCount + 1);
+        int currentCount =
+                ((IEntityDataSaver) player)
+                        .stoneycore$getPersistentData()
+                        .getInt("swallowtailArrowCount");
+
+        ((IEntityDataSaver) player)
+                .stoneycore$getPersistentData()
+                .putInt("swallowtailArrowCount", currentCount + 1);
     }
 }

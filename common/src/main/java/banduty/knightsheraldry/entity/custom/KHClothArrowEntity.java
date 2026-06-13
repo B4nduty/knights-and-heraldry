@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Random;
@@ -32,11 +33,11 @@ public class KHClothArrowEntity extends SCArrowEntity {
     private boolean blockCollisioned = false;
 
     public KHClothArrowEntity(EntityType<? extends KHClothArrowEntity> type, Level level) {
-        super(type, null, level);
+        super(type, level);
     }
 
-    public KHClothArrowEntity(LivingEntity shooter, Level level) {
-        super(KHEntities.CLOTH_ARROW.get(), shooter, level);
+    public KHClothArrowEntity(LivingEntity shooter, Level level, ItemStack stack, @Nullable ItemStack firedFromWeapon) {
+        super(KHEntities.CLOTH_ARROW.get(), shooter, level, stack, firedFromWeapon);
     }
 
     @Override
