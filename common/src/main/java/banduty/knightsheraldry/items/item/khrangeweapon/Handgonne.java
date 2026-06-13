@@ -71,7 +71,7 @@ public class Handgonne extends Item implements GeoItem {
                     rechargeTime += ArmorAttachmentDefinitionsStorage.getData(attachment).rechargeTime();
                 }
             }
-            controller.setAnimationSpeed((double) WeaponDefinitionsStorage.getData(itemStack).ranged().rechargeTime() / rechargeTime);
+            controller.setAnimationSpeed((double) 300 / rechargeTime);
             animationState.getController().setAnimation(RawAnimation.begin().then("reload", Animation.LoopType.HOLD_ON_LAST_FRAME));
         }
         else if (SCRangeWeaponUtil.getWeaponState(itemStack).isCharged()) {
