@@ -49,7 +49,24 @@ public class KnightsHeraldryForgeClient {
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
-        for (Item item : ForgeRegistries.ITEMS.getValues()) {
+        Item[] items = new Item[]{
+                ModItems.WOODEN_LANCE.get(), ModItems.QUILTED_COIF.get(), ModItems.GAMBESON.get(), ModItems.GAMBESON_BREECHES.get(),
+                ModItems.GAMBESON_BOOTS.get(),
+                ModItems.BRIGANDINE_SPAULDERS.get(), ModItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(),
+                ModItems.DARK_BRIGANDINE_SPAULDERS.get(), ModItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(),
+                ModItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), ModItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get(),
+                ModItems.BRIGANDINE.get(), ModItems.DARK_BRIGANDINE.get(), ModItems.GOLDEN_BRIGANDINE.get(),
+                ModItems.BRIG_BREASTPLATE.get(), ModItems.DARK_BRIG_BREASTPLATE.get(), ModItems.GOLDEN_BRIG_BREASTPLATE.get(),
+                ModItems.BRIG_BREASTPLATE_TASSETS.get(), ModItems.DARK_BRIG_BREASTPLATE_TASSETS.get(), ModItems.GOLDEN_BRIG_BREASTPLATE_TASSETS.get(),
+                ModItems.BRIGANDINE_HARNESS.get(), ModItems.DARK_BRIGANDINE_HARNESS.get(), ModItems.GOLDEN_BRIGANDINE_HARNESS.get(),
+                ModItems.BRIGANDINE_CUISSES.get(), ModItems.DARK_BRIGANDINE_CUISSES.get(), ModItems.GOLDEN_BRIGANDINE_CUISSES.get(),
+                ModItems.CLOAK.get(), ModItems.TORN_CLOAK.get(), ModItems.HOOD.get(), ModItems.TORN_HOOD.get(),
+                ModItems.JESTER_HOOD.get(), ModItems.HELMET_HOOD.get(), ModItems.HELMET_TORN_HOOD.get(),
+                ModItems.HORSE_BARDING.get(), ModItems.DARK_HORSE_BARDING.get(), ModItems.GOLDEN_HORSE_BARDING.get(),
+                ModItems.PLUME.get(), ModItems.TRI_PLUME.get(), ModItems.FLUFFY_PLUME.get(),
+                ModItems.CHAPERON.get(), ModItems.GILDED_CHAPERON.get(), ModItems.TORSE.get()
+        };
+        for (Item item : items) {
             if (item instanceof TwoLayerDyeableItem twoLayerItem) {
                 event.register((stack, tintIndex) -> {
                     if (tintIndex == 0) return twoLayerItem.getColor1(stack);
