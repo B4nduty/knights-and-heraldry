@@ -6,20 +6,18 @@ import banduty.knightsheraldry.platform.Services;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class WarDart extends SwordItem {
+public class WarDart extends SwordItem implements Vanishable {
     public WarDart(float attackSpeed, Properties properties) {
         super(ModToolMaterials.WEAPONS, 1, attackSpeed, properties);
     }
@@ -54,11 +52,12 @@ public class WarDart extends SwordItem {
                 }
 
                 level.addFreshEntity(wardartEntity);
-                level.playSound(user, user.getOnPos(), SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
-                if (!player.isCreative())  {
+                level.playSound(null, wardartEntity, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+                if (!player.isCreative()) {
                     player.getInventory().removeItem(stack);
                     player.getCooldowns().addCooldown(this, Services.PLATFORM.getConfig().getWardartCooldown() * 20);
                 }
+                player.awardStat(Stats.ITEM_USED.get(this));
             }
         }
     }

@@ -10,6 +10,8 @@ import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -72,6 +74,7 @@ public class WarDartEntity extends AbstractArrow {
             livingEntity.addEffect(new MobEffectInstance(Services.PLATFORM.getPinEffect(), 100, 0));
             livingEntity.hurt(this.damageSources().genericKill(),
                     (float) SCWeaponUtil.getMaxDamage(SCDamageType.PIERCING, this.getPickupItem().getItem()));
+            this.playSound(SoundEvents.TRIDENT_HIT, 1.0F, 1.0F);
         }
     }
 
@@ -112,5 +115,10 @@ public class WarDartEntity extends AbstractArrow {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(ID_FOIL, false);
+    }
+
+    @Override
+    protected SoundEvent getDefaultHitGroundSoundEvent() {
+        return SoundEvents.TRIDENT_HIT_GROUND;
     }
 }
