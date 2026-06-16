@@ -46,16 +46,29 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
         });
 
         EntityRendererRegistry.register(ModEntities.WARDART_PROJECTILE, WarDartRenderer::new);
-
-        for (Item item : BuiltInRegistries.ITEM) {
-            if (item == ModItems.SWALLOWTAIL_ARROW)
-                EntityRendererRegistry.register(ModEntities.SWALLOWTAIL_ARROW, KHSwallowtailArrowEntityRenderer::new);
-            if (item == ModItems.BODKIN_ARROW)
-                EntityRendererRegistry.register(ModEntities.BODKIN_ARROW, KHBodkinArrowEntityRenderer::new);
-            if (item == ModItems.BROADHEAD_ARROW)
-                EntityRendererRegistry.register(ModEntities.BROADHEAD_ARROW, KHBroadheadArrowEntityRenderer::new);
-            if (item == ModItems.CLOTH_ARROW)
-                EntityRendererRegistry.register(ModEntities.CLOTH_ARROW, KHClothArrowEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SWALLOWTAIL_ARROW, KHSwallowtailArrowEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.BODKIN_ARROW, KHBodkinArrowEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.BROADHEAD_ARROW, KHBroadheadArrowEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.CLOTH_ARROW, KHClothArrowEntityRenderer::new);
+        
+        Item[] items = new Item[]{
+                ModItems.WOODEN_LANCE, ModItems.QUILTED_COIF, ModItems.GAMBESON, ModItems.GAMBESON_BREECHES,
+                ModItems.GAMBESON_BOOTS,
+                ModItems.BRIGANDINE_SPAULDERS, ModItems.BRIGANDINE_SPAULDERS_BESAGEWS,
+                ModItems.DARK_BRIGANDINE_SPAULDERS, ModItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS,
+                ModItems.GOLDEN_BRIGANDINE_SPAULDERS, ModItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS,
+                ModItems.BRIGANDINE, ModItems.DARK_BRIGANDINE, ModItems.GOLDEN_BRIGANDINE,
+                ModItems.BRIG_BREASTPLATE, ModItems.DARK_BRIG_BREASTPLATE, ModItems.GOLDEN_BRIG_BREASTPLATE,
+                ModItems.BRIG_BREASTPLATE_TASSETS, ModItems.DARK_BRIG_BREASTPLATE_TASSETS, ModItems.GOLDEN_BRIG_BREASTPLATE_TASSETS,
+                ModItems.BRIGANDINE_HARNESS, ModItems.DARK_BRIGANDINE_HARNESS, ModItems.GOLDEN_BRIGANDINE_HARNESS,
+                ModItems.BRIGANDINE_CUISSES, ModItems.DARK_BRIGANDINE_CUISSES, ModItems.GOLDEN_BRIGANDINE_CUISSES,
+                ModItems.CLOAK, ModItems.TORN_CLOAK, ModItems.HOOD, ModItems.TORN_HOOD,
+                ModItems.JESTER_HOOD, ModItems.HELMET_HOOD, ModItems.HELMET_TORN_HOOD,
+                ModItems.HORSE_BARDING, ModItems.DARK_HORSE_BARDING, ModItems.GOLDEN_HORSE_BARDING,
+                ModItems.PLUME, ModItems.TRI_PLUME, ModItems.FLUFFY_PLUME,
+                ModItems.CHAPERON, ModItems.GILDED_CHAPERON, ModItems.TORSE
+        };
+        for (Item item : items) {
             if (item instanceof TwoLayerDyeableItem twoLayerItem) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
                     if (tintIndex == 0) return twoLayerItem.getColor1(stack); // top
@@ -66,9 +79,8 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
             if (item instanceof DyeableLeatherItem dyeableItems)
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
                         tintIndex > 0 ? -1 : dyeableItems.getColor(stack), item);
-            if (Objects.equals(BuiltInRegistries.ITEM.getKey(item).getNamespace(), "knightsheraldry")) {
-                ModModelPredicates.registerModelPredicates(item);
-            }
+
+            ModModelPredicates.registerModelPredicates(item);
         }
     }
 }

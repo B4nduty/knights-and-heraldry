@@ -96,8 +96,6 @@ public class ModModelPredicates {
         ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "charged"),
                 (stack, world, entity, seed) -> entity != null
                         && stack.hasTag() && stack.getTag().getBoolean("charged") ? 1.0F : 0.0F);
-        ItemProperties.register(item, new ResourceLocation("blocking"),
-                (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
         ItemProperties.register(item, new ResourceLocation(KnightsHeraldry.MOD_ID, "bludgeoning"),
                 (stack, world, entity, seed) -> stack.hasTag() &&
                         stack.getTag().getBoolean("bludgeoning") ? 1.0F : 0.0F);
