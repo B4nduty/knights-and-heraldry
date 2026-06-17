@@ -2,9 +2,22 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
+      "model": "knightsheraldry:item/dark_black_sallet_open",
+      "predicate": {
+        "knightsheraldry:open": 1
+      }
+    },
+    {
       "model": "knightsheraldry:item/dark_black_sallet_rat",
       "predicate": {
         "knightsheraldry:rat": 1
+      }
+    },
+    {
+      "model": "knightsheraldry:item/dark_black_sallet_rat_open",
+      "predicate": {
+        "knightsheraldry:rat": 1,
+        "knightsheraldry:open": 1
       }
     }
   ],

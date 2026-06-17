@@ -204,6 +204,9 @@ public interface KHItemGroups {
                     itemStack(KHItems.SALLET_BEVOR.get()),
                     itemStack(KHItems.DARK_SALLET_BEVOR.get()),
                     itemStack(KHItems.GOLDEN_SALLET_BEVOR.get()),
+                    itemStack(KHItems.BLACK_SALLET_BEVOR.get()),
+                    itemStack(KHItems.DARK_BLACK_SALLET_BEVOR.get()),
+                    itemStack(KHItems.GOLDEN_BLACK_SALLET_BEVOR.get()),
 
                     itemStack(KHItems.FROGMOUTH.get()),
                     itemStack(KHItems.GREAT_ARMET.get()),

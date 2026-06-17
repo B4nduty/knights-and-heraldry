@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/black_sallet_bevor_open",
+      "predicate": {
+        "knightsheraldry:open": 1
+      }
+    },
+    {
+      "model": "knightsheraldry:item/black_sallet_bevor_rat",
+      "predicate": {
+        "knightsheraldry:rat": 1
+      }
+    },
+    {
+      "model": "knightsheraldry:item/black_sallet_bevor_rat_open",
+      "predicate": {
+        "knightsheraldry:rat": 1,
+        "knightsheraldry:open": 1
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "knightsheraldry:item/black_sallet_bevor"
+  }
+}

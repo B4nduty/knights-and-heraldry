@@ -332,9 +332,15 @@ public interface KHItems {
     Supplier<Item> SALLET_BEVOR = registerItem("sallet_bevor",
             () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> DARK_SALLET_BEVOR = registerItem("dark_sallet_bevor",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(226), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_SALLET_BEVOR = registerItem("golden_sallet_bevor",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(246), true, Ingredient.of(Items.GOLD_INGOT)));
+    Supplier<Item> BLACK_SALLET_BEVOR = registerItem("black_sallet_bevor",
+            () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
+    Supplier<Item> DARK_BLACK_SALLET_BEVOR = registerItem("dark_black_sallet_bevor",
+            () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(226), true, Ingredient.of(Items.IRON_INGOT)));
+    Supplier<Item> GOLDEN_BLACK_SALLET_BEVOR = registerItem("golden_black_sallet_bevor",
+            () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(246), true, Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> FROGMOUTH = registerItem("frogmouth",
             () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(354), Ingredient.of(Items.IRON_INGOT)));

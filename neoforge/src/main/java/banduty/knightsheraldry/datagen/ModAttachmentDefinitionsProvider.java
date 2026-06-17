@@ -179,6 +179,9 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.SALLET_BEVOR.get(), new ArmorStats(2.5, 2.0, 3.5, 0.10, 0, 0, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
         map.put(KHItems.DARK_SALLET_BEVOR.get(), new ArmorStats(3.5, 2.0, 3.8, 0.10, 0, 0, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
         map.put(KHItems.GOLDEN_SALLET_BEVOR.get(), new ArmorStats(2.5, 2.0, 3.7, 0.10, 0, 0, false, "head", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));
+        map.put(KHItems.BLACK_SALLET_BEVOR.get(), new ArmorStats(2.5, 2.0, 3.5, 0.10, 0, 0, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(KHItems.DARK_BLACK_SALLET_BEVOR.get(), new ArmorStats(3.5, 2.0, 3.8, 0.10, 0, 0, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
+        map.put(KHItems.GOLDEN_BLACK_SALLET_BEVOR.get(), new ArmorStats(2.5, 2.0, 3.7, 0.10, 0, 0, false, "head", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
 
         // Third tier helmets
         map.put(KHItems.FROGMOUTH.get(), new ArmorStats(3.0, 3.0, 4.0, 0.15, 0, 0, true, "head", KnightsHeraldry.MOD_ID, VISOR_V_SHAPE));

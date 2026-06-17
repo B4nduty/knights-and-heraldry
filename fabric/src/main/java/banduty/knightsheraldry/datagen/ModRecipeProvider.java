@@ -155,6 +155,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new ItemStack(KHItems.BLACK_SALLET.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, KHItems.GOLDEN_SALLET_BEVOR.get(), 7, 0.7f,
                 new ItemStack(KHItems.SALLET_BEVOR.get()), new ItemStack(Items.GOLD_INGOT, 5));
+        createSmithingRecipe(exporter, KHItems.GOLDEN_BLACK_SALLET_BEVOR.get(), 7, 0.7f,
+                new ItemStack(KHItems.BLACK_SALLET_BEVOR.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, KHItems.GOLDEN_GREAT_BASCINET.get(), 7, 0.7f,
                 new ItemStack(KHItems.GREAT_BASCINET.get()), new ItemStack(Items.GOLD_INGOT, 5));
         createSmithingRecipe(exporter, KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get(), 7, 0.7f,
@@ -269,6 +271,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
         createSmithingRecipe(exporter, KHItems.DARK_SALLET_BEVOR.get(), 7, 0.85f,
                 new ItemStack(KHItems.SALLET_BEVOR.get()), new ItemStack(Items.COPPER_INGOT),
+                new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
+        createSmithingRecipe(exporter, KHItems.DARK_BLACK_SALLET_BEVOR.get(), 7, 0.85f,
+                new ItemStack(KHItems.BLACK_SALLET_BEVOR.get()), new ItemStack(Items.COPPER_INGOT),
                 new ItemStack(Items.BONE_MEAL, 2), new ItemStack(Items.BASALT, 2));
         createSmithingRecipe(exporter, KHItems.DARK_FROGMOUTH.get(), 7, 0.85f,
                 new ItemStack(KHItems.FROGMOUTH.get()), new ItemStack(Items.COPPER_INGOT),
@@ -422,6 +427,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new ItemStack(KHItems.SALLET.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createSmithingRecipe(exporter, KHItems.ARAGONESE_SALLET.get(), 10, 0.25f,
                 new ItemStack(KHItems.SALLET_BEVOR.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createSmithingRecipe(exporter, KHItems.BLACK_SALLET_BEVOR.get(), 7, 0.5f,
+                new ItemStack(KHItems.BLACK_SALLET.get()), new ItemStack(SCItems.HOT_IRON.get()));
     }
 
     private void createCraftmanAnvilRecipe(RecipeOutput exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, String path, Object... requiress) {

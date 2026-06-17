@@ -1,4 +1,4 @@
-// 1.21.1	2026-06-11T18:44:07.7986549	Knights & Heraldry/Weapon Definitions
+// 1.21.1	2026-06-17T18:49:54.9891025	Knights & Heraldry/Weapon Definitions
 2e206bf121b5ddb77a66863a0f37796867720014 data\knightsheraldry\definitions\weapon\curved_glaive.json
 dea01e294677c1b8ac747f60c4f958e62a94fc0b data\knightsheraldry\definitions\weapon\polehammer.json
 e580959f43b4f702ca8b49b0edb5e52340539fd9 data\knightsheraldry\definitions\weapon\crooked_axe.json
@@ -20,8 +20,8 @@ a20176c24d58170001b3d95b4ba2263c4388a9c4 data\knightsheraldry\definitions\weapon
 52097cb15df30062aea4c9b82359cc212394ae24 data\knightsheraldry\definitions\weapon\arquebus.json
 f2e1c66a73ca879085db36144a7038179b9f0f35 data\knightsheraldry\definitions\weapon\v_sword.json
 89ff034ac9e414db56023dd7efed8bff4a6cf17f data\knightsheraldry\definitions\weapon\ball_flail.json
-f8d4dd4c76eb3d256444c5b005e4f891ed82f7d0 data\knightsheraldry\definitions\weapon\claymore.json
 f8d4dd4c76eb3d256444c5b005e4f891ed82f7d0 data\knightsheraldry\definitions\weapon\flamberge.json
+f8d4dd4c76eb3d256444c5b005e4f891ed82f7d0 data\knightsheraldry\definitions\weapon\claymore.json
 2997697adb51a7c41ccefc49b3b30fd062cdffe2 data\knightsheraldry\definitions\weapon\stiletto.json
 ff17ae93ba6a001494406d08e9c47d966ccdf15c data\knightsheraldry\definitions\weapon\wardart.json
 9c976a649eb26426230e67cd5a61889d2391d011 data\knightsheraldry\definitions\weapon\pitchfork.json
