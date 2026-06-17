@@ -7,6 +7,7 @@ import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
 import banduty.stoneycore.items.custom.armor.custom.CrownItem;
+import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -56,13 +57,13 @@ public class KHHelmetAttachment extends Item
     }
 
     @Override
-    public Vector3f getOffset(ItemStack stack, LivingEntity entity) {
+    public Vector3f getOffset(ItemStack stack, LivingEntity entity, UnderArmorContents contents) {
         if (stack.getItem() instanceof CrownItem || stack.is(KHItems.TORSE.get())) return offset;
         return new Vector3f();
     }
 
     @Override
-    public Vector3f getRotation(ItemStack stack, LivingEntity entity) {
+    public Vector3f getRotation(ItemStack stack, LivingEntity entity, UnderArmorContents contents) {
         if (stack.getItem() instanceof CrownItem || stack.is(KHItems.TORSE.get())) return rotation;
         return new Vector3f();
     }
