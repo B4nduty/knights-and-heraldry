@@ -1,18 +1,22 @@
 package banduty.knightsheraldry.items.armor.attachment;
 
 import banduty.knightsheraldry.client.item.armor.KHHelmetAttachmentRenderer;
+import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.client.render.ArmorAttachmentPosition;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
+import banduty.stoneycore.items.custom.armor.custom.CrownItem;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import org.joml.Vector3f;
 
 public class KHHelmetAttachment extends Item
         implements ArmorAttachment, ArmorAttachmentRenderProvider, ArmorAttachmentPosition {
@@ -20,54 +24,47 @@ public class KHHelmetAttachment extends Item
     private final boolean openVisor;
     private final Ingredient ingredient;
 
-    private final float offsetX;
-    private final float offsetY;
-    private final float offsetZ;
+    private final Vector3f offset;
+    private final Vector3f rotation;
 
     public ArmorAttachmentRenderer cachedRenderer;
 
 
     public KHHelmetAttachment(Properties properties, Ingredient ingredient) {
-        this(properties, false, ingredient, 0, -4, 0);
+        this(properties, false, ingredient, new Vector3f(0, -4, 0), new Vector3f(0, 0, 0));
     }
 
 
     public KHHelmetAttachment(Properties properties,
                               boolean openVisor,
                               Ingredient ingredient) {
-        this(properties, openVisor, ingredient, 0, -4, 0);
+        this(properties, openVisor, ingredient, new Vector3f(0, -4, 0), new Vector3f(0, 0, 0));
     }
 
 
     public KHHelmetAttachment(Properties properties,
                               boolean openVisor,
                               Ingredient ingredient,
-                              float offsetX,
-                              float offsetY,
-                              float offsetZ) {
+                              Vector3f offset,
+                              Vector3f rotation) {
         super(properties);
         this.openVisor = openVisor;
         this.ingredient = ingredient;
 
-        this.offsetX = offsetX;
-        this.offsetY = offsetY;
-        this.offsetZ = offsetZ;
-    }
-
-
-    @Override
-    public float getOffsetX() {
-        return offsetX;
+        this.offset = offset;
+        this.rotation = rotation;
     }
 
     @Override
-    public float getOffsetY() {
-        return offsetY;
+    public Vector3f getOffset(ItemStack stack, LivingEntity entity) {
+        if (stack.getItem() instanceof CrownItem || stack.is(KHItems.TORSE.get())) return offset;
+        return new Vector3f();
     }
 
     @Override
-    public float getOffsetZ() {
-        return offsetZ;
+    public Vector3f getRotation(ItemStack stack, LivingEntity entity) {
+        if (stack.getItem() instanceof CrownItem || stack.is(KHItems.TORSE.get())) return rotation;
+        return new Vector3f();
     }
 
 
