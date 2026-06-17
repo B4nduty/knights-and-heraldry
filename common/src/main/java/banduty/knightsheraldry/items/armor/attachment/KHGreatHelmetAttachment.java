@@ -6,7 +6,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 public class KHGreatHelmetAttachment extends KHHelmetAttachment {
     public KHGreatHelmetAttachment(Properties properties, Ingredient ingredient) {
-        super(properties, ingredient);
+        super(properties, false, ingredient, 0, -5, 0);
+    }
+
+    public KHGreatHelmetAttachment(Properties properties, Ingredient ingredient, float x, float y, float z) {
+        super(properties, false, ingredient, x, y, z);
     }
 
     @Override
