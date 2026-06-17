@@ -59,13 +59,13 @@ public class KHHelmetAttachment extends Item
     @Override
     public Vector3f getOffset(ItemStack stack, LivingEntity entity, UnderArmorContents contents) {
         if (stack.getItem() instanceof CrownItem || stack.is(KHItems.TORSE.get())) return offset;
-        return new Vector3f();
+        return ArmorAttachmentPosition.super.getOffset(stack, entity, contents);
     }
 
     @Override
     public Vector3f getRotation(ItemStack stack, LivingEntity entity, UnderArmorContents contents) {
         if (stack.getItem() instanceof CrownItem || stack.is(KHItems.TORSE.get())) return rotation;
-        return new Vector3f();
+        return ArmorAttachmentPosition.super.getOffset(stack, entity, contents);
     }
 
 

@@ -2,35 +2,55 @@ package banduty.knightsheraldry.items.armor.attachment;
 
 import banduty.knightsheraldry.client.item.armor.KHCloakAttachmentRenderer;
 import banduty.knightsheraldry.items.KHItems;
+import banduty.stoneycore.client.render.ArmorAttachmentPosition;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
+import banduty.stoneycore.items.custom.armor.custom.CrownItem;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
+import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.joml.Vector3f;
 
-public class KHCloak extends Item implements ArmorAttachment, ArmorAttachmentRenderProvider {
+public class KHCloak extends Item implements ArmorAttachment, ArmorAttachmentRenderProvider, ArmorAttachmentPosition {
     boolean hasOverlay;
     ArmorItem.Type armorType;
+    private final Vector3f offset;
 
     public ArmorAttachmentRenderer cachedRenderer;
 
-    public KHCloak(Properties properties, ArmorItem.@NotNull Type armorType) {
+    public KHCloak(Properties properties, ArmorItem.@NotNull Type armorType, Vector3f offset) {
         super(properties);
         this.hasOverlay = false;
         this.armorType = armorType;
+        this.offset = offset;
     }
 
-    public KHCloak(Properties properties, boolean hasOverlay, ArmorItem.@NotNull Type armorType) {
+    public KHCloak(Properties properties, boolean hasOverlay, ArmorItem.@NotNull Type armorType, Vector3f offset) {
         super(properties);
         this.hasOverlay = hasOverlay;
         this.armorType = armorType;
+        this.offset = offset;
+    }
+
+    @Override
+    public Vector3f getOffset(ItemStack stack, LivingEntity entity, UnderArmorContents contents) {
+        if (stack.getItem() instanceof CrownItem || stack.is(KHItems.TORSE.get())) return offset;
+        return ArmorAttachmentPosition.super.getOffset(stack, entity, contents);
+    }
+
+    @Override
+    public int getPriority(ItemStack stack, LivingEntity entity, UnderArmorContents contents) {
+        if (stack.getItem() instanceof CrownItem || stack.is(KHItems.TORSE.get())) return 1;
+        return ArmorAttachmentPosition.super.getPriority(stack, entity, contents);
     }
 
     public boolean hasOverlay() {

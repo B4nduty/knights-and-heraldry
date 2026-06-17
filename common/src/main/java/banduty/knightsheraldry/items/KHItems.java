@@ -25,6 +25,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.joml.Vector3f;
 
 import java.util.function.Supplier;
 
@@ -452,20 +453,20 @@ public interface KHItems {
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), false, -1, Ingredient.of(Items.LEATHER)));
 
     Supplier<Item> CLOAK = registerItem("cloak",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.CHESTPLATE));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.CHESTPLATE, null));
     Supplier<Item> TORN_CLOAK = registerItem("torn_cloak",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.CHESTPLATE));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.CHESTPLATE, null));
 
     Supplier<Item> HOOD = registerItem("hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET, new Vector3f(0f, -4f, 0f)));
     Supplier<Item> TORN_HOOD = registerItem("torn_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET, new Vector3f(0f, -4f, 0f)));
     Supplier<Item> JESTER_HOOD = registerItem("jester_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), true, ArmorItem.Type.HELMET));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), true, ArmorItem.Type.HELMET, new Vector3f(0f, -4f, 0f)));
     Supplier<Item> HELMET_HOOD = registerItem("helmet_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET, new Vector3f(0f, -6f, 0f)));
     Supplier<Item> HELMET_TORN_HOOD = registerItem("helmet_torn_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET));
+            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET, new Vector3f(0f, -6f, 0f)));
 
     Supplier<Item> LONGBOW = registerItem("longbow",
             () -> new Item(new Item.Properties().stacksTo(1).durability(666)));
