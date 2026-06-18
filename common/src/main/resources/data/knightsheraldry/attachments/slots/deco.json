@@ -20,7 +20,8 @@
     "knightsheraldry:stag",
     "knightsheraldry:boar",
     "knightsheraldry:eagle",
-    "knightsheraldry:pegasus"
+    "knightsheraldry:pegasus",
+    "knightsheraldry:torse"
   ],
   "required_slot": "head",
   "icon": "knightsheraldry:container/icon/deco"

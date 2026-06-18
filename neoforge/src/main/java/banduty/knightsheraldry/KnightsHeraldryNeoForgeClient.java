@@ -7,6 +7,7 @@ import banduty.knightsheraldry.items.armor.attachment.KHChaperon;
 import banduty.knightsheraldry.items.armor.attachment.KHChestplateAttachment;
 import banduty.knightsheraldry.items.armor.attachment.KHCloak;
 import banduty.knightsheraldry.items.armor.attachment.KHLeggingsAttachment;
+import banduty.knightsheraldry.items.armor.deco.DecoItem;
 import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
@@ -50,8 +51,14 @@ public class KnightsHeraldryNeoForgeClient {
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
         for (Item item : BuiltInRegistries.ITEM) {
-            if (item instanceof SCDyeableUnderArmor || item instanceof KHChestplateAttachment || item instanceof KHCloak
-                    || item instanceof HorseBardingArmorItem || item instanceof KHLeggingsAttachment || item instanceof KHChaperon) {
+            if (item instanceof TwoLayerDyeableDeco) {
+                event.register((stack, tintIndex) -> {
+                    if (tintIndex == 0) return TwoLayerDyeableDeco.getColor1(stack); // top
+                    if (tintIndex == 1) return TwoLayerDyeableDeco.getColor2(stack); // bottom
+                    return -1;
+                }, item);
+            } else if (item instanceof SCDyeableUnderArmor || item instanceof KHChestplateAttachment || item instanceof KHCloak
+                    || item instanceof HorseBardingArmorItem || item instanceof KHLeggingsAttachment || item instanceof KHChaperon || item instanceof DecoItem) {
                 event.register((stack, tintIndex) -> {
                     if (tintIndex > 0) {
                         return -1;
@@ -60,6 +67,7 @@ public class KnightsHeraldryNeoForgeClient {
                     int defaultColor = -1;
                     switch (stack.getItem()) {
                         case SCDyeableUnderArmor dyeable -> defaultColor = dyeable.getDefaultColor();
+                        case DecoItem dyeable -> defaultColor = dyeable.getDefaultColor(stack);
                         case KHChestplateAttachment khChestplateAttachment ->
                                 defaultColor = khChestplateAttachment.getDefaultColor();
                         case KHCloak khCloak -> defaultColor = khCloak.getDefaultColor();
@@ -73,12 +81,6 @@ public class KnightsHeraldryNeoForgeClient {
                     }
 
                     return DyedItemColor.getOrDefault(stack, defaultColor);
-                }, item);
-            } else if (item instanceof TwoLayerDyeableDeco) {
-                event.register((stack, tintIndex) -> {
-                    if (tintIndex == 0) return TwoLayerDyeableDeco.getColor1(stack); // top
-                    if (tintIndex == 1) return TwoLayerDyeableDeco.getColor2(stack); // bottom
-                    return -1;
                 }, item);
             }
         }
