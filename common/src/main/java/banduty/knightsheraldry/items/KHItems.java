@@ -456,7 +456,7 @@ public interface KHItems {
     Supplier<Item> CIVILIAN_SURCOAT = registerItem("civilian_surcoat",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
     Supplier<Item> GIORNEA = registerItem("giornea",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), false, -1, Ingredient.of(Items.LEATHER)));
+            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
 
     Supplier<Item> CLOAK = registerItem("cloak",
             () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.CHESTPLATE, null));
