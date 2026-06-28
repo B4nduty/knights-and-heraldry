@@ -12,6 +12,8 @@
   "attackStaminaConstant": 0.02,
   "getStaminaRecoverTime": 60,
   "disableStamina": false,
+  "getParryWindowTicks": 10,
+  "getParryKnockbackStrength": 0.75,
   "getDamageIndicator": false,
   "getVisoredHelmet": true,
   "getVisoredHelmetAlphaCreative": 0.4,

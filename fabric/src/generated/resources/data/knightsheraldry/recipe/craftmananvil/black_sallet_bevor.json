@@ -4,14 +4,12 @@
   "hit_times": 7,
   "ingredients": [
     {
-      "count": 1,
       "stack": {
         "count": 1,
         "id": "knightsheraldry:black_sallet"
       }
     },
     {
-      "count": 1,
       "stack": {
         "count": 1,
         "id": "stoneycore:hot_iron"

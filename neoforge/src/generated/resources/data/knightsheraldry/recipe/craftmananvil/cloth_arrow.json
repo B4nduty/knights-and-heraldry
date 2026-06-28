@@ -4,7 +4,6 @@
   "hit_times": 7,
   "ingredients": [
     {
-      "count": 1,
       "stack": {
         "components": {
           "stoneycore:target_stack": {
@@ -17,12 +16,10 @@
       }
     },
     {
-      "count": 1,
       "stack": {},
       "tag": "minecraft:wool"
     },
     {
-      "count": 1,
       "stack": {
         "count": 1,
         "id": "minecraft:feather"

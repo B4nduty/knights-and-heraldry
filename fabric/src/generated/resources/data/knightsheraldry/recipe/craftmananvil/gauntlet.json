@@ -4,7 +4,6 @@
   "hit_times": 5,
   "ingredients": [
     {
-      "count": 1,
       "stack": {
         "components": {
           "stoneycore:target_stack": {
@@ -17,7 +16,6 @@
       }
     },
     {
-      "count": 1,
       "stack": {
         "count": 1,
         "id": "stoneycore:hot_iron"

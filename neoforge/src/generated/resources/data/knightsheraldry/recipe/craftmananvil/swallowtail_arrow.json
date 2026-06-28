@@ -3,7 +3,6 @@
   "chance": 0.9,
   "ingredients": [
     {
-      "count": 1,
       "stack": {
         "components": {
           "stoneycore:target_stack": {
@@ -16,14 +15,12 @@
       }
     },
     {
-      "count": 1,
       "stack": {
         "count": 1,
         "id": "stoneycore:hot_iron"
       }
     },
     {
-      "count": 1,
       "stack": {
         "count": 1,
         "id": "minecraft:feather"
