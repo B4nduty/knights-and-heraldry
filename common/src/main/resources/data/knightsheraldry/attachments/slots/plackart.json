@@ -7,5 +7,6 @@
     "knightsheraldry:golden_plackart"
   ],
   "icon": "knightsheraldry:container/icon/plackart",
-  "required_slot": "breastplate"
+  "required_slot": "breastplate",
+  "protectedSlots": ["breastplate"]
 }

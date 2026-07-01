@@ -1,6 +1,6 @@
 {
   "armor": 0.5,
-  "armorSlot": "CHEST",
+  "armorSlot": "CHESTPLATE",
   "deflectChance": 0.04,
   "hungerDrainMultiplier": 0.1,
   "toughness": 0.5,

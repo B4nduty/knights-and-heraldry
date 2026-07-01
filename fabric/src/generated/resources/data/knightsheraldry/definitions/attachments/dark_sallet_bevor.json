@@ -1,6 +1,6 @@
 {
   "armor": 2.0,
-  "armorSlot": "HEAD",
+  "armorSlot": "HELMET",
   "deflectChance": 0.1,
   "toughness": 3.5,
   "visoredHelmet": "knightsheraldry:single_eyeslit",
