@@ -22,7 +22,6 @@ public class HelmetDecoRenderer implements ArmorAttachmentRenderer {
                        float v, float v1, float v2, float v3, float v4, float v5) {
         HumanoidModel<LivingEntity> model = new HelmetDecoModel(HelmetDecoModel.getTexturedModelData().bakeRoot());
         humanoidModel.copyPropertiesTo(model);
-        model.setupAnim(livingEntity, v, v1, v3, v4, v5);
         VertexConsumer baseConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(
                 ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/deco/" +
                         BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png")));
