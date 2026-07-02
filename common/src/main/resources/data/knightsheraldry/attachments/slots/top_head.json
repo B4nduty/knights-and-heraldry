@@ -1,4 +1,6 @@
 {
+  "slot": "top_head",
+  "armor": "helmet",
   "items": [
     "knightsheraldry:torse"
   ]
