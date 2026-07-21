@@ -1,6 +1,5 @@
 package banduty.knightsheraldry.mixin;
 
-import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -127,15 +126,15 @@ public abstract class ModelBakeryMixin {
         for (Item manuscriptItem : manuscriptItems) {
             ResourceLocation id = BuiltInRegistries.ITEM.getKey(manuscriptItem);
             this.loadSpecialItemModelAndDependencies(ModelResourceLocation.inventory(
-                    ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "manuscript_" + id.getPath())));
+                    ResourceLocation.fromNamespaceAndPath(id.getNamespace(), "manuscript_" + id.getPath())));
         }
 
         for (Item item : patternedItems) {
-            ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(item);
+            ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
             for (String pattern : bannerPatternNames) {
-                String modelPath = itemId.getPath() + "/" + pattern;
+                String modelPath = id.getPath() + "/" + pattern;
                 this.loadSpecialItemModelAndDependencies(ModelResourceLocation.inventory(
-                        ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, modelPath)));
+                        ResourceLocation.fromNamespaceAndPath(id.getNamespace(), modelPath)));
             }
         }
     }
