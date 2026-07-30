@@ -4,18 +4,6 @@
   "ingredients": [
     {
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:broadhead_arrow"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
-      "stack": {
         "count": 1,
         "id": "stoneycore:hot_iron"
       }
@@ -28,13 +16,7 @@
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:broadhead_arrow"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:broadhead_arrow"
   }
 }

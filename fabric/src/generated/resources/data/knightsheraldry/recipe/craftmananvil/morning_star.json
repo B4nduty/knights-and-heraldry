@@ -4,36 +4,27 @@
   "hit_times": 7,
   "ingredients": [
     {
+      "finished_requirement": "finished",
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:morning_star"
-          }
-        },
         "count": 1,
-        "id": "stoneycore:manuscript"
+        "id": "knightsheraldry:mace_head"
       }
     },
     {
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "minecraft:stick"
       }
     },
     {
-      "stack": {},
-      "tag": "minecraft:planks"
+      "stack": {
+        "count": 1,
+        "id": "minecraft:stick"
+      }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:morning_star"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:morning_star"
   }
 }

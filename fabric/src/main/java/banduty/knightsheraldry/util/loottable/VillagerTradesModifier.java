@@ -74,7 +74,8 @@ public class VillagerTradesModifier {
                 KHItems.NASAL_HELM,
                 KHItems.VIKING_HELM,
                 KHItems.BURGONET,
-                KHItems.VISORLESS_SALLET
+                KHItems.VISORLESS_SALLET,
+                KHItems.MORION
         );
 
         addTradeOffer(VillagerProfession.ARMORER, 1, 2, 3, 1, KHItems.LEATHER_GLOVES);

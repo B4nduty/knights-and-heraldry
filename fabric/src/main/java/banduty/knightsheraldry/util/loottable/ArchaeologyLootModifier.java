@@ -46,7 +46,8 @@ public class ArchaeologyLootModifier {
                 KHItems.GREAT_HELM,
                 KHItems.BURGONET_FALLING_BUFFE,
                 KHItems.CLOSE_HELM,
-                KHItems.BLACK_SALLET
+                KHItems.BLACK_SALLET,
+                KHItems.MORION
         );
     }
 

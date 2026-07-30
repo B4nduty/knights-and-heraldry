@@ -5,31 +5,6 @@
   "ingredients": [
     {
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "components": {
-              "minecraft:attribute_modifiers": {
-                "modifiers": [
-                  {
-                    "type": "minecraft:generic.armor",
-                    "amount": 2.0,
-                    "id": "minecraft:generic.armor.head",
-                    "operation": "add_value",
-                    "slot": "head"
-                  }
-                ]
-              }
-            },
-            "count": 1,
-            "id": "knightsheraldry:mail_coif"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
-      "stack": {
         "count": 1,
         "id": "stoneycore:hot_iron"
       }
@@ -43,25 +18,19 @@
   ],
   "result": {
     "components": {
-      "stoneycore:target_stack": {
-        "components": {
-          "minecraft:attribute_modifiers": {
-            "modifiers": [
-              {
-                "type": "minecraft:generic.armor",
-                "amount": 2.0,
-                "id": "minecraft:generic.armor.head",
-                "operation": "add_value",
-                "slot": "head"
-              }
-            ]
+      "minecraft:attribute_modifiers": {
+        "modifiers": [
+          {
+            "type": "minecraft:generic.armor",
+            "amount": 2.0,
+            "id": "minecraft:generic.armor.head",
+            "operation": "add_value",
+            "slot": "head"
           }
-        },
-        "count": 1,
-        "id": "knightsheraldry:mail_coif"
+        ]
       }
     },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:mail_coif"
   }
 }

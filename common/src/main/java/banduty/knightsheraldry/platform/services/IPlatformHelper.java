@@ -7,7 +7,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.item.CreativeModeTab;
 
 import java.util.function.Supplier;
 
@@ -54,6 +53,4 @@ public interface IPlatformHelper {
     <T> Holder<T> registerHolder(ResourceKey<Registry<T>> registryKey, String name, Supplier<T> value);
 
     void syncSpeedHistory(ServerPlayer player, float speedHistory);
-
-    boolean isCreativeModeTab(CreativeModeTab creativeModeTab);
 }

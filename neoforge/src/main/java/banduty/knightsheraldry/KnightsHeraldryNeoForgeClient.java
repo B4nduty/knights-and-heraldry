@@ -46,6 +46,7 @@ public class KnightsHeraldryNeoForgeClient {
         event.registerEntityRenderer(KHEntities.BODKIN_ARROW.get(), KHBodkinArrowEntityRenderer::new);
         event.registerEntityRenderer(KHEntities.BROADHEAD_ARROW.get(), KHBroadheadArrowEntityRenderer::new);
         event.registerEntityRenderer(KHEntities.CLOTH_ARROW.get(), KHClothArrowEntityRenderer::new);
+        event.registerEntityRenderer(KHEntities.CRAFTMAN.get(), CraftmanRenderer::new);
     }
 
     @SubscribeEvent

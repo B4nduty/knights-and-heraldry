@@ -43,6 +43,7 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
         EntityRendererRegistry.register(KHEntities.BODKIN_ARROW.get(), KHBodkinArrowEntityRenderer::new);
         EntityRendererRegistry.register(KHEntities.BROADHEAD_ARROW.get(), KHBroadheadArrowEntityRenderer::new);
         EntityRendererRegistry.register(KHEntities.CLOTH_ARROW.get(), KHClothArrowEntityRenderer::new);
+        EntityRendererRegistry.register(KHEntities.CRAFTMAN.get(), CraftmanRenderer::new);
 
         for (Item item : BuiltInRegistries.ITEM) {
             if (item instanceof TwoLayerDyeableDeco) {

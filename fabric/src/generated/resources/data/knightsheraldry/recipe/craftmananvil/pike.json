@@ -3,36 +3,23 @@
   "chance": 0.9,
   "ingredients": [
     {
-      "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:pike"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
+      "finished_requirement": "finished",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:spear_head"
       }
     },
     {
       "stack": {},
-      "tag": "minecraft:planks"
+      "tag": "minecraft:logs"
+    },
+    {
+      "stack": {},
+      "tag": "minecraft:logs"
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:pike"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:pike"
   }
 }

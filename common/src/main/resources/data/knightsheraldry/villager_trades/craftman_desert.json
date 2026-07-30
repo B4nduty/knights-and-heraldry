@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "trades": [
+    {
+      "level": 1,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:sand", "count": 64 },
+      "cost_b": { "item": "minecraft:diamond", "count": 1 },
+      "result": { "item": "minecraft:emerald", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    }
+  ]
+}

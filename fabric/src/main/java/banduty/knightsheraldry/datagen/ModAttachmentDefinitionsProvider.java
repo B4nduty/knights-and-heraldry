@@ -25,6 +25,7 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
 
     private static final String VISOR_DOUBLE_EYESLIT = "double_eyeslit";
     private static final String VISOR_DOUBLE_EYESLIT_WITH_PEEK = "double_eyeslit_with_peek";
+    private static final String VISOR_DOUBLE_EYESLIT_WITH_TOP_PEEK = "double_eyeslit_with_top_peek";
     private static final String VISOR_SINGLE_EYESLIT = "single_eyeslit";
     private static final String VISOR_DOUBLE_EYESLIT_BREATHES_RIGHT = "double_eyeslit_breathes_right";
     private static final String VISOR_FOUR_BARS = "four_bars";
@@ -127,6 +128,10 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.DARK_VISORLESS_SALLET, new ArmorStats(2.0, 1.0, 2.2, 0.05, 0, 0, false, "helmet"));
         map.put(KHItems.GOLDEN_VISORLESS_SALLET, new ArmorStats(1.0, 1.0, 2.1, 0.05, 0, 0, false, "helmet"));
 
+        map.put(KHItems.VISORLESS_MORION, new ArmorStats(1.0, 1.0, 2.0, 0.05, 0, 0, false, "helmet"));
+        map.put(KHItems.DARK_VISORLESS_MORION, new ArmorStats(2.0, 1.0, 2.2, 0.05, 0, 0, false, "helmet"));
+        map.put(KHItems.GOLDEN_VISORLESS_MORION, new ArmorStats(1.0, 1.0, 2.1, 0.05, 0, 0, false, "helmet"));
+
         // Second tier helmets
         map.put(KHItems.ARMET, new ArmorStats(2.0, 2.0, 3.0, 0.10, 0, 0, false, "helmet", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
         map.put(KHItems.DARK_ARMET, new ArmorStats(3.0, 2.0, 3.3, 0.10, 0, 0, false, "helmet", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
@@ -175,6 +180,10 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.BLACK_SALLET, new ArmorStats(2.0, 2.0, 3.0, 0.10, 0, 0, false, "helmet", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_WITH_PEEK));
         map.put(KHItems.DARK_BLACK_SALLET, new ArmorStats(3.0, 2.0, 3.3, 0.10, 0, 0, false, "helmet", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_WITH_PEEK));
         map.put(KHItems.GOLDEN_BLACK_SALLET, new ArmorStats(2.0, 2.0, 3.2, 0.10, 0, 0, false, "helmet", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_WITH_PEEK));
+
+        map.put(KHItems.MORION, new ArmorStats(2.0, 2.0, 3.0, 0.10, 0, 0, false, "helmet", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_WITH_TOP_PEEK));
+        map.put(KHItems.DARK_MORION, new ArmorStats(3.0, 2.0, 3.3, 0.10, 0, 0, false, "helmet", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_WITH_TOP_PEEK));
+        map.put(KHItems.GOLDEN_MORION, new ArmorStats(2.0, 2.0, 3.2, 0.10, 0, 0, false, "helmet", KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_WITH_TOP_PEEK));
 
         // Second to Third tier helmets
         map.put(KHItems.SALLET_BEVOR, new ArmorStats(2.5, 2.0, 3.5, 0.10, 0, 0, false, "helmet", KnightsHeraldry.MOD_ID, VISOR_SINGLE_EYESLIT));

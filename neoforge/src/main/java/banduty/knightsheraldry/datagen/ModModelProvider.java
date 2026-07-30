@@ -169,6 +169,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.VIKING_HELM.get(), KHItems.DARK_VIKING_HELM.get(), KHItems.GOLDEN_VIKING_HELM.get(),
                 KHItems.BURGONET.get(), KHItems.DARK_BURGONET.get(), KHItems.GOLDEN_BURGONET.get(),
                 KHItems.VISORLESS_SALLET.get(), KHItems.DARK_VISORLESS_SALLET.get(), KHItems.GOLDEN_VISORLESS_SALLET.get(),
+                KHItems.VISORLESS_MORION.get(), KHItems.DARK_VISORLESS_MORION.get(), KHItems.GOLDEN_VISORLESS_MORION.get(),
                 KHItems.FROGMOUTH.get(), KHItems.DARK_FROGMOUTH.get(), KHItems.GOLDEN_FROGMOUTH.get(),
                 KHItems.LEATHER_GLOVES.get(), KHItems.MAIL_GLOVES.get(),
                 KHItems.GAUNTLET.get(), KHItems.DARK_GAUNTLET.get(), KHItems.GOLDEN_GAUNTLET.get(),
@@ -251,6 +252,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
         itemTypesMap.put(KHItems.VIKING_HELM.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.BURGONET.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.VISORLESS_SALLET.get(), Manuscript.Types.HELMET);
+        itemTypesMap.put(KHItems.VISORLESS_MORION.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.ARMET.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.ARMET_2.get(), Manuscript.Types.HELMET);
         itemTypesMap.put(KHItems.VISORED_BARBUTE.get(), Manuscript.Types.HELMET);

@@ -57,6 +57,15 @@ public interface KHEntities {
                             .build("wardart_projectile")
             );
 
+    Supplier<EntityType<Craftman>> CRAFTMAN =
+            registerEntity("craftman",
+                    () -> EntityType.Builder.of(Craftman::new, MobCategory.CREATURE)
+                            .sized(0.6F, 1.95F)
+                            .eyeHeight(1.62F)
+                            .clientTrackingRange(10)
+                            .build("craftman")
+            );
+
     @SuppressWarnings("unchecked")
     private static <T extends Entity> Supplier<EntityType<T>> registerEntity(String name, Supplier<EntityType<T>> entitySupplier) {
         return Services.PLATFORM.register((Registry<EntityType<T>>) (Registry<?>) BuiltInRegistries.ENTITY_TYPE, name, entitySupplier);
