@@ -3,6 +3,7 @@ package banduty.knightsheraldry.items;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.platform.Services;
 import banduty.stoneycore.items.itemgroup.SCItemGroup;
+import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -353,17 +354,8 @@ public interface KHItemGroups {
 
                     itemStack(KHItems.DARK_HORSE_BARDING.get()),
 
-                    itemStack(KHItems.GOLDEN_HORSE_BARDING.get()))))
-            .build());
+                    itemStack(KHItems.GOLDEN_HORSE_BARDING.get()),
 
-    Supplier<CreativeModeTab> KH_DECO_TAB = register("kh_deco", () -> SCItemGroup.create(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_deco"))
-            .icon(() -> new ItemStack(KHItems.PLUME.get()))
-            .backgroundTexture(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/gui/container/creative_inventory/tab_items.png"))
-            .scrollerSprites(SCROLLER_SPRITE, SCROLLER_DISABLED_SPRITE)
-            .topTabSprites(UNSELECTED_TOP_TABS, SELECTED_TOP_TABS)
-            .bottomTabSprites(UNSELECTED_BOTTOM_TABS, SELECTED_BOTTOM_TABS)
-            .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_deco"))
-            .appendItems((output) -> output.acceptAll(List.of(
                     itemStack(KHItems.PLUME.get()),
                     itemStack(KHItems.TRI_PLUME.get()),
                     itemStack(KHItems.FLUFFY_PLUME.get()),
@@ -385,6 +377,86 @@ public interface KHItemGroups {
                     itemStack(KHItems.EAGLE.get()),
                     itemStack(KHItems.PEGASUS.get())
             )))
+            .build());
+
+    Supplier<CreativeModeTab> KH_INGREDIENT_TAB = register("kh_ingredient", () -> SCItemGroup.create(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_deco"))
+            .icon(() -> new ItemStack(KHItems.HALBERD_HEAD.get()))
+            .backgroundTexture(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/gui/container/creative_inventory/tab_items.png"))
+            .scrollerSprites(SCROLLER_SPRITE, SCROLLER_DISABLED_SPRITE)
+            .topTabSprites(UNSELECTED_TOP_TABS, SELECTED_TOP_TABS)
+            .bottomTabSprites(UNSELECTED_BOTTOM_TABS, SELECTED_BOTTOM_TABS)
+            .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_ingredient"))
+            .appendItems((output) -> {
+                output.acceptAll(List.of(
+                        itemStack(KHItems.MANUSCRIPT_DAGGER.get()),
+                        itemStack(KHItems.MANUSCRIPT_SWORD.get()),
+                        itemStack(KHItems.MANUSCRIPT_AXE.get()),
+                        itemStack(KHItems.MANUSCRIPT_HAMMER.get()),
+                        itemStack(KHItems.MANUSCRIPT_MACE.get()),
+                        itemStack(KHItems.MANUSCRIPT_HALBERD.get()),
+                        itemStack(KHItems.MANUSCRIPT_LONGSWORD.get()),
+                        itemStack(KHItems.MANUSCRIPT_GREATSWORD.get()),
+                        itemStack(KHItems.MANUSCRIPT_SPEAR.get()),
+                        itemStack(KHItems.MANUSCRIPT_PITCHFORK.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_BARBUTE.get()),
+                        itemStack(KHItems.MANUSCRIPT_BASCINET.get()),
+                        itemStack(KHItems.MANUSCRIPT_KETTLE.get()),
+                        itemStack(KHItems.MANUSCRIPT_NASAL.get()),
+                        itemStack(KHItems.MANUSCRIPT_BURGONET.get()),
+                        itemStack(KHItems.MANUSCRIPT_SALLET.get()),
+                        itemStack(KHItems.MANUSCRIPT_ARMET.get()),
+                        itemStack(KHItems.MANUSCRIPT_CAGE.get()),
+                        itemStack(KHItems.MANUSCRIPT_GREAT_HELMET.get()),
+                        itemStack(KHItems.MANUSCRIPT_CLOSE_HELMET.get()),
+                        itemStack(KHItems.MANUSCRIPT_FROGMOUTH.get()),
+                        itemStack(KHItems.MANUSCRIPT_MAXIMILIAN.get())
+                ));
+
+                List.of(
+                        KHItems.DAGGER_HEAD, KHItems.STILETTO_HEAD, KHItems.SWORD_HEAD,
+                        KHItems.FALCHION_HEAD, KHItems.RAPIER_HEAD, KHItems.AXE_HEAD,
+                        KHItems.HAMMER_HEAD, KHItems.MACE_HEAD, KHItems.HALBERD_HEAD,
+                        KHItems.BILLHOOK_HEAD, KHItems.SPEAR_HEAD, KHItems.PITCHFORK_HEAD,
+                        KHItems.BARBUTE_HEAD, KHItems.BASCINET_HEAD, KHItems.KETTLE_HEAD,
+                        KHItems.NASAL_HEAD, KHItems.BURGONET_HEAD, KHItems.SALLET_HEAD,
+                        KHItems.ARMET_HEAD, KHItems.CAGE_HEAD, KHItems.GREAT_HELMET_HEAD,
+                        KHItems.CLOSE_HELMET_HEAD, KHItems.FROGMOUTH_HEAD, KHItems.MAXIMILIAN_HEAD
+                ).forEach(item -> {
+                    ItemStack finishedStack = itemStack(item.get());
+                    finishedStack.set(SCDataComponents.FINISHED.get(), true);
+                    output.accept(finishedStack);
+
+                    output.accept(itemStack(item.get()));
+                });
+
+
+                output.acceptAll(List.of(
+                        itemStack(KHItems.TONGS_DAGGER.get()),
+                        itemStack(KHItems.TONGS_SWORD.get()),
+                        itemStack(KHItems.TONGS_AXE.get()),
+                        itemStack(KHItems.TONGS_HAMMER.get()),
+                        itemStack(KHItems.TONGS_MACE.get()),
+                        itemStack(KHItems.TONGS_HALBERD.get()),
+                        itemStack(KHItems.TONGS_LONGSWORD.get()),
+                        itemStack(KHItems.TONGS_GREATSWORD.get()),
+                        itemStack(KHItems.TONGS_SPEAR.get()),
+                        itemStack(KHItems.TONGS_PITCHFORK.get()),
+
+                        itemStack(KHItems.TONGS_BARBUTE.get()),
+                        itemStack(KHItems.TONGS_BASCINET.get()),
+                        itemStack(KHItems.TONGS_KETTLE.get()),
+                        itemStack(KHItems.TONGS_NASAL.get()),
+                        itemStack(KHItems.TONGS_BURGONET.get()),
+                        itemStack(KHItems.TONGS_SALLET.get()),
+                        itemStack(KHItems.TONGS_ARMET.get()),
+                        itemStack(KHItems.TONGS_CAGE.get()),
+                        itemStack(KHItems.TONGS_GREAT_HELMET.get()),
+                        itemStack(KHItems.TONGS_CLOSE_HELMET.get()),
+                        itemStack(KHItems.TONGS_FROGMOUTH.get()),
+                        itemStack(KHItems.TONGS_MAXIMILIAN.get())
+                ));
+            })
             .build());
 
     private static Supplier<CreativeModeTab> register(String name, Supplier<CreativeModeTab> itemSupplier) {

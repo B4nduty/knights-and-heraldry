@@ -24,9 +24,30 @@ public class ModModelProvider extends FabricModelProviderPlus {
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_DAGGER.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_SWORD.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_AXE.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_HAMMER.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_MACE.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_HALBERD.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_LONGSWORD.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_GREATSWORD.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_SPEAR.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_PITCHFORK.get(), ModelTemplates.FLAT_ITEM);
 
         registerHeads(KHItems.DAGGER_HEAD.get(), itemModelGenerators);
         registerHeads(KHItems.STILETTO_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.SWORD_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.FALCHION_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.RAPIER_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.AXE_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.HAMMER_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.MACE_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.HALBERD_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.BILLHOOK_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.LONGSWORD_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.GREATSWORD_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.SPEAR_HEAD.get(), itemModelGenerators);
+        registerHeads(KHItems.PITCHFORK_HEAD.get(), itemModelGenerators);
 
         itemModelGenerators.generateFlatItem(KHItems.CHAPERON.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(KHItems.BROADHEAD_ARROW.get(), ModelTemplates.FLAT_ITEM);

@@ -262,7 +262,7 @@
   "item.knightsheraldry.gilded_chaperon": "Gilded Chaperon",
   "item.knightsheraldry.darkened_armor_template": "Darkened Armor Template",
   "component.itemgroup.knightsheraldry.tab.kh_weapons": "KH Weapons",
-  "component.itemgroup.knightsheraldry.tab.kh_deco": "KH Deco",
+  "component.itemgroup.knightsheraldry.tab.kh_ingredient": "KH Ingredient",
   "component.itemgroup.knightsheraldry.tab.kh_armors": "KH Armors",
   "text.tooltip.knightsheraldry.right_click-to-charge": "§4Right-Click §rto §lCharge §rfor §l2 Seconds",
   "text.tooltip.knightsheraldry.on-charge": "On §4Charge §rit will §lAuto Attack",

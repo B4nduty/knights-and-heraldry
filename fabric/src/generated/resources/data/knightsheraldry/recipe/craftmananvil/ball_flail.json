@@ -1,24 +1,10 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.9,
   "ingredients": [
     {
-      "finished_requirement": "finished",
       "stack": {
         "count": 1,
-        "id": "knightsheraldry:mace_head"
-      }
-    },
-    {
-      "stack": {
-        "count": 1,
-        "id": "minecraft:stick"
-      }
-    },
-    {
-      "stack": {
-        "count": 1,
-        "id": "minecraft:chain"
+        "id": "knightsheraldry:flail"
       }
     }
   ],

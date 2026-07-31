@@ -339,14 +339,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // Sword Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.SWORD_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_SWORD.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.SWORD.get(), finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.V_SWORD.get(), finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.ARMING_SWORD.get(), finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.SWORD.get(), "craftmananvil/sword_back", KHItems.ARMING_SWORD.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.V_SWORD.get(), KHItems.SWORD.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.ARMING_SWORD.get(), KHItems.V_SWORD.get());
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.GLAIVE.get(), finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.CURVED_GLAIVE.get(), finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.GLAIVE.get(), "craftmananvil/glaive_back", KHItems.CURVED_GLAIVE.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.CURVED_GLAIVE.get(), KHItems.GLAIVE.get());
 
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.FALCHION_HEAD.get(), unfinished(new ItemStack(KHItems.SWORD_HEAD.get())));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.FALCHION.get(), finished(new ItemStack(KHItems.FALCHION_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.SCIMITAR.get(), finished(new ItemStack(KHItems.FALCHION_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.FALCHION.get(), "craftmananvil/scimitar_back", KHItems.SCIMITAR.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.SCIMITAR.get(), KHItems.FALCHION.get());
 
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.RAPIER_HEAD.get(), unfinished(new ItemStack(KHItems.FALCHION_HEAD.get())));
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.RAPIER.get(), finished(new ItemStack(KHItems.RAPIER_HEAD.get())), new ItemStack(Items.STICK));
@@ -354,24 +357,29 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // Axe Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.AXE_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_AXE.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.AXE.get(), finished(new ItemStack(KHItems.AXE_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BROAD_AXE.get(), finished(new ItemStack(KHItems.AXE_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.CROOKED_AXE.get(), finished(new ItemStack(KHItems.AXE_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.STRAIGHT_CROOKED_AXE.get(), finished(new ItemStack(KHItems.AXE_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.AXE.get(), "craftmananvil/axe_back", KHItems.STRAIGHT_CROOKED_AXE.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.BROAD_AXE.get(), KHItems.AXE.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.CROOKED_AXE.get(), KHItems.BROAD_AXE.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.CROOKED_AXE.get());
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BARDICHE.get(), finished(new ItemStack(KHItems.AXE_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
 
         // Hammer Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.HAMMER_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_HAMMER.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.HAMMER.get(), finished(new ItemStack(KHItems.HAMMER_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.WAR_HAMMER.get(), finished(new ItemStack(KHItems.HAMMER_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.HAMMER.get(), "craftmananvil/hammer_back", KHItems.WAR_HAMMER.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.WAR_HAMMER.get(), KHItems.HAMMER.get());
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.POLEHAMMER.get(), finished(new ItemStack(KHItems.HAMMER_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.BEC_DE_CORBIN.get(), finished(new ItemStack(KHItems.HAMMER_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.POLEHAMMER.get(), "craftmananvil/polehammer_back", KHItems.BEC_DE_CORBIN.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.BEC_DE_CORBIN.get(), KHItems.POLEHAMMER.get());
 
         // Mace Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.MACE_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_MACE.get()));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.MACE.get(), finished(new ItemStack(KHItems.MACE_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.SPIKED_MACE.get(), finished(new ItemStack(KHItems.MACE_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.MACE.get(), "craftmananvil/mace_back", KHItems.SPIKED_MACE.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.SPIKED_MACE.get(), KHItems.MACE.get());
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.FLAIL.get(), finished(new ItemStack(KHItems.MACE_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.CHAIN));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BALL_FLAIL.get(), finished(new ItemStack(KHItems.MACE_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.CHAIN));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.FLAIL.get(), "craftmananvil/flail_back", KHItems.BALL_FLAIL.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.BALL_FLAIL.get(), KHItems.FLAIL.get());
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.MORNING_STAR.get(), finished(new ItemStack(KHItems.MACE_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
 
         // Halberd Head
@@ -447,14 +455,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // Longsword Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.LONGSWORD_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_LONGSWORD.get()));
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.LONGSWORD.get(), finished(new ItemStack(KHItems.LONGSWORD_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.V_LONGSWORD.get(), finished(new ItemStack(KHItems.LONGSWORD_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.LONGSWORD.get(), "craftmananvil/longsword_back", KHItems.V_LONGSWORD.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.V_LONGSWORD.get(), KHItems.LONGSWORD.get());
 
         // Greatsword Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.GREATSWORD_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_GREATSWORD.get()));
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.GREATSWORD.get(), finished(new ItemStack(KHItems.GREATSWORD_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.CLAYMORE.get(), finished(new ItemStack(KHItems.GREATSWORD_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.FLAMBERGE.get(), finished(new ItemStack(KHItems.GREATSWORD_HEAD.get())), new ItemStack(Items.STICK));
-        createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.ZWEIHANDER.get(), finished(new ItemStack(KHItems.GREATSWORD_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.GREATSWORD.get(), "craftmananvil/greatsword_back", KHItems.ZWEIHANDER.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.CLAYMORE.get(), KHItems.GREATSWORD.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.FLAMBERGE.get(), KHItems.CLAYMORE.get());
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.ZWEIHANDER.get(), KHItems.FLAMBERGE.get());
 
         // Spear Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.SPEAR_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_SPEAR.get()));

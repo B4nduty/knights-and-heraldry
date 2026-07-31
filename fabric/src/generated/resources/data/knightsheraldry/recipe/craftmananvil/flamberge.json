@@ -1,19 +1,10 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.25,
-  "hit_times": 7,
   "ingredients": [
     {
-      "finished_requirement": "finished",
       "stack": {
         "count": 1,
-        "id": "knightsheraldry:greatsword_head"
-      }
-    },
-    {
-      "stack": {
-        "count": 1,
-        "id": "minecraft:stick"
+        "id": "knightsheraldry:claymore"
       }
     }
   ],
