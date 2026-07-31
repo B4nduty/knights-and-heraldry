@@ -14,6 +14,12 @@
         "count": 1,
         "id": "stoneycore:hot_iron"
       }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
+      }
     }
   ],
   "result": {

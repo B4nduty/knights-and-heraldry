@@ -11,6 +11,7 @@ import banduty.knightsheraldry.items.armor.deco.DecoItem;
 import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.items.item.KHExtendedArrowItem;
+import banduty.knightsheraldry.items.item.QuenchGenericItem;
 import banduty.knightsheraldry.items.item.khammo.ClothArrow;
 import banduty.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
@@ -461,9 +462,9 @@ public interface KHItems {
     Supplier<Item> AVENTAIL = registerItem("aventail",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
 
-    Supplier<Item> RIM_GUARDS = registerItem("rim_guards", () -> new Item(new Item.Properties().stacksTo(1)));
+    Supplier<Item> RIM_GUARDS = registerItem("rim_guards", () -> new QuenchGenericItem(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> BESAGEWS = registerItem("besagews", () -> new Item(new Item.Properties().stacksTo(1)));
+    Supplier<Item> BESAGEWS = registerItem("besagews", () -> new QuenchGenericItem(new Item.Properties().stacksTo(1)));
 
     Supplier<Item> SURCOAT = registerItem("surcoat",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
@@ -569,12 +570,17 @@ public interface KHItems {
     Supplier<Item> MANUSCRIPT_NASAL = registerItem("manuscript_nasal", () -> new Manuscript(new Item.Properties()));
     Supplier<Item> MANUSCRIPT_BURGONET = registerItem("manuscript_burgonet", () -> new Manuscript(new Item.Properties()));
     Supplier<Item> MANUSCRIPT_SALLET = registerItem("manuscript_sallet", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_MORION = registerItem("manuscript_morion", () -> new Manuscript(new Item.Properties()));
     Supplier<Item> MANUSCRIPT_ARMET = registerItem("manuscript_armet", () -> new Manuscript(new Item.Properties()));
     Supplier<Item> MANUSCRIPT_CAGE = registerItem("manuscript_cage", () -> new Manuscript(new Item.Properties()));
     Supplier<Item> MANUSCRIPT_GREAT_HELMET = registerItem("manuscript_great_helmet", () -> new Manuscript(new Item.Properties()));
     Supplier<Item> MANUSCRIPT_CLOSE_HELMET = registerItem("manuscript_close_helmet", () -> new Manuscript(new Item.Properties()));
     Supplier<Item> MANUSCRIPT_FROGMOUTH = registerItem("manuscript_frogmouth", () -> new Manuscript(new Item.Properties()));
     Supplier<Item> MANUSCRIPT_MAXIMILIAN = registerItem("manuscript_maximilian", () -> new Manuscript(new Item.Properties()));
+
+    Supplier<Item> MANUSCRIPT_VISOR = registerItem("manuscript_visor", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_FALLING_BUFFE = registerItem("manuscript_falling_buffe", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_BEVOR = registerItem("manuscript_bevor", () -> new Manuscript(new Item.Properties()));
 
     Supplier<Item> DAGGER_HEAD = registerItem("dagger_head", () -> new HotIron(new Item.Properties(), false));
     Supplier<Item> STILETTO_HEAD = registerItem("stiletto_head", () -> new HotIron(new Item.Properties(), false));
@@ -591,18 +597,23 @@ public interface KHItems {
     Supplier<Item> SPEAR_HEAD = registerItem("spear_head", () -> new HotIron(new Item.Properties(), false));
     Supplier<Item> PITCHFORK_HEAD = registerItem("pitchfork_head", () -> new HotIron(new Item.Properties(), false));
 
-    Supplier<Item> BARBUTE_HEAD = registerItem("barbute_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> BASCINET_HEAD = registerItem("bascinet_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> KETTLE_HEAD = registerItem("kettle_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> NASAL_HEAD = registerItem("nasal_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> BURGONET_HEAD = registerItem("burgonet_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> SALLET_HEAD = registerItem("sallet_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> ARMET_HEAD = registerItem("armet_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> CAGE_HEAD = registerItem("cage_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> GREAT_HELMET_HEAD = registerItem("great_helmet_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> CLOSE_HELMET_HEAD = registerItem("close_helmet_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> FROGMOUTH_HEAD = registerItem("frogmouth_head", () -> new HotIron(new Item.Properties(), false));
-    Supplier<Item> MAXIMILIAN_HEAD = registerItem("maximilian_head", () -> new HotIron(new Item.Properties(), false));
+    Supplier<Item> BARBUTE_PIECE = registerItem("barbute_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> BASCINET_PIECE = registerItem("bascinet_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> KETTLE_PIECE = registerItem("kettle_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> NASAL_PIECE = registerItem("nasal_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> BURGONET_PIECE = registerItem("burgonet_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> SALLET_PIECE = registerItem("sallet_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> MORION_PIECE = registerItem("morion_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> ARMET_PIECE = registerItem("armet_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> CAGE_PIECE = registerItem("cage_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> GREAT_HELMET_PIECE = registerItem("great_helmet_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> CLOSE_HELMET_PIECE = registerItem("close_helmet_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> FROGMOUTH_PIECE = registerItem("frogmouth_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> MAXIMILIAN_PIECE = registerItem("maximilian_piece", () -> new HotIron(new Item.Properties(), true));
+
+    Supplier<Item> VISOR_PIECE = registerItem("visor_piece", () -> new HotIron(new Item.Properties(), false));
+    Supplier<Item> FALLING_BUFFE_PIECE = registerItem("falling_buffe_piece", () -> new HotIron(new Item.Properties(), false));
+    Supplier<Item> BEVOR_PIECE = registerItem("bevor_piece", () -> new HotIron(new Item.Properties(), false));
 
     Supplier<Item> TONGS_DAGGER = registerItem("tongs_dagger", () -> new Tongs(new Item.Properties()));
     Supplier<Item> TONGS_SWORD = registerItem("tongs_sword", () -> new Tongs(new Item.Properties()));
@@ -621,12 +632,17 @@ public interface KHItems {
     Supplier<Item> TONGS_NASAL = registerItem("tongs_nasal", () -> new Tongs(new Item.Properties()));
     Supplier<Item> TONGS_BURGONET = registerItem("tongs_burgonet", () -> new Tongs(new Item.Properties()));
     Supplier<Item> TONGS_SALLET = registerItem("tongs_sallet", () -> new Tongs(new Item.Properties()));
+    Supplier<Item> TONGS_MORION = registerItem("tongs_morion", () -> new Tongs(new Item.Properties()));
     Supplier<Item> TONGS_ARMET = registerItem("tongs_armet", () -> new Tongs(new Item.Properties()));
     Supplier<Item> TONGS_CAGE = registerItem("tongs_cage", () -> new Tongs(new Item.Properties()));
     Supplier<Item> TONGS_GREAT_HELMET = registerItem("tongs_great_helmet", () -> new Tongs(new Item.Properties()));
     Supplier<Item> TONGS_CLOSE_HELMET = registerItem("tongs_close_helmet", () -> new Tongs(new Item.Properties()));
     Supplier<Item> TONGS_FROGMOUTH = registerItem("tongs_frogmouth", () -> new Tongs(new Item.Properties()));
     Supplier<Item> TONGS_MAXIMILIAN = registerItem("tongs_maximilian", () -> new Tongs(new Item.Properties()));
+
+    Supplier<Item> TONGS_VISOR = registerItem("tongs_visor", () -> new Tongs(new Item.Properties()));
+    Supplier<Item> TONGS_FALLING_BUFFE = registerItem("tongs_falling_buffe", () -> new Tongs(new Item.Properties()));
+    Supplier<Item> TONGS_BEVOR = registerItem("tongs_bevor", () -> new Tongs(new Item.Properties()));
 
     static Supplier<Item> sword(String id, float attackSpeed, int durability) {
         return registerItem(id, () -> new SwordItem(ModToolMaterials.WEAPONS,

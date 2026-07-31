@@ -6,13 +6,14 @@
     {
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:burgonet"
       }
     },
     {
+      "finished_requirement": "finished",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:falling_buffe_piece"
       }
     }
   ],

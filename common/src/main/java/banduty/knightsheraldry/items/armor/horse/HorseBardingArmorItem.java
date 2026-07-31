@@ -2,6 +2,7 @@ package banduty.knightsheraldry.items.armor.horse;
 
 import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
 import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorTooltip;
+import banduty.stoneycore.items.custom.hotiron.QuenchItem;
 import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -19,7 +20,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class HorseBardingArmorItem extends AnimalArmorItem {
+public class HorseBardingArmorItem extends AnimalArmorItem implements QuenchItem {
 
     public HorseBardingArmorItem(Properties properties) {
         super(ArmorMaterials.IRON, AnimalArmorItem.BodyType.EQUESTRIAN, true, properties);
@@ -91,5 +92,15 @@ public class HorseBardingArmorItem extends AnimalArmorItem {
     private void playRemoveSound(Player player) {
         player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
                 SoundEvents.BUNDLE_REMOVE_ONE, SoundSource.PLAYERS, 0.8F, 0.8F + player.getRandom().nextFloat() * 0.4F);
+    }
+
+    @Override
+    public int getIgniteDuration() {
+        return 20*30;
+    }
+
+    @Override
+    public boolean destroysOnQuench() {
+        return false;
     }
 }

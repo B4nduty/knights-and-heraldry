@@ -2,7 +2,6 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.stoneycore.StoneyCore;
 import banduty.stoneycore.datagen.FabricModelProviderPlus;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.data.models.BlockModelGenerators;
@@ -23,78 +22,143 @@ public class ModModelProvider extends FabricModelProviderPlus {
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
-        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_DAGGER.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_SWORD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_AXE.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_HAMMER.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_MACE.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_HALBERD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_LONGSWORD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_GREATSWORD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_SPEAR.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MANUSCRIPT_PITCHFORK.get(), ModelTemplates.FLAT_ITEM);
+        registerItemWConditions(KHItems.MANUSCRIPT_DAGGER.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_SWORD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_AXE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_HAMMER.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_MACE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_HALBERD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_LONGSWORD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_GREATSWORD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_SPEAR.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_PITCHFORK.get(), itemModelGenerators);
 
-        registerHeads(KHItems.DAGGER_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.STILETTO_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.SWORD_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.FALCHION_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.RAPIER_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.AXE_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.HAMMER_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.MACE_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.HALBERD_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.BILLHOOK_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.LONGSWORD_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.GREATSWORD_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.SPEAR_HEAD.get(), itemModelGenerators);
-        registerHeads(KHItems.PITCHFORK_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_BARBUTE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_BASCINET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_KETTLE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_NASAL.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_BURGONET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_SALLET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_MORION.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_ARMET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_CAGE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_GREAT_HELMET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_CLOSE_HELMET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_FROGMOUTH.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_MAXIMILIAN.get(), itemModelGenerators);
 
-        itemModelGenerators.generateFlatItem(KHItems.CHAPERON.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.BROADHEAD_ARROW.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.BODKIN_ARROW.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.SWALLOWTAIL_ARROW.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.HOOD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.TORN_HOOD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.HELMET_HOOD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.HELMET_TORN_HOOD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.CLOAK.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.TORN_CLOAK.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.SURCOAT.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.SURCOAT_SLEEVELESS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.CIVILIAN_SURCOAT.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.GIORNEA.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.AVENTAIL.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.RIM_GUARDS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.BESAGEWS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.QUILTED_COIF.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.GAMBESON_BREECHES.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.GAMBESON_BOOTS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MAIL_COIF.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.HAUBERK.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MAIL_BREECHES.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.MAIL_BOOTS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.LONGBOW.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.LANCE.get(), ModelTemplates.FLAT_ITEM);
+        registerItemWConditions(KHItems.MANUSCRIPT_VISOR.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_FALLING_BUFFE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_BEVOR.get(), itemModelGenerators);
 
-        itemModelGenerators.generateFlatItem(KHItems.PLUME.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.TRI_PLUME.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.FLUFFY_PLUME.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_SNAKES.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_BLACK_SNAKES.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.GOLD_HORNS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.BLACK_HORNS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_GOLD_WINGS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_BLACK_WINGS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_WINGS_BALL_ENDS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.TEUTONIC_WINGS_SHARP_ENDS.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.DRAGON.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.LION.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.SNAKE.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.UNICORN.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.STAG.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.BOAR.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.EAGLE.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(KHItems.PEGASUS.get(), ModelTemplates.FLAT_ITEM);
+        registerItemWConditions(KHItems.DAGGER_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.STILETTO_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.SWORD_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.FALCHION_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.RAPIER_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.AXE_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.HAMMER_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MACE_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.HALBERD_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.BILLHOOK_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.LONGSWORD_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.GREATSWORD_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.SPEAR_HEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.PITCHFORK_HEAD.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.BARBUTE_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.BASCINET_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.KETTLE_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.NASAL_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.BURGONET_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.SALLET_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MORION_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.ARMET_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.CAGE_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.GREAT_HELMET_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.CLOSE_HELMET_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.FROGMOUTH_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MAXIMILIAN_PIECE.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.VISOR_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.FALLING_BUFFE_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.BEVOR_PIECE.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.TONGS_DAGGER.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_SWORD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_AXE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_HAMMER.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_MACE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_HALBERD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_LONGSWORD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_GREATSWORD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_SPEAR.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_PITCHFORK.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.TONGS_BARBUTE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_BASCINET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_KETTLE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_NASAL.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_BURGONET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_SALLET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_MORION.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_ARMET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_CAGE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_GREAT_HELMET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_CLOSE_HELMET.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_FROGMOUTH.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_MAXIMILIAN.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.TONGS_VISOR.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_FALLING_BUFFE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TONGS_BEVOR.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.CHAPERON.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.BROADHEAD_ARROW.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.BODKIN_ARROW.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.SWALLOWTAIL_ARROW.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.HOOD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TORN_HOOD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.HELMET_HOOD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.HELMET_TORN_HOOD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.CLOAK.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TORN_CLOAK.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.SURCOAT.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.SURCOAT_SLEEVELESS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.CIVILIAN_SURCOAT.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.GIORNEA.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.AVENTAIL.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.RIM_GUARDS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.BESAGEWS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.QUILTED_COIF.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.GAMBESON_BREECHES.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.GAMBESON_BOOTS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MAIL_COIF.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.HAUBERK.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MAIL_BREECHES.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MAIL_BOOTS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.LONGBOW.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.LANCE.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.PLUME.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TRI_PLUME.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.FLUFFY_PLUME.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TEUTONIC_SNAKES.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TEUTONIC_BLACK_SNAKES.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.GOLD_HORNS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.BLACK_HORNS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TEUTONIC_GOLD_WINGS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TEUTONIC_BLACK_WINGS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TEUTONIC_WINGS_BALL_ENDS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.TEUTONIC_WINGS_SHARP_ENDS.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.DRAGON.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.LION.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.SNAKE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.UNICORN.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.STAG.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.BOAR.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.EAGLE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.PEGASUS.get(), itemModelGenerators);
 
         registerSimpleItems(itemModelGenerators);
 
@@ -128,10 +192,6 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerDyeableItems(KHItems.BRIGANDINE.get(), itemModelGenerators);
         registerDyeableItems(KHItems.DARK_BRIGANDINE.get(), itemModelGenerators);
         registerDyeableItems(KHItems.GOLDEN_BRIGANDINE.get(), itemModelGenerators);
-    }
-
-    private void registerHeads(Item item, ItemModelGenerators itemModelGenerators) {
-        registerItemWConditions(item, itemModelGenerators, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(StoneyCore.MOD_ID, "ignited"), 1));
     }
 
     private void registerSimpleItems(ItemModelGenerators itemModelGenerators) {
@@ -211,12 +271,21 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 KHItems.SALLET_BEVOR.get() ,KHItems.DARK_SALLET_BEVOR.get(), KHItems.GOLDEN_SALLET_BEVOR.get()
         };
 
+        Item[] blackSallet = {
+                KHItems.BLACK_SALLET.get(), KHItems.DARK_BLACK_SALLET.get(), KHItems.GOLDEN_BLACK_SALLET.get(),
+                KHItems.BLACK_SALLET_BEVOR.get(), KHItems.DARK_BLACK_SALLET_BEVOR.get(),KHItems. GOLDEN_BLACK_SALLET_BEVOR.get(),
+        };
+
         for (Item item : simpleHandheldItems) {
             registerItemWConditions(item, itemModelGenerators, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "broken"), 1));
         }
 
         for (Item item : openVisorHelmet) {
             registerItemWConditions(item, itemModelGenerators, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1));
+        }
+
+        for (Item item : blackSallet) {
+            registerItemWConditions(item, itemModelGenerators, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1), new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "rat"), 1));
         }
 
         for (Item item : simpleArmor) {

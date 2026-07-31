@@ -6,6 +6,19 @@
       "predicate": {
         "knightsheraldry:open": 1
       }
+    },
+    {
+      "model": "knightsheraldry:item/dark_armet_2_ignited",
+      "predicate": {
+        "stoneycore:ignited": 1
+      }
+    },
+    {
+      "model": "knightsheraldry:item/dark_armet_2_ignited_open",
+      "predicate": {
+        "knightsheraldry:open": 1,
+        "stoneycore:ignited": 1
+      }
     }
   ],
   "textures": {

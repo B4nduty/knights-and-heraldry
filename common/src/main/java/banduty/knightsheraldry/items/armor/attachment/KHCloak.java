@@ -70,9 +70,9 @@ public class KHCloak extends Item implements ArmorAttachment, ArmorAttachmentRen
     }
 
     @Override
-    public boolean canEquip(ItemStack underArmorStack, Player player) {
+    public boolean canEquip(ItemStack underArmorStack, Player player, ItemStack attachmentStack) {
         if (this != KHItems.HELMET_HOOD.get() && this != KHItems.HELMET_TORN_HOOD.get())
-            return ArmorAttachment.super.canEquip(underArmorStack, player);
+            return ArmorAttachment.super.canEquip(underArmorStack, player, attachmentStack);
         for (ItemStack armorAttachments : SCUnderArmor.getArmorAttachments(underArmorStack)) {
             if (armorAttachments.getItem() instanceof KHCloak)
                 return false;

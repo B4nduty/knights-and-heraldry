@@ -4,6 +4,7 @@ import banduty.knightsheraldry.client.item.armor.KHLeggingsAttachmentRenderer;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
+import banduty.stoneycore.items.custom.hotiron.QuenchItem;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -13,7 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 
-public class KHLeggingsAttachment extends Item implements ArmorAttachment, ArmorAttachmentRenderProvider {
+public class KHLeggingsAttachment extends Item implements ArmorAttachment, ArmorAttachmentRenderProvider, QuenchItem {
     private final Ingredient ingredient;
     boolean overlay;
     int defaultColor;
@@ -57,6 +58,23 @@ public class KHLeggingsAttachment extends Item implements ArmorAttachment, Armor
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        if (!isFinished(player.getItemInHand(hand))) return InteractionResultHolder.fail(player.getItemInHand(hand));
         return ArmorAttachment.super.use(level, player, hand, ArmorItem.Type.LEGGINGS);
+    }
+
+    @Override
+    public int getIgniteDuration() {
+        return 20 * 30;
+    }
+
+    @Override
+    public boolean destroysOnQuench() {
+        return false;
+    }
+
+    @Override
+    public boolean canEquip(ItemStack underArmorStack, Player player, ItemStack attachmentStack) {
+        if (!isFinished(attachmentStack)) return false;
+        return ArmorAttachment.super.canEquip(underArmorStack, player, attachmentStack);
     }
 }

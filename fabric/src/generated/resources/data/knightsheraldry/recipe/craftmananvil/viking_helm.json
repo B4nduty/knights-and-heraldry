@@ -3,6 +3,19 @@
   "chance": 0.9,
   "ingredients": [
     {
+      "finished_requirement": "not_finised",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:nasal_piece"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
+      }
+    },
+    {
       "stack": {
         "count": 1,
         "id": "stoneycore:hot_iron"

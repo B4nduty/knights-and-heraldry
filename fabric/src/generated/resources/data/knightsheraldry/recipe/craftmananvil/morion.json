@@ -10,9 +10,10 @@
       }
     },
     {
+      "finished_requirement": "finished",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:visor_piece"
       }
     }
   ],

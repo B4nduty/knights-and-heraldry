@@ -1,5 +1,13 @@
 {
   "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/plate_harness_ignited",
+      "predicate": {
+        "stoneycore:ignited": 1
+      }
+    }
+  ],
   "textures": {
     "layer0": "knightsheraldry:item/plate_harness"
   }

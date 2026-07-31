@@ -3,9 +3,16 @@
   "chance": 0.9,
   "ingredients": [
     {
+      "finished_requirement": "not_finised",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:bascinet_piece"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
       }
     }
   ],

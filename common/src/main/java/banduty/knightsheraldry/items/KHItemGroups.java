@@ -2,6 +2,7 @@ package banduty.knightsheraldry.items;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.platform.Services;
+import banduty.stoneycore.items.custom.hotiron.QuenchItem;
 import banduty.stoneycore.items.itemgroup.SCItemGroup;
 import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -57,7 +58,13 @@ public interface KHItemGroups {
     };
 
     private static ItemStack itemStack(ItemLike item) {
-        return new ItemStack(item);
+        return itemStack(item, true);
+    }
+
+    private static ItemStack itemStack(ItemLike item, boolean quench) {
+        ItemStack itemStack = new ItemStack(item);
+        if (item instanceof QuenchItem && quench) itemStack.set(SCDataComponents.FINISHED.get(), true);
+        return itemStack;
     }
 
     Supplier<CreativeModeTab> KH_WEAPONS_TAB = register("kh_weapons", () -> SCItemGroup.create(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_weapons"))
@@ -405,12 +412,17 @@ public interface KHItemGroups {
                         itemStack(KHItems.MANUSCRIPT_NASAL.get()),
                         itemStack(KHItems.MANUSCRIPT_BURGONET.get()),
                         itemStack(KHItems.MANUSCRIPT_SALLET.get()),
+                        itemStack(KHItems.MANUSCRIPT_MORION.get()),
                         itemStack(KHItems.MANUSCRIPT_ARMET.get()),
                         itemStack(KHItems.MANUSCRIPT_CAGE.get()),
                         itemStack(KHItems.MANUSCRIPT_GREAT_HELMET.get()),
                         itemStack(KHItems.MANUSCRIPT_CLOSE_HELMET.get()),
                         itemStack(KHItems.MANUSCRIPT_FROGMOUTH.get()),
-                        itemStack(KHItems.MANUSCRIPT_MAXIMILIAN.get())
+                        itemStack(KHItems.MANUSCRIPT_MAXIMILIAN.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_VISOR.get()),
+                        itemStack(KHItems.MANUSCRIPT_FALLING_BUFFE.get()),
+                        itemStack(KHItems.MANUSCRIPT_BEVOR.get())
                 ));
 
                 List.of(
@@ -418,17 +430,31 @@ public interface KHItemGroups {
                         KHItems.FALCHION_HEAD, KHItems.RAPIER_HEAD, KHItems.AXE_HEAD,
                         KHItems.HAMMER_HEAD, KHItems.MACE_HEAD, KHItems.HALBERD_HEAD,
                         KHItems.BILLHOOK_HEAD, KHItems.SPEAR_HEAD, KHItems.PITCHFORK_HEAD,
-                        KHItems.BARBUTE_HEAD, KHItems.BASCINET_HEAD, KHItems.KETTLE_HEAD,
-                        KHItems.NASAL_HEAD, KHItems.BURGONET_HEAD, KHItems.SALLET_HEAD,
-                        KHItems.ARMET_HEAD, KHItems.CAGE_HEAD, KHItems.GREAT_HELMET_HEAD,
-                        KHItems.CLOSE_HELMET_HEAD, KHItems.FROGMOUTH_HEAD, KHItems.MAXIMILIAN_HEAD
+                        KHItems.VISOR_PIECE, KHItems.FALLING_BUFFE_PIECE, KHItems.BEVOR_PIECE
                 ).forEach(item -> {
                     ItemStack finishedStack = itemStack(item.get());
                     finishedStack.set(SCDataComponents.FINISHED.get(), true);
                     output.accept(finishedStack);
 
-                    output.accept(itemStack(item.get()));
+                    output.accept(itemStack(item.get(), false));
                 });
+
+
+                output.acceptAll(List.of(
+                        itemStack(KHItems.BARBUTE_PIECE.get()),
+                        itemStack(KHItems.BASCINET_PIECE.get()),
+                        itemStack(KHItems.KETTLE_PIECE.get()),
+                        itemStack(KHItems.NASAL_PIECE.get()),
+                        itemStack(KHItems.BURGONET_PIECE.get()),
+                        itemStack(KHItems.SALLET_PIECE.get()),
+                        itemStack(KHItems.MORION_PIECE.get()),
+                        itemStack(KHItems.ARMET_PIECE.get()),
+                        itemStack(KHItems.CAGE_PIECE.get()),
+                        itemStack(KHItems.GREAT_HELMET_PIECE.get()),
+                        itemStack(KHItems.CLOSE_HELMET_PIECE.get()),
+                        itemStack(KHItems.FROGMOUTH_PIECE.get()),
+                        itemStack(KHItems.MAXIMILIAN_PIECE.get())
+                ));
 
 
                 output.acceptAll(List.of(
@@ -449,12 +475,17 @@ public interface KHItemGroups {
                         itemStack(KHItems.TONGS_NASAL.get()),
                         itemStack(KHItems.TONGS_BURGONET.get()),
                         itemStack(KHItems.TONGS_SALLET.get()),
+                        itemStack(KHItems.TONGS_MORION.get()),
                         itemStack(KHItems.TONGS_ARMET.get()),
                         itemStack(KHItems.TONGS_CAGE.get()),
                         itemStack(KHItems.TONGS_GREAT_HELMET.get()),
                         itemStack(KHItems.TONGS_CLOSE_HELMET.get()),
                         itemStack(KHItems.TONGS_FROGMOUTH.get()),
-                        itemStack(KHItems.TONGS_MAXIMILIAN.get())
+                        itemStack(KHItems.TONGS_MAXIMILIAN.get()),
+
+                        itemStack(KHItems.TONGS_VISOR.get()),
+                        itemStack(KHItems.TONGS_FALLING_BUFFE.get()),
+                        itemStack(KHItems.TONGS_BEVOR.get())
                 ));
             })
             .build());

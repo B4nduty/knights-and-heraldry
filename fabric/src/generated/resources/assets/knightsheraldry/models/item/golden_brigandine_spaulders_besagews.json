@@ -1,5 +1,13 @@
 {
   "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/golden_brigandine_spaulders_besagews_ignited",
+      "predicate": {
+        "stoneycore:ignited": 1
+      }
+    }
+  ],
   "textures": {
     "layer0": "knightsheraldry:item/golden_brigandine_spaulders_besagews",
     "layer1": "knightsheraldry:item/golden_brigandine_spaulders_besagews_overlay"

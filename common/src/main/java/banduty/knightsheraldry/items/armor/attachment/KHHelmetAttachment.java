@@ -8,6 +8,7 @@ import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
 import banduty.stoneycore.items.custom.armor.custom.CrownItem;
 import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
+import banduty.stoneycore.items.custom.hotiron.QuenchItem;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,7 +21,7 @@ import net.minecraft.world.level.Level;
 import org.joml.Vector3f;
 
 public class KHHelmetAttachment extends Item
-        implements ArmorAttachment, ArmorAttachmentRenderProvider, ArmorAttachmentPosition {
+        implements ArmorAttachment, ArmorAttachmentRenderProvider, ArmorAttachmentPosition, QuenchItem {
 
     private final boolean openVisor;
     private final Ingredient ingredient;
@@ -89,6 +90,23 @@ public class KHHelmetAttachment extends Item
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        if (!isFinished(player.getItemInHand(hand))) return InteractionResultHolder.fail(player.getItemInHand(hand));
         return ArmorAttachment.super.use(level, player, hand, ArmorItem.Type.HELMET);
+    }
+
+    @Override
+    public int getIgniteDuration() {
+        return 20 * 30;
+    }
+
+    @Override
+    public boolean destroysOnQuench() {
+        return false;
+    }
+
+    @Override
+    public boolean canEquip(ItemStack underArmorStack, Player player, ItemStack attachmentStack) {
+        if (!isFinished(attachmentStack)) return false;
+        return ArmorAttachment.super.canEquip(underArmorStack, player, attachmentStack);
     }
 }
