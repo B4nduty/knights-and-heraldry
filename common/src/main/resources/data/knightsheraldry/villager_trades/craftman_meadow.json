@@ -1,0 +1,95 @@
+{
+  "replace": false,
+  "trades": [
+    {
+      "level": 1,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:emerald", "count": 16 },
+      "result": { "item": "knightsheraldry:manuscript_sword", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 2,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:emerald", "count": 16 },
+      "result": { "item": "knightsheraldry:manuscript_frogmouth", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 2,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:emerald", "count": 16 },
+      "result": { "item": "knightsheraldry:manuscript_kettle", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 2,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:emerald", "count": 16 },
+      "result": { "item": "knightsheraldry:manuscript_spaulders", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 2,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:emerald", "count": 16 },
+      "result": { "item": "knightsheraldry:manuscript_harness", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 2,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:emerald", "count": 16 },
+      "result": { "item": "knightsheraldry:manuscript_tassets", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 3,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:emerald", "count": 16 },
+      "result": { "item": "knightsheraldry:manuscript_cuisses", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 3,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:emerald", "count": 16 },
+      "result": { "item": "knightsheraldry:manuscript_greaves", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 3,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:emerald", "count": 16 },
+      "result": { "item": "knightsheraldry:manuscript_sabatons", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 4,
+      "weight": 1,
+      "cost_a": { "item": "minecraft:emerald", "count": 16 },
+      "result": { "item": "knightsheraldry:manuscript_halberd", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    }
+  ]
+}

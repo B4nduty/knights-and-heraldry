@@ -1,7 +1,6 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.5,
-  "hit_times": 5,
+  "chance": 0.75,
   "ingredients": [
     {
       "stack": {
@@ -12,7 +11,19 @@
     {
       "stack": {
         "count": 1,
+        "id": "knightsheraldry:manuscript_cuisses"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
         "id": "minecraft:leather"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
       }
     }
   ],

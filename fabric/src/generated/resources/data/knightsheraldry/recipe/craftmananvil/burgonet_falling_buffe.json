@@ -10,10 +10,10 @@
       }
     },
     {
-      "finished_requirement": "finished",
+      "finished_requirement": "not_finised",
       "stack": {
         "count": 1,
-        "id": "knightsheraldry:falling_buffe_piece"
+        "id": "knightsheraldry:falling_buffe"
       }
     }
   ],

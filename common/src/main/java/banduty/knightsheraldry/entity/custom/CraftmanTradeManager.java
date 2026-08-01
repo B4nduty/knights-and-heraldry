@@ -51,16 +51,17 @@ public class CraftmanTradeManager extends SimpleJsonResourceReloadListener {
                 String remaining = fileName.substring("craftman_".length());
                 int underscoreIndex = remaining.indexOf('_');
 
-                if (underscoreIndex == -1) continue;
-
-                String namespace = remaining.substring(0, underscoreIndex);
-                String path = remaining.substring(underscoreIndex + 1);
-
-                if (namespace.equals("minecraft")) {
-                    biomeKey = path;
+                String namespace;
+                String path;
+                if (underscoreIndex == -1) {
+                    namespace = "minecraft";
+                    path = remaining;
                 } else {
-                    biomeKey = namespace + ":" + path;
+                    namespace = remaining.substring(0, underscoreIndex);
+                    path = remaining.substring(underscoreIndex + 1);
                 }
+
+                biomeKey = namespace.equals("minecraft") ? path : namespace + ":" + path;
             }
 
             try {

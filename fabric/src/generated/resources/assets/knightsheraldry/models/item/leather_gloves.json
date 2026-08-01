@@ -1,14 +1,7 @@
 {
   "parent": "minecraft:item/generated",
-  "overrides": [
-    {
-      "model": "knightsheraldry:item/leather_gloves_ignited",
-      "predicate": {
-        "stoneycore:ignited": 1
-      }
-    }
-  ],
   "textures": {
-    "layer0": "knightsheraldry:item/leather_gloves"
+    "layer0": "knightsheraldry:item/leather_gloves",
+    "layer1": "knightsheraldry:item/leather_gloves_overlay"
   }
 }

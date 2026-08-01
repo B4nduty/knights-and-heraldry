@@ -1,18 +1,12 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.25,
-  "hit_times": 7,
+  "chance": 0.9,
   "ingredients": [
     {
+      "finished_requirement": "not_finised",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
-      }
-    },
-    {
-      "stack": {
-        "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:plate_cuirass"
       }
     }
   ],

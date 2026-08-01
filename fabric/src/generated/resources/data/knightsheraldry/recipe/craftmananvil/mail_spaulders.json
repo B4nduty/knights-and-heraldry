@@ -3,9 +3,10 @@
   "chance": 0.9,
   "ingredients": [
     {
+      "finished_requirement": "not_finised",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:spaulders_piece"
       }
     },
     {

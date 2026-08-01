@@ -1,17 +1,40 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.25,
-  "hit_times": 7,
+  "chance": 0.9,
   "ingredients": [
     {
-      "stack": {},
-      "tag": "minecraft:wool"
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:hot_iron"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:manuscript_cloth"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
+      }
     },
     {
       "stack": {
         "count": 1,
         "id": "minecraft:feather"
       }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:stick"
+      }
+    },
+    {
+      "stack": {},
+      "tag": "minecraft:wool"
     }
   ],
   "result": {

@@ -58,12 +58,8 @@ public interface KHItemGroups {
     };
 
     private static ItemStack itemStack(ItemLike item) {
-        return itemStack(item, true);
-    }
-
-    private static ItemStack itemStack(ItemLike item, boolean quench) {
         ItemStack itemStack = new ItemStack(item);
-        if (item instanceof QuenchItem && quench) itemStack.set(SCDataComponents.FINISHED.get(), true);
+        if (item instanceof QuenchItem quenchItem && !quenchItem.destroysOnQuench()) itemStack.set(SCDataComponents.FINISHED.get(), true);
         return itemStack;
     }
 
@@ -422,21 +418,48 @@ public interface KHItemGroups {
 
                         itemStack(KHItems.MANUSCRIPT_VISOR.get()),
                         itemStack(KHItems.MANUSCRIPT_FALLING_BUFFE.get()),
-                        itemStack(KHItems.MANUSCRIPT_BEVOR.get())
+                        itemStack(KHItems.MANUSCRIPT_BEVOR.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_AVENTAIL.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_CUIRASS.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_PLACKART.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_TASSETS.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_RIM_GUARDS.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_BESAGEWS.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_SPAULDERS.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_HARNESS.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_CUISSES.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_GREAVES.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_SABATONS.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_BARDING.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_SWALLOWTAIL.get()),
+                        itemStack(KHItems.MANUSCRIPT_BODKIN.get()),
+                        itemStack(KHItems.MANUSCRIPT_BROADHEAD.get()),
+                        itemStack(KHItems.MANUSCRIPT_CLOTH.get())
                 ));
 
                 List.of(
                         KHItems.DAGGER_HEAD, KHItems.STILETTO_HEAD, KHItems.SWORD_HEAD,
                         KHItems.FALCHION_HEAD, KHItems.RAPIER_HEAD, KHItems.AXE_HEAD,
                         KHItems.HAMMER_HEAD, KHItems.MACE_HEAD, KHItems.HALBERD_HEAD,
-                        KHItems.BILLHOOK_HEAD, KHItems.SPEAR_HEAD, KHItems.PITCHFORK_HEAD,
-                        KHItems.VISOR_PIECE, KHItems.FALLING_BUFFE_PIECE, KHItems.BEVOR_PIECE
+                        KHItems.BILLHOOK_HEAD, KHItems.SPEAR_HEAD, KHItems.PITCHFORK_HEAD
                 ).forEach(item -> {
                     ItemStack finishedStack = itemStack(item.get());
-                    finishedStack.set(SCDataComponents.FINISHED.get(), true);
                     output.accept(finishedStack);
 
-                    output.accept(itemStack(item.get(), false));
+                    output.accept(new ItemStack(item.get()));
                 });
 
 
@@ -453,39 +476,13 @@ public interface KHItemGroups {
                         itemStack(KHItems.GREAT_HELMET_PIECE.get()),
                         itemStack(KHItems.CLOSE_HELMET_PIECE.get()),
                         itemStack(KHItems.FROGMOUTH_PIECE.get()),
-                        itemStack(KHItems.MAXIMILIAN_PIECE.get())
-                ));
-
-
-                output.acceptAll(List.of(
-                        itemStack(KHItems.TONGS_DAGGER.get()),
-                        itemStack(KHItems.TONGS_SWORD.get()),
-                        itemStack(KHItems.TONGS_AXE.get()),
-                        itemStack(KHItems.TONGS_HAMMER.get()),
-                        itemStack(KHItems.TONGS_MACE.get()),
-                        itemStack(KHItems.TONGS_HALBERD.get()),
-                        itemStack(KHItems.TONGS_LONGSWORD.get()),
-                        itemStack(KHItems.TONGS_GREATSWORD.get()),
-                        itemStack(KHItems.TONGS_SPEAR.get()),
-                        itemStack(KHItems.TONGS_PITCHFORK.get()),
-
-                        itemStack(KHItems.TONGS_BARBUTE.get()),
-                        itemStack(KHItems.TONGS_BASCINET.get()),
-                        itemStack(KHItems.TONGS_KETTLE.get()),
-                        itemStack(KHItems.TONGS_NASAL.get()),
-                        itemStack(KHItems.TONGS_BURGONET.get()),
-                        itemStack(KHItems.TONGS_SALLET.get()),
-                        itemStack(KHItems.TONGS_MORION.get()),
-                        itemStack(KHItems.TONGS_ARMET.get()),
-                        itemStack(KHItems.TONGS_CAGE.get()),
-                        itemStack(KHItems.TONGS_GREAT_HELMET.get()),
-                        itemStack(KHItems.TONGS_CLOSE_HELMET.get()),
-                        itemStack(KHItems.TONGS_FROGMOUTH.get()),
-                        itemStack(KHItems.TONGS_MAXIMILIAN.get()),
-
-                        itemStack(KHItems.TONGS_VISOR.get()),
-                        itemStack(KHItems.TONGS_FALLING_BUFFE.get()),
-                        itemStack(KHItems.TONGS_BEVOR.get())
+                        itemStack(KHItems.MAXIMILIAN_PIECE.get()),
+                        itemStack(KHItems.VISOR.get()),
+                        itemStack(KHItems.FALLING_BUFFE.get()),
+                        itemStack(KHItems.BEVOR.get()),
+                        itemStack(KHItems.CUIRASS_PIECE.get()),
+                        itemStack(KHItems.SPAULDERS_PIECE.get()),
+                        itemStack(KHItems.HARNESS_PIECE.get())
                 ));
             })
             .build());

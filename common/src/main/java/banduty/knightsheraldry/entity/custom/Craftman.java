@@ -2,6 +2,7 @@ package banduty.knightsheraldry.entity.custom;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -58,6 +59,17 @@ public class Craftman extends AbstractVillager {
         this.entityData.set(DATA_VILLAGER_DATA, data);
     }
 
+    /**
+     * XP required (cumulative) to reach the next level, indexed by (currentLevel - 1).
+     * Mirrors vanilla villager progression: level 1->2 needs 10, 2->3 needs 70, 3->4 needs 150, 4->5 needs 250.
+     */
+    private static final int[] NEXT_LEVEL_XP_THRESHOLD = {10, 70, 150, 250};
+    private static final int MAX_LEVEL = 5;
+
+    private static boolean canLevelUp(int level, int xp) {
+        return level < MAX_LEVEL && xp >= NEXT_LEVEL_XP_THRESHOLD[level - 1];
+    }
+
     public CraftmanData getCraftmanData() {
         return this.entityData.get(DATA_VILLAGER_DATA);
     }
@@ -74,7 +86,7 @@ public class Craftman extends AbstractVillager {
                     .map(ResourceKey::location)
                     .orElse(Biomes.PLAINS.location());
 
-            setCraftmanData(new CraftmanData(biomeLoc));
+            setCraftmanData(new CraftmanData(biomeLoc, 1, 0));
         }
     }
 
@@ -104,7 +116,7 @@ public class Craftman extends AbstractVillager {
                 .map(ResourceKey::location)
                 .orElse(Biomes.PLAINS.location());
 
-        setCraftmanData(new CraftmanData(biomeLoc));
+        setCraftmanData(new CraftmanData(biomeLoc, 1, 0));
         this.setPersistenceRequired();
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
     }
@@ -112,7 +124,7 @@ public class Craftman extends AbstractVillager {
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
-        builder.define(DATA_VILLAGER_DATA, new CraftmanData(Biomes.PLAINS.location()));
+        builder.define(DATA_VILLAGER_DATA, new CraftmanData(Biomes.PLAINS.location(), 1, 0));
     }
 
     @Override
@@ -140,7 +152,7 @@ public class Craftman extends AbstractVillager {
             }
             if (!this.level().isClientSide) {
                 this.setTradingPlayer(player);
-                this.openTradingScreen(player, this.getDisplayName(), 1);
+                this.openTradingScreen(player, this.getDisplayName(), this.getCraftmanData().level());
             }
             return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
@@ -154,6 +166,17 @@ public class Craftman extends AbstractVillager {
         MerchantOffers offers = this.getOffers();
         offers.clear();
 
+        addTradesForCurrentLevel(2);
+    }
+
+    /**
+     * Rolls up to {@code count} new trades for the villager's current level and appends them
+     * to the existing offer list. Does not clear existing offers, and never rolls a result that
+     * is already being offered - safe to call both on initial trade generation and on level-up.
+     */
+    private void addTradesForCurrentLevel(int count) {
+        MerchantOffers offers = this.getOffers();
+
         Map<String, CraftmanTradeManager.TradeDataContainer> biomeMap = CraftmanTradeManager.PROFESSION_TRADES.get("craftman");
         if (biomeMap == null) return;
 
@@ -166,8 +189,11 @@ public class Craftman extends AbstractVillager {
         if (container == null) return;
 
         RandomSource random = this.getRandom();
-        for (int i = 0; i < 2; i++) {
+        int currentLevel = this.getCraftmanData().level();
+
+        for (int i = 0; i < count; i++) {
             List<CraftmanTradeManager.DatapackTrade> validTrades = container.trades.stream()
+                    .filter(t -> t.level() <= currentLevel)
                     .filter(t -> offers.stream().noneMatch(o -> o.getResult().is(t.result().getItem())))
                     .toList();
 
@@ -198,9 +224,28 @@ public class Craftman extends AbstractVillager {
 
     @Override
     public void rewardTradeXp(MerchantOffer offer) {
-        if (offer.shouldRewardExp()) {
-            int xp = offer.getXp();
-            this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY() + 0.5D, this.getZ(), xp));
+        if (!offer.shouldRewardExp()) return;
+
+        int xpGained = offer.getXp();
+        this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY() + 0.5D, this.getZ(), xpGained));
+
+        if (this.level().isClientSide) return;
+
+        CraftmanData data = this.getCraftmanData();
+        int newXp = data.xp() + xpGained;
+        int newLevel = data.level();
+
+        if (canLevelUp(newLevel, newXp)) {
+            newLevel++;
+        }
+
+        if (newLevel == data.level() && newXp == data.xp()) return;
+
+        setCraftmanData(new CraftmanData(data.biomeKey(), newLevel, newXp));
+
+        if (newLevel != data.level()) {
+            // Unlock up to 2 new trades for the level just reached, on top of existing offers.
+            addTradesForCurrentLevel(2);
         }
     }
 
@@ -211,8 +256,17 @@ public class Craftman extends AbstractVillager {
 
     private static final EntityDataSerializer<CraftmanData> CRAFTMAN_DATA_SERIALIZER = new EntityDataSerializer<>() {
         private final StreamCodec<RegistryFriendlyByteBuf, CraftmanData> CODEC = StreamCodec.of(
-                (buffer, data) -> ResourceLocation.STREAM_CODEC.encode(buffer, data.biomeKey()),
-                buffer -> new CraftmanData(ResourceLocation.STREAM_CODEC.decode(buffer))
+                (buffer, data) -> {
+                    ResourceLocation.STREAM_CODEC.encode(buffer, data.biomeKey());
+                    buffer.writeVarInt(data.level());
+                    buffer.writeVarInt(data.xp());
+                },
+                buffer -> {
+                    ResourceLocation biomeKey = ResourceLocation.STREAM_CODEC.decode(buffer);
+                    int level = buffer.readVarInt();
+                    int xp = buffer.readVarInt();
+                    return new CraftmanData(biomeKey, level, xp);
+                }
         );
 
         @Override
@@ -231,7 +285,11 @@ public class Craftman extends AbstractVillager {
         DATA_VILLAGER_DATA = SynchedEntityData.defineId(Craftman.class, CRAFTMAN_DATA_SERIALIZER);
     }
 
-    public record CraftmanData(ResourceLocation biomeKey) {
-        public static final Codec<CraftmanData> CODEC = ResourceLocation.CODEC.xmap(CraftmanData::new, CraftmanData::biomeKey);
+    public record CraftmanData(ResourceLocation biomeKey, int level, int xp) {
+        public static final Codec<CraftmanData> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                ResourceLocation.CODEC.fieldOf("biome_key").forGetter(CraftmanData::biomeKey),
+                Codec.INT.fieldOf("level").forGetter(CraftmanData::level),
+                Codec.INT.fieldOf("xp").forGetter(CraftmanData::xp)
+        ).apply(instance, CraftmanData::new));
     }
 }

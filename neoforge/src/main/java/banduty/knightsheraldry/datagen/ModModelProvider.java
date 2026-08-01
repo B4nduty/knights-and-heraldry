@@ -2,17 +2,12 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.stoneycore.StoneyCore;
 import banduty.stoneycore.datagen.NeoForgeModelProviderPlus;
-import banduty.stoneycore.items.custom.manuscript.Manuscript;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class ModModelProvider extends NeoForgeModelProviderPlus {
 
@@ -75,9 +70,6 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get()
         };
         for (Item item : dyeable) dyeableItem(item);
-
-        // --- Manuscripts ---
-        registerManuscriptsItems();
     }
 
     protected void registerSurcoatWithBanner(Item surcoatItem) {
@@ -180,132 +172,6 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.GREAT_HELM_2.get(), KHItems.DARK_GREAT_HELM_2.get(), KHItems.GOLDEN_GREAT_HELM_2.get()
         };
         for (Item item : simpleArmor) simpleItem(item);
-    }
-
-    private void registerManuscriptsItems() {
-        Map<Item, Manuscript.Types> itemTypesMap = new HashMap<>();
-        itemTypesMap.put(KHItems.DAGGER.get(), Manuscript.Types.BROAD);
-        itemTypesMap.put(KHItems.STILETTO.get(), Manuscript.Types.BROAD);
-        itemTypesMap.put(KHItems.RAPIER.get(), Manuscript.Types.BROAD);
-        itemTypesMap.put(KHItems.SWORD.get(), Manuscript.Types.SWORDS);
-        itemTypesMap.put(KHItems.V_SWORD.get(), Manuscript.Types.SWORDS);
-        itemTypesMap.put(KHItems.ARMING_SWORD.get(), Manuscript.Types.SWORDS);
-        itemTypesMap.put(KHItems.AXE.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.BROAD_AXE.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.CROOKED_AXE.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.STRAIGHT_CROOKED_AXE.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.MACE.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.SPIKED_MACE.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.FLAIL.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.BALL_FLAIL.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.HAMMER.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.WAR_HAMMER.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.LONGSWORD.get(), Manuscript.Types.LONGSWORDS);
-        itemTypesMap.put(KHItems.V_LONGSWORD.get(), Manuscript.Types.LONGSWORDS);
-        itemTypesMap.put(KHItems.FALCHION.get(), Manuscript.Types.SWORDS);
-        itemTypesMap.put(KHItems.SCIMITAR.get(), Manuscript.Types.SWORDS);
-        itemTypesMap.put(KHItems.PITCHFORK.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.SPEAR.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.PIKE.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.BILLHOOK.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.GLAIVE.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.CURVED_GLAIVE.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.HALBERD.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.LANCE.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.WOODEN_LANCE.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.POLEAXE.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.POLEHAMMER.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.BEC_DE_CORBIN.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.MORNING_STAR.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.BARDICHE.get(), Manuscript.Types.SHORT_HAFTED);
-        itemTypesMap.put(KHItems.GREATSWORD.get(), Manuscript.Types.GREATSWORDS);
-        itemTypesMap.put(KHItems.CLAYMORE.get(), Manuscript.Types.GREATSWORDS);
-        itemTypesMap.put(KHItems.FLAMBERGE.get(), Manuscript.Types.GREATSWORDS);
-        itemTypesMap.put(KHItems.ZWEIHANDER.get(), Manuscript.Types.GREATSWORDS);
-        itemTypesMap.put(KHItems.WARDART.get(), Manuscript.Types.LONG_HAFTED);
-        itemTypesMap.put(KHItems.QUILTED_COIF.get(), Manuscript.Types.COIF);
-        itemTypesMap.put(KHItems.GAMBESON.get(), Manuscript.Types.COAT);
-        itemTypesMap.put(KHItems.GAMBESON_BREECHES.get(), Manuscript.Types.BREECHES);
-        itemTypesMap.put(KHItems.GAMBESON_BOOTS.get(), Manuscript.Types.BOOTS);
-        itemTypesMap.put(KHItems.ARMING_DOUBLET.get(), Manuscript.Types.COAT);
-        itemTypesMap.put(KHItems.ARMING_HOSE.get(), Manuscript.Types.BREECHES);
-        itemTypesMap.put(KHItems.MAIL_COIF.get(), Manuscript.Types.COIF);
-        itemTypesMap.put(KHItems.HAUBERK.get(), Manuscript.Types.COAT);
-        itemTypesMap.put(KHItems.MAIL_BREECHES.get(), Manuscript.Types.BREECHES);
-        itemTypesMap.put(KHItems.MAIL_BOOTS.get(), Manuscript.Types.BOOTS);
-        itemTypesMap.put(KHItems.MAIL_SPAULDERS.get(), Manuscript.Types.SPAULDERS);
-        itemTypesMap.put(KHItems.BRIGANDINE_SPAULDERS.get(), Manuscript.Types.SPAULDERS);
-        itemTypesMap.put(KHItems.PLATE_SPAULDERS.get(), Manuscript.Types.SPAULDERS);
-        itemTypesMap.put(KHItems.BRIGANDINE.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.PLATE_CUIRASS.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.MAXIMILLIAN_CUIRASS.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.XIIII_PLATE_CUIRASS.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.XIIII_PLATE_BREASTPLATE.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.PLACKART.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.TASSETS.get(), Manuscript.Types.BREASTPLATE);
-        itemTypesMap.put(KHItems.RIM_GUARDS.get(), Manuscript.Types.RIM_GUARDS);
-        itemTypesMap.put(KHItems.BESAGEWS.get(), Manuscript.Types.BESAGEWS);
-        itemTypesMap.put(KHItems.BARBUTE.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.BASCINET.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.KETTLE_HELM.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.NASAL_HELM.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.VIKING_HELM.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.BURGONET.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.VISORLESS_SALLET.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.VISORLESS_MORION.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.ARMET.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.ARMET_2.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.VISORED_BARBUTE.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.HOUNDSKULL.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.CAGE.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.VISORED_BASCINET.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.GREAT_HELM.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.BURGONET_FALLING_BUFFE.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.CLOSE_HELM.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.FROGMOUTH.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.GREAT_ARMET.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.GREAT_ARMET_2.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.GREAT_BASCINET.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.GREAT_HOUNDSKUL_BASCINET.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.MAXIMILLIAN_HELMET.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.SAVOYARD.get(), Manuscript.Types.HELMET);
-        itemTypesMap.put(KHItems.LEATHER_GLOVES.get(), Manuscript.Types.GAUNTLETS);
-        itemTypesMap.put(KHItems.MAIL_GLOVES.get(), Manuscript.Types.GAUNTLETS);
-        itemTypesMap.put(KHItems.GAUNTLET.get(), Manuscript.Types.GAUNTLETS);
-        itemTypesMap.put(KHItems.BRIGANDINE_HARNESS.get(), Manuscript.Types.GAUNTLETS);
-        itemTypesMap.put(KHItems.PLATE_HARNESS.get(), Manuscript.Types.GAUNTLETS);
-        itemTypesMap.put(KHItems.BRIGANDINE_CUISSES.get(), Manuscript.Types.CHAUSSES);
-        itemTypesMap.put(KHItems.PLATE_CUISSES.get(), Manuscript.Types.CHAUSSES);
-        itemTypesMap.put(KHItems.GREAVES.get(), Manuscript.Types.GREAVES);
-        itemTypesMap.put(KHItems.SABATONS.get(), Manuscript.Types.BOOTS);
-        itemTypesMap.put(KHItems.SURCOAT.get(), Manuscript.Types.CLOTH);
-        itemTypesMap.put(KHItems.SURCOAT_SLEEVELESS.get(), Manuscript.Types.CLOTH);
-        itemTypesMap.put(KHItems.CIVILIAN_SURCOAT.get(), Manuscript.Types.CLOTH);
-        itemTypesMap.put(KHItems.GIORNEA.get(), Manuscript.Types.CLOTH);
-        itemTypesMap.put(KHItems.CLOAK.get(), Manuscript.Types.COAT);
-        itemTypesMap.put(KHItems.TORN_CLOAK.get(), Manuscript.Types.COAT);
-        itemTypesMap.put(KHItems.HOOD.get(), Manuscript.Types.COIF);
-        itemTypesMap.put(KHItems.TORN_HOOD.get(), Manuscript.Types.COIF);
-        itemTypesMap.put(KHItems.JESTER_HOOD.get(), Manuscript.Types.COIF);
-        itemTypesMap.put(KHItems.HELMET_HOOD.get(), Manuscript.Types.COIF);
-        itemTypesMap.put(KHItems.HELMET_TORN_HOOD.get(), Manuscript.Types.COIF);
-        itemTypesMap.put(KHItems.LONGBOW.get(), Manuscript.Types.LONGBOW);
-        itemTypesMap.put(KHItems.HEAVY_CROSSBOW.get(), Manuscript.Types.CROSSBOW);
-        itemTypesMap.put(KHItems.ARQUEBUS.get(), Manuscript.Types.ARQUEBUS);
-        itemTypesMap.put(KHItems.HANDGONNE.get(), Manuscript.Types.HANDGONNE);
-        itemTypesMap.put(KHItems.SWALLOWTAIL_ARROW.get(), Manuscript.Types.SWALLOWTAIL);
-        itemTypesMap.put(KHItems.BODKIN_ARROW.get(), Manuscript.Types.BODKIN);
-        itemTypesMap.put(KHItems.BROADHEAD_ARROW.get(), Manuscript.Types.BROAD);
-        itemTypesMap.put(KHItems.CLOTH_ARROW.get(), Manuscript.Types.CLOTH);
-        itemTypesMap.put(KHItems.HORSE_BARDING.get(), Manuscript.Types.HORSE);
-
-        for (Map.Entry<Item, Manuscript.Types> entry : itemTypesMap.entrySet()) {
-            String path = BuiltInRegistries.ITEM.getKey(entry.getKey()).getPath();
-            String manuscriptType = entry.getValue().name().toLowerCase();
-
-            withExistingParent("manuscript_" + path, "item/generated")
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(StoneyCore.MOD_ID, "item/manuscript_" + manuscriptType));
-        }
     }
 
     private void dyeableItem(Item item) {

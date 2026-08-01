@@ -3,6 +3,7 @@
   "armorSlot": "CHESTPLATE",
   "deflectChance": 0.05,
   "hungerDrainMultiplier": 0.1,
+  "rechargeTime": 30,
   "toughness": 3.0,
   "weight": 2.8
 }

@@ -4,15 +4,22 @@
   "hit_times": 5,
   "ingredients": [
     {
+      "finished_requirement": "not_finised",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:gauntlet"
       }
     },
     {
       "stack": {
         "count": 1,
         "id": "minecraft:leather"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
       }
     }
   ],

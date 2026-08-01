@@ -10,10 +10,10 @@
       }
     },
     {
-      "finished_requirement": "finished",
+      "finished_requirement": "not_finised",
       "stack": {
         "count": 1,
-        "id": "knightsheraldry:bevor_piece"
+        "id": "knightsheraldry:bevor"
       }
     }
   ],

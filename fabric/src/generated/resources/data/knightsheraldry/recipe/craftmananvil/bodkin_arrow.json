@@ -12,7 +12,25 @@
     {
       "stack": {
         "count": 1,
+        "id": "knightsheraldry:manuscript_bodkin"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
         "id": "minecraft:feather"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:stick"
       }
     }
   ],

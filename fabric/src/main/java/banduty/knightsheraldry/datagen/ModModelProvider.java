@@ -51,6 +51,35 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerItemWConditions(KHItems.MANUSCRIPT_FALLING_BUFFE.get(), itemModelGenerators);
         registerItemWConditions(KHItems.MANUSCRIPT_BEVOR.get(), itemModelGenerators);
 
+        registerItemWConditions(KHItems.MANUSCRIPT_AVENTAIL.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_CUIRASS.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_PLACKART.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_TASSETS.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_RIM_GUARDS.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_BESAGEWS.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_SPAULDERS.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_HARNESS.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_CUISSES.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_GREAVES.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_SABATONS.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_BARDING.get(), itemModelGenerators);
+
+        registerItemWConditions(KHItems.MANUSCRIPT_SWALLOWTAIL.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_BODKIN.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_BROADHEAD.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.MANUSCRIPT_CLOTH.get(), itemModelGenerators);
+
         registerItemWConditions(KHItems.DAGGER_HEAD.get(), itemModelGenerators);
         registerItemWConditions(KHItems.STILETTO_HEAD.get(), itemModelGenerators);
         registerItemWConditions(KHItems.SWORD_HEAD.get(), itemModelGenerators);
@@ -80,38 +109,15 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerItemWConditions(KHItems.FROGMOUTH_PIECE.get(), itemModelGenerators);
         registerItemWConditions(KHItems.MAXIMILIAN_PIECE.get(), itemModelGenerators);
 
-        registerItemWConditions(KHItems.VISOR_PIECE.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.FALLING_BUFFE_PIECE.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.BEVOR_PIECE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.VISOR.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.FALLING_BUFFE.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.BEVOR.get(), itemModelGenerators);
 
-        registerItemWConditions(KHItems.TONGS_DAGGER.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_SWORD.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_AXE.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_HAMMER.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_MACE.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_HALBERD.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_LONGSWORD.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_GREATSWORD.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_SPEAR.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_PITCHFORK.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.CUIRASS_PIECE.get(), itemModelGenerators);
 
-        registerItemWConditions(KHItems.TONGS_BARBUTE.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_BASCINET.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_KETTLE.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_NASAL.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_BURGONET.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_SALLET.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_MORION.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_ARMET.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_CAGE.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_GREAT_HELMET.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_CLOSE_HELMET.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_FROGMOUTH.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_MAXIMILIAN.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.SPAULDERS_PIECE.get(), itemModelGenerators);
 
-        registerItemWConditions(KHItems.TONGS_VISOR.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_FALLING_BUFFE.get(), itemModelGenerators);
-        registerItemWConditions(KHItems.TONGS_BEVOR.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.HARNESS_PIECE.get(), itemModelGenerators);
 
         registerItemWConditions(KHItems.CHAPERON.get(), itemModelGenerators);
         registerItemWConditions(KHItems.BROADHEAD_ARROW.get(), itemModelGenerators);
@@ -192,6 +198,8 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerDyeableItems(KHItems.BRIGANDINE.get(), itemModelGenerators);
         registerDyeableItems(KHItems.DARK_BRIGANDINE.get(), itemModelGenerators);
         registerDyeableItems(KHItems.GOLDEN_BRIGANDINE.get(), itemModelGenerators);
+
+        registerDyeableItems(KHItems.LEATHER_GLOVES.get(), itemModelGenerators);
     }
 
     private void registerSimpleItems(ItemModelGenerators itemModelGenerators) {
@@ -243,7 +251,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 KHItems.VISORLESS_SALLET.get(), KHItems.DARK_VISORLESS_SALLET.get(), KHItems.GOLDEN_VISORLESS_SALLET.get(),
                 KHItems.VISORLESS_MORION.get(), KHItems.DARK_VISORLESS_MORION.get(), KHItems.GOLDEN_VISORLESS_MORION.get(),
                 KHItems.FROGMOUTH.get(), KHItems.DARK_FROGMOUTH.get(), KHItems.GOLDEN_FROGMOUTH.get(),
-                KHItems.LEATHER_GLOVES.get(), KHItems.MAIL_GLOVES.get(),
+                KHItems.MAIL_GLOVES.get(),
                 KHItems.GAUNTLET.get(), KHItems.DARK_GAUNTLET.get(), KHItems.GOLDEN_GAUNTLET.get(),
                 KHItems.PLATE_HARNESS.get(), KHItems.DARK_PLATE_HARNESS.get(), KHItems.GOLDEN_PLATE_HARNESS.get(),
                 KHItems.PLATE_CUISSES.get(), KHItems.DARK_PLATE_CUISSES.get(), KHItems.GOLDEN_PLATE_CUISSES.get(),

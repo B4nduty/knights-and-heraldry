@@ -12,7 +12,13 @@
     {
       "stack": {
         "count": 1,
-        "id": "minecraft:iron_horse_armor"
+        "id": "knightsheraldry:manuscript_barding"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
       }
     }
   ],

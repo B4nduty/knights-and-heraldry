@@ -238,13 +238,13 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.DARK_GAUNTLET, new ArmorStats(1.0, 2.0, 1.7, 0.05, 0, 30, false, "chestplate"));
         map.put(KHItems.GOLDEN_GAUNTLET, new ArmorStats(0.0, 2.0, 1.6, 0.05, 0, 30, false, "chestplate"));
 
-        map.put(KHItems.BRIGANDINE_HARNESS, new ArmorStats(1.0, 2.0, 2.0, 0.0, 0, 0, false, "chestplate"));
-        map.put(KHItems.DARK_BRIGANDINE_HARNESS, new ArmorStats(2.0, 2.0, 2.2, 0.0, 0, 0, false, "chestplate"));
-        map.put(KHItems.GOLDEN_BRIGANDINE_HARNESS, new ArmorStats(1.0, 2.0, 2.1, 0.0, 0, 0, false, "chestplate"));
+        map.put(KHItems.BRIGANDINE_HARNESS, new ArmorStats(1.0, 2.0, 2.0, 0.0, 0, 30, false, "chestplate"));
+        map.put(KHItems.DARK_BRIGANDINE_HARNESS, new ArmorStats(2.0, 2.0, 2.2, 0.0, 0, 30, false, "chestplate"));
+        map.put(KHItems.GOLDEN_BRIGANDINE_HARNESS, new ArmorStats(1.0, 2.0, 2.1, 0.0, 0, 30, false, "chestplate"));
 
-        map.put(KHItems.PLATE_HARNESS, new ArmorStats(2.0, 2.0, 2.5, 0.05, 0, 0, true, "chestplate"));
-        map.put(KHItems.DARK_PLATE_HARNESS, new ArmorStats(3.0, 2.0, 2.8, 0.05, 0, 0, true, "chestplate"));
-        map.put(KHItems.GOLDEN_PLATE_HARNESS, new ArmorStats(2.0, 2.0, 2.6, 0.05, 0, 0, true, "chestplate"));
+        map.put(KHItems.PLATE_HARNESS, new ArmorStats(2.0, 2.0, 2.5, 0.05, 0, 30, true, "chestplate"));
+        map.put(KHItems.DARK_PLATE_HARNESS, new ArmorStats(3.0, 2.0, 2.8, 0.05, 0, 30, true, "chestplate"));
+        map.put(KHItems.GOLDEN_PLATE_HARNESS, new ArmorStats(2.0, 2.0, 2.6, 0.05, 0, 30, true, "chestplate"));
         return map;
     }
 

@@ -4,7 +4,7 @@ import banduty.knightsheraldry.client.item.armor.KHGloveAttachmentRenderer;
 import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
 import net.minecraft.world.item.crafting.Ingredient;
 
-public class KHGlove extends KHChestplateAttachment {
+public class KHGlove extends KHSurcoatAttachment {
     public KHGlove(Properties properties, Ingredient ingredient) {
         super(properties, ingredient);
     }
