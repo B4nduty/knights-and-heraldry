@@ -36,9 +36,7 @@ public class ManuscriptLootModifier extends LootModifier {
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         Item selectedItem = items.get(context.getRandom().nextInt(items.size()));
 
-        ItemStack manuscriptStack = Manuscript.createForStack(new ItemStack(selectedItem));
 
-        generatedLoot.add(manuscriptStack);
         return generatedLoot;
     }
 

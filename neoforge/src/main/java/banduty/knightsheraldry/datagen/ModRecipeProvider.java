@@ -3,7 +3,6 @@ package banduty.knightsheraldry.datagen;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.datagen.CraftmanAnvilRecipeJsonBuilder;
-import banduty.stoneycore.datagen.ManuscriptRecipeBuilder;
 import banduty.stoneycore.items.SCItems;
 import banduty.stoneycore.items.custom.hotiron.HotIron;
 import banduty.stoneycore.items.custom.manuscript.Manuscript;
@@ -476,7 +475,6 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private void createCraftmanAnvilRecipe(RecipeOutput exporter, boolean createManuscript, int hitTime, float chance, Item output, boolean outputHotIron, String path, Object... requiress) {
         ItemStack resultStack = new ItemStack(output);
-        if (outputHotIron) resultStack = HotIron.createForStack(resultStack);
 
         CraftmanAnvilRecipeJsonBuilder builder = CraftmanAnvilRecipeJsonBuilder.create(resultStack)
                 .hitTimes(hitTime)
@@ -484,7 +482,6 @@ public class ModRecipeProvider extends RecipeProvider {
 
         if (createManuscript) {
             createManuscriptRecipe(exporter, output);
-            builder.requires(Manuscript.createForStack(new ItemStack(output)));
         }
 
         for (Object requires : requiress) {
@@ -533,10 +530,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 KnightsHeraldry.MOD_ID,
                 "manuscript/" + getItemName(base)
         );
-
-        new ManuscriptRecipeBuilder(SCItems.MANUSCRIPT.get(), ingredients)
-                .unlockedBy(getHasName(base), has(base))
-                .save(exporter, recipeId);
     }
 
     private void createWeaponCycle(RecipeOutput exporter, Item... weapons) {
