@@ -1,12 +1,11 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
+  "type": "stoneycore:craftman_anvil_crafting",
   "ingredients": [
     {
-      "item": "stoneycore:smithing_hammer"
-    },
-    {
-      "item": "knightsheraldry:hammer"
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:hammer"
+      }
     }
   ],
   "result": {

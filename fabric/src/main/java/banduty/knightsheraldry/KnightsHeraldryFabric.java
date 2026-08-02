@@ -6,9 +6,6 @@ import banduty.knightsheraldry.entity.custom.Craftman;
 import banduty.knightsheraldry.entity.custom.CraftmanTradeManager;
 import banduty.knightsheraldry.event.UseItemHandler;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.util.loottable.ArchaeologyLootModifier;
-import banduty.knightsheraldry.util.loottable.ChestLootTableModifier;
-import banduty.knightsheraldry.util.loottable.VillagerTradesModifier;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -33,9 +30,6 @@ public class KnightsHeraldryFabric implements ModInitializer {
         KnightsHeraldry.init();
 
         UseItemCallback.EVENT.register(new UseItemHandler());
-        ArchaeologyLootModifier.registerArchaeologyLoot();
-        ChestLootTableModifier.modifyChestLootTables();
-        VillagerTradesModifier.registerCustomTrades();
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(content -> {
             content.accept(KHItems.CRAFTMAN_SPAWN_EGG.get());

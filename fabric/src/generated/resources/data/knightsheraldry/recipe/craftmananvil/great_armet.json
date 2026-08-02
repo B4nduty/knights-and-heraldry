@@ -4,6 +4,7 @@
   "hit_times": 7,
   "ingredients": [
     {
+      "finished_requirement": "not_finised",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:armet"

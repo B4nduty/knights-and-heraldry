@@ -259,11 +259,11 @@ public interface KHItems {
             () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_VISORLESS_SALLET = registerItem("golden_visorless_sallet",
             () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> VISORLESS_MORION = registerItem("visorless_morion",
+    Supplier<Item> MORION = registerItem("morion",
             () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_VISORLESS_MORION = registerItem("dark_visorless_morion",
+    Supplier<Item> DARK_MORION = registerItem("dark_morion",
             () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_VISORLESS_MORION= registerItem("golden_visorless_morion",
+    Supplier<Item> GOLDEN_MORION = registerItem("golden_morion",
             () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> ARMET = registerItem("armet",
@@ -338,11 +338,11 @@ public interface KHItems {
             () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
     Supplier<Item> GOLDEN_BLACK_SALLET = registerItem("golden_black_sallet",
             () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> MORION = registerItem("morion",
+    Supplier<Item> VISORED_MORION = registerItem("visored_morion",
             () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_MORION = registerItem("dark_morion",
+    Supplier<Item> DARK_VISORED_MORION = registerItem("dark_visored_morion",
             () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_MORION = registerItem("golden_morion",
+    Supplier<Item> GOLDEN_VISORED_MORION = registerItem("golden_visored_morion",
             () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> SALLET_BEVOR = registerItem("sallet_bevor",
@@ -552,63 +552,63 @@ public interface KHItems {
                     new Item.Properties()
             ));
 
-    Supplier<Item> MANUSCRIPT_DAGGER = registerItem("manuscript_dagger", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_SWORD = registerItem("manuscript_sword", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_AXE = registerItem("manuscript_axe", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_HAMMER = registerItem("manuscript_hammer", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_MACE = registerItem("manuscript_mace", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_HALBERD = registerItem("manuscript_halberd", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_LONGSWORD = registerItem("manuscript_longsword", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_GREATSWORD = registerItem("manuscript_greatsword", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_SPEAR = registerItem("manuscript_spear", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_PITCHFORK = registerItem("manuscript_pitchfork", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_DAGGER = registerItem("manuscript_dagger", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_SWORD = registerItem("manuscript_sword", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_AXE = registerItem("manuscript_axe", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_HAMMER = registerItem("manuscript_hammer", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_MACE = registerItem("manuscript_mace", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_HALBERD = registerItem("manuscript_halberd", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_LONGSWORD = registerItem("manuscript_longsword", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_GREATSWORD = registerItem("manuscript_greatsword", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_SPEAR = registerItem("manuscript_spear", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_PITCHFORK = registerItem("manuscript_pitchfork", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_BARBUTE = registerItem("manuscript_barbute", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_BASCINET = registerItem("manuscript_bascinet", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_KETTLE = registerItem("manuscript_kettle", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_NASAL = registerItem("manuscript_nasal", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_BURGONET = registerItem("manuscript_burgonet", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_SALLET = registerItem("manuscript_sallet", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_MORION = registerItem("manuscript_morion", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_ARMET = registerItem("manuscript_armet", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_CAGE = registerItem("manuscript_cage", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_GREAT_HELMET = registerItem("manuscript_great_helmet", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_CLOSE_HELMET = registerItem("manuscript_close_helmet", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_FROGMOUTH = registerItem("manuscript_frogmouth", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_MAXIMILIAN = registerItem("manuscript_maximilian", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_BARBUTE = registerItem("manuscript_barbute", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_BASCINET = registerItem("manuscript_bascinet", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_KETTLE = registerItem("manuscript_kettle", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_NASAL = registerItem("manuscript_nasal", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_BURGONET = registerItem("manuscript_burgonet", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_SALLET = registerItem("manuscript_sallet", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_MORION = registerItem("manuscript_morion", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_ARMET = registerItem("manuscript_armet", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_CAGE = registerItem("manuscript_cage", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_GREAT_HELMET = registerItem("manuscript_great_helmet", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_CLOSE_HELMET = registerItem("manuscript_close_helmet", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_FROGMOUTH = registerItem("manuscript_frogmouth", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_MAXIMILIAN = registerItem("manuscript_maximilian", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_VISOR = registerItem("manuscript_visor", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_FALLING_BUFFE = registerItem("manuscript_falling_buffe", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_BEVOR = registerItem("manuscript_bevor", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_VISOR = registerItem("manuscript_visor", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_FALLING_BUFFE = registerItem("manuscript_falling_buffe", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_BEVOR = registerItem("manuscript_bevor", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_AVENTAIL = registerItem("manuscript_aventail", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_AVENTAIL = registerItem("manuscript_aventail", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_CUIRASS = registerItem("manuscript_cuirass", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_CUIRASS = registerItem("manuscript_cuirass", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_PLACKART = registerItem("manuscript_plackart", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_PLACKART = registerItem("manuscript_plackart", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_TASSETS = registerItem("manuscript_tassets", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_TASSETS = registerItem("manuscript_tassets", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_RIM_GUARDS = registerItem("manuscript_rim_guards", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_RIM_GUARDS = registerItem("manuscript_rim_guards", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_BESAGEWS = registerItem("manuscript_besagews", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_BESAGEWS = registerItem("manuscript_besagews", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_SPAULDERS = registerItem("manuscript_spaulders", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_SPAULDERS = registerItem("manuscript_spaulders", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_HARNESS = registerItem("manuscript_harness", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_HARNESS = registerItem("manuscript_harness", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_CUISSES = registerItem("manuscript_cuisses", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_CUISSES = registerItem("manuscript_cuisses", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_GREAVES = registerItem("manuscript_greaves", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_GREAVES = registerItem("manuscript_greaves", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_SABATONS = registerItem("manuscript_sabatons", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_SABATONS = registerItem("manuscript_sabatons", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_BARDING = registerItem("manuscript_barding", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_BARDING = registerItem("manuscript_barding", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> MANUSCRIPT_SWALLOWTAIL = registerItem("manuscript_swallowtail", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_BODKIN = registerItem("manuscript_bodkin", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_BROADHEAD = registerItem("manuscript_broadhead", () -> new Manuscript(new Item.Properties()));
-    Supplier<Item> MANUSCRIPT_CLOTH = registerItem("manuscript_cloth", () -> new Manuscript(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_SWALLOWTAIL = registerItem("manuscript_swallowtail", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_BODKIN = registerItem("manuscript_bodkin", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_BROADHEAD = registerItem("manuscript_broadhead", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_CLOTH = registerItem("manuscript_cloth", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
     Supplier<Item> DAGGER_HEAD = registerItem("dagger_head", () -> new HotIron(new Item.Properties(), false));
     Supplier<Item> STILETTO_HEAD = registerItem("stiletto_head", () -> new HotIron(new Item.Properties(), false));

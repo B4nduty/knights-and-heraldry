@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:plate_spaulders_besagews_rimmed_from_plate_spaulders_rimmed_and_besagews"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:plate_spaulders_besagews_rimmed_from_plate_spaulders_rimmed_and_besagews"
+    ]
+  }
+}

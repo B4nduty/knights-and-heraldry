@@ -1,8 +1,7 @@
 {
-  "armor": 2.0,
+  "armor": 1.0,
   "armorSlot": "HELMET",
-  "deflectChance": 0.1,
-  "toughness": 3.0,
-  "visoredHelmet": "knightsheraldry:double_eyeslit_with_top_peek",
-  "weight": 3.3
+  "deflectChance": 0.05,
+  "toughness": 2.0,
+  "weight": 2.2
 }

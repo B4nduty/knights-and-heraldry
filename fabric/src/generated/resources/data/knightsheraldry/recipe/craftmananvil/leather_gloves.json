@@ -7,6 +7,12 @@
         "count": 1,
         "id": "minecraft:leather"
       }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:leather"
+      }
     }
   ],
   "result": {

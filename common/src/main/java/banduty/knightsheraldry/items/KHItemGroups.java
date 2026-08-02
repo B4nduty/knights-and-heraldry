@@ -149,7 +149,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.VIKING_HELM.get()),
                     itemStack(KHItems.BURGONET.get()),
                     itemStack(KHItems.VISORLESS_SALLET.get()),
-                    itemStack(KHItems.VISORLESS_MORION.get()),
+                    itemStack(KHItems.MORION.get()),
 
                     itemStack(KHItems.DARK_BARBUTE.get()),
                     itemStack(KHItems.DARK_BASCINET.get()),
@@ -158,7 +158,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.DARK_VIKING_HELM.get()),
                     itemStack(KHItems.DARK_BURGONET.get()),
                     itemStack(KHItems.DARK_VISORLESS_SALLET.get()),
-                    itemStack(KHItems.DARK_VISORLESS_MORION.get()),
+                    itemStack(KHItems.DARK_MORION.get()),
 
                     itemStack(KHItems.GOLDEN_BARBUTE.get()),
                     itemStack(KHItems.GOLDEN_BASCINET.get()),
@@ -167,7 +167,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.GOLDEN_VIKING_HELM.get()),
                     itemStack(KHItems.GOLDEN_BURGONET.get()),
                     itemStack(KHItems.GOLDEN_VISORLESS_SALLET.get()),
-                    itemStack(KHItems.GOLDEN_VISORLESS_MORION.get()),
+                    itemStack(KHItems.GOLDEN_MORION.get()),
 
                     itemStack(KHItems.ARMET.get()),
                     itemStack(KHItems.ARMET_2.get()),
@@ -181,7 +181,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.BURGONET_FALLING_BUFFE.get()),
                     itemStack(KHItems.CLOSE_HELM.get()),
                     itemStack(KHItems.BLACK_SALLET.get()),
-                    itemStack(KHItems.MORION.get()),
+                    itemStack(KHItems.VISORED_MORION.get()),
 
                     itemStack(KHItems.DARK_ARMET.get()),
                     itemStack(KHItems.DARK_ARMET_2.get()),
@@ -195,7 +195,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.DARK_BURGONET_FALLING_BUFFE.get()),
                     itemStack(KHItems.DARK_CLOSE_HELM.get()),
                     itemStack(KHItems.DARK_BLACK_SALLET.get()),
-                    itemStack(KHItems.DARK_MORION.get()),
+                    itemStack(KHItems.DARK_VISORED_MORION.get()),
 
                     itemStack(KHItems.GOLDEN_ARMET.get()),
                     itemStack(KHItems.GOLDEN_ARMET_2.get()),
@@ -209,7 +209,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.GOLDEN_BURGONET_FALLING_BUFFE.get()),
                     itemStack(KHItems.GOLDEN_CLOSE_HELM.get()),
                     itemStack(KHItems.GOLDEN_BLACK_SALLET.get()),
-                    itemStack(KHItems.GOLDEN_MORION.get()),
+                    itemStack(KHItems.GOLDEN_VISORED_MORION.get()),
 
                     itemStack(KHItems.SALLET_BEVOR.get()),
                     itemStack(KHItems.DARK_SALLET_BEVOR.get()),

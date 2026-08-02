@@ -1,0 +1,42 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.7,
+  "hit_times": 7,
+  "ingredients": [
+    {
+      "finished_requirement": "not_finised",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:visored_morion"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:golden_visored_morion"
+  }
+}

@@ -1,19 +1,18 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.75,
-  "hit_times": 5,
+  "chance": 0.9,
   "ingredients": [
-    {
-      "stack": {
-        "count": 1,
-        "id": "knightsheraldry:visorless_morion"
-      }
-    },
     {
       "finished_requirement": "not_finised",
       "stack": {
         "count": 1,
-        "id": "knightsheraldry:visor"
+        "id": "knightsheraldry:morion_piece"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
       }
     }
   ],

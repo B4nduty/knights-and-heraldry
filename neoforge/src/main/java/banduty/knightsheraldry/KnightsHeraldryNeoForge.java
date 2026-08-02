@@ -4,7 +4,6 @@ import banduty.knightsheraldry.config.KHConfigs;
 import banduty.knightsheraldry.entity.custom.CraftmanTradeManager;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.platform.NeoForgePlatformHelper;
-import banduty.knightsheraldry.util.loottable.ModLootTable;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -21,8 +20,6 @@ public class KnightsHeraldryNeoForge {
         KnightsHeraldry.init();
 
         modContainer.registerConfig(ModConfig.Type.COMMON, KHConfigs.SPEC);
-
-        ModLootTable.registerLootTables(modEventBus);
 
         NeoForgePlatformHelper.registerRegistries(modEventBus);
     }

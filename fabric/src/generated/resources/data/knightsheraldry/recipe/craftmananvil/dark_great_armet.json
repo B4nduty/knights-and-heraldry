@@ -4,6 +4,7 @@
   "hit_times": 7,
   "ingredients": [
     {
+      "finished_requirement": "not_finised",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:great_armet"
@@ -12,31 +13,25 @@
     {
       "stack": {
         "count": 1,
-        "id": "minecraft:copper_ingot"
+        "id": "minecraft:honeycomb"
       }
     },
     {
       "stack": {
         "count": 1,
-        "id": "minecraft:bone_meal"
+        "id": "minecraft:honeycomb"
       }
     },
     {
       "stack": {
         "count": 1,
-        "id": "minecraft:bone_meal"
+        "id": "minecraft:honeycomb"
       }
     },
     {
       "stack": {
         "count": 1,
-        "id": "minecraft:basalt"
-      }
-    },
-    {
-      "stack": {
-        "count": 1,
-        "id": "minecraft:basalt"
+        "id": "minecraft:honeycomb"
       }
     }
   ],
