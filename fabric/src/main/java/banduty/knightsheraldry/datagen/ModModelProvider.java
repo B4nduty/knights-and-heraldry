@@ -199,7 +199,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerDyeableItems(KHItems.DARK_BRIGANDINE.get(), itemModelGenerators);
         registerDyeableItems(KHItems.GOLDEN_BRIGANDINE.get(), itemModelGenerators);
 
-        registerDyeableItems(KHItems.LEATHER_GLOVES.get(), itemModelGenerators);
+        registerItemWConditions(KHItems.LEATHER_GLOVES.get(), itemModelGenerators);
     }
 
     private void registerSimpleItems(ItemModelGenerators itemModelGenerators) {
