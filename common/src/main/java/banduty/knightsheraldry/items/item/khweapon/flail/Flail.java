@@ -5,6 +5,7 @@ import banduty.knightsheraldry.client.item.weapon.FlailRenderer;
 import banduty.knightsheraldry.items.ModToolMaterials;
 import banduty.knightsheraldry.platform.ClientServices;
 import banduty.knightsheraldry.platform.Services;
+import banduty.stoneycore.items.client.SCIconRendererProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -20,7 +21,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 
-public class Flail extends SwordItem implements GeoItem {
+public class Flail extends SwordItem implements GeoItem, SCIconRendererProvider {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private LivingEntity fallbackLivingEntity = null;
 

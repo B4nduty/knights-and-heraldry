@@ -2,7 +2,7 @@ package banduty.knightsheraldry.client.item.deco;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.model.HelmetDecoModel;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HumanoidModel;

@@ -4,7 +4,7 @@ import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.armor.attachment.KHChestplateAttachment;
 import banduty.knightsheraldry.items.armor.attachment.KHSurcoatAttachment;
 import banduty.knightsheraldry.model.AttachmentChestplateModel;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;

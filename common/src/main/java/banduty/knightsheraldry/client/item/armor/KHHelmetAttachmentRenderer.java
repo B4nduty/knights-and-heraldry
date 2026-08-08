@@ -3,7 +3,7 @@ package banduty.knightsheraldry.client.item.armor;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.armor.attachment.KHHelmetAttachment;
 import banduty.knightsheraldry.model.*;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import banduty.stoneycore.util.data.itemdata.SCDataComponents;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

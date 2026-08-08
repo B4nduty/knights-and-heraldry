@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.items.armor.attachment;
 
 import banduty.knightsheraldry.client.item.armor.KHGreatHelmetAttachmentRenderer;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.joml.Vector3f;
 

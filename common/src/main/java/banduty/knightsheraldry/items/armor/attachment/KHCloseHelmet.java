@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.items.armor.attachment;
 
 import banduty.knightsheraldry.client.item.armor.KHCloseHelmetAttachmentRenderer;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class KHCloseHelmet extends KHHelmetAttachment {

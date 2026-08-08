@@ -1,8 +1,8 @@
 package banduty.knightsheraldry.items.armor.deco;
 
 import banduty.knightsheraldry.client.item.deco.HelmetDecoRenderer;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderProvider;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;

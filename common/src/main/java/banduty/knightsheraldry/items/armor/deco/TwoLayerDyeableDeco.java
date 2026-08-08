@@ -2,7 +2,7 @@ package banduty.knightsheraldry.items.armor.deco;
 
 import banduty.knightsheraldry.client.item.deco.TwoLayerDyeableDecoRenderer;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.DyedItemColor;
 

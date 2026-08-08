@@ -2,7 +2,7 @@ package banduty.knightsheraldry.client.item.armor;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.model.AttachmentBootsModel;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HumanoidModel;

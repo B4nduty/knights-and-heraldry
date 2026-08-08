@@ -1,8 +1,8 @@
 package banduty.knightsheraldry.items.armor.attachment;
 
 import banduty.knightsheraldry.client.item.armor.KHLeggingsAttachmentRenderer;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderProvider;
-import banduty.stoneycore.client.render.ArmorAttachmentRenderer;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderProvider;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
 import banduty.stoneycore.items.custom.hotiron.QuenchItem;
 import net.minecraft.world.InteractionHand;

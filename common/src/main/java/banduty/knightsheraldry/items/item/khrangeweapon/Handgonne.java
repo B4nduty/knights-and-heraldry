@@ -1,6 +1,7 @@
 package banduty.knightsheraldry.items.item.khrangeweapon;
 
 import banduty.knightsheraldry.client.item.weapon.HandgonneModel;
+import banduty.stoneycore.items.client.SCIconRendererProvider;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import banduty.stoneycore.util.definitionsloader.ArmorAttachmentDefinitionsStorage;
 import banduty.stoneycore.util.definitionsloader.WeaponDefinitionsStorage;
@@ -20,7 +21,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 
-public class Handgonne extends Item implements GeoItem {
+public class Handgonne extends Item implements GeoItem, SCIconRendererProvider {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private LivingEntity fallbackLivingEntity = null;
 
