@@ -18,17 +18,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider arg) {
-        getOrCreateTagBuilder(SCTags.WEAPONS_3D.getTag())
-                .add(KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.SWORD.get(),
-                        KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(),
-                        KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.MACE.get(), KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(),
-                        KHItems.WAR_HAMMER.get(), KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(), KHItems.FALCHION.get(), KHItems.SCIMITAR.get(),
-                        KHItems.PITCHFORK.get(), KHItems.SPEAR.get(), KHItems.PIKE.get(), KHItems.BILLHOOK.get(),
-                        KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(), KHItems.HALBERD.get(), KHItems.LANCE.get(), KHItems.WOODEN_LANCE.get(),
-                        KHItems.POLEAXE.get(), KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(), KHItems.MORNING_STAR.get(),
-                        KHItems.BARDICHE.get(), KHItems.WARDART.get(), KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(),
-                        KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(), KHItems.LONGBOW.get());
-
         getOrCreateTagBuilder(SCTags.BROKEN_WEAPONS.getTag())
                 .add(KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.SWORD.get(),
                         KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
@@ -65,9 +54,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(SCTags.WEAPONS_HARVEST.getTag())
                 .add(KHItems.PITCHFORK.get());
-
-        getOrCreateTagBuilder(SCTags.GEO_2D_ITEMS.getTag())
-                .add(KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get(), KHItems.HEAVY_CROSSBOW.get(), KHItems.ARQUEBUS.get(), KHItems.HANDGONNE.get());
 
         getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
                 .add(KHItems.CLOAK.get(), KHItems.TORN_CLOAK.get());

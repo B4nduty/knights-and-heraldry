@@ -9,14 +9,13 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
-public class Billhook extends SwordItem {
+public class Billhook extends Sword3dItem {
     public Billhook(float attackSpeed, Properties properties) {
         super(ModToolMaterials.WEAPONS,
-                properties.attributes(SwordItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
+                properties.attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
     }
 
     @Override

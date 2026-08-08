@@ -650,8 +650,8 @@ public interface KHItems {
     Supplier<Item> HARNESS_PIECE = registerItem("harness_piece", () -> new HotIron(new Item.Properties(), true));
 
     static Supplier<Item> sword(String id, float attackSpeed, int durability) {
-        return registerItem(id, () -> new SwordItem(ModToolMaterials.WEAPONS,
-                new Item.Properties().attributes(SwordItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed))) {
+        return registerItem(id, () -> new Sword3dItem(ModToolMaterials.WEAPONS,
+                new Item.Properties().attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed))) {
             @Override
             public DataComponentMap components() {
                 return DataComponentMap.builder()
@@ -663,8 +663,8 @@ public interface KHItems {
     }
 
     static Supplier<Item> axe(String id, float attackSpeed, int durability) {
-        return registerItem(id, () -> new AxeItem(ModToolMaterials.WEAPONS,
-                new Item.Properties().attributes(AxeItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed))) {
+        return registerItem(id, () -> new Axe3dItem(ModToolMaterials.WEAPONS,
+                new Item.Properties().attributes(Axe3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed))) {
             @Override
             public DataComponentMap components() {
                 return DataComponentMap.builder()

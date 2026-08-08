@@ -1,14 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "overrides": [
-    {
-      "model": "knightsheraldry:item/falchion_broken",
-      "predicate": {
-        "knightsheraldry:broken": 1
-      }
-    }
-  ],
-  "textures": {
-    "layer0": "knightsheraldry:item/falchion"
-  }
+  "parent": "builtin/entity"
 }
