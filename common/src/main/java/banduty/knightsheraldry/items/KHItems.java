@@ -466,9 +466,9 @@ public interface KHItems {
     Supplier<Item> BESAGEWS = registerItem("besagews", () -> new QuenchGenericItem(new Item.Properties().stacksTo(1)));
 
     Supplier<Item> SURCOAT = registerItem("surcoat",
-            () -> new KHSurcoatAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
+            () -> new KHSurcoatWBannerAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
     Supplier<Item> SURCOAT_SLEEVELESS = registerItem("surcoat_sleeveless",
-            () -> new KHSurcoatAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
+            () -> new KHSurcoatWBannerAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
     Supplier<Item> CIVILIAN_SURCOAT = registerItem("civilian_surcoat",
             () -> new KHSurcoatAttachment(new Item.Properties().stacksTo(1), true, -1, Ingredient.of(Items.LEATHER)));
     Supplier<Item> GIORNEA = registerItem("giornea",

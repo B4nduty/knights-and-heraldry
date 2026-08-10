@@ -58,9 +58,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
                 .add(KHItems.CLOAK.get(), KHItems.TORN_CLOAK.get());
 
-        getOrCreateTagBuilder(SCTags.BANNER_COMPATIBLE.getTag())
-                .add(KHItems.SURCOAT.get(), KHItems.SURCOAT_SLEEVELESS.get());
-
         getOrCreateTagBuilder(SCTags.HIDE_NAME_TAG.getTag())
                 .add(KHItems.HOOD.get(), KHItems.TORN_HOOD.get(), KHItems.JESTER_HOOD.get(), KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get());
 

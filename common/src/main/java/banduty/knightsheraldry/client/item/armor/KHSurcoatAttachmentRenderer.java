@@ -1,7 +1,6 @@
 package banduty.knightsheraldry.client.item.armor;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.items.armor.attachment.KHChestplateAttachment;
 import banduty.knightsheraldry.items.armor.attachment.KHSurcoatAttachment;
 import banduty.knightsheraldry.model.AttachmentChestplateModel;
 import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
@@ -67,15 +66,15 @@ public class KHSurcoatAttachmentRenderer implements ArmorAttachmentRenderer {
     @Override
     public void onRenderInFirstPerson(LocalPlayer player, ItemStack itemStack, PoseStack poseStack, MultiBufferSource multiBufferSource, int light, HumanoidArm arm) {
         AttachmentChestplateModel model = new AttachmentChestplateModel(AttachmentChestplateModel.getTexturedModelData().bakeRoot());
-        if (!(itemStack.getItem() instanceof KHChestplateAttachment khChestplate)) return;
-        int color = DyedItemColor.getOrDefault(itemStack, khChestplate.getDefaultColor());
+        if (!(itemStack.getItem() instanceof KHSurcoatAttachment khSurcoatAttachment)) return;
+        int color = DyedItemColor.getOrDefault(itemStack, khSurcoatAttachment.getDefaultColor());
         ResourceLocation texturePath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
                 BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png");
 
         VertexConsumer baseConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(texturePath));
         renderArm(player, model, poseStack, baseConsumer, light, color, arm);
 
-        if (khChestplate.hasOverlay()) {
+        if (khSurcoatAttachment.hasOverlay()) {
             ResourceLocation textureOverlayPath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
                     BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "_overlay.png");
             VertexConsumer overlayConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(textureOverlayPath));

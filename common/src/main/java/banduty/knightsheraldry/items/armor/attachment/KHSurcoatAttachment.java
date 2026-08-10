@@ -1,6 +1,6 @@
 package banduty.knightsheraldry.items.armor.attachment;
 
-import banduty.knightsheraldry.client.item.armor.KHChestplateAttachmentRenderer;
+import banduty.knightsheraldry.client.item.armor.KHSurcoatAttachmentRenderer;
 import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderProvider;
 import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
@@ -53,7 +53,7 @@ public class KHSurcoatAttachment extends Item implements ArmorAttachment, ArmorA
     @Override
     public ArmorAttachmentRenderer getRenderer() {
         if (this.cachedRenderer == null) {
-            this.cachedRenderer = new KHChestplateAttachmentRenderer();
+            this.cachedRenderer = new KHSurcoatAttachmentRenderer();
         }
         return this.cachedRenderer;
     }

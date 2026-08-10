@@ -2,7 +2,7 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "knightsheraldry:item/pitchfork_gui_broken",
+      "model": "knightsheraldry:item/pitchfork_broken",
       "predicate": {
         "knightsheraldry:broken": 1
       }

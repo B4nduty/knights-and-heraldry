@@ -2,7 +2,7 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "knightsheraldry:item/scimitar_gui_broken",
+      "model": "knightsheraldry:item/scimitar_broken",
       "predicate": {
         "knightsheraldry:broken": 1
       }

@@ -2,7 +2,7 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "knightsheraldry:item/rapier_gui_broken",
+      "model": "knightsheraldry:item/rapier_broken",
       "predicate": {
         "knightsheraldry:broken": 1
       }

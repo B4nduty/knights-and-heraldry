@@ -2,7 +2,7 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "knightsheraldry:item/straight_crooked_axe_gui_broken",
+      "model": "knightsheraldry:item/straight_crooked_axe_broken",
       "predicate": {
         "knightsheraldry:broken": 1
       }

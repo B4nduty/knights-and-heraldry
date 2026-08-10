@@ -2,7 +2,7 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "knightsheraldry:item/flamberge_gui_broken",
+      "model": "knightsheraldry:item/flamberge_broken",
       "predicate": {
         "knightsheraldry:broken": 1
       }

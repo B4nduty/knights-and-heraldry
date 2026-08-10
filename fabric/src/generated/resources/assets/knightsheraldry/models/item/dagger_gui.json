@@ -2,7 +2,7 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "knightsheraldry:item/dagger_gui_broken",
+      "model": "knightsheraldry:item/dagger_broken",
       "predicate": {
         "knightsheraldry:broken": 1
       }
