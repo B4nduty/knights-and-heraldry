@@ -22,7 +22,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.npc.*;
+import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
@@ -36,8 +36,6 @@ import java.util.Map;
 import java.util.Optional;
 
 public class Craftman extends AbstractVillager {
-    private static final EntityDataAccessor<CraftmanData> DATA_VILLAGER_DATA;
-    private boolean variantInitialized = false;
 
     public Craftman(EntityType<? extends AbstractVillager> entityType, Level level) {
         super(entityType, level);
@@ -48,6 +46,10 @@ public class Craftman extends AbstractVillager {
                 .add(Attributes.MAX_HEALTH, 20.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.22)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0);
+    }
+
+    public static void init() {
+        EntityDataSerializers.registerSerializer(CRAFTMAN_DATA_SERIALIZER);
     }
 
     public void setCraftmanData(CraftmanData data) {
@@ -78,8 +80,7 @@ public class Craftman extends AbstractVillager {
     public void tick() {
         super.tick();
 
-        if (!this.level().isClientSide && !this.variantInitialized) {
-            this.variantInitialized = true;
+        if (!this.level().isClientSide) {
 
             ResourceLocation biomeLoc = this.level().getBiome(this.blockPosition())
                     .unwrapKey()
@@ -97,7 +98,6 @@ public class Craftman extends AbstractVillager {
             DataResult<CraftmanData> villagerData = CraftmanData.CODEC.parse(NbtOps.INSTANCE, compound.get("CraftmanData"));
             if (villagerData.isSuccess()) this.entityData.set(DATA_VILLAGER_DATA, villagerData.getOrThrow());
         }
-        this.variantInitialized = compound.getBoolean("VariantInitialized");
     }
 
     @Override
@@ -106,11 +106,17 @@ public class Craftman extends AbstractVillager {
         CraftmanData.CODEC.encodeStart(NbtOps.INSTANCE, this.getCraftmanData())
                 .result()
                 .ifPresent(tag -> compound.put("CraftmanData", tag));
-        compound.putBoolean("VariantInitialized", this.variantInitialized);
     }
 
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+        SpawnGroupData data = super.finalizeSpawn(
+                level,
+                difficulty,
+                spawnType,
+                spawnGroupData
+        );
+
         ResourceLocation biomeLoc = level.getBiome(this.blockPosition())
                 .unwrapKey()
                 .map(ResourceKey::location)
@@ -118,7 +124,11 @@ public class Craftman extends AbstractVillager {
 
         setCraftmanData(new CraftmanData(biomeLoc, 1, 0));
         this.setPersistenceRequired();
-        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+
+        // Generate initial trades.
+        this.updateTrades();
+
+        return data;
     }
 
     @Override
@@ -147,26 +157,40 @@ public class Craftman extends AbstractVillager {
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (this.isAlive() && !this.isTrading() && !this.isBaby()) {
+
             if (hand == InteractionHand.MAIN_HAND) {
                 player.awardStat(net.minecraft.stats.Stats.TALKED_TO_VILLAGER);
             }
+
             if (!this.level().isClientSide) {
+                if (this.getOffers().isEmpty()) {
+                    return InteractionResult.CONSUME;
+                }
+
                 this.setTradingPlayer(player);
-                this.openTradingScreen(player, this.getDisplayName(), this.getCraftmanData().level());
+
+                this.openTradingScreen(
+                        player,
+                        this.getDisplayName(),
+                        this.getCraftmanData().level()
+                );
             }
+
             return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
+
         return super.mobInteract(player, hand);
     }
 
     @Override
     protected void updateTrades() {
-        if (this.level().isClientSide) return;
+        if (this.level().isClientSide) {
+            return;
+        }
 
-        MerchantOffers offers = this.getOffers();
-        offers.clear();
-
-        addTradesForCurrentLevel(2);
+        if (this.getOffers().isEmpty()) {
+            addTradesForCurrentLevel(2);
+        }
     }
 
     /**
@@ -235,7 +259,7 @@ public class Craftman extends AbstractVillager {
         int newXp = data.xp() + xpGained;
         int newLevel = data.level();
 
-        if (canLevelUp(newLevel, newXp)) {
+        while (canLevelUp(newLevel, newXp)) {
             newLevel++;
         }
 
@@ -254,7 +278,7 @@ public class Craftman extends AbstractVillager {
         return null;
     }
 
-    private static final EntityDataSerializer<CraftmanData> CRAFTMAN_DATA_SERIALIZER = new EntityDataSerializer<>() {
+    public static final EntityDataSerializer<CraftmanData> CRAFTMAN_DATA_SERIALIZER = new EntityDataSerializer<>() {
         private final StreamCodec<RegistryFriendlyByteBuf, CraftmanData> CODEC = StreamCodec.of(
                 (buffer, data) -> {
                     ResourceLocation.STREAM_CODEC.encode(buffer, data.biomeKey());
@@ -280,10 +304,11 @@ public class Craftman extends AbstractVillager {
         }
     };
 
-    static {
-        EntityDataSerializers.registerSerializer(CRAFTMAN_DATA_SERIALIZER);
-        DATA_VILLAGER_DATA = SynchedEntityData.defineId(Craftman.class, CRAFTMAN_DATA_SERIALIZER);
-    }
+    private static final EntityDataAccessor<CraftmanData> DATA_VILLAGER_DATA =
+            SynchedEntityData.defineId(
+                    Craftman.class,
+                    CRAFTMAN_DATA_SERIALIZER
+            );
 
     public record CraftmanData(ResourceLocation biomeKey, int level, int xp) {
         public static final Codec<CraftmanData> CODEC = RecordCodecBuilder.create(instance -> instance.group(

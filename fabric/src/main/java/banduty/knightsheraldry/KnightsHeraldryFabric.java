@@ -25,10 +25,11 @@ import java.util.concurrent.Executor;
 
 public class KnightsHeraldryFabric implements ModInitializer {
     public static KHConfigs CONFIG;
+
     @Override
     public void onInitialize() {
         KnightsHeraldry.init();
-
+        Craftman.init();
         UseItemCallback.EVENT.register(new UseItemHandler());
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(content -> {

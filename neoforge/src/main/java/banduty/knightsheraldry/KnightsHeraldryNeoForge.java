@@ -1,7 +1,7 @@
 package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.config.KHConfigs;
-import banduty.knightsheraldry.entity.custom.CraftmanTradeManager;
+import banduty.knightsheraldry.entity.KHEntityDataSerializers;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.platform.NeoForgePlatformHelper;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -10,7 +10,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 @Mod(KnightsHeraldry.MOD_ID)
@@ -22,6 +21,7 @@ public class KnightsHeraldryNeoForge {
         modContainer.registerConfig(ModConfig.Type.COMMON, KHConfigs.SPEC);
 
         NeoForgePlatformHelper.registerRegistries(modEventBus);
+        KHEntityDataSerializers.register(modEventBus);
     }
 
     @SubscribeEvent
@@ -31,8 +31,4 @@ public class KnightsHeraldryNeoForge {
         }
     }
 
-    @SubscribeEvent
-    public static void onAddReloadListeners(AddReloadListenerEvent event) {
-        event.addListener(new CraftmanTradeManager());
-    }
 }
