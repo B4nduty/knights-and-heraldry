@@ -14,7 +14,7 @@ public class ClothArrowTooltip {
     public static void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         ClientLevel clientLevel = Minecraft.getInstance().level;
         if (clientLevel == null) return;
-        if (Boolean.TRUE.equals(stack.get(SCDataComponents.IGNITED.get()))) {
+        if (Boolean.TRUE.equals(stack.get(SCDataComponents.ARROW_IGNITED.get()))) {
             long igniteTime = stack.getOrDefault(SCDataComponents.IGNITE_TIME.get(), 0L);
             long remainingTicks = ClothArrow.IGNITE_DURATION_TICKS - (clientLevel.getGameTime() - igniteTime);
             if (remainingTicks < 0) remainingTicks = 0;

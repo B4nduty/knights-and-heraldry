@@ -108,7 +108,7 @@ public class ModModelPredicates {
                         Boolean.TRUE.equals(stack.get(SCDataComponents.BLUDGEONING.get())) ? 1.0F : 0.0F);
         ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "ignited"),
                 (stack, world, entity, seed) ->
-                        Boolean.TRUE.equals(stack.get(SCDataComponents.IGNITED.get())) ? 1.0F : 0.0F);
+                        Boolean.TRUE.equals(stack.get(SCDataComponents.ARROW_IGNITED.get())) ? 1.0F : 0.0F);
         ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "extinguished"),
                 (stack, world, entity, seed) ->
                         Boolean.TRUE.equals(stack.get(KHDataComponents.EXTINGUISHED.get())) ? 1.0F : 0.0F);

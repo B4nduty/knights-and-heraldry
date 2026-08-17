@@ -21,7 +21,7 @@ public class ItemTooltipHandler implements ItemTooltipCallback {
         if (player == null) return;
 
         if (itemStack.getItem() instanceof ClothArrow) {
-            if (Boolean.TRUE.equals(itemStack.get(SCDataComponents.IGNITED.get()))) {
+            if (Boolean.TRUE.equals(itemStack.get(SCDataComponents.ARROW_IGNITED.get()))) {
                 list.add(Component.translatable("text.tooltip.knightsheraldry.extinguish"));
             } else if (Boolean.TRUE.equals(itemStack.get(KHDataComponents.EXTINGUISHED.get()))) {
                 list.add(Component.translatable("text.tooltip.knightsheraldry.ignite"));

@@ -37,12 +37,12 @@ public class ClothArrow extends KHExtendedArrowItem {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, level, entity, slot, selected);
 
-        if (!level.isClientSide() && Boolean.TRUE.equals(stack.get(SCDataComponents.IGNITED.get()))) {
+        if (!level.isClientSide() && Boolean.TRUE.equals(stack.get(SCDataComponents.ARROW_IGNITED.get()))) {
             long igniteTime = stack.getOrDefault(SCDataComponents.IGNITE_TIME.get(), 0L);
             long currentTime = level.getGameTime();
 
             if (currentTime - igniteTime >= IGNITE_DURATION_TICKS) {
-                stack.remove(SCDataComponents.IGNITED.get());
+                stack.remove(SCDataComponents.ARROW_IGNITED.get());
                 stack.remove(SCDataComponents.IGNITE_TIME.get());
                 stack.set(KHDataComponents.EXTINGUISHED.get(), true);
 
@@ -68,14 +68,14 @@ public class ClothArrow extends KHExtendedArrowItem {
             if (!level.isClientSide()) {
                 if (stack.getCount() > 1) {
                     ItemStack ignitedArrow = stack.split(1);
-                    stack.set(SCDataComponents.IGNITED.get(), true);
+                    stack.set(SCDataComponents.ARROW_IGNITED.get(), true);
                     stack.set(SCDataComponents.IGNITE_TIME.get(), level.getGameTime());
 
                     if (!player.getInventory().add(ignitedArrow)) {
                         player.drop(ignitedArrow, false);
                     }
                 } else {
-                    stack.set(SCDataComponents.IGNITED.get(), true);
+                    stack.set(SCDataComponents.ARROW_IGNITED.get(), true);
                     stack.set(SCDataComponents.IGNITE_TIME.get(), level.getGameTime());
                 }
             } else {
@@ -90,7 +90,7 @@ public class ClothArrow extends KHExtendedArrowItem {
             if (cauldronLevel >= 1) {
                 if (!level.isClientSide()) {
                     LayeredCauldronBlock.lowerFillLevel(state, level, pos);
-                    stack.remove(SCDataComponents.IGNITED.get());
+                    stack.remove(SCDataComponents.ARROW_IGNITED.get());
                     stack.remove(SCDataComponents.IGNITE_TIME.get());
                     stack.set(KHDataComponents.EXTINGUISHED.get(), true);
                 } else {
@@ -112,9 +112,9 @@ public class ClothArrow extends KHExtendedArrowItem {
             return super.use(level, user, hand);
         if (itemStack == user.getMainHandItem()) offHandStack = user.getOffhandItem();
         else offHandStack = user.getMainHandItem();
-        if (offHandStack.is(Items.WATER_BUCKET) && Boolean.TRUE.equals(itemStack.get(SCDataComponents.IGNITED.get()))) {
+        if (offHandStack.is(Items.WATER_BUCKET) && Boolean.TRUE.equals(itemStack.get(SCDataComponents.ARROW_IGNITED.get()))) {
             if (!level.isClientSide()) {
-                itemStack.remove(SCDataComponents.IGNITED.get());
+                itemStack.remove(SCDataComponents.ARROW_IGNITED.get());
                 itemStack.remove(SCDataComponents.IGNITE_TIME.get());
                 itemStack.set(KHDataComponents.EXTINGUISHED.get(), true);
                 if (!user.isCreative()) {
@@ -132,14 +132,14 @@ public class ClothArrow extends KHExtendedArrowItem {
             if (!level.isClientSide()) {
                 if (itemStack.getCount() > 1) {
                     ItemStack ignitedArrow = itemStack.split(1);
-                    ignitedArrow.set(SCDataComponents.IGNITED.get(), true);
+                    ignitedArrow.set(SCDataComponents.ARROW_IGNITED.get(), true);
                     ignitedArrow.set(SCDataComponents.IGNITE_TIME.get(), level.getGameTime());
 
                     if (!user.getInventory().add(ignitedArrow)) {
                         user.drop(ignitedArrow, false);
                     }
                 } else {
-                    itemStack.set(SCDataComponents.IGNITED.get(), true);
+                    itemStack.set(SCDataComponents.ARROW_IGNITED.get(), true);
                     itemStack.set(SCDataComponents.IGNITE_TIME.get(), level.getGameTime());
                 }
 
@@ -157,7 +157,7 @@ public class ClothArrow extends KHExtendedArrowItem {
     @Override
     public AbstractArrow createArrow(Level level, ItemStack ammo, LivingEntity shooter, @Nullable ItemStack weapon) {
         AbstractArrow arrow = super.createArrow(level, ammo, shooter, weapon);
-        if (Boolean.TRUE.equals(ammo.get(SCDataComponents.IGNITED.get()))) {
+        if (Boolean.TRUE.equals(ammo.get(SCDataComponents.ARROW_IGNITED.get()))) {
             arrow.setRemainingFireTicks(60);
         }
         return arrow;

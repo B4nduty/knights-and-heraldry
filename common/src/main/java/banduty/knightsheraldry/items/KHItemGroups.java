@@ -59,7 +59,13 @@ public interface KHItemGroups {
 
     private static ItemStack itemStack(ItemLike item) {
         ItemStack itemStack = new ItemStack(item);
-        if (item instanceof QuenchItem quenchItem && !quenchItem.destroysOnQuench()) itemStack.set(SCDataComponents.FINISHED.get(), true);
+        return itemStack;
+    }
+
+    private static ItemStack ignitedItemStack(ItemLike item) {
+        ItemStack itemStack = new ItemStack(item);
+        if (item instanceof QuenchItem quenchItem && !quenchItem.destroysOnQuench())
+            itemStack.set(SCDataComponents.IGNITED.get(), true);
         return itemStack;
     }
 
@@ -456,10 +462,9 @@ public interface KHItemGroups {
                         KHItems.HAMMER_HEAD, KHItems.MACE_HEAD, KHItems.HALBERD_HEAD,
                         KHItems.BILLHOOK_HEAD, KHItems.SPEAR_HEAD, KHItems.PITCHFORK_HEAD
                 ).forEach(item -> {
-                    ItemStack finishedStack = itemStack(item.get());
-                    output.accept(finishedStack);
-
+                    ItemStack finishedStack = ignitedItemStack(item.get());
                     output.accept(new ItemStack(item.get()));
+                    output.accept(finishedStack);
                 });
 
 
