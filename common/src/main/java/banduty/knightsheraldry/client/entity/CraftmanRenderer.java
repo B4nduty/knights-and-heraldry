@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class CraftmanRenderer extends MobRenderer<Craftman, VillagerModel<Craftman>> {
 
-    private static final String DEFAULT_TEXTURE = "craftman_default";
+    private static final String DEFAULT_TEXTURE = "default";
 
     private static final Map<String, ResourceLocation> TEXTURE_CACHE = new ConcurrentHashMap<>();
 

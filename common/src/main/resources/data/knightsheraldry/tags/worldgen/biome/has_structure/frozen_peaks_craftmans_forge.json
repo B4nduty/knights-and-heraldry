@@ -1,0 +1,10 @@
+{
+  "replace": false,
+
+  "_comment1": " This biome tag can specify the biome directly. Or specify another biome tag by starting with # ",
+  "_comment2": " An entry can also be expanded to have a 'required' field set to false. This entry will be skipped if the tag or biome doesn't exist. ",
+  "_comment5": " Minecraft `minecraft` tags: https://github.com/misode/mcmeta/tree/b7e7f5282f9cc2ca1bd01e9a4911beab4725cb4b/data/minecraft/tags/worldgen/biome ",
+  "values": [
+    "minecraft:frozen_peaks"
+  ]
+}

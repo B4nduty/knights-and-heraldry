@@ -4,7 +4,7 @@
   "hit_times": 7,
   "ingredients": [
     {
-      "finished_requirement": "not_finised",
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:xiiii_plate_cuirass"

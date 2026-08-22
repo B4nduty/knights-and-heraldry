@@ -4,14 +4,14 @@
   "hit_times": 5,
   "ingredients": [
     {
-      "finished_requirement": "not_finised",
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:visorless_sallet"
       }
     },
     {
-      "finished_requirement": "not_finised",
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:visor"

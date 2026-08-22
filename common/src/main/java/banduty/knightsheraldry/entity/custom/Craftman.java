@@ -1,5 +1,6 @@
 package banduty.knightsheraldry.entity.custom;
 
+import banduty.knightsheraldry.KnightsHeraldry;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -36,6 +37,8 @@ import java.util.Map;
 import java.util.Optional;
 
 public class Craftman extends AbstractVillager {
+
+    public static final ResourceLocation NO_BIOME = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "no_biome");
 
     public Craftman(EntityType<? extends AbstractVillager> entityType, Level level) {
         super(entityType, level);
@@ -81,13 +84,17 @@ public class Craftman extends AbstractVillager {
         super.tick();
 
         if (!this.level().isClientSide) {
+            CraftmanData current = this.getCraftmanData();
 
-            ResourceLocation biomeLoc = this.level().getBiome(this.blockPosition())
-                    .unwrapKey()
-                    .map(ResourceKey::location)
-                    .orElse(Biomes.PLAINS.location());
+            if (current.biomeKey().equals(NO_BIOME)) {
+                ResourceLocation biomeLoc = this.level().getBiome(this.blockPosition())
+                        .unwrapKey()
+                        .map(ResourceKey::location)
+                        .orElse(Biomes.PLAINS.location());
 
-            setCraftmanData(new CraftmanData(biomeLoc, 1, 0));
+                setCraftmanData(new CraftmanData(biomeLoc, current.level(), current.xp()));
+                this.updateTrades();
+            }
         }
     }
 
@@ -134,7 +141,7 @@ public class Craftman extends AbstractVillager {
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
-        builder.define(DATA_VILLAGER_DATA, new CraftmanData(Biomes.PLAINS.location(), 1, 0));
+        builder.define(DATA_VILLAGER_DATA, new CraftmanData(NO_BIOME, 1, 0));
     }
 
     @Override

@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/golden_visored_morion_open",
+      "predicate": {
+        "knightsheraldry:open": 1
+      }
+    },
+    {
+      "model": "knightsheraldry:item/golden_visored_morion_ignited",
+      "predicate": {
+        "stoneycore:ignited": 1
+      }
+    },
+    {
+      "model": "knightsheraldry:item/golden_visored_morion_ignited_open",
+      "predicate": {
+        "knightsheraldry:open": 1,
+        "stoneycore:ignited": 1
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "knightsheraldry:item/golden_visored_morion"
+  }
+}
