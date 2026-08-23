@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.animatable.client.GeoRenderProvider;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.*;
@@ -35,6 +36,7 @@ public class Handgonne extends Item implements GeoItem, SCIconRendererProvider {
 
     public Handgonne(Properties properties) {
         super(properties);
+        SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
     @Override
