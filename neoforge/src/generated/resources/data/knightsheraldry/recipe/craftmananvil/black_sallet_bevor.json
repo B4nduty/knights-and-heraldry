@@ -4,15 +4,17 @@
   "hit_times": 7,
   "ingredients": [
     {
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:black_sallet"
       }
     },
     {
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:bevor"
       }
     }
   ],

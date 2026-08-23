@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "stoneycore:item/manuscript_greatswords"
+    "layer0": "knightsheraldry:item/manuscript_greatsword"
   }
 }

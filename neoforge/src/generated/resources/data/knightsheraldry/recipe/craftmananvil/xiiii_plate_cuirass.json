@@ -1,41 +1,17 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.25,
-  "hit_times": 7,
+  "chance": 0.9,
   "ingredients": [
     {
-      "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:xiiii_plate_cuirass"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
-      }
-    },
-    {
-      "stack": {
-        "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:maximillian_cuirass"
       }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:xiiii_plate_cuirass"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:xiiii_plate_cuirass"
   }
 }

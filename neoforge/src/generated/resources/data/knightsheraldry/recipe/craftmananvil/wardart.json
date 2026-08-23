@@ -4,36 +4,39 @@
   "hit_times": 5,
   "ingredients": [
     {
+      "finished_requirement": "finished",
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:wardart"
-          }
-        },
         "count": 1,
-        "id": "stoneycore:manuscript"
+        "id": "knightsheraldry:spear_head"
       }
     },
     {
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "minecraft:stick"
       }
     },
     {
-      "stack": {},
-      "tag": "minecraft:planks"
+      "stack": {
+        "count": 1,
+        "id": "minecraft:stick"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:feather"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:feather"
+      }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:wardart"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:wardart"
   }
 }

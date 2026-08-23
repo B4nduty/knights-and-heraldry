@@ -6,6 +6,19 @@
       "predicate": {
         "knightsheraldry:open": 1.0
       }
+    },
+    {
+      "model": "knightsheraldry:item/close_helm_ignited",
+      "predicate": {
+        "stoneycore:ignited": 1.0
+      }
+    },
+    {
+      "model": "knightsheraldry:item/close_helm_ignited_open",
+      "predicate": {
+        "knightsheraldry:open": 1.0,
+        "stoneycore:ignited": 1.0
+      }
     }
   ],
   "textures": {

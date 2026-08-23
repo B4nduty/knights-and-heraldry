@@ -4,21 +4,10 @@
   "hit_times": 7,
   "ingredients": [
     {
-      "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:plate_cuirass"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:cuirass_piece"
       }
     },
     {
@@ -29,13 +18,7 @@
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:plate_cuirass"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:plate_cuirass"
   }
 }

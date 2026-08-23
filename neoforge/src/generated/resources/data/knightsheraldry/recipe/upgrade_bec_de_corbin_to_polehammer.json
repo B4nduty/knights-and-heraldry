@@ -1,12 +1,11 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
+  "type": "stoneycore:craftman_anvil_crafting",
   "ingredients": [
     {
-      "item": "stoneycore:smithing_hammer"
-    },
-    {
-      "item": "knightsheraldry:bec_de_corbin"
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:bec_de_corbin"
+      }
     }
   ],
   "result": {

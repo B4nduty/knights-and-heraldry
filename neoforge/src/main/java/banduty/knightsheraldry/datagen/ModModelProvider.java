@@ -110,7 +110,8 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.AVENTAIL.get(), KHItems.RIM_GUARDS.get(), KHItems.BESAGEWS.get(),
                 KHItems.QUILTED_COIF.get(), KHItems.GAMBESON_BREECHES.get(), KHItems.GAMBESON_BOOTS.get(),
                 KHItems.MAIL_COIF.get(), KHItems.HAUBERK.get(), KHItems.MAIL_BREECHES.get(),
-                KHItems.MAIL_BOOTS.get(), KHItems.LANCE.get(),
+                KHItems.MAIL_BOOTS.get(), KHItems.LONGBOW.get(), KHItems.LANCE.get(),
+                KHItems.SURCOAT.get(), KHItems.SURCOAT_SLEEVELESS.get(),
 
                 // Plumes
                 KHItems.PLUME.get(), KHItems.TRI_PLUME.get(), KHItems.FLUFFY_PLUME.get(),
@@ -135,10 +136,6 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
 
         registerSimpleItems();
 
-        // --- Banner Patterns ---
-        registerSurcoatWithBanner(KHItems.SURCOAT.get());
-        registerSurcoatWithBanner(KHItems.SURCOAT_SLEEVELESS.get());
-
         // --- Dyeable / Special Items ---
         Item[] dyeable = {
                 KHItems.BRIGANDINE_HARNESS.get(), KHItems.DARK_BRIGANDINE_HARNESS.get(), KHItems.GOLDEN_BRIGANDINE_HARNESS.get(),
@@ -153,32 +150,6 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get()
         };
         for (Item item : dyeable) dyeableItem(item);
-    }
-
-    protected void registerSurcoatWithBanner(Item surcoatItem) {
-        String path = BuiltInRegistries.ITEM.getKey(surcoatItem).getPath();
-
-        String[] patterns = new String[]{
-                "border", "bricks", "circle", "creeper", "cross", "curly_border", "diagonal_left", "diagonal_right",
-                "diagonal_up_left", "diagonal_up_right", "flow", "flower", "globe", "gradient", "gradient_up", "guster", "half_horizontal",
-                "half_horizontal_bottom", "half_vertical", "half_vertical_right", "mojang", "piglin", "rhombus", "skull",
-                "small_stripes", "square_bottom_left", "square_bottom_right", "square_top_left", "square_top_right",
-                "straight_cross", "stripe_bottom", "stripe_center", "stripe_downleft", "stripe_downright", "stripe_left",
-                "stripe_middle", "stripe_right", "stripe_top", "triangle_bottom", "triangle_top", "triangles_bottom",
-                "triangles_top"
-        };
-
-        for (String pattern : patterns) {
-            String modelName = "item/" + path + "/" + pattern;
-            withExistingParent(modelName, "item/generated")
-                    .texture("layer0", modLoc("item/" + path + "/" + pattern))
-                    .renderType("minecraft:translucent");
-        }
-
-/*        withExistingParent(
-                path,                    // this is "surcoat"
-                ResourceLocation.tryBuild("minecraft", "builtin/entity")
-        );*/
     }
 
     private void registerSimpleItems() {
@@ -222,6 +193,15 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
         for (Item item : openVisorHelmets)
             registerItemWConditions(item, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1));
 
+        Item[] blackSallet = {
+                KHItems.BLACK_SALLET.get(), KHItems.DARK_BLACK_SALLET.get(), KHItems.GOLDEN_BLACK_SALLET.get(),
+                KHItems.BLACK_SALLET_BEVOR.get(), KHItems.DARK_BLACK_SALLET_BEVOR.get(), KHItems.GOLDEN_BLACK_SALLET_BEVOR.get()
+        };
+        for (Item item : blackSallet)
+            registerItemWConditions(item,
+                    new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1),
+                    new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "rat"), 1));
+
         Item[] simpleArmor = {
                 KHItems.MAIL_SPAULDERS.get(), KHItems.MAIL_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_MAIL_SPAULDERS.get(),
                 KHItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS.get(), KHItems.PLATE_SPAULDERS.get(), KHItems.PLATE_SPAULDERS_BESAGEWS.get(),
@@ -251,7 +231,6 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.GAUNTLET.get(), KHItems.DARK_GAUNTLET.get(), KHItems.GOLDEN_GAUNTLET.get(),
                 KHItems.PLATE_HARNESS.get(), KHItems.DARK_PLATE_HARNESS.get(), KHItems.GOLDEN_PLATE_HARNESS.get(),
                 KHItems.PLATE_CUISSES.get(), KHItems.DARK_PLATE_CUISSES.get(), KHItems.GOLDEN_PLATE_CUISSES.get(),
-                KHItems.BRIGANDINE.get(), KHItems.DARK_BRIGANDINE.get(), KHItems.GOLDEN_BRIGANDINE.get(),
                 KHItems.GREAT_HELM.get(), KHItems.DARK_GREAT_HELM.get(), KHItems.GOLDEN_GREAT_HELM.get(),
                 KHItems.GREAT_HELM_2.get(), KHItems.DARK_GREAT_HELM_2.get(), KHItems.GOLDEN_GREAT_HELM_2.get()
         };

@@ -4,6 +4,7 @@
   "hit_times": 7,
   "ingredients": [
     {
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:frogmouth"
@@ -30,13 +31,7 @@
     {
       "stack": {
         "count": 1,
-        "id": "minecraft:iron_ingot"
-      }
-    },
-    {
-      "stack": {
-        "count": 1,
-        "id": "minecraft:iron_ingot"
+        "id": "minecraft:gold_ingot"
       }
     }
   ],

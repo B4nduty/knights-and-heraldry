@@ -4,21 +4,10 @@
   "hit_times": 7,
   "ingredients": [
     {
-      "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:greatsword"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
+      "finished_requirement": "finished",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:greatsword_head"
       }
     },
     {
@@ -29,13 +18,7 @@
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:greatsword"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:greatsword"
   }
 }

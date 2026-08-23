@@ -1,20 +1,7 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.5,
-  "hit_times": 5,
+  "chance": 0.75,
   "ingredients": [
-    {
-      "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:brigandine_cuisses"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
     {
       "stack": {
         "count": 1,
@@ -24,18 +11,24 @@
     {
       "stack": {
         "count": 1,
+        "id": "knightsheraldry:manuscript_cuisses"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
         "id": "minecraft:leather"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
       }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:brigandine_cuisses"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:brigandine_cuisses"
   }
 }

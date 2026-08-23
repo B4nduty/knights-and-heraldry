@@ -5,18 +5,6 @@
   "ingredients": [
     {
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:bodkin_arrow"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
-      "stack": {
         "count": 1,
         "id": "stoneycore:hot_iron"
       }
@@ -24,18 +12,30 @@
     {
       "stack": {
         "count": 1,
+        "id": "knightsheraldry:manuscript_bodkin"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
         "id": "minecraft:feather"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:stick"
       }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:bodkin_arrow"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:bodkin_arrow"
   }
 }

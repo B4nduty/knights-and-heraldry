@@ -1,0 +1,28 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.5,
+  "hit_times": 5,
+  "key": {
+    "A": {
+      "finished_requirement": "finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:halberd_head"
+      }
+    },
+    "B": {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:stick"
+      }
+    }
+  },
+  "pattern": [
+    "A  ",
+    " BB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:poleaxe"
+  }
+}

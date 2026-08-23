@@ -1,0 +1,25 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.75,
+  "hit_times": 5,
+  "ingredients": [
+    {
+      "finished_requirement": "not_finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:morion"
+      }
+    },
+    {
+      "finished_requirement": "not_finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:visor"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:visored_morion"
+  }
+}

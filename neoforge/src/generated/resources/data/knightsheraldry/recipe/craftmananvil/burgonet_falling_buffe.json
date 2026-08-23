@@ -4,38 +4,22 @@
   "hit_times": 5,
   "ingredients": [
     {
+      "finished_requirement": "not_finished",
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:burgonet_falling_buffe"
-          }
-        },
         "count": 1,
-        "id": "stoneycore:manuscript"
+        "id": "knightsheraldry:burgonet"
       }
     },
     {
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
-      }
-    },
-    {
-      "stack": {
-        "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:falling_buffe"
       }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:burgonet_falling_buffe"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:burgonet_falling_buffe"
   }
 }

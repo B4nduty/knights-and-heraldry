@@ -3,36 +3,27 @@
   "chance": 0.9,
   "ingredients": [
     {
+      "finished_requirement": "finished",
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:glaive"
-          }
-        },
         "count": 1,
-        "id": "stoneycore:manuscript"
+        "id": "knightsheraldry:sword_head"
       }
     },
     {
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "minecraft:stick"
       }
     },
     {
-      "stack": {},
-      "tag": "minecraft:planks"
+      "stack": {
+        "count": 1,
+        "id": "minecraft:stick"
+      }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:glaive"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:glaive"
   }
 }

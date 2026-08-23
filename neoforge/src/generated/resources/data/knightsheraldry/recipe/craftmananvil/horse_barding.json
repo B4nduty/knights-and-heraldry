@@ -5,18 +5,6 @@
   "ingredients": [
     {
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:horse_barding"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
-      "stack": {
         "count": 1,
         "id": "stoneycore:hot_iron"
       }
@@ -24,18 +12,18 @@
     {
       "stack": {
         "count": 1,
-        "id": "minecraft:iron_horse_armor"
+        "id": "knightsheraldry:manuscript_barding"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
       }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:horse_barding"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:horse_barding"
   }
 }

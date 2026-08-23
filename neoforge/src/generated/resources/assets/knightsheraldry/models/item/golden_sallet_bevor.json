@@ -6,6 +6,19 @@
       "predicate": {
         "knightsheraldry:open": 1.0
       }
+    },
+    {
+      "model": "knightsheraldry:item/golden_sallet_bevor_ignited",
+      "predicate": {
+        "stoneycore:ignited": 1.0
+      }
+    },
+    {
+      "model": "knightsheraldry:item/golden_sallet_bevor_ignited_open",
+      "predicate": {
+        "knightsheraldry:open": 1.0,
+        "stoneycore:ignited": 1.0
+      }
     }
   ],
   "textures": {

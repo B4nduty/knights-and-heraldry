@@ -3,32 +3,21 @@
   "chance": 0.9,
   "ingredients": [
     {
+      "finished_requirement": "not_finished",
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:barbute"
-          }
-        },
         "count": 1,
-        "id": "stoneycore:manuscript"
+        "id": "knightsheraldry:barbute_piece"
       }
     },
     {
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "minecraft:sand"
       }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:barbute"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:barbute"
   }
 }

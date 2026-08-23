@@ -1,6 +1,7 @@
 {
   "armor": 2.0,
   "armorSlot": "CHESTPLATE",
+  "rechargeTime": 30,
   "toughness": 1.0,
   "weight": 2.1
 }

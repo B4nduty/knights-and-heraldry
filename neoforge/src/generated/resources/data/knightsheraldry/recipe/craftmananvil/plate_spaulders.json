@@ -1,18 +1,13 @@
 {
   "type": "stoneycore:craftman_anvil_crafting",
-  "chance": 0.5,
-  "hit_times": 5,
+  "chance": 0.25,
+  "hit_times": 7,
   "ingredients": [
     {
+      "finished_requirement": "not_finished",
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:plate_spaulders"
-          }
-        },
         "count": 1,
-        "id": "stoneycore:manuscript"
+        "id": "knightsheraldry:spaulders_piece"
       }
     },
     {
@@ -23,13 +18,7 @@
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:plate_spaulders"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:plate_spaulders"
   }
 }

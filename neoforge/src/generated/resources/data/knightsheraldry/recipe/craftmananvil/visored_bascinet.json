@@ -4,38 +4,22 @@
   "hit_times": 5,
   "ingredients": [
     {
-      "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:visored_bascinet"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:bascinet"
       }
     },
     {
+      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:visor"
       }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:visored_bascinet"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:visored_bascinet"
   }
 }

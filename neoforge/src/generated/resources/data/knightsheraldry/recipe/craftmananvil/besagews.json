@@ -4,31 +4,25 @@
   "ingredients": [
     {
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:besagews"
-          }
-        },
         "count": 1,
-        "id": "stoneycore:manuscript"
+        "id": "stoneycore:hot_iron"
       }
     },
     {
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:manuscript_besagews"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
       }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:besagews"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:besagews"
   }
 }

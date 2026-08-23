@@ -4,15 +4,10 @@
   "hit_times": 7,
   "ingredients": [
     {
+      "finished_requirement": "not_finished",
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:great_armet"
-          }
-        },
         "count": 1,
-        "id": "stoneycore:manuscript"
+        "id": "knightsheraldry:armet"
       }
     },
     {
@@ -24,18 +19,12 @@
     {
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "minecraft:sand"
       }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:great_armet"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:great_armet"
   }
 }

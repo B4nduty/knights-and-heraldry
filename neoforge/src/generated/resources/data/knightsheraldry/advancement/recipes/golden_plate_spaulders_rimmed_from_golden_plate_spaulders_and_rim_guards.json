@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:golden_plate_spaulders_rimmed_from_golden_plate_spaulders_and_rim_guards"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:golden_plate_spaulders_rimmed_from_golden_plate_spaulders_and_rim_guards"
+    ]
+  }
+}

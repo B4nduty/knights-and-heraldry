@@ -1,0 +1,42 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.85,
+  "hit_times": 7,
+  "ingredients": [
+    {
+      "finished_requirement": "not_finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:morion"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:honeycomb"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:honeycomb"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:honeycomb"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:honeycomb"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:dark_morion"
+  }
+}

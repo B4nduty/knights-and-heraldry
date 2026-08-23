@@ -1,0 +1,22 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.9,
+  "ingredients": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:hot_iron"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:manuscript_axe"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:axe_head"
+  }
+}

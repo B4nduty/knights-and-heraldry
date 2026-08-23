@@ -3,21 +3,10 @@
   "chance": 0.9,
   "ingredients": [
     {
-      "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:flail"
-          }
-        },
-        "count": 1,
-        "id": "stoneycore:manuscript"
-      }
-    },
-    {
+      "finished_requirement": "finished",
       "stack": {
         "count": 1,
-        "id": "stoneycore:hot_iron"
+        "id": "knightsheraldry:mace_head"
       }
     },
     {
@@ -25,16 +14,16 @@
         "count": 1,
         "id": "minecraft:stick"
       }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:chain"
+      }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:flail"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:flail"
   }
 }

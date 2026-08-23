@@ -1,0 +1,17 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.9,
+  "ingredients": [
+    {
+      "finished_requirement": "not_finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:falchion_head"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:rapier_head"
+  }
+}

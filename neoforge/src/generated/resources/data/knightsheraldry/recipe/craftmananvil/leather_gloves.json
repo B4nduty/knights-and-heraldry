@@ -4,14 +4,8 @@
   "ingredients": [
     {
       "stack": {
-        "components": {
-          "stoneycore:target_stack": {
-            "count": 1,
-            "id": "knightsheraldry:leather_gloves"
-          }
-        },
         "count": 1,
-        "id": "stoneycore:manuscript"
+        "id": "minecraft:leather"
       }
     },
     {
@@ -22,13 +16,7 @@
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:target_stack": {
-        "count": 1,
-        "id": "knightsheraldry:leather_gloves"
-      }
-    },
     "count": 1,
-    "id": "stoneycore:hot_iron"
+    "id": "knightsheraldry:leather_gloves"
   }
 }

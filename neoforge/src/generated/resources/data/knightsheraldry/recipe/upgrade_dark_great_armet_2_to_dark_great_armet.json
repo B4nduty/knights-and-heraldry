@@ -1,0 +1,15 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "ingredients": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:dark_great_armet_2"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:dark_great_armet"
+  }
+}

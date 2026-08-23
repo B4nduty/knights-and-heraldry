@@ -1,0 +1,37 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.75,
+  "hit_times": 5,
+  "ingredients": [
+    {
+      "finished_requirement": "not_finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:visorless_sallet"
+      }
+    },
+    {
+      "finished_requirement": "not_finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:visor"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:hot_iron"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:black_sallet"
+  }
+}

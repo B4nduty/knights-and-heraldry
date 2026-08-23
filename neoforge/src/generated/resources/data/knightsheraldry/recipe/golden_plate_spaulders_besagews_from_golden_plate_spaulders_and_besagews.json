@@ -1,12 +1,18 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.9,
   "ingredients": [
     {
-      "item": "knightsheraldry:golden_plate_spaulders"
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:golden_plate_spaulders"
+      }
     },
     {
-      "item": "knightsheraldry:besagews"
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:besagews"
+      }
     }
   ],
   "result": {
