@@ -3,7 +3,6 @@
   "chance": 0.75,
   "ingredients": [
     {
-      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:cuirass_piece"
@@ -11,6 +10,9 @@
     }
   ],
   "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
     "count": 1,
     "id": "knightsheraldry:xiiii_plate_breastplate"
   }

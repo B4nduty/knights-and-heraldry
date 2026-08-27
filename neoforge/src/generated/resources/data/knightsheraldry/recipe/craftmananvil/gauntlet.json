@@ -4,7 +4,6 @@
   "hit_times": 5,
   "ingredients": [
     {
-      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:harness_piece"
@@ -18,6 +17,9 @@
     }
   ],
   "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
     "count": 1,
     "id": "knightsheraldry:gauntlet"
   }

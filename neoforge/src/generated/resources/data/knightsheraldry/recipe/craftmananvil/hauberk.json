@@ -28,7 +28,8 @@
             "slot": "chest"
           }
         ]
-      }
+      },
+      "stoneycore:ignited": true
     },
     "count": 1,
     "id": "knightsheraldry:hauberk"

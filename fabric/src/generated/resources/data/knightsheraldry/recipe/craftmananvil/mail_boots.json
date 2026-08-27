@@ -28,7 +28,8 @@
             "slot": "feet"
           }
         ]
-      }
+      },
+      "stoneycore:ignited": true
     },
     "count": 1,
     "id": "knightsheraldry:mail_boots"

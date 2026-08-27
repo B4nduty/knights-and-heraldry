@@ -36,6 +36,9 @@
     }
   ],
   "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
     "count": 1,
     "id": "knightsheraldry:golden_visored_barbute"
   }

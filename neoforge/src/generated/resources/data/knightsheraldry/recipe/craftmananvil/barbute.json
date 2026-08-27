@@ -3,7 +3,6 @@
   "chance": 0.9,
   "ingredients": [
     {
-      "finished_requirement": "not_finished",
       "stack": {
         "count": 1,
         "id": "knightsheraldry:barbute_piece"
@@ -17,6 +16,9 @@
     }
   ],
   "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
     "count": 1,
     "id": "knightsheraldry:barbute"
   }
