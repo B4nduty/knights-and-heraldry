@@ -4,7 +4,7 @@ import banduty.knightsheraldry.items.ModToolMaterials;
 import banduty.stoneycore.combat.damagetype.SCDamageCalculator;
 import banduty.stoneycore.combat.damagetype.SCDamageType;
 import banduty.stoneycore.combat.melee.CombatSelect;
-import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
+import banduty.stoneycore.combat.weapon.SCWeaponUtil;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;

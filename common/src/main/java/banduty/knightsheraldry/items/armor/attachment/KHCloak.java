@@ -6,7 +6,7 @@ import banduty.stoneycore.client.render.armor.ArmorAttachmentPosition;
 import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderProvider;
 import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
 import banduty.stoneycore.items.custom.armor.ArmorAttachment;
-import banduty.stoneycore.items.custom.armor.custom.CrownItem;
+import banduty.stoneycore.items.custom.armor.CrownItem;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
 import net.minecraft.world.InteractionHand;

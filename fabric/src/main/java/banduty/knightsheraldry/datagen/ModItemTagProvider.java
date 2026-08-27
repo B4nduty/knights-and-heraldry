@@ -2,7 +2,7 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.util.itemdata.ModTags;
-import banduty.stoneycore.util.data.itemdata.SCTags;
+import banduty.stoneycore.data.SCTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;

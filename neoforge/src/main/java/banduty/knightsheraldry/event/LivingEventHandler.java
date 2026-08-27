@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.event;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.stoneycore.util.data.entitydata.IEntityDataSaver;
+import banduty.stoneycore.data.IEntityDataSaver;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;

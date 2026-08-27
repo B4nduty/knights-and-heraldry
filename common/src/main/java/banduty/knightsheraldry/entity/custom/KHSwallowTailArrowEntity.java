@@ -2,8 +2,8 @@ package banduty.knightsheraldry.entity.custom;
 
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.stoneycore.entity.custom.SCArrowEntity;
-import banduty.stoneycore.util.data.entitydata.IEntityDataSaver;
+import banduty.stoneycore.entity.projectile.SCArrowEntity;
+import banduty.stoneycore.data.IEntityDataSaver;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;

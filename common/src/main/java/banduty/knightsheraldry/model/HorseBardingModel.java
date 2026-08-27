@@ -2,7 +2,7 @@ package banduty.knightsheraldry.model;
 
 import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
-import banduty.stoneycore.util.data.itemdata.SCDataComponents;
+import banduty.stoneycore.data.SCDataComponents;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

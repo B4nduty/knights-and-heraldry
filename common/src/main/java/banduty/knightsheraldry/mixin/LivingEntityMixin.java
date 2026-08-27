@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.mixin;
 
 import banduty.knightsheraldry.effect.KHEffects;
-import banduty.stoneycore.util.data.entitydata.IEntityDataSaver;
+import banduty.stoneycore.data.IEntityDataSaver;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.animal.FlyingAnimal;

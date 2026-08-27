@@ -6,7 +6,7 @@ import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
 import banduty.stoneycore.items.custom.armor.underarmor.UnderArmorContents;
-import banduty.stoneycore.util.data.itemdata.SCDataComponents;
+import banduty.stoneycore.data.SCDataComponents;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HorseModel;

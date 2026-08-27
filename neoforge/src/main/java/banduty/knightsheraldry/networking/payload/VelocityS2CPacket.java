@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.networking.payload;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.stoneycore.util.data.entitydata.IEntityDataSaver;
+import banduty.stoneycore.data.IEntityDataSaver;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;

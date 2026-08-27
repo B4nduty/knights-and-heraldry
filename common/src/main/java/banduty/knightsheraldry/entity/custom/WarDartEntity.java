@@ -4,7 +4,7 @@ import banduty.knightsheraldry.effect.KHEffects;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.combat.damagetype.SCDamageType;
-import banduty.stoneycore.util.weaponutil.SCWeaponUtil;
+import banduty.stoneycore.combat.weapon.SCWeaponUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;

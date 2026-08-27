@@ -3,7 +3,7 @@ package banduty.knightsheraldry.datagen;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.util.itemdata.ModTags;
-import banduty.stoneycore.util.data.itemdata.SCTags;
+import banduty.stoneycore.data.SCTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;

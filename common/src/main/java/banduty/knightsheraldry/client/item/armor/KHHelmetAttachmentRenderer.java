@@ -4,7 +4,7 @@ import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.armor.attachment.KHHelmetAttachment;
 import banduty.knightsheraldry.model.*;
 import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
-import banduty.stoneycore.util.data.itemdata.SCDataComponents;
+import banduty.stoneycore.data.SCDataComponents;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HumanoidModel;

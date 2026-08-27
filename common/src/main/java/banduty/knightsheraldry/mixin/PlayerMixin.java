@@ -2,7 +2,7 @@ package banduty.knightsheraldry.mixin;
 
 import banduty.knightsheraldry.items.item.khweapon.Lance;
 import banduty.knightsheraldry.util.playerdata.PlayerVelocity;
-import banduty.stoneycore.util.data.entitydata.IEntityDataSaver;
+import banduty.stoneycore.data.IEntityDataSaver;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;

@@ -1,6 +1,6 @@
 package banduty.knightsheraldry.items.item.khammo;
 
-import banduty.stoneycore.util.data.itemdata.SCDataComponents;
+import banduty.stoneycore.data.SCDataComponents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.chat.Component;

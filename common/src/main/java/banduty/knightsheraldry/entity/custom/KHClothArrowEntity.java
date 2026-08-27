@@ -4,7 +4,7 @@ import banduty.knightsheraldry.data.ArrowBehavior;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.platform.Services;
-import banduty.stoneycore.entity.custom.SCArrowEntity;
+import banduty.stoneycore.entity.projectile.SCArrowEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;

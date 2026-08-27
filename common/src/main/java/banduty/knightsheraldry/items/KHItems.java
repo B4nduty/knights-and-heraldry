@@ -23,7 +23,7 @@ import banduty.stoneycore.combat.damagetype.SCDamageType;
 import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import banduty.stoneycore.items.custom.hotiron.HotIron;
-import banduty.stoneycore.items.custom.manuscript.Manuscript;
+import banduty.stoneycore.items.custom.Manuscript;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;

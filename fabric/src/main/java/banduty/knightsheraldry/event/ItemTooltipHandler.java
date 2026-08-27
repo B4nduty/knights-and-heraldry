@@ -3,7 +3,7 @@ package banduty.knightsheraldry.event;
 import banduty.knightsheraldry.items.item.khammo.ClothArrow;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
-import banduty.stoneycore.util.data.itemdata.SCDataComponents;
+import banduty.stoneycore.data.SCDataComponents;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;

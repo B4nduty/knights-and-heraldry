@@ -3,7 +3,7 @@ package banduty.knightsheraldry.entity.custom;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.combat.damagetype.SCDamageCalculator;
-import banduty.stoneycore.entity.custom.SCArrowEntity;
+import banduty.stoneycore.entity.projectile.SCArrowEntity;
 import net.minecraft.world.damagesource.CombatRules;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;

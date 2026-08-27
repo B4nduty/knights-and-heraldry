@@ -4,7 +4,7 @@ import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.platform.Services;
 import banduty.stoneycore.items.custom.hotiron.QuenchItem;
 import banduty.stoneycore.items.itemgroup.SCItemGroup;
-import banduty.stoneycore.util.data.itemdata.SCDataComponents;
+import banduty.stoneycore.data.SCDataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

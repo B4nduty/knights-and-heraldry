@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.util.playerdata;
 
 import banduty.knightsheraldry.platform.Services;
-import banduty.stoneycore.util.data.entitydata.IEntityDataSaver;
+import banduty.stoneycore.data.IEntityDataSaver;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 

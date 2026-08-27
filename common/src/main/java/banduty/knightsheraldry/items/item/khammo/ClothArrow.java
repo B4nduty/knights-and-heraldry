@@ -2,7 +2,7 @@ package banduty.knightsheraldry.items.item.khammo;
 
 import banduty.knightsheraldry.items.item.KHExtendedArrowItem;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
-import banduty.stoneycore.util.data.itemdata.SCDataComponents;
+import banduty.stoneycore.data.SCDataComponents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;

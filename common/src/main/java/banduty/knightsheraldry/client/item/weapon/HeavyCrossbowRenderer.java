@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.client.item.weapon;
 
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
-import banduty.stoneycore.util.weaponutil.SCRangeWeaponUtil;
+import banduty.stoneycore.combat.weapon.SCRangeWeaponUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;
