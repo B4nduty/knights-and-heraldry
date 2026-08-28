@@ -17,12 +17,12 @@ public class NeoForgeKHConfigImpl extends KHConfigImpl {
     }
 
     @Override
-    public boolean getDisableMobsSpawnWithKHArmor() {
-        return KHConfigs.disableMobsSpawnWithKHArmor.get();
+    public boolean getEnableMobsSpawnWithKHArmor() {
+        return KHConfigs.enableMobsSpawnWithKHArmor.get();
     }
 
     @Override
-    public boolean getDisableMobsSpawnWithKHWeapons() {
-        return KHConfigs.disableMobsSpawnWithKHWeapon.get();
+    public boolean getEnableMobsSpawnWithKHWeapons() {
+        return KHConfigs.enableMobsSpawnWithKHWeapon.get();
     }
 }

@@ -8,8 +8,8 @@ public class KHConfigs {
     public static final ModConfigSpec.IntValue lanceCooldown;
     public static final ModConfigSpec.BooleanValue damageTamedEntities;
     public static final ModConfigSpec.IntValue wardartCooldown;
-    public static final ModConfigSpec.BooleanValue disableMobsSpawnWithKHArmor;
-    public static final ModConfigSpec.BooleanValue disableMobsSpawnWithKHWeapon;
+    public static final ModConfigSpec.BooleanValue enableMobsSpawnWithKHArmor;
+    public static final ModConfigSpec.BooleanValue enableMobsSpawnWithKHWeapon;
 
     static {
         final ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
@@ -26,13 +26,13 @@ public class KHConfigs {
                 .comment("WarDart throw Cooldown")
                 .defineInRange("wardartCooldown", 15, 0, Integer.MAX_VALUE);
 
-        disableMobsSpawnWithKHArmor = builder
-                .comment("Disable Mobs Spawn with KH Armor")
-                .define("disableMobsSpawnWithKHArmor", false);
+        enableMobsSpawnWithKHArmor = builder
+                .comment("Enable Mobs Spawn with KH Armor")
+                .define("enableMobsSpawnWithKHArmor", false);
 
-        disableMobsSpawnWithKHWeapon = builder
-                .comment("Disable Mobs Spawn with KH Weapons")
-                .define("disableMobsSpawnWithKHWeapon", false);
+        enableMobsSpawnWithKHWeapon = builder
+                .comment("Enable Mobs Spawn with KH Weapons")
+                .define("enableMobsSpawnWithKHWeapon", false);
 
         SPEC = builder.build();
     }
