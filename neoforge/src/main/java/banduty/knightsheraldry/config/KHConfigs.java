@@ -28,11 +28,11 @@ public class KHConfigs {
 
         enableMobsSpawnWithKHArmor = builder
                 .comment("Enable Mobs Spawn with KH Armor")
-                .define("enableMobsSpawnWithKHArmor", false);
+                .define("enableMobsSpawnWithKHArmor", true);
 
         enableMobsSpawnWithKHWeapon = builder
                 .comment("Enable Mobs Spawn with KH Weapons")
-                .define("enableMobsSpawnWithKHWeapon", false);
+                .define("enableMobsSpawnWithKHWeapon", true);
 
         SPEC = builder.build();
     }
