@@ -127,9 +127,9 @@ public interface KHItems {
             () -> new SCUnderArmor(ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS, new Item.Properties().durability(512)));
 
     Supplier<Item> ARMING_DOUBLET = registerItem("arming_doublet",
-            () -> new SCDyeableUnderArmor(ModArmorMaterials.ARMING, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(1536), 0xFFA06440));
+            () -> new SCDyeableUnderArmor(ModArmorMaterials.ARMING, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(1075), 0xFFA06440));
     Supplier<Item> ARMING_HOSE = registerItem("arming_hose",
-            () -> new SCDyeableUnderArmor(ModArmorMaterials.ARMING, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(1280), 0xFFA06440));
+            () -> new SCDyeableUnderArmor(ModArmorMaterials.ARMING, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(896), 0xFFA06440));
 
     Supplier<Item> MAIL_SPAULDERS = registerItem("mail_spaulders",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(96), Ingredient.of(Items.IRON_INGOT)));
