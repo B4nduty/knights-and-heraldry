@@ -693,9 +693,9 @@ public interface KHItems {
     }
 
     private static void registerMobGear() {
-        registerMobGearWeapons();
-        registerMobGearBaseArmor();
-        registerMobGearAttachments();
+        if (!KnightsHeraldry.getConfig().getDisableMobsSpawnWithKHWeapons())registerMobGearWeapons();
+        if (!KnightsHeraldry.getConfig().getDisableMobsSpawnWithKHArmor()) registerMobGearBaseArmor();
+        if (!KnightsHeraldry.getConfig().getDisableMobsSpawnWithKHArmor())registerMobGearAttachments();
     }
 
     List<EntityType<?>> allowedMobs = List.of(

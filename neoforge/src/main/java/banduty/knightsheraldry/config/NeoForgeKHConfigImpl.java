@@ -15,4 +15,14 @@ public class NeoForgeKHConfigImpl extends KHConfigImpl {
     public int getWardartCooldown() {
         return KHConfigs.wardartCooldown.get();
     }
+
+    @Override
+    public boolean getDisableMobsSpawnWithKHArmor() {
+        return KHConfigs.disableMobsSpawnWithKHArmor.get();
+    }
+
+    @Override
+    public boolean getDisableMobsSpawnWithKHWeapons() {
+        return KHConfigs.disableMobsSpawnWithKHWeapon.get();
+    }
 }
