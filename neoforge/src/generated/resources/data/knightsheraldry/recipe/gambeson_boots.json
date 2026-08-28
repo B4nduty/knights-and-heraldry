@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "   ",
+    "SWS",
+    "L L"
+  ],
+  "result": {
+    "components": {
+      "minecraft:attribute_modifiers": {
+        "modifiers": [
+          {
+            "type": "minecraft:generic.armor",
+            "amount": 1.0,
+            "id": "minecraft:generic.armor.feet",
+            "operation": "add_value",
+            "slot": "feet"
+          }
+        ]
+      }
+    },
+    "count": 1,
+    "id": "knightsheraldry:gambeson_boots"
+  }
+}

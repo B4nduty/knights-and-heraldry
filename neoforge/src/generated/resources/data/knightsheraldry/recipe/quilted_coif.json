@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "LWL",
+    "S S"
+  ],
+  "result": {
+    "components": {
+      "minecraft:attribute_modifiers": {
+        "modifiers": [
+          {
+            "type": "minecraft:generic.armor",
+            "amount": 1.0,
+            "id": "minecraft:generic.armor.head",
+            "operation": "add_value",
+            "slot": "head"
+          }
+        ]
+      }
+    },
+    "count": 1,
+    "id": "knightsheraldry:quilted_coif"
+  }
+}

@@ -8,10 +8,7 @@ import banduty.stoneycore.data.SCDataComponents;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -28,6 +25,46 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, KHItems.QUILTED_COIF.get())
+                .pattern("LLL")
+                .pattern("LWL")
+                .pattern("S S")
+                .define('L', Items.LEATHER)
+                .define('W', ItemTags.WOOL)
+                .define('S', Items.STRING)
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.QUILTED_COIF.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, KHItems.GAMBESON.get())
+                .pattern("L L")
+                .pattern("LWL")
+                .pattern("LLL")
+                .define('L', Items.LEATHER)
+                .define('W', ItemTags.WOOL)
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.GAMBESON.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, KHItems.GAMBESON_BREECHES.get())
+                .pattern("LWL")
+                .pattern("L L")
+                .pattern("L L")
+                .define('L', Items.LEATHER)
+                .define('W', ItemTags.WOOL)
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.GAMBESON_BREECHES.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, KHItems.GAMBESON_BOOTS.get())
+                .pattern("   ")
+                .pattern("SWS")
+                .pattern("L L")
+                .define('L', Items.LEATHER)
+                .define('W', ItemTags.WOOL)
+                .define('S', Items.STRING)
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.GAMBESON_BOOTS.get())));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TRI_PLUME.get())
                 .requires(KHItems.PLUME.get())
                 .requires(KHItems.PLUME.get())
