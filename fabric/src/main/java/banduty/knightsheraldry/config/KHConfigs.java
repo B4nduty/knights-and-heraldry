@@ -17,10 +17,4 @@ public class KHConfigs implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip
     public int wardartCooldown = 15;
-
-    @ConfigEntry.Gui.Tooltip
-    public boolean enableMobsSpawnWithKHArmor = true;
-
-    @ConfigEntry.Gui.Tooltip
-    public boolean enableMobsSpawnWithKHWeapon = true;
 }

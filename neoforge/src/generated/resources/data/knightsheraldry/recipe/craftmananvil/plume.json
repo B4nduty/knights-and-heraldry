@@ -1,0 +1,18 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "ingredients": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:feather"
+      }
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:plume"
+  }
+}

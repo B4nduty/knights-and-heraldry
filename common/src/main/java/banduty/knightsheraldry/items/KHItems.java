@@ -7,6 +7,7 @@ import banduty.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHClothArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
 import banduty.knightsheraldry.items.armor.attachment.*;
+import banduty.knightsheraldry.items.armor.deco.DecoBurnableItem;
 import banduty.knightsheraldry.items.armor.deco.DecoItem;
 import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
@@ -522,9 +523,12 @@ public interface KHItems {
     Supplier<Item> GOLDEN_HORSE_BARDING = registerItem("golden_horse_barding",
             () -> new HorseBardingArmorItem(new Item.Properties().stacksTo(1)));
 
-    Supplier<Item> PLUME = deco("plume");
-    Supplier<Item> TRI_PLUME = deco("tri_plume");
-    Supplier<Item> FLUFFY_PLUME = deco("fluffy_plume");
+    Supplier<Item> PLUME = registerItem("plume",
+            () -> new DecoItem(new Item.Properties().stacksTo(1)));
+    Supplier<Item> TRI_PLUME = registerItem("tri_plume",
+            () -> new DecoItem(new Item.Properties().stacksTo(1)));
+    Supplier<Item> FLUFFY_PLUME = registerItem("fluffy_plume",
+            () -> new DecoItem(new Item.Properties().stacksTo(1)));
     Supplier<Item> TORSE = registerItem("torse",
             () -> new TwoLayerDyeableDeco(new Item.Properties().stacksTo(1)));
     Supplier<Item> TEUTONIC_SNAKES = deco("teutonic_snakes");
@@ -680,7 +684,7 @@ public interface KHItems {
     }
 
     static Supplier<Item> deco(String id) {
-        return registerItem(id, () -> new DecoItem(new Item.Properties().stacksTo(1)));
+        return registerItem(id, () -> new DecoBurnableItem(new Item.Properties().stacksTo(1)));
     }
 
     private static Supplier<Item> registerItem(String name, Supplier<Item> itemSupplier) {
@@ -693,9 +697,9 @@ public interface KHItems {
     }
 
     private static void registerMobGear() {
-        if (KnightsHeraldry.getConfig().getEnableMobsSpawnWithKHWeapons())registerMobGearWeapons();
-        if (KnightsHeraldry.getConfig().getEnableMobsSpawnWithKHArmor()) registerMobGearBaseArmor();
-        if (KnightsHeraldry.getConfig().getEnableMobsSpawnWithKHArmor())registerMobGearAttachments();
+        registerMobGearWeapons();
+        registerMobGearBaseArmor();
+        registerMobGearAttachments();
     }
 
     List<EntityType<?>> allowedMobs = List.of(

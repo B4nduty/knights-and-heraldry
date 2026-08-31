@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chain": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:chain"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_gambeson_breeches": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:gambeson_breeches"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:arming_hose"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gambeson_breeches",
+      "has_chain"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:arming_hose"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "ingredients": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:leather"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:leather"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:string"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:string"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:string"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:string"
+      }
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:torse"
+  }
+}

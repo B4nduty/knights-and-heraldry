@@ -4,6 +4,4 @@ public interface IKHConfig {
     int getLanceCooldown();
     boolean getDamageTamedEntities();
     int getWardartCooldown();
-    boolean getEnableMobsSpawnWithKHArmor();
-    boolean getEnableMobsSpawnWithKHWeapons();
 }

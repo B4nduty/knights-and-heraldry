@@ -1,0 +1,19 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "ingredients": [
+    {
+      "finished_requirement": "not_finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:teutonic_gold_wings"
+      }
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:dragon"
+  }
+}

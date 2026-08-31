@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "knightsheraldry:gambeson_breeches"
+    },
+    {
+      "item": "minecraft:chain"
+    }
+  ],
+  "result": {
+    "components": {
+      "minecraft:attribute_modifiers": {
+        "modifiers": [
+          {
+            "type": "minecraft:generic.armor",
+            "amount": 3.0,
+            "id": "minecraft:generic.armor.legs",
+            "operation": "add_value",
+            "slot": "legs"
+          }
+        ]
+      }
+    },
+    "count": 1,
+    "id": "knightsheraldry:arming_hose"
+  }
+}

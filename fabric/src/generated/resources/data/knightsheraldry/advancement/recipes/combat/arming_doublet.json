@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chain": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:chain"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_gambeson": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:gambeson"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:arming_doublet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gambeson",
+      "has_chain"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:arming_doublet"
+    ]
+  }
+}

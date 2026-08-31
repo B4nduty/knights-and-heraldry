@@ -1,0 +1,25 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "ingredients": [
+    {
+      "finished_requirement": "not_finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:teutonic_black_wings"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:hot_iron"
+      }
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:teutonic_wings_sharp_ends"
+  }
+}

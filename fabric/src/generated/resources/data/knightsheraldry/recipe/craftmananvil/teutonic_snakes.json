@@ -1,0 +1,36 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "ingredients": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:hot_iron"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "stoneycore:hot_iron"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:teutonic_snakes"
+  }
+}

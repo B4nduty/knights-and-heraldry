@@ -65,6 +65,20 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.GAMBESON_BOOTS.get())));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, KHItems.ARMING_DOUBLET.get())
+                .requires(KHItems.GAMBESON.get())
+                .requires(Items.CHAIN)
+                .unlockedBy(getHasName(KHItems.GAMBESON.get()), has(KHItems.GAMBESON.get()))
+                .unlockedBy(getHasName(Items.CHAIN), has(Items.CHAIN))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.ARMING_DOUBLET.get())));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, KHItems.ARMING_HOSE.get())
+                .requires(KHItems.GAMBESON_BREECHES.get())
+                .requires(Items.CHAIN)
+                .unlockedBy(getHasName(KHItems.GAMBESON_BREECHES.get()), has(KHItems.GAMBESON_BREECHES.get()))
+                .unlockedBy(getHasName(Items.CHAIN), has(Items.CHAIN))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.ARMING_HOSE.get())));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TRI_PLUME.get())
                 .requires(KHItems.PLUME.get())
                 .requires(KHItems.PLUME.get())
@@ -512,12 +526,36 @@ public class ModRecipeProvider extends RecipeProvider {
         // Cloth
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.CLOTH_ARROW.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_CLOTH.get()), new ItemStack(Items.SAND), new ItemStack(Items.FEATHER), new ItemStack(Items.STICK), ItemTags.WOOL);
 
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.MAIL_COIF.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.CHAIN));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.HAUBERK.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.CHAIN));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.MAIL_BREECHES.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.CHAIN));
-        createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.MAIL_BOOTS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(Items.CHAIN));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.LEATHER_GLOVES.get(), new ItemStack(Items.LEATHER, 2));
-        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.MAIL_GLOVES.get(), new ItemStack(SCItems.HOT_IRON.get(), 2));
+        // Helmet Decoration
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.PLUME.get(), new ItemStack(Items.FEATHER));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.TORSE.get(), new ItemStack(Items.LEATHER, 2), new ItemStack(Items.STRING, 4));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.TEUTONIC_SNAKES.get(), new ItemStack(SCItems.HOT_IRON.get(), 2), new ItemStack(Items.GOLD_INGOT, 2));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.TEUTONIC_BLACK_SNAKES.get(), unfinished(new ItemStack(KHItems.TEUTONIC_SNAKES.get())), new ItemStack(Items.BLACK_DYE, 2));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.GOLD_HORNS.get(), unfinished(new ItemStack(KHItems.TEUTONIC_SNAKES.get())));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.BLACK_HORNS.get(), unfinished(new ItemStack(KHItems.GOLD_HORNS.get())), new ItemStack(Items.BLACK_DYE, 2));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.TEUTONIC_GOLD_WINGS.get(), unfinished(new ItemStack(KHItems.GOLD_HORNS.get())));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.TEUTONIC_BLACK_WINGS.get(), unfinished(new ItemStack(KHItems.TEUTONIC_GOLD_WINGS.get())), new ItemStack(Items.BLACK_DYE, 2), new ItemStack(Items.FEATHER, 2));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.TEUTONIC_WINGS_SHARP_ENDS.get(), unfinished(new ItemStack(KHItems.TEUTONIC_BLACK_WINGS.get())), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.TEUTONIC_WINGS_BALL_ENDS.get(), unfinished(new ItemStack(KHItems.TEUTONIC_WINGS_SHARP_ENDS.get())), new ItemStack(Items.GOLD_INGOT));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.DRAGON.get(), unfinished(new ItemStack(KHItems.TEUTONIC_GOLD_WINGS.get())));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.LION.get(), unfinished(new ItemStack(KHItems.DRAGON.get())));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.SNAKE.get(), unfinished(new ItemStack(KHItems.LION.get())));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.UNICORN.get(), unfinished(new ItemStack(KHItems.SNAKE.get())));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.STAG.get(), unfinished(new ItemStack(KHItems.UNICORN.get())));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.BOAR.get(), unfinished(new ItemStack(KHItems.STAG.get())));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.EAGLE.get(), unfinished(new ItemStack(KHItems.BOAR.get())));
+
+        createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.PEGASUS.get(), unfinished(new ItemStack(KHItems.EAGLE.get())));
     }
 
     private record Unfinished(ItemStack stack) {

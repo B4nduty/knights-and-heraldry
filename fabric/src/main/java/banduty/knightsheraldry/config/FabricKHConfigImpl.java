@@ -12,14 +12,4 @@ public class FabricKHConfigImpl extends KHConfigImpl {
 
     @Override
     public int getWardartCooldown() { return KnightsHeraldryFabric.CONFIG.wardartCooldown; }
-
-    @Override
-    public boolean getEnableMobsSpawnWithKHArmor() {
-        return KnightsHeraldryFabric.CONFIG.enableMobsSpawnWithKHArmor;
-    }
-
-    @Override
-    public boolean getEnableMobsSpawnWithKHWeapons() {
-        return KnightsHeraldryFabric.CONFIG.enableMobsSpawnWithKHWeapon;
-    }
 }

@@ -1,0 +1,31 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "ingredients": [
+    {
+      "finished_requirement": "not_finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:teutonic_snakes"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:black_dye"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:black_dye"
+      }
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:teutonic_black_snakes"
+  }
+}
