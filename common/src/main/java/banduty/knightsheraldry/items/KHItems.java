@@ -25,17 +25,13 @@ import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import banduty.stoneycore.items.custom.hotiron.HotIron;
 import banduty.stoneycore.items.custom.Manuscript;
-import banduty.stoneycore.mobgear.SCMobGearRegistry;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.joml.Vector3f;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 public interface KHItems {
@@ -693,141 +689,5 @@ public interface KHItems {
 
     static void init() {
         KnightsHeraldry.LOG.info("Registering Mod Items for " + KnightsHeraldry.MOD_ID);
-        registerMobGear();
-    }
-
-    private static void registerMobGear() {
-        registerMobGearWeapons();
-        registerMobGearBaseArmor();
-        registerMobGearAttachments();
-    }
-
-    List<EntityType<?>> allowedMobs = List.of(
-            EntityType.ZOMBIE,
-            EntityType.HUSK,
-            EntityType.DROWNED,
-            EntityType.ZOMBIE_VILLAGER,
-            EntityType.ZOMBIFIED_PIGLIN
-    );
-
-    private static void registerMobGearWeapons() {
-        registerWeapons(
-                DAGGER, STILETTO, RAPIER,
-                SWORD, V_SWORD, ARMING_SWORD,
-                AXE, BROAD_AXE, CROOKED_AXE, STRAIGHT_CROOKED_AXE,
-                MACE, SPIKED_MACE,
-                FLAIL, BALL_FLAIL,
-                HAMMER, WAR_HAMMER,
-                LONGSWORD, V_LONGSWORD,
-                FALCHION, SCIMITAR,
-                PITCHFORK, SPEAR, PIKE,
-                BILLHOOK,
-                GLAIVE, CURVED_GLAIVE,
-                HALBERD,
-                POLEAXE, POLEHAMMER, BEC_DE_CORBIN,
-                MORNING_STAR, BARDICHE,
-                GREATSWORD, CLAYMORE, FLAMBERGE, ZWEIHANDER,
-                WARDART
-        );
-    }
-
-    @SafeVarargs
-    static void registerWeapons(Supplier<? extends Item>... weapons) {
-        for (Supplier<? extends Item> weapon : weapons) {
-            SCMobGearRegistry.registerWeapon(weapon, allowedMobs);
-        }
-    }
-
-    private static void registerMobGearBaseArmor() {
-        SCMobGearRegistry.registerArmorSet(QUILTED_COIF, GAMBESON, GAMBESON_BREECHES, GAMBESON_BOOTS, allowedMobs);
-
-        SCMobGearRegistry.registerArmorSet(MAIL_COIF, HAUBERK, MAIL_BREECHES, MAIL_BOOTS, allowedMobs);
-
-        SCMobGearRegistry.registerArmor(EquipmentSlot.CHEST, ARMING_DOUBLET, allowedMobs);
-        SCMobGearRegistry.registerArmor(EquipmentSlot.LEGS, ARMING_HOSE, allowedMobs);
-    }
-
-    private static void registerMobGearAttachments() {
-        registerAttachments(EquipmentSlot.HEAD,
-                BARBUTE, DARK_BARBUTE, GOLDEN_BARBUTE,
-                BASCINET, DARK_BASCINET, GOLDEN_BASCINET,
-                KETTLE_HELM, DARK_KETTLE_HELM, GOLDEN_KETTLE_HELM,
-                NASAL_HELM, DARK_NASAL_HELM, GOLDEN_NASAL_HELM,
-                VIKING_HELM, DARK_VIKING_HELM, GOLDEN_VIKING_HELM,
-                BURGONET, DARK_BURGONET, GOLDEN_BURGONET,
-                VISORLESS_SALLET, DARK_VISORLESS_SALLET, GOLDEN_VISORLESS_SALLET,
-                MORION, DARK_MORION, GOLDEN_MORION,
-                ARMET, DARK_ARMET, GOLDEN_ARMET,
-                ARMET_2, DARK_ARMET_2, GOLDEN_ARMET_2,
-                VISORED_BARBUTE, DARK_VISORED_BARBUTE, GOLDEN_VISORED_BARBUTE,
-                HOUNDSKULL, DARK_HOUNDSKULL, GOLDEN_HOUNDSKULL,
-                CAGE, DARK_CAGE, GOLDEN_CAGE,
-                VISORED_BASCINET, DARK_VISORED_BASCINET, GOLDEN_VISORED_BASCINET,
-                GREAT_HELM, DARK_GREAT_HELM, GOLDEN_GREAT_HELM,
-                GREAT_HELM_2, DARK_GREAT_HELM_2, GOLDEN_GREAT_HELM_2,
-                SALLET, DARK_SALLET, GOLDEN_SALLET,
-                BURGONET_FALLING_BUFFE, DARK_BURGONET_FALLING_BUFFE, GOLDEN_BURGONET_FALLING_BUFFE,
-                CLOSE_HELM, DARK_CLOSE_HELM, GOLDEN_CLOSE_HELM,
-                BLACK_SALLET, DARK_BLACK_SALLET, GOLDEN_BLACK_SALLET,
-                VISORED_MORION, DARK_VISORED_MORION, GOLDEN_VISORED_MORION,
-                SALLET_BEVOR, DARK_SALLET_BEVOR, GOLDEN_SALLET_BEVOR,
-                BLACK_SALLET_BEVOR, DARK_BLACK_SALLET_BEVOR, GOLDEN_BLACK_SALLET_BEVOR,
-                FROGMOUTH, DARK_FROGMOUTH, GOLDEN_FROGMOUTH,
-                GREAT_ARMET, DARK_GREAT_ARMET, GOLDEN_GREAT_ARMET,
-                GREAT_ARMET_2, DARK_GREAT_ARMET_2, GOLDEN_GREAT_ARMET_2,
-                GREAT_BASCINET, DARK_GREAT_BASCINET, GOLDEN_GREAT_BASCINET,
-                GREAT_HOUNDSKUL_BASCINET, DARK_GREAT_HOUNDSKUL_BASCINET, GOLDEN_GREAT_HOUNDSKUL_BASCINET,
-                MAXIMILLIAN_HELMET, DARK_MAXIMILLIAN_HELMET, GOLDEN_MAXIMILLIAN_HELMET,
-                SAVOYARD, DARK_SAVOYARD, GOLDEN_SAVOYARD,
-                ARAGONESE_SALLET, DARK_ARAGONESE_SALLET, GOLDEN_ARAGONESE_SALLET
-        );
-
-        registerAttachments(EquipmentSlot.CHEST,
-                MAIL_SPAULDERS, MAIL_SPAULDERS_BESAGEWS, GOLDEN_MAIL_SPAULDERS, GOLDEN_MAIL_SPAULDERS_BESAGEWS,
-                BRIGANDINE_SPAULDERS, BRIGANDINE_SPAULDERS_BESAGEWS,
-                DARK_BRIGANDINE_SPAULDERS, DARK_BRIGANDINE_SPAULDERS_BESAGEWS,
-                GOLDEN_BRIGANDINE_SPAULDERS, GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS,
-                PLATE_SPAULDERS, PLATE_SPAULDERS_BESAGEWS, PLATE_SPAULDERS_RIMMED, PLATE_SPAULDERS_BESAGEWS_RIMMED,
-                DARK_PLATE_SPAULDERS, DARK_PLATE_SPAULDERS_BESAGEWS, DARK_PLATE_SPAULDERS_RIMMED, DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED,
-                GOLDEN_PLATE_SPAULDERS, GOLDEN_PLATE_SPAULDERS_BESAGEWS, GOLDEN_PLATE_SPAULDERS_RIMMED, GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED,
-                BRIGANDINE, DARK_BRIGANDINE, GOLDEN_BRIGANDINE,
-                PLATE_CUIRASS, DARK_PLATE_CUIRASS, GOLDEN_PLATE_CUIRASS,
-                MAXIMILLIAN_CUIRASS, DARK_MAXIMILLIAN_CUIRASS, GOLDEN_MAXIMILLIAN_CUIRASS,
-                XIIII_PLATE_CUIRASS, DARK_XIIII_PLATE_CUIRASS, GOLDEN_XIIII_PLATE_CUIRASS,
-                XIIII_PLATE_BREASTPLATE, DARK_XIIII_PLATE_BREASTPLATE, GOLDEN_XIIII_PLATE_BREASTPLATE,
-                PLACKART, DARK_PLACKART, GOLDEN_PLACKART,
-                TASSETS, DARK_TASSETS, GOLDEN_TASSETS,
-                GAUNTLET, DARK_GAUNTLET, GOLDEN_GAUNTLET,
-                BRIGANDINE_HARNESS, DARK_BRIGANDINE_HARNESS, GOLDEN_BRIGANDINE_HARNESS,
-                PLATE_HARNESS, DARK_PLATE_HARNESS, GOLDEN_PLATE_HARNESS,
-                AVENTAIL,
-                CLOAK, TORN_CLOAK
-        );
-
-        registerAttachments(EquipmentSlot.LEGS,
-                BRIGANDINE_CUISSES, DARK_BRIGANDINE_CUISSES, GOLDEN_BRIGANDINE_CUISSES,
-                PLATE_CUISSES, DARK_PLATE_CUISSES, GOLDEN_PLATE_CUISSES,
-                GREAVES, DARK_GREAVES, GOLDEN_GREAVES
-        );
-
-        registerAttachments(EquipmentSlot.FEET,
-                SABATONS, DARK_SABATONS, GOLDEN_SABATONS
-        );
-
-        registerAttachments(EquipmentSlot.HEAD,
-                HOOD, TORN_HOOD, JESTER_HOOD, HELMET_HOOD, HELMET_TORN_HOOD,
-                CHAPERON, GILDED_CHAPERON
-        );
-        registerAttachments(EquipmentSlot.CHEST,
-                LEATHER_GLOVES, MAIL_GLOVES,
-                SURCOAT, SURCOAT_SLEEVELESS, CIVILIAN_SURCOAT, GIORNEA
-        );
-    }
-
-    @SafeVarargs
-    static void registerAttachments(EquipmentSlot slot, Supplier<? extends Item>... attachments) {
-        for (Supplier<? extends Item> attachment : attachments) {
-            SCMobGearRegistry.registerAttachment(slot, attachment, allowedMobs);
-        }
     }
 }

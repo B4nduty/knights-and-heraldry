@@ -1,6 +1,7 @@
 package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.datagen.*;
+import banduty.stoneycore.datagen.MobGearDataProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -15,5 +16,6 @@ public class KnightsHeraldryFabricDatagen implements DataGeneratorEntrypoint {
         pack.addProvider((FabricDataGenerator.Pack.Factory<ModAttachmentDefinitionsProvider>) ModAttachmentDefinitionsProvider::new);
         pack.addProvider((FabricDataGenerator.Pack.Factory<ModArmorDefinitionsProvider>) ModArmorDefinitionsProvider::new);
         pack.addProvider((FabricDataGenerator.Pack.Factory<ModWeaponDefinitionsProvider>) ModWeaponDefinitionsProvider::new);
+        pack.addProvider((FabricDataGenerator.Pack.Factory<MobGearDataProvider>) KHMobGearProvider::new);
     }
 }

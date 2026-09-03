@@ -26,5 +26,6 @@ public class KnightsHeraldryNeoForgeDatagen {
         generator.addProvider(event.includeServer(), new ModAttachmentDefinitionsProvider(packOutput));
         generator.addProvider(event.includeServer(), new ModArmorDefinitionsProvider(packOutput));
         generator.addProvider(event.includeServer(), new ModWeaponDefinitionsProvider(packOutput));
+        generator.addProvider(event.includeServer(), new KHMobGearProvider(packOutput));
     }
 }
