@@ -64,10 +64,6 @@ public class Craftman extends AbstractVillager {
         this.entityData.set(DATA_VILLAGER_DATA, data);
     }
 
-    /**
-     * XP required (cumulative) to reach the next level, indexed by (currentLevel - 1).
-     * Mirrors vanilla villager progression: level 1->2 needs 10, 2->3 needs 70, 3->4 needs 150, 4->5 needs 250.
-     */
     private static final int[] NEXT_LEVEL_XP_THRESHOLD = {10, 70, 150, 250};
     private static final int MAX_LEVEL = 5;
 
@@ -93,6 +89,8 @@ public class Craftman extends AbstractVillager {
                         .orElse(Biomes.PLAINS.location());
 
                 setCraftmanData(new CraftmanData(biomeLoc, current.level(), current.xp()));
+                this.updateTrades();
+            } else if (this.getOffers().isEmpty()) {
                 this.updateTrades();
             }
         }
