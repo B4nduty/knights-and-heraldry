@@ -21,14 +21,18 @@ import banduty.knightsheraldry.items.item.khweapon.*;
 import banduty.knightsheraldry.items.item.khweapon.flail.Flail;
 import banduty.knightsheraldry.platform.Services;
 import banduty.stoneycore.combat.damagetype.SCDamageType;
+import banduty.stoneycore.data.SCDataComponents;
+import banduty.stoneycore.items.custom.Manuscript;
 import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import banduty.stoneycore.items.custom.hotiron.HotIron;
-import banduty.stoneycore.items.custom.Manuscript;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.joml.Vector3f;
 
@@ -409,9 +413,9 @@ public interface KHItems {
             () -> new KHAragoneseSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
 
     Supplier<Item> LEATHER_GLOVES = registerItem("leather_gloves",
-            () -> new KHGlove(new Item.Properties().stacksTo(1).durability(90), 0xFFA06440, Ingredient.of(Items.LEATHER)));
+            () -> new KHGlove(new Item.Properties().stacksTo(1).durability(90), 0xFFA06440, Ingredient.of(Items.LEATHER), false));
     Supplier<Item> MAIL_GLOVES = registerItem("mail_gloves",
-            () -> new KHGlove(new Item.Properties().stacksTo(1).durability(100), Ingredient.of(Items.IRON_INGOT)));
+            () -> new KHGlove(new Item.Properties().stacksTo(1).durability(100), Ingredient.of(Items.IRON_INGOT), false));
 
     Supplier<Item> GAUNTLET = registerItem("gauntlet",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT)));
@@ -629,29 +633,29 @@ public interface KHItems {
     Supplier<Item> SPEAR_HEAD = registerItem("spear_head", () -> new HotIron(new Item.Properties(), false));
     Supplier<Item> PITCHFORK_HEAD = registerItem("pitchfork_head", () -> new HotIron(new Item.Properties(), false));
 
-    Supplier<Item> BARBUTE_PIECE = registerItem("barbute_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> BASCINET_PIECE = registerItem("bascinet_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> KETTLE_PIECE = registerItem("kettle_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> NASAL_PIECE = registerItem("nasal_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> BURGONET_PIECE = registerItem("burgonet_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> SALLET_PIECE = registerItem("sallet_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> MORION_PIECE = registerItem("morion_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> ARMET_PIECE = registerItem("armet_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> CAGE_PIECE = registerItem("cage_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> GREAT_HELMET_PIECE = registerItem("great_helmet_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> CLOSE_HELMET_PIECE = registerItem("close_helmet_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> FROGMOUTH_PIECE = registerItem("frogmouth_piece", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> MAXIMILIAN_PIECE = registerItem("maximilian_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> BARBUTE_PIECE = registerItem("barbute_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> BASCINET_PIECE = registerItem("bascinet_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> KETTLE_PIECE = registerItem("kettle_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> NASAL_PIECE = registerItem("nasal_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> BURGONET_PIECE = registerItem("burgonet_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> SALLET_PIECE = registerItem("sallet_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> MORION_PIECE = registerItem("morion_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> ARMET_PIECE = registerItem("armet_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> CAGE_PIECE = registerItem("cage_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> GREAT_HELMET_PIECE = registerItem("great_helmet_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> CLOSE_HELMET_PIECE = registerItem("close_helmet_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> FROGMOUTH_PIECE = registerItem("frogmouth_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> MAXIMILIAN_PIECE = registerItem("maximilian_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
 
-    Supplier<Item> VISOR = registerItem("visor", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> FALLING_BUFFE = registerItem("falling_buffe", () -> new HotIron(new Item.Properties(), true));
-    Supplier<Item> BEVOR = registerItem("bevor", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> VISOR = registerItem("visor", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> FALLING_BUFFE = registerItem("falling_buffe", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+    Supplier<Item> BEVOR = registerItem("bevor", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
 
-    Supplier<Item> CUIRASS_PIECE = registerItem("cuirass_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> CUIRASS_PIECE = registerItem("cuirass_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
 
-    Supplier<Item> SPAULDERS_PIECE = registerItem("spaulders_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> SPAULDERS_PIECE = registerItem("spaulders_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
 
-    Supplier<Item> HARNESS_PIECE = registerItem("harness_piece", () -> new HotIron(new Item.Properties(), true));
+    Supplier<Item> HARNESS_PIECE = registerItem("harness_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
 
     static Supplier<Item> sword(String id, float attackSpeed, int durability) {
         return registerItem(id, () -> new Sword3dItem(ModToolMaterials.WEAPONS,

@@ -3,7 +3,6 @@ package banduty.knightsheraldry.datagen;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.datagen.NeoForgeModelProviderPlus;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -64,21 +63,6 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.MANUSCRIPT_BODKIN.get(),
                 KHItems.MANUSCRIPT_BROADHEAD.get(),
                 KHItems.MANUSCRIPT_CLOTH.get(),
-
-                KHItems.DAGGER_HEAD.get(),
-                KHItems.STILETTO_HEAD.get(),
-                KHItems.SWORD_HEAD.get(),
-                KHItems.FALCHION_HEAD.get(),
-                KHItems.RAPIER_HEAD.get(),
-                KHItems.AXE_HEAD.get(),
-                KHItems.HAMMER_HEAD.get(),
-                KHItems.MACE_HEAD.get(),
-                KHItems.HALBERD_HEAD.get(),
-                KHItems.BILLHOOK_HEAD.get(),
-                KHItems.LONGSWORD_HEAD.get(),
-                KHItems.GREATSWORD_HEAD.get(),
-                KHItems.SPEAR_HEAD.get(),
-                KHItems.PITCHFORK_HEAD.get(),
 
                 KHItems.BARBUTE_PIECE.get(),
                 KHItems.BASCINET_PIECE.get(),
@@ -235,18 +219,31 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.GREAT_HELM_2.get(), KHItems.DARK_GREAT_HELM_2.get(), KHItems.GOLDEN_GREAT_HELM_2.get()
         };
         for (Item item : simpleArmor) simpleItem(item);
+
+        Item[] toolHeads = {KHItems.DAGGER_HEAD.get(),
+                KHItems.STILETTO_HEAD.get(),
+                KHItems.SWORD_HEAD.get(),
+                KHItems.FALCHION_HEAD.get(),
+                KHItems.RAPIER_HEAD.get(),
+                KHItems.AXE_HEAD.get(),
+                KHItems.HAMMER_HEAD.get(),
+                KHItems.MACE_HEAD.get(),
+                KHItems.HALBERD_HEAD.get(),
+                KHItems.BILLHOOK_HEAD.get(),
+                KHItems.LONGSWORD_HEAD.get(),
+                KHItems.GREATSWORD_HEAD.get(),
+                KHItems.SPEAR_HEAD.get(),
+                KHItems.PITCHFORK_HEAD.get()
+        };
+        for (Item item : toolHeads) registerItemWConditions(item);
+
     }
 
     private void dyeableItem(Item item) {
-        String path = BuiltInRegistries.ITEM.getKey(item).getPath();
-        withExistingParent(path, "item/generated")
-                .texture("layer0", modLoc("item/" + path))
-                .texture("layer1", modLoc("item/" + path + "_overlay"));
+        registerItemWConditions(item, false, true);
     }
 
     private void simpleItem(Item item) {
-        String path = BuiltInRegistries.ITEM.getKey(item).getPath();
-        withExistingParent(path, "item/generated")
-                .texture("layer0", modLoc("item/" + path));
+        registerItemWConditions(item);
     }
 }

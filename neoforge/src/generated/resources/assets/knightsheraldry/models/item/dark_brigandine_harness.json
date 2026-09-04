@@ -1,5 +1,13 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "minecraft:item/handheld",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/dark_brigandine_harness_ignited",
+      "predicate": {
+        "stoneycore:ignited": 1.0
+      }
+    }
+  ],
   "textures": {
     "layer0": "knightsheraldry:item/dark_brigandine_harness",
     "layer1": "knightsheraldry:item/dark_brigandine_harness_overlay"

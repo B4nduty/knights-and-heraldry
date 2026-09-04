@@ -32,9 +32,7 @@ public class KnightsHeraldryNeoForgeClient {
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             for (Item item : BuiltInRegistries.ITEM) {
-                if (BuiltInRegistries.ITEM.getKey(item).getNamespace().equals(KnightsHeraldry.MOD_ID)) {
-                    ModModelPredicates.registerModelPredicates(item);
-                }
+                ModModelPredicates.registerModelPredicates(item);
             }
         });
     }

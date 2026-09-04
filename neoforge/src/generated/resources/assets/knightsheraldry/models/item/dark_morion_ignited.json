@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "knightsheraldry:item/mail_gloves_ignited"
+    "layer0": "knightsheraldry:item/dark_morion_ignited"
   }
 }

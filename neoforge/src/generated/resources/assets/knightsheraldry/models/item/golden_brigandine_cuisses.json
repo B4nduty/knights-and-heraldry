@@ -1,5 +1,13 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "minecraft:item/handheld",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/golden_brigandine_cuisses_ignited",
+      "predicate": {
+        "stoneycore:ignited": 1.0
+      }
+    }
+  ],
   "textures": {
     "layer0": "knightsheraldry:item/golden_brigandine_cuisses",
     "layer1": "knightsheraldry:item/golden_brigandine_cuisses_overlay"

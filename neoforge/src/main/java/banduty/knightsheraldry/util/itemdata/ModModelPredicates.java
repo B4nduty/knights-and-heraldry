@@ -3,9 +3,9 @@ package banduty.knightsheraldry.util.itemdata;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
+import banduty.stoneycore.combat.weapon.SCRangeWeaponUtil;
 import banduty.stoneycore.data.SCDataComponents;
 import banduty.stoneycore.definitions.WeaponDefinitionsStorage;
-import banduty.stoneycore.combat.weapon.SCRangeWeaponUtil;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -14,7 +14,6 @@ import net.minecraft.world.item.Item;
 import java.util.Objects;
 
 public class ModModelPredicates {
-
     public static void registerModelPredicates(Item item) {
         registerEasterEggPredicates(item);
         registerArmorPredicates(item);
@@ -97,7 +96,7 @@ public class ModModelPredicates {
     private static void registerArmorPredicates(Item item) {
         ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"),
                 (stack, world, entity, seed) ->
-                        Boolean.TRUE.equals(stack.get(SCDataComponents.VISOR_OPEN.get())) ? 1.0F : 0.0F);
+                        stack.getOrDefault(SCDataComponents.VISOR_OPEN.get(), false) ? 1.0F : 0.0F);
     }
 
     private static void registerWeaponPredicates(Item item) {
@@ -109,9 +108,12 @@ public class ModModelPredicates {
                         Boolean.TRUE.equals(stack.get(SCDataComponents.BLUDGEONING.get())) ? 1.0F : 0.0F);
         ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "ignited"),
                 (stack, world, entity, seed) ->
-                        Boolean.TRUE.equals(stack.get(SCDataComponents.IGNITED.get())) ? 1.0F : 0.0F);
+                        Boolean.TRUE.equals(stack.get(SCDataComponents.ARROW_IGNITED.get())) ? 1.0F : 0.0F);
         ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "extinguished"),
                 (stack, world, entity, seed) ->
                         Boolean.TRUE.equals(stack.get(KHDataComponents.EXTINGUISHED.get())) ? 1.0F : 0.0F);
+        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "throwing"),
+                (stack, world, entity, seed) -> entity != null
+                        && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
     }
 }

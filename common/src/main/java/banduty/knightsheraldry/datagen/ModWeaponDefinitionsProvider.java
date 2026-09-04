@@ -19,8 +19,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
     protected void generateDefinitions(WeaponConsumer consumer) {
         // Melee
         consumer.accept(KHItems.DAGGER.get(),
-                Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+                Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(5f, 3f)
                                 .bludgeoningDamage()
                                 .piercingDamage(3f, 2f)
@@ -30,8 +30,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build()
         );
         consumer.accept(KHItems.STILETTO.get(),
-                Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+                Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
                                 .piercingDamage(4.0f, 6.0f)
@@ -40,8 +40,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build()
         );
         consumer.accept(KHItems.RAPIER.get(),
-                Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+                Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
                                 .piercingDamage(5.0f, 8.0f)
@@ -49,8 +49,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
 
                 ).build()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(5.0f, 8.0f, 4.0f)
                                 .bludgeoningDamage(4.0f, 7.0f, 3.0f)
                                 .piercingDamage(4.0f, 7.0f, 3.0f)
@@ -61,8 +61,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(0, 2.0f, 9.0f, 7.0f)
                                 .bludgeoningDamage()
                                 .piercingDamage()
@@ -71,8 +71,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage(0, 2.0f, 9.0f, 7.0f)
                                 .piercingDamage()
@@ -81,8 +81,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.MACE.get(), KHItems.SPIKED_MACE.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage(0.0f, 5.0f, 10.0f, 1.0f)
                                 .piercingDamage()
@@ -91,8 +91,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage(0.0f, 3.0f, 15.0f)
                                 .piercingDamage(0.0f, 1.0f, 13.0f)
@@ -101,8 +101,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(7.0f, 11.0f, 5.0f)
                                 .bludgeoningDamage(5.0f, 7.5f, 3f)
                                 .piercingDamage(4.0f, 6.0f, 2.0f)
@@ -113,8 +113,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(6.0f, 9.0f, 3.0f)
                                 .bludgeoningDamage()
                                 .piercingDamage()
@@ -123,8 +123,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.FALCHION.get(), KHItems.SCIMITAR.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 3.0f, 11.0f, 7.0f)
@@ -133,8 +133,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.PITCHFORK.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 2.0f, 9.0f, 8.0f)
@@ -143,8 +143,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.SPEAR.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 6.0f, 9.0f, 8.0f)
@@ -153,8 +153,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.PIKE.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(0.0f, 5.0f, 8.0f, 2.5f)
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 6.5f, 10.0f, 3.0f)
@@ -165,8 +165,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.BILLHOOK.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(0.0f, 6.5f, 10.0f, 3.0f)
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 5.0f, 8.0f, 2.5f)
@@ -177,8 +177,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(0.0f, 7.0f, 8.0f, 3.0f)
                                 .bludgeoningDamage(0.0f, 4.0f, 6.0f, 4.0f)
                                 .piercingDamage(0.0f, 7.0f, 8.0f, 3.0f)
@@ -189,8 +189,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.HALBERD.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(0.0f, 6.5f, 10.0f, 3.0f)
                                 .bludgeoningDamage(0.0f, 5.0f, 7.5f, 2.5f)
                                 .piercingDamage(0.0f, 4.0f, 6.0f, 2.0f)
@@ -201,8 +201,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.POLEAXE.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage(0.0f, 7.0f, 10.5f, 3.5f)
                                 .piercingDamage(0.0f, 5.0f, 7.5f, 2.5f)
@@ -211,8 +211,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage(0.0f, 6.0f, 13.0f, 6.0f)
                                 .piercingDamage()
@@ -221,8 +221,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.MORNING_STAR.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(0.0f, 6.0f, 13.0f, 6.0f)
                                 .bludgeoningDamage()
                                 .piercingDamage()
@@ -231,8 +231,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.BARDICHE.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(11.0f, 13.0f, 9.0f)
                                 .bludgeoningDamage()
                                 .piercingDamage(9.0f, 11.0f, 7.0f)
@@ -244,8 +244,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get()
         );
-        consumer.accept(Weapon.Builder.create().melee(
-                        Weapon.MeleeBuilder.create()
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 6.0f, 5.0f)
@@ -256,8 +256,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         );
 
         // Ranged Weapon
-        consumer.accept(Weapon.Builder.create().ranged(
-                        Weapon.RangedBuilder.create("bow")
+        consumer.accept(Builder.create().ranged(
+                        RangedBuilder.create("bow")
                                 .projectile(14, SCDamageType.PIERCING, 3.7f, 1)
                                 .maxUseTime(72000)
                                 .rechargeTime(60)
@@ -268,8 +268,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.LONGBOW.get()
         );
-        consumer.accept(Weapon.Builder.create().ranged(
-                        Weapon.RangedBuilder.create("crossbow")
+        consumer.accept(Builder.create().ranged(
+                        RangedBuilder.create("crossbow")
                                 .projectile(16, SCDamageType.PIERCING, 4f, 1)
                                 .maxUseTime(72000)
                                 .rechargeTime(100)
@@ -280,8 +280,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.HEAVY_CROSSBOW.get()
         );
-        consumer.accept(Weapon.Builder.create().ranged(
-                        Weapon.RangedBuilder.create("musket")
+        consumer.accept(Builder.create().ranged(
+                        RangedBuilder.create("musket")
                                 .projectile(21, SCDamageType.BLUDGEONING, 5.9f, 2)
                                 .maxUseTime(1)
                                 .rechargeTime(300)
@@ -295,7 +295,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.ARQUEBUS.get()
         );
-        consumer.accept(Weapon.Builder.create().ranged(
+        consumer.accept(Builder.create().ranged(
                         RangedBuilder.create("musket")
                                 .projectile(26, SCDamageType.BLUDGEONING, 4.3f, 2.5f)
                                 .maxUseTime(1)
@@ -312,7 +312,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         );
 
         // Weapons
-        consumer.accept(Weapon.Builder.create().ammo(-0.2).build(), KHItems.BODKIN_ARROW.get());
-        consumer.accept(Weapon.Builder.create().ammo(0.05).build(), KHItems.SWALLOWTAIL_ARROW.get());
+        consumer.accept(Builder.create().ammo(-0.2).build(), KHItems.BODKIN_ARROW.get());
+        consumer.accept(Builder.create().ammo(0.05).build(), KHItems.SWALLOWTAIL_ARROW.get());
     }
 }
