@@ -6,21 +6,21 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 public class KHGlove extends KHChestplateAttachment {
 
-    private final boolean canBeIgnited;
+    private final boolean destroysOnQuench;
 
     // Default: true
     public KHGlove(Properties properties, Ingredient ingredient) {
-        this(properties, ingredient, true);
+        this(properties, ingredient, false);
     }
 
-    // Explicit canBeIgnited
+    // Explicit destroysOnQuench
     public KHGlove(
             Properties properties,
             Ingredient ingredient,
-            boolean canBeIgnited
+            boolean destroysOnQuench
     ) {
         super(properties, ingredient);
-        this.canBeIgnited = canBeIgnited;
+        this.destroysOnQuench = destroysOnQuench;
     }
 
     // Default: true
@@ -32,15 +32,15 @@ public class KHGlove extends KHChestplateAttachment {
         this(properties, defaultColor, ingredient, true);
     }
 
-    // Explicit canBeIgnited
+    // Explicit destroysOnQuench
     public KHGlove(
             Properties properties,
             int defaultColor,
             Ingredient ingredient,
-            boolean canBeIgnited
+            boolean destroysOnQuench
     ) {
         super(properties, defaultColor, ingredient);
-        this.canBeIgnited = canBeIgnited;
+        this.destroysOnQuench = destroysOnQuench;
     }
 
     // Default: true
@@ -53,26 +53,21 @@ public class KHGlove extends KHChestplateAttachment {
         this(properties, overlay, defaultColor, ingredient, true);
     }
 
-    // Explicit canBeIgnited
+    // Explicit destroysOnQuench
     public KHGlove(
             Properties properties,
             boolean overlay,
             int defaultColor,
             Ingredient ingredient,
-            boolean canBeIgnited
+            boolean destroysOnQuench
     ) {
         super(properties, overlay, defaultColor, ingredient);
-        this.canBeIgnited = canBeIgnited;
-    }
-
-    @Override
-    public boolean canBeIgnited() {
-        return canBeIgnited;
+        this.destroysOnQuench = destroysOnQuench;
     }
 
     @Override
     public boolean destroysOnQuench() {
-        return !canBeIgnited;
+        return destroysOnQuench;
     }
 
     @Override
