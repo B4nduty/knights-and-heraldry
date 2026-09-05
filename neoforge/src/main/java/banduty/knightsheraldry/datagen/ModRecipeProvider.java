@@ -2,6 +2,7 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.items.armor.ArmorVariant;
 import banduty.stoneycore.datagen.CraftmanAnvilRecipeJsonBuilder;
 import banduty.stoneycore.items.SCItems;
 import banduty.stoneycore.data.SCDataComponents;
@@ -441,33 +442,33 @@ public class ModRecipeProvider extends RecipeProvider {
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BRIGANDINE_SPAULDERS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(Items.LEATHER));
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.PLATE_SPAULDERS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(SCItems.HOT_IRON.get()));
 
-        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.GOLDEN_MAIL_SPAULDERS.get(), unfinished(new ItemStack(KHItems.MAIL_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
-        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), unfinished(new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
-        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.GOLDEN_PLATE_SPAULDERS.get(), unfinished(new ItemStack(KHItems.PLATE_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
+        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.MAIL_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
+        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
+        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.PLATE_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
 
-        createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.DARK_BRIGANDINE_SPAULDERS.get(), unfinished(new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get())), new ItemStack(Items.HONEYCOMB, 4));
-        createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.DARK_PLATE_SPAULDERS.get(), unfinished(new ItemStack(KHItems.PLATE_SPAULDERS.get())), new ItemStack(Items.HONEYCOMB, 4));
+        createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get())), new ItemStack(Items.HONEYCOMB, 4));
+        createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.PLATE_SPAULDERS.get())), new ItemStack(Items.HONEYCOMB, 4));
 
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.MAIL_SPAULDERS_BESAGEWS.get(), KHItems.MAIL_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_MAIL_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.BRIGANDINE_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS_BESAGEWS.get(), KHItems.PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.DARK_PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.GOLDEN_PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS_RIMMED.get(), KHItems.PLATE_SPAULDERS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.DARK_PLATE_SPAULDERS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get(), KHItems.GOLDEN_PLATE_SPAULDERS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.GOLDEN_PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.PLATE_SPAULDERS_BESAGEWS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.PLATE_SPAULDERS_RIMMED.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.DARK_PLATE_SPAULDERS_RIMMED.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get(), KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.MAIL_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), KHItems.MAIL_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), KHItems.BRIGANDINE_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get(), KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.DARK).get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), KHItems.PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK).get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK).get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK).get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), KHItems.RIM_GUARDS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.RIMMED).get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.RIMMED).get(), KHItems.BESAGEWS.get());
+        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.RIMMED).get(), KHItems.BESAGEWS.get());
 
         // Harness Piece
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.HARNESS_PIECE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_HARNESS.get()));

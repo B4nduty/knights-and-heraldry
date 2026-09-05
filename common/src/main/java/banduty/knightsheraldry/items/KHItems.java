@@ -6,6 +6,9 @@ import banduty.knightsheraldry.entity.custom.KHBodkinArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHBroadheadArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHClothArrowEntity;
 import banduty.knightsheraldry.entity.custom.KHSwallowTailArrowEntity;
+import banduty.knightsheraldry.items.armor.ArmorFamily;
+import banduty.knightsheraldry.items.armor.ArmorVariant;
+import banduty.knightsheraldry.items.armor.VariantCombo;
 import banduty.knightsheraldry.items.armor.attachment.*;
 import banduty.knightsheraldry.items.armor.deco.DecoBurnableItem;
 import banduty.knightsheraldry.items.armor.deco.DecoItem;
@@ -17,6 +20,7 @@ import banduty.knightsheraldry.items.item.khammo.ClothArrow;
 import banduty.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
+import banduty.knightsheraldry.items.item.khrangeweapon.Longbow;
 import banduty.knightsheraldry.items.item.khweapon.*;
 import banduty.knightsheraldry.items.item.khweapon.flail.Flail;
 import banduty.knightsheraldry.platform.Services;
@@ -36,6 +40,10 @@ import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.joml.Vector3f;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
 public interface KHItems {
@@ -132,50 +140,20 @@ public interface KHItems {
     Supplier<Item> ARMING_HOSE = registerItem("arming_hose",
             () -> new SCDyeableUnderArmor(ModArmorMaterials.ARMING, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(896), 0xFFA06440));
 
-    Supplier<Item> MAIL_SPAULDERS = registerItem("mail_spaulders",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(96), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> MAIL_SPAULDERS_BESAGEWS = registerItem("mail_spaulders_besagews",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(96), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_MAIL_SPAULDERS = registerItem("golden_mail_spaulders",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(115), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> GOLDEN_MAIL_SPAULDERS_BESAGEWS = registerItem("golden_mail_spaulders_besagews",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(115), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> BRIGANDINE_SPAULDERS = registerItem("brigandine_spaulders",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(109), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
-    Supplier<Item> BRIGANDINE_SPAULDERS_BESAGEWS = registerItem("brigandine_spaulders_besagews",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(109), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
-    Supplier<Item> DARK_BRIGANDINE_SPAULDERS = registerItem("dark_brigandine_spaulders",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(120), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
-    Supplier<Item> DARK_BRIGANDINE_SPAULDERS_BESAGEWS = registerItem("dark_brigandine_spaulders_besagews",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(120), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
-    Supplier<Item> GOLDEN_BRIGANDINE_SPAULDERS = registerItem("golden_brigandine_spaulders",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(131), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER)));
-    Supplier<Item> GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS = registerItem("golden_brigandine_spaulders_besagews",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(131), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER)));
-    Supplier<Item> PLATE_SPAULDERS = registerItem("plate_spaulders",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> PLATE_SPAULDERS_BESAGEWS = registerItem("plate_spaulders_besagews",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> PLATE_SPAULDERS_RIMMED = registerItem("plate_spaulders_rimmed",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> PLATE_SPAULDERS_BESAGEWS_RIMMED = registerItem("plate_spaulders_besagews_rimmed",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(172), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_PLATE_SPAULDERS = registerItem("dark_plate_spaulders",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_PLATE_SPAULDERS_BESAGEWS = registerItem("dark_plate_spaulders_besagews",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_PLATE_SPAULDERS_RIMMED = registerItem("dark_plate_spaulders_rimmed",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED = registerItem("dark_plate_spaulders_besagews_rimmed",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(189), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_PLATE_SPAULDERS = registerItem("golden_plate_spaulders",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> GOLDEN_PLATE_SPAULDERS_BESAGEWS = registerItem("golden_plate_spaulders_besagews",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> GOLDEN_PLATE_SPAULDERS_RIMMED = registerItem("golden_plate_spaulders_rimmed",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED = registerItem("golden_plate_spaulders_besagews_rimmed",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(206), Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily MAIL_SPAULDERS = attachmentFamily("mail_spaulders", 96, KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.GOLDEN}, ArmorVariant.BESAGEWS);
+    ArmorFamily BRIGANDINE_SPAULDERS = attachmentFamily(
+            "brigandine_spaulders", 109,
+            (props, ingredient) -> new KHChestplateAttachment(props, true, 0xFFA06440, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN},
+            ArmorVariant.BESAGEWS
+    );
+    ArmorFamily PLATE_SPAULDERS = attachmentFamily(
+            "plate_spaulders", 172,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN},
+            ArmorVariant.BESAGEWS, ArmorVariant.RIMMED
+    );
 
     Supplier<Item> BRIGANDINE = registerItem("brigandine",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(423), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
@@ -496,7 +474,7 @@ public interface KHItems {
             () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET, new Vector3f(0f, -6f, 0f)));
 
     Supplier<Item> LONGBOW = registerItem("longbow",
-            () -> new Item(new Item.Properties().stacksTo(1).durability(666)));
+            () -> new Longbow(new Item.Properties().stacksTo(1).durability(666)));
 
     Supplier<Item> HEAVY_CROSSBOW = registerItem("heavy_crossbow",
             () -> new HeavyCrossbow(new Item.Properties().stacksTo(1).durability(666)));
@@ -685,6 +663,32 @@ public interface KHItems {
 
     static Supplier<Item> deco(String id) {
         return registerItem(id, () -> new DecoBurnableItem(new Item.Properties().stacksTo(1)));
+    }
+
+    static ArmorFamily attachmentFamily(
+            String baseName,
+            int baseDurability,
+            BiFunction<Item.Properties, Ingredient, Item> factory,
+            ArmorVariant[] tiers,
+            ArmorVariant... structuralToggles) {
+
+        Map<VariantCombo, Supplier<Item>> map = new HashMap<>();
+        for (ArmorVariant tier : tiers) {
+            for (List<ArmorVariant> structural : ArmorVariant.powerSet(List.of(structuralToggles))) {
+
+                String id = tier.id(baseName);
+                int durability = tier.durability(baseDurability);
+                for (ArmorVariant modifier : structural) {
+                    id = modifier.id(id);
+                    durability = modifier.durability(durability);
+                }
+
+                Item.Properties props = new Item.Properties().stacksTo(1).durability(durability);
+                map.put(new VariantCombo(tier, structural),
+                        registerItem(id, () -> factory.apply(props, tier.ingredient())));
+            }
+        }
+        return new ArmorFamily(map, VariantCombo.of(tiers[0]));
     }
 
     private static Supplier<Item> registerItem(String name, Supplier<Item> itemSupplier) {

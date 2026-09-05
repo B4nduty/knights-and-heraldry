@@ -2,12 +2,16 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.items.armor.ArmorFamily;
+import banduty.knightsheraldry.items.armor.ArmorVariant;
+import banduty.knightsheraldry.items.armor.VariantCombo;
 import banduty.stoneycore.datagen.DefinitionsProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
@@ -38,30 +42,12 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
     // Maps using enhanced structure
     private static Map<Supplier<Item>, ArmorStats> createSpauldersMap() {
         Map<Supplier<Item>, ArmorStats> map = new HashMap<>();
-        map.put(KHItems.MAIL_SPAULDERS, new ArmorStats(1.0, 0.0, 2.5, 0.01, 0, 0, false, "chestplate"));
-        map.put(KHItems.MAIL_SPAULDERS_BESAGEWS, new ArmorStats(1.0, 1.0, 2.7, 0.02, 0, 0, false, "chestplate"));
-        map.put(KHItems.GOLDEN_MAIL_SPAULDERS, new ArmorStats(1.0, 0.0, 2.6, 0.01, 0, 0, false, "chestplate"));
-        map.put(KHItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS, new ArmorStats(1.0, 1.0, 2.8, 0.02, 0, 0, false, "chestplate"));
+        addFamily(map, KHItems.MAIL_SPAULDERS, new ArmorStats(1.0, 0.0, 2.5, 0.01, 0, 0, false, "chestplate"));
 
-        map.put(KHItems.BRIGANDINE_SPAULDERS, new ArmorStats(1.0, 1.0, 2.0, 0.0, 0, 0, false, "chestplate"));
-        map.put(KHItems.BRIGANDINE_SPAULDERS_BESAGEWS, new ArmorStats(1.0, 2.0, 2.2, 0.1, 0, 0, false, "chestplate"));
-        map.put(KHItems.DARK_BRIGANDINE_SPAULDERS, new ArmorStats(2.0, 1.0, 2.2, 0.0, 0, 0, false, "chestplate"));
-        map.put(KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS, new ArmorStats(2.0, 2.0, 2.4, 0.1, 0, 0, false, "chestplate"));
-        map.put(KHItems.GOLDEN_BRIGANDINE_SPAULDERS, new ArmorStats(1.0, 1.0, 2.1, 0.0, 0, 0, false, "chestplate"));
-        map.put(KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS, new ArmorStats(1.0, 2.0, 2.3, 0.1, 0, 0, false, "chestplate"));
+        addFamily(map, KHItems.BRIGANDINE_SPAULDERS, new ArmorStats(1.0, 1.0, 2.0, 0.0, 0, 0, false, "chestplate"));
 
-        map.put(KHItems.PLATE_SPAULDERS, new ArmorStats(2.0, 2.0, 3.0, 0.04, 0, 0, true, "chestplate"));
-        map.put(KHItems.PLATE_SPAULDERS_BESAGEWS, new ArmorStats(2.0, 3.0, 3.2, 0.05, 0, 0, true, "chestplate"));
-        map.put(KHItems.PLATE_SPAULDERS_RIMMED, new ArmorStats(3.0, 2.0, 3.2, 0.05, 0, 0, true, "chestplate"));
-        map.put(KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED, new ArmorStats(3.0, 3.0, 3.4, 0.06, 0, 0, true, "chestplate"));
-        map.put(KHItems.DARK_PLATE_SPAULDERS, new ArmorStats(3.0, 2.0, 3.3, 0.04, 0, 0, true, "chestplate"));
-        map.put(KHItems.DARK_PLATE_SPAULDERS_BESAGEWS, new ArmorStats(3.0, 3.0, 3.5, 0.05, 0, 0, true, "chestplate"));
-        map.put(KHItems.DARK_PLATE_SPAULDERS_RIMMED, new ArmorStats(4.0, 2.0, 3.5, 0.05, 0, 0, true, "chestplate"));
-        map.put(KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED, new ArmorStats(4.0, 3.0, 3.7, 0.06, 0, 0, true, "chestplate"));
-        map.put(KHItems.GOLDEN_PLATE_SPAULDERS, new ArmorStats(2.0, 2.0, 3.2, 0.04, 0, 0, true, "chestplate"));
-        map.put(KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS, new ArmorStats(2.0, 3.0, 3.4, 0.05, 0, 0, true, "chestplate"));
-        map.put(KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED, new ArmorStats(3.0, 2.0, 3.4, 0.05, 0, 0, true, "chestplate"));
-        map.put(KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED, new ArmorStats(3.0, 3.0, 3.6, 0.06, 0, 0, true, "chestplate"));
+        addFamily(map, KHItems.PLATE_SPAULDERS, new ArmorStats(2.0, 2.0, 3.0, 0.04, 0, 0, true, "chestplate"));
+
         return map;
     }
 
@@ -314,6 +300,36 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
             }
 
             consumer.accept(item.get(), builder.build());
+        }
+    }
+
+    private static void addFamily(Map<Supplier<Item>, ArmorStats> map,
+                                  ArmorFamily family,
+                                  ArmorStats base) {
+        for (Map.Entry<VariantCombo, Supplier<Item>> entry : family.combos().entrySet()) {
+            ArmorVariant tier = entry.getKey().tier();
+            List<ArmorVariant> structural = entry.getKey().structural();
+            Supplier<Item> item = entry.getValue();
+
+            double toughness = tier.toughness(base.toughness());
+            double weight = tier.weight(base.weight());
+            double armor = base.armor();
+            double deflect = base.deflectChance();
+            for (ArmorVariant modifier : structural) {
+                toughness = modifier.toughness(toughness);
+                weight = modifier.weight(weight);
+                armor = modifier.armor(armor);
+                deflect = modifier.deflect(deflect);
+            }
+
+            map.put(item, new ArmorStats(
+                    Math.round(toughness * 10.0) / 10.0,
+                    Math.round(armor * 10.0) / 10.0,
+                    Math.round(weight * 10.0) / 10.0,
+                    Math.round(deflect * 100.0) / 100.0,
+                    base.attackSpeed(), base.rechargeTime(), base.hasHungerDrain(), base.slot(),
+                    base.visorNamespace(), base.visorType()
+            ));
         }
     }
 }

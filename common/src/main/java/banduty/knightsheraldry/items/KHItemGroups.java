@@ -1,6 +1,7 @@
 package banduty.knightsheraldry.items;
 
 import banduty.knightsheraldry.KnightsHeraldry;
+import banduty.knightsheraldry.items.armor.ArmorVariant;
 import banduty.knightsheraldry.platform.Services;
 import banduty.stoneycore.items.custom.hotiron.QuenchItem;
 import banduty.stoneycore.items.itemgroup.SCItemGroup;
@@ -292,27 +293,27 @@ public interface KHItemGroups {
                     itemStack(KHItems.MAIL_SPAULDERS.get()),
                     itemStack(KHItems.BRIGANDINE_SPAULDERS.get()),
                     itemStack(KHItems.PLATE_SPAULDERS.get()),
-                    itemStack(KHItems.MAIL_SPAULDERS_BESAGEWS.get()),
-                    itemStack(KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get()),
-                    itemStack(KHItems.PLATE_SPAULDERS_BESAGEWS.get()),
-                    itemStack(KHItems.PLATE_SPAULDERS_RIMMED.get()),
-                    itemStack(KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED.get()),
+                    itemStack(KHItems.MAIL_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.RIMMED).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get()),
 
-                    itemStack(KHItems.DARK_BRIGANDINE_SPAULDERS.get()),
-                    itemStack(KHItems.DARK_PLATE_SPAULDERS.get()),
-                    itemStack(KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get()),
-                    itemStack(KHItems.DARK_PLATE_SPAULDERS_BESAGEWS.get()),
-                    itemStack(KHItems.DARK_PLATE_SPAULDERS_RIMMED.get()),
-                    itemStack(KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED.get()),
+                    itemStack(KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.DARK).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK).get()),
+                    itemStack(KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.RIMMED).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get()),
 
-                    itemStack(KHItems.GOLDEN_MAIL_SPAULDERS.get()),
-                    itemStack(KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get()),
-                    itemStack(KHItems.GOLDEN_PLATE_SPAULDERS.get()),
-                    itemStack(KHItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS.get()),
-                    itemStack(KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get()),
-                    itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS.get()),
-                    itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED.get()),
-                    itemStack(KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED.get()),
+                    itemStack(KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN).get()),
+                    itemStack(KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get()),
+                    itemStack(KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.RIMMED).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get()),
 
                     itemStack(KHItems.LEATHER_GLOVES.get()),
                     itemStack(KHItems.MAIL_GLOVES.get()),

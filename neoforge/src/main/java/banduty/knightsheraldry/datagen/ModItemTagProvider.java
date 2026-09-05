@@ -8,11 +8,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 public class ModItemTagProvider extends ItemTagsProvider {
     public ModItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
@@ -83,9 +86,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ItemTags.DYEABLE)
                 .add(KHItems.WOODEN_LANCE.get(), KHItems.QUILTED_COIF.get(), KHItems.GAMBESON.get(), KHItems.GAMBESON_BREECHES.get(),
                         KHItems.GAMBESON_BOOTS.get(), KHItems.ARMING_DOUBLET.get(), KHItems.ARMING_HOSE.get(),
-                        KHItems.BRIGANDINE_SPAULDERS.get(), KHItems.BRIGANDINE_SPAULDERS_BESAGEWS.get(),
-                        KHItems.DARK_BRIGANDINE_SPAULDERS.get(), KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS.get(),
-                        KHItems.GOLDEN_BRIGANDINE_SPAULDERS.get(), KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS.get(),
                         KHItems.BRIGANDINE.get(), KHItems.DARK_BRIGANDINE.get(), KHItems.GOLDEN_BRIGANDINE.get(),
                         KHItems.BRIGANDINE_HARNESS.get(), KHItems.DARK_BRIGANDINE_HARNESS.get(), KHItems.GOLDEN_BRIGANDINE_HARNESS.get(),
                         KHItems.BRIGANDINE_CUISSES.get(), KHItems.DARK_BRIGANDINE_CUISSES.get(), KHItems.GOLDEN_BRIGANDINE_CUISSES.get(),
@@ -95,7 +95,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         KHItems.PLUME.get(), KHItems.TRI_PLUME.get(), KHItems.FLUFFY_PLUME.get(),
                         KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get(),
                         KHItems.LEATHER_GLOVES.get(),
-                        KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get());
+                        KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get())
+                .add(itemArray(KHItems.BRIGANDINE_SPAULDERS.list()));
 
         tag(ModTags.DYES.getTag())
                 .add(
@@ -104,5 +105,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         Items.LIME_DYE, Items.MAGENTA_DYE, Items.PINK_DYE, Items.ORANGE_DYE,
                         Items.RED_DYE, Items.YELLOW_DYE, Items.WHITE_DYE, Items.PURPLE_DYE
                 );
+    }
+
+    private static Item[] itemArray(List<Supplier<Item>> suppliers) {
+        return suppliers.stream().map(Supplier::get).toArray(Item[]::new);
     }
 }

@@ -1,6 +1,7 @@
 package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.items.armor.ArmorFamily;
 import banduty.stoneycore.datagen.MobGearDataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -8,6 +9,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class KHMobGearProvider extends MobGearDataProvider {
     private static final List<ResourceLocation> ALLOWED_MOBS = mobs(
@@ -94,13 +96,13 @@ public class KHMobGearProvider extends MobGearDataProvider {
         );
 
         attachments(EquipmentSlot.CHEST, ALLOWED_MOBS,
-                KHItems.MAIL_SPAULDERS, KHItems.MAIL_SPAULDERS_BESAGEWS, KHItems.GOLDEN_MAIL_SPAULDERS, KHItems.GOLDEN_MAIL_SPAULDERS_BESAGEWS,
-                KHItems.BRIGANDINE_SPAULDERS, KHItems.BRIGANDINE_SPAULDERS_BESAGEWS,
-                KHItems.DARK_BRIGANDINE_SPAULDERS, KHItems.DARK_BRIGANDINE_SPAULDERS_BESAGEWS,
-                KHItems.GOLDEN_BRIGANDINE_SPAULDERS, KHItems.GOLDEN_BRIGANDINE_SPAULDERS_BESAGEWS,
-                KHItems.PLATE_SPAULDERS, KHItems.PLATE_SPAULDERS_BESAGEWS, KHItems.PLATE_SPAULDERS_RIMMED, KHItems.PLATE_SPAULDERS_BESAGEWS_RIMMED,
-                KHItems.DARK_PLATE_SPAULDERS, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS, KHItems.DARK_PLATE_SPAULDERS_RIMMED, KHItems.DARK_PLATE_SPAULDERS_BESAGEWS_RIMMED,
-                KHItems.GOLDEN_PLATE_SPAULDERS, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS, KHItems.GOLDEN_PLATE_SPAULDERS_RIMMED, KHItems.GOLDEN_PLATE_SPAULDERS_BESAGEWS_RIMMED,
+                ArmorFamily.allFamilies(
+                        KHItems.MAIL_SPAULDERS,
+                        KHItems.BRIGANDINE_SPAULDERS,
+                        KHItems.PLATE_SPAULDERS
+                ).toArray(new Supplier[0])
+        );
+        attachments(EquipmentSlot.CHEST, ALLOWED_MOBS,
                 KHItems.BRIGANDINE, KHItems.DARK_BRIGANDINE, KHItems.GOLDEN_BRIGANDINE,
                 KHItems.PLATE_CUIRASS, KHItems.DARK_PLATE_CUIRASS, KHItems.GOLDEN_PLATE_CUIRASS,
                 KHItems.MAXIMILLIAN_CUIRASS, KHItems.DARK_MAXIMILLIAN_CUIRASS, KHItems.GOLDEN_MAXIMILLIAN_CUIRASS,
