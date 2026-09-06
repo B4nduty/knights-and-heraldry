@@ -99,11 +99,11 @@ public class KHMobGearProvider extends MobGearDataProvider {
                 ArmorFamily.allFamilies(
                         KHItems.MAIL_SPAULDERS,
                         KHItems.BRIGANDINE_SPAULDERS,
-                        KHItems.PLATE_SPAULDERS
+                        KHItems.PLATE_SPAULDERS,
+                        KHItems.BRIGANDINE
                 ).toArray(new Supplier[0])
         );
         attachments(EquipmentSlot.CHEST, ALLOWED_MOBS,
-                KHItems.BRIGANDINE, KHItems.DARK_BRIGANDINE, KHItems.GOLDEN_BRIGANDINE,
                 KHItems.PLATE_CUIRASS, KHItems.DARK_PLATE_CUIRASS, KHItems.GOLDEN_PLATE_CUIRASS,
                 KHItems.MAXIMILLIAN_CUIRASS, KHItems.DARK_MAXIMILLIAN_CUIRASS, KHItems.GOLDEN_MAXIMILLIAN_CUIRASS,
                 KHItems.XIIII_PLATE_CUIRASS, KHItems.DARK_XIIII_PLATE_CUIRASS, KHItems.GOLDEN_XIIII_PLATE_CUIRASS,

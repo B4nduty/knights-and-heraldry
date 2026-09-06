@@ -1,0 +1,16 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "ingredients": [
+    {
+      "stack": {},
+      "tag": "minecraft:wool"
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:chaperon"
+  }
+}

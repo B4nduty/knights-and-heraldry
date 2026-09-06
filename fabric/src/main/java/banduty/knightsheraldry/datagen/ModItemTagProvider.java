@@ -67,7 +67,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.DYEABLE)
                 .add(KHItems.WOODEN_LANCE.get(), KHItems.QUILTED_COIF.get(), KHItems.GAMBESON.get(), KHItems.GAMBESON_BREECHES.get(),
                         KHItems.GAMBESON_BOOTS.get(), KHItems.ARMING_DOUBLET.get(), KHItems.ARMING_HOSE.get(),
-                        KHItems.BRIGANDINE.get(), KHItems.DARK_BRIGANDINE.get(), KHItems.GOLDEN_BRIGANDINE.get(),
                         KHItems.BRIGANDINE_HARNESS.get(), KHItems.DARK_BRIGANDINE_HARNESS.get(), KHItems.GOLDEN_BRIGANDINE_HARNESS.get(),
                         KHItems.BRIGANDINE_CUISSES.get(), KHItems.DARK_BRIGANDINE_CUISSES.get(), KHItems.GOLDEN_BRIGANDINE_CUISSES.get(),
                         KHItems.CLOAK.get(), KHItems.TORN_CLOAK.get(), KHItems.HOOD.get(), KHItems.TORN_HOOD.get(),
@@ -77,7 +76,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get(),
                         KHItems.LEATHER_GLOVES.get(),
                         KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get())
-                .add(itemArray(KHItems.BRIGANDINE_SPAULDERS.list()));
+                .add(itemArray(KHItems.BRIGANDINE_SPAULDERS.list()))
+                .add(itemArray(KHItems.BRIGANDINE.list()));
 
         getOrCreateTagBuilder(ModTags.DYES.getTag())
                 .add(Items.BLACK_DYE, Items.BLUE_DYE, Items.BROWN_DYE, Items.LIGHT_BLUE_DYE, Items.CYAN_DYE, Items.GRAY_DYE, Items.GREEN_DYE, Items.LIGHT_GRAY_DYE,

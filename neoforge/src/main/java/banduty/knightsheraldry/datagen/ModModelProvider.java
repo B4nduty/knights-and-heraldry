@@ -131,12 +131,13 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.JESTER_HOOD.get(), KHItems.HORSE_BARDING.get(), KHItems.DARK_HORSE_BARDING.get(),
                 KHItems.GOLDEN_HORSE_BARDING.get(), KHItems.GILDED_CHAPERON.get(), KHItems.GAMBESON.get(),
                 KHItems.ARMING_DOUBLET.get(), KHItems.ARMING_HOSE.get(),
-                KHItems.WOODEN_LANCE.get(), KHItems.BRIGANDINE.get(),
-                KHItems.DARK_BRIGANDINE.get(),
-                KHItems.GOLDEN_BRIGANDINE.get()
+                KHItems.WOODEN_LANCE.get()
         };
 
         for (Supplier<Item> item : KHItems.BRIGANDINE_SPAULDERS.list()) {
+            dyeableItem(item.get());
+        }
+        for (Supplier<Item> item : KHItems.BRIGANDINE.list()) {
             dyeableItem(item.get());
         }
         for (Item item : dyeable) dyeableItem(item);

@@ -195,10 +195,9 @@ public class ModModelProvider extends FabricModelProviderPlus {
         for (Supplier<Item> item : KHItems.BRIGANDINE_SPAULDERS.list()) {
             registerDyeableItems(item.get(), itemModelGenerators, registries);
         }
-
-        registerDyeableItems(KHItems.BRIGANDINE.get(), itemModelGenerators, registries);
-        registerDyeableItems(KHItems.DARK_BRIGANDINE.get(), itemModelGenerators, registries);
-        registerDyeableItems(KHItems.GOLDEN_BRIGANDINE.get(), itemModelGenerators, registries);
+        for (Supplier<Item> item : KHItems.BRIGANDINE.list()) {
+            registerDyeableItems(item.get(), itemModelGenerators, registries);
+        }
 
         registerItemWConditions(KHItems.LEATHER_GLOVES.get(), itemModelGenerators, registries);
     }

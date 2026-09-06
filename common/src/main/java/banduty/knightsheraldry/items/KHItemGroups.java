@@ -263,13 +263,13 @@ public interface KHItemGroups {
                     itemStack(KHItems.XIIII_PLATE_CUIRASS.get()),
                     itemStack(KHItems.XIIII_PLATE_BREASTPLATE.get()),
 
-                    itemStack(KHItems.DARK_BRIGANDINE.get()),
+                    itemStack(KHItems.BRIGANDINE.get(ArmorVariant.DARK).get()),
                     itemStack(KHItems.DARK_PLATE_CUIRASS.get()),
                     itemStack(KHItems.DARK_MAXIMILLIAN_CUIRASS.get()),
                     itemStack(KHItems.DARK_XIIII_PLATE_CUIRASS.get()),
                     itemStack(KHItems.DARK_XIIII_PLATE_BREASTPLATE.get()),
 
-                    itemStack(KHItems.GOLDEN_BRIGANDINE.get()),
+                    itemStack(KHItems.BRIGANDINE.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.GOLDEN_PLATE_CUIRASS.get()),
                     itemStack(KHItems.GOLDEN_MAXIMILLIAN_CUIRASS.get()),
                     itemStack(KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get()),

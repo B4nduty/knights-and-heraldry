@@ -53,9 +53,7 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
 
     private static Map<Supplier<Item>, ArmorStats> createChestplateMap() {
         Map<Supplier<Item>, ArmorStats> map = new HashMap<>();
-        map.put(KHItems.BRIGANDINE, new ArmorStats(1.0, 3.0, 6.0, 0.0, 0, 0, false, "chestplate"));
-        map.put(KHItems.DARK_BRIGANDINE, new ArmorStats(2.0, 3.0, 6.6, 0.0, 0, 0, false, "chestplate"));
-        map.put(KHItems.GOLDEN_BRIGANDINE, new ArmorStats(1.0, 3.0, 6.3, 0.0, 0, 0, false, "chestplate"));
+        addFamily(map, KHItems.BRIGANDINE, new ArmorStats(1.0, 3.0, 6.0, 0.0, 0, 0, false, "chestplate"));
 
         map.put(KHItems.PLATE_CUIRASS, new ArmorStats(2.0, 3.0, 8.0, 0.15, 0, 0, true, "chestplate"));
         map.put(KHItems.DARK_PLATE_CUIRASS, new ArmorStats(3.0, 3.0, 8.8, 0.15, 0, 0, true, "chestplate"));

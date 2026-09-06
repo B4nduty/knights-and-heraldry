@@ -1,6 +1,6 @@
-// 1.21.1	2026-09-05T23:36:58.796857826	Knights & Heraldry/Tags for minecraft:item
+// 1.21.1	2026-09-06T15:14:38.500055335	Knights & Heraldry/Tags for minecraft:item
 bae2dc6d8df52a378e2dde0846307654c55d4c5a data/stoneycore/tags/item/weapons_damage_behind.json
-1ca7e1872d60064c2f2b39fd80d0d4aa5439d59d data/minecraft/tags/item/dyeable.json
+4da00a12ea40a4d58c00823ffe5c571fa4560b27 data/minecraft/tags/item/dyeable.json
 05085ba4ddfe9d3ff5ecc203af6e6a9b76ebfd77 data/stoneycore/tags/item/hide_name_tag.json
 ae2d76abbda35283d0ffa5d5e6ceabd66d529e15 data/stoneycore/tags/item/weapons_disable_shield.json
 0d4207a5cfd3dfa0330a95e04ed4f1f04a10db58 data/stoneycore/tags/item/weapons_harvest.json

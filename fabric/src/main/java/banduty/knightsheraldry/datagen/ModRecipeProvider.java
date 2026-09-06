@@ -408,13 +408,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.XIIII_PLATE_CUIRASS.get(), unfinished(new ItemStack(KHItems.MAXIMILLIAN_CUIRASS.get())));
         createCraftmanAnvilRecipe(exporter, 3, 0.75f, KHItems.XIIII_PLATE_BREASTPLATE.get(), new ItemStack(KHItems.CUIRASS_PIECE.get()));
 
-        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.GOLDEN_BRIGANDINE.get(), unfinished(new ItemStack(KHItems.BRIGANDINE.get())), new ItemStack(Items.GOLD_INGOT, 4));
+        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.BRIGANDINE.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.BRIGANDINE.get())), new ItemStack(Items.GOLD_INGOT, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.GOLDEN_PLATE_CUIRASS.get(), unfinished(new ItemStack(KHItems.PLATE_CUIRASS.get())), new ItemStack(Items.GOLD_INGOT, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.GOLDEN_MAXIMILLIAN_CUIRASS.get(), unfinished(new ItemStack(KHItems.MAXIMILLIAN_CUIRASS.get())), new ItemStack(Items.GOLD_INGOT, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.GOLDEN_XIIII_PLATE_CUIRASS.get(), unfinished(new ItemStack(KHItems.XIIII_PLATE_CUIRASS.get())), new ItemStack(Items.GOLD_INGOT, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE.get(), unfinished(new ItemStack(KHItems.XIIII_PLATE_BREASTPLATE.get())), new ItemStack(Items.GOLD_INGOT, 4));
 
-        createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.DARK_BRIGANDINE.get(), unfinished(new ItemStack(KHItems.BRIGANDINE.get())), new ItemStack(Items.HONEYCOMB, 4));
+        createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.BRIGANDINE.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.BRIGANDINE.get())), new ItemStack(Items.HONEYCOMB, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.DARK_PLATE_CUIRASS.get(), unfinished(new ItemStack(KHItems.PLATE_CUIRASS.get())), new ItemStack(Items.HONEYCOMB, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.DARK_MAXIMILLIAN_CUIRASS.get(), unfinished(new ItemStack(KHItems.MAXIMILLIAN_CUIRASS.get())), new ItemStack(Items.HONEYCOMB, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.DARK_XIIII_PLATE_CUIRASS.get(), unfinished(new ItemStack(KHItems.XIIII_PLATE_CUIRASS.get())), new ItemStack(Items.HONEYCOMB, 4));

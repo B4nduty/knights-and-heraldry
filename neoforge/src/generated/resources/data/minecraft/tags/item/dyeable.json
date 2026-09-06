@@ -7,15 +7,6 @@
     "knightsheraldry:gambeson_boots",
     "knightsheraldry:arming_doublet",
     "knightsheraldry:arming_hose",
-    "knightsheraldry:brigandine_spaulders",
-    "knightsheraldry:brigandine_spaulders_besagews",
-    "knightsheraldry:dark_brigandine_spaulders",
-    "knightsheraldry:dark_brigandine_spaulders_besagews",
-    "knightsheraldry:golden_brigandine_spaulders",
-    "knightsheraldry:golden_brigandine_spaulders_besagews",
-    "knightsheraldry:brigandine",
-    "knightsheraldry:dark_brigandine",
-    "knightsheraldry:golden_brigandine",
     "knightsheraldry:brigandine_harness",
     "knightsheraldry:dark_brigandine_harness",
     "knightsheraldry:golden_brigandine_harness",
@@ -39,6 +30,15 @@
     "knightsheraldry:gilded_chaperon",
     "knightsheraldry:leather_gloves",
     "knightsheraldry:civilian_surcoat",
-    "knightsheraldry:giornea"
+    "knightsheraldry:giornea",
+    "knightsheraldry:brigandine_spaulders",
+    "knightsheraldry:brigandine_spaulders_besagews",
+    "knightsheraldry:dark_brigandine_spaulders",
+    "knightsheraldry:dark_brigandine_spaulders_besagews",
+    "knightsheraldry:golden_brigandine_spaulders",
+    "knightsheraldry:golden_brigandine_spaulders_besagews",
+    "knightsheraldry:brigandine",
+    "knightsheraldry:dark_brigandine",
+    "knightsheraldry:golden_brigandine"
   ]
 }

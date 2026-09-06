@@ -41,6 +41,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import org.joml.Vector3f;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
@@ -155,12 +156,11 @@ public interface KHItems {
             ArmorVariant.BESAGEWS, ArmorVariant.RIMMED
     );
 
-    Supplier<Item> BRIGANDINE = registerItem("brigandine",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(423), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
-    Supplier<Item> DARK_BRIGANDINE = registerItem("dark_brigandine",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(465), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
-    Supplier<Item> GOLDEN_BRIGANDINE = registerItem("golden_brigandine",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(508), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER)));
+    ArmorFamily BRIGANDINE = attachmentFamily(
+            "brigandine", 423,
+            (props, ingredient) -> new KHChestplateAttachment(props, true, 0xFFA06440, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
     Supplier<Item> PLATE_CUIRASS = registerItem("plate_cuirass",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT)));
@@ -672,7 +672,7 @@ public interface KHItems {
             ArmorVariant[] tiers,
             ArmorVariant... structuralToggles) {
 
-        Map<VariantCombo, Supplier<Item>> map = new HashMap<>();
+        Map<VariantCombo, Supplier<Item>> map = new LinkedHashMap<>();
         for (ArmorVariant tier : tiers) {
             for (List<ArmorVariant> structural : ArmorVariant.powerSet(List.of(structuralToggles))) {
 
