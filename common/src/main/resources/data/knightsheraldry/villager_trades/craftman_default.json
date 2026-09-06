@@ -3,7 +3,6 @@
   "trades": [
     {
       "level": 1,
-      "weight": 1,
       "cost_a": { "item": "minecraft:emerald", "count": 64 },
       "result": { "item": "minecraft:stone", "count": 1 },
       "max_uses": 12,

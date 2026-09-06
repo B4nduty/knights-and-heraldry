@@ -67,8 +67,33 @@ public class Craftman extends AbstractVillager {
     private static final int[] NEXT_LEVEL_XP_THRESHOLD = {10, 70, 150, 250};
     private static final int MAX_LEVEL = 5;
 
-    private static boolean canLevelUp(int level, int xp) {
-        return level < MAX_LEVEL && xp >= NEXT_LEVEL_XP_THRESHOLD[level - 1];
+    private static boolean canLevelUp(int level, int xp, int maxLevel) {
+        return level < maxLevel && xp >= NEXT_LEVEL_XP_THRESHOLD[level - 1];
+    }
+
+    @Nullable
+    private CraftmanTradeManager.TradeDataContainer getTradeContainer() {
+        Map<String, CraftmanTradeManager.TradeDataContainer> biomeMap = CraftmanTradeManager.PROFESSION_TRADES.get("craftman");
+        if (biomeMap == null) return null;
+
+        ResourceLocation loc = getCraftmanData().biomeKey();
+        String biomeKey = loc.getNamespace().equals("minecraft")
+                ? loc.getPath()
+                : loc.getNamespace() + "_" + loc.getPath();
+
+        return biomeMap.getOrDefault(biomeKey, biomeMap.get("default"));
+    }
+
+    private int getMaxAvailableLevel() {
+        CraftmanTradeManager.TradeDataContainer container = getTradeContainer();
+        if (container == null || container.trades.isEmpty()) return MAX_LEVEL;
+
+        int highestDefinedLevel = container.trades.stream()
+                .mapToInt(CraftmanTradeManager.DatapackTrade::level)
+                .max()
+                .orElse(MAX_LEVEL);
+
+        return Math.min(MAX_LEVEL, highestDefinedLevel);
     }
 
     public CraftmanData getCraftmanData() {
@@ -198,57 +223,50 @@ public class Craftman extends AbstractVillager {
         }
     }
 
-    /**
-     * Rolls up to {@code count} new trades for the villager's current level and appends them
-     * to the existing offer list. Does not clear existing offers, and never rolls a result that
-     * is already being offered - safe to call both on initial trade generation and on level-up.
-     */
     private void addTradesForCurrentLevel(int count) {
         MerchantOffers offers = this.getOffers();
 
-        Map<String, CraftmanTradeManager.TradeDataContainer> biomeMap = CraftmanTradeManager.PROFESSION_TRADES.get("craftman");
-        if (biomeMap == null) return;
-
-        ResourceLocation loc = getCraftmanData().biomeKey();
-        String biomeKey = loc.getNamespace().equals("minecraft")
-                ? loc.getPath()
-                : loc.getNamespace() + "_" + loc.getPath();
-
-        CraftmanTradeManager.TradeDataContainer container = biomeMap.getOrDefault(biomeKey, biomeMap.get("default"));
+        CraftmanTradeManager.TradeDataContainer container = getTradeContainer();
         if (container == null) return;
+
+        addAlwaysAvailableTrades(offers, container);
 
         RandomSource random = this.getRandom();
         int currentLevel = this.getCraftmanData().level();
 
         for (int i = 0; i < count; i++) {
             List<CraftmanTradeManager.DatapackTrade> validTrades = container.trades.stream()
+                    .filter(t -> t.level() > 0)
                     .filter(t -> t.level() <= currentLevel)
                     .filter(t -> offers.stream().noneMatch(o -> o.getResult().is(t.result().getItem())))
                     .toList();
 
             if (validTrades.isEmpty()) break;
 
-            int totalWeight = validTrades.stream().mapToInt(CraftmanTradeManager.DatapackTrade::weight).sum();
-            if (totalWeight <= 0) break;
-
-            int randomIndex = random.nextInt(totalWeight);
-            int currentWeightSum = 0;
-
-            for (CraftmanTradeManager.DatapackTrade trade : validTrades) {
-                currentWeightSum += trade.weight();
-                if (randomIndex < currentWeightSum) {
-                    offers.add(new MerchantOffer(
-                            trade.costA(),
-                            Optional.ofNullable(trade.costB()),
-                            trade.result().copy(),
-                            trade.maxUses(),
-                            trade.xp(),
-                            trade.priceMultiplier()
-                    ));
-                    break;
-                }
-            }
+            CraftmanTradeManager.DatapackTrade trade = validTrades.get(random.nextInt(validTrades.size()));
+            offers.add(new MerchantOffer(
+                    trade.costA(),
+                    Optional.ofNullable(trade.costB()),
+                    trade.result().copy(),
+                    trade.maxUses(),
+                    trade.xp(),
+                    trade.priceMultiplier()
+            ));
         }
+    }
+
+    private void addAlwaysAvailableTrades(MerchantOffers offers, CraftmanTradeManager.TradeDataContainer container) {
+        container.trades.stream()
+                .filter(t -> t.level() == 0)
+                .filter(t -> offers.stream().noneMatch(o -> o.getResult().is(t.result().getItem())))
+                .forEach(t -> offers.add(new MerchantOffer(
+                        t.costA(),
+                        Optional.ofNullable(t.costB()),
+                        t.result().copy(),
+                        t.maxUses(),
+                        t.xp(),
+                        t.priceMultiplier()
+                )));
     }
 
     @Override
@@ -261,10 +279,15 @@ public class Craftman extends AbstractVillager {
         if (this.level().isClientSide) return;
 
         CraftmanData data = this.getCraftmanData();
+        int maxLevel = getMaxAvailableLevel();
+
+        // No trades exist beyond the current level - stop gaining experience entirely.
+        if (data.level() >= maxLevel) return;
+
         int newXp = data.xp() + xpGained;
         int newLevel = data.level();
 
-        while (canLevelUp(newLevel, newXp)) {
+        while (canLevelUp(newLevel, newXp, maxLevel)) {
             newLevel++;
         }
 

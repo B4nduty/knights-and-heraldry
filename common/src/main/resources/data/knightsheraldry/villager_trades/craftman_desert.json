@@ -2,11 +2,73 @@
   "replace": false,
   "trades": [
     {
-      "level": 1,
-      "weight": 1,
-      "cost_a": { "item": "minecraft:sand", "count": 64 },
-      "cost_b": { "item": "minecraft:diamond", "count": 1 },
-      "result": { "item": "minecraft:emerald", "count": 1 },
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 1 },
+      "result": { "item": "knightsheraldry:mail_coif", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 1 },
+      "result": { "item": "knightsheraldry:hauberk", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 1 },
+      "result": { "item": "knightsheraldry:mail_breeches", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 1 },
+      "result": { "item": "knightsheraldry:mail_boots", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 1 },
+      "result": { "item": "knightsheraldry:mail_gloves", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 1 },
+      "result": { "item": "knightsheraldry:manuscript_dagger", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 1 },
+      "result": { "item": "knightsheraldry:manuscript_spear", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 1 },
+      "result": { "item": "knightsheraldry:manuscript_nasal", "count": 1 },
+      "max_uses": 16,
+      "xp": 2,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 1 },
+      "result": { "item": "knightsheraldry:manuscript_great_helmet", "count": 1 },
       "max_uses": 16,
       "xp": 2,
       "price_multiplier": 0.05

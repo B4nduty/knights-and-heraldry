@@ -30,7 +30,7 @@ public class CraftmanTradeManager extends SimpleJsonResourceReloadListener {
         public final List<DatapackTrade> trades = new ArrayList<>();
     }
 
-    public record DatapackTrade (int level, int weight, ItemCost costA, ItemCost costB, ItemStack result,
+    public record DatapackTrade (int level, ItemCost costA, ItemCost costB, ItemStack result,
                                  int maxUses, int xp, float priceMultiplier) {
     }
 
@@ -74,7 +74,6 @@ public class CraftmanTradeManager extends SimpleJsonResourceReloadListener {
                     JsonObject tradeObj = tradeElem.getAsJsonObject();
 
                     int level = GsonHelper.getAsInt(tradeObj, "level", 1);
-                    int weight = GsonHelper.getAsInt(tradeObj, "weight", 1);
 
                     JsonObject costAObj = tradeObj.getAsJsonObject("cost_a");
                     Item itemA = BuiltInRegistries.ITEM.get(ResourceLocation.parse(GsonHelper.getAsString(costAObj, "item")));
@@ -94,7 +93,7 @@ public class CraftmanTradeManager extends SimpleJsonResourceReloadListener {
                     int xp = GsonHelper.getAsInt(tradeObj, "xp", 2);
                     float priceMultiplier = GsonHelper.getAsFloat(tradeObj, "price_multiplier", 0.05f);
 
-                    DatapackTrade trade = new DatapackTrade(level, weight, costA, costB, result, maxUses, xp, priceMultiplier);
+                    DatapackTrade trade = new DatapackTrade(level, costA, costB, result, maxUses, xp, priceMultiplier);
 
                     container.trades.add(trade);
                 }
