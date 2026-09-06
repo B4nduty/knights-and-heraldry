@@ -38,9 +38,14 @@ public final class ArmorFamily implements Supplier<Item> {
         return Map.copyOf(items);
     }
 
-    public static List<Supplier<Item>> allFamilies(ArmorFamily... families) {
+    public static Supplier<Item>[] allFamilies(ArmorFamily... families) {
         List<Supplier<Item>> out = new ArrayList<>();
         for (ArmorFamily f : families) out.addAll(f.list());
-        return out;
+        return toArray(out);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static Supplier<Item>[] toArray(List<Supplier<Item>> list) {
+        return list.toArray(new Supplier[0]);
     }
 }

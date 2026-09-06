@@ -3,6 +3,9 @@ package banduty.knightsheraldry.datagen;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.stoneycore.datagen.DefinitionsProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.Item;
+
+import java.util.function.Supplier;
 
 public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
     public ModArmorDefinitionsProvider(PackOutput output) {
@@ -78,20 +81,12 @@ public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
         );
 
         // Horse Armor
-        biConsumer.accept(KHItems.HORSE_BARDING.get(), Builder.create()
-                        .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.6)
-                        .build()
-        );
-        biConsumer.accept(KHItems.DARK_HORSE_BARDING.get(), Builder.create()
-                        .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.6)
-                        .build()
-        );
-        biConsumer.accept(KHItems.GOLDEN_HORSE_BARDING.get(), Builder.create()
-                        .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.6)
-                        .build()
-        );
+        for (Supplier<Item> item : KHItems.HORSE_BARDING.list()) {
+            biConsumer.accept(item.get(), Builder.create()
+                    .damageResistance(0.1, 0.04, 0)
+                    .deflectChance(0.6)
+                    .build()
+            );
+        }
     }
 }

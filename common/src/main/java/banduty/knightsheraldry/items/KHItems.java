@@ -40,7 +40,7 @@ import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.joml.Vector3f;
 
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -145,7 +145,7 @@ public interface KHItems {
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.GOLDEN}, ArmorVariant.BESAGEWS);
     ArmorFamily BRIGANDINE_SPAULDERS = attachmentFamily(
             "brigandine_spaulders", 109,
-            (props, ingredient) -> new KHChestplateAttachment(props, true, 0xFFA06440, ingredient),
+            (props, ingredient) -> new KHChestplateAttachment(props, true, 0xFFA06440, Ingredient.of(Arrays.stream(ingredient.getItems()).findFirst().get().getItem(), Items.LEATHER)),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN},
             ArmorVariant.BESAGEWS
     );
@@ -158,288 +158,244 @@ public interface KHItems {
 
     ArmorFamily BRIGANDINE = attachmentFamily(
             "brigandine", 423,
-            (props, ingredient) -> new KHChestplateAttachment(props, true, 0xFFA06440, ingredient),
+            (props, ingredient) -> new KHChestplateAttachment(props, true, 0xFFA06440, Ingredient.of(Arrays.stream(ingredient.getItems()).findFirst().get().getItem(), Items.LEATHER)),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
 
-    Supplier<Item> PLATE_CUIRASS = registerItem("plate_cuirass",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_PLATE_CUIRASS = registerItem("dark_plate_cuirass",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_PLATE_CUIRASS = registerItem("golden_plate_cuirass",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> MAXIMILLIAN_CUIRASS = registerItem("maximillian_cuirass",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_MAXIMILLIAN_CUIRASS = registerItem("dark_maximillian_cuirass",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_MAXIMILLIAN_CUIRASS = registerItem("golden_maximillian_cuirass",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> XIIII_PLATE_CUIRASS = registerItem("xiiii_plate_cuirass",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_XIIII_PLATE_CUIRASS = registerItem("dark_xiiii_plate_cuirass",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_XIIII_PLATE_CUIRASS = registerItem("golden_xiiii_plate_cuirass",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> XIIII_PLATE_BREASTPLATE = registerItem("xiiii_plate_breastplate",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(650), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_XIIII_PLATE_BREASTPLATE = registerItem("dark_xiiii_plate_breastplate",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(715), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_XIIII_PLATE_BREASTPLATE = registerItem("golden_xiiii_plate_breastplate",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(780), Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily PLATE_CUIRASS = attachmentFamily(
+            "plate_cuirass", 650,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily MAXIMILLIAN_CUIRASS = attachmentFamily(
+            "maximillian_cuirass", 650,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily XIIII_PLATE_CUIRASS = attachmentFamily(
+            "xiiii_plate_cuirass", 650,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily XIIII_PLATE_BREASTPLATE = attachmentFamily(
+            "xiiii_plate_breastplate", 650,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
-    Supplier<Item> PLACKART = registerItem("plackart",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(430), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_PLACKART = registerItem("dark_plackart",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(473), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_PLACKART = registerItem("golden_plackart",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(516), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> TASSETS = registerItem("tassets",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(220), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_TASSETS = registerItem("dark_tassets",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(242), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_TASSETS = registerItem("golden_tassets",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(264), Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily PLACKART = attachmentFamily(
+            "plackart", 430,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily TASSETS = attachmentFamily(
+            "tassets", 220,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
-    Supplier<Item> BARBUTE = registerItem("barbute",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_BARBUTE = registerItem("dark_barbute",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_BARBUTE = registerItem("golden_barbute",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> BASCINET = registerItem("bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_BASCINET = registerItem("dark_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_BASCINET = registerItem("golden_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> KETTLE_HELM = registerItem("kettle_helm",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_KETTLE_HELM = registerItem("dark_kettle_helm",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_KETTLE_HELM = registerItem("golden_kettle_helm",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> NASAL_HELM = registerItem("nasal_helm",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_NASAL_HELM = registerItem("dark_nasal_helm",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_NASAL_HELM = registerItem("golden_nasal_helm",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> VIKING_HELM = registerItem("viking_helm",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_VIKING_HELM = registerItem("dark_viking_helm",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_VIKING_HELM = registerItem("golden_viking_helm",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> BURGONET = registerItem("burgonet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_BURGONET = registerItem("dark_burgonet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_BURGONET = registerItem("golden_burgonet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> VISORLESS_SALLET = registerItem("visorless_sallet",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_VISORLESS_SALLET = registerItem("dark_visorless_sallet",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_VISORLESS_SALLET = registerItem("golden_visorless_sallet",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> MORION = registerItem("morion",
-            () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(109), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_MORION = registerItem("dark_morion",
-            () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_MORION = registerItem("golden_morion",
-            () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(131), Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily BARBUTE = attachmentFamily(
+            "barbute", 109,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily BASCINET = attachmentFamily(
+            "bascinet", 109,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily KETTLE_HELM = attachmentFamily(
+            "kettle_helm", 109,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily NASAL_HELM = attachmentFamily(
+            "nasal_helm", 109,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily VIKING_HELM = attachmentFamily(
+            "viking_helm", 109,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily BURGONET = attachmentFamily(
+            "burgonet", 109,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily VISORLESS_SALLET = attachmentFamily(
+            "visorless_sallet", 109,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily MORION = attachmentFamily(
+            "morion", 109,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
-    Supplier<Item> ARMET = registerItem("armet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_ARMET = registerItem("dark_armet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_ARMET = registerItem("golden_armet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> ARMET_2 = registerItem("armet_2",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_ARMET_2 = registerItem("dark_armet_2",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_ARMET_2 = registerItem("golden_armet_2",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> VISORED_BARBUTE = registerItem("visored_barbute",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_VISORED_BARBUTE = registerItem("dark_visored_barbute",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_VISORED_BARBUTE = registerItem("golden_visored_barbute",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> HOUNDSKULL = registerItem("houndskull",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_HOUNDSKULL = registerItem("dark_houndskull",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_HOUNDSKULL = registerItem("golden_houndskull",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> CAGE = registerItem("cage",
-            () -> new KHCageHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_CAGE = registerItem("dark_cage",
-            () -> new KHCageHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_CAGE = registerItem("golden_cage",
-            () -> new KHCageHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> VISORED_BASCINET = registerItem("visored_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_VISORED_BASCINET = registerItem("dark_visored_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_VISORED_BASCINET = registerItem("golden_visored_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> GREAT_HELM = registerItem("great_helm",
-            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(250), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_GREAT_HELM = registerItem("dark_great_helm",
-            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(275), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_GREAT_HELM = registerItem("golden_great_helm",
-            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(300), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> GREAT_HELM_2 = registerItem("great_helm_2",
-            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(250), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_GREAT_HELM_2 = registerItem("dark_great_helm_2",
-            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(275), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_GREAT_HELM_2 = registerItem("golden_great_helm_2",
-            () -> new KHGreatHelmetAttachment(new Item.Properties().stacksTo(1).durability(300), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> SALLET = registerItem("sallet",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_SALLET = registerItem("dark_sallet",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_SALLET = registerItem("golden_sallet",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> BURGONET_FALLING_BUFFE = registerItem("burgonet_falling_buffe",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_BURGONET_FALLING_BUFFE = registerItem("dark_burgonet_falling_buffe",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_BURGONET_FALLING_BUFFE = registerItem("golden_burgonet_falling_buffe",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> CLOSE_HELM = registerItem("close_helm",
-            () -> new KHCloseHelmet(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_CLOSE_HELM = registerItem("dark_close_helm",
-            () -> new KHCloseHelmet(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_CLOSE_HELM = registerItem("golden_close_helm",
-            () -> new KHCloseHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> BLACK_SALLET = registerItem("black_sallet",
-            () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_BLACK_SALLET = registerItem("dark_black_sallet",
-            () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_BLACK_SALLET = registerItem("golden_black_sallet",
-            () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> VISORED_MORION = registerItem("visored_morion",
-            () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(172), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_VISORED_MORION = registerItem("dark_visored_morion",
-            () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(189), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_VISORED_MORION = registerItem("golden_visored_morion",
-            () -> new KHMorionHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily ARMET = attachmentFamily(
+            "armet", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily ARMET_2 = attachmentFamily(
+            "armet_2", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily VISORED_BARBUTE = attachmentFamily(
+            "visored_barbute", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily HOUNDSKULL = attachmentFamily(
+            "houndskull", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily CAGE = attachmentFamily(
+            "cage", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily VISORED_BASCINET = attachmentFamily(
+            "visored_bascinet", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily GREAT_HELM = attachmentFamily(
+            "great_helm", 250,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily GREAT_HELM_2 = attachmentFamily(
+            "great_helm_2", 250,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily SALLET = attachmentFamily(
+            "sallet", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily BURGONET_FALLING_BUFFE = attachmentFamily(
+            "burgonet_falling_buffe", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily CLOSE_HELM = attachmentFamily(
+            "close_helm", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily BLACK_SALLET = attachmentFamily(
+            "black_sallet", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily VISORED_MORION = attachmentFamily(
+            "visored_morion", 172,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
-    Supplier<Item> SALLET_BEVOR = registerItem("sallet_bevor",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_SALLET_BEVOR = registerItem("dark_sallet_bevor",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(226), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_SALLET_BEVOR = registerItem("golden_sallet_bevor",
-            () -> new KHSalletHelmet(new Item.Properties().stacksTo(1).durability(246), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> BLACK_SALLET_BEVOR = registerItem("black_sallet_bevor",
-            () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_BLACK_SALLET_BEVOR = registerItem("dark_black_sallet_bevor",
-            () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(226), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_BLACK_SALLET_BEVOR = registerItem("golden_black_sallet_bevor",
-            () -> new KHBlackSalletHelmet(new Item.Properties().stacksTo(1).durability(246), true, Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily SALLET_BEVOR = attachmentFamily(
+            "sallet_bevor", 206,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily BLACK_SALLET_BEVOR = attachmentFamily(
+            "black_sallet_bevor", 206,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
-    Supplier<Item> FROGMOUTH = registerItem("frogmouth",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(354), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_FROGMOUTH = registerItem("dark_frogmouth",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(389), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_FROGMOUTH = registerItem("golden_frogmouth",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(425), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> GREAT_ARMET = registerItem("great_armet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_GREAT_ARMET = registerItem("dark_great_armet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_GREAT_ARMET = registerItem("golden_great_armet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> GREAT_ARMET_2 = registerItem("great_armet_2",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_GREAT_ARMET_2 = registerItem("dark_great_armet_2",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_GREAT_ARMET_2 = registerItem("golden_great_armet_2",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> GREAT_BASCINET = registerItem("great_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_GREAT_BASCINET = registerItem("dark_great_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_GREAT_BASCINET = registerItem("golden_great_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> GREAT_HOUNDSKUL_BASCINET = registerItem("great_houndskul_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_GREAT_HOUNDSKUL_BASCINET = registerItem("dark_great_houndskul_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_GREAT_HOUNDSKUL_BASCINET = registerItem("golden_great_houndskul_bascinet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> MAXIMILLIAN_HELMET = registerItem("maximillian_helmet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_MAXIMILLIAN_HELMET = registerItem("dark_maximillian_helmet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_MAXIMILLIAN_HELMET = registerItem("golden_maximillian_helmet",
-            () -> new KHHelmetAttachment(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> SAVOYARD = registerItem("savoyard",
-            () -> new KHSavoyard(new Item.Properties().stacksTo(1).durability(234), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_SAVOYARD = registerItem("dark_savoyard",
-            () -> new KHSavoyard(new Item.Properties().stacksTo(1).durability(257), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_SAVOYARD = registerItem("golden_savoyard",
-            () -> new KHSavoyard(new Item.Properties().stacksTo(1).durability(281), true, Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> ARAGONESE_SALLET = registerItem("aragonese_sallet",
-            () -> new KHAragoneseSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_ARAGONESE_SALLET = registerItem("dark_aragonese_sallet",
-            () -> new KHAragoneseSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_ARAGONESE_SALLET = registerItem("golden_aragonese_sallet",
-            () -> new KHAragoneseSalletHelmet(new Item.Properties().stacksTo(1).durability(206), true, Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily FROGMOUTH = attachmentFamily(
+            "frogmouth", 354,
+            KHHelmetAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily GREAT_ARMET = attachmentFamily(
+            "great_armet", 234,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily GREAT_ARMET_2 = attachmentFamily(
+            "great_armet_2", 234,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily GREAT_BASCINET = attachmentFamily(
+            "great_bascinet", 234,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily GREAT_HOUNDSKUL_BASCINET = attachmentFamily(
+            "great_houndskul_bascinet", 234,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily MAXIMILLIAN_HELMET = attachmentFamily(
+            "maximillian_helmet", 234,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily SAVOYARD = attachmentFamily(
+            "savoyard", 234,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily ARAGONESE_SALLET = attachmentFamily(
+            "aragonese_sallet", 234,
+            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
     Supplier<Item> LEATHER_GLOVES = registerItem("leather_gloves",
             () -> new KHGlove(new Item.Properties().stacksTo(1).durability(90), 0xFFA06440, Ingredient.of(Items.LEATHER), true));
     Supplier<Item> MAIL_GLOVES = registerItem("mail_gloves",
             () -> new KHGlove(new Item.Properties().stacksTo(1).durability(100), Ingredient.of(Items.IRON_INGOT), true));
 
-    Supplier<Item> GAUNTLET = registerItem("gauntlet",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_GAUNTLET = registerItem("dark_gauntlet",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(99), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_GAUNTLET = registerItem("golden_gauntlet",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(108), Ingredient.of(Items.GOLD_INGOT)));
-    Supplier<Item> BRIGANDINE_HARNESS = registerItem("brigandine_harness",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(100), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
-    Supplier<Item> DARK_BRIGANDINE_HARNESS = registerItem("dark_brigandine_harness",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(110), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
-    Supplier<Item> GOLDEN_BRIGANDINE_HARNESS = registerItem("golden_brigandine_harness",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(120), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER)));
-    Supplier<Item> PLATE_HARNESS = registerItem("plate_harness",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(116), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_PLATE_HARNESS = registerItem("dark_plate_harness",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(128), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_PLATE_HARNESS = registerItem("golden_plate_harness",
-            () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(139), Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily GAUNTLET = attachmentFamily(
+            "gauntlet", 90,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily BRIGANDINE_HARNESS = attachmentFamily(
+            "brigandine_harness", 100,
+            (properties, ingredient) -> new KHChestplateAttachment(properties, true, 0xFFA06440, Ingredient.of(Arrays.stream(ingredient.getItems()).findFirst().get().getItem(), Items.LEATHER)),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily PLATE_HARNESS = attachmentFamily(
+            "plate_harness", 116,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
-    Supplier<Item> BRIGANDINE_CUISSES = registerItem("brigandine_cuisses",
-            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(187), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
-    Supplier<Item> DARK_BRIGANDINE_CUISSES = registerItem("dark_brigandine_cuisses",
-            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(206), true, 0xFFA06440, Ingredient.of(Items.IRON_INGOT, Items.LEATHER)));
-    Supplier<Item> GOLDEN_BRIGANDINE_CUISSES = registerItem("golden_brigandine_cuisses",
-            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(224), true, 0xFFA06440, Ingredient.of(Items.GOLD_INGOT, Items.LEATHER)));
-    Supplier<Item> PLATE_CUISSES = registerItem("plate_cuisses",
-            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(203), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_PLATE_CUISSES = registerItem("dark_plate_cuisses",
-            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(223), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_PLATE_CUISSES = registerItem("golden_plate_cuisses",
-            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(244), Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily BRIGANDINE_CUISSES = attachmentFamily(
+            "brigandine_cuisses", 187,
+            (properties, ingredient) -> new KHLeggingsAttachment(properties, true, 0xFFA06440, Ingredient.of(Arrays.stream(ingredient.getItems()).findFirst().get().getItem(), Items.LEATHER)),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily PLATE_CUISSES = attachmentFamily(
+            "plate_cuisses", 203,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
-    Supplier<Item> GREAVES = registerItem("greaves",
-            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_GREAVES = registerItem("dark_greaves",
-            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(99), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_GREAVES = registerItem("golden_greaves",
-            () -> new KHLeggingsAttachment(new Item.Properties().stacksTo(1).durability(108), Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily GREAVES = attachmentFamily(
+            "greaves", 90,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
-    Supplier<Item> SABATONS = registerItem("sabatons",
-            () -> new KHBootsAttachment(new Item.Properties().stacksTo(1).durability(90), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> DARK_SABATONS = registerItem("dark_sabatons",
-            () -> new KHBootsAttachment(new Item.Properties().stacksTo(1).durability(99), Ingredient.of(Items.IRON_INGOT)));
-    Supplier<Item> GOLDEN_SABATONS = registerItem("golden_sabatons",
-            () -> new KHBootsAttachment(new Item.Properties().stacksTo(1).durability(108), Ingredient.of(Items.GOLD_INGOT)));
+    ArmorFamily SABATONS = attachmentFamily(
+            "sabatons", 90,
+            KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
     Supplier<Item> AVENTAIL = registerItem("aventail",
             () -> new KHChestplateAttachment(new Item.Properties().stacksTo(1).durability(120), Ingredient.of(Items.IRON_INGOT)));
@@ -494,12 +450,12 @@ public interface KHItems {
     Supplier<Item> CLOTH_ARROW = registerItem("cloth_arrow",
             () -> new ClothArrow(new Item.Properties(), KHClothArrowEntity::new));
 
-    Supplier<Item> HORSE_BARDING = registerItem("horse_barding",
-            () -> new HorseBardingArmorItem(new Item.Properties().stacksTo(1)));
-    Supplier<Item> DARK_HORSE_BARDING = registerItem("dark_horse_barding",
-            () -> new HorseBardingArmorItem(new Item.Properties().stacksTo(1)));
-    Supplier<Item> GOLDEN_HORSE_BARDING = registerItem("golden_horse_barding",
-            () -> new HorseBardingArmorItem(new Item.Properties().stacksTo(1)));
+
+    ArmorFamily HORSE_BARDING = attachmentFamily(
+            "horse_barding", 300,
+            (properties, ingredient) -> new HorseBardingArmorItem(properties),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
 
     Supplier<Item> PLUME = registerItem("plume",
             () -> new DecoItem(new Item.Properties().stacksTo(1)));

@@ -126,12 +126,8 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
 
         // --- Dyeable / Special Items ---
         Item[] dyeable = {
-                KHItems.BRIGANDINE_HARNESS.get(), KHItems.DARK_BRIGANDINE_HARNESS.get(), KHItems.GOLDEN_BRIGANDINE_HARNESS.get(),
-                KHItems.BRIGANDINE_CUISSES.get(), KHItems.DARK_BRIGANDINE_CUISSES.get(), KHItems.GOLDEN_BRIGANDINE_CUISSES.get(),
-                KHItems.JESTER_HOOD.get(), KHItems.HORSE_BARDING.get(), KHItems.DARK_HORSE_BARDING.get(),
-                KHItems.GOLDEN_HORSE_BARDING.get(), KHItems.GILDED_CHAPERON.get(), KHItems.GAMBESON.get(),
-                KHItems.ARMING_DOUBLET.get(), KHItems.ARMING_HOSE.get(),
-                KHItems.WOODEN_LANCE.get()
+                KHItems.JESTER_HOOD.get(), KHItems.GILDED_CHAPERON.get(), KHItems.GAMBESON.get(),
+                KHItems.ARMING_DOUBLET.get(), KHItems.ARMING_HOSE.get(), KHItems.WOODEN_LANCE.get()
         };
 
         for (Supplier<Item> item : KHItems.BRIGANDINE_SPAULDERS.list()) {
@@ -140,7 +136,18 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
         for (Supplier<Item> item : KHItems.BRIGANDINE.list()) {
             dyeableItem(item.get());
         }
+        for (Supplier<Item> item : KHItems.BRIGANDINE_HARNESS.list()) {
+            dyeableItem(item.get());
+        }
+        for (Supplier<Item> item : KHItems.BRIGANDINE_CUISSES.list()) {
+            dyeableItem(item.get());
+        }
+        for (Supplier<Item> item : KHItems.HORSE_BARDING.list()) {
+            dyeableItem(item.get());
+        }
         for (Item item : dyeable) dyeableItem(item);
+
+        simpleItem(KHItems.LEATHER_GLOVES.get());
     }
 
     private void registerSimpleItems() {
@@ -161,72 +168,72 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
             registerItemWConditions(item, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "broken"), 1));
         }
 
-        Item[] openVisorHelmets = {
-                KHItems.ARMET.get(), KHItems.DARK_ARMET.get(), KHItems.GOLDEN_ARMET.get(),
-                KHItems.ARMET_2.get(), KHItems.DARK_ARMET_2.get(), KHItems.GOLDEN_ARMET_2.get(),
-                KHItems.VISORED_BARBUTE.get(), KHItems.DARK_VISORED_BARBUTE.get(), KHItems.GOLDEN_VISORED_BARBUTE.get(),
-                KHItems.HOUNDSKULL.get(), KHItems.DARK_HOUNDSKULL.get(), KHItems.GOLDEN_HOUNDSKULL.get(),
-                KHItems.CAGE.get(), KHItems.DARK_CAGE.get(), KHItems.GOLDEN_CAGE.get(),
-                KHItems.VISORED_BASCINET.get(), KHItems.DARK_VISORED_BASCINET.get(), KHItems.GOLDEN_VISORED_BASCINET.get(),
-                KHItems.SALLET.get(), KHItems.DARK_SALLET.get(), KHItems.GOLDEN_SALLET.get(),
-                KHItems.BURGONET_FALLING_BUFFE.get(), KHItems.DARK_BURGONET_FALLING_BUFFE.get(), KHItems.GOLDEN_BURGONET_FALLING_BUFFE.get(),
-                KHItems.CLOSE_HELM.get(), KHItems.DARK_CLOSE_HELM.get(), KHItems.GOLDEN_CLOSE_HELM.get(),
-                KHItems.VISORED_MORION.get(), KHItems.DARK_VISORED_MORION.get(), KHItems.GOLDEN_VISORED_MORION.get(),
-                KHItems.GREAT_ARMET.get(), KHItems.DARK_GREAT_ARMET.get(), KHItems.GOLDEN_GREAT_ARMET.get(),
-                KHItems.GREAT_ARMET_2.get(), KHItems.DARK_GREAT_ARMET_2.get(), KHItems.GOLDEN_GREAT_ARMET_2.get(),
-                KHItems.GREAT_BASCINET.get(), KHItems.DARK_GREAT_BASCINET.get(), KHItems.GOLDEN_GREAT_BASCINET.get(),
-                KHItems.GREAT_HOUNDSKUL_BASCINET.get(), KHItems.DARK_GREAT_HOUNDSKUL_BASCINET.get(), KHItems.GOLDEN_GREAT_HOUNDSKUL_BASCINET.get(),
-                KHItems.MAXIMILLIAN_HELMET.get(), KHItems.DARK_MAXIMILLIAN_HELMET.get(), KHItems.GOLDEN_MAXIMILLIAN_HELMET.get(),
-                KHItems.SAVOYARD.get(), KHItems.DARK_SAVOYARD.get(), KHItems.GOLDEN_SAVOYARD.get(),
-                KHItems.ARAGONESE_SALLET.get(), KHItems.DARK_ARAGONESE_SALLET.get(), KHItems.GOLDEN_ARAGONESE_SALLET.get(),
-                KHItems.SALLET_BEVOR.get(), KHItems.DARK_SALLET_BEVOR.get(), KHItems.GOLDEN_SALLET_BEVOR.get()
-        };
-        for (Item item : openVisorHelmets)
-            registerItemWConditions(item, new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1));
+        List<Supplier<Item>> openVisorHelmet = List.of(ArmorFamily.allFamilies(
+                KHItems.ARMET,
+                KHItems.ARMET_2,
+                KHItems.VISORED_BARBUTE,
+                KHItems.HOUNDSKULL,
+                KHItems.CAGE,
+                KHItems.VISORED_BASCINET,
+                KHItems.SALLET,
+                KHItems.BURGONET_FALLING_BUFFE,
+                KHItems.CLOSE_HELM,
+                KHItems.VISORED_MORION,
+                KHItems.GREAT_ARMET,
+                KHItems.GREAT_ARMET_2,
+                KHItems.GREAT_BASCINET,
+                KHItems.GREAT_HOUNDSKUL_BASCINET,
+                KHItems.MAXIMILLIAN_HELMET,
+                KHItems.SAVOYARD,
+                KHItems.ARAGONESE_SALLET,
+                KHItems.SALLET_BEVOR
+        ));
+        for (Supplier<Item> item : openVisorHelmet) {
+            registerItemWConditions(item.get(), new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1));
+        }
 
-        Item[] blackSallet = {
-                KHItems.BLACK_SALLET.get(), KHItems.DARK_BLACK_SALLET.get(), KHItems.GOLDEN_BLACK_SALLET.get(),
-                KHItems.BLACK_SALLET_BEVOR.get(), KHItems.DARK_BLACK_SALLET_BEVOR.get(), KHItems.GOLDEN_BLACK_SALLET_BEVOR.get()
-        };
-        for (Item item : blackSallet)
-            registerItemWConditions(item,
+        List<Supplier<Item>> blackSallet = List.of(ArmorFamily.allFamilies(
+                KHItems.BLACK_SALLET,
+                KHItems.BLACK_SALLET_BEVOR
+        ));
+        for (Supplier<Item> item : blackSallet) {
+            registerItemWConditions(item.get(),
                     new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "open"), 1),
                     new OverrideCondition(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "rat"), 1));
+        }
 
-        List<Supplier<Item>> simpleArmorA = List.of(ArmorFamily.allFamilies(
+        registerItemWConditions(KHItems.MAIL_GLOVES.get());
+
+        List<Supplier<Item>> simpleArmor = List.of(ArmorFamily.allFamilies(
                 KHItems.MAIL_SPAULDERS,
-                KHItems.PLATE_SPAULDERS
-        ).toArray(new Supplier[0]));
-        List<Supplier<Item>> simpleArmor = List.of(
-                KHItems.PLATE_CUIRASS, KHItems.GOLDEN_PLATE_CUIRASS, KHItems.DARK_PLATE_CUIRASS,
-                KHItems.MAXIMILLIAN_CUIRASS, KHItems.DARK_MAXIMILLIAN_CUIRASS, KHItems.GOLDEN_MAXIMILLIAN_CUIRASS,
-                KHItems.XIIII_PLATE_CUIRASS, KHItems.XIIII_PLATE_BREASTPLATE,
-                KHItems.PLACKART, KHItems.DARK_PLACKART, KHItems.GOLDEN_PLACKART,
-                KHItems.TASSETS, KHItems.DARK_TASSETS, KHItems.GOLDEN_TASSETS,
-                KHItems.DARK_XIIII_PLATE_CUIRASS, KHItems.DARK_XIIII_PLATE_BREASTPLATE,
-                KHItems.GOLDEN_XIIII_PLATE_CUIRASS, KHItems.GOLDEN_XIIII_PLATE_BREASTPLATE,
-                KHItems.GREAVES, KHItems.DARK_GREAVES, KHItems.GOLDEN_GREAVES,
-                KHItems.SABATONS, KHItems.DARK_SABATONS, KHItems.GOLDEN_SABATONS,
-                KHItems.BARBUTE, KHItems.DARK_BARBUTE, KHItems.GOLDEN_BARBUTE,
-                KHItems.BASCINET, KHItems.DARK_BASCINET, KHItems.GOLDEN_BASCINET,
-                KHItems.KETTLE_HELM, KHItems.DARK_KETTLE_HELM, KHItems.GOLDEN_KETTLE_HELM,
-                KHItems.NASAL_HELM, KHItems.DARK_NASAL_HELM, KHItems.GOLDEN_NASAL_HELM,
-                KHItems.VIKING_HELM, KHItems.DARK_VIKING_HELM, KHItems.GOLDEN_VIKING_HELM,
-                KHItems.BURGONET, KHItems.DARK_BURGONET, KHItems.GOLDEN_BURGONET,
-                KHItems.VISORLESS_SALLET, KHItems.DARK_VISORLESS_SALLET, KHItems.GOLDEN_VISORLESS_SALLET,
-                KHItems.MORION, KHItems.DARK_MORION, KHItems.GOLDEN_MORION,
-                KHItems.FROGMOUTH, KHItems.DARK_FROGMOUTH, KHItems.GOLDEN_FROGMOUTH,
-                KHItems.LEATHER_GLOVES, KHItems.MAIL_GLOVES,
-                KHItems.GAUNTLET, KHItems.DARK_GAUNTLET, KHItems.GOLDEN_GAUNTLET,
-                KHItems.PLATE_HARNESS, KHItems.DARK_PLATE_HARNESS, KHItems.GOLDEN_PLATE_HARNESS,
-                KHItems.PLATE_CUISSES, KHItems.DARK_PLATE_CUISSES, KHItems.GOLDEN_PLATE_CUISSES,
-                KHItems.GREAT_HELM, KHItems.DARK_GREAT_HELM, KHItems.GOLDEN_GREAT_HELM,
-                KHItems.GREAT_HELM_2, KHItems.DARK_GREAT_HELM_2, KHItems.GOLDEN_GREAT_HELM_2
-        );
-        for (Supplier<Item> item : simpleArmorA) simpleItem(item.get());
+                KHItems.PLATE_SPAULDERS,
+                KHItems.PLATE_CUIRASS,
+                KHItems.MAXIMILLIAN_CUIRASS,
+                KHItems.XIIII_PLATE_CUIRASS,
+                KHItems.XIIII_PLATE_BREASTPLATE,
+                KHItems.PLACKART,
+                KHItems.TASSETS,
+                KHItems.GREAVES,
+                KHItems.SABATONS,
+                KHItems.BARBUTE,
+                KHItems.BASCINET,
+                KHItems.KETTLE_HELM,
+                KHItems.NASAL_HELM,
+                KHItems.VIKING_HELM,
+                KHItems.BURGONET,
+                KHItems.VISORLESS_SALLET,
+                KHItems.MORION,
+                KHItems.FROGMOUTH,
+                KHItems.GAUNTLET,
+                KHItems.PLATE_HARNESS,
+                KHItems.PLATE_CUISSES,
+                KHItems.GREAT_HELM,
+                KHItems.GREAT_HELM_2
+        ));
         for (Supplier<Item> item : simpleArmor) simpleItem(item.get());
 
-        Item[] toolHeads = {KHItems.DAGGER_HEAD.get(),
+        Item[] toolHeads = {
+                KHItems.DAGGER_HEAD.get(),
                 KHItems.STILETTO_HEAD.get(),
                 KHItems.SWORD_HEAD.get(),
                 KHItems.FALCHION_HEAD.get(),
@@ -242,7 +249,6 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.PITCHFORK_HEAD.get()
         };
         for (Item item : toolHeads) registerItemWConditions(item);
-
     }
 
     private void dyeableItem(Item item) {

@@ -2,6 +2,7 @@ package banduty.knightsheraldry.util.itemdata;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.items.armor.ArmorVariant;
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import banduty.stoneycore.combat.weapon.SCRangeWeaponUtil;
 import banduty.stoneycore.data.SCDataComponents;
@@ -85,8 +86,8 @@ public class ModModelPredicates {
                 }
                 return Objects.equals(cleanDisplayName, translatable) ? 1.0F : 0.0F;
             });
-        if (item == KHItems.BLACK_SALLET.get() || item == KHItems.DARK_BLACK_SALLET.get() || item == KHItems.GOLDEN_BLACK_SALLET.get() ||
-                item == KHItems.BLACK_SALLET_BEVOR.get() || item == KHItems.DARK_BLACK_SALLET_BEVOR.get() || item == KHItems.GOLDEN_BLACK_SALLET_BEVOR.get())
+        if (item == KHItems.BLACK_SALLET.get() || item == KHItems.BLACK_SALLET.get(ArmorVariant.DARK).get() || item == KHItems.BLACK_SALLET.get(ArmorVariant.GOLDEN).get() ||
+                item == KHItems.BLACK_SALLET_BEVOR.get() || item == KHItems.BLACK_SALLET_BEVOR.get(ArmorVariant.DARK).get() || item == KHItems.BLACK_SALLET_BEVOR.get(ArmorVariant.GOLDEN).get())
             ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "rat"), (stack, world, entity, seed) -> {
                 String customName = stack.getHoverName().getString();
                 return customName.contains("Rat") ? 1.0F : 0.0F;
