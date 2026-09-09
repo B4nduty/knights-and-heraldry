@@ -1,11 +1,14 @@
 package banduty.knightsheraldry.items.item.khrangeweapon;
 
 import banduty.knightsheraldry.client.item.weapon.HandgonneModel;
+import banduty.knightsheraldry.client.item.weapon.HandgonneRenderer;
+import banduty.knightsheraldry.util.itemdata.KHDataComponents;
 import banduty.stoneycore.items.client.SCIconRendererProvider;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import banduty.stoneycore.definitions.ArmorAttachmentDefinitionsStorage;
 import banduty.stoneycore.definitions.WeaponDefinitionsStorage;
 import banduty.stoneycore.combat.weapon.SCRangeWeaponUtil;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
@@ -47,7 +50,7 @@ public class Handgonne extends Item implements GeoItem, SCIconRendererProvider {
             @Override
             public GeoItemRenderer<Handgonne> getGeoItemRenderer() {
                 if (this.renderer == null)
-                    this.renderer = new GeoItemRenderer<>(new HandgonneModel());
+                    this.renderer = new HandgonneRenderer(new HandgonneModel());
 
                 return this.renderer;
             }
@@ -91,5 +94,11 @@ public class Handgonne extends Item implements GeoItem, SCIconRendererProvider {
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
+    }
+
+    @Override
+    public Component getName(ItemStack stack) {
+        if (!stack.getOrDefault(KHDataComponents.PIGLIN.get(), false)) return super.getName(stack);
+        return Component.translatable("item.stoneycore.golden_handgonne");
     }
 }

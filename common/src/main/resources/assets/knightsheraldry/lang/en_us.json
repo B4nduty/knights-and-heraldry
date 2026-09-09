@@ -338,6 +338,9 @@
   "item.knightsheraldry.cuirass_piece": "Cuirass Piece",
   "item.knightsheraldry.spaulders_piece": "Spaulders Piece",
   "item.knightsheraldry.harness_piece": "Harness Piece",
+  "item.knightsheraldry.easter_egg.longbow_xxxl": "Longbow XXXL",
+  "item.stoneycore.golden_arquebus": "Golden Arquebus",
+  "item.stoneycore.golden_handgonne": "Golden Handgonne",
   "component.itemgroup.knightsheraldry.tab.kh_weapons": "KH Weapons",
   "component.itemgroup.knightsheraldry.tab.kh_ingredient": "KH Ingredient",
   "component.itemgroup.knightsheraldry.tab.kh_armors": "KH Armors",
@@ -356,6 +359,5 @@
   "effect.knightsheraldry.pin": "Pin",
   "event.knightsheraldry.recharge_time": "Recharge Time: %s sec",
   "event.knightsheraldry.recharged": "Has been Recharged",
-  "item.knightsheraldry.easter_egg.longbow_xxxl": "Longbow XXXL",
   "sounds.knightsheraldry.arquebus_close": "Shot fired"
 }

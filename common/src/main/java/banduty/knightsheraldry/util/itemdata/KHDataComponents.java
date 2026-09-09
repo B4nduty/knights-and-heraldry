@@ -1,7 +1,7 @@
 package banduty.knightsheraldry.util.itemdata;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.stoneycore.platform.Services;
+import banduty.knightsheraldry.platform.Services;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
@@ -18,6 +18,8 @@ public interface KHDataComponents {
     Supplier<DataComponentType<DyedItemColor>> COLOR_2 = register("color_2",
             builder -> builder.persistent(DyedItemColor.CODEC).networkSynchronized(DyedItemColor.STREAM_CODEC));
     Supplier<DataComponentType<Boolean>> EXTINGUISHED = register("extinguished",
+            b -> b.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+    Supplier<DataComponentType<Boolean>> PIGLIN = register("piglin",
             b -> b.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
 
     @SuppressWarnings("unchecked")
