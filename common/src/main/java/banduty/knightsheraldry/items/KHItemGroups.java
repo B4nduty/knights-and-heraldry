@@ -461,7 +461,7 @@ public interface KHItemGroups {
                         KHItems.DAGGER_HEAD, KHItems.STILETTO_HEAD, KHItems.SWORD_HEAD,
                         KHItems.FALCHION_HEAD, KHItems.RAPIER_HEAD, KHItems.AXE_HEAD,
                         KHItems.HAMMER_HEAD, KHItems.MACE_HEAD, KHItems.HALBERD_HEAD,
-                        KHItems.BILLHOOK_HEAD, KHItems.SPEAR_HEAD, KHItems.PITCHFORK_HEAD
+                        KHItems.BILLHOOK_HEAD, KHItems.LONGSWORD_HEAD, KHItems.GREATSWORD_HEAD, KHItems.SPEAR_HEAD, KHItems.PITCHFORK_HEAD
                 ).forEach(item -> {
                     ItemStack finishedStack = ignitedItemStack(item.get());
                     output.accept(new ItemStack(item.get()));
