@@ -2,11 +2,75 @@
   "replace": false,
   "trades": [
     {
-      "level": 1,
-      "cost_a": { "item": "minecraft:emerald", "count": 16 },
-      "result": { "item": "knightsheraldry:manuscript_sword", "count": 1 },
-      "max_uses": 16,
-      "xp": 2,
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 7 },
+      "result": { "item": "knightsheraldry:manuscript_hammer", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 13 },
+      "result": { "item": "knightsheraldry:manuscript_longsword", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 10 },
+      "result": { "item": "knightsheraldry:manuscript_sallet", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 18 },
+      "result": { "item": "knightsheraldry:manuscript_maximilian", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 3 },
+      "result": { "item": "knightsheraldry:manuscript_bevor", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 1 },
+      "result": { "item": "knightsheraldry:manuscript_besagews", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 5 },
+      "result": { "item": "knightsheraldry:manuscript_harness", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 6 },
+      "result": { "item": "knightsheraldry:manuscript_cuisses", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 4 },
+      "result": { "item": "knightsheraldry:manuscript_greaves", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
       "price_multiplier": 0.05
     }
   ]

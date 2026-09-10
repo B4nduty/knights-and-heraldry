@@ -4,6 +4,7 @@
     {
       "level": 1,
       "cost_a": { "item": "minecraft:emerald", "count": 64 },
+      "cost_b": { "item": "minecraft:stick", "count": 42 },
       "result": { "item": "minecraft:stone", "count": 1 },
       "max_uses": 12,
       "xp": 2,
