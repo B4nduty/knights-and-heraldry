@@ -2,5 +2,13 @@
     "parent": "item/generated",
     "textures": {
         "layer0": "knightsheraldry:item/handgonne_icon"
-    }
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "knightsheraldry:piglin": 1
+            },
+            "model": "knightsheraldry:item/golden_handgonne_icon"
+        }
+    ]
 }

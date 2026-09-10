@@ -2,5 +2,13 @@
     "parent": "item/generated",
     "textures": {
         "layer0": "knightsheraldry:item/arquebus_icon"
-    }
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "knightsheraldry:piglin": 1
+            },
+            "model": "knightsheraldry:item/golden_arquebus_icon"
+        }
+    ]
 }
