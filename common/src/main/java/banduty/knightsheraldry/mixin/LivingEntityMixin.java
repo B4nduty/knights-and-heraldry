@@ -1,11 +1,15 @@
 package banduty.knightsheraldry.mixin;
 
+import banduty.knightsheraldry.combat.weapon.IHeldWeaponAnimatable;
 import banduty.knightsheraldry.effect.KHEffects;
 import banduty.stoneycore.data.IEntityDataSaver;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -50,12 +54,21 @@ public abstract class LivingEntityMixin {
     public void knightsheraldry$tick(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (entity instanceof Player player) {
-            handleSwallowtailArrowTimer(player);
+            knightsheraldry$handleSwallowtailArrowTimer(player);
         }
+
+        for (InteractionHand hand : InteractionHand.values()) {
+            ItemStack stack = entity.getItemInHand(hand);
+
+            if (stack.getItem() instanceof IHeldWeaponAnimatable animatable && entity.level() instanceof ServerLevel serverLevel) {
+                animatable.trackHolder(stack, serverLevel, entity);
+            }
+        }
+
     }
 
     @Unique
-    private void handleSwallowtailArrowTimer(Player player) {
+    private void knightsheraldry$handleSwallowtailArrowTimer(Player player) {
         if (!((IEntityDataSaver) player).stoneycore$getPersistentData().contains("swallowtailArrowCount")) {
             return;
         }

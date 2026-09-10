@@ -2,6 +2,7 @@ package banduty.knightsheraldry.items.item.khrangeweapon;
 
 import banduty.knightsheraldry.client.item.weapon.HandgonneModel;
 import banduty.knightsheraldry.client.item.weapon.HandgonneRenderer;
+import banduty.knightsheraldry.combat.weapon.IHeldWeaponAnimatable;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
 import banduty.stoneycore.items.client.SCIconRendererProvider;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
@@ -9,11 +10,10 @@ import banduty.stoneycore.definitions.ArmorAttachmentDefinitionsStorage;
 import banduty.stoneycore.definitions.WeaponDefinitionsStorage;
 import banduty.stoneycore.combat.weapon.SCRangeWeaponUtil;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.animatable.client.GeoRenderProvider;
@@ -23,18 +23,18 @@ import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.renderer.GeoItemRenderer;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
-public class Handgonne extends Item implements GeoItem, SCIconRendererProvider {
+public class Handgonne extends Item implements GeoItem, SCIconRendererProvider, IHeldWeaponAnimatable {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    private LivingEntity fallbackLivingEntity = null;
+    private final Map<Long, LivingEntity> fallbackLivingEntities = new ConcurrentHashMap<>();
 
     @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
-        if (isSelected && entity instanceof LivingEntity livingEntity) {
-            this.fallbackLivingEntity = livingEntity;
-        } else fallbackLivingEntity = null;
-        super.inventoryTick(stack, level, entity, slotId, isSelected);
+    public void trackHolder(ItemStack stack, ServerLevel serverLevel, LivingEntity holder) {
+        long id = GeoItem.getOrAssignId(stack, serverLevel);
+        fallbackLivingEntities.put(id, holder);
     }
 
     public Handgonne(Properties properties) {
@@ -65,7 +65,11 @@ public class Handgonne extends Item implements GeoItem, SCIconRendererProvider {
     private PlayState predicate(AnimationState<Handgonne> animationState) {
         ItemStack itemStack = animationState.getData(DataTickets.ITEMSTACK);
         AnimationController<Handgonne> controller = animationState.getController();
+
+        long id = GeoItem.getId(itemStack);
+        LivingEntity fallbackLivingEntity = fallbackLivingEntities.get(id);
         if (fallbackLivingEntity == null) return PlayState.STOP;
+
         if (SCRangeWeaponUtil.getWeaponState(itemStack).isShooting()) {
             controller.setAnimationSpeed(1.0);
             animationState.getController().setAnimation(RawAnimation.begin().then("shoot", Animation.LoopType.HOLD_ON_LAST_FRAME));
