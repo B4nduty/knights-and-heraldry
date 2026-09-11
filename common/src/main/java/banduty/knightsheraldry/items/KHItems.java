@@ -226,12 +226,12 @@ public interface KHItems {
     );
     ArmorFamily VISORLESS_SALLET = attachmentFamily(
             "visorless_sallet", 109,
-            KHHelmetAttachment::new,
+            KHSalletHelmet::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
     ArmorFamily MORION = attachmentFamily(
             "morion", 109,
-            KHHelmetAttachment::new,
+            KHMorionHelmet::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
 
@@ -257,7 +257,7 @@ public interface KHItems {
     );
     ArmorFamily CAGE = attachmentFamily(
             "cage", 172,
-            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            (properties, ingredient) -> new KHCageHelmetAttachment(properties, true, ingredient),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
     ArmorFamily VISORED_BASCINET = attachmentFamily(
@@ -267,17 +267,17 @@ public interface KHItems {
     );
     ArmorFamily GREAT_HELM = attachmentFamily(
             "great_helm", 250,
-            KHHelmetAttachment::new,
+            KHGreatHelmetAttachment::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
     ArmorFamily GREAT_HELM_2 = attachmentFamily(
             "great_helm_2", 250,
-            KHHelmetAttachment::new,
+            KHGreatHelmetAttachment::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
     ArmorFamily SALLET = attachmentFamily(
             "sallet", 172,
-            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            (properties, ingredient) -> new KHSalletHelmet(properties, true, ingredient),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
     ArmorFamily BURGONET_FALLING_BUFFE = attachmentFamily(
@@ -287,28 +287,28 @@ public interface KHItems {
     );
     ArmorFamily CLOSE_HELM = attachmentFamily(
             "close_helm", 172,
-            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            (properties, ingredient) -> new KHCloseHelmet(properties, true, ingredient),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
     ArmorFamily BLACK_SALLET = attachmentFamily(
             "black_sallet", 172,
-            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            (properties, ingredient) -> new KHBlackSalletHelmet(properties, true, ingredient),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
     ArmorFamily VISORED_MORION = attachmentFamily(
             "visored_morion", 172,
-            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            (properties, ingredient) -> new KHMorionHelmet(properties, true, ingredient),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
 
     ArmorFamily SALLET_BEVOR = attachmentFamily(
             "sallet_bevor", 206,
-            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            (properties, ingredient) -> new KHSalletHelmet(properties, true, ingredient),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
     ArmorFamily BLACK_SALLET_BEVOR = attachmentFamily(
             "black_sallet_bevor", 206,
-            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            (properties, ingredient) -> new KHBlackSalletHelmet(properties, true, ingredient),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
 
@@ -344,12 +344,12 @@ public interface KHItems {
     );
     ArmorFamily SAVOYARD = attachmentFamily(
             "savoyard", 234,
-            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            (properties, ingredient) -> new KHSavoyard(properties, true, ingredient),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
     ArmorFamily ARAGONESE_SALLET = attachmentFamily(
             "aragonese_sallet", 234,
-            (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
+            (properties, ingredient) -> new KHAragoneseSalletHelmet(properties, true, ingredient),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
 
@@ -381,19 +381,19 @@ public interface KHItems {
     );
     ArmorFamily PLATE_CUISSES = attachmentFamily(
             "plate_cuisses", 203,
-            KHChestplateAttachment::new,
+            KHLeggingsAttachment::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
 
     ArmorFamily GREAVES = attachmentFamily(
             "greaves", 90,
-            KHChestplateAttachment::new,
+            KHLeggingsAttachment::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
 
     ArmorFamily SABATONS = attachmentFamily(
             "sabatons", 90,
-            KHChestplateAttachment::new,
+            KHBootsAttachment::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
 
