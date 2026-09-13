@@ -14,9 +14,7 @@ public abstract class MeleeAttackMixin {
     private static void knightsheraldry$treatFirearmAsProjectileWeapon(Mob mob, CallbackInfoReturnable<Boolean> cir) {
         if (!FirearmAttack.isHoldingFirearm(mob)) return;
 
-        // Within melee-switch range (Normal/Hard only) we hand control back
-        // to vanilla melee instead of forcing it to keep its distance.
-        if (FirearmAttack.isInMeleeRange(mob)) return;
+        if (FirearmAttack.isInMeleeRange(mob) || FirearmAttack.isMeleeCommitted(mob)) return;
 
         cir.setReturnValue(true);
     }

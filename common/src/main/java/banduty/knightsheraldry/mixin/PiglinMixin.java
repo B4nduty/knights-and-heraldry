@@ -1,5 +1,6 @@
 package banduty.knightsheraldry.mixin;
 
+import banduty.knightsheraldry.ai.FirearmCommitmentHolder;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
 import net.minecraft.util.RandomSource;
@@ -14,10 +15,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Piglin.class)
-public abstract class PiglinMixin {
+public abstract class PiglinMixin implements FirearmCommitmentHolder {
 
     @Unique
     private static final float CHANCE_TO_CARRY_FIREARM = 0.15F;
+
+    @Unique
+    private boolean knightsheraldry$meleeCommitted = false;
 
     @Inject(method = "populateDefaultEquipmentSlots", at = @At("TAIL"))
     private void knightsheraldry$maybeEquipFirearm(RandomSource random, DifficultyInstance difficulty, CallbackInfo ci) {
@@ -33,5 +37,15 @@ public abstract class PiglinMixin {
 
         self.setItemSlot(EquipmentSlot.MAINHAND, firearm);
         self.setDropChance(EquipmentSlot.MAINHAND, 0.08F);
+    }
+
+    @Override
+    public boolean knightsheraldry$isMeleeCommitted() {
+        return knightsheraldry$meleeCommitted;
+    }
+
+    @Override
+    public void knightsheraldry$setMeleeCommitted(boolean committed) {
+        knightsheraldry$meleeCommitted = committed;
     }
 }

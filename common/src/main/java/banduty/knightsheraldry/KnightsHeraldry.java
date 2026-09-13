@@ -3,6 +3,7 @@ package banduty.knightsheraldry;
 import banduty.knightsheraldry.config.IKHConfig;
 import banduty.knightsheraldry.effect.KHEffects;
 import banduty.knightsheraldry.entity.KHEntities;
+import banduty.knightsheraldry.entity.custom.Craftman;
 import banduty.knightsheraldry.items.KHItemGroups;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.ModArmorMaterials;
@@ -28,6 +29,7 @@ public class KnightsHeraldry {
         KHSounds.init();
         KHDataComponents.init();
         KHItemGroups.init();
+        Craftman.init();
 
         if (Services.PLATFORM.isModLoaded(KnightsHeraldry.MOD_ID)) {
             LOG.info("Hello to knightsheraldry");

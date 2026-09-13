@@ -6,6 +6,7 @@ import banduty.knightsheraldry.entity.custom.Craftman;
 import banduty.knightsheraldry.entity.custom.CraftmanTradeManager;
 import banduty.knightsheraldry.event.UseItemHandler;
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.trades.KHFabricVillagerTrades;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -29,7 +30,7 @@ public class KnightsHeraldryFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         KnightsHeraldry.init();
-        Craftman.init();
+        KHFabricVillagerTrades.register();
         UseItemCallback.EVENT.register(new UseItemHandler());
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(content -> {
