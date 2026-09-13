@@ -1,18 +1,32 @@
 package banduty.knightsheraldry.mixin;
 
+import banduty.knightsheraldry.ai.FirearmAttack;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.Brain;
+import net.minecraft.world.entity.ai.behavior.BehaviorControl;
+import net.minecraft.world.entity.ai.behavior.OneShot;
+import net.minecraft.world.entity.ai.behavior.SetWalkTargetFromAttackTargetIfTargetOutOfReach;
+import net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder;
+import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
+import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Mixin(PiglinAi.class)
-public class PiglinAIMixin {
+public abstract class PiglinAIMixin {
     @Inject(method = "isWearingGold", at = @At("HEAD"), cancellable = true)
     private static void isWearingGold(LivingEntity livingEntity, CallbackInfoReturnable<Boolean> cir) {
         for (ItemStack itemStack : livingEntity.getArmorSlots()) {
@@ -26,5 +40,51 @@ public class PiglinAIMixin {
                 }
             }
         }
+    }
+
+    @Redirect(
+            method = "initCoreActivity",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/ai/Brain;addActivity(Lnet/minecraft/world/entity/schedule/Activity;ILcom/google/common/collect/ImmutableList;)V"
+            )
+    )
+    private static void knightsheraldry$addFirearmReload(
+            Brain<Piglin> brain,
+            Activity activity,
+            int priority,
+            ImmutableList<? extends BehaviorControl<? super Piglin>> tasks
+    ) {
+        List<BehaviorControl<? super Piglin>> extended = new ArrayList<>(tasks);
+        extended.add(new FirearmAttack());
+        brain.addActivity(activity, priority, ImmutableList.copyOf(extended));
+    }
+
+    // Treat firearms like crossbows for the "back up if too close" trigger.
+    @Inject(method = "hasCrossbow", at = @At("HEAD"), cancellable = true)
+    private static void knightsheraldry$hasCrossbowOrFirearm(LivingEntity piglin, CallbackInfoReturnable<Boolean> cir) {
+        if (FirearmAttack.isHoldingFirearm(piglin)) {
+            cir.setReturnValue(true);
+        }
+    }
+
+    // Stop the vanilla "walk into melee range" behavior from ever engaging
+    // for a mob holding a firearm - this is what was causing it to run up.
+    @Redirect(
+            method = "initFightActivity",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/ai/behavior/SetWalkTargetFromAttackTargetIfTargetOutOfReach;create(F)Lnet/minecraft/world/entity/ai/behavior/BehaviorControl;"
+            )
+    )
+    private static BehaviorControl<Mob> knightsheraldry$gateWalkTarget(float speedModifier) {
+        // create() is declared to return BehaviorControl<Mob>, but the object
+        // it actually builds (via BehaviorBuilder.create/.group().apply()) is
+        // a OneShot - which is what triggerIf requires. Safe to cast back down.
+        BehaviorControl<Mob> walkTarget = SetWalkTargetFromAttackTargetIfTargetOutOfReach.create(speedModifier);
+        return BehaviorBuilder.triggerIf(
+                mob -> !FirearmAttack.isHoldingFirearm(mob) || FirearmAttack.isInMeleeRange(mob),
+                (OneShot<Mob>) walkTarget
+        );
     }
 }
