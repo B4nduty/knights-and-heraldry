@@ -30,6 +30,7 @@ public class KnightsHeraldryFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         KnightsHeraldry.init();
+        Craftman.init();
         KHFabricVillagerTrades.register();
         UseItemCallback.EVENT.register(new UseItemHandler());
 

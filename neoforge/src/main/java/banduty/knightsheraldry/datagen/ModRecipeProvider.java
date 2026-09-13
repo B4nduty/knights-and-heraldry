@@ -68,14 +68,14 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, KHItems.ARMING_DOUBLET.get())
                 .requires(KHItems.GAMBESON.get())
-                .requires(Items.CHAIN)
+                .requires(Items.CHAIN, 2)
                 .unlockedBy(getHasName(KHItems.GAMBESON.get()), has(KHItems.GAMBESON.get()))
                 .unlockedBy(getHasName(Items.CHAIN), has(Items.CHAIN))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.ARMING_DOUBLET.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, KHItems.ARMING_HOSE.get())
                 .requires(KHItems.GAMBESON_BREECHES.get())
-                .requires(Items.CHAIN)
+                .requires(Items.CHAIN, 2)
                 .unlockedBy(getHasName(KHItems.GAMBESON_BREECHES.get()), has(KHItems.GAMBESON_BREECHES.get()))
                 .unlockedBy(getHasName(Items.CHAIN), has(Items.CHAIN))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.ARMING_HOSE.get())));
