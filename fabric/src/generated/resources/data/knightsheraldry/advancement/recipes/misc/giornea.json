@@ -1,6 +1,26 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_brown_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:brown_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_gold_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:gold_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_leather": {
       "conditions": {
         "items": [
@@ -11,44 +31,24 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_string": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:string"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "knightsheraldry:gambeson_boots"
+        "recipe": "knightsheraldry:giornea"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": "#minecraft:wool"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
       "has_leather",
-      "has_string",
-      "has_wool"
+      "has_brown_dye",
+      "has_gold_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
-      "knightsheraldry:gambeson_boots"
+      "knightsheraldry:giornea"
     ]
   }
 }

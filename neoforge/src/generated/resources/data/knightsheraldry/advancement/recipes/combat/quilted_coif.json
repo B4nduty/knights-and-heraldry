@@ -26,13 +26,24 @@
         "recipe": "knightsheraldry:quilted_coif"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:wool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
       "has_leather",
-      "has_string"
+      "has_string",
+      "has_wool"
     ]
   ],
   "rewards": {

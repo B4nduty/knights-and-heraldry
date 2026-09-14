@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_leather": {
+    "has_string": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:leather"
+            "items": "minecraft:string"
           }
         ]
       },
@@ -13,31 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "knightsheraldry:gambeson"
+        "recipe": "knightsheraldry:civilian_surcoat"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": "#minecraft:wool"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_leather",
-      "has_wool"
+      "has_string"
     ]
   ],
   "rewards": {
     "recipes": [
-      "knightsheraldry:gambeson"
+      "knightsheraldry:civilian_surcoat"
     ]
   }
 }

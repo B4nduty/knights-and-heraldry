@@ -26,6 +26,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
+        // Gambeson Set
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, KHItems.QUILTED_COIF.get())
                 .pattern("LLL")
                 .pattern("LWL")
@@ -35,6 +36,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('S', Items.STRING)
                 .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
                 .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.QUILTED_COIF.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, KHItems.GAMBESON.get())
@@ -44,6 +46,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('L', Items.LEATHER)
                 .define('W', ItemTags.WOOL)
                 .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.GAMBESON.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, KHItems.GAMBESON_BREECHES.get())
@@ -53,6 +56,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('L', Items.LEATHER)
                 .define('W', ItemTags.WOOL)
                 .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.GAMBESON_BREECHES.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, KHItems.GAMBESON_BOOTS.get())
@@ -64,8 +68,10 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('S', Items.STRING)
                 .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
                 .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.GAMBESON_BOOTS.get())));
 
+        // Arming Set
         ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, KHItems.ARMING_DOUBLET.get())
                 .requires(KHItems.GAMBESON.get())
                 .requires(Items.CHAIN, 2)
@@ -80,6 +86,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(Items.CHAIN), has(Items.CHAIN))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.ARMING_HOSE.get())));
 
+        // Plume
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TRI_PLUME.get())
                 .requires(KHItems.PLUME.get())
                 .requires(KHItems.PLUME.get())
@@ -103,6 +110,124 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(KHItems.TRI_PLUME.get()), has(KHItems.TRI_PLUME.get()))
                 .unlockedBy(getHasName(KHItems.PLUME.get()), has(KHItems.PLUME.get()))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.FLUFFY_PLUME.get()) + "_2"));
+
+        // Surcoat
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, KHItems.SURCOAT.get())
+                .pattern("WWW")
+                .pattern("WLW")
+                .pattern("W W")
+                .define('L', Items.LEATHER)
+                .define('W', ItemTags.WOOL)
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.SURCOAT.get())));
+
+        // Surcoat Sleeveless
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, KHItems.SURCOAT_SLEEVELESS.get())
+                .pattern("W W")
+                .pattern("WLW")
+                .pattern("WWW")
+                .define('L', Items.LEATHER)
+                .define('W', ItemTags.WOOL)
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.SURCOAT_SLEEVELESS.get())));
+
+        // Civilian Surcoat
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, KHItems.CIVILIAN_SURCOAT.get())
+                .pattern("WWW")
+                .pattern("WSW")
+                .pattern("W W")
+                .define('S', Items.STRING)
+                .define('W', ItemTags.WOOL)
+                .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.CIVILIAN_SURCOAT.get())));
+
+        // Giornea
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, KHItems.GIORNEA.get())
+                .pattern("WDW")
+                .pattern("WLW")
+                .pattern("WGW")
+                .define('L', Items.LEATHER)
+                .define('D', Items.BROWN_DYE)
+                .define('G', Items.GOLD_INGOT)
+                .define('W', ItemTags.WOOL)
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .unlockedBy(getHasName(Items.BROWN_DYE), has(Items.BROWN_DYE))
+                .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.GIORNEA.get())));
+
+        // Cloak
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, KHItems.CLOAK.get())
+                .pattern("WWW")
+                .pattern("WLW")
+                .pattern("WWW")
+                .define('L', Items.LEATHER)
+                .define('W', ItemTags.WOOL)
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.CLOAK.get())));
+
+        // Torn Cloak
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TORN_CLOAK.get())
+                .requires(KHItems.CLOAK.get())
+                .requires(Items.SHEARS)
+                .unlockedBy(getHasName(KHItems.CLOAK.get()), has(KHItems.CLOAK.get()))
+                .unlockedBy(getHasName(Items.SHEARS), has(Items.SHEARS))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.TORN_CLOAK.get())));
+
+        // Hood
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, KHItems.HOOD.get())
+                .pattern("WWW")
+                .pattern("W W")
+                .pattern(" W ")
+                .define('W', ItemTags.WOOL)
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.HOOD.get())));
+
+        // Torn Hood
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.TORN_HOOD.get())
+                .requires(KHItems.HOOD.get())
+                .requires(Items.SHEARS)
+                .unlockedBy(getHasName(KHItems.HOOD.get()), has(KHItems.HOOD.get()))
+                .unlockedBy(getHasName(Items.SHEARS), has(Items.SHEARS))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.TORN_HOOD.get())));
+
+        // Jester Hood
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, KHItems.JESTER_HOOD.get())
+                .pattern("FWF")
+                .pattern("WLW")
+                .pattern(" W ")
+                .define('F', Items.FEATHER)
+                .define('L', Items.LEATHER)
+                .define('W', ItemTags.WOOL)
+                .unlockedBy(getHasName(Items.FEATHER), has(Items.FEATHER))
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.JESTER_HOOD.get())));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.JESTER_HOOD.get())
+                .requires(KHItems.HOOD.get())
+                .requires(Items.FEATHER, 2)
+                .requires(Items.LEATHER)
+                .unlockedBy(getHasName(KHItems.HOOD.get()), has(KHItems.HOOD.get()))
+                .unlockedBy(getHasName(Items.FEATHER), has(Items.FEATHER))
+                .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.JESTER_HOOD.get()) + "_2"));
+
+        // Helmet Hood
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.HELMET_HOOD.get())
+                .requires(KHItems.HOOD.get())
+                .unlockedBy(getHasName(KHItems.HOOD.get()), has(KHItems.HOOD.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.HELMET_HOOD.get())));
+
+        // Helmet Torn Hood
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.HELMET_TORN_HOOD.get())
+                .requires(KHItems.HELMET_HOOD.get())
+                .requires(Items.SHEARS)
+                .unlockedBy(getHasName(KHItems.HELMET_HOOD.get()), has(KHItems.HELMET_HOOD.get()))
+                .unlockedBy(getHasName(Items.SHEARS), has(Items.SHEARS))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.HELMET_TORN_HOOD.get())));
 
         // Dagger Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.DAGGER_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_DAGGER.get()));

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "FWF",
+    "WLW",
+    " W "
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:jester_hood"
+  }
+}

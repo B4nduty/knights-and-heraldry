@@ -13,31 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "knightsheraldry:gambeson"
+        "recipe": "knightsheraldry:cloak"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": "#minecraft:wool"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_leather",
-      "has_wool"
+      "has_leather"
     ]
   ],
   "rewards": {
     "recipes": [
-      "knightsheraldry:gambeson"
+      "knightsheraldry:cloak"
     ]
   }
 }

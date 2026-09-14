@@ -1,6 +1,26 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_feather": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:feather"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_hood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:hood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_leather": {
       "conditions": {
         "items": [
@@ -11,44 +31,24 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_string": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:string"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "knightsheraldry:gambeson_boots"
+        "recipe": "knightsheraldry:jester_hood_2"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": "#minecraft:wool"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_leather",
-      "has_string",
-      "has_wool"
+      "has_hood",
+      "has_feather",
+      "has_leather"
     ]
   ],
   "rewards": {
     "recipes": [
-      "knightsheraldry:gambeson_boots"
+      "knightsheraldry:jester_hood_2"
     ]
   }
 }

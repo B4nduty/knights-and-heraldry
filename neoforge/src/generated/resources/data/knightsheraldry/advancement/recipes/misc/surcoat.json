@@ -11,19 +11,9 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_string": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:string"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "knightsheraldry:gambeson_boots"
+        "recipe": "knightsheraldry:surcoat"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -42,13 +32,12 @@
     [
       "has_the_recipe",
       "has_leather",
-      "has_string",
       "has_wool"
     ]
   ],
   "rewards": {
     "recipes": [
-      "knightsheraldry:gambeson_boots"
+      "knightsheraldry:surcoat"
     ]
   }
 }

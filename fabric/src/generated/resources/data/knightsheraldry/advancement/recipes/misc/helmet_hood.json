@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_leather": {
+    "has_hood": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:leather"
+            "items": "knightsheraldry:hood"
           }
         ]
       },
@@ -13,31 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "knightsheraldry:gambeson"
+        "recipe": "knightsheraldry:helmet_hood"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": "#minecraft:wool"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_leather",
-      "has_wool"
+      "has_hood"
     ]
   ],
   "rewards": {
     "recipes": [
-      "knightsheraldry:gambeson"
+      "knightsheraldry:helmet_hood"
     ]
   }
 }
