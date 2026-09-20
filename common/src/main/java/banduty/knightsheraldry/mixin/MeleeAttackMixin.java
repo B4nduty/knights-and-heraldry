@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MeleeAttack.class)
 public abstract class MeleeAttackMixin {
-    @Inject(method = "isHoldingUsableProjectileWeapon", at = @At("HEAD"), cancellable = true, remap = false)
+    @Inject(method = "isHoldingUsableProjectileWeapon", at = @At("HEAD"), cancellable = true)
     private static void knightsheraldry$treatFirearmAsProjectileWeapon(Mob mob, CallbackInfoReturnable<Boolean> cir) {
         if (!FirearmAttack.isHoldingFirearm(mob)) return;
 
