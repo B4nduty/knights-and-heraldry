@@ -19,20 +19,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
-/**
- * Per difficulty (world gamemode, not effective difficulty):
- * <p>
- * - Easy: freezes while charging, 8-block range, retreats 5, never melees.
- * <p>
- * - Normal: slow-drifts while charging, 12-block range, retreats 6, melees under 3 blocks.
- * <p>
- * - Hard: 20-block range; if still pressured between melee range and max range
- *   post-shot it retreats to 16 instead of 6; after its first shot, if &lt;=2
- *   other piglins are nearby it commits to melee for the rest of the fight.
- * <p>
- * Accuracy is separate: it scales with regional/effective difficulty
- * (getInaccuracyDegrees), not the gamemode.
- */
 public class FirearmAttack extends Behavior<Piglin> {
 
     private enum State { CHARGING, RETREATING }

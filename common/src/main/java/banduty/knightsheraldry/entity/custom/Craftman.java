@@ -140,24 +140,18 @@ public class Craftman extends AbstractVillager {
 
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
-        SpawnGroupData data = super.finalizeSpawn(
-                level,
-                difficulty,
-                spawnType,
-                spawnGroupData
-        );
+        SpawnGroupData data = super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
 
-        ResourceLocation biomeLoc = level.getBiome(this.blockPosition())
-                .unwrapKey()
-                .map(ResourceKey::location)
-                .orElse(Biomes.PLAINS.location());
+        if (this.getCraftmanData().biomeKey().equals(NO_BIOME)) {
+            ResourceLocation biomeLoc = level.getBiome(this.blockPosition())
+                    .unwrapKey()
+                    .map(ResourceKey::location)
+                    .orElse(Biomes.PLAINS.location());
+            setCraftmanData(new CraftmanData(biomeLoc, 1, 0));
+        }
 
-        setCraftmanData(new CraftmanData(biomeLoc, 1, 0));
         this.setPersistenceRequired();
-
-        // Generate initial trades.
         this.updateTrades();
-
         return data;
     }
 
