@@ -4,9 +4,14 @@ import banduty.knightsheraldry.config.KHConfigImpl;
 import banduty.knightsheraldry.data.ArrowBehavior;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
 
 import java.util.function.Supplier;
 
@@ -51,6 +56,12 @@ public interface IPlatformHelper {
     <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> entry);
 
     <T> Holder<T> registerHolder(ResourceKey<Registry<T>> registryKey, String name, Supplier<T> value);
+
+    <T extends AbstractContainerMenu, D> MenuType<T> createMenuType(IPlatformHelper.IExtendedFactory<T, D> factory, StreamCodec<RegistryFriendlyByteBuf, D> codec);
+
+    interface IExtendedFactory<T extends AbstractContainerMenu, D> {
+        T create(int syncId, Inventory inventory, D data);
+    }
 
     void syncSpeedHistory(ServerPlayer player, float speedHistory);
 }

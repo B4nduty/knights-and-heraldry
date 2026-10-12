@@ -9,12 +9,17 @@ import banduty.knightsheraldry.networking.payload.VelocityS2CPacket;
 import banduty.knightsheraldry.platform.services.IPlatformHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
+import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -78,6 +83,14 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
         );
 
         return deferredRegister.register(name, value);
+    }
+
+    @Override
+    public <T extends AbstractContainerMenu, D> MenuType<T> createMenuType(IExtendedFactory<T, D> factory, StreamCodec<RegistryFriendlyByteBuf, D> codec) {
+        return IMenuTypeExtension.create((syncId, inventory, buf) -> {
+            D data = codec.decode(buf);
+            return factory.create(syncId, inventory, data);
+        });
     }
 
     @Override

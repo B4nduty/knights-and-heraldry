@@ -13,6 +13,8 @@ import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
 import banduty.knightsheraldry.networking.KHPayloadsClient;
+import banduty.knightsheraldry.screen.KHScreenHandlers;
+import banduty.knightsheraldry.screen.ManuscriptBookScreen;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
 import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
 import net.fabricmc.api.ClientModInitializer;
@@ -20,6 +22,7 @@ import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.DyedItemColor;
@@ -44,6 +47,8 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
         EntityRendererRegistry.register(KHEntities.BROADHEAD_ARROW.get(), KHBroadheadArrowEntityRenderer::new);
         EntityRendererRegistry.register(KHEntities.CLOTH_ARROW.get(), KHClothArrowEntityRenderer::new);
         EntityRendererRegistry.register(KHEntities.CRAFTMAN.get(), CraftmanRenderer::new);
+
+        MenuScreens.register(KHScreenHandlers.MANUSCRIPT_BOOK_SCREEN_HANDLER.get(), ManuscriptBookScreen::new);
 
         for (Item item : BuiltInRegistries.ITEM) {
             if (item instanceof TwoLayerDyeableDeco) {

@@ -126,6 +126,8 @@ public class ModModelProvider extends FabricModelProviderPlus {
 
         registerItemWConditions(KHItems.HARNESS_PIECE.get(), itemModelGenerators, registries);
 
+        registerItemWConditions(KHItems.MANUSCRIPT_BOOK.get(), itemModelGenerators, registries);
+
         registerItemWConditions(KHItems.CHAPERON.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.BROADHEAD_ARROW.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.BODKIN_ARROW.get(), itemModelGenerators, registries);

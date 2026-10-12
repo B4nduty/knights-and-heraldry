@@ -398,6 +398,8 @@ public interface KHItemGroups {
             .title(Component.translatable("component.itemgroup.knightsheraldry.tab.kh_ingredient"))
             .appendItems((output) -> {
                 output.acceptAll(List.of(
+                        itemStack(KHItems.MANUSCRIPT_BOOK.get()),
+
                         itemStack(KHItems.MANUSCRIPT_DAGGER.get()),
                         itemStack(KHItems.MANUSCRIPT_SWORD.get()),
                         itemStack(KHItems.MANUSCRIPT_AXE.get()),

@@ -23,6 +23,7 @@ import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import banduty.knightsheraldry.items.item.khrangeweapon.Longbow;
 import banduty.knightsheraldry.items.item.khweapon.*;
 import banduty.knightsheraldry.items.item.khweapon.flail.Flail;
+import banduty.knightsheraldry.items.item.manuscriptbook.ManuscriptBookItem;
 import banduty.knightsheraldry.platform.Services;
 import banduty.stoneycore.combat.damagetype.SCDamageType;
 import banduty.stoneycore.data.SCDataComponents;
@@ -590,6 +591,8 @@ public interface KHItems {
     Supplier<Item> SPAULDERS_PIECE = registerItem("spaulders_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
 
     Supplier<Item> HARNESS_PIECE = registerItem("harness_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
+
+    Supplier<Item> MANUSCRIPT_BOOK = registerItem("manuscript_book", () -> new ManuscriptBookItem(new Item.Properties()));
 
     static Supplier<Item> sword(String id, float attackSpeed, int durability) {
         return registerItem(id, () -> new Sword3dItem(ModToolMaterials.WEAPONS,

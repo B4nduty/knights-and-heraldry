@@ -36,6 +36,16 @@
         "recipe": "knightsheraldry:giornea"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:wool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -43,7 +53,8 @@
       "has_the_recipe",
       "has_leather",
       "has_brown_dye",
-      "has_gold_ingot"
+      "has_gold_ingot",
+      "has_wool"
     ]
   ],
   "rewards": {

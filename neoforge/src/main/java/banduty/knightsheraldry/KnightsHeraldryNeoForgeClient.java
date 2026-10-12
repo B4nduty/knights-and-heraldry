@@ -12,6 +12,8 @@ import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
+import banduty.knightsheraldry.screen.KHScreenHandlers;
+import banduty.knightsheraldry.screen.ManuscriptBookScreen;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
 import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -25,6 +27,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 @EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, value = Dist.CLIENT)
 public class KnightsHeraldryNeoForgeClient {
@@ -45,6 +48,14 @@ public class KnightsHeraldryNeoForgeClient {
         event.registerEntityRenderer(KHEntities.BROADHEAD_ARROW.get(), KHBroadheadArrowEntityRenderer::new);
         event.registerEntityRenderer(KHEntities.CLOTH_ARROW.get(), KHClothArrowEntityRenderer::new);
         event.registerEntityRenderer(KHEntities.CRAFTMAN.get(), CraftmanRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(
+                KHScreenHandlers.MANUSCRIPT_BOOK_SCREEN_HANDLER.get(),
+                ManuscriptBookScreen::new
+        );
     }
 
     @SubscribeEvent

@@ -1,12 +1,14 @@
 package banduty.knightsheraldry.platform;
 
 import banduty.knightsheraldry.KnightsHeraldry;
+import banduty.knightsheraldry.items.item.manuscriptbook.IManuscriptBookHelper;
 import banduty.knightsheraldry.platform.services.IPlatformHelper;
 
 import java.util.ServiceLoader;
 
 public class Services {
     public static final IPlatformHelper PLATFORM = load(IPlatformHelper.class);
+    public static final IManuscriptBookHelper MANUSCRIPT_BOOK = load(IManuscriptBookHelper.class);
 
     public static <T> T load(Class<T> clazz) {
 
