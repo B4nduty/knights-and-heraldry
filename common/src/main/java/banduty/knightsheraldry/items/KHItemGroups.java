@@ -399,6 +399,7 @@ public interface KHItemGroups {
             .appendItems((output) -> {
                 output.acceptAll(List.of(
                         itemStack(KHItems.MANUSCRIPT_BOOK.get()),
+                        itemStack(KHItems.REPAIRMANS_KIT.get()),
 
                         itemStack(KHItems.MANUSCRIPT_DAGGER.get()),
                         itemStack(KHItems.MANUSCRIPT_SWORD.get()),

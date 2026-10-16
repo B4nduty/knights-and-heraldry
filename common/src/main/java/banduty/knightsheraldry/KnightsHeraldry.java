@@ -5,7 +5,7 @@ import banduty.knightsheraldry.effect.KHEffects;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.KHItemGroups;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.items.ModArmorMaterials;
+import banduty.knightsheraldry.items.KHArmorMaterials;
 import banduty.knightsheraldry.platform.Services;
 import banduty.knightsheraldry.recipes.KHRecipes;
 import banduty.knightsheraldry.sounds.KHSounds;
@@ -20,7 +20,7 @@ public class KnightsHeraldry {
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
     public static void init() {
-        ModArmorMaterials.init();
+        KHArmorMaterials.init();
         KHItems.init();
         KHEffects.init();
         KHEntities.init();

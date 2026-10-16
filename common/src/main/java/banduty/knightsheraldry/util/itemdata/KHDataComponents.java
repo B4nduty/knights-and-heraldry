@@ -21,6 +21,8 @@ public interface KHDataComponents {
             b -> b.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
     Supplier<DataComponentType<Boolean>> PIGLIN = register("piglin",
             b -> b.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+    Supplier<DataComponentType<RepairKitContents>> REPAIR_KIT_CONTENTS = register("repair_kit_contents",
+            b -> b.persistent(RepairKitContents.CODEC).networkSynchronized(RepairKitContents.STREAM_CODEC));
 
     @SuppressWarnings("unchecked")
     private static <T> Supplier<DataComponentType<T>> register(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {

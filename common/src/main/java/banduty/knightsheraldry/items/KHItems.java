@@ -16,6 +16,7 @@ import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
 import banduty.knightsheraldry.items.item.KHExtendedArrowItem;
 import banduty.knightsheraldry.items.item.QuenchGenericItem;
+import banduty.knightsheraldry.items.item.RepairmansKitItem;
 import banduty.knightsheraldry.items.item.khammo.ClothArrow;
 import banduty.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
@@ -120,27 +121,27 @@ public interface KHItems {
 
 
     Supplier<Item> QUILTED_COIF = registerItem("quilted_coif",
-            () -> new SCDyeableUnderArmor(ModArmorMaterials.GAMBESON, ArmorItem.Type.HELMET, new Item.Properties().durability(165), 0xFFA06440));
+            () -> new SCDyeableUnderArmor(KHArmorMaterials.GAMBESON, ArmorItem.Type.HELMET, new Item.Properties().durability(165), 0xFFA06440));
     Supplier<Item> GAMBESON = registerItem("gambeson",
-            () -> new SCDyeableUnderArmor(ModArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(660), 0xFFA06440));
+            () -> new SCDyeableUnderArmor(KHArmorMaterials.GAMBESON, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(660), 0xFFA06440));
     Supplier<Item> GAMBESON_BREECHES = registerItem("gambeson_breeches",
-            () -> new SCDyeableUnderArmor(ModArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(330), 0xFFA06440));
+            () -> new SCDyeableUnderArmor(KHArmorMaterials.GAMBESON, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(330), 0xFFA06440));
     Supplier<Item> GAMBESON_BOOTS = registerItem("gambeson_boots",
-            () -> new SCDyeableUnderArmor(ModArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS, new Item.Properties().durability(165), 0xFFA06440));
+            () -> new SCDyeableUnderArmor(KHArmorMaterials.GAMBESON, ArmorItem.Type.BOOTS, new Item.Properties().durability(165), 0xFFA06440));
 
     Supplier<Item> MAIL_COIF = registerItem("mail_coif",
-            () -> new SCUnderArmor(ModArmorMaterials.MAIL, ArmorItem.Type.HELMET, new Item.Properties().durability(512)));
+            () -> new SCUnderArmor(KHArmorMaterials.MAIL, ArmorItem.Type.HELMET, new Item.Properties().durability(512)));
     Supplier<Item> HAUBERK = registerItem("hauberk",
-            () -> new SCUnderArmor(ModArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(1536)));
+            () -> new SCUnderArmor(KHArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(1536)));
     Supplier<Item> MAIL_BREECHES = registerItem("mail_breeches",
-            () -> new SCUnderArmor(ModArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(1280)));
+            () -> new SCUnderArmor(KHArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(1280)));
     Supplier<Item> MAIL_BOOTS = registerItem("mail_boots",
-            () -> new SCUnderArmor(ModArmorMaterials.MAIL, ArmorItem.Type.BOOTS, new Item.Properties().durability(512)));
+            () -> new SCUnderArmor(KHArmorMaterials.MAIL, ArmorItem.Type.BOOTS, new Item.Properties().durability(512)));
 
     Supplier<Item> ARMING_DOUBLET = registerItem("arming_doublet",
-            () -> new SCDyeableUnderArmor(ModArmorMaterials.ARMING, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(1075), 0xFFA06440));
+            () -> new SCDyeableUnderArmor(KHArmorMaterials.ARMING, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(1075), 0xFFA06440));
     Supplier<Item> ARMING_HOSE = registerItem("arming_hose",
-            () -> new SCDyeableUnderArmor(ModArmorMaterials.ARMING, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(896), 0xFFA06440));
+            () -> new SCDyeableUnderArmor(KHArmorMaterials.ARMING, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(896), 0xFFA06440));
 
     ArmorFamily MAIL_SPAULDERS = attachmentFamily("mail_spaulders", 96, KHChestplateAttachment::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.GOLDEN}, ArmorVariant.BESAGEWS);
@@ -593,6 +594,8 @@ public interface KHItems {
     Supplier<Item> HARNESS_PIECE = registerItem("harness_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
 
     Supplier<Item> MANUSCRIPT_BOOK = registerItem("manuscript_book", () -> new ManuscriptBookItem(new Item.Properties()));
+
+    Supplier<Item> REPAIRMANS_KIT = registerItem("repairmans_kit", () -> new RepairmansKitItem(new Item.Properties().stacksTo(1)));
 
     static Supplier<Item> sword(String id, float attackSpeed, int durability) {
         return registerItem(id, () -> new Sword3dItem(ModToolMaterials.WEAPONS,

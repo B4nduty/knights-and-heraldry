@@ -92,6 +92,8 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
 
                 KHItems.MANUSCRIPT_BOOK.get(),
 
+                KHItems.REPAIRMANS_KIT.get(),
+
                 // Basic items
                 KHItems.CHAPERON.get(), KHItems.BROADHEAD_ARROW.get(), KHItems.BODKIN_ARROW.get(),
                 KHItems.SWALLOWTAIL_ARROW.get(), KHItems.HOOD.get(), KHItems.TORN_HOOD.get(),

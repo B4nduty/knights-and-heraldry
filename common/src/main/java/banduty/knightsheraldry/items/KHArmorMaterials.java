@@ -17,8 +17,8 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.function.Supplier;
 
-public final class ModArmorMaterials {
-    private ModArmorMaterials() {}
+public final class KHArmorMaterials {
+    private KHArmorMaterials() {}
     public static final Holder<ArmorMaterial> GAMBESON = register("gambeson", Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 1);
         map.put(ArmorItem.Type.LEGGINGS, 2);

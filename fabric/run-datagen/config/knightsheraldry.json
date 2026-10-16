@@ -1,5 +1,11 @@
 {
   "lanceCooldown": 30,
   "damageTamedEntities": false,
-  "wardartCooldown": 15
+  "wardartCooldown": 15,
+  "bannerModelItemPaths": [
+    "knightsheraldry:surcoat",
+    "knightsheraldry:surcoat_sleeveless"
+  ],
+  "includeVanillaBannerPatterns": true,
+  "bannerPatternNames": []
 }

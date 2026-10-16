@@ -2,14 +2,14 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.util.itemdata.ModTags;
+import banduty.knightsheraldry.items.armor.ArmorVariant;
+import banduty.knightsheraldry.util.itemdata.KHTags;
 import banduty.stoneycore.data.SCTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
@@ -98,13 +98,96 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(itemArray(KHItems.HORSE_BARDING.list()))
                 .add(itemArray(KHItems.BRIGANDINE.list()));
 
-        tag(ModTags.DYES.getTag())
+        tag(KHTags.REPAIR_KIT_CHAIN.getTag())
+                .add(KHItems.MAIL_COIF.get(), KHItems.HAUBERK.get(), KHItems.MAIL_BREECHES.get(), KHItems.MAIL_BOOTS.get(),
+                        KHItems.MAIL_GLOVES.get())
+                .add(itemArray(KHItems.MAIL_SPAULDERS.list()));
+
+        tag(KHTags.REPAIR_KIT_GOLD.getTag())
                 .add(
-                        Items.BLACK_DYE, Items.BLUE_DYE, Items.BROWN_DYE, Items.LIGHT_BLUE_DYE,
-                        Items.CYAN_DYE, Items.GRAY_DYE, Items.GREEN_DYE, Items.LIGHT_GRAY_DYE,
-                        Items.LIME_DYE, Items.MAGENTA_DYE, Items.PINK_DYE, Items.ORANGE_DYE,
-                        Items.RED_DYE, Items.YELLOW_DYE, Items.WHITE_DYE, Items.PURPLE_DYE
+                        KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BRIGANDINE.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.PLATE_CUIRASS.get(ArmorVariant.GOLDEN).get(), KHItems.MAXIMILLIAN_CUIRASS.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.XIIII_PLATE_CUIRASS.get(ArmorVariant.GOLDEN).get(), KHItems.XIIII_PLATE_BREASTPLATE.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.PLACKART.get(ArmorVariant.GOLDEN).get(), KHItems.TASSETS.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.BARBUTE.get(ArmorVariant.GOLDEN).get(), KHItems.BASCINET.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.KETTLE_HELM.get(ArmorVariant.GOLDEN).get(), KHItems.NASAL_HELM.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.VIKING_HELM.get(ArmorVariant.GOLDEN).get(), KHItems.BURGONET.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.VISORLESS_SALLET.get(ArmorVariant.GOLDEN).get(), KHItems.MORION.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.ARMET.get(ArmorVariant.GOLDEN).get(), KHItems.ARMET_2.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.VISORED_BARBUTE.get(ArmorVariant.GOLDEN).get(), KHItems.HOUNDSKULL.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.CAGE.get(ArmorVariant.GOLDEN).get(), KHItems.VISORED_BASCINET.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.GREAT_HELM.get(ArmorVariant.GOLDEN).get(), KHItems.GREAT_HELM_2.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.SALLET.get(ArmorVariant.GOLDEN).get(), KHItems.BURGONET_FALLING_BUFFE.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.CLOSE_HELM.get(ArmorVariant.GOLDEN).get(), KHItems.BLACK_SALLET.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.VISORED_MORION.get(ArmorVariant.GOLDEN).get(), KHItems.SALLET_BEVOR.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.BLACK_SALLET_BEVOR.get(ArmorVariant.GOLDEN).get(), KHItems.FROGMOUTH.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.GREAT_ARMET.get(ArmorVariant.GOLDEN).get(), KHItems.GREAT_ARMET_2.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.GREAT_BASCINET.get(ArmorVariant.GOLDEN).get(), KHItems.GREAT_HOUNDSKUL_BASCINET.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.MAXIMILLIAN_HELMET.get(ArmorVariant.GOLDEN).get(), KHItems.SAVOYARD.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.ARAGONESE_SALLET.get(ArmorVariant.GOLDEN).get(), KHItems.GAUNTLET.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.BRIGANDINE_HARNESS.get(ArmorVariant.GOLDEN).get(), KHItems.PLATE_HARNESS.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.BRIGANDINE_CUISSES.get(ArmorVariant.GOLDEN).get(), KHItems.PLATE_CUISSES.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.GREAVES.get(ArmorVariant.GOLDEN).get(), KHItems.SABATONS.get(ArmorVariant.GOLDEN).get()
                 );
+
+        tag(KHTags.REPAIR_KIT_IRON.getTag())
+                .add(itemArray(KHItems.PLATE_SPAULDERS.list()))
+                .add(itemArray(KHItems.PLATE_CUIRASS.list()))
+                .add(itemArray(KHItems.MAXIMILLIAN_CUIRASS.list()))
+                .add(itemArray(KHItems.XIIII_PLATE_CUIRASS.list()))
+                .add(itemArray(KHItems.XIIII_PLATE_BREASTPLATE.list()))
+                .add(itemArray(KHItems.PLACKART.list()))
+                .add(itemArray(KHItems.TASSETS.list()))
+                .add(itemArray(KHItems.BARBUTE.list()))
+                .add(itemArray(KHItems.BASCINET.list()))
+                .add(itemArray(KHItems.KETTLE_HELM.list()))
+                .add(itemArray(KHItems.NASAL_HELM.list()))
+                .add(itemArray(KHItems.VIKING_HELM.list()))
+                .add(itemArray(KHItems.BURGONET.list()))
+                .add(itemArray(KHItems.VISORLESS_SALLET.list()))
+                .add(itemArray(KHItems.MORION.list()))
+                .add(itemArray(KHItems.ARMET.list()))
+                .add(itemArray(KHItems.ARMET_2.list()))
+                .add(itemArray(KHItems.VISORED_BARBUTE.list()))
+                .add(itemArray(KHItems.HOUNDSKULL.list()))
+                .add(itemArray(KHItems.CAGE.list()))
+                .add(itemArray(KHItems.VISORED_BASCINET.list()))
+                .add(itemArray(KHItems.GREAT_HELM.list()))
+                .add(itemArray(KHItems.GREAT_HELM_2.list()))
+                .add(itemArray(KHItems.SALLET.list()))
+                .add(itemArray(KHItems.BURGONET_FALLING_BUFFE.list()))
+                .add(itemArray(KHItems.CLOSE_HELM.list()))
+                .add(itemArray(KHItems.BLACK_SALLET.list()))
+                .add(itemArray(KHItems.VISORED_MORION.list()))
+                .add(itemArray(KHItems.SALLET_BEVOR.list()))
+                .add(itemArray(KHItems.BLACK_SALLET_BEVOR.list()))
+                .add(itemArray(KHItems.FROGMOUTH.list()))
+                .add(itemArray(KHItems.GREAT_ARMET.list()))
+                .add(itemArray(KHItems.GREAT_ARMET_2.list()))
+                .add(itemArray(KHItems.GREAT_BASCINET.list()))
+                .add(itemArray(KHItems.GREAT_HOUNDSKUL_BASCINET.list()))
+                .add(itemArray(KHItems.MAXIMILLIAN_HELMET.list()))
+                .add(itemArray(KHItems.SAVOYARD.list()))
+                .add(itemArray(KHItems.ARAGONESE_SALLET.list()))
+                .add(itemArray(KHItems.GAUNTLET.list()))
+                .add(itemArray(KHItems.PLATE_HARNESS.list()))
+                .add(itemArray(KHItems.PLATE_CUISSES.list()))
+                .add(itemArray(KHItems.GREAVES.list()))
+                .add(itemArray(KHItems.SABATONS.list()))
+                .add(KHItems.AVENTAIL.get())
+                .add(KHItems.RIM_GUARDS.get())
+                .add(KHItems.BESAGEWS.get());
+
+        tag(KHTags.REPAIR_KIT_LEATHER.getTag())
+                .add(KHItems.LEATHER_GLOVES.get());
+
+        tag(KHTags.REPAIR_KIT_WOOL.getTag())
+                .add(KHItems.QUILTED_COIF.get(), KHItems.GAMBESON.get(), KHItems.GAMBESON_BREECHES.get(), KHItems.GAMBESON_BOOTS.get())
+                .add(itemArray(KHItems.BRIGANDINE_SPAULDERS.list()))
+                .add(itemArray(KHItems.BRIGANDINE.list()))
+                .add(itemArray(KHItems.BRIGANDINE_HARNESS.list()))
+                .add(itemArray(KHItems.BRIGANDINE_CUISSES.list()));
     }
 
     private static Item[] itemArray(List<Supplier<Item>> suppliers) {
