@@ -15,6 +15,11 @@ public class KHConfigs {
     public static final ModConfigSpec.BooleanValue includeVanillaBannerPatterns;
     public static final ModConfigSpec.ConfigValue<List<? extends String>> bannerPatternNames;
 
+    public static final ModConfigSpec.IntValue repairKitSlotCapacity;
+    public static final ModConfigSpec.IntValue repairKitRepairPercent;
+    public static final ModConfigSpec.IntValue repairKitUseCooldown;
+    public static final ModConfigSpec.IntValue repairKitEverythingPenalty;
+
     static {
         final ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
@@ -54,6 +59,22 @@ public class KHConfigs {
                         entry -> entry instanceof String value
                                 && value.matches("[a-z0-9_.-]+:[a-z0-9/._-]+")
                 );
+
+        repairKitSlotCapacity = builder
+                .comment("Repairman's Kit: max items per material slot. Above 64, items come out in stacks of 64")
+                .defineInRange("repairKitSlotCapacity", 64, 1, 999);
+
+        repairKitRepairPercent = builder
+                .comment("Repairman's Kit: percent of max durability restored per material spent")
+                .defineInRange("repairKitRepairPercent", 40, 1, 100);
+
+        repairKitUseCooldown = builder
+                .comment("Repairman's Kit: cooldown in ticks after right-click in hand (20 ticks = 1 second)")
+                .defineInRange("repairKitUseCooldown", 60, 0, Integer.MAX_VALUE);
+
+        repairKitEverythingPenalty = builder
+                .comment("Repairman's Kit: extra cooldown in ticks per item repaired when sneak-using (20 ticks = 1 second)")
+                .defineInRange("repairKitEverythingPenalty", 100, 0, Integer.MAX_VALUE);
 
         SPEC = builder.build();
     }

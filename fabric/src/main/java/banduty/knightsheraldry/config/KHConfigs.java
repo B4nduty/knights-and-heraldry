@@ -32,4 +32,18 @@ public class KHConfigs implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip
     public List<String> bannerPatternNames = new ArrayList<>();
+
+    @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 999)
+    public int repairKitSlotCapacity = 64;
+
+    @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
+    public int repairKitRepairPercent = 40;
+
+    @ConfigEntry.Gui.Tooltip
+    public int repairKitUseCooldown = 60;
+
+    @ConfigEntry.Gui.Tooltip
+    public int repairKitEverythingPenalty = 100;
 }

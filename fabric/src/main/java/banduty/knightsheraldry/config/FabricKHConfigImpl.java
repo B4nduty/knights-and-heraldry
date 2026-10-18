@@ -35,4 +35,24 @@ public class FabricKHConfigImpl extends KHConfigImpl {
     public List<String> getBannerPatternNames() {
         return List.copyOf(KnightsHeraldryFabric.CONFIG.bannerPatternNames);
     }
+
+    @Override
+    public int getRepairKitSlotCapacity() {
+        return KnightsHeraldryFabric.CONFIG.repairKitSlotCapacity;
+    }
+
+    @Override
+    public int getRepairKitRepairPercent() {
+        return KnightsHeraldryFabric.CONFIG.repairKitRepairPercent;
+    }
+
+    @Override
+    public int getRepairKitUseCooldown() {
+        return KnightsHeraldryFabric.CONFIG.repairKitUseCooldown;
+    }
+
+    @Override
+    public int getRepairKitEverythingPenalty() {
+        return KnightsHeraldryFabric.CONFIG.repairKitEverythingPenalty;
+    }
 }

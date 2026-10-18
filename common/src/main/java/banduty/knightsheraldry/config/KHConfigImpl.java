@@ -32,4 +32,24 @@ public abstract class KHConfigImpl implements IKHConfig {
     public List<String> getBannerPatternNames() {
         throw new UnsupportedOperationException("Not implemented");
     }
+
+    @Override
+    public int getRepairKitSlotCapacity() {
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    @Override
+    public int getRepairKitRepairPercent() {
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    @Override
+    public int getRepairKitUseCooldown() {
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    @Override
+    public int getRepairKitEverythingPenalty() {
+        throw new UnsupportedOperationException("Not implemented");
+    }
 }

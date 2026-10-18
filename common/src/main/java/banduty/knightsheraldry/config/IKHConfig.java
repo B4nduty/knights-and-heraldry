@@ -14,4 +14,12 @@ public interface IKHConfig {
     boolean includeVanillaBannerPatterns();
 
     List<String> getBannerPatternNames();
+
+    int getRepairKitSlotCapacity();
+
+    int getRepairKitRepairPercent();
+
+    int getRepairKitUseCooldown();
+
+    int getRepairKitEverythingPenalty();
 }

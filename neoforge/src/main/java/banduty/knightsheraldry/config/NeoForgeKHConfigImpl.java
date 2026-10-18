@@ -36,4 +36,24 @@ public class NeoForgeKHConfigImpl extends KHConfigImpl {
                 .map(String::valueOf)
                 .toList();
     }
+
+    @Override
+    public int getRepairKitSlotCapacity() {
+        return KHConfigs.repairKitSlotCapacity.get();
+    }
+
+    @Override
+    public int getRepairKitRepairPercent() {
+        return KHConfigs.repairKitRepairPercent.get();
+    }
+
+    @Override
+    public int getRepairKitUseCooldown() {
+        return KHConfigs.repairKitUseCooldown.get();
+    }
+
+    @Override
+    public int getRepairKitEverythingPenalty() {
+        return KHConfigs.repairKitEverythingPenalty.get();
+    }
 }

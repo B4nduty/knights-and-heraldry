@@ -2,6 +2,7 @@ package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.client.entity.*;
 import banduty.knightsheraldry.client.item.SurcoatWithBannerModel;
+import banduty.knightsheraldry.client.tooltip.RepairKitClientTooltip;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.armor.attachment.KHChaperon;
 import banduty.knightsheraldry.items.armor.attachment.KHChestplateAttachment;
@@ -15,6 +16,7 @@ import banduty.knightsheraldry.model.ModEntityModelLayers;
 import banduty.knightsheraldry.screen.KHScreenHandlers;
 import banduty.knightsheraldry.screen.ManuscriptBookScreen;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
+import banduty.knightsheraldry.util.itemdata.RepairKitTooltip;
 import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -24,10 +26,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.ModelEvent;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
-import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.*;
 
 @EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, value = Dist.CLIENT)
 public class KnightsHeraldryNeoForgeClient {
@@ -105,5 +104,11 @@ public class KnightsHeraldryNeoForgeClient {
     @SubscribeEvent
     public static void registerLoaders(ModelEvent.RegisterGeometryLoaders event) {
         event.register(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "surcoat_with_banner"), SurcoatWithBannerModel.INSTANCE);
+    }
+
+
+    @SubscribeEvent
+    public static void onRegisterClientTooltipComponents(RegisterClientTooltipComponentFactoriesEvent event) {
+        event.register(RepairKitTooltip.class, t -> new RepairKitClientTooltip(t.contents()));
     }
 }

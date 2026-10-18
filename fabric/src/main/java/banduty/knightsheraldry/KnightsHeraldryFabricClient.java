@@ -1,6 +1,7 @@
 package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.client.entity.*;
+import banduty.knightsheraldry.client.tooltip.RepairKitClientTooltip;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.event.ItemTooltipHandler;
 import banduty.knightsheraldry.items.armor.attachment.KHChaperon;
@@ -16,12 +17,15 @@ import banduty.knightsheraldry.networking.KHPayloadsClient;
 import banduty.knightsheraldry.screen.KHScreenHandlers;
 import banduty.knightsheraldry.screen.ManuscriptBookScreen;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
+import banduty.knightsheraldry.util.itemdata.RepairKitContents;
+import banduty.knightsheraldry.util.itemdata.RepairKitTooltip;
 import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
@@ -39,6 +43,8 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
         KHPayloadsClient.registerS2CReceivers();
 
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
+        TooltipComponentCallback.EVENT.register(data ->
+                data instanceof RepairKitTooltip(RepairKitContents contents) ? new RepairKitClientTooltip(contents) : null);
 
         EntityRendererRegistry.register(KHEntities.WARDART_PROJECTILE.get(), WarDartRenderer::new);
 
