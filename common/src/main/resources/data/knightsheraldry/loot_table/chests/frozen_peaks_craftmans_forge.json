@@ -549,6 +549,28 @@
         }
       ],
       "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "knightsheraldry:repairmans_kit",
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "weight": 1
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "knigthsheraldry:chests/frozen_peaks_craftmans_forge"
