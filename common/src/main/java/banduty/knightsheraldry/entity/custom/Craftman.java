@@ -81,7 +81,14 @@ public class Craftman extends AbstractVillager {
                 ? loc.getPath()
                 : loc.getNamespace() + "_" + loc.getPath();
 
-        return biomeMap.getOrDefault(biomeKey, biomeMap.get("default"));
+        CraftmanTradeManager.TradeDataContainer exact = biomeMap.get(biomeKey);
+        if (exact != null) return exact;
+
+        for (Map.Entry<String, CraftmanTradeManager.TradeDataContainer> e : biomeMap.entrySet()) {
+            if (e.getKey().replace(':', '_').equals(biomeKey)) return e.getValue();
+        }
+
+        return biomeMap.get("default");
     }
 
     private int getMaxAvailableLevel() {
@@ -233,6 +240,7 @@ public class Craftman extends AbstractVillager {
                     .filter(t -> t.level() > 0)
                     .filter(t -> t.level() <= currentLevel)
                     .filter(t -> offers.stream().noneMatch(o -> o.getResult().is(t.result().getItem())))
+                    .filter(t -> !t.result().isEmpty())
                     .toList();
 
             if (validTrades.isEmpty()) break;
@@ -253,6 +261,7 @@ public class Craftman extends AbstractVillager {
         container.trades.stream()
                 .filter(t -> t.level() == 0)
                 .filter(t -> offers.stream().noneMatch(o -> o.getResult().is(t.result().getItem())))
+                .filter(t -> !t.result().isEmpty())
                 .forEach(t -> offers.add(new MerchantOffer(
                         t.costA(),
                         Optional.ofNullable(t.costB()),

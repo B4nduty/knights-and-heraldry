@@ -574,7 +574,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.MAIL_SPAULDERS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(Items.CHAIN));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BRIGANDINE_SPAULDERS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(Items.LEATHER));
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.PLATE_SPAULDERS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(SCItems.HOT_IRON.get()));
-        createCraftmanAnvilRecipe(exporter, 10, 0.25f, KHItems.PAULDRONS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 10, 0.25f, KHItems.PAULDRONS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(SCItems.HOT_IRON.get(), 2));
 
         createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.MAIL_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
