@@ -67,6 +67,14 @@
     },
     {
       "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 8 },
+      "result": { "item": "knightsheraldry:manuscript_plackart", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
       "cost_a": { "item": "minecraft:emerald", "count": 30 },
       "result": { "item": "knightsheraldry:manuscript_barding", "count": 1 },
       "max_uses": 12,
