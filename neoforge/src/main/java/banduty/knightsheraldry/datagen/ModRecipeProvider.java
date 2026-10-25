@@ -566,39 +566,45 @@ public class ModRecipeProvider extends RecipeProvider {
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.MAIL_SPAULDERS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(Items.CHAIN));
         createCraftmanAnvilRecipe(exporter, 5, 0.5f, KHItems.BRIGANDINE_SPAULDERS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(Items.LEATHER));
         createCraftmanAnvilRecipe(exporter, 7, 0.25f, KHItems.PLATE_SPAULDERS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(SCItems.HOT_IRON.get()));
+        createCraftmanAnvilRecipe(exporter, 10, 0.25f, KHItems.PAULDRONS.get(), new ItemStack(KHItems.SPAULDERS_PIECE.get()), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(SCItems.HOT_IRON.get()));
 
         createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.MAIL_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.PLATE_SPAULDERS.get())), new ItemStack(Items.GOLD_INGOT, 4));
+        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.PAULDRONS.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.PAULDRONS.get())), new ItemStack(Items.GOLD_INGOT, 4));
 
         createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get())), new ItemStack(Items.HONEYCOMB, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.PLATE_SPAULDERS.get())), new ItemStack(Items.HONEYCOMB, 4));
+        createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.PAULDRONS.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.PAULDRONS.get())), new ItemStack(Items.HONEYCOMB, 4));
 
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.MAIL_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), KHItems.MAIL_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), KHItems.BRIGANDINE_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get(), KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.DARK).get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.MAIL_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.MAIL_SPAULDERS.get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN).get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.DARK).get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN).get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.PLATE_SPAULDERS.get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK).get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get())), KHItems.BESAGEWS.get());
 
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), KHItems.PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK).get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.PAULDRONS.get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.DARK).get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.GOLDEN).get())), KHItems.BESAGEWS.get());
 
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK).get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.RIM_GUARDS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.PLAIN, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get())), KHItems.RIM_GUARDS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.DARK, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.DARK).get())), KHItems.RIM_GUARDS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.GOLDEN, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.GOLDEN).get())), KHItems.RIM_GUARDS.get());
 
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK).get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get())), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.DARK).get())), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.GOLDEN).get())), KHItems.BESAGEWS.get(), KHItems.RIM_GUARDS.get());
 
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get(), KHItems.RIM_GUARDS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get(), KHItems.RIM_GUARDS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS).get())), KHItems.RIM_GUARDS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS).get())), KHItems.RIM_GUARDS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS).get())), KHItems.RIM_GUARDS.get());
 
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.PLAIN, ArmorVariant.RIMMED).get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.DARK, ArmorVariant.RIMMED).get(), KHItems.BESAGEWS.get());
-        createEasyRecipe(exporter, 3, 0.9f, KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN, ArmorVariant.RIMMED).get(), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.PLAIN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.PLAIN, ArmorVariant.RIMMED).get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.DARK, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.DARK, ArmorVariant.RIMMED).get())), KHItems.BESAGEWS.get());
+        createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PAULDRONS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get(), finished(new ItemStack(KHItems.PAULDRONS.get(ArmorVariant.GOLDEN, ArmorVariant.RIMMED).get())), KHItems.BESAGEWS.get());
 
         // Harness Piece
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.HARNESS_PIECE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_HARNESS.get()));
@@ -775,19 +781,5 @@ public class ModRecipeProvider extends RecipeProvider {
 
             createCraftmanAnvilRecipeIgnited(exporter, hitTime, chance, next, false, path, current);
         }
-    }
-
-    private void createEasyRecipe(RecipeOutput exporter, int hitTime, float chance, Item finalItem, Item principal, Item... attachments) {
-        StringBuilder recipeId = new StringBuilder(BuiltInRegistries.ITEM.getKey(finalItem).getPath());
-        recipeId.append("_from_").append(BuiltInRegistries.ITEM.getKey(principal).getPath());
-        for (Item attachment : attachments) {
-            recipeId.append("_and_").append(BuiltInRegistries.ITEM.getKey(attachment).getPath());
-        }
-
-        Object[] requiress = new Object[attachments.length + 1];
-        requiress[0] = principal;
-        System.arraycopy(attachments, 0, requiress, 1, attachments.length);
-
-        createCraftmanAnvilRecipeIgnited(exporter, hitTime, chance, finalItem, true, recipeId.toString(), requiress);
     }
 }

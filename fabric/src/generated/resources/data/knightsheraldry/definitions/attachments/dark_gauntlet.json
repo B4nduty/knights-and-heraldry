@@ -1,6 +1,5 @@
 {
   "armor": 2.0,
-  "armorSlot": "CHESTPLATE",
   "deflectChance": 0.05,
   "rechargeTime": 30,
   "toughness": 1.0,

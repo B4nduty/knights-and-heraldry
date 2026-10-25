@@ -1,6 +1,5 @@
 {
   "armor": 2.0,
-  "armorSlot": "CHESTPLATE",
   "deflectChance": 0.05,
   "hungerDrainMultiplier": 0.1,
   "rechargeTime": 30,

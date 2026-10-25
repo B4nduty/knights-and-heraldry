@@ -1,0 +1,26 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.9,
+  "ingredients": [
+    {
+      "finished_requirement": "finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:dark_pauldrons"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:rim_guards"
+      }
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:dark_pauldrons_rimmed"
+  }
+}

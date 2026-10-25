@@ -232,6 +232,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
         List<Supplier<Item>> simpleArmor = List.of(ArmorFamily.allFamilies(
                 KHItems.MAIL_SPAULDERS,
                 KHItems.PLATE_SPAULDERS,
+                KHItems.PAULDRONS,
                 KHItems.PLATE_CUIRASS,
                 KHItems.MAXIMILLIAN_CUIRASS,
                 KHItems.XIIII_PLATE_CUIRASS,

@@ -1,0 +1,26 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.9,
+  "ingredients": [
+    {
+      "finished_requirement": "finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:golden_pauldrons_rimmed"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:besagews"
+      }
+    }
+  ],
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:golden_pauldrons_besagews_rimmed"
+  }
+}

@@ -1,7 +1,6 @@
 {
-  "armor": 2.0,
-  "armorSlot": "CHESTPLATE",
+  "armor": 1.5,
   "deflectChance": 0.01,
-  "toughness": 2.0,
-  "weight": 2.4
+  "toughness": 1.5,
+  "weight": 0.8
 }

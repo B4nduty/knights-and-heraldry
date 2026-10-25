@@ -143,17 +143,24 @@ public interface KHItems {
     Supplier<Item> ARMING_HOSE = registerItem("arming_hose",
             () -> new SCDyeableUnderArmor(KHArmorMaterials.ARMING, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(896), 0xFFA06440));
 
-    ArmorFamily MAIL_SPAULDERS = attachmentFamily("mail_spaulders", 96, KHChestplateAttachment::new,
+    ArmorFamily MAIL_SPAULDERS = attachmentFamily("mail_spaulders", 91, KHChestplateAttachment::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.GOLDEN}, ArmorVariant.BESAGEWS);
     ArmorFamily BRIGANDINE_SPAULDERS = attachmentFamily(
-            "brigandine_spaulders", 109,
+            "brigandine_spaulders", 103,
             (props, ingredient) -> new KHChestplateAttachment(props, true, 0xFFA06440, Ingredient.of(Arrays.stream(ingredient.getItems()).findFirst().get().getItem(), Items.LEATHER)),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN},
             ArmorVariant.BESAGEWS
     );
     ArmorFamily PLATE_SPAULDERS = attachmentFamily(
-            "plate_spaulders", 172,
+            "plate_spaulders", 163,
             KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN},
+            ArmorVariant.BESAGEWS
+    );
+
+    ArmorFamily PAULDRONS = attachmentFamily(
+            "pauldrons", 172,
+            KHPauldrons::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN},
             ArmorVariant.BESAGEWS, ArmorVariant.RIMMED
     );

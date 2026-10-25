@@ -101,6 +101,7 @@ public class KHMobGearProvider extends MobGearDataProvider {
                         KHItems.MAIL_SPAULDERS,
                         KHItems.BRIGANDINE_SPAULDERS,
                         KHItems.PLATE_SPAULDERS,
+                        KHItems.PAULDRONS,
                         KHItems.BRIGANDINE,
                         KHItems.PLATE_CUIRASS,
                         KHItems.MAXIMILLIAN_CUIRASS,

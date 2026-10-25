@@ -7,5 +7,9 @@
     "knightsheraldry:surcoat_sleeveless"
   ],
   "includeVanillaBannerPatterns": true,
-  "bannerPatternNames": []
+  "bannerPatternNames": [],
+  "repairKitSlotCapacity": 64,
+  "repairKitRepairPercent": 40,
+  "repairKitUseCooldown": 60,
+  "repairKitEverythingPenalty": 100
 }

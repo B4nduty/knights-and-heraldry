@@ -106,7 +106,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(KHTags.REPAIR_KIT_GOLD.getTag())
                 .add(
                         KHItems.MAIL_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.GOLDEN).get(),
-                        KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.BRIGANDINE.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.PLATE_SPAULDERS.get(ArmorVariant.GOLDEN).get(), KHItems.PAULDRONS.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.BRIGANDINE.get(ArmorVariant.GOLDEN).get(),
                         KHItems.PLATE_CUIRASS.get(ArmorVariant.GOLDEN).get(), KHItems.MAXIMILLIAN_CUIRASS.get(ArmorVariant.GOLDEN).get(),
                         KHItems.XIIII_PLATE_CUIRASS.get(ArmorVariant.GOLDEN).get(), KHItems.XIIII_PLATE_BREASTPLATE.get(ArmorVariant.GOLDEN).get(),
                         KHItems.PLACKART.get(ArmorVariant.GOLDEN).get(), KHItems.TASSETS.get(ArmorVariant.GOLDEN).get(),
@@ -133,6 +134,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(KHTags.REPAIR_KIT_IRON.getTag())
                 .add(itemArray(KHItems.PLATE_SPAULDERS.list()))
+                .add(itemArray(KHItems.PAULDRONS.list()))
                 .add(itemArray(KHItems.PLATE_CUIRASS.list()))
                 .add(itemArray(KHItems.MAXIMILLIAN_CUIRASS.list()))
                 .add(itemArray(KHItems.XIIII_PLATE_CUIRASS.list()))

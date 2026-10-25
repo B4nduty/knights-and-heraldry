@@ -1,7 +1,6 @@
 package banduty.knightsheraldry.client.item.armor;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.items.armor.attachment.KHChestplateAttachment;
 import banduty.knightsheraldry.items.armor.attachment.KHGlove;
 import banduty.knightsheraldry.model.GlovesModel;
 import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
@@ -45,15 +44,15 @@ public class KHGloveAttachmentRenderer implements ArmorAttachmentRenderer {
     @Override
     public void onRenderInFirstPerson(LocalPlayer player, ItemStack itemStack, PoseStack poseStack, MultiBufferSource multiBufferSource, int light, HumanoidArm arm) {
         GlovesModel model = new GlovesModel(GlovesModel.getTexturedModelData().bakeRoot());
-        if (!(itemStack.getItem() instanceof KHChestplateAttachment khChestplate)) return;
-        int color = DyedItemColor.getOrDefault(itemStack, khChestplate.getDefaultColor());
+        if (!(itemStack.getItem() instanceof KHGlove khGlove)) return;
+        int color = DyedItemColor.getOrDefault(itemStack, khGlove.getDefaultColor());
         ResourceLocation texturePath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
                 BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png");
 
         VertexConsumer baseConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(texturePath));
         renderArm(player, model, poseStack, baseConsumer, light, color, arm);
 
-        if (khChestplate.hasOverlay()) {
+        if (khGlove.hasOverlay()) {
             ResourceLocation textureOverlayPath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
                     BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "_overlay.png");
             VertexConsumer overlayConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(textureOverlayPath));
