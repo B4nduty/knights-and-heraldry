@@ -3,11 +3,12 @@ package banduty.knightsheraldry;
 import banduty.knightsheraldry.config.IKHConfig;
 import banduty.knightsheraldry.effect.KHEffects;
 import banduty.knightsheraldry.entity.KHEntities;
+import banduty.knightsheraldry.items.KHArmorMaterials;
 import banduty.knightsheraldry.items.KHItemGroups;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.items.KHArmorMaterials;
 import banduty.knightsheraldry.platform.Services;
 import banduty.knightsheraldry.recipes.KHRecipes;
+import banduty.knightsheraldry.screen.KHScreenHandlers;
 import banduty.knightsheraldry.sounds.KHSounds;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ public class KnightsHeraldry {
         KHSounds.init();
         KHDataComponents.init();
         KHItemGroups.init();
-
+        KHScreenHandlers.init();
         if (Services.PLATFORM.isModLoaded(KnightsHeraldry.MOD_ID)) {
             LOG.info("Hello to knightsheraldry");
         }

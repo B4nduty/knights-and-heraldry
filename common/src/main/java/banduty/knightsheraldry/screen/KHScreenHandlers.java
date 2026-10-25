@@ -26,7 +26,7 @@ public interface KHScreenHandlers {
         );
     }
 
-    static void register() {
+    static void init() {
         KnightsHeraldry.LOG.info("Registering Menu for " + KnightsHeraldry.MOD_ID);
     }
 }
