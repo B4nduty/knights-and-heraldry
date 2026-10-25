@@ -9,7 +9,9 @@ import java.util.function.Supplier;
 
 public enum ArmorVariant {
     PLAIN("", 1.00, 0.0, 1.00, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.IRON_INGOT)),
+    GILDED("gilded_", 1.00, 0.0, 1.00, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.IRON_INGOT)),
     DARK("dark_", 1.10, 1.0, 1.10, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.IRON_INGOT)),
+    DARK_GILDED("dark_gilded_", 1.10, 1.0, 1.10, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.IRON_INGOT)),
     GOLDEN("golden_", 1.20, 0.0, 1.05, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.GOLD_INGOT)),
 
     BESAGEWS("_besagews", 1.00, 0.0, 1.00, 0.20, 1.0, 0.01, () -> Ingredient.of(Items.IRON_INGOT)),
