@@ -3,6 +3,7 @@ package banduty.knightsheraldry.datagen;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.armor.ArmorVariant;
+import banduty.stoneycore.StoneyCore;
 import banduty.stoneycore.datagen.CraftmanAnvilRecipeJsonBuilder;
 import banduty.stoneycore.items.SCItems;
 import banduty.stoneycore.data.SCDataComponents;
@@ -10,16 +11,14 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -734,7 +733,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void createCraftmanAnvilRecipeIgnited(RecipeOutput exporter, int hitTime, float chance, Item output, boolean outputIgnited, String path, Object... requiress) {
         ItemStack resultStack = new ItemStack(output);
-        if (outputIgnited) resultStack.set(SCDataComponents.IGNITED.get(), true);
+        if (outputIgnited) {
+            resultStack.set(SCDataComponents.IGNITED.get(), true);
+
+            if (path.isEmpty()) path = "craftmananvil/" + BuiltInRegistries.ITEM.getKey(output).getPath();
+
+            float experience = Math.round(hitTime / (chance * 10) * 10f) / 10f;
+
+            StackCookingRecipeBuilder.campfire(
+                            Ingredient.of(output),
+                            RecipeCategory.COMBAT,
+                            resultStack,
+                            experience,
+                            hitTime * 90
+                    ).unlockedBy(getHasName(output), has(output))
+                    .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, path + "_campfire"));
+        }
 
         CraftmanAnvilRecipeJsonBuilder builder = CraftmanAnvilRecipeJsonBuilder.create(resultStack)
                 .hitTimes(hitTime)

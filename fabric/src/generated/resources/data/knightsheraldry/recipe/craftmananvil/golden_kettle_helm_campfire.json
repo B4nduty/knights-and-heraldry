@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 630,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "knightsheraldry:golden_kettle_helm"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "id": "knightsheraldry:golden_kettle_helm"
+  }
+}

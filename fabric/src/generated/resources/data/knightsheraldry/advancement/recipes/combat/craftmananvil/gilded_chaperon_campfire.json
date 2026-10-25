@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gilded_chaperon": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:gilded_chaperon"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:craftmananvil/gilded_chaperon_campfire"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gilded_chaperon"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:craftmananvil/gilded_chaperon_campfire"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 630,
+  "experience": 1.4,
+  "ingredient": {
+    "item": "knightsheraldry:sallet_bevor"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "id": "knightsheraldry:sallet_bevor"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_teutonic_black_wings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:teutonic_black_wings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:craftmananvil/teutonic_black_wings_campfire"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_teutonic_black_wings"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:craftmananvil/teutonic_black_wings_campfire"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_frogmouth_piece": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:frogmouth_piece"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:craftmananvil/frogmouth_piece_campfire"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_frogmouth_piece"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:craftmananvil/frogmouth_piece_campfire"
+    ]
+  }
+}

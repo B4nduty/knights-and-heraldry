@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 450,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "knightsheraldry:burgonet_falling_buffe"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "id": "knightsheraldry:burgonet_falling_buffe"
+  }
+}

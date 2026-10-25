@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_billhook_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:billhook_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:craftmananvil/billhook_head_campfire"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_billhook_head"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:craftmananvil/billhook_head_campfire"
+    ]
+  }
+}

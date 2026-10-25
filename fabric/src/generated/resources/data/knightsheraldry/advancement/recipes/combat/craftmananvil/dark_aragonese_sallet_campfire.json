@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_aragonese_sallet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:dark_aragonese_sallet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:craftmananvil/dark_aragonese_sallet_campfire"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dark_aragonese_sallet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:craftmananvil/dark_aragonese_sallet_campfire"
+    ]
+  }
+}

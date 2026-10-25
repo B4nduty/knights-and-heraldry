@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 630,
+  "experience": 2.8,
+  "ingredient": {
+    "item": "knightsheraldry:great_armet_2"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "id": "knightsheraldry:great_armet_2"
+  }
+}

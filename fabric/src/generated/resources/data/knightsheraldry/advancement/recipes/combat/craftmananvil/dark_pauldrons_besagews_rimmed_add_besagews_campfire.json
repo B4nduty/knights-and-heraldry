@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_pauldrons_besagews_rimmed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "knightsheraldry:dark_pauldrons_besagews_rimmed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "knightsheraldry:craftmananvil/dark_pauldrons_besagews_rimmed_add_besagews_campfire"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dark_pauldrons_besagews_rimmed"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "knightsheraldry:craftmananvil/dark_pauldrons_besagews_rimmed_add_besagews_campfire"
+    ]
+  }
+}

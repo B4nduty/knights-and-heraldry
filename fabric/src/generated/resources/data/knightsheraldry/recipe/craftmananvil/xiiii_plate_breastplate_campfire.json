@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 270,
+  "experience": 0.4,
+  "ingredient": {
+    "item": "knightsheraldry:xiiii_plate_breastplate"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "id": "knightsheraldry:xiiii_plate_breastplate"
+  }
+}

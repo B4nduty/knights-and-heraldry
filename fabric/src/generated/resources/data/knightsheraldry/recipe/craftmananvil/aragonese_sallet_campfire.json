@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 900,
+  "experience": 4.0,
+  "ingredient": {
+    "item": "knightsheraldry:aragonese_sallet"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "id": "knightsheraldry:aragonese_sallet"
+  }
+}

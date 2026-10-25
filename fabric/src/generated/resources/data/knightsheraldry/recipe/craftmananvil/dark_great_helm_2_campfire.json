@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 630,
+  "experience": 0.8,
+  "ingredient": {
+    "item": "knightsheraldry:dark_great_helm_2"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "id": "knightsheraldry:dark_great_helm_2"
+  }
+}

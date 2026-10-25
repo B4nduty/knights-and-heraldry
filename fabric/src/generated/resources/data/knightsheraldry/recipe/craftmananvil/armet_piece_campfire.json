@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 270,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "knightsheraldry:armet_piece"
+  },
+  "result": {
+    "id": "knightsheraldry:armet_piece"
+  }
+}

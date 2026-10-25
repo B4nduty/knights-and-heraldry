@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 630,
+  "experience": 0.8,
+  "ingredient": {
+    "item": "knightsheraldry:dark_gauntlet"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "id": "knightsheraldry:dark_gauntlet"
+  }
+}

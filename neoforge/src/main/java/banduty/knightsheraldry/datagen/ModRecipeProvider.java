@@ -16,6 +16,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -730,7 +731,22 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private void createCraftmanAnvilRecipeIgnited(RecipeOutput exporter, int hitTime, float chance, Item output, boolean outputIgnited, String path, Object... requiress) {
         ItemStack resultStack = new ItemStack(output);
-        if (outputIgnited) resultStack.set(SCDataComponents.IGNITED.get(), true);
+        if (outputIgnited) {
+            resultStack.set(SCDataComponents.IGNITED.get(), true);
+
+            if (path.isEmpty()) path = "craftmananvil/" + BuiltInRegistries.ITEM.getKey(output).getPath();
+
+            float experience = Math.round(hitTime / (chance * 10) * 10f) / 10f;
+
+            StackCookingRecipeBuilder.campfire(
+                            Ingredient.of(output),
+                            RecipeCategory.COMBAT,
+                            resultStack,
+                            experience,
+                            hitTime * 90
+                    ).unlockedBy(getHasName(output), has(output))
+                    .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, path + "_campfire"));
+        }
 
         CraftmanAnvilRecipeJsonBuilder builder = CraftmanAnvilRecipeJsonBuilder.create(resultStack)
                 .hitTimes(hitTime)
