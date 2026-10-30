@@ -1,6 +1,8 @@
 package banduty.knightsheraldry.mixin;
 
+import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.item.khweapon.Estoc;
+import banduty.stoneycore.combat.melee.ShieldUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.ItemInHandRenderer;
@@ -20,15 +22,25 @@ public class ItemInHandRendererMixin {
     private void kh$hideOffhandEstoc(AbstractClientPlayer player, float partialTicks, float pitch, InteractionHand hand,
                                      float swingProgress, ItemStack stack, float equippedProgress, PoseStack poseStack,
                                      MultiBufferSource buffer, int light, CallbackInfo ci) {
-        if (knightsheraldry$shouldHideOffhand(player, stack, hand == InteractionHand.OFF_HAND)) {
+        if (knightsheraldry$shouldHideOffhandEstoc(player, stack, hand == InteractionHand.OFF_HAND)) {
+            ci.cancel();
+        }
+        if (hand == InteractionHand.OFF_HAND && knightsheraldry$hideOffHand(player)) {
             ci.cancel();
         }
     }
 
     @Unique
-    private static boolean knightsheraldry$shouldHideOffhand(LivingEntity entity, ItemStack stack, boolean isOffhand) {
+    private static boolean knightsheraldry$shouldHideOffhandEstoc(LivingEntity entity, ItemStack stack, boolean isOffhand) {
         if (!isOffhand || !(stack.getItem() instanceof Estoc)) return false;
         if (!(entity.getMainHandItem().getItem() instanceof Estoc)) return false;
         return entity.getVehicle() instanceof LivingEntity;
+    }
+
+    @Unique
+    private static boolean knightsheraldry$hideOffHand(LivingEntity livingEntity) {
+        return !ShieldUtil.canBlock(livingEntity.getOffhandItem()) && !(livingEntity.getMainHandItem().getItem() instanceof Estoc ||
+                livingEntity.getMainHandItem().getItem() == KHItems.BASTARD_SWORD.get() ||
+                livingEntity.getMainHandItem().getItem() == KHItems.GILDED_BASTARD_SWORD.get());
     }
 }

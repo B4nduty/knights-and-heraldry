@@ -313,6 +313,26 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 KHItems.WARDART.get()
         );
 
+        // Shield
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
+                                .blockCooldown(100)
+                                .parryWindow(7)
+                                .blockingEnabled(true)
+
+                ).build(),
+                KHItems.HEATER_SHIELD.get(), KHItems.HEATER_SHIELD_REINFORCED.get(), KHItems.GILDED_HEATER_SHIELD_REINFORCED.get()
+        );
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
+                                .blockCooldown(100)
+                                .parryWindow(20)
+                                .blockingEnabled(true)
+
+                ).build(),
+                KHItems.BUCKLER.get()
+        );
+
         // Ranged Weapon
         consumer.accept(Builder.create().ranged(
                         RangedBuilder.create("bow")

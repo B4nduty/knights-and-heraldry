@@ -1,0 +1,27 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "ingredients": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:heater_shield_reinforced"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:gilded_heater_shield_reinforced"
+  }
+}

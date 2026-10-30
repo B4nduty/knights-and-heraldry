@@ -32,6 +32,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.MANUSCRIPT_GREATSWORD.get(),
                 KHItems.MANUSCRIPT_SPEAR.get(),
                 KHItems.MANUSCRIPT_PITCHFORK.get(),
+                KHItems.MANUSCRIPT_HEATER_SHIELD.get(),
 
                 KHItems.MANUSCRIPT_BARBUTE.get(),
                 KHItems.MANUSCRIPT_BASCINET.get(),

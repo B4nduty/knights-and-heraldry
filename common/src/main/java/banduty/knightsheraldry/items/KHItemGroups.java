@@ -121,6 +121,9 @@ public interface KHItemGroups {
                     itemStack(KHItems.WARDART.get()),
                     itemStack(KHItems.GILDED_ESTOC.get()),
                     itemStack(KHItems.GILDED_BASTARD_SWORD.get()),
+                    itemStack(KHItems.HEATER_SHIELD.get()),
+                    itemStack(KHItems.HEATER_SHIELD_REINFORCED.get()),
+                    itemStack(KHItems.GILDED_HEATER_SHIELD_REINFORCED.get()),
                     itemStack(KHItems.LONGBOW.get()),
                     itemStack(KHItems.HEAVY_CROSSBOW.get()),
                     itemStack(KHItems.ARQUEBUS.get()),
@@ -421,6 +424,8 @@ public interface KHItemGroups {
                         itemStack(KHItems.MANUSCRIPT_GREATSWORD.get()),
                         itemStack(KHItems.MANUSCRIPT_SPEAR.get()),
                         itemStack(KHItems.MANUSCRIPT_PITCHFORK.get()),
+
+                        itemStack(KHItems.MANUSCRIPT_HEATER_SHIELD.get()),
 
                         itemStack(KHItems.MANUSCRIPT_BARBUTE.get()),
                         itemStack(KHItems.MANUSCRIPT_BASCINET.get()),

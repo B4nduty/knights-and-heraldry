@@ -1,5 +1,6 @@
 package banduty.knightsheraldry.mixin;
 
+import banduty.knightsheraldry.items.item.khsield.HeaterShield;
 import banduty.knightsheraldry.items.item.khweapon.Lance;
 import banduty.knightsheraldry.util.playerdata.PlayerVelocity;
 import banduty.stoneycore.data.IEntityDataSaver;
@@ -17,6 +18,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Player.class)
 public abstract class PlayerMixin {
+    @Inject(method = "disableShield", at = @At("HEAD"), cancellable = true)
+    private void knightsheraldry$noAxeDisable(CallbackInfo ci) {
+        Player self = (Player) (Object) this;
+        if (self.getUseItem().getItem() instanceof HeaterShield) {
+            ci.cancel();
+        }
+    }
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void knightsheraldry$onTick(CallbackInfo ci) {

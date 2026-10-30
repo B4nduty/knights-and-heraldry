@@ -1,7 +1,6 @@
 {
   "parent": "bettercombat:heavy_axe",
   "attributes": {
-    "two_handed": true,
     "attack_range": 6,
     "attacks": [
       {

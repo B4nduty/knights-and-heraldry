@@ -1,0 +1,97 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "knightsheraldry:item/heater_shield_reinforced",
+		"particle": "knightsheraldry:item/heater_shield_reinforced"
+	},
+	"elements": [
+		{
+			"name": "shield_1",
+			"from": [2, 10, 7],
+			"to": [14, 19, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11, 8]},
+			"faces": {
+				"north": {"uv": [0.25, 0.25, 3.25, 2.5], "texture": "#0"},
+				"east": {"uv": [0, 0.25, 0.25, 2.5], "texture": "#0"},
+				"south": {"uv": [3.5, 0.25, 6.5, 2.5], "texture": "#0"},
+				"west": {"uv": [3.25, 0.25, 3.5, 2.5], "texture": "#0"},
+				"up": {"uv": [3.25, 0.25, 0.25, 0], "texture": "#0"},
+				"down": {"uv": [6.25, 0, 3.25, 0.25], "texture": "#0"}
+			}
+		},
+		{
+			"name": "shield_2",
+			"from": [3, 4, 7],
+			"to": [13, 10, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11, 8]},
+			"faces": {
+				"north": {"uv": [0.25, 2.75, 2.75, 4.25], "texture": "#0"},
+				"east": {"uv": [0, 2.75, 0.25, 4.25], "texture": "#0"},
+				"south": {"uv": [3, 2.75, 5.5, 4.25], "texture": "#0"},
+				"west": {"uv": [2.75, 2.75, 3, 4.25], "texture": "#0"},
+				"up": {"uv": [2.75, 2.75, 0.25, 2.5], "texture": "#0"},
+				"down": {"uv": [5.25, 2.5, 2.75, 2.75], "texture": "#0"}
+			}
+		},
+		{
+			"name": "grip",
+			"from": [7, 8, 8],
+			"to": [9, 14, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11, 8]},
+			"faces": {
+				"north": {"uv": [8, 1.5, 8.5, 3], "texture": "#0"},
+				"east": {"uv": [6.5, 1.5, 8, 3], "texture": "#0"},
+				"south": {"uv": [10, 1.5, 10.5, 3], "texture": "#0"},
+				"west": {"uv": [8.5, 1.5, 10, 3], "texture": "#0"},
+				"up": {"uv": [8.5, 1.5, 8, 0], "texture": "#0"},
+				"down": {"uv": [9, 0, 8.5, 1.5], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [44, -25, 0],
+			"translation": [1.5, -1.5, -2.75]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [44, -25, 0],
+			"translation": [1.5, -1.5, -2.75]
+		},
+		"firstperson_righthand": {
+			"rotation": [67.4, -63.3, -19.5],
+			"translation": [-1.13, -2.37, -4.29]
+		},
+		"firstperson_lefthand": {
+			"rotation": [67.4, -63.3, -19.5],
+			"translation": [-1.13, -2.37, -4.29]
+		},
+		"ground": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [-21, 155, 19],
+			"translation": [0, -3.5, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"fixed": {
+			"translation": [0, -3.5, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"on_shelf": {
+			"rotation": [0, 180, 0],
+			"translation": [0, 0, -2.75],
+			"scale": [0.75, 0.75, 0.75]
+		}
+	},
+	"groups": [
+		{
+			"name": "shield",
+			"origin": [8, 11, 8],
+			"scope": 0,
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}

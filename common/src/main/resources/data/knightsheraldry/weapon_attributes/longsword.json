@@ -1,7 +1,6 @@
 {
   "parent": "bettercombat:claymore",
   "attributes": {
-    "two_handed": true,
     "attack_range": 5,
     "attacks": [
       {

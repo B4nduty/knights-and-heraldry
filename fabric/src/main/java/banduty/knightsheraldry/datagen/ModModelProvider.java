@@ -39,6 +39,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerItemWConditions(KHItems.MANUSCRIPT_GREATSWORD.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.MANUSCRIPT_SPEAR.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.MANUSCRIPT_PITCHFORK.get(), itemModelGenerators, registries);
+        registerItemWConditions(KHItems.MANUSCRIPT_HEATER_SHIELD.get(), itemModelGenerators, registries);
 
         registerItemWConditions(KHItems.MANUSCRIPT_BARBUTE.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.MANUSCRIPT_BASCINET.get(), itemModelGenerators, registries);

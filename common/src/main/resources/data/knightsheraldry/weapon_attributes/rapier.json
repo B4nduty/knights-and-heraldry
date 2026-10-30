@@ -1,14 +1,13 @@
 {
   "parent": "bettercombat:rapier",
   "attributes": {
-    "two_handed": true,
     "attack_range": 4.5,
     "attacks": [
       {
-        "angle": 100
-      },
-      {
-        "damageMultiplier": 0.0
+        "hitbox": "FORWARD_BOX",
+        "angle": 100,
+        "upswing": 0.5,
+        "animation": "bettercombat:one_handed_stab"
       }
     ]
   }
