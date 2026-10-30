@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-30T20:33:24.795712191	Knights & Heraldry/Tags for minecraft:item
+// 1.21.1	2026-10-30T21:27:15.029940431	Knights & Heraldry/Tags for minecraft:item
 09f53eac43f97301a93fc6de0260bf269777b323 data/minecraft/tags/item/dyeable.json
 05085ba4ddfe9d3ff5ecc203af6e6a9b76ebfd77 data/stoneycore/tags/item/hide_name_tag.json
 71e3fa75c60a73d641f71c86fa6baee10003c7c7 data/stoneycore/tags/item/weapons_bypass_block.json
@@ -8,7 +8,6 @@ ed426f583ab91001bfeb0cbc643145772954c105 data/knightsheraldry/tags/item/repair_k
 ae2d76abbda35283d0ffa5d5e6ceabd66d529e15 data/stoneycore/tags/item/weapons_disable_shield.json
 0d4207a5cfd3dfa0330a95e04ed4f1f04a10db58 data/stoneycore/tags/item/weapons_harvest.json
 6c4450b1625b86923f60d5db487fbdb904c44f35 data/knightsheraldry/tags/item/repair_kit/iron.json
-82fd43d8a535583c0b61ffb291d8673ad312c71f data/stoneycore/tags/item/weapons_shield.json
 3a259c26d453cc17c32f2e6454d4953e04b6f483 data/knightsheraldry/tags/item/repair_kit/chain.json
 fc914aad8ca9cf0f50256fbec2249b49ab4b3015 data/knightsheraldry/tags/item/repair_kit/leather.json
 e6fcce373220d062868056995418d558ecfb874e data/stoneycore/tags/item/broken_weapons.json

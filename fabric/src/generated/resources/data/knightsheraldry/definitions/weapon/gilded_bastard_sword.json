@@ -1,6 +1,7 @@
 {
   "melee": {
     "animation": 3,
+    "blockCooldown": 100,
     "damage": {
       "BLUDGEONING": {
         "level_0": 4.5,
@@ -18,6 +19,7 @@
         "level_2": 4.5
       }
     },
+    "parryWindow": 7,
     "piercingAnimation": [
       2
     ],

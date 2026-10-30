@@ -67,6 +67,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(1.0, 2.5, 3.5)
                                 .anim(3)
                                 .pierceAnim(3)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get()
@@ -79,6 +81,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(1.5, 3.0, 4.5)
                                 .anim(3)
                                 .pierceAnim(2)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get()
@@ -89,6 +93,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage()
                                 .levelRadii(2.0, 2.5, 3.5, 4.0)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get()
@@ -99,6 +105,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage(0, 2.0f, 9.0f, 7.0f)
                                 .piercingDamage()
                                 .levelRadii(2.0, 3.0, 3.5, 4.0)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.MACE.get(), KHItems.SPIKED_MACE.get()
@@ -119,6 +127,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage(0.0f, 3.0f, 15.0f)
                                 .piercingDamage(0.0f, 1.0f, 13.0f)
                                 .levelRadii(2.0, 3.5, 4.0)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get()
@@ -131,6 +141,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(2.0, 4.0, 5.0)
                                 .anim(3)
                                 .pierceAnim(2)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get()
@@ -141,6 +153,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage()
                                 .levelRadii(1.5, 3.5, 4.0)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.FALCHION.get(), KHItems.SCIMITAR.get()
@@ -151,6 +165,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 3.0f, 11.0f, 7.0f)
                                 .levelRadii(3.0, 5.0, 5.5, 6.0)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.PITCHFORK.get()
@@ -161,6 +177,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 2.0f, 9.0f, 8.0f)
                                 .levelRadii(4.0, 4.5, 6.0, 7.5)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.SPEAR.get()
@@ -171,6 +189,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage(0.0f, 6.0f, 9.0f, 8.0f)
                                 .levelRadii(5.5, 7.5, 8.0, 8.5)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.PIKE.get()
@@ -183,6 +203,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(4.0, 5.0, 6.5, 7.0)
                                 .anim(2)
                                 .pierceAnim(2)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.BILLHOOK.get()
@@ -195,6 +217,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(4.0, 5.0, 6.5, 7.0)
                                 .anim(3)
                                 .pierceAnim(1, 2)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get()
@@ -207,6 +231,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(3.9, 4.0, 5.5, 7.0)
                                 .anim(2)
                                 .pierceAnim(2)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.HALBERD.get()
@@ -219,6 +245,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(3.0, 4.0, 5.5, 6.0)
                                 .anim(2)
                                 .pierceAnim(2)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.POLEAXE.get()
@@ -229,6 +257,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage(0.0f, 7.0f, 10.5f, 3.5f)
                                 .piercingDamage(0.0f, 5.0f, 7.5f, 2.5f)
                                 .levelRadii(3.0, 4.0, 5.5, 6.0)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get()
@@ -239,6 +269,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage(0.0f, 6.0f, 13.0f, 6.0f)
                                 .piercingDamage()
                                 .levelRadii(2.5, 3.0, 5.5, 6.0)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.MORNING_STAR.get()
@@ -249,6 +281,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .bludgeoningDamage()
                                 .piercingDamage()
                                 .levelRadii(2.5, 3.0, 5.5, 6.0)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.BARDICHE.get()
@@ -262,6 +296,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .anim(3)
                                 .pierceAnim(2)
                                 .knockback(0.3)
+                                .blockCooldown(100)
+                                .parryWindow(7)
 
                 ).build(),
                 KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get()

@@ -33,16 +33,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         KHItems.BARDICHE.get(), KHItems.WARDART.get(), KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(),
                         KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(), KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get());
 
-        getOrCreateTagBuilder(SCTags.WEAPONS_SHIELD.getTag())
-                .add(KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(),
-                        KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.MACE.get(),
-                        KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.LONGSWORD.get(),
-                        KHItems.V_LONGSWORD.get(), KHItems.FALCHION.get(), KHItems.SCIMITAR.get(), KHItems.PITCHFORK.get(),
-                        KHItems.SPEAR.get(), KHItems.PIKE.get(), KHItems.BILLHOOK.get(), KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(),
-                        KHItems.HALBERD.get(), KHItems.POLEAXE.get(), KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(), KHItems.MORNING_STAR.get(),
-                        KHItems.BARDICHE.get(), KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(),
-                        KHItems.ZWEIHANDER.get());
-
         getOrCreateTagBuilder(SCTags.WEAPONS_DAMAGE_BEHIND.getTag())
                 .add(KHItems.DAGGER.get());
 
