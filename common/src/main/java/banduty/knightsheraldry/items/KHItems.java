@@ -56,9 +56,17 @@ public interface KHItems {
 
     Supplier<Item> RAPIER = sword("rapier", -2.2F, 209);
 
+    Supplier<Item> ESTOC = registerItem("estoc",
+            () -> new Estoc(-2.4F, new Item.Properties().durability(235), SCDamageType.PIERCING));
+    Supplier<Item> GILDED_ESTOC = registerItem("gilded_estoc",
+            () -> new Estoc(-2.4F, new Item.Properties().durability(235), SCDamageType.PIERCING));
+
     Supplier<Item> SWORD = sword("sword", -2.4F, 326);
     Supplier<Item> V_SWORD = sword("v_sword", -2.4F, 326);
     Supplier<Item> ARMING_SWORD = sword("arming_sword", -2.4F, 326);
+
+    Supplier<Item> BASTARD_SWORD = sword("bastard_sword", -2.45F, 346);
+    Supplier<Item> GILDED_BASTARD_SWORD = sword("gilded_bastard_sword", -2.45F, 346);
 
     Supplier<Item> AXE = axe("axe", -2.6F, 391);
     Supplier<Item> BROAD_AXE = axe("broad_axe", -2.6F, 391);
@@ -132,9 +140,9 @@ public interface KHItems {
     Supplier<Item> MAIL_COIF = registerItem("mail_coif",
             () -> new SCUnderArmor(KHArmorMaterials.MAIL, ArmorItem.Type.HELMET, new Item.Properties().durability(512)));
     Supplier<Item> HAUBERK = registerItem("hauberk",
-            () -> new SCUnderArmor(KHArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(1536)));
+            () -> new SCUnderArmor(KHArmorMaterials.MAIL, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(1229)));
     Supplier<Item> MAIL_BREECHES = registerItem("mail_breeches",
-            () -> new SCUnderArmor(KHArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(1280)));
+            () -> new SCUnderArmor(KHArmorMaterials.MAIL, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(1024)));
     Supplier<Item> MAIL_BOOTS = registerItem("mail_boots",
             () -> new SCUnderArmor(KHArmorMaterials.MAIL, ArmorItem.Type.BOOTS, new Item.Properties().durability(512)));
 
@@ -600,7 +608,7 @@ public interface KHItems {
 
     Supplier<Item> HARNESS_PIECE = registerItem("harness_piece", () -> new HotIron(new Item.Properties().component(SCDataComponents.IGNITED.get(), true)));
 
-    Supplier<Item> MANUSCRIPT_BOOK = registerItem("manuscript_book", () -> new ManuscriptBookItem(new Item.Properties()));
+    Supplier<Item> MANUSCRIPT_BOOK = registerItem("manuscript_book", () -> new ManuscriptBookItem(new Item.Properties().stacksTo(1)));
 
     Supplier<Item> REPAIRMANS_KIT = registerItem("repairmans_kit", () -> new RepairmansKitItem(new Item.Properties().stacksTo(1)));
 

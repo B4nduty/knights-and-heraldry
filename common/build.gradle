@@ -47,6 +47,8 @@ dependencies {
     implementation "banduty.stoneycore:stoneycore-common-${minecraft_version}:${stoneycore}"
 
     implementation "software.bernie.geckolib:geckolib-common-1.21.1:${project.geckolib}"
+
+    compileOnly "maven.modrinth:better-combat:${project.bettercombat}-neoforge"
 }
 
 configurations {

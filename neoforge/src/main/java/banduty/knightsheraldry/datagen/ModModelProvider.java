@@ -90,8 +90,6 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.SPAULDERS_PIECE.get(),
                 KHItems.HARNESS_PIECE.get(),
 
-                KHItems.MANUSCRIPT_BOOK.get(),
-
                 KHItems.REPAIRMANS_KIT.get(),
 
                 // Basic items
@@ -131,7 +129,8 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
         // --- Dyeable / Special Items ---
         Item[] dyeable = {
                 KHItems.JESTER_HOOD.get(), KHItems.GILDED_CHAPERON.get(), KHItems.GAMBESON.get(),
-                KHItems.ARMING_DOUBLET.get(), KHItems.ARMING_HOSE.get(), KHItems.WOODEN_LANCE.get()
+                KHItems.ARMING_DOUBLET.get(), KHItems.ARMING_HOSE.get(), KHItems.WOODEN_LANCE.get(),
+                KHItems.MANUSCRIPT_BOOK.get()
         };
 
         for (Supplier<Item> item : KHItems.BRIGANDINE_SPAULDERS.list()) {
@@ -156,8 +155,8 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
 
     private void registerSimpleItems() {
         Item[] brokenItems = {
-                KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.SWORD.get(),
-                KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
+                KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(), KHItems.SWORD.get(),
+                KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
                 KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.MACE.get(),
                 KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(),
                 KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(), KHItems.FALCHION.get(),

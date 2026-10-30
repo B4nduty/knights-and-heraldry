@@ -32,8 +32,8 @@ public class KHMobGearProvider extends MobGearDataProvider {
 
     private void addWeapons() {
         weapons(ALLOWED_MOBS,
-                KHItems.DAGGER, KHItems.STILETTO, KHItems.RAPIER,
-                KHItems.SWORD, KHItems.V_SWORD, KHItems.ARMING_SWORD,
+                KHItems.DAGGER, KHItems.STILETTO, KHItems.RAPIER, KHItems.ESTOC, KHItems.GILDED_ESTOC,
+                KHItems.SWORD, KHItems.V_SWORD, KHItems.ARMING_SWORD, KHItems.BASTARD_SWORD, KHItems.GILDED_BASTARD_SWORD,
                 KHItems.AXE, KHItems.BROAD_AXE, KHItems.CROOKED_AXE, KHItems.STRAIGHT_CROOKED_AXE,
                 KHItems.MACE, KHItems.SPIKED_MACE,
                 KHItems.FLAIL, KHItems.BALL_FLAIL,

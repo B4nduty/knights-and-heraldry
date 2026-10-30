@@ -22,8 +22,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void addTags(HolderLookup.Provider arg) {
         getOrCreateTagBuilder(SCTags.BROKEN_WEAPONS.getTag())
-                .add(KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.SWORD.get(),
-                        KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
+                .add(KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(), KHItems.SWORD.get(),
+                        KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
                         KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.MACE.get(),
                         KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.LONGSWORD.get(),
                         KHItems.V_LONGSWORD.get(), KHItems.FALCHION.get(), KHItems.SCIMITAR.get(),
@@ -34,7 +34,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(), KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_SHIELD.getTag())
-                .add(KHItems.RAPIER.get(), KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.AXE.get(),
+                .add(KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(),
                         KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.MACE.get(),
                         KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.LONGSWORD.get(),
                         KHItems.V_LONGSWORD.get(), KHItems.FALCHION.get(), KHItems.SCIMITAR.get(), KHItems.PITCHFORK.get(),
@@ -72,7 +72,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         KHItems.PLUME.get(), KHItems.TRI_PLUME.get(), KHItems.FLUFFY_PLUME.get(),
                         KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get(),
                         KHItems.LEATHER_GLOVES.get(),
-                        KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get())
+                        KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get(),
+                        KHItems.MANUSCRIPT_BOOK.get())
                 .add(itemArray(KHItems.BRIGANDINE_SPAULDERS.list()))
                 .add(itemArray(KHItems.BRIGANDINE_HARNESS.list()))
                 .add(itemArray(KHItems.BRIGANDINE_CUISSES.list()))

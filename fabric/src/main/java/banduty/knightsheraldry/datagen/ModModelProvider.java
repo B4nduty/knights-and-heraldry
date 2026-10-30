@@ -126,8 +126,6 @@ public class ModModelProvider extends FabricModelProviderPlus {
 
         registerItemWConditions(KHItems.HARNESS_PIECE.get(), itemModelGenerators, registries);
 
-        registerItemWConditions(KHItems.MANUSCRIPT_BOOK.get(), itemModelGenerators, registries);
-
         registerItemWConditions(KHItems.REPAIRMANS_KIT.get(), itemModelGenerators, registries);
 
         registerItemWConditions(KHItems.CHAPERON.get(), itemModelGenerators, registries);
@@ -184,6 +182,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerDyeableItems(KHItems.GILDED_CHAPERON.get(), itemModelGenerators, registries);
         registerDyeableItems(KHItems.GAMBESON.get(), itemModelGenerators, registries);
         registerDyeableItems(KHItems.ARMING_DOUBLET.get(), itemModelGenerators, registries);
+        registerDyeableItems(KHItems.MANUSCRIPT_BOOK.get(), itemModelGenerators, registries);
         registerDyeableItems(KHItems.ARMING_HOSE.get(), itemModelGenerators, registries);
         registerDyeableItems(KHItems.WOODEN_LANCE.get(), itemModelGenerators, registries);
 
@@ -208,8 +207,8 @@ public class ModModelProvider extends FabricModelProviderPlus {
 
     private void registerSimpleItems(ItemModelGenerators itemModelGenerators, HolderLookup.Provider registries) {
         Item[] simpleHandheldItems = {
-                KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(),
-                KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(),
+                KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(),
+                KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(),
                 KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(),
                 KHItems.MACE.get(), KHItems.SPIKED_MACE.get(),
                 KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(),

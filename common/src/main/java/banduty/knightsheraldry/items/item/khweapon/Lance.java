@@ -124,6 +124,7 @@ public class Lance extends Sword3dItem {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
         tooltipComponents.add(Component.translatable("text.tooltip.knightsheraldry.right_click-to-charge"));
         tooltipComponents.add(Component.translatable("text.tooltip.knightsheraldry.on-charge"));
     }

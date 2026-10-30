@@ -1,0 +1,188 @@
+package banduty.knightsheraldry.items.item.khweapon;
+
+import banduty.knightsheraldry.KnightsHeraldry;
+import banduty.knightsheraldry.items.ModToolMaterials;
+import banduty.stoneycore.combat.damagetype.SCDamageCalculator;
+import banduty.stoneycore.combat.damagetype.SCDamageType;
+import banduty.stoneycore.data.IEntityDataSaver;
+import banduty.stoneycore.data.SCDataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
+
+import java.util.List;
+import java.util.function.Predicate;
+
+public class Estoc extends Sword3dItem {
+    private boolean charged = false;
+    private final SCDamageType onlyDamageType;
+
+    public Estoc(float attackSpeed, Properties properties, SCDamageType onlyDamageType) {
+        super(ModToolMaterials.WEAPONS,
+                properties.attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
+        this.onlyDamageType = onlyDamageType;
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
+        super.inventoryTick(stack, level, entity, slot, selected);
+
+        if (!level.isClientSide() && entity instanceof Player player) {
+            if (!isRidingLiving(player)) {
+                if (isCharged(stack)) setCharged(stack, false);
+                return;
+            }
+
+            Entity targetedEntity = raycastEntity(player, getRange());
+            if (targetedEntity == null) return;
+
+            boolean damageTamedEntities = KnightsHeraldry.getConfig().getDamageTamedEntities();
+            if (!damageTamedEntities && targetedEntity instanceof TamableAnimal tamableAnimal
+                    && tamableAnimal.isOwnedBy(player)) return;
+
+            if (targetedEntity instanceof LivingEntity livingEntity && isCharged(stack)
+                    && !player.getCooldowns().isOnCooldown(this)) {
+                double damage = SCDamageCalculator.applyArmor(livingEntity, getLanceDamage() *
+                                ((IEntityDataSaver) player).stoneycore$getPersistentData().getFloat("speedHistory") * 10,
+                        this.onlyDamageType);
+
+                setCharged(stack, false);
+
+                if (livingEntity.isPassenger()) livingEntity.stopRiding();
+
+                stack.hurtAndBreak(1, player, player.getEquipmentSlotForItem(stack));
+
+                targetedEntity.hurt(
+                        player.level().damageSources().playerAttack(player),
+                        (float) damage
+                );
+
+                if (!player.isCreative()) {
+                    player.getCooldowns().addCooldown(
+                            this,
+                            KnightsHeraldry.getConfig().getLanceCooldown() * 20
+                    );
+                }
+            }
+        }
+    }
+
+    public double getRange() {
+        return 4.0d;
+    }
+
+    @Override
+    public UseAnim getUseAnimation(ItemStack itemStack) {
+        return UseAnim.BOW;
+    }
+
+    public float getLanceDamage() {
+        return 7.0f;
+    }
+
+    public static Entity raycastEntity(Player player, double range) {
+        Vec3 start = player.getEyePosition(1.0F);
+        Vec3 direction = player.getViewVector(1.0F);
+        Vec3 end = start.add(direction.scale(range));
+
+        AABB box = player.getBoundingBox().expandTowards(direction.scale(range)).inflate(1.0D);
+
+        Predicate<Entity> validEntity = (entity) ->
+                !entity.isSpectator()
+                        && entity.isAlive()
+                        && entity != player
+                        && (player.getVehicle() == null || entity != player.getVehicle());
+
+        // collect all potential entities in the path
+        List<Entity> candidates = player.level().getEntities(player, box, validEntity);
+
+        for (Entity candidate : candidates) {
+            AABB targetBox = candidate.getBoundingBox().inflate(0.3D);
+            var result = targetBox.clip(start, end);
+            if (result.isPresent()) {
+                return candidate;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+        tooltipComponents.add(Component.translatable("text.tooltip.knightsheraldry.right_click-to-charge-mob"));
+        tooltipComponents.add(Component.translatable("text.tooltip.knightsheraldry.on-charge"));
+    }
+
+    @Override
+    public void onUseTick(Level level, LivingEntity user, ItemStack stack, int remainingUseTicks) {
+        if (!level.isClientSide() && user instanceof Player player && !player.getCooldowns().isOnCooldown(this)) {
+            if (!isRidingLiving(user)) {
+                user.stopUsingItem();
+                return;
+            }
+            int i = this.getUseDuration(stack, player) - remainingUseTicks;
+            doChargeProgress(i, stack, user);
+            float f = (float) (stack.getUseDuration(player) - remainingUseTicks) / (float) 40;
+            if (f < 1.0F) {
+                this.charged = false;
+            }
+
+            if (f >= 1.0F && !this.charged) {
+                this.charged = true;
+            }
+        }
+    }
+
+    private static void doChargeProgress(int useTicks, ItemStack stack, LivingEntity user) {
+        float f = (float) useTicks / (float) 40;
+        if (f >= 1.0F && !isCharged(stack) && user instanceof Player player) {
+            setCharged(stack, true);
+            player.displayClientMessage(Component.literal("Has been charged"), true);
+        }
+    }
+
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player user, InteractionHand hand) {
+        ItemStack itemStack = user.getItemInHand(hand);
+
+        if (!isRidingLiving(user)) {
+            return InteractionResultHolder.pass(itemStack);
+        }
+
+        if (isCharged(itemStack)) {
+            setCharged(itemStack, false);
+        } else {
+            this.charged = false;
+        }
+        user.startUsingItem(hand);
+        return InteractionResultHolder.success(itemStack);
+    }
+
+    @Override
+    public int getUseDuration(ItemStack stack, LivingEntity entity) {
+        return 100;
+    }
+
+    public static boolean isCharged(ItemStack stack) {
+        return Boolean.TRUE.equals(stack.get(SCDataComponents.CHARGED.get()));
+    }
+
+    public static void setCharged(ItemStack stack, boolean charged) {
+        stack.set(SCDataComponents.CHARGED.get(), charged);
+    }
+
+    private static boolean isRidingLiving(LivingEntity entity) {
+        return entity.getVehicle() instanceof LivingEntity;
+    }
+}

@@ -51,6 +51,16 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
+                                .slashingDamage()
+                                .bludgeoningDamage()
+                                .piercingDamage(5.0f, 9.0f)
+                                .levelRadii(2.0, 5.0)
+
+                ).build(),
+                KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get()
+        );
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
                                 .slashingDamage(5.0f, 8.0f, 4.0f)
                                 .bludgeoningDamage(4.0f, 7.0f, 3.0f)
                                 .piercingDamage(4.0f, 7.0f, 3.0f)
@@ -60,6 +70,18 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
 
                 ).build(),
                 KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get()
+        );
+        consumer.accept(Builder.create().melee(
+                        MeleeBuilder.create()
+                                .slashingDamage(6.0f, 9.5f, 4.5f)
+                                .bludgeoningDamage(4.5f, 7.0f, 3.0f)
+                                .piercingDamage(4.0f, 6.5f, 2.5f)
+                                .levelRadii(1.5, 3.0, 4.5)
+                                .anim(3)
+                                .pierceAnim(2)
+
+                ).build(),
+                KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()

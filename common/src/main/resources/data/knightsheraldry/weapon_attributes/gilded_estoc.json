@@ -1,0 +1,14 @@
+{
+  "parent": "bettercombat:rapier",
+  "attributes": {
+    "attack_range": 5.0,
+    "attacks": [
+      {
+        "hitbox": "FORWARD_BOX",
+        "angle": 100,
+        "upswing": 0.5,
+        "animation": "bettercombat:one_handed_stab"
+      }
+    ]
+  }
+}

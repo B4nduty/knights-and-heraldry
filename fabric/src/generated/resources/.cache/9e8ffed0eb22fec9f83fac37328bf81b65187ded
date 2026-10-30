@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-25T15:26:24.392567752	Knights & Heraldry/Weapon Definitions
+// 1.21.1	2026-10-30T20:33:24.784327323	Knights & Heraldry/Weapon Definitions
 52097cb15df30062aea4c9b82359cc212394ae24 data/knightsheraldry/definitions/weapon/arquebus.json
 8b74fdbb84ea5f3b3a7c78395f4c977a77ec578c data/knightsheraldry/definitions/weapon/war_hammer.json
 628d572f2c69378b2d316f847dfb1f6d68f8299f data/knightsheraldry/definitions/weapon/billhook.json
@@ -17,6 +17,8 @@ f8d4dd4c76eb3d256444c5b005e4f891ed82f7d0 data/knightsheraldry/definitions/weapon
 8b74fdbb84ea5f3b3a7c78395f4c977a77ec578c data/knightsheraldry/definitions/weapon/hammer.json
 f2e1c66a73ca879085db36144a7038179b9f0f35 data/knightsheraldry/definitions/weapon/sword.json
 2e206bf121b5ddb77a66863a0f37796867720014 data/knightsheraldry/definitions/weapon/glaive.json
+049416bbb4425f7bc532dee03b09137c4eab9702 data/knightsheraldry/definitions/weapon/estoc.json
+27b359b7d2be163eb3dd558eb1e11175f168aba1 data/knightsheraldry/definitions/weapon/gilded_bastard_sword.json
 e78fbbe76729c737e03e570d804db9eb9a4620f2 data/knightsheraldry/definitions/weapon/scimitar.json
 54fc823daba74db0fef45547751335916fc28ef4 data/knightsheraldry/definitions/weapon/heavy_crossbow.json
 2997697adb51a7c41ccefc49b3b30fd062cdffe2 data/knightsheraldry/definitions/weapon/stiletto.json
@@ -36,6 +38,8 @@ e8772c5a97c896b5ef01c9f5dcc2bfb3577c39fc data/knightsheraldry/definitions/weapon
 e580959f43b4f702ca8b49b0edb5e52340539fd9 data/knightsheraldry/definitions/weapon/broad_axe.json
 e78fbbe76729c737e03e570d804db9eb9a4620f2 data/knightsheraldry/definitions/weapon/falchion.json
 ff17ae93ba6a001494406d08e9c47d966ccdf15c data/knightsheraldry/definitions/weapon/wardart.json
+049416bbb4425f7bc532dee03b09137c4eab9702 data/knightsheraldry/definitions/weapon/gilded_estoc.json
+27b359b7d2be163eb3dd558eb1e11175f168aba1 data/knightsheraldry/definitions/weapon/bastard_sword.json
 de310bdba6b5870f21087c4d2d6e1a34c5ff1cfd data/knightsheraldry/definitions/weapon/handgonne.json
 601fd545424104d34d68181de25287bad4489341 data/knightsheraldry/definitions/weapon/longbow.json
 dea01e294677c1b8ac747f60c4f958e62a94fc0b data/knightsheraldry/definitions/weapon/polehammer.json

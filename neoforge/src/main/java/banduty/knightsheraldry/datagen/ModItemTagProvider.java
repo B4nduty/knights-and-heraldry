@@ -27,8 +27,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider arg) {
         tag(SCTags.BROKEN_WEAPONS.getTag())
                 .add(
-                        KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.SWORD.get(),
-                        KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.AXE.get(),
+                        KHItems.DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(), KHItems.SWORD.get(),
+                        KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(),
                         KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(),
                         KHItems.MACE.get(), KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(),
                         KHItems.WAR_HAMMER.get(), KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(),
@@ -43,8 +43,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(SCTags.WEAPONS_SHIELD.getTag())
                 .add(
-                        KHItems.RAPIER.get(), KHItems.SWORD.get(), KHItems.V_SWORD.get(),
-                        KHItems.ARMING_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
+                        KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(),
+                        KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
                         KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.MACE.get(),
                         KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(),
                         KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(), KHItems.FALCHION.get(),
@@ -91,7 +91,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         KHItems.PLUME.get(), KHItems.TRI_PLUME.get(), KHItems.FLUFFY_PLUME.get(),
                         KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get(),
                         KHItems.LEATHER_GLOVES.get(),
-                        KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get())
+                        KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get(),
+                        KHItems.MANUSCRIPT_BOOK.get())
                 .add(itemArray(KHItems.BRIGANDINE_SPAULDERS.list()))
                 .add(itemArray(KHItems.BRIGANDINE_HARNESS.list()))
                 .add(itemArray(KHItems.BRIGANDINE_CUISSES.list()))

@@ -19,10 +19,9 @@ import java.util.List;
 
 public class ManuscriptBookScreenHandler extends AbstractContainerMenu {
     public static final int MAX_MANUSCRIPTS = 64;
-    public static final int INSERT_X = 184, INSERT_Y = 52;
-    public static final int INV_X = 47, INV_Y = 136;
-    public static final int HOTBAR_Y = INV_Y + 58;
-    public static final int IMAGE_WIDTH = 256, IMAGE_HEIGHT = 216;
+    public static final int INSERT_X = 136, INSERT_Y = 46;
+    public static final int HOTBAR_X = 17, HOTBAR_Y = 112;
+    public static final int IMAGE_WIDTH = 196, IMAGE_HEIGHT = 136;
 
     public static final int INSERT_INDEX = MAX_MANUSCRIPTS;
     private static final int PLAYER_START = INSERT_INDEX + 1;
@@ -69,16 +68,10 @@ public class ManuscriptBookScreenHandler extends AbstractContainerMenu {
         // 64: slot "+" de la página derecha
         addSlot(new InsertSlot(insert, 0, INSERT_X, INSERT_Y));
 
-        // Inventario del jugador
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 9; col++) {
-                addSlot(new Slot(inventory, col + row * 9 + 9, INV_X + col * 18, INV_Y + row * 18));
-            }
-        }
         // Hotbar (el slot con el libro queda bloqueado)
         for (int col = 0; col < 9; col++) {
             final int index = col;
-            addSlot(new Slot(inventory, col, INV_X + col * 18, HOTBAR_Y) {
+            addSlot(new Slot(inventory, col, HOTBAR_X + col * 18, HOTBAR_Y) {
                 private boolean isBook() {
                     return index == inventory.selected && getItem().getItem() instanceof ManuscriptBookItem;
                 }

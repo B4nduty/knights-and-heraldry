@@ -11,6 +11,7 @@ import banduty.knightsheraldry.items.armor.attachment.KHLeggingsAttachment;
 import banduty.knightsheraldry.items.armor.deco.DecoItem;
 import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
 import banduty.knightsheraldry.items.armor.horse.HorseBardingArmorItem;
+import banduty.knightsheraldry.items.item.manuscriptbook.ManuscriptBookItem;
 import banduty.knightsheraldry.model.HorseBardingModel;
 import banduty.knightsheraldry.model.ModEntityModelLayers;
 import banduty.knightsheraldry.networking.KHPayloadsClient;
@@ -64,7 +65,8 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
                     return -1;
                 }, item);
             } else if (item instanceof SCDyeableUnderArmor || item instanceof KHChestplateAttachment || item instanceof KHCloak
-                    || item instanceof HorseBardingArmorItem || item instanceof KHLeggingsAttachment || item instanceof KHChaperon || item instanceof DecoItem) {
+                    || item instanceof HorseBardingArmorItem || item instanceof KHLeggingsAttachment || item instanceof KHChaperon
+                    || item instanceof DecoItem || item instanceof ManuscriptBookItem) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
                     if (tintIndex > 0) {
                         return -1;

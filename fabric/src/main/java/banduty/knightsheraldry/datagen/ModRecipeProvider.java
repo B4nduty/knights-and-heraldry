@@ -245,12 +245,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.GLAIVE.get(), false, finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get());
 
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_BASTARD_SWORD.get(), false, new ItemStack(KHItems.BASTARD_SWORD.get()), new ItemStack(Items.GOLD_INGOT));
+
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.FALCHION_HEAD.get(), unfinished(new ItemStack(KHItems.SWORD_HEAD.get())));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.FALCHION.get(), false, finished(new ItemStack(KHItems.FALCHION_HEAD.get())), new ItemStack(Items.STICK));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.FALCHION.get(), KHItems.SCIMITAR.get());
 
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.RAPIER_HEAD.get(), unfinished(new ItemStack(KHItems.FALCHION_HEAD.get())));
         createCraftmanAnvilRecipeO(exporter, 7, 0.25f, KHItems.RAPIER.get(), false, finished(new ItemStack(KHItems.RAPIER_HEAD.get())), new ItemStack(Items.STICK));
+
+        createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.ESTOC.get(), false, new ItemStack(KHItems.RAPIER.get()));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_ESTOC.get(), false, new ItemStack(KHItems.ESTOC.get()), new ItemStack(Items.GOLD_INGOT));
 
         // Axe Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.AXE_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_AXE.get()));

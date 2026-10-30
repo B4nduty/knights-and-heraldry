@@ -1,6 +1,7 @@
 {
   "parent": "bettercombat:trident",
   "attributes": {
+    "two_handed": true,
     "attack_range": 5.0,
     "attacks": [
       {

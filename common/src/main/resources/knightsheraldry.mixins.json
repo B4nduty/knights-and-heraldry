@@ -9,13 +9,16 @@
     "MeleeAttackMixin",
     "PiglinAIMixin",
     "PiglinMixin",
+    "PlayerAttackHelperMixin",
     "PlayerMixin",
     "PowderSnowBlockMixin"
   ],
   "client": [
     "AbstractClientPlayerMixin",
     "EntityRendererMixin",
-    "HorseRendererMixin"
+    "HorseRendererMixin",
+    "ItemInHandLayerMixin",
+    "ItemInHandRendererMixin"
   ],
   "server": [
   ],
