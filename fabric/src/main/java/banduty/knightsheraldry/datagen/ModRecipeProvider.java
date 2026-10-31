@@ -287,7 +287,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // Mace Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.MACE_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_MACE.get()));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.MACE.get(), false, finished(new ItemStack(KHItems.MACE_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_MACE.get(), false, new ItemStack(KHItems.MACE.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_SPIKED_MACE.get(), false, new ItemStack(KHItems.SPIKED_MACE.get()), new ItemStack(Items.GOLD_INGOT));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.MACE.get(), KHItems.SPIKED_MACE.get());
+        createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_MACE.get(), KHItems.GILDED_SPIKED_MACE.get());
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.FLAIL.get(), false, finished(new ItemStack(KHItems.MACE_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.CHAIN));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get());
         createCraftmanAnvilRecipeO(exporter, 7, 0.25f, KHItems.MORNING_STAR.get(), false, finished(new ItemStack(KHItems.MACE_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));

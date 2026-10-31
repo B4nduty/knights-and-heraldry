@@ -38,7 +38,7 @@ public class KHMobGearProvider extends MobGearDataProvider {
                 KHItems.ARMING_SWORD,  KHItems.GILDED_ARMING_SWORD, KHItems.BASTARD_SWORD, KHItems.GILDED_BASTARD_SWORD,
                 KHItems.AXE, KHItems.GILDED_AXE, KHItems.BROAD_AXE, KHItems.GILDED_BROAD_AXE, KHItems.CROOKED_AXE,
                 KHItems.GILDED_CROOKED_AXE, KHItems.STRAIGHT_CROOKED_AXE, KHItems.GILDED_STRAIGHT_CROOKED_AXE,
-                KHItems.MACE, KHItems.SPIKED_MACE,
+                KHItems.MACE, KHItems.SPIKED_MACE, KHItems.GILDED_MACE, KHItems.GILDED_SPIKED_MACE,
                 KHItems.FLAIL, KHItems.BALL_FLAIL,
                 KHItems.HAMMER, KHItems.WAR_HAMMER,
                 KHItems.LONGSWORD, KHItems.V_LONGSWORD,

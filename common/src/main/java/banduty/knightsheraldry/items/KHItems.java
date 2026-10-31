@@ -85,7 +85,9 @@ public interface KHItems {
     Supplier<Item> GILDED_STRAIGHT_CROOKED_AXE = axe("gilded_straight_crooked_axe", -2.6F, 391);
 
     Supplier<Item> MACE = sword("mace", -2.6F, 430);
+    Supplier<Item> GILDED_MACE = sword("gilded_mace", -2.6F, 430);
     Supplier<Item> SPIKED_MACE = sword("spiked_mace", -2.6F, 430);
+    Supplier<Item> GILDED_SPIKED_MACE = sword("gilded_spiked_mace", -2.6F, 430);
 
     Supplier<Item> FLAIL = registerItem("flail",
             () -> new Flail(-2.8F, new Item.Properties().durability(261)));

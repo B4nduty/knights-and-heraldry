@@ -112,7 +112,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.MACE.get(), KHItems.SPIKED_MACE.get()
+                KHItems.MACE.get(), KHItems.SPIKED_MACE.get(), KHItems.GILDED_MACE.get(), KHItems.GILDED_SPIKED_MACE.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()

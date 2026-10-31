@@ -131,6 +131,8 @@ public interface KHItemGroups {
                     itemStack(KHItems.GILDED_BROAD_AXE.get()),
                     itemStack(KHItems.GILDED_CROOKED_AXE.get()),
                     itemStack(KHItems.GILDED_STRAIGHT_CROOKED_AXE.get()),
+                    itemStack(KHItems.GILDED_MACE.get()),
+                    itemStack(KHItems.GILDED_SPIKED_MACE.get()),
                     itemStack(KHItems.HEATER_SHIELD.get()),
                     itemStack(KHItems.HEATER_SHIELD_REINFORCED.get()),
                     itemStack(KHItems.GILDED_HEATER_SHIELD_REINFORCED.get()),
