@@ -3,6 +3,10 @@
     "knightsheraldry:axe",
     "knightsheraldry:broad_axe",
     "knightsheraldry:crooked_axe",
-    "knightsheraldry:straight_crooked_axe"
+    "knightsheraldry:straight_crooked_axe",
+    "knightsheraldry:gilded_axe",
+    "knightsheraldry:gilded_broad_axe",
+    "knightsheraldry:gilded_crooked_axe",
+    "knightsheraldry:gilded_straight_crooked_axe"
   ]
 }

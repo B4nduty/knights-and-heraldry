@@ -26,9 +26,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         KHItems.RAPIER.get(), KHItems.GILDED_RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(),
                         KHItems.SWORD.get(), KHItems.GILDED_SWORD.get(), KHItems.V_SWORD.get(), KHItems.GILDED_V_SWORD.get(),
                         KHItems.ARMING_SWORD.get(), KHItems.GILDED_ARMING_SWORD.get(),
-                        KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
-                        KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.MACE.get(),
-                        KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.LONGSWORD.get(),
+                        KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(),
+                        KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(),
+                        KHItems.GILDED_AXE.get(), KHItems.GILDED_BROAD_AXE.get(), KHItems.GILDED_CROOKED_AXE.get(), KHItems.GILDED_STRAIGHT_CROOKED_AXE.get(),
+                        KHItems.MACE.get(), KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.LONGSWORD.get(),
                         KHItems.V_LONGSWORD.get(), KHItems.FALCHION.get(), KHItems.SCIMITAR.get(),
                         KHItems.PITCHFORK.get(), KHItems.SPEAR.get(), KHItems.PIKE.get(), KHItems.BILLHOOK.get(),
                         KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(), KHItems.HALBERD.get(), KHItems.POLEAXE.get(),
@@ -43,7 +44,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(KHItems.STILETTO.get(), KHItems.GILDED_STILETTO.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_DISABLE_SHIELD.getTag())
-                .add(KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get());
+                .add(KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(),
+                        KHItems.GILDED_AXE.get(), KHItems.GILDED_BROAD_AXE.get(), KHItems.GILDED_CROOKED_AXE.get(), KHItems.GILDED_STRAIGHT_CROOKED_AXE.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_BYPASS_BLOCK.getTag())
                 .add(KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get());

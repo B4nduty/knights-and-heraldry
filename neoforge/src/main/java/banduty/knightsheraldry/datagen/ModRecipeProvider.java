@@ -243,6 +243,8 @@ public class ModRecipeProvider extends RecipeProvider {
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.SWORD_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_SWORD.get()));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.SWORD.get(), false, finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK));
         createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_SWORD.get(), false, new ItemStack(KHItems.SWORD.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_V_SWORD.get(), false, new ItemStack(KHItems.V_SWORD.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_ARMING_SWORD.get(), false, new ItemStack(KHItems.ARMING_SWORD.get()), new ItemStack(Items.GOLD_INGOT));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get());
         createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_SWORD.get(), KHItems.GILDED_V_SWORD.get(), KHItems.GILDED_ARMING_SWORD.get());
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.GLAIVE.get(), false, finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
@@ -265,7 +267,12 @@ public class ModRecipeProvider extends RecipeProvider {
         // Axe Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.AXE_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_AXE.get()));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.AXE.get(), false, finished(new ItemStack(KHItems.AXE_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_AXE.get(), false, new ItemStack(KHItems.AXE.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_BROAD_AXE.get(), false, new ItemStack(KHItems.BROAD_AXE.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_CROOKED_AXE.get(), false, new ItemStack(KHItems.CROOKED_AXE.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_STRAIGHT_CROOKED_AXE.get(), false, new ItemStack(KHItems.STRAIGHT_CROOKED_AXE.get()), new ItemStack(Items.GOLD_INGOT));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get());
+        createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_AXE.get(), KHItems.GILDED_BROAD_AXE.get(), KHItems.GILDED_CROOKED_AXE.get(), KHItems.GILDED_STRAIGHT_CROOKED_AXE.get());
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.BARDICHE.get(), false, finished(new ItemStack(KHItems.AXE_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
 
         // Hammer Head

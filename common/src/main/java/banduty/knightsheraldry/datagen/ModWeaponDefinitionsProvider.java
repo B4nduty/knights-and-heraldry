@@ -98,7 +98,9 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get()
+                KHItems.AXE.get(), KHItems.GILDED_AXE.get(), KHItems.BROAD_AXE.get(), KHItems.GILDED_BROAD_AXE.get(),
+                KHItems.CROOKED_AXE.get(), KHItems.GILDED_CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(),
+                KHItems.GILDED_STRAIGHT_CROOKED_AXE.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()

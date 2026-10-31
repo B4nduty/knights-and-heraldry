@@ -76,9 +76,13 @@ public interface KHItems {
     Supplier<Item> GILDED_BASTARD_SWORD = sword("gilded_bastard_sword", -2.45F, 346);
 
     Supplier<Item> AXE = axe("axe", -2.6F, 391);
+    Supplier<Item> GILDED_AXE = axe("gilded_axe", -2.6F, 391);
     Supplier<Item> BROAD_AXE = axe("broad_axe", -2.6F, 391);
+    Supplier<Item> GILDED_BROAD_AXE = axe("gilded_broad_axe", -2.6F, 391);
     Supplier<Item> CROOKED_AXE = axe("crooked_axe", -2.6F, 391);
+    Supplier<Item> GILDED_CROOKED_AXE = axe("gilded_crooked_axe", -2.6F, 391);
     Supplier<Item> STRAIGHT_CROOKED_AXE = axe("straight_crooked_axe", -2.6F, 391);
+    Supplier<Item> GILDED_STRAIGHT_CROOKED_AXE = axe("gilded_straight_crooked_axe", -2.6F, 391);
 
     Supplier<Item> MACE = sword("mace", -2.6F, 430);
     Supplier<Item> SPIKED_MACE = sword("spiked_mace", -2.6F, 430);
