@@ -250,14 +250,15 @@ public class Craftman extends AbstractVillager {
             public boolean trigger(ServerLevel level, Craftman entity, long gameTime) {
                 Brain<Craftman> brain = entity.getBrain();
 
-                if (brain.isActive(Activity.HIDE)) {
-                    return false; // don't override an active hide
-                }
-
-                boolean threatened = brain.hasMemoryValue(MemoryModuleType.HURT_BY)
-                        || brain.hasMemoryValue(MemoryModuleType.NEAREST_HOSTILE);
+                boolean hurt = brain.hasMemoryValue(MemoryModuleType.HURT_BY);
+                boolean threatened = hurt || brain.hasMemoryValue(MemoryModuleType.NEAREST_HOSTILE);
 
                 if (!threatened) {
+                    return false;
+                }
+
+                // Already hiding and not being hit: leave it alone
+                if (brain.isActive(Activity.HIDE) && !hurt) {
                     return false;
                 }
 
@@ -265,23 +266,20 @@ public class Craftman extends AbstractVillager {
                     entity.stopSleeping();
                 }
 
-                if (!brain.isActive(Activity.PANIC)) {
-                    brain.eraseMemory(MemoryModuleType.PATH);
-                    brain.eraseMemory(MemoryModuleType.WALK_TARGET);
-                    brain.eraseMemory(MemoryModuleType.LOOK_TARGET);
-                    brain.eraseMemory(MemoryModuleType.BREED_TARGET);
-                    brain.eraseMemory(MemoryModuleType.INTERACTION_TARGET);
-                }
+                // Hide only if not hurt and home is within ~24 blocks
+                boolean homeClose = brain.getMemory(MemoryModuleType.HOME)
+                        .filter(home -> home.dimension().equals(level.dimension()))
+                        .filter(home -> entity.blockPosition().distSqr(home.pos()) <= 24.0D * 24.0D)
+                        .isPresent();
 
-                brain.setActiveActivityIfPossible(Activity.PANIC);
-
-                boolean hasHome = brain.hasMemoryValue(MemoryModuleType.HOME);
-                Activity next = hasHome ? Activity.HIDE : Activity.PANIC;
+                Activity next = (!hurt && homeClose) ? Activity.HIDE : Activity.PANIC;
 
                 if (!brain.isActive(next)) {
                     brain.eraseMemory(MemoryModuleType.PATH);
                     brain.eraseMemory(MemoryModuleType.WALK_TARGET);
                     brain.eraseMemory(MemoryModuleType.LOOK_TARGET);
+                    brain.eraseMemory(MemoryModuleType.BREED_TARGET);
+                    brain.eraseMemory(MemoryModuleType.INTERACTION_TARGET);
                 }
 
                 brain.setActiveActivityIfPossible(next);
