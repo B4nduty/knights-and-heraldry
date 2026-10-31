@@ -245,6 +245,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.GLAIVE.get(), false, finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get());
 
+        createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.BASTARD_SWORD.get(), false, new ItemStack(KHItems.SWORD.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_BASTARD_SWORD.get(), false, new ItemStack(KHItems.BASTARD_SWORD.get()), new ItemStack(Items.GOLD_INGOT));
 
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.FALCHION_HEAD.get(), unfinished(new ItemStack(KHItems.SWORD_HEAD.get())));

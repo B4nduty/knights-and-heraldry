@@ -1,6 +1,7 @@
-// 1.21.1	2026-10-30T23:21:03.020509543	Knights & Heraldry/Recipes
+// 1.21.1	2026-10-31T12:12:36.227390318	Knights & Heraldry/Recipes
 64e391eeb70bcd834bf8baa442a10ea74eb6d558 data/knightsheraldry/advancement/recipes/combat/craftmananvil/dark_great_bascinet_campfire.json
 04c2da96e79a2681702648cb94f43019cb821844 data/knightsheraldry/recipe/craftmananvil/falchion_head_campfire.json
+00185064dea51e50cfabd610975b1bf5b0b1e3f0 data/knightsheraldry/advancement/recipes/craftmananvil/bastard_sword.json
 b8816ebf6209c008397eb0f67772b257ee8c6856 data/knightsheraldry/advancement/recipes/craftmananvil/wardart.json
 ee480e86587d6bf7ba705bb8c5454c5bbe36bbee data/knightsheraldry/advancement/recipes/craftmananvil/dark_great_bascinet.json
 c107879d73e04798e65bf8d635afd7c6f5cedb89 data/knightsheraldry/recipe/craftmananvil/golden_plate_spaulders_campfire.json
@@ -171,6 +172,7 @@ d413bd167e8f787249d0a92f3089e2a1721488b1 data/knightsheraldry/advancement/recipe
 d872703cbabe176766038b09ee896ce4c33a0506 data/knightsheraldry/advancement/recipes/craftmananvil/golden_cage.json
 847b0bb30ab7591980c284e4cafc7c58d90a7c28 data/knightsheraldry/advancement/recipes/craftmananvil/golden_plate_spaulders_besagews.json
 965c55c1f93889ce3405f31697fe3903d18e6637 data/knightsheraldry/advancement/recipes/upgrade_mace_to_spiked_mace.json
+1cc0037f38c552665b43580fa83c1ae6602a59e2 data/knightsheraldry/recipe/craftmananvil/bastard_sword.json
 fe7a7c978d6c92d1a406a21cba1b5a5a945987fc data/knightsheraldry/recipe/craftmananvil/golden_close_helm.json
 ce179804d9dd0bcab8f3f0919e6c6e5e668855df data/knightsheraldry/recipe/craftmananvil/golden_frogmouth.json
 f56aaaf2a108f0c17ce59dd633635c80a484aedc data/knightsheraldry/recipe/jester_hood.json
