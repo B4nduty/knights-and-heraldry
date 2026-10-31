@@ -156,7 +156,8 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
 
     private void registerSimpleItems() {
         Item[] brokenItems = {
-                KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(), KHItems.SWORD.get(),
+                KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get(), KHItems.STILETTO.get(), KHItems.GILDED_STILETTO.get(),
+                KHItems.RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(), KHItems.SWORD.get(),
                 KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
                 KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.MACE.get(),
                 KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(),

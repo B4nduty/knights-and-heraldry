@@ -1,0 +1,21 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "ingredients": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:stiletto"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:gilded_stiletto"
+  }
+}

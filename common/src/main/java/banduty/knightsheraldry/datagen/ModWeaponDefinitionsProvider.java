@@ -29,15 +29,15 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                 ).build(),
                 KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get()
         );
-        consumer.accept(KHItems.STILETTO.get(),
-                Builder.create().melee(
+        consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
                                 .slashingDamage()
                                 .bludgeoningDamage()
                                 .piercingDamage(4.0f, 6.0f)
                                 .levelRadii(1.2, 2.0)
 
-                ).build()
+                ).build(),
+                KHItems.STILETTO.get(), KHItems.GILDED_STILETTO.get()
         );
         consumer.accept(KHItems.RAPIER.get(),
                 Builder.create().melee(

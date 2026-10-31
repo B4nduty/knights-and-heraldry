@@ -22,7 +22,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void addTags(HolderLookup.Provider arg) {
         getOrCreateTagBuilder(SCTags.BROKEN_WEAPONS.getTag())
-                .add(KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get(), KHItems.STILETTO.get(), KHItems.RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(), KHItems.SWORD.get(),
+                .add(KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get(), KHItems.STILETTO.get(), KHItems.GILDED_STILETTO.get(),
+                        KHItems.RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(), KHItems.SWORD.get(),
                         KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
                         KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.MACE.get(),
                         KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.LONGSWORD.get(),
@@ -37,7 +38,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_IGNORES_ARMOR.getTag())
-                .add(KHItems.STILETTO.get());
+                .add(KHItems.STILETTO.get(), KHItems.GILDED_STILETTO.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_DISABLE_SHIELD.getTag())
                 .add(KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get());

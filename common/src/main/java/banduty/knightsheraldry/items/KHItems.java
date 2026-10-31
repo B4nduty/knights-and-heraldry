@@ -55,6 +55,7 @@ public interface KHItems {
     Supplier<Item> GILDED_DAGGER = sword("gilded_dagger", -1.5F, 196);
 
     Supplier<Item> STILETTO = sword("stiletto", -1.4F, 157);
+    Supplier<Item> GILDED_STILETTO = sword("gilded_stiletto", -1.4F, 157);
 
     Supplier<Item> RAPIER = sword("rapier", -2.2F, 209);
 
