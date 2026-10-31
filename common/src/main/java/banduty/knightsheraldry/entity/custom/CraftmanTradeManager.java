@@ -14,7 +14,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.ItemCost;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CraftmanTradeManager extends SimpleJsonResourceReloadListener {
     private static final Gson GSON = new Gson();
@@ -30,8 +33,8 @@ public class CraftmanTradeManager extends SimpleJsonResourceReloadListener {
         public final List<DatapackTrade> trades = new ArrayList<>();
     }
 
-    public record DatapackTrade (int level, ItemCost costA, ItemCost costB, ItemStack result,
-                                 int maxUses, int xp, float priceMultiplier) {
+    public record DatapackTrade(int level, ItemCost costA, ItemCost costB, ItemStack result,
+                                int maxUses, int xp, float priceMultiplier) {
     }
 
     @Override
