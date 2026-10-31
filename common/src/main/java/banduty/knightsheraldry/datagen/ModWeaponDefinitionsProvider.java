@@ -71,7 +71,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get()
+                KHItems.SWORD.get(), KHItems.GILDED_SWORD.get(), KHItems.V_SWORD.get(), KHItems.GILDED_V_SWORD.get(),
+                KHItems.ARMING_SWORD.get(), KHItems.GILDED_ARMING_SWORD.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()

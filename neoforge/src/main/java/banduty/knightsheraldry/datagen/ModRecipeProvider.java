@@ -242,7 +242,9 @@ public class ModRecipeProvider extends RecipeProvider {
         // Sword Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.SWORD_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_SWORD.get()));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.SWORD.get(), false, finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_SWORD.get(), false, new ItemStack(KHItems.SWORD.get()), new ItemStack(Items.GOLD_INGOT));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get());
+        createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_SWORD.get(), KHItems.GILDED_V_SWORD.get(), KHItems.GILDED_ARMING_SWORD.get());
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.GLAIVE.get(), false, finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get());
 

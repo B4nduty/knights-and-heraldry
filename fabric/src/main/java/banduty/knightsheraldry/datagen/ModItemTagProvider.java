@@ -24,7 +24,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(SCTags.BROKEN_WEAPONS.getTag())
                 .add(KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get(), KHItems.STILETTO.get(), KHItems.GILDED_STILETTO.get(),
                         KHItems.RAPIER.get(), KHItems.GILDED_RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(),
-                        KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.ARMING_SWORD.get(), KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
+                        KHItems.SWORD.get(), KHItems.GILDED_SWORD.get(), KHItems.V_SWORD.get(), KHItems.GILDED_V_SWORD.get(),
+                        KHItems.ARMING_SWORD.get(), KHItems.GILDED_ARMING_SWORD.get(),
+                        KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(), KHItems.AXE.get(), KHItems.BROAD_AXE.get(),
                         KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(), KHItems.MACE.get(),
                         KHItems.SPIKED_MACE.get(), KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.LONGSWORD.get(),
                         KHItems.V_LONGSWORD.get(), KHItems.FALCHION.get(), KHItems.SCIMITAR.get(),

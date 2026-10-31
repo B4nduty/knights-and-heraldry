@@ -66,8 +66,11 @@ public interface KHItems {
             () -> new Estoc(-2.4F, new Item.Properties().durability(235), SCDamageType.PIERCING));
 
     Supplier<Item> SWORD = sword("sword", -2.4F, 326);
+    Supplier<Item> GILDED_SWORD = sword("gilded_sword", -2.4F, 326);
     Supplier<Item> V_SWORD = sword("v_sword", -2.4F, 326);
+    Supplier<Item> GILDED_V_SWORD = sword("gilded_v_sword", -2.4F, 326);
     Supplier<Item> ARMING_SWORD = sword("arming_sword", -2.4F, 326);
+    Supplier<Item> GILDED_ARMING_SWORD = sword("gilded_arming_sword", -2.4F, 326);
 
     Supplier<Item> BASTARD_SWORD = sword("bastard_sword", -2.45F, 346);
     Supplier<Item> GILDED_BASTARD_SWORD = sword("gilded_bastard_sword", -2.45F, 346);

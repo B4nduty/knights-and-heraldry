@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-31T17:18:04.793157082	Knights & Heraldry/Weapon Definitions
+// 1.21.1	2026-10-31T22:07:18.057111168	Knights & Heraldry/Weapon Definitions
 52097cb15df30062aea4c9b82359cc212394ae24 data/knightsheraldry/definitions/weapon/arquebus.json
 5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/war_hammer.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/spiked_mace.json
@@ -43,6 +43,8 @@ cb17bf3dc3b5429e80bb7a262822f913d734e8a9 data/knightsheraldry/definitions/weapon
 2997697adb51a7c41ccefc49b3b30fd062cdffe2 data/knightsheraldry/definitions/weapon/stiletto.json
 2997697adb51a7c41ccefc49b3b30fd062cdffe2 data/knightsheraldry/definitions/weapon/gilded_stiletto.json
 832547008723b048972e83b0782c59670a7caf1a data/knightsheraldry/definitions/weapon/swallowtail_arrow.json
+0db1323322cafca1cec3db74754f4ff7fac30e8b data/knightsheraldry/definitions/weapon/gilded_sword.json
+0db1323322cafca1cec3db74754f4ff7fac30e8b data/knightsheraldry/definitions/weapon/gilded_arming_sword.json
 366f56725587951f99865a99c06f1988a47e45b2 data/knightsheraldry/definitions/weapon/pitchfork.json
 b43c30c971d0b1d4dac7b4f046d29028da6b8c91 data/knightsheraldry/definitions/weapon/bodkin_arrow.json
 0db1323322cafca1cec3db74754f4ff7fac30e8b data/knightsheraldry/definitions/weapon/arming_sword.json
@@ -51,5 +53,6 @@ d72970823aabd9dbaa0d05718fe1337858e9bf2c data/knightsheraldry/definitions/weapon
 de310bdba6b5870f21087c4d2d6e1a34c5ff1cfd data/knightsheraldry/definitions/weapon/handgonne.json
 601fd545424104d34d68181de25287bad4489341 data/knightsheraldry/definitions/weapon/longbow.json
 a2d4e007ebc738cce2f9d25c2bd3ab81e3cfb0ef data/knightsheraldry/definitions/weapon/pike.json
+0db1323322cafca1cec3db74754f4ff7fac30e8b data/knightsheraldry/definitions/weapon/gilded_v_sword.json
 c9a4d570ae685485d9005f817ab43f701fcd00c1 data/knightsheraldry/definitions/weapon/halberd.json
 d72970823aabd9dbaa0d05718fe1337858e9bf2c data/knightsheraldry/definitions/weapon/heater_shield.json
