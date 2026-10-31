@@ -234,6 +234,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // Dagger Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.DAGGER_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_DAGGER.get()));
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.DAGGER.get(), false, finished(new ItemStack(KHItems.DAGGER_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_DAGGER.get(), false, new ItemStack(KHItems.DAGGER.get()), new ItemStack(Items.GOLD_INGOT));
 
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.STILETTO_HEAD.get(), unfinished(new ItemStack(KHItems.DAGGER_HEAD.get())));
         createCraftmanAnvilRecipeO(exporter, 7, 0.25f, KHItems.STILETTO.get(), false, finished(new ItemStack(KHItems.STILETTO_HEAD.get())), new ItemStack(Items.STICK));

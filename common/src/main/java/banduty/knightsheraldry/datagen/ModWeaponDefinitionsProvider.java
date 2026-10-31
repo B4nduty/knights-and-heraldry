@@ -18,8 +18,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
     @Override
     protected void generateDefinitions(WeaponConsumer consumer) {
         // Melee
-        consumer.accept(KHItems.DAGGER.get(),
-                Builder.create().melee(
+        consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
                                 .slashingDamage(5f, 3f)
                                 .bludgeoningDamage()
@@ -27,7 +26,8 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(1.8, 2.0)
                                 .anim(3)
                                 .pierceAnim(3)
-                ).build()
+                ).build(),
+                KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get()
         );
         consumer.accept(KHItems.STILETTO.get(),
                 Builder.create().melee(

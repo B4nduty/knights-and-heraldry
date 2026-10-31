@@ -52,6 +52,7 @@ import java.util.function.Supplier;
 
 public interface KHItems {
     Supplier<Item> DAGGER = sword("dagger", -1.5F, 196);
+    Supplier<Item> GILDED_DAGGER = sword("gilded_dagger", -1.5F, 196);
 
     Supplier<Item> STILETTO = sword("stiletto", -1.4F, 157);
 

@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-31T12:12:36.22480122	Knights & Heraldry/Weapon Definitions
+// 1.21.1	2026-10-31T12:33:20.307372395	Knights & Heraldry/Weapon Definitions
 52097cb15df30062aea4c9b82359cc212394ae24 data/knightsheraldry/definitions/weapon/arquebus.json
 5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/war_hammer.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/spiked_mace.json
@@ -26,6 +26,7 @@ ff17ae93ba6a001494406d08e9c47d966ccdf15c data/knightsheraldry/definitions/weapon
 68d647c9f9112ad7916d0aae4660b865dc966d0d data/knightsheraldry/definitions/weapon/bastard_sword.json
 25930bd79e94d980360ac5363016b4bb427884f7 data/knightsheraldry/definitions/weapon/polehammer.json
 61d83e8390f66ad6832217f2d7aaa9d1065ac06f data/knightsheraldry/definitions/weapon/spear.json
+f7f194863efbb2cec87e3e0bfcabc0c52f144430 data/knightsheraldry/definitions/weapon/gilded_dagger.json
 c00d35b8250b14448989cf97139ac3ab05ae89f4 data/knightsheraldry/definitions/weapon/billhook.json
 89ff034ac9e414db56023dd7efed8bff4a6cf17f data/knightsheraldry/definitions/weapon/ball_flail.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/mace.json

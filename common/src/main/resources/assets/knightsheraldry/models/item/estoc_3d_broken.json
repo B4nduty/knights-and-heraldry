@@ -1,4 +1,12 @@
 {
+    "overrides": [
+        {
+            "predicate": {
+                "broken": 1
+            },
+            "model": "knightsheraldry:item/dagger_3d_broken"
+        }
+    ],
     "credit": "Made with Blockbench",
     "parent": "item/handheld",
     "textures": {
