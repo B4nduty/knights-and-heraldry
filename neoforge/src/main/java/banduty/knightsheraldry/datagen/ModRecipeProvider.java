@@ -255,6 +255,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.RAPIER_HEAD.get(), unfinished(new ItemStack(KHItems.FALCHION_HEAD.get())));
         createCraftmanAnvilRecipeO(exporter, 7, 0.25f, KHItems.RAPIER.get(), false, finished(new ItemStack(KHItems.RAPIER_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_RAPIER.get(), false, new ItemStack(KHItems.RAPIER.get()), new ItemStack(Items.GOLD_INGOT));
 
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.ESTOC.get(), false, new ItemStack(KHItems.RAPIER.get()));
         createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_ESTOC.get(), false, new ItemStack(KHItems.ESTOC.get()), new ItemStack(Items.GOLD_INGOT));

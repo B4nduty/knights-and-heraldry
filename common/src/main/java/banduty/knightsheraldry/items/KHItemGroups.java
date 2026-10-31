@@ -121,6 +121,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.WARDART.get()),
                     itemStack(KHItems.GILDED_DAGGER.get()),
                     itemStack(KHItems.GILDED_STILETTO.get()),
+                    itemStack(KHItems.GILDED_RAPIER.get()),
                     itemStack(KHItems.GILDED_ESTOC.get()),
                     itemStack(KHItems.GILDED_BASTARD_SWORD.get()),
                     itemStack(KHItems.HEATER_SHIELD.get()),

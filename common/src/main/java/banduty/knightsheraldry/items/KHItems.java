@@ -58,6 +58,7 @@ public interface KHItems {
     Supplier<Item> GILDED_STILETTO = sword("gilded_stiletto", -1.4F, 157);
 
     Supplier<Item> RAPIER = sword("rapier", -2.2F, 209);
+    Supplier<Item> GILDED_RAPIER = sword("gilded_rapier", -2.2F, 209);
 
     Supplier<Item> ESTOC = registerItem("estoc",
             () -> new Estoc(-2.4F, new Item.Properties().durability(235), SCDamageType.PIERCING));
