@@ -5,14 +5,6 @@
     "textures": {
         "layer0": "knightsheraldry:item/billhook_3d_broken"
     },
-    "overrides": [
-        {
-            "predicate": {
-                "broken": 1
-            },
-            "model": "knightsheraldry:item/billhook_3d_broken_blocking"
-        }
-    ],
     "display": {
         "thirdperson_righthand": {
             "rotation": [
