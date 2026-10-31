@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "knightsheraldry:craftmananvil/war_hammer"
+        "recipe": "knightsheraldry:upgrade_gilded_hammer_to_gilded_war_hammer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "knightsheraldry:craftmananvil/war_hammer"
+      "knightsheraldry:upgrade_gilded_hammer_to_gilded_war_hammer"
     ]
   }
 }

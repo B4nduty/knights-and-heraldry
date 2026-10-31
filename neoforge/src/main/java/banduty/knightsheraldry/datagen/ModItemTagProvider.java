@@ -35,14 +35,16 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(),
                         KHItems.GILDED_AXE.get(), KHItems.GILDED_BROAD_AXE.get(), KHItems.GILDED_CROOKED_AXE.get(), KHItems.GILDED_STRAIGHT_CROOKED_AXE.get(),
                         KHItems.MACE.get(), KHItems.SPIKED_MACE.get(), KHItems.GILDED_MACE.get(), KHItems.GILDED_SPIKED_MACE.get(),
-                        KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(),
+                        KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.GILDED_HAMMER.get(), KHItems.GILDED_WAR_HAMMER.get(),
+                        KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(),
                         KHItems.FALCHION.get(), KHItems.SCIMITAR.get(), KHItems.PITCHFORK.get(),
                         KHItems.SPEAR.get(), KHItems.PIKE.get(), KHItems.BILLHOOK.get(),
                         KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(), KHItems.HALBERD.get(),
                         KHItems.POLEAXE.get(), KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(),
                         KHItems.MORNING_STAR.get(), KHItems.BARDICHE.get(), KHItems.WARDART.get(),
                         KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(),
-                        KHItems.ZWEIHANDER.get(), KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get()
+                        KHItems.ZWEIHANDER.get(),
+                        KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get(), KHItems.GILDED_FLAIL.get(), KHItems.GILDED_BALL_FLAIL.get()
                 );
 
         tag(SCTags.WEAPONS_DAMAGE_BEHIND.getTag())
@@ -58,7 +60,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 );
 
         tag(SCTags.WEAPONS_BYPASS_BLOCK.getTag())
-                .add(KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get());
+                .add(KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get(), KHItems.GILDED_FLAIL.get(), KHItems.GILDED_BALL_FLAIL.get());
 
         tag(SCTags.WEAPONS_HARVEST.getTag())
                 .add(KHItems.PITCHFORK.get());

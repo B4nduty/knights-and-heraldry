@@ -1,6 +1,8 @@
 {
   "values": [
     "knightsheraldry:flail",
-    "knightsheraldry:ball_flail"
+    "knightsheraldry:ball_flail",
+    "knightsheraldry:gilded_flail",
+    "knightsheraldry:gilded_ball_flail"
   ]
 }

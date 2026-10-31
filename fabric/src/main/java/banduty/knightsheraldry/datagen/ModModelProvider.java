@@ -216,7 +216,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(),
                 KHItems.GILDED_AXE.get(), KHItems.GILDED_BROAD_AXE.get(), KHItems.GILDED_CROOKED_AXE.get(), KHItems.GILDED_STRAIGHT_CROOKED_AXE.get(),
                 KHItems.MACE.get(), KHItems.SPIKED_MACE.get(), KHItems.GILDED_MACE.get(), KHItems.GILDED_SPIKED_MACE.get(),
-                KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(),
+                KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.GILDED_HAMMER.get(), KHItems.GILDED_WAR_HAMMER.get(),
                 KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(),
                 KHItems.FALCHION.get(), KHItems.SCIMITAR.get(),
                 KHItems.PITCHFORK.get(),

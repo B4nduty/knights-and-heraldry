@@ -91,11 +91,17 @@ public interface KHItems {
 
     Supplier<Item> FLAIL = registerItem("flail",
             () -> new Flail(-2.8F, new Item.Properties().durability(261)));
+    Supplier<Item> GILDED_FLAIL = registerItem("gilded_flail",
+            () -> new Flail(-2.8F, new Item.Properties().durability(261)));
     Supplier<Item> BALL_FLAIL = registerItem("ball_flail",
+            () -> new Flail(-2.8F, new Item.Properties().durability(261)));
+    Supplier<Item> GILDED_BALL_FLAIL = registerItem("gilded_ball_flail",
             () -> new Flail(-2.8F, new Item.Properties().durability(261)));
 
     Supplier<Item> HAMMER = sword("hammer", -2.8F, 430);
+    Supplier<Item> GILDED_HAMMER = sword("gilded_hammer", -2.8F, 430);
     Supplier<Item> WAR_HAMMER = sword("war_hammer", -2.8F, 430);
+    Supplier<Item> GILDED_WAR_HAMMER = sword("gilded_war_hammer", -2.8F, 430);
 
     Supplier<Item> LONGSWORD = sword("longsword", -2.5F, 365);
     Supplier<Item> V_LONGSWORD = sword("v_longsword", -2.5F, 365);

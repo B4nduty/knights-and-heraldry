@@ -4,15 +4,12 @@
     {
       "stack": {
         "count": 1,
-        "id": "knightsheraldry:hammer"
+        "id": "knightsheraldry:gilded_hammer"
       }
     }
   ],
   "result": {
-    "components": {
-      "stoneycore:ignited": true
-    },
     "count": 1,
-    "id": "knightsheraldry:war_hammer"
+    "id": "knightsheraldry:gilded_war_hammer"
   }
 }

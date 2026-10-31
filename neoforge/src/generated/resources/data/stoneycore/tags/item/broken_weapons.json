@@ -30,6 +30,8 @@
     "knightsheraldry:gilded_spiked_mace",
     "knightsheraldry:hammer",
     "knightsheraldry:war_hammer",
+    "knightsheraldry:gilded_hammer",
+    "knightsheraldry:gilded_war_hammer",
     "knightsheraldry:longsword",
     "knightsheraldry:v_longsword",
     "knightsheraldry:falchion",
@@ -52,6 +54,8 @@
     "knightsheraldry:flamberge",
     "knightsheraldry:zweihander",
     "knightsheraldry:flail",
-    "knightsheraldry:ball_flail"
+    "knightsheraldry:ball_flail",
+    "knightsheraldry:gilded_flail",
+    "knightsheraldry:gilded_ball_flail"
   ]
 }

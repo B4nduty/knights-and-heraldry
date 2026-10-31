@@ -1,0 +1,17 @@
+{
+  "parent": "bettercombat:dagger",
+  "attributes": {
+    "attack_range": 2,
+    "attacks": [
+      {
+        "angle": 100
+      },
+      {
+        "damageMultiplier": 0.0
+      },
+      {
+        "damageMultiplier": 0.0
+      }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-31T23:50:51.714611382	Knights & Heraldry/Weapon Definitions
+// 1.21.1	2026-11-01T00:24:05.190458534	Knights & Heraldry/Weapon Definitions
 52097cb15df30062aea4c9b82359cc212394ae24 data/knightsheraldry/definitions/weapon/arquebus.json
 5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/war_hammer.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/spiked_mace.json
@@ -9,6 +9,7 @@ e3be14e8044469f92cbbdf8d7c1601cfcc74865d data/knightsheraldry/definitions/weapon
 9bd2dd8ef7bd73e86232c7404f7b5201aab052d5 data/knightsheraldry/definitions/weapon/zweihander.json
 9bd2dd8ef7bd73e86232c7404f7b5201aab052d5 data/knightsheraldry/definitions/weapon/greatsword.json
 0a96cd048cd70dc17c4d1c888febc29ece9c2d40 data/knightsheraldry/definitions/weapon/scimitar.json
+89ff034ac9e414db56023dd7efed8bff4a6cf17f data/knightsheraldry/definitions/weapon/gilded_ball_flail.json
 54fc823daba74db0fef45547751335916fc28ef4 data/knightsheraldry/definitions/weapon/heavy_crossbow.json
 d72970823aabd9dbaa0d05718fe1337858e9bf2c data/knightsheraldry/definitions/weapon/heater_shield_reinforced.json
 cb17bf3dc3b5429e80bb7a262822f913d734e8a9 data/knightsheraldry/definitions/weapon/v_longsword.json
@@ -52,7 +53,10 @@ cb17bf3dc3b5429e80bb7a262822f913d734e8a9 data/knightsheraldry/definitions/weapon
 366f56725587951f99865a99c06f1988a47e45b2 data/knightsheraldry/definitions/weapon/pitchfork.json
 b43c30c971d0b1d4dac7b4f046d29028da6b8c91 data/knightsheraldry/definitions/weapon/bodkin_arrow.json
 0db1323322cafca1cec3db74754f4ff7fac30e8b data/knightsheraldry/definitions/weapon/arming_sword.json
+5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/gilded_hammer.json
+5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/gilded_war_hammer.json
 0a96cd048cd70dc17c4d1c888febc29ece9c2d40 data/knightsheraldry/definitions/weapon/falchion.json
+89ff034ac9e414db56023dd7efed8bff4a6cf17f data/knightsheraldry/definitions/weapon/gilded_flail.json
 53a261b10ff11f946c15647396b21109fb6d80a5 data/knightsheraldry/definitions/weapon/gilded_straight_crooked_axe.json
 d72970823aabd9dbaa0d05718fe1337858e9bf2c data/knightsheraldry/definitions/weapon/gilded_heater_shield_reinforced.json
 de310bdba6b5870f21087c4d2d6e1a34c5ff1cfd data/knightsheraldry/definitions/weapon/handgonne.json

@@ -122,7 +122,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(2.0, 2.5, 3.5, 4.0)
 
                 ).build(),
-                KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get()
+                KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get(), KHItems.GILDED_FLAIL.get(), KHItems.GILDED_BALL_FLAIL.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
@@ -134,7 +134,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get()
+                KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.GILDED_HAMMER.get(), KHItems.GILDED_WAR_HAMMER.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
