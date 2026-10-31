@@ -250,6 +250,10 @@ public class Craftman extends AbstractVillager {
             public boolean trigger(ServerLevel level, Craftman entity, long gameTime) {
                 Brain<Craftman> brain = entity.getBrain();
 
+                if (brain.isActive(Activity.HIDE)) {
+                    return false; // don't override an active hide
+                }
+
                 boolean threatened = brain.hasMemoryValue(MemoryModuleType.HURT_BY)
                         || brain.hasMemoryValue(MemoryModuleType.NEAREST_HOSTILE);
 
@@ -270,6 +274,17 @@ public class Craftman extends AbstractVillager {
                 }
 
                 brain.setActiveActivityIfPossible(Activity.PANIC);
+
+                boolean hasHome = brain.hasMemoryValue(MemoryModuleType.HOME);
+                Activity next = hasHome ? Activity.HIDE : Activity.PANIC;
+
+                if (!brain.isActive(next)) {
+                    brain.eraseMemory(MemoryModuleType.PATH);
+                    brain.eraseMemory(MemoryModuleType.WALK_TARGET);
+                    brain.eraseMemory(MemoryModuleType.LOOK_TARGET);
+                }
+
+                brain.setActiveActivityIfPossible(next);
                 return true;
             }
         };
