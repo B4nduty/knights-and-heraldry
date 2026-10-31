@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 270,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "knightsheraldry:swallowtail_arrow"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:swallowtail_arrow"
+  }
+}

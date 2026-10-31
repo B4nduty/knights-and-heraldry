@@ -1,11 +1,16 @@
 {
   "values": [
     "knightsheraldry:dagger",
+    "knightsheraldry:gilded_dagger",
     "knightsheraldry:stiletto",
     "knightsheraldry:rapier",
+    "knightsheraldry:estoc",
+    "knightsheraldry:gilded_estoc",
     "knightsheraldry:sword",
     "knightsheraldry:v_sword",
     "knightsheraldry:arming_sword",
+    "knightsheraldry:bastard_sword",
+    "knightsheraldry:gilded_bastard_sword",
     "knightsheraldry:axe",
     "knightsheraldry:broad_axe",
     "knightsheraldry:crooked_axe",

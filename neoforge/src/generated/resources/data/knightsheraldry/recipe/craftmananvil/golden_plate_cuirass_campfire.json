@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 630,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "knightsheraldry:golden_plate_cuirass"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:golden_plate_cuirass"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 450,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "knightsheraldry:brigandine_spaulders"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:brigandine_spaulders"
+  }
+}

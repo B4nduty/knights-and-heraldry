@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 900,
+  "experience": 4.0,
+  "ingredient": {
+    "item": "knightsheraldry:pauldrons"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:pauldrons"
+  }
+}

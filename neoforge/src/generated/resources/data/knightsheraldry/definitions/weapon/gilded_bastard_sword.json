@@ -1,0 +1,35 @@
+{
+  "melee": {
+    "animation": 3,
+    "blockCooldown": 100,
+    "damage": {
+      "BLUDGEONING": {
+        "level_0": 4.5,
+        "level_1": 7.0,
+        "level_2": 3.0
+      },
+      "PIERCING": {
+        "level_0": 4.0,
+        "level_1": 6.5,
+        "level_2": 2.5
+      },
+      "SLASHING": {
+        "level_0": 6.0,
+        "level_1": 9.5,
+        "level_2": 4.5
+      }
+    },
+    "parryWindow": 7,
+    "piercingAnimation": [
+      2
+    ],
+    "radius": {
+      "level_0": 1.5,
+      "level_1": 3.0,
+      "level_2": 4.5
+    }
+  },
+  "usage": [
+    "MELEE"
+  ]
+}

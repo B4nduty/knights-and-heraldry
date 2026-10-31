@@ -1,6 +1,5 @@
 {
-  "armor": 1.0,
-  "armorSlot": "CHESTPLATE",
-  "toughness": 1.0,
-  "weight": 2.1
+  "armor": 0.5,
+  "toughness": 0.5,
+  "weight": 0.5
 }

@@ -1,0 +1,23 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.9,
+  "ingredients": [
+    {
+      "finished_requirement": "finished",
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:pauldrons_besagews"
+      }
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:rim_guards"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:pauldrons_besagews_rimmed"
+  }
+}

@@ -1,73 +1,48 @@
 package banduty.knightsheraldry.items.armor.attachment;
 
 import banduty.knightsheraldry.client.item.armor.KHPauldronsAttachmentRenderer;
+import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderProvider;
 import banduty.stoneycore.client.render.armor.ArmorAttachmentRenderer;
+import banduty.stoneycore.items.custom.armor.ArmorAttachment;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
-public class KHPauldrons extends KHChestplateAttachment {
+public class KHPauldrons extends Item implements ArmorAttachment, ArmorAttachmentRenderProvider {
+    Ingredient ingredient;
+    boolean hasOverlay;
+    int defaultColor;
 
-    private final boolean destroysOnQuench;
+    public ArmorAttachmentRenderer cachedRenderer;
 
-    // Default: true
     public KHPauldrons(Properties properties, Ingredient ingredient) {
-        this(properties, ingredient, false);
+        super(properties);
+        this.ingredient = ingredient;
+        this.hasOverlay = false;
+        this.defaultColor = -1;
     }
 
-    // Explicit destroysOnQuench
-    public KHPauldrons(
-            Properties properties,
-            Ingredient ingredient,
-            boolean destroysOnQuench
-    ) {
-        super(properties, ingredient);
-        this.destroysOnQuench = destroysOnQuench;
+    public KHPauldrons(Properties properties, int defaultColor, Ingredient ingredient) {
+        super(properties);
+        this.ingredient = ingredient;
+        this.hasOverlay = false;
+        this.defaultColor = defaultColor;
     }
 
-    // Default: true
-    public KHPauldrons(
-            Properties properties,
-            int defaultColor,
-            Ingredient ingredient
-    ) {
-        this(properties, defaultColor, ingredient, true);
-    }
-
-    // Explicit destroysOnQuench
-    public KHPauldrons(
-            Properties properties,
-            int defaultColor,
-            Ingredient ingredient,
-            boolean destroysOnQuench
-    ) {
-        super(properties, defaultColor, ingredient);
-        this.destroysOnQuench = destroysOnQuench;
-    }
-
-    // Default: true
-    public KHPauldrons(
-            Properties properties,
-            boolean overlay,
-            int defaultColor,
-            Ingredient ingredient
-    ) {
-        this(properties, overlay, defaultColor, ingredient, true);
-    }
-
-    // Explicit destroysOnQuench
-    public KHPauldrons(
-            Properties properties,
-            boolean overlay,
-            int defaultColor,
-            Ingredient ingredient,
-            boolean destroysOnQuench
-    ) {
-        super(properties, overlay, defaultColor, ingredient);
-        this.destroysOnQuench = destroysOnQuench;
+    public KHPauldrons(Properties properties, boolean overlay, int defaultColor, Ingredient ingredient) {
+        super(properties);
+        this.ingredient = ingredient;
+        this.hasOverlay = overlay;
+        this.defaultColor = defaultColor;
     }
 
     @Override
-    public boolean destroysOnQuench() {
-        return destroysOnQuench;
+    public boolean isValidRepairItem(ItemStack stack, ItemStack ingredient) {
+        return this.ingredient.test(ingredient) || super.isValidRepairItem(stack, ingredient);
+    }
+
+    public int getDefaultColor() {
+        return defaultColor;
     }
 
     @Override
@@ -76,5 +51,9 @@ public class KHPauldrons extends KHChestplateAttachment {
             this.cachedRenderer = new KHPauldronsAttachmentRenderer();
         }
         return this.cachedRenderer;
+    }
+
+    public boolean hasOverlay() {
+        return hasOverlay;
     }
 }

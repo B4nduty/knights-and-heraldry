@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 450,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "knightsheraldry:black_sallet"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:black_sallet"
+  }
+}

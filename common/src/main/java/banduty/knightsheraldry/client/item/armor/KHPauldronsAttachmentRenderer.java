@@ -25,15 +25,15 @@ public class KHPauldronsAttachmentRenderer implements ArmorAttachmentRenderer {
     @Override
     public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, LivingEntity livingEntity, ItemStack itemStack, HumanoidModel<LivingEntity> humanoidModel, float v, float v1, float v2, float v3, float v4, float v5) {
         HumanoidModel<LivingEntity> model = new PauldronsModel(PauldronsModel.getTexturedModelData().bakeRoot());
-        if (!(itemStack.getItem() instanceof KHPauldrons khGlove)) return;
+        if (!(itemStack.getItem() instanceof KHPauldrons khPauldrons)) return;
         humanoidModel.copyPropertiesTo(model);
         VertexConsumer baseConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(
                 ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
                         BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + ".png")));
-        int color = DyedItemColor.getOrDefault(itemStack, khGlove.getDefaultColor());
+        int color = DyedItemColor.getOrDefault(itemStack, khPauldrons.getDefaultColor());
         model.renderToBuffer(poseStack, baseConsumer, i, OverlayTexture.NO_OVERLAY, color);
 
-        if (khGlove.hasOverlay()) {
+        if (khPauldrons.hasOverlay()) {
             ResourceLocation textureOverlayPath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/entity/attachment/" +
                     BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "_overlay.png");
             VertexConsumer overlayConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(textureOverlayPath));

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 810,
+  "experience": 3.6,
+  "ingredient": {
+    "item": "knightsheraldry:horse_barding"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:horse_barding"
+  }
+}
