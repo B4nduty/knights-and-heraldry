@@ -252,7 +252,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.POLEAXE.get()
+                KHItems.POLEAXE.get(), KHItems.GILDED_POLEAXE.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
@@ -264,7 +264,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get()
+                KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(), KHItems.GILDED_POLEHAMMER.get(), KHItems.GILDED_BEC_DE_CORBIN.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()

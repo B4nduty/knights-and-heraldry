@@ -145,9 +145,12 @@ public interface KHItems {
             () -> new WoodenLance(-3.0F, new Item.Properties().durability(1), SCDamageType.PIERCING));
 
     Supplier<Item> POLEAXE = axe("poleaxe", -2.8F, 391);
+    Supplier<Item> GILDED_POLEAXE = axe("gilded_poleaxe", -2.8F, 391);
 
     Supplier<Item> POLEHAMMER = sword("polehammer", -2.8F, 391);
+    Supplier<Item> GILDED_POLEHAMMER = sword("gilded_polehammer", -2.8F, 391);
     Supplier<Item> BEC_DE_CORBIN = sword("bec_de_corbin", -2.8F, 391);
+    Supplier<Item> GILDED_BEC_DE_CORBIN = sword("gilded_bec_de_corbin", -2.8F, 391);
 
     Supplier<Item> MORNING_STAR = sword("morning_star", -3F, 391);
 

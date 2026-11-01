@@ -290,7 +290,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createWeaponCycle(exporter, 3, 1.0f, KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get());
         createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_HAMMER.get(), KHItems.GILDED_WAR_HAMMER.get());
         createCraftmanAnvilRecipeO(exporter, 7, 0.25f, KHItems.POLEHAMMER.get(), false, finished(new ItemStack(KHItems.HAMMER_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_POLEHAMMER.get(), false, new ItemStack(KHItems.POLEHAMMER.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_BEC_DE_CORBIN.get(), false, new ItemStack(KHItems.BEC_DE_CORBIN.get()), new ItemStack(Items.GOLD_INGOT));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get());
+        createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_POLEHAMMER.get(), KHItems.GILDED_BEC_DE_CORBIN.get());
 
         // Mace Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.MACE_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_MACE.get()));
@@ -355,6 +358,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .defineFinished('H', new ItemStack(KHItems.HALBERD_HEAD.get()))
                 .define('S', new ItemStack(Items.STICK))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "craftmananvil/poleaxe_4"));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_POLEAXE.get(), false, new ItemStack(KHItems.POLEAXE.get()), new ItemStack(Items.GOLD_INGOT));
 
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.BILLHOOK_HEAD.get(), unfinished(new ItemStack(KHItems.HALBERD_HEAD.get())));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.BILLHOOK.get(), false, finished(new ItemStack(KHItems.BILLHOOK_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
