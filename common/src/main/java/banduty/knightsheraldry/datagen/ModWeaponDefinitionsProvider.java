@@ -196,7 +196,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.PIKE.get()
+                KHItems.PIKE.get(), KHItems.GILDED_PIKE.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
@@ -210,7 +210,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.BILLHOOK.get()
+                KHItems.BILLHOOK.get(), KHItems.GILDED_BILLHOOK.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()

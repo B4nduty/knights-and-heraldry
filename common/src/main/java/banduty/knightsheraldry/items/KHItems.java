@@ -120,8 +120,11 @@ public interface KHItems {
     Supplier<Item> GILDED_SPEAR = sword("gilded_spear", -2.6F, 235);
 
     Supplier<Item> PIKE = sword("pike", -2.8F, 196);
+    Supplier<Item> GILDED_PIKE = sword("gilded_pike", -2.8F, 196);
 
     Supplier<Item> BILLHOOK = registerItem("billhook",
+            () -> new Billhook(-2.4F, new Item.Properties().durability(391)));
+    Supplier<Item> GILDED_BILLHOOK = registerItem("gilded_billhook",
             () -> new Billhook(-2.4F, new Item.Properties().durability(391)));
 
     Supplier<Item> GLAIVE = sword("glaive", -2.2F, 391);

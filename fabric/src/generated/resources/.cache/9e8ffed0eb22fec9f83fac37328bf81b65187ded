@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-01T12:13:16.858580761	Knights & Heraldry/Weapon Definitions
+// 1.21.1	2026-11-01T12:28:58.616804652	Knights & Heraldry/Weapon Definitions
 52097cb15df30062aea4c9b82359cc212394ae24 data/knightsheraldry/definitions/weapon/arquebus.json
 5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/war_hammer.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/spiked_mace.json
@@ -10,6 +10,7 @@ e3be14e8044469f92cbbdf8d7c1601cfcc74865d data/knightsheraldry/definitions/weapon
 9bd2dd8ef7bd73e86232c7404f7b5201aab052d5 data/knightsheraldry/definitions/weapon/zweihander.json
 9bd2dd8ef7bd73e86232c7404f7b5201aab052d5 data/knightsheraldry/definitions/weapon/greatsword.json
 0a96cd048cd70dc17c4d1c888febc29ece9c2d40 data/knightsheraldry/definitions/weapon/gilded_scimitar.json
+a2d4e007ebc738cce2f9d25c2bd3ab81e3cfb0ef data/knightsheraldry/definitions/weapon/gilded_pike.json
 0a96cd048cd70dc17c4d1c888febc29ece9c2d40 data/knightsheraldry/definitions/weapon/scimitar.json
 89ff034ac9e414db56023dd7efed8bff4a6cf17f data/knightsheraldry/definitions/weapon/gilded_ball_flail.json
 54fc823daba74db0fef45547751335916fc28ef4 data/knightsheraldry/definitions/weapon/heavy_crossbow.json
@@ -34,6 +35,7 @@ cb17bf3dc3b5429e80bb7a262822f913d734e8a9 data/knightsheraldry/definitions/weapon
 f7f194863efbb2cec87e3e0bfcabc0c52f144430 data/knightsheraldry/definitions/weapon/gilded_dagger.json
 f07cd57765c402f53c76852cce8014bb0051d1a7 data/knightsheraldry/definitions/weapon/gilded_rapier.json
 c00d35b8250b14448989cf97139ac3ab05ae89f4 data/knightsheraldry/definitions/weapon/billhook.json
+c00d35b8250b14448989cf97139ac3ab05ae89f4 data/knightsheraldry/definitions/weapon/gilded_billhook.json
 89ff034ac9e414db56023dd7efed8bff4a6cf17f data/knightsheraldry/definitions/weapon/ball_flail.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/mace.json
 cb17bf3dc3b5429e80bb7a262822f913d734e8a9 data/knightsheraldry/definitions/weapon/longsword.json
@@ -44,9 +46,9 @@ cb17bf3dc3b5429e80bb7a262822f913d734e8a9 data/knightsheraldry/definitions/weapon
 5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/hammer.json
 0db1323322cafca1cec3db74754f4ff7fac30e8b data/knightsheraldry/definitions/weapon/sword.json
 0909fe483619d4ab834023c35daade9847e245b3 data/knightsheraldry/definitions/weapon/glaive.json
-049416bbb4425f7bc532dee03b09137c4eab9702 data/knightsheraldry/definitions/weapon/estoc.json
-53a261b10ff11f946c15647396b21109fb6d80a5 data/knightsheraldry/definitions/weapon/gilded_axe.json
 68d647c9f9112ad7916d0aae4660b865dc966d0d data/knightsheraldry/definitions/weapon/gilded_bastard_sword.json
+53a261b10ff11f946c15647396b21109fb6d80a5 data/knightsheraldry/definitions/weapon/gilded_axe.json
+049416bbb4425f7bc532dee03b09137c4eab9702 data/knightsheraldry/definitions/weapon/estoc.json
 2997697adb51a7c41ccefc49b3b30fd062cdffe2 data/knightsheraldry/definitions/weapon/stiletto.json
 cb17bf3dc3b5429e80bb7a262822f913d734e8a9 data/knightsheraldry/definitions/weapon/gilded_longsword.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/gilded_spiked_mace.json
