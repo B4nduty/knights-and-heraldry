@@ -30,6 +30,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(),
                         KHItems.GILDED_AXE.get(), KHItems.GILDED_BROAD_AXE.get(), KHItems.GILDED_CROOKED_AXE.get(), KHItems.GILDED_STRAIGHT_CROOKED_AXE.get(),
                         KHItems.MACE.get(), KHItems.SPIKED_MACE.get(), KHItems.GILDED_MACE.get(), KHItems.GILDED_SPIKED_MACE.get(),
+                        KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get(), KHItems.GILDED_FLAIL.get(), KHItems.GILDED_BALL_FLAIL.get(),
                         KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.GILDED_HAMMER.get(), KHItems.GILDED_WAR_HAMMER.get(),
                         KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(), KHItems.GILDED_LONGSWORD.get(), KHItems.GILDED_V_LONGSWORD.get(),
                         KHItems.FALCHION.get(), KHItems.SCIMITAR.get(), KHItems.GILDED_FALCHION.get(), KHItems.GILDED_SCIMITAR.get(),
@@ -43,9 +44,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(),  KHItems.GILDED_POLEHAMMER.get(), KHItems.GILDED_BEC_DE_CORBIN.get(),
                         KHItems.MORNING_STAR.get(), KHItems.GILDED_MORNING_STAR.get(),
                         KHItems.BARDICHE.get(), KHItems.GILDED_BARDICHE.get(),
-                        KHItems.WARDART.get(), KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(),
-                        KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(),
-                        KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get(), KHItems.GILDED_FLAIL.get(), KHItems.GILDED_BALL_FLAIL.get());
+                        KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(),
+                        KHItems.GILDED_GREATSWORD.get(), KHItems.GILDED_CLAYMORE.get(), KHItems.GILDED_FLAMBERGE.get(), KHItems.GILDED_ZWEIHANDER.get(),
+                        KHItems.WARDART.get());
 
         getOrCreateTagBuilder(SCTags.WEAPONS_DAMAGE_BEHIND.getTag())
                 .add(KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get());

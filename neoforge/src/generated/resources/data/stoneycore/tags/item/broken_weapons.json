@@ -28,6 +28,10 @@
     "knightsheraldry:spiked_mace",
     "knightsheraldry:gilded_mace",
     "knightsheraldry:gilded_spiked_mace",
+    "knightsheraldry:flail",
+    "knightsheraldry:ball_flail",
+    "knightsheraldry:gilded_flail",
+    "knightsheraldry:gilded_ball_flail",
     "knightsheraldry:hammer",
     "knightsheraldry:war_hammer",
     "knightsheraldry:gilded_hammer",
@@ -64,14 +68,14 @@
     "knightsheraldry:gilded_morning_star",
     "knightsheraldry:bardiche",
     "knightsheraldry:gilded_bardiche",
-    "knightsheraldry:wardart",
     "knightsheraldry:greatsword",
     "knightsheraldry:claymore",
     "knightsheraldry:flamberge",
     "knightsheraldry:zweihander",
-    "knightsheraldry:flail",
-    "knightsheraldry:ball_flail",
-    "knightsheraldry:gilded_flail",
-    "knightsheraldry:gilded_ball_flail"
+    "knightsheraldry:gilded_greatsword",
+    "knightsheraldry:gilded_claymore",
+    "knightsheraldry:gilded_flamberge",
+    "knightsheraldry:gilded_zweihander",
+    "knightsheraldry:wardart"
   ]
 }

@@ -377,7 +377,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // Greatsword Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.GREATSWORD_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_GREATSWORD.get()));
         createCraftmanAnvilRecipeO(exporter, 7, 0.25f, KHItems.GREATSWORD.get(), false, finished(new ItemStack(KHItems.GREATSWORD_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_GREATSWORD.get(), false, new ItemStack(KHItems.GREATSWORD.get()), new ItemStack(Items.GOLD_INGOT, 2));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_CLAYMORE.get(), false, new ItemStack(KHItems.CLAYMORE.get()), new ItemStack(Items.GOLD_INGOT, 2));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_FLAMBERGE.get(), false, new ItemStack(KHItems.FLAMBERGE.get()), new ItemStack(Items.GOLD_INGOT, 2));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_ZWEIHANDER.get(), false, new ItemStack(KHItems.ZWEIHANDER.get()), new ItemStack(Items.GOLD_INGOT, 2));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get());
+        createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_GREATSWORD.get(), KHItems.GILDED_CLAYMORE.get(), KHItems.GILDED_FLAMBERGE.get(), KHItems.GILDED_ZWEIHANDER.get());
 
         // Spear Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.SPEAR_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_SPEAR.get()));

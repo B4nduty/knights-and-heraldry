@@ -159,9 +159,13 @@ public interface KHItems {
     Supplier<Item> GILDED_BARDICHE = sword("gilded_bardiche", -3.0F, 391);
 
     Supplier<Item> GREATSWORD = sword("greatsword", -3.2F, 391);
+    Supplier<Item> GILDED_GREATSWORD = sword("gilded_greatsword", -3.2F, 391);
     Supplier<Item> CLAYMORE = sword("claymore", -3.2F, 391);
+    Supplier<Item> GILDED_CLAYMORE = sword("gilded_claymore", -3.2F, 391);
     Supplier<Item> FLAMBERGE = sword("flamberge", -3.2F, 391);
+    Supplier<Item> GILDED_FLAMBERGE = sword("gilded_flamberge", -3.2F, 391);
     Supplier<Item> ZWEIHANDER = sword("zweihander", -3.2F, 391);
+    Supplier<Item> GILDED_ZWEIHANDER = sword("gilded_zweihander", -3.2F, 391);
 
     Supplier<Item> WARDART = registerItem("wardart",
             () -> new WarDart(-2.6F, new Item.Properties().durability(326)));
