@@ -137,6 +137,8 @@ public interface KHItemGroups {
                     itemStack(KHItems.GILDED_BALL_FLAIL.get()),
                     itemStack(KHItems.GILDED_HAMMER.get()),
                     itemStack(KHItems.GILDED_WAR_HAMMER.get()),
+                    itemStack(KHItems.GILDED_LONGSWORD.get()),
+                    itemStack(KHItems.GILDED_V_LONGSWORD.get()),
                     itemStack(KHItems.HEATER_SHIELD.get()),
                     itemStack(KHItems.HEATER_SHIELD_REINFORCED.get()),
                     itemStack(KHItems.GILDED_HEATER_SHIELD_REINFORCED.get()),

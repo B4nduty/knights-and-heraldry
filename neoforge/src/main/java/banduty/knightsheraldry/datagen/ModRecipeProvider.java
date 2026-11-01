@@ -354,7 +354,10 @@ public class ModRecipeProvider extends RecipeProvider {
         // Longsword Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.LONGSWORD_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_LONGSWORD.get()));
         createCraftmanAnvilRecipeO(exporter, 7, 0.25f, KHItems.LONGSWORD.get(), false, finished(new ItemStack(KHItems.LONGSWORD_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_LONGSWORD.get(), false, new ItemStack(KHItems.LONGSWORD.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_V_LONGSWORD.get(), false, new ItemStack(KHItems.V_LONGSWORD.get()), new ItemStack(Items.GOLD_INGOT));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get());
+        createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_LONGSWORD.get(), KHItems.GILDED_V_LONGSWORD.get());
 
         // Greatsword Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.GREATSWORD_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_GREATSWORD.get()));

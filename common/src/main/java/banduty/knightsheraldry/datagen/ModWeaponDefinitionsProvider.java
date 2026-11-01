@@ -148,7 +148,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get()
+                KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(), KHItems.GILDED_LONGSWORD.get(), KHItems.GILDED_V_LONGSWORD.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
