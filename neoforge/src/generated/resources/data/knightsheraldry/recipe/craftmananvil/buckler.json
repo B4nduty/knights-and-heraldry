@@ -1,0 +1,26 @@
+{
+  "type": "stoneycore:craftman_anvil_crafting",
+  "chance": 0.9,
+  "ingredients": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "knightsheraldry:manuscript_buckler"
+      }
+    },
+    {
+      "stack": {},
+      "tag": "minecraft:logs"
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:buckler"
+  }
+}

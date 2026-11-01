@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-01T17:00:54.131732359	Knights & Heraldry/Model Definitions
+// 1.21.1	2026-11-01T17:31:15.146219835	Knights & Heraldry/Model Definitions
 f9af2d6dc9877213e6cb11ded63ca3b47271dc96 assets/knightsheraldry/models/item/dark_sallet_bevor.json
 88337acbcded50ee2926d7dd63327f6578aefd03 assets/knightsheraldry/models/item/manuscript_barbute.json
 fac28a8140fd6e3cc9d5ef50b1c75b48be627ea7 assets/knightsheraldry/models/item/plate_spaulders_besagews.json
@@ -314,8 +314,8 @@ ebb3a14ab6cae6e8a4a45859d2368471f7ee17cf assets/knightsheraldry/models/item/gild
 0229756c478ec947eee7afe5c2a7565c23814d8d assets/knightsheraldry/models/item/golden_visored_morion.json
 dc58272434649fd4f74133a1cffac45a393e353e assets/knightsheraldry/models/item/sabatons.json
 11dcd6ca4a41d24cb15b840e48189eefe0f35c8b assets/knightsheraldry/models/item/surcoat/minecraft/triangle_bottom.json
-7036c793ce7c29ce075a278bb81c4817ae162081 assets/knightsheraldry/models/item/golden_houndskull_ignited_open.json
 344f927ef373ecfc6f720a4bfdee655b1bb40399 assets/knightsheraldry/models/item/dark_aragonese_sallet.json
+7036c793ce7c29ce075a278bb81c4817ae162081 assets/knightsheraldry/models/item/golden_houndskull_ignited_open.json
 bd5ad4ead99b7b04d9c96141eb1b57a209b2b799 assets/knightsheraldry/models/item/surcoat_base.json
 abc540d53cc798b38bad3f4ff9c3089cf5ea5ba7 assets/knightsheraldry/models/item/manuscript_axe.json
 8645afaa91eb3e07b9dcdf2ff328e23535c9270f assets/knightsheraldry/models/item/dark_burgonet_falling_buffe_ignited_open.json
@@ -595,6 +595,7 @@ b9199ac1f7bef029dcae49edf0f3b144876ae872 assets/knightsheraldry/models/item/dark
 d180078cee201da190b9f240ea692ccd022bf667 assets/knightsheraldry/models/item/nasal_helm_ignited.json
 91c780720b5e657b2453ec24887d8c951ca6ba00 assets/knightsheraldry/models/item/black_sallet_bevor_ignited.json
 273b5c200112b2a03f22ac16bb8206f9beecd613 assets/knightsheraldry/models/item/bardiche_broken.json
+e4cddc40bc5cf064a8e76a0b73c031cfe928f0ab assets/knightsheraldry/models/item/manuscript_buckler.json
 b4ba58915b0c5ae16cc1e7304d38de3979ce04c5 assets/knightsheraldry/models/item/longbow_gui.json
 cbe2d6353de36dc6fcd39f84296242c877651085 assets/knightsheraldry/models/item/estoc_broken.json
 5f19c53d03150a446989222bec21f757088eda09 assets/knightsheraldry/models/item/manuscript_kettle.json

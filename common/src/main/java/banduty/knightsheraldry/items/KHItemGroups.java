@@ -169,6 +169,10 @@ public interface KHItemGroups {
                     itemStack(KHItems.HEATER_SHIELD.get()),
                     itemStack(KHItems.HEATER_SHIELD_REINFORCED.get()),
                     itemStack(KHItems.GILDED_HEATER_SHIELD_REINFORCED.get()),
+                    itemStack(KHItems.BUCKLER.get()),
+                    itemStack(KHItems.STUDDED_BUCKLER.get()),
+                    itemStack(KHItems.GILDED_BUCKLER.get()),
+                    itemStack(KHItems.GILDED_STUDDED_BUCKLER.get()),
                     itemStack(KHItems.LONGBOW.get()),
                     itemStack(KHItems.HEAVY_CROSSBOW.get()),
                     itemStack(KHItems.ARQUEBUS.get()),
@@ -473,6 +477,7 @@ public interface KHItemGroups {
                         itemStack(KHItems.MANUSCRIPT_PITCHFORK.get()),
 
                         itemStack(KHItems.MANUSCRIPT_HEATER_SHIELD.get()),
+                        itemStack(KHItems.MANUSCRIPT_BUCKLER.get()),
 
                         itemStack(KHItems.MANUSCRIPT_BARBUTE.get()),
                         itemStack(KHItems.MANUSCRIPT_BASCINET.get()),

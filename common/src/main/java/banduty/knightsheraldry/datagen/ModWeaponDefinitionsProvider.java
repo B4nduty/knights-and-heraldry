@@ -334,7 +334,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .blockingEnabled(true)
 
                 ).build(),
-                KHItems.BUCKLER.get()
+                KHItems.BUCKLER.get(), KHItems.STUDDED_BUCKLER.get(), KHItems.GILDED_BUCKLER.get(), KHItems.GILDED_STUDDED_BUCKLER.get()
         );
 
         // Ranged Weapon

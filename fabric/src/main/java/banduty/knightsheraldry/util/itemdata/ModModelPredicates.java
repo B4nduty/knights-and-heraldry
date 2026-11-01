@@ -4,6 +4,7 @@ import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.armor.ArmorVariant;
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
+import banduty.knightsheraldry.items.item.khsield.BucklerShield;
 import banduty.knightsheraldry.items.item.khsield.HeaterShield;
 import banduty.stoneycore.data.SCDataComponents;
 import banduty.stoneycore.definitions.WeaponDefinitionsStorage;
@@ -25,7 +26,7 @@ public class ModModelPredicates {
     }
 
     private static void registerShieldPredicates(Item item) {
-        if (item instanceof HeaterShield) {
+        if (item instanceof HeaterShield || item instanceof BucklerShield) {
             ItemProperties.register(item,
                     ResourceLocation.withDefaultNamespace("blocking"),
                     (stack, world, entity, seed) ->

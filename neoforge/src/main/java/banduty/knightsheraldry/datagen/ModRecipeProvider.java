@@ -405,6 +405,13 @@ public class ModRecipeProvider extends RecipeProvider {
         createCraftmanAnvilRecipeO(exporter, 5, 0.75f, KHItems.HEATER_SHIELD_REINFORCED.get(), false, new ItemStack(KHItems.HEATER_SHIELD.get()), new ItemStack(Items.IRON_INGOT, 2));
         createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_HEATER_SHIELD_REINFORCED.get(), false, new ItemStack(KHItems.HEATER_SHIELD_REINFORCED.get()), new ItemStack(Items.GOLD_INGOT, 2));
 
+        // Buckler Shield
+        createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.BUCKLER.get(), false, new ItemStack(KHItems.MANUSCRIPT_BUCKLER.get()), ItemTags.LOGS, new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_BUCKLER.get(), false, new ItemStack(KHItems.BUCKLER.get()), new ItemStack(Items.GOLD_INGOT, 2));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_STUDDED_BUCKLER.get(), false, new ItemStack(KHItems.STUDDED_BUCKLER.get()), new ItemStack(Items.GOLD_INGOT, 2));
+        createWeaponCycle(exporter, 3, 1.0f, KHItems.BUCKLER.get(), KHItems.STUDDED_BUCKLER.get());
+        createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_BUCKLER.get(), KHItems.GILDED_STUDDED_BUCKLER.get());
+
         // Visor
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.VISOR.get(), new ItemStack(SCItems.HOT_IRON.get()),
                 new ItemStack(KHItems.MANUSCRIPT_VISOR.get()), new ItemStack(Items.SAND));

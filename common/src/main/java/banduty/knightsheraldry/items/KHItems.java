@@ -22,6 +22,7 @@ import banduty.knightsheraldry.items.item.khrangeweapon.Arquebus;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import banduty.knightsheraldry.items.item.khrangeweapon.Longbow;
+import banduty.knightsheraldry.items.item.khsield.BucklerShield;
 import banduty.knightsheraldry.items.item.khsield.HeaterShield;
 import banduty.knightsheraldry.items.item.khweapon.*;
 import banduty.knightsheraldry.items.item.khweapon.flail.Flail;
@@ -179,8 +180,15 @@ public interface KHItems {
             () -> new HeaterShield(new Item.Properties().durability(672)));
     Supplier<Item> GILDED_HEATER_SHIELD_REINFORCED = registerItem("gilded_heater_shield_reinforced",
             () -> new HeaterShield(new Item.Properties().durability(672)));
+
     Supplier<Item> BUCKLER = registerItem("buckler",
-            () -> new HeaterShield(new Item.Properties().durability(168)));
+            () -> new BucklerShield(new Item.Properties().durability(168)));
+    Supplier<Item> GILDED_BUCKLER = registerItem("gilded_buckler",
+            () -> new BucklerShield(new Item.Properties().durability(168)));
+    Supplier<Item> STUDDED_BUCKLER = registerItem("studded_buckler",
+            () -> new BucklerShield(new Item.Properties().durability(168)));
+    Supplier<Item> GILDED_STUDDED_BUCKLER = registerItem("gilded_studded_buckler",
+            () -> new BucklerShield(new Item.Properties().durability(168)));
 
 
     Supplier<Item> QUILTED_COIF = registerItem("quilted_coif",
@@ -578,6 +586,7 @@ public interface KHItems {
     Supplier<Item> MANUSCRIPT_PITCHFORK = registerItem("manuscript_pitchfork", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
     Supplier<Item> MANUSCRIPT_HEATER_SHIELD = registerItem("manuscript_heater_shield", () -> new Manuscript(new Item.Properties().stacksTo(1)));
+    Supplier<Item> MANUSCRIPT_BUCKLER = registerItem("manuscript_buckler", () -> new Manuscript(new Item.Properties().stacksTo(1)));
 
     Supplier<Item> MANUSCRIPT_BARBUTE = registerItem("manuscript_barbute", () -> new Manuscript(new Item.Properties().stacksTo(1)));
     Supplier<Item> MANUSCRIPT_BASCINET = registerItem("manuscript_bascinet", () -> new Manuscript(new Item.Properties().stacksTo(1)));

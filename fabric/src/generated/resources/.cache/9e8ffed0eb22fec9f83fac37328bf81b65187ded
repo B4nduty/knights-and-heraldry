@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-01T17:00:54.124405396	Knights & Heraldry/Weapon Definitions
+// 1.21.1	2026-11-01T17:31:15.130247584	Knights & Heraldry/Weapon Definitions
 52097cb15df30062aea4c9b82359cc212394ae24 data/knightsheraldry/definitions/weapon/arquebus.json
 5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/war_hammer.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/spiked_mace.json
@@ -74,11 +74,12 @@ ff17ae93ba6a001494406d08e9c47d966ccdf15c data/knightsheraldry/definitions/weapon
 5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/gilded_hammer.json
 5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/gilded_war_hammer.json
 0a96cd048cd70dc17c4d1c888febc29ece9c2d40 data/knightsheraldry/definitions/weapon/gilded_falchion.json
-0a96cd048cd70dc17c4d1c888febc29ece9c2d40 data/knightsheraldry/definitions/weapon/falchion.json
 89ff034ac9e414db56023dd7efed8bff4a6cf17f data/knightsheraldry/definitions/weapon/gilded_flail.json
+0a96cd048cd70dc17c4d1c888febc29ece9c2d40 data/knightsheraldry/definitions/weapon/falchion.json
 842fa636e2b4c6d619531140026518039a9f9e57 data/knightsheraldry/definitions/weapon/gilded_poleaxe.json
 53a261b10ff11f946c15647396b21109fb6d80a5 data/knightsheraldry/definitions/weapon/gilded_straight_crooked_axe.json
 d72970823aabd9dbaa0d05718fe1337858e9bf2c data/knightsheraldry/definitions/weapon/gilded_heater_shield_reinforced.json
+e3be14e8044469f92cbbdf8d7c1601cfcc74865d data/knightsheraldry/definitions/weapon/studded_buckler.json
 de310bdba6b5870f21087c4d2d6e1a34c5ff1cfd data/knightsheraldry/definitions/weapon/handgonne.json
 53a261b10ff11f946c15647396b21109fb6d80a5 data/knightsheraldry/definitions/weapon/gilded_crooked_axe.json
 601fd545424104d34d68181de25287bad4489341 data/knightsheraldry/definitions/weapon/longbow.json
