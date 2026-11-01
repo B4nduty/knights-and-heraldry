@@ -256,7 +256,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.FALCHION_HEAD.get(), unfinished(new ItemStack(KHItems.SWORD_HEAD.get())));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.FALCHION.get(), false, finished(new ItemStack(KHItems.FALCHION_HEAD.get())), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_FALCHION.get(), false, new ItemStack(KHItems.FALCHION.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_SCIMITAR.get(), false, new ItemStack(KHItems.SCIMITAR.get()), new ItemStack(Items.GOLD_INGOT));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.FALCHION.get(), KHItems.SCIMITAR.get());
+        createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_FALCHION.get(), KHItems.GILDED_SCIMITAR.get());
 
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.RAPIER_HEAD.get(), unfinished(new ItemStack(KHItems.FALCHION_HEAD.get())));
         createCraftmanAnvilRecipeO(exporter, 7, 0.25f, KHItems.RAPIER.get(), false, finished(new ItemStack(KHItems.RAPIER_HEAD.get())), new ItemStack(Items.STICK));

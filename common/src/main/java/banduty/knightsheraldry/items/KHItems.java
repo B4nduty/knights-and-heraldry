@@ -109,7 +109,9 @@ public interface KHItems {
     Supplier<Item> GILDED_V_LONGSWORD = sword("gilded_v_longsword", -2.5F, 365);
 
     Supplier<Item> FALCHION = sword("falchion", -2.2F, 365);
+    Supplier<Item> GILDED_FALCHION = sword("gilded_falchion", -2.2F, 365);
     Supplier<Item> SCIMITAR = sword("scimitar", -2.2F, 365);
+    Supplier<Item> GILDED_SCIMITAR = sword("gilded_scimitar", -2.2F, 365);
 
     Supplier<Item> PITCHFORK = sword("pitchfork", -2.8F, 235);
 

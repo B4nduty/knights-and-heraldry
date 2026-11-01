@@ -160,7 +160,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.FALCHION.get(), KHItems.SCIMITAR.get()
+                KHItems.FALCHION.get(), KHItems.SCIMITAR.get(), KHItems.GILDED_FALCHION.get(), KHItems.GILDED_SCIMITAR.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
