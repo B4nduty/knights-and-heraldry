@@ -8,7 +8,7 @@
             "predicate": {
                 "knightsheraldry:piglin": 1
             },
-            "model": "knightsheraldry:item/golden_handgonne_icon"
+            "model": "knightsheraldry:item/warped_handgonne_icon"
         }
     ]
 }

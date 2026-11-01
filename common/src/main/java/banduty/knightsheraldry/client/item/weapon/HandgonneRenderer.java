@@ -21,7 +21,7 @@ public class HandgonneRenderer extends GeoItemRenderer<Handgonne> {
 
         String texturePath = this.getGeoModel().getTextureResource(animatable).getPath();
         if (stack.getOrDefault(KHDataComponents.PIGLIN.get(), false)) {
-            texturePath = "textures/item/golden_handgonne.png";
+            texturePath = "textures/item/warped_handgonne.png";
         }
 
         return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, texturePath);

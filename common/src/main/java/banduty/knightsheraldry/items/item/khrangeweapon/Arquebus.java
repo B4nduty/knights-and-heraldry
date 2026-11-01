@@ -103,6 +103,6 @@ public class Arquebus extends Item implements GeoItem, SCIconRendererProvider, I
     @Override
     public Component getName(ItemStack stack) {
         if (!stack.getOrDefault(KHDataComponents.PIGLIN.get(), false)) return super.getName(stack);
-        return Component.translatable("item.stoneycore.golden_arquebus");
+        return Component.translatable("item.knightsheraldry.warped_arquebus");
     }
 }

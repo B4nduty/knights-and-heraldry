@@ -103,6 +103,6 @@ public class Handgonne extends Item implements GeoItem, SCIconRendererProvider, 
     @Override
     public Component getName(ItemStack stack) {
         if (!stack.getOrDefault(KHDataComponents.PIGLIN.get(), false)) return super.getName(stack);
-        return Component.translatable("item.stoneycore.golden_handgonne");
+        return Component.translatable("item.knightsheraldry.warped_handgonne");
     }
 }

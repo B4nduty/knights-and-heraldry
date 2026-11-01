@@ -21,7 +21,7 @@ public class ArquebusRenderer extends GeoItemRenderer<Arquebus> {
 
         String texturePath = this.getGeoModel().getTextureResource(animatable).getPath();
         if (stack.getOrDefault(KHDataComponents.PIGLIN.get(), false)) {
-            texturePath = "textures/item/golden_arquebus.png";
+            texturePath = "textures/item/warped_arquebus.png";
         }
 
         return ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, texturePath);

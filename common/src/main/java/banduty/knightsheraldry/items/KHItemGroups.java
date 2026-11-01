@@ -3,6 +3,7 @@ package banduty.knightsheraldry.items;
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.armor.ArmorVariant;
 import banduty.knightsheraldry.platform.Services;
+import banduty.knightsheraldry.util.itemdata.KHDataComponents;
 import banduty.stoneycore.items.custom.hotiron.QuenchItem;
 import banduty.stoneycore.items.itemgroup.SCItemGroup;
 import banduty.stoneycore.data.SCDataComponents;
@@ -67,6 +68,12 @@ public interface KHItemGroups {
         ItemStack itemStack = new ItemStack(item);
         if (item instanceof QuenchItem quenchItem && !quenchItem.destroysOnQuench())
             itemStack.set(SCDataComponents.IGNITED.get(), true);
+        return itemStack;
+    }
+
+    private static ItemStack piglinItemStack(ItemLike item) {
+        ItemStack itemStack = new ItemStack(item);
+        itemStack.set(KHDataComponents.PIGLIN.get(), true);
         return itemStack;
     }
 
@@ -155,7 +162,9 @@ public interface KHItemGroups {
                     itemStack(KHItems.LONGBOW.get()),
                     itemStack(KHItems.HEAVY_CROSSBOW.get()),
                     itemStack(KHItems.ARQUEBUS.get()),
+                    piglinItemStack(KHItems.ARQUEBUS.get()),
                     itemStack(KHItems.HANDGONNE.get()),
+                    piglinItemStack(KHItems.HANDGONNE.get()),
                     itemStack(KHItems.SWALLOWTAIL_ARROW.get()),
                     itemStack(KHItems.BODKIN_ARROW.get()),
                     itemStack(KHItems.BROADHEAD_ARROW.get()),
