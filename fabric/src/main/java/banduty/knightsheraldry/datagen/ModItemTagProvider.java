@@ -21,7 +21,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider arg) {
-        getOrCreateTagBuilder(SCTags.BROKEN_WEAPONS.getTag())
+        getOrCreateTagBuilder(SCTags.Item.BROKEN_WEAPONS.getTag())
                 .add(KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get(), KHItems.STILETTO.get(), KHItems.GILDED_STILETTO.get(),
                         KHItems.RAPIER.get(), KHItems.GILDED_RAPIER.get(), KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(),
                         KHItems.SWORD.get(), KHItems.GILDED_SWORD.get(), KHItems.V_SWORD.get(), KHItems.GILDED_V_SWORD.get(),
@@ -48,26 +48,26 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         KHItems.GILDED_GREATSWORD.get(), KHItems.GILDED_CLAYMORE.get(), KHItems.GILDED_FLAMBERGE.get(), KHItems.GILDED_ZWEIHANDER.get(),
                         KHItems.WARDART.get(), KHItems.GILDED_WARDART.get());
 
-        getOrCreateTagBuilder(SCTags.WEAPONS_DAMAGE_BEHIND.getTag())
+        getOrCreateTagBuilder(SCTags.Item.WEAPONS_DAMAGE_BEHIND.getTag())
                 .add(KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get());
 
-        getOrCreateTagBuilder(SCTags.WEAPONS_IGNORES_ARMOR.getTag())
+        getOrCreateTagBuilder(SCTags.Item.WEAPONS_IGNORES_ARMOR.getTag())
                 .add(KHItems.STILETTO.get(), KHItems.GILDED_STILETTO.get());
 
-        getOrCreateTagBuilder(SCTags.WEAPONS_DISABLE_SHIELD.getTag())
+        getOrCreateTagBuilder(SCTags.Item.WEAPONS_DISABLE_SHIELD.getTag())
                 .add(KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get(),
                         KHItems.GILDED_AXE.get(), KHItems.GILDED_BROAD_AXE.get(), KHItems.GILDED_CROOKED_AXE.get(), KHItems.GILDED_STRAIGHT_CROOKED_AXE.get());
 
-        getOrCreateTagBuilder(SCTags.WEAPONS_BYPASS_BLOCK.getTag())
+        getOrCreateTagBuilder(SCTags.Item.WEAPONS_BYPASS_BLOCK.getTag())
                 .add(KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get(), KHItems.GILDED_FLAIL.get(), KHItems.GILDED_BALL_FLAIL.get());
 
-        getOrCreateTagBuilder(SCTags.WEAPONS_HARVEST.getTag())
+        getOrCreateTagBuilder(SCTags.Item.WEAPONS_HARVEST.getTag())
                 .add(KHItems.PITCHFORK.get(), KHItems.GILDED_PITCHFORK.get());
 
         getOrCreateTagBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
                 .add(KHItems.CLOAK.get(), KHItems.TORN_CLOAK.get());
 
-        getOrCreateTagBuilder(SCTags.HIDE_NAME_TAG.getTag())
+        getOrCreateTagBuilder(SCTags.Item.HIDE_NAME_TAG.getTag())
                 .add(KHItems.HOOD.get(), KHItems.TORN_HOOD.get(), KHItems.JESTER_HOOD.get(), KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get());
 
         getOrCreateTagBuilder(ItemTags.DYEABLE)
