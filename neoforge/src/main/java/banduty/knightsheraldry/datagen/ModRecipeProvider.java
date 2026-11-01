@@ -280,6 +280,7 @@ public class ModRecipeProvider extends RecipeProvider {
         createWeaponCycle(exporter, 3, 1.0f, KHItems.AXE.get(), KHItems.BROAD_AXE.get(), KHItems.CROOKED_AXE.get(), KHItems.STRAIGHT_CROOKED_AXE.get());
         createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_AXE.get(), KHItems.GILDED_BROAD_AXE.get(), KHItems.GILDED_CROOKED_AXE.get(), KHItems.GILDED_STRAIGHT_CROOKED_AXE.get());
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.BARDICHE.get(), false, finished(new ItemStack(KHItems.AXE_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_BARDICHE.get(), false, new ItemStack(KHItems.BARDICHE.get()), new ItemStack(Items.GOLD_INGOT));
 
         // Hammer Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.HAMMER_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_HAMMER.get()));
@@ -307,6 +308,7 @@ public class ModRecipeProvider extends RecipeProvider {
         createWeaponCycle(exporter, 3, 1.0f, KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get());
         createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_FLAIL.get(), KHItems.GILDED_BALL_FLAIL.get());
         createCraftmanAnvilRecipeO(exporter, 7, 0.25f, KHItems.MORNING_STAR.get(), false, finished(new ItemStack(KHItems.MACE_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_MORNING_STAR.get(), false, new ItemStack(KHItems.MORNING_STAR.get()), new ItemStack(Items.GOLD_INGOT));
 
         // Halberd Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.HALBERD_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_HALBERD.get()));

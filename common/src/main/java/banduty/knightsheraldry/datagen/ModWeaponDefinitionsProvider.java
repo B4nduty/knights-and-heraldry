@@ -276,7 +276,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.MORNING_STAR.get()
+                KHItems.MORNING_STAR.get(), KHItems.GILDED_MORNING_STAR.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
@@ -288,7 +288,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.BARDICHE.get()
+                KHItems.BARDICHE.get(), KHItems.GILDED_BARDICHE.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()

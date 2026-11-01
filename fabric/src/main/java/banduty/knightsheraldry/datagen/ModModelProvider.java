@@ -228,8 +228,8 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 KHItems.HALBERD.get(), KHItems.GILDED_HALBERD.get(),
                 KHItems.POLEAXE.get(), KHItems.GILDED_POLEAXE.get(),
                 KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(), KHItems.GILDED_POLEHAMMER.get(), KHItems.GILDED_BEC_DE_CORBIN.get(),
-                KHItems.MORNING_STAR.get(),
-                KHItems.BARDICHE.get(),
+                KHItems.MORNING_STAR.get(), KHItems.GILDED_MORNING_STAR.get(),
+                KHItems.BARDICHE.get(), KHItems.GILDED_BARDICHE.get(),
                 KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(),
                 KHItems.WARDART.get()
         };

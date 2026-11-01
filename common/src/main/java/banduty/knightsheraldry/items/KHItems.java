@@ -153,8 +153,10 @@ public interface KHItems {
     Supplier<Item> GILDED_BEC_DE_CORBIN = sword("gilded_bec_de_corbin", -2.8F, 391);
 
     Supplier<Item> MORNING_STAR = sword("morning_star", -3F, 391);
+    Supplier<Item> GILDED_MORNING_STAR = sword("gilded_morning_star", -3F, 391);
 
     Supplier<Item> BARDICHE = sword("bardiche", -3.0F, 391);
+    Supplier<Item> GILDED_BARDICHE = sword("gilded_bardiche", -3.0F, 391);
 
     Supplier<Item> GREATSWORD = sword("greatsword", -3.2F, 391);
     Supplier<Item> CLAYMORE = sword("claymore", -3.2F, 391);

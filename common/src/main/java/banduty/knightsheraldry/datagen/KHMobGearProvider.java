@@ -51,7 +51,8 @@ public class KHMobGearProvider extends MobGearDataProvider {
                 KHItems.HALBERD, KHItems.GILDED_HALBERD,
                 KHItems.POLEAXE, KHItems.GILDED_POLEAXE,
                 KHItems.POLEHAMMER, KHItems.BEC_DE_CORBIN, KHItems.GILDED_POLEHAMMER, KHItems.GILDED_BEC_DE_CORBIN,
-                KHItems.MORNING_STAR, KHItems.BARDICHE,
+                KHItems.MORNING_STAR, KHItems.GILDED_MORNING_STAR,
+                KHItems.BARDICHE, KHItems.GILDED_BARDICHE,
                 KHItems.GREATSWORD, KHItems.CLAYMORE, KHItems.FLAMBERGE, KHItems.ZWEIHANDER,
                 KHItems.WARDART
         );

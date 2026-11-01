@@ -159,6 +159,8 @@ public interface KHItemGroups {
                     itemStack(KHItems.GILDED_POLEAXE.get()),
                     itemStack(KHItems.GILDED_POLEHAMMER.get()),
                     itemStack(KHItems.GILDED_BEC_DE_CORBIN.get()),
+                    itemStack(KHItems.GILDED_MORNING_STAR.get()),
+                    itemStack(KHItems.GILDED_BARDICHE.get()),
                     itemStack(KHItems.HEATER_SHIELD.get()),
                     itemStack(KHItems.HEATER_SHIELD_REINFORCED.get()),
                     itemStack(KHItems.GILDED_HEATER_SHIELD_REINFORCED.get()),
