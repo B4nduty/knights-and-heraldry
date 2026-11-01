@@ -1,7 +1,8 @@
 package banduty.knightsheraldry.screen;
 
-import banduty.knightsheraldry.KnightsHeraldry; // adjust the package if it's different
+import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.platform.Services;
+import banduty.stoneycore.block.SCBlocks;
 import banduty.stoneycore.items.custom.Manuscript;
 import banduty.stoneycore.recipes.CraftmanAnvilRecipe;
 import com.mojang.blaze3d.platform.InputConstants;
@@ -11,7 +12,6 @@ import net.minecraft.Util;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.sounds.SoundManager;
@@ -50,11 +50,10 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
 
     private record Sprite(int u, int v, int w, int h) {}
 
-    private static final Sprite FRAME_BORDER = new Sprite(0, 0, 18, 18);       // normal
+    private static final Sprite FRAME_BORDER = new Sprite(0, 0, 18, 18);
     private static final Sprite ACCENT_BORDER = new Sprite(18, 0, 18, 18);
-    private static final Sprite READY_BORDER = new Sprite(36, 0, 18, 18);      // green: you can craft this now
-    private static final Sprite MANUSCRIPT_BORDER = new Sprite(54, 0, 18, 18); // gold: the manuscript itself
-    private static final Sprite PREVIOUS_BORDER = new Sprite(72, 0, 18, 18);   // blue: made in the previous step
+    private static final Sprite MANUSCRIPT_BORDER = new Sprite(54, 0, 18, 18);
+    private static final Sprite PREVIOUS_BORDER = new Sprite(72, 0, 18, 18);
     private static final Sprite PLUS = new Sprite(100, 0, 6, 6);
 
     private static final Sprite RESULT_ACCENT = new Sprite(0, 18, 34, 34);
@@ -74,7 +73,6 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
     private static final Sprite PX_TRACK = new Sprite(1, 110, 1, 1);
     private static final Sprite PX_THUMB = new Sprite(2, 110, 1, 1);
     private static final Sprite PX_RED = new Sprite(3, 110, 1, 1);
-    private static final Sprite PX_PARCHMENT = new Sprite(4, 110, 1, 1);
     private static final Sprite PX_DOT_ACTIVE = new Sprite(5, 110, 1, 1);
     private static final Sprite PX_DOT_HOVER = new Sprite(6, 110, 1, 1);
     private static final Sprite PX_DOT_IDLE = new Sprite(7, 110, 1, 1);
@@ -91,6 +89,8 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
     private List<ManuscriptRecipeIndex.Entry> currentRecipes = List.of();
     private List<Row> rows = List.of();
     private int selectedRow = 0, treeScroll = 0;
+    private Boolean[] readyCache = new Boolean[0];
+    private long readyStamp = 0;
     private List<ItemStack> storedNow = List.of();
     private Button prevButton, nextButton, takeButton;
     private final List<Clickable> clickables = new ArrayList<>();
@@ -98,7 +98,6 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
 
     private int pinnedRecipe = -1;
     private int shownRecipeIdx = 0;
-    private long switchTime = 0;
     private int dotsX = -1, dotsY = -1;
     private int resultBoxX = -1, resultBoxY = -1;
 
@@ -122,16 +121,13 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         if (this.minecraft != null && this.minecraft.level != null) {
             this.index = ManuscriptRecipeIndex.build(this.minecraft.level);
         }
-        this.currentManuscript = null; // force recompute
+        this.currentManuscript = null;
         prevButton = addRenderableWidget(new PageButton(leftPos + LEFT_X + 1, topPos + 6, 11, 12,
                 Component.literal("<"), true, b -> selected -= hasShiftDown() ? 5 : 1));
         nextButton = addRenderableWidget(new PageButton(leftPos + LEFT_X + PAGE_W - 12, topPos + 6, 11, 12,
                 Component.literal(">"), true, b -> selected += hasShiftDown() ? 5 : 1));
         takeButton = addRenderableWidget(new PageButton(leftPos + TAKE_X, topPos + TAKE_Y, 34, 12,
                 Component.literal("Take"), false, b -> takeSelected()));
-        prevButton.setTooltip(Tooltip.create(Component.literal("Previous manuscript (Shift: skip 5)")));
-        nextButton.setTooltip(Tooltip.create(Component.literal("Next manuscript (Shift: skip 5)")));
-        takeButton.setTooltip(Tooltip.create(Component.literal("Take this manuscript out of the book")));
     }
 
     private void refreshSelection(List<ItemStack> stored) {
@@ -161,6 +157,7 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         list.add(new Row(root, List.of()));
         flatten(root.children(), List.of(), list);
         rows = list;
+        readyCache = new Boolean[0];
         treeScroll = 0;
         selectRow(list.size() > 1 ? 1 : 0, false);
     }
@@ -180,7 +177,6 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         if (sound && idx != selectedRow) playPageTurn();
         selectedRow = idx;
         pinnedRecipe = -1;
-        switchTime = Util.getMillis();
         currentRecipes = idx > 0 ? rows.get(idx).node().recipes() : List.of();
         if (idx < treeScroll) treeScroll = idx;
         if (idx >= treeScroll + VIEW_ROWS) treeScroll = idx - VIEW_ROWS + 1;
@@ -266,7 +262,7 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         }
         float w = font.width(s) * scale;
         int dx = Math.round(centered ? x - w / 2f : x);
-        int dy = Math.round(y + (TS - scale) * 4.5f); // keep smaller text vertically centred
+        int dy = Math.round(y + (TS - scale) * 4.5f);
         if (inked) drawScaled(g, s, dx + 1, dy + 1, scale, 0x66FFF6DC);
         drawScaled(g, s, dx, dy, scale, color);
     }
@@ -330,12 +326,27 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
     private boolean isReady(Row row) {
         for (ManuscriptRecipeIndex.Entry e : row.node().recipes()) {
             boolean ok = true;
-            for (List<ItemStack> options : ManuscriptRecipeIndex.gridCells(e.recipe())) {
+            for (List<ItemStack> options : e.cells()) {
                 if (!cellOk(options, row.node().parent())) { ok = false; break; }
             }
             if (ok) return true;
         }
         return false;
+    }
+
+    /** isReady() is not free (it scans the inventory per ingredient), so rows are re-checked at most 4 times a second. */
+    private boolean isReadyCached(int idx) {
+        long now = Util.getMillis();
+        if (now - readyStamp > 250 || readyCache.length != rows.size()) {
+            readyCache = new Boolean[rows.size()];
+            readyStamp = now;
+        }
+        Boolean cached = readyCache[idx];
+        if (cached == null) {
+            cached = isReady(rows.get(idx));
+            readyCache[idx] = cached;
+        }
+        return cached;
     }
 
     private void drawSmallItem(GuiGraphics g, ItemStack stack, int px, int py) {
@@ -357,10 +368,10 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         hoverLines.addAll(List.of(lines));
     }
 
-    private void drawItem(GuiGraphics g, ItemStack stack, int px, int py, int mx, int my, Component... extra) {
+    private void drawItem(GuiGraphics g, ItemStack stack, int px, int py, int mx, int my) {
         g.renderItem(stack, px, py);
         if (stack.getCount() > 1) g.renderItemDecorations(font, stack, px, py);
-        if (inside(mx, my, px, py, 16, 16)) setHover(stack, extra);
+        if (inside(mx, my, px, py, 16, 16)) setHoverText(stack.getHoverName());
     }
 
     private void drawBigItem(GuiGraphics g, ItemStack stack, int px, int py, int mx, int my, Component... extra) {
@@ -441,13 +452,6 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         dotsX = -1;
         resultBoxX = -1;
         renderPageContent(g, mx, my);
-
-        long dt = Util.getMillis() - switchTime;
-        if (dt < 200) {
-            float a = 0.75f * (1f - dt / 200f);
-            overlay(g, leftPos + LEFT_X + 13, topPos + 5, PAGE_W - 26, 22, PX_PARCHMENT, a);
-            overlay(g, leftPos + LEFT_X, topPos + 29, PAGE_W, 75, PX_PARCHMENT, a);
-        }
     }
 
     private void renderPageContent(GuiGraphics g, int mx, int my) {
@@ -468,13 +472,13 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
                 : pinnedRecipe >= 0 ? pinnedRecipe % currentRecipes.size()
                 : (int) (tick % currentRecipes.size());
         shownRecipeIdx = recipeIdx;
-        CraftmanAnvilRecipe recipe = currentRecipes.isEmpty() ? null : currentRecipes.get(recipeIdx).recipe();
+        ManuscriptRecipeIndex.Entry entry = currentRecipes.isEmpty() ? null : currentRecipes.get(recipeIdx);
+        CraftmanAnvilRecipe recipe = entry == null ? null : entry.recipe();
 
         ItemStack titleStack = recipe != null ? recipe.output() : new ItemStack(currentManuscript);
         Item parent = selectedRow > 0 && selectedRow < rows.size() ? rows.get(selectedRow).node().parent() : null;
         drawTitle(g, titleStack.getHoverName().getString(), pageCenter, y + 8, PAGE_W - 28);
-        drawFitted(g, (selected + 1) + "/" + storedNow.size() + "  " + new ItemStack(currentManuscript).getHoverName().getString(),
-                pageCenter, y + 17, PAGE_W - 28, MUTED, true, false);
+        drawCentered(g, (selected + 1) + "/" + storedNow.size(), pageCenter, y + 17, MUTED);
         drawDivider(g, pageCenter, y + 27);
 
         if (recipe == null) {
@@ -482,7 +486,7 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
             return;
         }
 
-        List<List<ItemStack>> cells = ManuscriptRecipeIndex.gridCells(recipe);
+        List<List<ItemStack>> cells = entry.cells();
         boolean[] have = new boolean[CraftmanAnvilRecipe.GRID_SIZE];
         boolean craftable = true;
         for (int i = 0; i < CraftmanAnvilRecipe.GRID_SIZE; i++) {
@@ -495,31 +499,18 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         resultBoxY = y + RESULT_Y - 1;
         sprite(g, resultBoxX, resultBoxY, craftable ? RESULT_READY : RESULT_ACCENT);
         List<Component> resultTip = new ArrayList<>();
-        resultTip.add(Component.literal("Result").withStyle(ChatFormatting.GOLD));
-        resultTip.add(craftable
-                ? Component.literal("You have everything you need").withStyle(ChatFormatting.GREEN)
-                : Component.literal("You are missing some ingredients").withStyle(ChatFormatting.RED));
         if (currentRecipes.size() > 1) {
             resultTip.add(Component.literal("Click to see another recipe (" + (recipeIdx + 1) + "/"
                     + currentRecipes.size() + ")").withStyle(ChatFormatting.GRAY));
         }
         drawBigItem(g, recipe.output(), x + RESULT_X, y + RESULT_Y, mx, my, resultTip.toArray(new Component[0]));
 
-        drawFitted(g, "Hits: " + recipe.hitTimes(), x + TAKE_X, y + 33, 42, TEXT, false, false);
-        if (recipe.chance() < 1.0f) {
-            drawFitted(g, "Chance " + Math.round(recipe.chance() * 100) + "%", x + TAKE_X, y + 42, 42, MUTED, false, false);
-        }
-        if (inside(mx, my, x + TAKE_X, y + 32, 40, 17) && hoverLines.isEmpty()) {
-            List<Component> tip = new ArrayList<>();
-            tip.add(Component.literal("Craftman's Anvil"));
-            tip.add(Component.literal("Hit the ingredients " + recipe.hitTimes() + " times to craft.")
-                    .withStyle(ChatFormatting.GRAY));
-            if (recipe.chance() < 1.0f) {
-                tip.add(Component.literal(Math.round(recipe.chance() * 100) + "% chance of success.")
-                        .withStyle(ChatFormatting.GRAY));
-            }
-            setHoverText(tip.toArray(new Component[0]));
-        }
+        ItemStack anvil = new ItemStack(SCBlocks.CRAFTMAN_ANVIL.get());
+        int anvilX = x + TAKE_X, anvilY = y + 29;
+        g.renderItem(anvil, anvilX, anvilY);
+        drawFitted(g, "Hits: " + recipe.hitTimes(), anvilX + 19, anvilY + 3, PAGE_W - TAKE_X + LEFT_X - 21, TEXT, false, false);
+        drawFitted(g, Math.round(recipe.chance() * 100) + "%", anvilX + 19, anvilY + 11,
+                    PAGE_W - TAKE_X + LEFT_X - 21, MUTED, false, false);
 
         if (currentRecipes.size() > 1) {
             int n = currentRecipes.size();
@@ -538,32 +529,17 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
             int cy = y + CRAFT_Y + (i / CraftmanAnvilRecipe.GRID_WIDTH) * 18 + 1;
             List<ItemStack> options = cells.get(i);
 
-            boolean isManuscript = !options.isEmpty() && options.get(0).getItem() instanceof Manuscript;
+            boolean isManuscript = !options.isEmpty() && options.getFirst().getItem() instanceof Manuscript;
             boolean fromParent = !options.isEmpty() && isFromParent(options, parent);
             drawSlotFrame(g, cx, cy, isManuscript ? MANUSCRIPT_BORDER : fromParent ? PREVIOUS_BORDER : FRAME_BORDER);
             if (options.isEmpty()) continue;
 
             ItemStack shown = options.get((int) (tick % options.size()));
-            List<Component> status = new ArrayList<>();
-            if (isManuscript) {
-                Item m = options.get(0).getItem();
-                status.add(Component.literal("Manuscript").withStyle(ChatFormatting.GOLD));
-                if (m != currentManuscript && inBook(m)) {
-                    status.add(Component.literal("Click to open").withStyle(ChatFormatting.GRAY));
-                    clickables.add(new Clickable(cx, cy, m));
-                } else if (!have[i]) {
-                    status.add(Component.literal("Not in your book").withStyle(ChatFormatting.RED));
-                }
-            } else if (fromParent) {
-                status.add(Component.literal("Crafted in the previous step").withStyle(ChatFormatting.AQUA));
-            } else if (have[i]) {
-                status.add(Component.literal("In your inventory").withStyle(ChatFormatting.GREEN));
-            } else {
-                status.add(Component.literal("You have " + owned(shown.getItem()) + " of "
-                        + Math.max(1, shown.getCount())).withStyle(ChatFormatting.RED));
+            if (isManuscript && options.getFirst().getItem() != currentManuscript && inBook(options.getFirst().getItem())) {
+                clickables.add(new Clickable(cx, cy, options.getFirst().getItem()));
             }
-            drawItem(g, shown, cx, cy, mx, my, status.toArray(new Component[0]));
-            if (!have[i]) overlay(g, cx, cy, 16, 16, PX_RED, 1f); // red tint: missing
+            drawItem(g, shown, cx, cy, mx, my);
+            if (!have[i]) overlay(g, cx, cy, 16, 16, PX_RED, 1f);
         }
     }
 
@@ -606,20 +582,8 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
             int nameW = tx + rowW - nameX - (root ? 1 : 5);
             drawFitted(g, stack.getHoverName().getString(), nameX, ry + 3, nameW, TEXT, false, false);
 
-            boolean ready = !root && isReady(row);
+            boolean ready = !root && isReadyCached(idx);
             if (ready) sprite(g, tx + rowW - 4, ry + 5, DOT);
-
-            if (hovered && inside(mx, my, tx, ry, rowW, ROW_H)) {
-                if (root) {
-                    setHover(stack, Component.literal("Manuscript").withStyle(ChatFormatting.GOLD));
-                } else {
-                    setHover(stack,
-                            ready ? Component.literal("You have everything you need").withStyle(ChatFormatting.GREEN)
-                                    : Component.literal("You are missing some ingredients").withStyle(ChatFormatting.RED),
-                            Component.literal(sel ? "Shown on the left page" : "Click to see how to craft it")
-                                    .withStyle(ChatFormatting.GRAY));
-                }
-            }
         }
 
         if (maxScroll > 0) {
@@ -685,9 +649,9 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
 
     @Override
     public boolean mouseScrolled(double mx, double my, double scrollX, double scrollY) {
-        if (currentManuscript != null && rows.size() > VIEW_ROWS && scrollY != 0
+        if (currentManuscript != null && scrollY != 0
                 && inside((int) mx, (int) my, leftPos + TREE_X, topPos + TREE_Y, TREE_W, VIEW_ROWS * ROW_H)) {
-            treeScroll = Mth.clamp(treeScroll - (int) Math.signum(scrollY), 0, rows.size() - VIEW_ROWS);
+            treeScroll = Mth.clamp(treeScroll - (int) Math.signum(scrollY), 0, Math.max(0, rows.size() - VIEW_ROWS));
             return true;
         }
         if (!storedNow.isEmpty() && scrollY != 0) {

@@ -12,8 +12,8 @@ import net.minecraft.world.level.Level;
 import java.util.*;
 
 public final class ManuscriptRecipeIndex {
-
-    public record Entry(CraftmanAnvilRecipe recipe, Set<Item> ingredientItems, Set<Item> manuscripts) {
+    public record Entry(CraftmanAnvilRecipe recipe, Set<Item> ingredientItems, Set<Item> manuscripts,
+                        List<List<ItemStack>> cells) {
         public Item resultItem() {
             return recipe.output().getItem();
         }
@@ -36,7 +36,7 @@ public final class ManuscriptRecipeIndex {
                     if (stack.getItem() instanceof Manuscript) manuscripts.add(stack.getItem());
                 }
             }
-            index.entries.add(new Entry(recipe, items, manuscripts));
+            index.entries.add(new Entry(recipe, items, manuscripts, gridCells(recipe)));
         }
         return index;
     }
@@ -45,23 +45,12 @@ public final class ManuscriptRecipeIndex {
         return entries.stream().filter(e -> e.manuscripts().contains(manuscript)).toList();
     }
 
-    // ------------------------------------------------------------------ crafting tree
+    public static final int MAX_TREE_DEPTH = 3;
+    public static final int MAX_TREE_NODES = 80;
+    public static final int MAX_CHILDREN = 8;
 
-    public static final int MAX_TREE_DEPTH = 3;     // levels below the manuscript
-    public static final int MAX_TREE_NODES = 80;    // hard cap, tags can make the graph huge
-    public static final int MAX_CHILDREN = 8;       // per node
-
-    /**
-     * One item of the tree. "recipes" are the recipes that make this item from its parent
-     * (several when different recipes give the same item). The root is the manuscript itself.
-     */
     public record TreeNode(Item item, Item parent, List<Entry> recipes, int depth, List<TreeNode> children) {}
 
-    /**
-     * Everything that can be crafted starting from this manuscript, as a tree:
-     * level 1 = results of the recipes that use the manuscript,
-     * level 2 = results of recipes that use those results as an ingredient, and so on.
-     */
     public TreeNode tree(Item manuscript) {
         int[] budget = {MAX_TREE_NODES};
         List<TreeNode> children = expand(manuscript, recipesUsing(manuscript), Set.of(manuscript), 1, budget);
@@ -69,11 +58,10 @@ public final class ManuscriptRecipeIndex {
     }
 
     private List<TreeNode> expand(Item parent, List<Entry> producers, Set<Item> path, int depth, int[] budget) {
-        // one node per distinct result item; every recipe giving it is kept as a variant
         Map<Item, List<Entry>> byResult = new LinkedHashMap<>();
         for (Entry e : producers) {
             Item result = e.resultItem();
-            if (path.contains(result)) continue; // never loop back
+            if (path.contains(result)) continue;
             byResult.computeIfAbsent(result, k -> new ArrayList<>()).add(e);
         }
 
@@ -97,24 +85,6 @@ public final class ManuscriptRecipeIndex {
         return nodes;
     }
 
-    /**
-     * Relacionados = manuscritos de recetas que producen un ingrediente de las mías
-     * o que usan como ingrediente lo que produzco yo.
-     */
-    public List<Item> related(Item manuscript) {
-        Set<Item> result = new LinkedHashSet<>();
-        for (Entry mine : recipesUsing(manuscript)) {
-            for (Entry other : entries) {
-                if (other == mine) continue;
-                boolean feedsMe = mine.ingredientItems().contains(other.resultItem());
-                boolean fedByMe = other.ingredientItems().contains(mine.resultItem());
-                if (feedsMe || fedByMe) result.addAll(other.manuscripts());
-            }
-        }
-        result.remove(manuscript);
-        return new ArrayList<>(result);
-    }
-
     public static List<StackIngredient> ingredientsOf(CraftmanAnvilRecipe recipe) {
         if (recipe.pattern().isPresent()) {
             return recipe.pattern().get().slots().stream().flatMap(Optional::stream).toList();
@@ -122,7 +92,6 @@ public final class ManuscriptRecipeIndex {
         return recipe.ingredients();
     }
 
-    /** 6 celdas (3x2). Cada una con sus ítems posibles (varios si es un tag). */
     public static List<List<ItemStack>> gridCells(CraftmanAnvilRecipe recipe) {
         List<List<ItemStack>> cells = new ArrayList<>();
         if (recipe.pattern().isPresent()) {
