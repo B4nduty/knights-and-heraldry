@@ -45,6 +45,58 @@ public final class ManuscriptRecipeIndex {
         return entries.stream().filter(e -> e.manuscripts().contains(manuscript)).toList();
     }
 
+    // ------------------------------------------------------------------ crafting tree
+
+    public static final int MAX_TREE_DEPTH = 3;     // levels below the manuscript
+    public static final int MAX_TREE_NODES = 80;    // hard cap, tags can make the graph huge
+    public static final int MAX_CHILDREN = 8;       // per node
+
+    /**
+     * One item of the tree. "recipes" are the recipes that make this item from its parent
+     * (several when different recipes give the same item). The root is the manuscript itself.
+     */
+    public record TreeNode(Item item, Item parent, List<Entry> recipes, int depth, List<TreeNode> children) {}
+
+    /**
+     * Everything that can be crafted starting from this manuscript, as a tree:
+     * level 1 = results of the recipes that use the manuscript,
+     * level 2 = results of recipes that use those results as an ingredient, and so on.
+     */
+    public TreeNode tree(Item manuscript) {
+        int[] budget = {MAX_TREE_NODES};
+        List<TreeNode> children = expand(manuscript, recipesUsing(manuscript), Set.of(manuscript), 1, budget);
+        return new TreeNode(manuscript, null, List.of(), 0, children);
+    }
+
+    private List<TreeNode> expand(Item parent, List<Entry> producers, Set<Item> path, int depth, int[] budget) {
+        // one node per distinct result item; every recipe giving it is kept as a variant
+        Map<Item, List<Entry>> byResult = new LinkedHashMap<>();
+        for (Entry e : producers) {
+            Item result = e.resultItem();
+            if (path.contains(result)) continue; // never loop back
+            byResult.computeIfAbsent(result, k -> new ArrayList<>()).add(e);
+        }
+
+        List<TreeNode> nodes = new ArrayList<>();
+        for (Map.Entry<Item, List<Entry>> me : byResult.entrySet()) {
+            if (nodes.size() >= MAX_CHILDREN || budget[0] <= 0) break;
+            budget[0]--;
+            Item result = me.getKey();
+
+            List<TreeNode> kids = List.of();
+            if (depth < MAX_TREE_DEPTH) {
+                Set<Item> next = new HashSet<>(path);
+                next.add(result);
+                List<Entry> consumers = entries.stream()
+                        .filter(e -> e.ingredientItems().contains(result))
+                        .toList();
+                kids = expand(result, consumers, next, depth + 1, budget);
+            }
+            nodes.add(new TreeNode(result, parent, List.copyOf(me.getValue()), depth, kids));
+        }
+        return nodes;
+    }
+
     /**
      * Relacionados = manuscritos de recetas que producen un ingrediente de las mías
      * o que usan como ingrediente lo que produzco yo.

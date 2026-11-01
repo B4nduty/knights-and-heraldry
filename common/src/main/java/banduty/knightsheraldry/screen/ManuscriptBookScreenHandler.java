@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ManuscriptBookScreenHandler extends AbstractContainerMenu {
     public static final int MAX_MANUSCRIPTS = 64;
-    public static final int INSERT_X = 136, INSERT_Y = 46;
+    public static final int INSERT_X = 167, INSERT_Y = 8;   // top-right of the right page
     public static final int HOTBAR_X = 17, HOTBAR_Y = 112;
     public static final int IMAGE_WIDTH = 196, IMAGE_HEIGHT = 136;
 

@@ -35,8 +35,10 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
     private static final int RESULT_X = 12, RESULT_Y = 30;        // result item (x2) inside a 34x34 frame
     private static final int TAKE_X = 49, TAKE_Y = 51;            // hits/chance text and Take button
     private static final int CRAFT_X = 23, CRAFT_Y = 67;          // 3x2 grid (54x36)
-    private static final int RELATED_X = 108, RELATED_Y = 85;     // one row of 4 (72x18), right page
-    private static final int MAX_RELATED = 4;
+
+    // Crafting tree (right page, under the header)
+    private static final int TREE_X = 104, TREE_Y = 31, TREE_W = 80;
+    private static final int ROW_H = 14, VIEW_ROWS = 5, INDENT = 8;
 
     private static final float TS = 0.75f;      // default text scale for everything drawn on the pages
     private static final float MIN_TS = 0.55f;  // long names shrink down to this before being cut with "..."
@@ -47,14 +49,21 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
     private static final int ACCENT_BORDER = 0xFF5E442A;
     private static final int READY_BORDER = 0xFF4E7A3A;           // green: you can craft this now
     private static final int MANUSCRIPT_BORDER = 0xFFB8862B;      // gold: the manuscript itself
+    private static final int PREVIOUS_BORDER = 0xFF3E6E8E;        // blue: made in the previous step of the tree
 
     private record Clickable(int x, int y, Item manuscript) {}
+
+    /** One visible line of the tree. hasNext.get(k) = does the ancestor at depth k+1 have a later sibling. */
+    private record Row(ManuscriptRecipeIndex.TreeNode node, List<Boolean> hasNext) {
+        int depth() { return hasNext.size(); }
+    }
 
     private ManuscriptRecipeIndex index;
     private int selected = 0;
     private Item currentManuscript = null;
     private List<ManuscriptRecipeIndex.Entry> currentRecipes = List.of();
-    private List<Item> currentRelated = List.of();
+    private List<Row> rows = List.of();          // flattened tree, row 0 = the manuscript itself
+    private int selectedRow = 0, treeScroll = 0;
     private List<ItemStack> storedNow = List.of();
     private Button prevButton, nextButton, takeButton;
     private final List<Clickable> clickables = new ArrayList<>();
@@ -104,22 +113,53 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
             selected = 0;
             currentManuscript = null;
             currentRecipes = List.of();
-            currentRelated = List.of();
+            rows = List.of();
+            selectedRow = 0;
         } else {
             selected = Mth.clamp(selected, 0, stored.size() - 1);
             Item item = stored.get(selected).getItem();
             if (item != currentManuscript && index != null) {
                 if (currentManuscript != null) playPageTurn();
-                pinnedRecipe = -1;
-                switchTime = Util.getMillis();
                 currentManuscript = item;
-                currentRecipes = index.recipesUsing(item);
-                currentRelated = index.related(item);
+                buildRows(item);
             }
         }
         takeButton.visible = !stored.isEmpty();
         prevButton.active = selected > 0;
         nextButton.active = selected < stored.size() - 1;
+    }
+
+    private void buildRows(Item manuscript) {
+        ManuscriptRecipeIndex.TreeNode root = index.tree(manuscript);
+        List<Row> list = new ArrayList<>();
+        list.add(new Row(root, List.of()));
+        flatten(root.children(), List.of(), list);
+        rows = list;
+        treeScroll = 0;
+        selectRow(list.size() > 1 ? 1 : 0, false);
+    }
+
+    private void flatten(List<ManuscriptRecipeIndex.TreeNode> nodes, List<Boolean> parentPath, List<Row> out) {
+        for (int i = 0; i < nodes.size(); i++) {
+            ManuscriptRecipeIndex.TreeNode node = nodes.get(i);
+            List<Boolean> path = new ArrayList<>(parentPath);
+            path.add(i < nodes.size() - 1);
+            out.add(new Row(node, path));
+            flatten(node.children(), path, out);
+        }
+    }
+
+    /** Shows how to craft the item of the given tree row on the left page. */
+    private void selectRow(int idx, boolean sound) {
+        if (idx < 0 || idx >= rows.size()) return;
+        if (sound && idx != selectedRow) playPageTurn();
+        selectedRow = idx;
+        pinnedRecipe = -1;
+        switchTime = Util.getMillis();
+        currentRecipes = idx > 0 ? rows.get(idx).node().recipes() : List.of();
+        // keep the selected row inside the viewport
+        if (idx < treeScroll) treeScroll = idx;
+        if (idx >= treeScroll + VIEW_ROWS) treeScroll = idx - VIEW_ROWS + 1;
     }
 
     private void playPageTurn() {
@@ -239,12 +279,53 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         return n;
     }
 
+    private boolean inBook(Item item) {
+        for (ItemStack s : storedNow) if (s.getItem() == item) return true;
+        return false;
+    }
+
     private boolean hasAny(List<ItemStack> options) {
         for (ItemStack o : options) {
-            if (o.getItem() instanceof Manuscript) return true; // the manuscript itself is in the book
+            if (o.getItem() instanceof Manuscript) {
+                if (inBook(o.getItem()) || owned(o.getItem()) >= 1) return true;
+                continue;
+            }
             if (owned(o.getItem()) >= Math.max(1, o.getCount())) return true;
         }
         return false;
+    }
+
+    /** A cell is fine if empty, if it is the item crafted in the previous step of the tree, or if the player has it. */
+    private boolean cellOk(List<ItemStack> options, Item parent) {
+        if (options.isEmpty()) return true;
+        if (isFromParent(options, parent)) return true;
+        return hasAny(options);
+    }
+
+    private static boolean isFromParent(List<ItemStack> options, Item parent) {
+        if (parent == null) return false;
+        for (ItemStack o : options) if (o.getItem() == parent && !(o.getItem() instanceof Manuscript)) return true;
+        return false;
+    }
+
+    /** True when at least one recipe variant of this row can be crafted with what the player has. */
+    private boolean isReady(Row row) {
+        for (ManuscriptRecipeIndex.Entry e : row.node().recipes()) {
+            boolean ok = true;
+            for (List<ItemStack> options : ManuscriptRecipeIndex.gridCells(e.recipe())) {
+                if (!cellOk(options, row.node().parent())) { ok = false; break; }
+            }
+            if (ok) return true;
+        }
+        return false;
+    }
+
+    private void drawSmallItem(GuiGraphics g, ItemStack stack, int px, int py) {
+        g.pose().pushPose();
+        g.pose().translate(px, py, 0);
+        g.pose().scale(0.75f, 0.75f, 1f);
+        g.renderItem(stack, 0, 0);
+        g.pose().popPose();
     }
 
     private void setHover(ItemStack stack, Component... extra) {
@@ -284,15 +365,15 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         boolean full = storedNow.size() >= ManuscriptBookScreenHandler.MAX_MANUSCRIPTS;
         boolean carryingManuscript = menu.getCarried().getItem() instanceof Manuscript;
 
-        // Right page header, mirrors the left one
-        drawTitle(g, "Manuscripts", rightCenter, topPos + 8, PAGE_W - 8);
-        drawCentered(g, storedNow.size() + "/" + ManuscriptBookScreenHandler.MAX_MANUSCRIPTS + " stored",
-                rightCenter, topPos + 17, MUTED);
-        drawDivider(g, rightCenter, topPos + 27, PAGE_W / 2 - 6);
-
-        // Insert slot in the middle of the page
+        // Right page header: title + counter on the left, "+" slot on the right
         int sx = leftPos + ManuscriptBookScreenHandler.INSERT_X;
         int sy = topPos + ManuscriptBookScreenHandler.INSERT_Y;
+        int textLeft = leftPos + RIGHT_X + 2, textRight = sx - 4;
+        int textCenter = (textLeft + textRight) / 2;
+        drawTitle(g, "Crafting tree", textCenter, topPos + 8, textRight - textLeft);
+        drawCentered(g, storedNow.size() + "/" + ManuscriptBookScreenHandler.MAX_MANUSCRIPTS + " stored",
+                textCenter, topPos + 17, MUTED);
+        drawDivider(g, rightCenter, topPos + 27, PAGE_W / 2 - 6);
 
         if (!full && (storedNow.isEmpty() || carryingManuscript)) {
             // Pulsing golden glow: "put it here"
@@ -309,16 +390,10 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
             g.fill(sx + 5, sy + 7, sx + 11, sy + 9, MUTED);   // plus, horizontal bar
             g.fill(sx + 7, sy + 5, sx + 9, sy + 11, MUTED);   // plus, vertical bar
         }
-        String label = full ? "Book full" : carryingManuscript ? "Drop it here" : "Add manuscript";
-        drawFitted(g, label, rightCenter, sy - 12, PAGE_W - 8, TEXT, true, false);
 
-        // Hint, only when the related row isn't using that space
-        boolean showRelated = currentManuscript != null && !currentRelated.isEmpty();
-        if (!showRelated) {
-            drawHint(g, storedNow.isEmpty()
-                            ? "Store manuscripts here to learn how to craft with them."
-                            : "Browse with the arrows, the mouse wheel or the arrow keys.",
-                    rightCenter, topPos + 71, PAGE_W - 16);
+        if (currentManuscript == null) {
+            drawHint(g, "Store manuscripts here to see everything you can craft with them.",
+                    rightCenter, topPos + 50, PAGE_W - 16);
         }
     }
 
@@ -374,15 +449,12 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         if (currentManuscript == null) {
             drawTitle(g, "Empty book", pageCenter, y + 9, PAGE_W - 28);
             drawDivider(g, pageCenter, y + 27, PAGE_W / 2 - 6);
-            drawHint(g, "Put a manuscript in the slot on the right page.", pageCenter, y + 36, PAGE_W - 16);
-            int bob = (int) Math.round(Math.sin(Util.getMillis() / 220.0) * 2);
-            int ax = x + LEFT_X + 56 + bob, ay = y + 70;
-            g.fill(ax, ay + 1, ax + 9, ay + 3, MUTED);          // arrow shaft
-            g.fill(ax + 8, ay - 1, ax + 9, ay + 5, MUTED);      // arrow head
-            g.fill(ax + 9, ay, ax + 10, ay + 4, MUTED);
-            g.fill(ax + 10, ay + 1, ax + 11, ay + 3, MUTED);
+            drawHint(g, "Put a manuscript in the slot at the top of the right page.", pageCenter, y + 36, PAGE_W - 16);
             return;
         }
+
+        // ---- Right page: everything that can be crafted from this manuscript
+        renderTree(g, mx, my);
 
         // ---- The recipe being shown (cycles when several recipes use this manuscript)
         long tick = Util.getMillis() / 1200L;
@@ -394,8 +466,10 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
 
         // Title: the item this recipe makes (falls back to the manuscript's own name)
         ItemStack titleStack = recipe != null ? recipe.output() : new ItemStack(currentManuscript);
+        Item parent = selectedRow > 0 && selectedRow < rows.size() ? rows.get(selectedRow).node().parent() : null;
         drawTitle(g, titleStack.getHoverName().getString(), pageCenter, y + 8, PAGE_W - 28);
-        drawCentered(g, (selected + 1) + "/" + storedNow.size(), pageCenter, y + 17, MUTED);
+        drawFitted(g, (selected + 1) + "/" + storedNow.size() + "  " + new ItemStack(currentManuscript).getHoverName().getString(),
+                pageCenter, y + 17, PAGE_W - 28, MUTED, true, false);
         drawDivider(g, pageCenter, y + 27, PAGE_W / 2 - 6);
 
         if (recipe == null) {
@@ -409,7 +483,7 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         boolean craftable = true;
         for (int i = 0; i < CraftmanAnvilRecipe.GRID_SIZE; i++) {
             List<ItemStack> options = cells.get(i);
-            have[i] = options.isEmpty() || hasAny(options);
+            have[i] = cellOk(options, parent);
             craftable &= have[i];
         }
 
@@ -465,54 +539,120 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
             List<ItemStack> options = cells.get(i);
 
             boolean isManuscript = !options.isEmpty() && options.get(0).getItem() instanceof Manuscript;
-            drawSlotFrame(g, cx, cy, isManuscript ? MANUSCRIPT_BORDER : FRAME_BORDER);
+            boolean fromParent = !options.isEmpty() && isFromParent(options, parent);
+            drawSlotFrame(g, cx, cy, isManuscript ? MANUSCRIPT_BORDER : fromParent ? PREVIOUS_BORDER : FRAME_BORDER);
             if (options.isEmpty()) continue;
 
             ItemStack shown = options.get((int) (tick % options.size()));
-            Component status;
+            List<Component> status = new ArrayList<>();
             if (isManuscript) {
-                status = Component.literal("Manuscript").withStyle(ChatFormatting.GOLD);
-            } else if (have[i]) {
-                status = Component.literal("In your inventory").withStyle(ChatFormatting.GREEN);
-            } else {
-                status = Component.literal("You have " + owned(shown.getItem()) + " of "
-                        + Math.max(1, shown.getCount())).withStyle(ChatFormatting.RED);
-            }
-            drawItem(g, shown, cx, cy, mx, my, status);
-            if (!have[i]) overlay(g, cx, cy, 16, 16, 0x66B03030); // red tint: missing
-        }
-
-        // ---- Related manuscripts: one row of 4 at the bottom of the right page
-        if (!currentRelated.isEmpty()) {
-            int shown = Math.min(MAX_RELATED, currentRelated.size());
-            int extra = currentRelated.size() - shown;
-            drawCentered(g, extra > 0 ? "Related (+" + extra + ")" : "Related",
-                    x + RIGHT_X + PAGE_W / 2, y + RELATED_Y - 9, MUTED);
-            for (int i = 0; i < MAX_RELATED; i++) {
-                int rx = x + RELATED_X + i * 18 + 1;
-                int ry = y + RELATED_Y + 1;
-                drawSlotFrame(g, rx, ry, FRAME_BORDER);
-                if (i >= shown) continue;
-
-                Item related = currentRelated.get(i);
-                boolean inBook = storedNow.stream().anyMatch(st -> st.getItem() == related);
-                drawItem(g, new ItemStack(related), rx, ry, mx, my,
-                        inBook
-                                ? Component.literal("Click to open").withStyle(ChatFormatting.GRAY)
-                                : Component.literal("Not in your book").withStyle(ChatFormatting.DARK_GRAY));
-                if (inBook) {
-                    clickables.add(new Clickable(rx, ry, related));
-                } else {
-                    overlay(g, rx, ry, 16, 16, 0x99EFE0BA); // faded: not in the book
+                Item m = options.get(0).getItem();
+                status.add(Component.literal("Manuscript").withStyle(ChatFormatting.GOLD));
+                if (m != currentManuscript && inBook(m)) {
+                    status.add(Component.literal("Click to open").withStyle(ChatFormatting.GRAY));
+                    clickables.add(new Clickable(cx, cy, m));
+                } else if (!have[i]) {
+                    status.add(Component.literal("Not in your book").withStyle(ChatFormatting.RED));
                 }
+            } else if (fromParent) {
+                status.add(Component.literal("Crafted in the previous step").withStyle(ChatFormatting.AQUA));
+            } else if (have[i]) {
+                status.add(Component.literal("In your inventory").withStyle(ChatFormatting.GREEN));
+            } else {
+                status.add(Component.literal("You have " + owned(shown.getItem()) + " of "
+                        + Math.max(1, shown.getCount())).withStyle(ChatFormatting.RED));
             }
+            drawItem(g, shown, cx, cy, mx, my, status.toArray(new Component[0]));
+            if (!have[i]) overlay(g, cx, cy, 16, 16, 0x66B03030); // red tint: missing
         }
     }
 
+    /** Right page: the manuscript at the top and, indented below it, everything that comes out of it. */
+    private void renderTree(GuiGraphics g, int mx, int my) {
+        int tx = leftPos + TREE_X, ty = topPos + TREE_Y;
+        int maxScroll = Math.max(0, rows.size() - VIEW_ROWS);
+        treeScroll = Mth.clamp(treeScroll, 0, maxScroll);
+        int rowW = TREE_W - (maxScroll > 0 ? 4 : 0);
+
+        for (int v = 0; v < VIEW_ROWS; v++) {
+            int idx = treeScroll + v;
+            if (idx >= rows.size()) break;
+            Row row = rows.get(idx);
+            ManuscriptRecipeIndex.TreeNode node = row.node();
+            int ry = ty + v * ROW_H;
+            int depth = row.depth();
+            boolean root = idx == 0;
+            boolean sel = idx == selectedRow && !root;
+            boolean hovered = inside(mx, my, tx, ry, rowW, ROW_H);
+
+            // Background
+            if (root) g.fill(tx, ry, tx + rowW, ry + ROW_H - 1, 0x55B8862B);
+            else if (sel) {
+                g.fill(tx, ry, tx + rowW, ry + ROW_H - 1, FRAME_SHADE);
+                g.fill(tx, ry, tx + 2, ry + ROW_H - 1, ACCENT_BORDER);
+            } else if (hovered) g.fill(tx, ry, tx + rowW, ry + ROW_H - 1, 0x44D9C79C);
+
+            // Branch lines
+            for (int j = 1; j <= depth; j++) {
+                int lx = tx + 1 + (j - 1) * INDENT + 5;
+                boolean next = row.hasNext().get(j - 1);
+                if (j < depth) {
+                    if (next) g.fill(lx, ry, lx + 1, ry + ROW_H, LINE);
+                } else {
+                    g.fill(lx, ry, lx + 1, next ? ry + ROW_H : ry + ROW_H / 2 + 1, LINE);
+                    g.fill(lx, ry + ROW_H / 2, tx + 1 + j * INDENT - 1, ry + ROW_H / 2 + 1, LINE);
+                }
+            }
+
+            // Item + name
+            ItemStack stack = new ItemStack(node.item());
+            int ix = tx + 1 + depth * INDENT;
+            drawSmallItem(g, stack, ix, ry + 1);
+            int nameX = ix + 14;
+            int nameW = tx + rowW - nameX - (root ? 1 : 5);
+            drawFitted(g, stack.getHoverName().getString(), nameX, ry + 3, nameW, TEXT, false, false);
+
+            // Green dot: you can craft this right now
+            boolean ready = !root && isReady(row);
+            if (ready) g.fill(tx + rowW - 4, ry + 5, tx + rowW - 1, ry + 8, READY_BORDER);
+
+            if (hovered && inside(mx, my, tx, ry, rowW, ROW_H)) {
+                if (root) {
+                    setHover(stack, Component.literal("Manuscript").withStyle(ChatFormatting.GOLD));
+                } else {
+                    setHover(stack,
+                            ready ? Component.literal("You have everything you need").withStyle(ChatFormatting.GREEN)
+                                    : Component.literal("You are missing some ingredients").withStyle(ChatFormatting.RED),
+                            Component.literal(sel ? "Shown on the left page" : "Click to see how to craft it")
+                                    .withStyle(ChatFormatting.GRAY));
+                }
+            }
+        }
+
+        // Scrollbar
+        if (maxScroll > 0) {
+            int trackH = VIEW_ROWS * ROW_H - 1;
+            int thumbH = Math.max(8, trackH * VIEW_ROWS / rows.size());
+            int thumbY = ty + (trackH - thumbH) * treeScroll / maxScroll;
+            g.fill(tx + TREE_W - 2, ty, tx + TREE_W, ty + trackH, LINE);
+            g.fill(tx + TREE_W - 2, thumbY, tx + TREE_W, thumbY + thumbH, ACCENT_BORDER);
+        }
+    }
     // ---------------------------------------------------------------- input
 
     @Override
     public boolean mouseClicked(double mx, double my, int button) {
+        if (button == 0 && currentManuscript != null) {
+            int rowW = TREE_W - (rows.size() > VIEW_ROWS ? 4 : 0);
+            int tx = leftPos + TREE_X, ty = topPos + TREE_Y;
+            if (inside((int) mx, (int) my, tx, ty, rowW, VIEW_ROWS * ROW_H)) {
+                int idx = treeScroll + ((int) my - ty) / ROW_H;
+                if (idx > 0 && idx < rows.size()) {
+                    selectRow(idx, true);
+                    return true;
+                }
+            }
+        }
         if (button == 0 && currentRecipes.size() > 1) {
             int n = currentRecipes.size();
             if (inside((int) mx, (int) my, resultBoxX, resultBoxY, 34, 34)) {
@@ -546,12 +686,20 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         if (!storedNow.isEmpty()) {
             if (keyCode == InputConstants.KEY_LEFT) { selected--; return true; }   // clamped in refreshSelection
             if (keyCode == InputConstants.KEY_RIGHT) { selected++; return true; }
+            if (keyCode == InputConstants.KEY_UP && rows.size() > 1) { selectRow(Math.max(1, selectedRow - 1), true); return true; }
+            if (keyCode == InputConstants.KEY_DOWN && rows.size() > 1) { selectRow(Math.min(rows.size() - 1, selectedRow + 1), true); return true; }
         }
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
     @Override
     public boolean mouseScrolled(double mx, double my, double scrollX, double scrollY) {
+        // Over the tree the wheel scrolls the tree, anywhere else it flips through manuscripts
+        if (currentManuscript != null && rows.size() > VIEW_ROWS && scrollY != 0
+                && inside((int) mx, (int) my, leftPos + TREE_X, topPos + TREE_Y, TREE_W, VIEW_ROWS * ROW_H)) {
+            treeScroll = Mth.clamp(treeScroll - (int) Math.signum(scrollY), 0, rows.size() - VIEW_ROWS);
+            return true;
+        }
         if (!storedNow.isEmpty() && scrollY != 0) {
             selected -= (int) Math.signum(scrollY); // clamped in refreshSelection
             return true;
