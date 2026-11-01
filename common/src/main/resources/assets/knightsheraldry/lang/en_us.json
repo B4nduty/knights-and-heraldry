@@ -435,5 +435,17 @@
   "effect.knightsheraldry.pin": "Pin",
   "event.knightsheraldry.recharge_time": "Recharge Time: %s sec",
   "event.knightsheraldry.recharged": "Has been Recharged",
-  "sounds.knightsheraldry.arquebus_close": "Shot fired"
+  "sounds.knightsheraldry.arquebus_close": "Shot fired",
+  "text.gui.knightsheraldry.manuscript_book.take": "Take",
+  "text.gui.knightsheraldry.manuscript_book.tree_title": "Crafting tree",
+  "text.gui.knightsheraldry.manuscript_book.stored": "%s/%s stored",
+  "text.gui.knightsheraldry.manuscript_book.tree_hint": "Store manuscripts here to see everything you can craft with them.",
+  "text.gui.knightsheraldry.manuscript_book.book_full": "Book full",
+  "text.gui.knightsheraldry.manuscript_book.slot_title": "Manuscript slot",
+  "text.gui.knightsheraldry.manuscript_book.slot_hint": "Drop a manuscript here to store it in the book.",
+  "text.gui.knightsheraldry.manuscript_book.empty_title": "Empty book",
+  "text.gui.knightsheraldry.manuscript_book.empty_hint": "Put a manuscript in the slot at the top of the right page.",
+  "text.gui.knightsheraldry.manuscript_book.no_recipes": "No recipes use this manuscript.",
+  "text.gui.knightsheraldry.manuscript_book.another_recipe": "Click to see another recipe (%s/%s)",
+  "text.gui.knightsheraldry.manuscript_book.hits": "Hits: %s"
 }

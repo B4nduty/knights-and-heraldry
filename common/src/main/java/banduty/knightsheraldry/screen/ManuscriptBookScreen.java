@@ -16,6 +16,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.sounds.SoundManager;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.FormattedCharSequence;
@@ -77,6 +78,10 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
     private static final Sprite PX_DOT_HOVER = new Sprite(6, 110, 1, 1);
     private static final Sprite PX_DOT_IDLE = new Sprite(7, 110, 1, 1);
 
+    private static MutableComponent tr(String name, Object... args) {
+        return Component.translatable("text.gui." + KnightsHeraldry.MOD_ID + ".manuscript_book." + name, args);
+    }
+
     private record Clickable(int x, int y, Item manuscript) {}
 
     private record Row(ManuscriptRecipeIndex.TreeNode node, List<Boolean> hasNext) {
@@ -127,7 +132,7 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         nextButton = addRenderableWidget(new PageButton(leftPos + LEFT_X + PAGE_W - 12, topPos + 6, 11, 12,
                 Component.literal(">"), true, b -> selected += hasShiftDown() ? 5 : 1));
         takeButton = addRenderableWidget(new PageButton(leftPos + TAKE_X, topPos + TAKE_Y, 34, 12,
-                Component.literal("Take"), false, b -> takeSelected()));
+                tr("take"), false, b -> takeSelected()));
     }
 
     private void refreshSelection(List<ItemStack> stored) {
@@ -271,9 +276,9 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         drawFitted(g, s, centerX, y, maxW, TEXT, true, true);
     }
 
-    private void drawHint(GuiGraphics g, String s, int centerX, int y, int width) {
+    private void drawHint(GuiGraphics g, Component text, int centerX, int y, int width) {
         List<FormattedCharSequence> lines = font.split(
-                Component.literal(s).withStyle(ChatFormatting.ITALIC), (int) (width / TS));
+                text.copy().withStyle(ChatFormatting.ITALIC), (int) (width / TS));
         g.pose().pushPose();
         g.pose().translate(centerX, y, 0);
         g.pose().scale(TS, TS, 1f);
@@ -334,7 +339,6 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         return false;
     }
 
-    /** isReady() is not free (it scans the inventory per ingredient), so rows are re-checked at most 4 times a second. */
     private boolean isReadyCached(int idx) {
         long now = Util.getMillis();
         if (now - readyStamp > 250 || readyCache.length != rows.size()) {
@@ -396,8 +400,8 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         int sy = topPos + ManuscriptBookScreenHandler.INSERT_Y;
         int textLeft = leftPos + RIGHT_X + 2, textRight = sx - 4;
         int textCenter = (textLeft + textRight) / 2;
-        drawTitle(g, "Crafting tree", textCenter, topPos + 8, textRight - textLeft);
-        drawCentered(g, storedNow.size() + "/" + ManuscriptBookScreenHandler.MAX_MANUSCRIPTS + " stored",
+        drawTitle(g, tr("tree_title").getString(), textCenter, topPos + 8, textRight - textLeft);
+        drawCentered(g, tr("stored", storedNow.size(), ManuscriptBookScreenHandler.MAX_MANUSCRIPTS).getString(),
                 textCenter, topPos + 17, MUTED);
         drawDivider(g, rightCenter, topPos + 27);
 
@@ -414,7 +418,7 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         }
 
         if (currentManuscript == null) {
-            drawHint(g, "Store manuscripts here to see everything you can craft with them.",
+            drawHint(g, tr("tree_hint"),
                     rightCenter, topPos + 50, PAGE_W - 16);
         }
     }
@@ -431,10 +435,10 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
             int sy = topPos + ManuscriptBookScreenHandler.INSERT_Y;
             if (inside(mouseX, mouseY, sx, sy, 16, 16)) {
                 if (storedNow.size() >= ManuscriptBookScreenHandler.MAX_MANUSCRIPTS) {
-                    setHoverText(Component.literal("Book full").withStyle(ChatFormatting.RED));
+                    setHoverText(tr("book_full").withStyle(ChatFormatting.RED));
                 } else {
-                    setHoverText(Component.literal("Manuscript slot"),
-                            Component.literal("Drop a manuscript here to store it in the book.")
+                    setHoverText(tr("slot_title"),
+                            tr("slot_hint")
                                     .withStyle(ChatFormatting.GRAY));
                 }
             }
@@ -459,9 +463,9 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         int pageCenter = x + LEFT_X + PAGE_W / 2;
 
         if (currentManuscript == null) {
-            drawTitle(g, "Empty book", pageCenter, y + 9, PAGE_W - 28);
+            drawTitle(g, tr("empty_title").getString(), pageCenter, y + 9, PAGE_W - 28);
             drawDivider(g, pageCenter, y + 27);
-            drawHint(g, "Put a manuscript in the slot at the top of the right page.", pageCenter, y + 36, PAGE_W - 16);
+            drawHint(g, tr("empty_hint"), pageCenter, y + 36, PAGE_W - 16);
             return;
         }
 
@@ -482,7 +486,7 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         drawDivider(g, pageCenter, y + 27);
 
         if (recipe == null) {
-            drawHint(g, "No recipes use this manuscript.", pageCenter, y + 40, PAGE_W - 12);
+            drawHint(g, tr("no_recipes"), pageCenter, y + 40, PAGE_W - 12);
             return;
         }
 
@@ -500,17 +504,18 @@ public class ManuscriptBookScreen extends AbstractContainerScreen<ManuscriptBook
         sprite(g, resultBoxX, resultBoxY, craftable ? RESULT_READY : RESULT_ACCENT);
         List<Component> resultTip = new ArrayList<>();
         if (currentRecipes.size() > 1) {
-            resultTip.add(Component.literal("Click to see another recipe (" + (recipeIdx + 1) + "/"
-                    + currentRecipes.size() + ")").withStyle(ChatFormatting.GRAY));
+            resultTip.add(tr("another_recipe", recipeIdx + 1, currentRecipes.size()).withStyle(ChatFormatting.GRAY));
         }
         drawBigItem(g, recipe.output(), x + RESULT_X, y + RESULT_Y, mx, my, resultTip.toArray(new Component[0]));
 
         ItemStack anvil = new ItemStack(SCBlocks.CRAFTMAN_ANVIL.get());
         int anvilX = x + TAKE_X, anvilY = y + 29;
         g.renderItem(anvil, anvilX, anvilY);
-        drawFitted(g, "Hits: " + recipe.hitTimes(), anvilX + 19, anvilY + 3, PAGE_W - TAKE_X + LEFT_X - 21, TEXT, false, false);
-        drawFitted(g, Math.round(recipe.chance() * 100) + "%", anvilX + 19, anvilY + 11,
+        drawFitted(g, tr("hits", recipe.hitTimes()).getString(), anvilX + 19, anvilY + 3, PAGE_W - TAKE_X + LEFT_X - 21, TEXT, false, false);
+        if (recipe.chance() < 1.0f) {
+            drawFitted(g, Math.round(recipe.chance() * 100) + "%", anvilX + 19, anvilY + 11,
                     PAGE_W - TAKE_X + LEFT_X - 21, MUTED, false, false);
+        }
 
         if (currentRecipes.size() > 1) {
             int n = currentRecipes.size();
