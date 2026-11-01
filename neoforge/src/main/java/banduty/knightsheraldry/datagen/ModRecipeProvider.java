@@ -321,6 +321,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .defineFinished('H', new ItemStack(KHItems.HALBERD_HEAD.get()))
                 .define('S', new ItemStack(Items.STICK))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "craftmananvil/halberd_2"));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_HALBERD.get(), false, new ItemStack(KHItems.HALBERD.get()), new ItemStack(Items.GOLD_INGOT));
         CraftmanAnvilRecipeJsonBuilder.create(new ItemStack(KHItems.POLEAXE.get()))
                 .hitTimes(5)
                 .chance(0.5f)
@@ -376,6 +377,7 @@ public class ModRecipeProvider extends RecipeProvider {
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.SPEAR.get(), false, finished(new ItemStack(KHItems.SPEAR_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
         createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_SPEAR.get(), false, new ItemStack(KHItems.SPEAR.get()), new ItemStack(Items.GOLD_INGOT, 2));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.LANCE.get(), false, finished(new ItemStack(KHItems.SPEAR_HEAD.get())), ItemTags.LOGS);
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_LANCE.get(), false, new ItemStack(KHItems.LANCE.get()), new ItemStack(Items.GOLD_INGOT, 2));
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.PIKE.get(), false, finished(new ItemStack(KHItems.SPEAR_HEAD.get())), ItemTags.LOGS, ItemTags.LOGS);
         createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_PIKE.get(), false, new ItemStack(KHItems.PIKE.get()), new ItemStack(Items.GOLD_INGOT, 2));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.WARDART.get(), false, finished(new ItemStack(KHItems.SPEAR_HEAD.get())),

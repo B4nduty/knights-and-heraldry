@@ -43,7 +43,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         KHItems.PIKE.get(), KHItems.GILDED_PIKE.get(),
                         KHItems.BILLHOOK.get(), KHItems.GILDED_BILLHOOK.get(),
                         KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(), KHItems.GILDED_GLAIVE.get(), KHItems.GILDED_CURVED_GLAIVE.get(),
-                        KHItems.HALBERD.get(),
+                        KHItems.HALBERD.get(), KHItems.GILDED_HALBERD.get(),
                         KHItems.POLEAXE.get(), KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(),
                         KHItems.MORNING_STAR.get(), KHItems.BARDICHE.get(), KHItems.WARDART.get(),
                         KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(),

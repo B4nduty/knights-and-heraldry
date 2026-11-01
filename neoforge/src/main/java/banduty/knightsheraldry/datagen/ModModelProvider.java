@@ -101,7 +101,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.AVENTAIL.get(), KHItems.RIM_GUARDS.get(), KHItems.BESAGEWS.get(),
                 KHItems.QUILTED_COIF.get(), KHItems.GAMBESON_BREECHES.get(), KHItems.GAMBESON_BOOTS.get(),
                 KHItems.MAIL_COIF.get(), KHItems.HAUBERK.get(), KHItems.MAIL_BREECHES.get(),
-                KHItems.MAIL_BOOTS.get(), KHItems.LONGBOW.get(), KHItems.LANCE.get(),
+                KHItems.MAIL_BOOTS.get(), KHItems.LONGBOW.get(), KHItems.LANCE.get(), KHItems.GILDED_LANCE.get(),
                 KHItems.SURCOAT.get(), KHItems.SURCOAT_SLEEVELESS.get(),
 
                 // Plumes
@@ -172,7 +172,8 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.PIKE.get(), KHItems.GILDED_PIKE.get(),
                 KHItems.BILLHOOK.get(),  KHItems.GILDED_BILLHOOK.get(),
                 KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(), KHItems.GILDED_GLAIVE.get(), KHItems.GILDED_CURVED_GLAIVE.get(),
-                KHItems.HALBERD.get(), KHItems.POLEAXE.get(), KHItems.POLEHAMMER.get(),
+                KHItems.HALBERD.get(), KHItems.GILDED_HALBERD.get(),
+                KHItems.POLEAXE.get(), KHItems.POLEHAMMER.get(),
                 KHItems.BEC_DE_CORBIN.get(), KHItems.MORNING_STAR.get(), KHItems.BARDICHE.get(),
                 KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(),
                 KHItems.ZWEIHANDER.get(), KHItems.WARDART.get()

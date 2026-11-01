@@ -134,8 +134,12 @@ public interface KHItems {
 
     Supplier<Item> HALBERD = registerItem("halberd",
             () -> new Halberd(-3F, new Item.Properties().durability(391)));
+    Supplier<Item> GILDED_HALBERD = registerItem("gilded_halberd",
+            () -> new Halberd(-3F, new Item.Properties().durability(391)));
 
     Supplier<Item> LANCE = registerItem("lance",
+            () -> new Lance(-3.0F, new Item.Properties().durability(1), SCDamageType.PIERCING));
+    Supplier<Item> GILDED_LANCE = registerItem("gilded_lance",
             () -> new Lance(-3.0F, new Item.Properties().durability(1), SCDamageType.PIERCING));
     Supplier<Item> WOODEN_LANCE = registerItem("wooden_lance",
             () -> new WoodenLance(-3.0F, new Item.Properties().durability(1), SCDamageType.PIERCING));

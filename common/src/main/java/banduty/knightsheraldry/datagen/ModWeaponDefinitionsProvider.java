@@ -238,7 +238,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.HALBERD.get()
+                KHItems.HALBERD.get(), KHItems.GILDED_HALBERD.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()

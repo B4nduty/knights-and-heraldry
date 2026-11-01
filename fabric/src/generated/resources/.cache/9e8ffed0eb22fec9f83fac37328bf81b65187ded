@@ -1,4 +1,4 @@
-// 1.21.1	2026-11-01T12:41:32.409807504	Knights & Heraldry/Weapon Definitions
+// 1.21.1	2026-11-01T13:01:07.299692649	Knights & Heraldry/Weapon Definitions
 52097cb15df30062aea4c9b82359cc212394ae24 data/knightsheraldry/definitions/weapon/arquebus.json
 5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/war_hammer.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/spiked_mace.json
@@ -26,6 +26,7 @@ f7f194863efbb2cec87e3e0bfcabc0c52f144430 data/knightsheraldry/definitions/weapon
 9bd2dd8ef7bd73e86232c7404f7b5201aab052d5 data/knightsheraldry/definitions/weapon/claymore.json
 76f0ea0703a11eeecc4810ce3ab0d84f36422986 data/knightsheraldry/definitions/weapon/morning_star.json
 53a261b10ff11f946c15647396b21109fb6d80a5 data/knightsheraldry/definitions/weapon/broad_axe.json
+c9a4d570ae685485d9005f817ab43f701fcd00c1 data/knightsheraldry/definitions/weapon/gilded_halberd.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/gilded_mace.json
 ff17ae93ba6a001494406d08e9c47d966ccdf15c data/knightsheraldry/definitions/weapon/wardart.json
 049416bbb4425f7bc532dee03b09137c4eab9702 data/knightsheraldry/definitions/weapon/gilded_estoc.json

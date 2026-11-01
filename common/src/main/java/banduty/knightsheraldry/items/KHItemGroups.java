@@ -147,6 +147,8 @@ public interface KHItemGroups {
                     itemStack(KHItems.GILDED_BILLHOOK.get()),
                     itemStack(KHItems.GILDED_GLAIVE.get()),
                     itemStack(KHItems.GILDED_CURVED_GLAIVE.get()),
+                    itemStack(KHItems.GILDED_HALBERD.get()),
+                    itemStack(KHItems.GILDED_LANCE.get()),
                     itemStack(KHItems.HEATER_SHIELD.get()),
                     itemStack(KHItems.HEATER_SHIELD_REINFORCED.get()),
                     itemStack(KHItems.GILDED_HEATER_SHIELD_REINFORCED.get()),

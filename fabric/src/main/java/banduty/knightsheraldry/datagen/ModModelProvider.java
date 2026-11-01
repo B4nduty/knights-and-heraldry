@@ -155,6 +155,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerItemWConditions(KHItems.MAIL_BOOTS.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.LONGBOW.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.LANCE.get(), itemModelGenerators, registries);
+        registerItemWConditions(KHItems.GILDED_LANCE.get(), itemModelGenerators, registries);
 
         registerItemWConditions(KHItems.PLUME.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.TRI_PLUME.get(), itemModelGenerators, registries);
@@ -224,7 +225,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 KHItems.PIKE.get(), KHItems.GILDED_PIKE.get(),
                 KHItems.BILLHOOK.get(), KHItems.GILDED_BILLHOOK.get(),
                 KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(), KHItems.GILDED_GLAIVE.get(), KHItems.GILDED_CURVED_GLAIVE.get(),
-                KHItems.HALBERD.get(),
+                KHItems.HALBERD.get(), KHItems.GILDED_HALBERD.get(),
                 KHItems.POLEAXE.get(),
                 KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(),
                 KHItems.MORNING_STAR.get(),
