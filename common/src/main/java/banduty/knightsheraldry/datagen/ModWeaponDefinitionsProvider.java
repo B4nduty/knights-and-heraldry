@@ -172,7 +172,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.PITCHFORK.get()
+                KHItems.PITCHFORK.get(), KHItems.GILDED_PITCHFORK.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
@@ -184,7 +184,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.SPEAR.get()
+                KHItems.SPEAR.get(), KHItems.GILDED_SPEAR.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()

@@ -141,6 +141,8 @@ public interface KHItemGroups {
                     itemStack(KHItems.GILDED_V_LONGSWORD.get()),
                     itemStack(KHItems.GILDED_FALCHION.get()),
                     itemStack(KHItems.GILDED_SCIMITAR.get()),
+                    itemStack(KHItems.GILDED_PITCHFORK.get()),
+                    itemStack(KHItems.GILDED_SPEAR.get()),
                     itemStack(KHItems.HEATER_SHIELD.get()),
                     itemStack(KHItems.HEATER_SHIELD_REINFORCED.get()),
                     itemStack(KHItems.GILDED_HEATER_SHIELD_REINFORCED.get()),

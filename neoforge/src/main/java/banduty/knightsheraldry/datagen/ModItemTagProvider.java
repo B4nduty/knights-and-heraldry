@@ -38,8 +38,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         KHItems.HAMMER.get(), KHItems.WAR_HAMMER.get(), KHItems.GILDED_HAMMER.get(), KHItems.GILDED_WAR_HAMMER.get(),
                         KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(), KHItems.GILDED_LONGSWORD.get(), KHItems.GILDED_V_LONGSWORD.get(),
                         KHItems.FALCHION.get(), KHItems.SCIMITAR.get(), KHItems.GILDED_FALCHION.get(), KHItems.GILDED_SCIMITAR.get(),
-                        KHItems.PITCHFORK.get(),
-                        KHItems.SPEAR.get(), KHItems.PIKE.get(), KHItems.BILLHOOK.get(),
+                        KHItems.PITCHFORK.get(), KHItems.GILDED_PITCHFORK.get(),
+                        KHItems.SPEAR.get(), KHItems.GILDED_SPEAR.get(),
+                        KHItems.PIKE.get(),
+                        KHItems.BILLHOOK.get(),
                         KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(), KHItems.HALBERD.get(),
                         KHItems.POLEAXE.get(), KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(),
                         KHItems.MORNING_STAR.get(), KHItems.BARDICHE.get(), KHItems.WARDART.get(),
@@ -64,7 +66,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(KHItems.FLAIL.get(), KHItems.BALL_FLAIL.get(), KHItems.GILDED_FLAIL.get(), KHItems.GILDED_BALL_FLAIL.get());
 
         tag(SCTags.WEAPONS_HARVEST.getTag())
-                .add(KHItems.PITCHFORK.get());
+                .add(KHItems.PITCHFORK.get(), KHItems.GILDED_PITCHFORK.get());
 
         tag(ItemTags.FREEZE_IMMUNE_WEARABLES)
                 .add(KHItems.CLOAK.get(), KHItems.TORN_CLOAK.get());

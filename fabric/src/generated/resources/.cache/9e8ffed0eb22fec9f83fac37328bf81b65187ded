@@ -1,10 +1,11 @@
-// 1.21.1	2026-11-01T11:55:20.686483229	Knights & Heraldry/Weapon Definitions
+// 1.21.1	2026-11-01T12:13:16.858580761	Knights & Heraldry/Weapon Definitions
 52097cb15df30062aea4c9b82359cc212394ae24 data/knightsheraldry/definitions/weapon/arquebus.json
 5e58c7869c54f0e83b6876bb48aa839beaa5cd47 data/knightsheraldry/definitions/weapon/war_hammer.json
 043e61dd105be5df0df47c38284516a5b951719a data/knightsheraldry/definitions/weapon/spiked_mace.json
 25930bd79e94d980360ac5363016b4bb427884f7 data/knightsheraldry/definitions/weapon/bec_de_corbin.json
 53a261b10ff11f946c15647396b21109fb6d80a5 data/knightsheraldry/definitions/weapon/axe.json
 f07cd57765c402f53c76852cce8014bb0051d1a7 data/knightsheraldry/definitions/weapon/rapier.json
+61d83e8390f66ad6832217f2d7aaa9d1065ac06f data/knightsheraldry/definitions/weapon/gilded_spear.json
 e3be14e8044469f92cbbdf8d7c1601cfcc74865d data/knightsheraldry/definitions/weapon/buckler.json
 9bd2dd8ef7bd73e86232c7404f7b5201aab052d5 data/knightsheraldry/definitions/weapon/zweihander.json
 9bd2dd8ef7bd73e86232c7404f7b5201aab052d5 data/knightsheraldry/definitions/weapon/greatsword.json
@@ -69,4 +70,5 @@ de310bdba6b5870f21087c4d2d6e1a34c5ff1cfd data/knightsheraldry/definitions/weapon
 0db1323322cafca1cec3db74754f4ff7fac30e8b data/knightsheraldry/definitions/weapon/gilded_v_sword.json
 a2d4e007ebc738cce2f9d25c2bd3ab81e3cfb0ef data/knightsheraldry/definitions/weapon/pike.json
 c9a4d570ae685485d9005f817ab43f701fcd00c1 data/knightsheraldry/definitions/weapon/halberd.json
+366f56725587951f99865a99c06f1988a47e45b2 data/knightsheraldry/definitions/weapon/gilded_pitchfork.json
 d72970823aabd9dbaa0d05718fe1337858e9bf2c data/knightsheraldry/definitions/weapon/heater_shield.json

@@ -370,6 +370,7 @@ public class ModRecipeProvider extends RecipeProvider {
         // Spear Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.SPEAR_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_SPEAR.get()));
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.SPEAR.get(), false, finished(new ItemStack(KHItems.SPEAR_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_SPEAR.get(), false, new ItemStack(KHItems.SPEAR.get()), new ItemStack(Items.GOLD_INGOT, 2));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.LANCE.get(), false, finished(new ItemStack(KHItems.SPEAR_HEAD.get())), ItemTags.LOGS);
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.PIKE.get(), false, finished(new ItemStack(KHItems.SPEAR_HEAD.get())), ItemTags.LOGS, ItemTags.LOGS);
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.WARDART.get(), false, finished(new ItemStack(KHItems.SPEAR_HEAD.get())),
@@ -378,6 +379,7 @@ public class ModRecipeProvider extends RecipeProvider {
         // Pitchfork Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PITCHFORK_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_PITCHFORK.get()));
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.PITCHFORK.get(), false, finished(new ItemStack(KHItems.PITCHFORK_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_PITCHFORK.get(), false, new ItemStack(KHItems.PITCHFORK.get()), new ItemStack(Items.GOLD_INGOT, 2));
 
         // Heater Shield
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.HEATER_SHIELD.get(), false, new ItemStack(KHItems.MANUSCRIPT_HEATER_SHIELD.get()), ItemTags.LOGS, ItemTags.LOGS);
