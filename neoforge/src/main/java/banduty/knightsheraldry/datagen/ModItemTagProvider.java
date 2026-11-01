@@ -51,7 +51,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         KHItems.BARDICHE.get(), KHItems.GILDED_BARDICHE.get(),
                         KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(),
                         KHItems.GILDED_GREATSWORD.get(), KHItems.GILDED_CLAYMORE.get(), KHItems.GILDED_FLAMBERGE.get(), KHItems.GILDED_ZWEIHANDER.get(),
-                        KHItems.WARDART.get()
+                        KHItems.WARDART.get(), KHItems.GILDED_WARDART.get()
                 );
 
         tag(SCTags.WEAPONS_DAMAGE_BEHIND.getTag())

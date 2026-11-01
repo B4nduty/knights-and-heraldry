@@ -314,7 +314,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .levelRadii(3.5, 4.5, 5.0)
 
                 ).build(),
-                KHItems.WARDART.get()
+                KHItems.WARDART.get(), KHItems.GILDED_WARDART.get()
         );
 
         // Shield

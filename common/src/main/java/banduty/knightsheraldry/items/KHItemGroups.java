@@ -165,6 +165,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.GILDED_CLAYMORE.get()),
                     itemStack(KHItems.GILDED_FLAMBERGE.get()),
                     itemStack(KHItems.GILDED_ZWEIHANDER.get()),
+                    itemStack(KHItems.GILDED_WARDART.get()),
                     itemStack(KHItems.HEATER_SHIELD.get()),
                     itemStack(KHItems.HEATER_SHIELD_REINFORCED.get()),
                     itemStack(KHItems.GILDED_HEATER_SHIELD_REINFORCED.get()),

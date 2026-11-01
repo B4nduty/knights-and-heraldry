@@ -394,6 +394,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_PIKE.get(), false, new ItemStack(KHItems.PIKE.get()), new ItemStack(Items.GOLD_INGOT, 2));
         createCraftmanAnvilRecipeO(exporter, 5, 0.5f, KHItems.WARDART.get(), false, finished(new ItemStack(KHItems.SPEAR_HEAD.get())),
                 new ItemStack(Items.STICK), new ItemStack(Items.STICK), new ItemStack(Items.FEATHER), new ItemStack(Items.FEATHER));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_WARDART.get(), false, new ItemStack(KHItems.WARDART.get()), new ItemStack(Items.GOLD_INGOT, 2));
 
         // Pitchfork Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.PITCHFORK_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_PITCHFORK.get()));

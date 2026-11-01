@@ -169,6 +169,8 @@ public interface KHItems {
 
     Supplier<Item> WARDART = registerItem("wardart",
             () -> new WarDart(-2.6F, new Item.Properties().durability(326)));
+    Supplier<Item> GILDED_WARDART = registerItem("gilded_wardart",
+            () -> new WarDart(-2.6F, new Item.Properties().durability(326)));
 
 
     Supplier<Item> HEATER_SHIELD = registerItem("heater_shield",

@@ -232,7 +232,7 @@ public class ModModelProvider extends FabricModelProviderPlus {
                 KHItems.BARDICHE.get(), KHItems.GILDED_BARDICHE.get(),
                 KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(),
                 KHItems.GILDED_GREATSWORD.get(), KHItems.GILDED_CLAYMORE.get(), KHItems.GILDED_FLAMBERGE.get(), KHItems.GILDED_ZWEIHANDER.get(),
-                KHItems.WARDART.get()
+                KHItems.WARDART.get(), KHItems.GILDED_WARDART.get()
         };
 
         List<Supplier<Item>> simpleArmor = List.of(ArmorFamily.allFamilies(
