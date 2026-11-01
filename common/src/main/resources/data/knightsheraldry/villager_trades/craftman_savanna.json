@@ -56,6 +56,14 @@
       "max_uses": 12,
       "xp": 5,
       "price_multiplier": 0.05
+    },
+    {
+      "level": 0,
+      "cost_a": { "item": "minecraft:emerald", "count": 12 },
+      "result": { "item": "knightsheraldry:manuscript_buckler", "count": 1 },
+      "max_uses": 12,
+      "xp": 5,
+      "price_multiplier": 0.05
     }
   ]
 }
