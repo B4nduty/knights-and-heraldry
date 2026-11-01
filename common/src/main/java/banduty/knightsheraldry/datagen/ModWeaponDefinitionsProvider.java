@@ -224,7 +224,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
                                 .parryWindow(7)
 
                 ).build(),
-                KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get()
+                KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(), KHItems.GILDED_GLAIVE.get(), KHItems.GILDED_CURVED_GLAIVE.get()
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()

@@ -128,7 +128,9 @@ public interface KHItems {
             () -> new Billhook(-2.4F, new Item.Properties().durability(391)));
 
     Supplier<Item> GLAIVE = sword("glaive", -2.2F, 391);
+    Supplier<Item> GILDED_GLAIVE = sword("gilded_glaive", -2.2F, 391);
     Supplier<Item> CURVED_GLAIVE = sword("curved_glaive", -2.2F, 391);
+    Supplier<Item> GILDED_CURVED_GLAIVE = sword("gilded_curved_glaive", -2.2F, 391);
 
     Supplier<Item> HALBERD = registerItem("halberd",
             () -> new Halberd(-3F, new Item.Properties().durability(391)));

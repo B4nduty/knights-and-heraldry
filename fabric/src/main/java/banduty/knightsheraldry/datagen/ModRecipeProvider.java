@@ -249,7 +249,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createWeaponCycle(exporter, 3, 1.0f, KHItems.SWORD.get(), KHItems.V_SWORD.get(), KHItems.ARMING_SWORD.get());
         createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_SWORD.get(), KHItems.GILDED_V_SWORD.get(), KHItems.GILDED_ARMING_SWORD.get());
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.GLAIVE.get(), false, finished(new ItemStack(KHItems.SWORD_HEAD.get())), new ItemStack(Items.STICK), new ItemStack(Items.STICK));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_GLAIVE.get(), false, new ItemStack(KHItems.GLAIVE.get()), new ItemStack(Items.GOLD_INGOT));
+        createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_CURVED_GLAIVE.get(), false, new ItemStack(KHItems.CURVED_GLAIVE.get()), new ItemStack(Items.GOLD_INGOT));
         createWeaponCycle(exporter, 3, 1.0f, KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get());
+        createWeaponCycle(exporter, 3, 1.0f, KHItems.GILDED_GLAIVE.get(), KHItems.GILDED_CURVED_GLAIVE.get());
 
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.BASTARD_SWORD.get(), false, new ItemStack(KHItems.SWORD.get()), new ItemStack(SCItems.HOT_IRON.get()));
         createCraftmanAnvilRecipeO(exporter, 3, 1.0f, KHItems.GILDED_BASTARD_SWORD.get(), false, new ItemStack(KHItems.BASTARD_SWORD.get()), new ItemStack(Items.GOLD_INGOT));
