@@ -517,9 +517,9 @@ public class Craftman extends AbstractVillager {
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Zoglin.class, 10.0F, 0.5, 0.5));
         this.goalSelector.addGoal(1, new PanicGoal(this, 0.5));*/
         this.goalSelector.addGoal(1, new LookAtTradingPlayerGoal(this));
-        this.goalSelector.addGoal(4, new MoveTowardsRestrictionGoal(this, 0.35));
+        this.goalSelector.addGoal(4, new MoveTowardsRestrictionGoal(this, 0.5));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 0.35) {
+        this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 0.5) {
             @Override
             public boolean canUse() {
                 return !Craftman.this.getBrain().isActive(Activity.REST)

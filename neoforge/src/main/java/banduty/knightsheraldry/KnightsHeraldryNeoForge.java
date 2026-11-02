@@ -6,7 +6,6 @@ import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.platform.NeoForgePlatformHelper;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
@@ -22,10 +21,11 @@ public class KnightsHeraldryNeoForge {
 
         NeoForgePlatformHelper.registerRegistries(modEventBus);
         KHEntityDataSerializers.register(modEventBus);
+
+        modEventBus.addListener(KnightsHeraldryNeoForge::buildContents);
     }
 
-    @SubscribeEvent
-    public static void buildContents(BuildCreativeModeTabContentsEvent event) {
+    private static void buildContents(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(KHItems.CRAFTMAN_SPAWN_EGG.get());
         }
