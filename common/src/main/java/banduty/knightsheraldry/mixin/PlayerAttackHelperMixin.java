@@ -1,8 +1,7 @@
 package banduty.knightsheraldry.mixin;
 
-import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.item.khweapon.Estoc;
-import banduty.stoneycore.combat.melee.ShieldUtil;
+import banduty.knightsheraldry.util.OffhandUtil;
 import net.bettercombat.logic.PlayerAttackHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -17,14 +16,14 @@ public class PlayerAttackHelperMixin {
 
     @Inject(method = "isTwoHandedWielding", at = @At("HEAD"), cancellable = true)
     private static void kh$estocTwoHanded(Player player, CallbackInfoReturnable<Boolean> cir) {
-        if (knightsheraldry$mountedEstoc(player) || knightsheraldry$hideOffHand(player)) cir.setReturnValue(true);
+        if (knightsheraldry$mountedEstoc(player) || OffhandUtil.shouldHideOffhand(player)) cir.setReturnValue(true);
     }
 
     // Mapping-agnostic selector: Player is class_1657 on Fabric but Player on NeoForge, and remap=false
     // means the descriptor isn't translated. Matches only the single-arg overload isDualWielding(Player).
     @Inject(method = "name=/^isDualWielding$/ desc=/^\\(L[^;]+;\\)Z$/", at = @At("HEAD"), cancellable = true)
     private static void kh$estocNoDual(Player player, CallbackInfoReturnable<Boolean> cir) {
-        if (knightsheraldry$mountedEstoc(player) || knightsheraldry$hideOffHand(player)) cir.setReturnValue(false);
+        if (knightsheraldry$mountedEstoc(player) || OffhandUtil.shouldHideOffhand(player)) cir.setReturnValue(false);
     }
 
     @Unique
@@ -33,10 +32,4 @@ public class PlayerAttackHelperMixin {
                 && player.getVehicle() instanceof LivingEntity;
     }
 
-    @Unique
-    private static boolean knightsheraldry$hideOffHand(LivingEntity livingEntity) {
-        return !ShieldUtil.canBlock(livingEntity.getOffhandItem()) && !(livingEntity.getMainHandItem().getItem() instanceof Estoc ||
-                livingEntity.getMainHandItem().getItem() == KHItems.BASTARD_SWORD.get() ||
-                livingEntity.getMainHandItem().getItem() == KHItems.GILDED_BASTARD_SWORD.get());
-    }
 }

@@ -97,6 +97,18 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(itemArray(KHItems.HORSE_BARDING.list()))
                 .add(itemArray(KHItems.BRIGANDINE.list()));
 
+        tag(KHTags.TWO_HANDED.getTag())
+                .add(KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(), KHItems.GILDED_LONGSWORD.get(), KHItems.GILDED_V_LONGSWORD.get(),
+                        KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(),
+                        KHItems.GILDED_GREATSWORD.get(), KHItems.GILDED_CLAYMORE.get(), KHItems.GILDED_FLAMBERGE.get(), KHItems.GILDED_ZWEIHANDER.get(),
+                        KHItems.PITCHFORK.get(), KHItems.GILDED_PITCHFORK.get(), KHItems.SPEAR.get(), KHItems.GILDED_SPEAR.get(),
+                        KHItems.PIKE.get(), KHItems.GILDED_PIKE.get(), KHItems.BILLHOOK.get(), KHItems.GILDED_BILLHOOK.get(),
+                        KHItems.GLAIVE.get(), KHItems.CURVED_GLAIVE.get(), KHItems.GILDED_GLAIVE.get(), KHItems.GILDED_CURVED_GLAIVE.get(),
+                        KHItems.HALBERD.get(), KHItems.GILDED_HALBERD.get(), KHItems.POLEAXE.get(), KHItems.GILDED_POLEAXE.get(),
+                        KHItems.POLEHAMMER.get(), KHItems.BEC_DE_CORBIN.get(), KHItems.GILDED_POLEHAMMER.get(), KHItems.GILDED_BEC_DE_CORBIN.get(),
+                        KHItems.MORNING_STAR.get(), KHItems.GILDED_MORNING_STAR.get(), KHItems.BARDICHE.get(), KHItems.GILDED_BARDICHE.get(),
+                        KHItems.WARDART.get(), KHItems.GILDED_WARDART.get());
+
         tag(KHTags.REPAIR_KIT_CHAIN.getTag())
                 .add(KHItems.MAIL_COIF.get(), KHItems.HAUBERK.get(), KHItems.MAIL_BREECHES.get(), KHItems.MAIL_BOOTS.get(),
                         KHItems.MAIL_GLOVES.get())

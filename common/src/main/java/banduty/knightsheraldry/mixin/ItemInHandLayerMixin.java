@@ -1,8 +1,7 @@
 package banduty.knightsheraldry.mixin;
 
-import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.item.khweapon.Estoc;
-import banduty.stoneycore.combat.melee.ShieldUtil;
+import banduty.knightsheraldry.util.OffhandUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
@@ -25,7 +24,7 @@ public class ItemInHandLayerMixin {
         if (knightsheraldry$shouldHideOffhand(entity, stack, isOffhand)) {
             ci.cancel();
         }
-        if (isOffhand && knightsheraldry$hideOffHand(entity)) {
+        if (isOffhand && OffhandUtil.shouldHideOffhand(entity)) {
             ci.cancel();
         }
     }
@@ -37,10 +36,4 @@ public class ItemInHandLayerMixin {
         return entity.getVehicle() instanceof LivingEntity;
     }
 
-    @Unique
-    private static boolean knightsheraldry$hideOffHand(LivingEntity entity) {
-        return !ShieldUtil.canBlock(entity.getOffhandItem()) && !(entity.getMainHandItem().getItem() instanceof Estoc ||
-                entity.getMainHandItem().getItem() == KHItems.BASTARD_SWORD.get() ||
-                entity.getMainHandItem().getItem() == KHItems.GILDED_BASTARD_SWORD.get());
-    }
 }
