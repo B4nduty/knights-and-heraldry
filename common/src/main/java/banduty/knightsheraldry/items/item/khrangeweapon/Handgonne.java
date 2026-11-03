@@ -14,6 +14,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.animatable.client.GeoRenderProvider;
@@ -35,6 +36,11 @@ public class Handgonne extends Item implements GeoItem, SCIconRendererProvider, 
     public void trackHolder(ItemStack stack, ServerLevel serverLevel, LivingEntity holder) {
         long id = GeoItem.getOrAssignId(stack, serverLevel);
         fallbackLivingEntities.put(id, holder);
+    }
+
+    @Override
+    public boolean isValidRepairItem(ItemStack stack, ItemStack ingredient) {
+        return ingredient.is(Items.IRON_INGOT) || super.isValidRepairItem(stack, ingredient);
     }
 
     public Handgonne(Properties properties) {
