@@ -46,9 +46,9 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
 
         addFamily(map, KHItems.BRIGANDINE_SPAULDERS, new ArmorStats(0.5, 0.5, 0.5, 0.0, 0, 0, false));
 
-        addFamily(map, KHItems.PLATE_SPAULDERS, new ArmorStats(1.5, 2.0, 2.5, 0.02, 0, 0, true));
+        addFamily(map, KHItems.PLATE_SPAULDERS, new ArmorStats(1.5, 2.0, 2.0, 0.02, 0, 0, true));
 
-        addFamily(map, KHItems.PAULDRONS, new ArmorStats(2.0, 3.0, 5.0, 0.04, 0, 0, true));
+        addFamily(map, KHItems.PAULDRONS, new ArmorStats(2.0, 3.0, 4.0, 0.04, 0, 0, true));
 
         return map;
     }

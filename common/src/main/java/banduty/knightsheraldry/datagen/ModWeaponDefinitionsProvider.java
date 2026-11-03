@@ -320,7 +320,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         // Shield
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
-                                .blockCooldown(100)
+                                .blockCooldown(20)
                                 .parryWindow(7)
                                 .blockingEnabled(true)
 
@@ -329,7 +329,7 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
-                                .blockCooldown(100)
+                                .blockCooldown(20)
                                 .parryWindow(20)
                                 .blockingEnabled(true)
 
