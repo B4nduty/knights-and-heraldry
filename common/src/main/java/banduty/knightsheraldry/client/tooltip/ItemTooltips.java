@@ -1,0 +1,34 @@
+package banduty.knightsheraldry.client.tooltip;
+
+import banduty.knightsheraldry.items.item.khammo.ClothArrow;
+import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
+import banduty.knightsheraldry.util.itemdata.KHTags;
+import banduty.stoneycore.data.SCDataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ItemStack;
+
+import java.util.List;
+
+/** Tooltip lines shared by the Fabric and NeoForge tooltip events. */
+public final class ItemTooltips {
+    private ItemTooltips() {}
+
+    public static void append(ItemStack stack, List<Component> tooltip) {
+        if (stack.is(KHTags.DUAL_WIELDABLE.getTag())) {
+            // Insert right below the item name so it reads as a weapon property.
+            tooltip.add(Math.min(1, tooltip.size()), Component.translatable("text.tooltip.knightsheraldry.dual_wieldable"));
+        }
+
+        if (stack.getItem() instanceof ClothArrow) {
+            if (Boolean.TRUE.equals(stack.get(SCDataComponents.ARROW_IGNITED.get()))) {
+                tooltip.add(Component.translatable("text.tooltip.knightsheraldry.extinguish"));
+            } else {
+                tooltip.add(Component.translatable("text.tooltip.knightsheraldry.ignite"));
+            }
+        }
+
+        if (stack.getItem() instanceof Handgonne && Boolean.TRUE.equals(stack.get(SCDataComponents.CHARGED.get()))) {
+            tooltip.add(Component.translatable("text.tooltip.knightsheraldry.right_click-flint_steel-fire"));
+        }
+    }
+}

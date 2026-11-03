@@ -252,6 +252,7 @@
   "component.itemgroup.knightsheraldry.tab.kh_weapons": "KH Оружие",
   "component.itemgroup.knightsheraldry.tab.kh_deco": "KH Декор",
   "component.itemgroup.knightsheraldry.tab.kh_armors": "KH Доспехи",
+  "text.tooltip.knightsheraldry.dual_wieldable": "§6Парное оружие §7- держите по одному в каждой руке",
   "text.tooltip.knightsheraldry.right_click-to-charge": "§l§4ПКМ §r- §lзарядить §rна §l2 секунды",
   "text.tooltip.knightsheraldry.on-charge": "При §lзарядке, §rпроведёт атаку §l§4автоматически",
   "text.tooltip.knightsheraldry.throw-to-pin": "§lБросьте, §rчтобы §l§4обездвижить цель §rна §45 секунд.",

@@ -2,6 +2,7 @@ package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.client.entity.*;
 import banduty.knightsheraldry.client.item.SurcoatWithBannerModel;
+import banduty.knightsheraldry.client.tooltip.ItemTooltips;
 import banduty.knightsheraldry.client.tooltip.RepairKitClientTooltip;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.items.armor.attachment.KHChaperon;
@@ -27,6 +28,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
 @EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, value = Dist.CLIENT)
 public class KnightsHeraldryNeoForgeClient {
@@ -110,5 +112,11 @@ public class KnightsHeraldryNeoForgeClient {
     @SubscribeEvent
     public static void onRegisterClientTooltipComponents(RegisterClientTooltipComponentFactoriesEvent event) {
         event.register(RepairKitTooltip.class, t -> new RepairKitClientTooltip(t.contents()));
+    }
+
+    @SubscribeEvent
+    public static void onItemTooltip(ItemTooltipEvent event) {
+        if (event.getEntity() == null) return;
+        ItemTooltips.append(event.getItemStack(), event.getToolTip());
     }
 }
