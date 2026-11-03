@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "knightsheraldry:item/netherite_visored_bascinet_open",
+      "predicate": {
+        "knightsheraldry:open": 1
+      }
+    },
+    {
+      "model": "knightsheraldry:item/netherite_visored_bascinet_ignited",
+      "predicate": {
+        "stoneycore:ignited": 1
+      }
+    },
+    {
+      "model": "knightsheraldry:item/netherite_visored_bascinet_ignited_open",
+      "predicate": {
+        "knightsheraldry:open": 1,
+        "stoneycore:ignited": 1
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "knightsheraldry:item/netherite_visored_bascinet"
+  }
+}

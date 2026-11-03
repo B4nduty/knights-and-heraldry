@@ -1,0 +1,8 @@
+{
+  "armor": 3.0,
+  "deflectChance": 0.07,
+  "hungerDrainMultiplier": 0.1,
+  "rechargeTime": 30,
+  "toughness": 4.0,
+  "weight": 2.5
+}

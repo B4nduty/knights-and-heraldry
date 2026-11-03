@@ -20,7 +20,9 @@ public class PlayerAttackHelperMixin {
         if (knightsheraldry$mountedEstoc(player) || knightsheraldry$hideOffHand(player)) cir.setReturnValue(true);
     }
 
-    @Inject(method = "isDualWielding(Lnet/minecraft/world/entity/player/Player;)Z", at = @At("HEAD"), cancellable = true)
+    // Mapping-agnostic selector: Player is class_1657 on Fabric but Player on NeoForge, and remap=false
+    // means the descriptor isn't translated. Matches only the single-arg overload isDualWielding(Player).
+    @Inject(method = "name=/^isDualWielding$/ desc=/^\\(L[^;]+;\\)Z$/", at = @At("HEAD"), cancellable = true)
     private static void kh$estocNoDual(Player player, CallbackInfoReturnable<Boolean> cir) {
         if (knightsheraldry$mountedEstoc(player) || knightsheraldry$hideOffHand(player)) cir.setReturnValue(false);
     }

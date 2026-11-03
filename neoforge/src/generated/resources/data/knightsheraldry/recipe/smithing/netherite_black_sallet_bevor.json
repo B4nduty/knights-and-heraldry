@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "knightsheraldry:black_sallet_bevor"
+  },
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:netherite_black_sallet_bevor"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

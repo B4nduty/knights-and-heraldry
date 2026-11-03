@@ -112,6 +112,8 @@ dependencies {
     api "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config}"
 
     implementation "curse.maven:spark-361579:6225208"
+
+    implementation "curse.maven:tags-viewer-1119728:5807896"
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }

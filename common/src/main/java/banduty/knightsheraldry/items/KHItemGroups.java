@@ -234,6 +234,15 @@ public interface KHItemGroups {
                     itemStack(KHItems.VISORLESS_SALLET.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.MORION.get(ArmorVariant.GOLDEN).get()),
 
+                    itemStack(KHItems.BARBUTE.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.BASCINET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.KETTLE_HELM.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.NASAL_HELM.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.VIKING_HELM.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.BURGONET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.VISORLESS_SALLET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.MORION.get(ArmorVariant.NETHERITE).get()),
+
                     itemStack(KHItems.ARMET.get()),
                     itemStack(KHItems.ARMET_2.get()),
                     itemStack(KHItems.VISORED_BARBUTE.get()),
@@ -276,12 +285,29 @@ public interface KHItemGroups {
                     itemStack(KHItems.BLACK_SALLET.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.VISORED_MORION.get(ArmorVariant.GOLDEN).get()),
 
+                    itemStack(KHItems.ARMET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.ARMET_2.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.VISORED_BARBUTE.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.HOUNDSKULL.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.CAGE.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.VISORED_BASCINET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.GREAT_HELM.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.GREAT_HELM_2.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.SALLET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.BURGONET_FALLING_BUFFE.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.CLOSE_HELM.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.BLACK_SALLET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.VISORED_MORION.get(ArmorVariant.NETHERITE).get()),
+
                     itemStack(KHItems.SALLET_BEVOR.get()),
                     itemStack(KHItems.BLACK_SALLET_BEVOR.get()),
                     itemStack(KHItems.SALLET_BEVOR.get(ArmorVariant.DARK).get()),
                     itemStack(KHItems.BLACK_SALLET_BEVOR.get(ArmorVariant.DARK).get()),
                     itemStack(KHItems.SALLET_BEVOR.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.BLACK_SALLET_BEVOR.get(ArmorVariant.GOLDEN).get()),
+
+                    itemStack(KHItems.SALLET_BEVOR.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.BLACK_SALLET_BEVOR.get(ArmorVariant.NETHERITE).get()),
 
                     itemStack(KHItems.FROGMOUTH.get()),
                     itemStack(KHItems.GREAT_ARMET.get()),
@@ -310,6 +336,15 @@ public interface KHItemGroups {
                     itemStack(KHItems.SAVOYARD.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.ARAGONESE_SALLET.get(ArmorVariant.GOLDEN).get()),
 
+                    itemStack(KHItems.FROGMOUTH.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.GREAT_ARMET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.GREAT_ARMET_2.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.GREAT_BASCINET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.GREAT_HOUNDSKUL_BASCINET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.MAXIMILLIAN_HELMET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.SAVOYARD.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.ARAGONESE_SALLET.get(ArmorVariant.NETHERITE).get()),
+
                     itemStack(KHItems.CHAPERON.get()),
                     itemStack(KHItems.GILDED_CHAPERON.get()),
 
@@ -333,12 +368,22 @@ public interface KHItemGroups {
                     itemStack(KHItems.XIIII_PLATE_CUIRASS.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.XIIII_PLATE_BREASTPLATE.get(ArmorVariant.GOLDEN).get()),
 
+                    itemStack(KHItems.BRIGANDINE.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.PLATE_CUIRASS.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.MAXIMILLIAN_CUIRASS.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.XIIII_PLATE_CUIRASS.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.XIIII_PLATE_BREASTPLATE.get(ArmorVariant.NETHERITE).get()),
+
                     itemStack(KHItems.PLACKART.get()),
                     itemStack(KHItems.PLACKART.get(ArmorVariant.DARK).get()),
                     itemStack(KHItems.PLACKART.get(ArmorVariant.GOLDEN).get()),
+
+                    itemStack(KHItems.PLACKART.get(ArmorVariant.NETHERITE).get()),
                     itemStack(KHItems.TASSETS.get()),
                     itemStack(KHItems.TASSETS.get(ArmorVariant.DARK).get()),
                     itemStack(KHItems.TASSETS.get(ArmorVariant.GOLDEN).get()),
+
+                    itemStack(KHItems.TASSETS.get(ArmorVariant.NETHERITE).get()),
 
                     itemStack(KHItems.SURCOAT.get()),
                     itemStack(KHItems.SURCOAT_SLEEVELESS.get()),
@@ -379,6 +424,17 @@ public interface KHItemGroups {
                     itemStack(KHItems.PAULDRONS.get(ArmorVariant.GOLDEN, ArmorVariant.RIMMED).get()),
                     itemStack(KHItems.PAULDRONS.get(ArmorVariant.GOLDEN, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get()),
 
+                    itemStack(KHItems.MAIL_SPAULDERS.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.PAULDRONS.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.MAIL_SPAULDERS.get(ArmorVariant.NETHERITE, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.BRIGANDINE_SPAULDERS.get(ArmorVariant.NETHERITE, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.PLATE_SPAULDERS.get(ArmorVariant.NETHERITE, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.PAULDRONS.get(ArmorVariant.NETHERITE, ArmorVariant.BESAGEWS).get()),
+                    itemStack(KHItems.PAULDRONS.get(ArmorVariant.NETHERITE, ArmorVariant.RIMMED).get()),
+                    itemStack(KHItems.PAULDRONS.get(ArmorVariant.NETHERITE, ArmorVariant.BESAGEWS, ArmorVariant.RIMMED).get()),
+
                     itemStack(KHItems.LEATHER_GLOVES.get()),
                     itemStack(KHItems.MAIL_GLOVES.get()),
 
@@ -394,6 +450,10 @@ public interface KHItemGroups {
                     itemStack(KHItems.BRIGANDINE_HARNESS.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.PLATE_HARNESS.get(ArmorVariant.GOLDEN).get()),
 
+                    itemStack(KHItems.GAUNTLET.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.BRIGANDINE_HARNESS.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.PLATE_HARNESS.get(ArmorVariant.NETHERITE).get()),
+
                     itemStack(KHItems.BRIGANDINE_CUISSES.get()),
                     itemStack(KHItems.PLATE_CUISSES.get()),
 
@@ -403,17 +463,24 @@ public interface KHItemGroups {
                     itemStack(KHItems.BRIGANDINE_CUISSES.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.PLATE_CUISSES.get(ArmorVariant.GOLDEN).get()),
 
+                    itemStack(KHItems.BRIGANDINE_CUISSES.get(ArmorVariant.NETHERITE).get()),
+                    itemStack(KHItems.PLATE_CUISSES.get(ArmorVariant.NETHERITE).get()),
+
                     itemStack(KHItems.GREAVES.get()),
 
                     itemStack(KHItems.GREAVES.get(ArmorVariant.DARK).get()),
 
                     itemStack(KHItems.GREAVES.get(ArmorVariant.GOLDEN).get()),
 
+                    itemStack(KHItems.GREAVES.get(ArmorVariant.NETHERITE).get()),
+
                     itemStack(KHItems.SABATONS.get()),
 
                     itemStack(KHItems.SABATONS.get(ArmorVariant.DARK).get()),
 
                     itemStack(KHItems.SABATONS.get(ArmorVariant.GOLDEN).get()),
+
+                    itemStack(KHItems.SABATONS.get(ArmorVariant.NETHERITE).get()),
 
                     itemStack(KHItems.HOOD.get()),
                     itemStack(KHItems.TORN_HOOD.get()),

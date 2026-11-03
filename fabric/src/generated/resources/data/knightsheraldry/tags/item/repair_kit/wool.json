@@ -10,14 +10,19 @@
     "knightsheraldry:dark_brigandine_spaulders_besagews",
     "knightsheraldry:golden_brigandine_spaulders",
     "knightsheraldry:golden_brigandine_spaulders_besagews",
+    "knightsheraldry:netherite_brigandine_spaulders",
+    "knightsheraldry:netherite_brigandine_spaulders_besagews",
     "knightsheraldry:brigandine",
     "knightsheraldry:dark_brigandine",
     "knightsheraldry:golden_brigandine",
+    "knightsheraldry:netherite_brigandine",
     "knightsheraldry:brigandine_harness",
     "knightsheraldry:dark_brigandine_harness",
     "knightsheraldry:golden_brigandine_harness",
+    "knightsheraldry:netherite_brigandine_harness",
     "knightsheraldry:brigandine_cuisses",
     "knightsheraldry:dark_brigandine_cuisses",
-    "knightsheraldry:golden_brigandine_cuisses"
+    "knightsheraldry:golden_brigandine_cuisses",
+    "knightsheraldry:netherite_brigandine_cuisses"
   ]
 }

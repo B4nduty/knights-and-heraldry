@@ -5,12 +5,15 @@
     "knightsheraldry:gauntlet",
     "knightsheraldry:dark_gauntlet",
     "knightsheraldry:golden_gauntlet",
+    "knightsheraldry:netherite_gauntlet",
     "knightsheraldry:brigandine_harness",
     "knightsheraldry:dark_brigandine_harness",
     "knightsheraldry:golden_brigandine_harness",
+    "knightsheraldry:netherite_brigandine_harness",
     "knightsheraldry:plate_harness",
     "knightsheraldry:dark_plate_harness",
-    "knightsheraldry:golden_plate_harness"
+    "knightsheraldry:golden_plate_harness",
+    "knightsheraldry:netherite_plate_harness"
   ],
   "icon": "knightsheraldry:container/icon/arm",
   "protectedSlots": ["gloves"]

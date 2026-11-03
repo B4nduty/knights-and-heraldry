@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "knightsheraldry:pauldrons_rimmed"
+  },
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:netherite_pauldrons_rimmed"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

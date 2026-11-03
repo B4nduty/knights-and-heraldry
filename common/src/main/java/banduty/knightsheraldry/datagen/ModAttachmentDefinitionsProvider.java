@@ -225,8 +225,8 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
 
             double toughness = tier.toughness(base.toughness());
             double weight = tier.weight(base.weight());
-            double armor = base.armor();
-            double deflect = base.deflectChance();
+            double armor = tier.armor(base.armor());
+            double deflect = tier.deflect(base.deflectChance());
             for (ArmorVariant modifier : structural) {
                 toughness = modifier.toughness(toughness);
                 weight = modifier.weight(weight);

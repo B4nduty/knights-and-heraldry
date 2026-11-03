@@ -2,7 +2,7 @@ package banduty.knightsheraldry.util.itemdata;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.items.armor.ArmorVariant;
+import banduty.knightsheraldry.items.armor.ArmorFamily;
 import banduty.knightsheraldry.items.item.khrangeweapon.HeavyCrossbow;
 import banduty.knightsheraldry.items.item.khsield.BucklerShield;
 import banduty.knightsheraldry.items.item.khsield.HeaterShield;
@@ -14,6 +14,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class ModModelPredicates {
@@ -98,8 +99,7 @@ public class ModModelPredicates {
                 }
                 return Objects.equals(cleanDisplayName, translatable) ? 1.0F : 0.0F;
             });
-        if (item == KHItems.BLACK_SALLET.get() || item == KHItems.BLACK_SALLET.get(ArmorVariant.DARK).get() || item == KHItems.BLACK_SALLET.get(ArmorVariant.GOLDEN).get() ||
-                item == KHItems.BLACK_SALLET_BEVOR.get() || item == KHItems.BLACK_SALLET_BEVOR.get(ArmorVariant.DARK).get() || item == KHItems.BLACK_SALLET_BEVOR.get(ArmorVariant.GOLDEN).get())
+        if (Arrays.stream(ArmorFamily.allFamilies(KHItems.BLACK_SALLET, KHItems.BLACK_SALLET_BEVOR)).anyMatch(s -> s.get() == item))
             ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "rat"), (stack, world, entity, seed) -> {
                 String customName = stack.getHoverName().getString();
                 return customName.contains("Rat") ? 1.0F : 0.0F;

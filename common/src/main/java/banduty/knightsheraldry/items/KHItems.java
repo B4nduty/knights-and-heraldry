@@ -215,222 +215,222 @@ public interface KHItems {
             () -> new SCDyeableUnderArmor(KHArmorMaterials.ARMING, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(896), 0xFFA06440));
 
     ArmorFamily MAIL_SPAULDERS = attachmentFamily("mail_spaulders", 91, KHChestplateAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.GOLDEN}, ArmorVariant.BESAGEWS);
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}, ArmorVariant.BESAGEWS);
     ArmorFamily BRIGANDINE_SPAULDERS = attachmentFamily(
             "brigandine_spaulders", 103,
             (props, ingredient) -> new KHChestplateAttachment(props, true, 0xFFA06440, Ingredient.of(Arrays.stream(ingredient.getItems()).findFirst().get().getItem(), Items.LEATHER)),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN},
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE},
             ArmorVariant.BESAGEWS
     );
     ArmorFamily PLATE_SPAULDERS = attachmentFamily(
             "plate_spaulders", 163,
             KHChestplateAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN},
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE},
             ArmorVariant.BESAGEWS
     );
 
     ArmorFamily PAULDRONS = attachmentFamily(
             "pauldrons", 172,
             KHPauldrons::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN},
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE},
             ArmorVariant.BESAGEWS, ArmorVariant.RIMMED
     );
 
     ArmorFamily BRIGANDINE = attachmentFamily(
             "brigandine", 423,
             (props, ingredient) -> new KHChestplateAttachment(props, true, 0xFFA06440, Ingredient.of(Arrays.stream(ingredient.getItems()).findFirst().get().getItem(), Items.LEATHER)),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
 
     ArmorFamily PLATE_CUIRASS = attachmentFamily(
             "plate_cuirass", 650,
             KHChestplateAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily MAXIMILLIAN_CUIRASS = attachmentFamily(
             "maximillian_cuirass", 650,
             KHChestplateAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily XIIII_PLATE_CUIRASS = attachmentFamily(
             "xiiii_plate_cuirass", 650,
             KHChestplateAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily XIIII_PLATE_BREASTPLATE = attachmentFamily(
             "xiiii_plate_breastplate", 650,
             KHChestplateAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
 
     ArmorFamily PLACKART = attachmentFamily(
             "plackart", 430,
             KHChestplateAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily TASSETS = attachmentFamily(
             "tassets", 220,
             KHChestplateAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
 
     ArmorFamily BARBUTE = attachmentFamily(
             "barbute", 109,
             KHHelmetAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily BASCINET = attachmentFamily(
             "bascinet", 109,
             KHHelmetAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily KETTLE_HELM = attachmentFamily(
             "kettle_helm", 109,
             KHHelmetAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily NASAL_HELM = attachmentFamily(
             "nasal_helm", 109,
             KHHelmetAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily VIKING_HELM = attachmentFamily(
             "viking_helm", 109,
             KHHelmetAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily BURGONET = attachmentFamily(
             "burgonet", 109,
             KHHelmetAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily VISORLESS_SALLET = attachmentFamily(
             "visorless_sallet", 109,
             KHSalletHelmet::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily MORION = attachmentFamily(
             "morion", 109,
             KHMorionHelmet::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
 
     ArmorFamily ARMET = attachmentFamily(
             "armet", 172,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily ARMET_2 = attachmentFamily(
             "armet_2", 172,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily VISORED_BARBUTE = attachmentFamily(
             "visored_barbute", 172,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily HOUNDSKULL = attachmentFamily(
             "houndskull", 172,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily CAGE = attachmentFamily(
             "cage", 172,
             (properties, ingredient) -> new KHCageHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily VISORED_BASCINET = attachmentFamily(
             "visored_bascinet", 172,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily GREAT_HELM = attachmentFamily(
             "great_helm", 250,
             KHGreatHelmetAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily GREAT_HELM_2 = attachmentFamily(
             "great_helm_2", 250,
             KHGreatHelmetAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily SALLET = attachmentFamily(
             "sallet", 172,
             (properties, ingredient) -> new KHSalletHelmet(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily BURGONET_FALLING_BUFFE = attachmentFamily(
             "burgonet_falling_buffe", 172,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily CLOSE_HELM = attachmentFamily(
             "close_helm", 172,
             (properties, ingredient) -> new KHCloseHelmet(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily BLACK_SALLET = attachmentFamily(
             "black_sallet", 172,
             (properties, ingredient) -> new KHBlackSalletHelmet(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily VISORED_MORION = attachmentFamily(
             "visored_morion", 172,
             (properties, ingredient) -> new KHMorionHelmet(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
 
     ArmorFamily SALLET_BEVOR = attachmentFamily(
             "sallet_bevor", 206,
             (properties, ingredient) -> new KHSalletHelmet(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily BLACK_SALLET_BEVOR = attachmentFamily(
             "black_sallet_bevor", 206,
             (properties, ingredient) -> new KHBlackSalletHelmet(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
 
     ArmorFamily FROGMOUTH = attachmentFamily(
             "frogmouth", 354,
             KHHelmetAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily GREAT_ARMET = attachmentFamily(
             "great_armet", 234,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily GREAT_ARMET_2 = attachmentFamily(
             "great_armet_2", 234,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily GREAT_BASCINET = attachmentFamily(
             "great_bascinet", 234,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily GREAT_HOUNDSKUL_BASCINET = attachmentFamily(
             "great_houndskul_bascinet", 234,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily MAXIMILLIAN_HELMET = attachmentFamily(
             "maximillian_helmet", 234,
             (properties, ingredient) -> new KHHelmetAttachment(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily SAVOYARD = attachmentFamily(
             "savoyard", 234,
             (properties, ingredient) -> new KHSavoyard(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily ARAGONESE_SALLET = attachmentFamily(
             "aragonese_sallet", 234,
             (properties, ingredient) -> new KHAragoneseSalletHelmet(properties, true, ingredient),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
 
     Supplier<Item> LEATHER_GLOVES = registerItem("leather_gloves",
@@ -441,40 +441,93 @@ public interface KHItems {
     ArmorFamily GAUNTLET = attachmentFamily(
             "gauntlet", 90,
             KHChestplateAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily BRIGANDINE_HARNESS = attachmentFamily(
             "brigandine_harness", 100,
             (properties, ingredient) -> new KHChestplateAttachment(properties, true, 0xFFA06440, Ingredient.of(Arrays.stream(ingredient.getItems()).findFirst().get().getItem(), Items.LEATHER)),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily PLATE_HARNESS = attachmentFamily(
             "plate_harness", 116,
             KHChestplateAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
 
     ArmorFamily BRIGANDINE_CUISSES = attachmentFamily(
             "brigandine_cuisses", 187,
             (properties, ingredient) -> new KHLeggingsAttachment(properties, true, 0xFFA06440, Ingredient.of(Arrays.stream(ingredient.getItems()).findFirst().get().getItem(), Items.LEATHER)),
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
     ArmorFamily PLATE_CUISSES = attachmentFamily(
             "plate_cuisses", 203,
             KHLeggingsAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
 
     ArmorFamily GREAVES = attachmentFamily(
             "greaves", 90,
             KHLeggingsAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
     );
 
     ArmorFamily SABATONS = attachmentFamily(
             "sabatons", 90,
             KHBootsAttachment::new,
-            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN, ArmorVariant.NETHERITE}
+    );
+
+    /** Every wearable armor family that has a {@link ArmorVariant#NETHERITE} tier. */
+    List<ArmorFamily> NETHERITE_ARMOR_FAMILIES = List.of(
+            MAIL_SPAULDERS,
+            BRIGANDINE_SPAULDERS,
+            PLATE_SPAULDERS,
+            PAULDRONS,
+            BRIGANDINE,
+            PLATE_CUIRASS,
+            MAXIMILLIAN_CUIRASS,
+            XIIII_PLATE_CUIRASS,
+            XIIII_PLATE_BREASTPLATE,
+            PLACKART,
+            TASSETS,
+            BARBUTE,
+            BASCINET,
+            KETTLE_HELM,
+            NASAL_HELM,
+            VIKING_HELM,
+            BURGONET,
+            VISORLESS_SALLET,
+            MORION,
+            ARMET,
+            ARMET_2,
+            VISORED_BARBUTE,
+            HOUNDSKULL,
+            CAGE,
+            VISORED_BASCINET,
+            GREAT_HELM,
+            GREAT_HELM_2,
+            SALLET,
+            BURGONET_FALLING_BUFFE,
+            CLOSE_HELM,
+            BLACK_SALLET,
+            VISORED_MORION,
+            SALLET_BEVOR,
+            BLACK_SALLET_BEVOR,
+            FROGMOUTH,
+            GREAT_ARMET,
+            GREAT_ARMET_2,
+            GREAT_BASCINET,
+            GREAT_HOUNDSKUL_BASCINET,
+            MAXIMILLIAN_HELMET,
+            SAVOYARD,
+            ARAGONESE_SALLET,
+            GAUNTLET,
+            BRIGANDINE_HARNESS,
+            PLATE_HARNESS,
+            BRIGANDINE_CUISSES,
+            PLATE_CUISSES,
+            GREAVES,
+            SABATONS
     );
 
     Supplier<Item> AVENTAIL = registerItem("aventail",
@@ -726,7 +779,7 @@ public interface KHItems {
                     durability = modifier.durability(durability);
                 }
 
-                Item.Properties props = new Item.Properties().stacksTo(1).durability(durability);
+                Item.Properties props = tier.properties(new Item.Properties().stacksTo(1).durability(durability));
                 map.put(new VariantCombo(tier, structural),
                         registerItem(id, () -> factory.apply(props, tier.ingredient())));
             }

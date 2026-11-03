@@ -5,18 +5,23 @@
     "knightsheraldry:brigandine",
     "knightsheraldry:dark_brigandine",
     "knightsheraldry:golden_brigandine",
+    "knightsheraldry:netherite_brigandine",
     "knightsheraldry:plate_cuirass",
     "knightsheraldry:dark_plate_cuirass",
     "knightsheraldry:golden_plate_cuirass",
+    "knightsheraldry:netherite_plate_cuirass",
     "knightsheraldry:maximillian_cuirass",
     "knightsheraldry:dark_maximillian_cuirass",
     "knightsheraldry:golden_maximillian_cuirass",
+    "knightsheraldry:netherite_maximillian_cuirass",
     "knightsheraldry:xiiii_plate_cuirass",
     "knightsheraldry:dark_xiiii_plate_cuirass",
     "knightsheraldry:golden_xiiii_plate_cuirass",
+    "knightsheraldry:netherite_xiiii_plate_cuirass",
     "knightsheraldry:xiiii_plate_breastplate",
     "knightsheraldry:dark_xiiii_plate_breastplate",
-    "knightsheraldry:golden_xiiii_plate_breastplate"
+    "knightsheraldry:golden_xiiii_plate_breastplate",
+    "knightsheraldry:netherite_xiiii_plate_breastplate"
   ],
   "icon": "knightsheraldry:container/icon/breastplate"
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "knightsheraldry:visored_morion"
+  },
+  "result": {
+    "count": 1,
+    "id": "knightsheraldry:netherite_visored_morion"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}
