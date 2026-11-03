@@ -2,6 +2,7 @@ package banduty.knightsheraldry.mixin;
 
 import banduty.knightsheraldry.items.item.khweapon.Estoc;
 import banduty.knightsheraldry.util.OffhandUtil;
+import banduty.knightsheraldry.util.itemdata.KHTags;
 import net.bettercombat.logic.PlayerAttackHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -21,9 +22,15 @@ public class PlayerAttackHelperMixin {
 
     // Mapping-agnostic selector: Player is class_1657 on Fabric but Player on NeoForge, and remap=false
     // means the descriptor isn't translated. Matches only the single-arg overload isDualWielding(Player).
+    // Only weapons in the knightsheraldry:dual_wieldable tag (estocs, bastard swords, daggers) may be dual wielded,
+    // and only when both hands hold one.
     @Inject(method = "name=/^isDualWielding$/ desc=/^\\(L[^;]+;\\)Z$/", at = @At("HEAD"), cancellable = true)
     private static void kh$estocNoDual(Player player, CallbackInfoReturnable<Boolean> cir) {
-        if (knightsheraldry$mountedEstoc(player) || OffhandUtil.shouldHideOffhand(player)) cir.setReturnValue(false);
+        if (knightsheraldry$mountedEstoc(player) || OffhandUtil.shouldHideOffhand(player)
+                || !player.getMainHandItem().is(KHTags.DUAL_WIELDABLE.getTag())
+                || !player.getOffhandItem().is(KHTags.DUAL_WIELDABLE.getTag())) {
+            cir.setReturnValue(false);
+        }
     }
 
     @Unique

@@ -97,6 +97,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(itemArray(KHItems.HORSE_BARDING.list()))
                 .add(itemArray(KHItems.BRIGANDINE.list()));
 
+        tag(KHTags.DUAL_WIELDABLE.getTag())
+                .add(KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(),
+                        KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(),
+                        KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get());
+
         tag(KHTags.TWO_HANDED.getTag())
                 .add(KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(), KHItems.GILDED_LONGSWORD.get(), KHItems.GILDED_V_LONGSWORD.get(),
                         KHItems.GREATSWORD.get(), KHItems.CLAYMORE.get(), KHItems.FLAMBERGE.get(), KHItems.ZWEIHANDER.get(),
