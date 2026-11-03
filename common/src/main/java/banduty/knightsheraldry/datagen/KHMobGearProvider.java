@@ -2,7 +2,6 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.armor.ArmorFamily;
-import banduty.knightsheraldry.items.armor.ArmorVariant;
 import banduty.stoneycore.datagen.MobGearDataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -70,7 +69,7 @@ public class KHMobGearProvider extends MobGearDataProvider {
 
     private void addAttachments() {
         attachments(EquipmentSlot.HEAD, ALLOWED_MOBS,
-                ArmorFamily.allFamiliesExcept(ArmorVariant.NETHERITE,
+                ArmorFamily.allFamilies(
                         KHItems.BARBUTE,
                         KHItems.BASCINET,
                         KHItems.KETTLE_HELM,
@@ -106,7 +105,7 @@ public class KHMobGearProvider extends MobGearDataProvider {
         );
 
         attachments(EquipmentSlot.CHEST, ALLOWED_MOBS,
-                ArmorFamily.allFamiliesExcept(ArmorVariant.NETHERITE,
+                ArmorFamily.allFamilies(
                         KHItems.MAIL_SPAULDERS,
                         KHItems.BRIGANDINE_SPAULDERS,
                         KHItems.PLATE_SPAULDERS,
@@ -130,7 +129,7 @@ public class KHMobGearProvider extends MobGearDataProvider {
         );
 
         attachments(EquipmentSlot.LEGS, ALLOWED_MOBS,
-                ArmorFamily.allFamiliesExcept(ArmorVariant.NETHERITE,
+                ArmorFamily.allFamilies(
                         KHItems.BRIGANDINE_CUISSES,
                         KHItems.PLATE_CUISSES,
                         KHItems.GREAVES
@@ -138,7 +137,7 @@ public class KHMobGearProvider extends MobGearDataProvider {
         );
 
         attachments(EquipmentSlot.FEET, ALLOWED_MOBS,
-                ArmorFamily.allFamiliesExcept(ArmorVariant.NETHERITE,
+                ArmorFamily.allFamilies(
                         KHItems.SABATONS
                 )
         );

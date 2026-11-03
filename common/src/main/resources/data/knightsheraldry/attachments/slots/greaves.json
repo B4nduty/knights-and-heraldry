@@ -4,8 +4,7 @@
   "items": [
     "knightsheraldry:greaves",
     "knightsheraldry:dark_greaves",
-    "knightsheraldry:golden_greaves",
-    "knightsheraldry:netherite_greaves"
+    "knightsheraldry:golden_greaves"
   ],
   "icon": "knightsheraldry:container/icon/greaves"
 }

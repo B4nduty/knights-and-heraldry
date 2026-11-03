@@ -2,9 +2,7 @@ package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.items.armor.ArmorFamily;
 import banduty.knightsheraldry.items.armor.ArmorVariant;
-import banduty.knightsheraldry.items.armor.VariantCombo;
 import banduty.stoneycore.datagen.CraftmanAnvilRecipeJsonBuilder;
 import banduty.stoneycore.items.SCItems;
 import banduty.stoneycore.data.SCDataComponents;
@@ -21,9 +19,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
     public ModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
@@ -772,30 +768,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // Chaperon
         createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.CHAPERON.get(), itemTagWC(ItemTags.WOOL, 5));
         createCraftmanAnvilRecipe(exporter, 3, 1.0f, KHItems.GILDED_CHAPERON.get(), new ItemStack(KHItems.CHAPERON.get()), new ItemStack(Items.GOLD_INGOT));
-
-        // Netherite upgrades (smithing table: template + plain piece + netherite ingot)
-        for (ArmorFamily family : KHItems.NETHERITE_ARMOR_FAMILIES) {
-            createNetheriteUpgrades(exporter, family);
-        }
-    }
-
-    private void createNetheriteUpgrades(RecipeOutput exporter, ArmorFamily family) {
-        Map<VariantCombo, Supplier<Item>> combos = family.combos();
-        for (Map.Entry<VariantCombo, Supplier<Item>> entry : combos.entrySet()) {
-            if (entry.getKey().tier() != ArmorVariant.NETHERITE) continue;
-            Supplier<Item> base = combos.get(new VariantCombo(ArmorVariant.PLAIN, entry.getKey().structural()));
-            if (base == null) continue;
-            Item result = entry.getValue().get();
-            SmithingTransformRecipeBuilder.smithing(
-                            Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                            Ingredient.of(base.get()),
-                            Ingredient.of(Items.NETHERITE_INGOT),
-                            RecipeCategory.COMBAT,
-                            result)
-                    .unlocks(getHasName(Items.NETHERITE_INGOT), has(Items.NETHERITE_INGOT))
-                    .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
-                            "smithing/" + BuiltInRegistries.ITEM.getKey(result).getPath()));
-        }
     }
 
     private record Unfinished(ItemStack stack) {

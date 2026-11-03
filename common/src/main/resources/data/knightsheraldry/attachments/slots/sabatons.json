@@ -4,8 +4,7 @@
   "items": [
     "knightsheraldry:sabatons",
     "knightsheraldry:dark_sabatons",
-    "knightsheraldry:golden_sabatons",
-    "knightsheraldry:netherite_sabatons"
+    "knightsheraldry:golden_sabatons"
   ],
   "icon": "knightsheraldry:container/icon/sabatons"
 }

@@ -44,17 +44,6 @@ public final class ArmorFamily implements Supplier<Item> {
         return toArray(out);
     }
 
-    /** Like {@link #allFamilies}, but leaves out every item of the given tier (e.g. netherite for mob gear). */
-    public static Supplier<Item>[] allFamiliesExcept(ArmorVariant excludedTier, ArmorFamily... families) {
-        List<Supplier<Item>> out = new ArrayList<>();
-        for (ArmorFamily f : families) {
-            f.items.forEach((combo, item) -> {
-                if (combo.tier() != excludedTier) out.add(item);
-            });
-        }
-        return toArray(out);
-    }
-
     @SuppressWarnings("unchecked")
     private static Supplier<Item>[] toArray(List<Supplier<Item>> list) {
         return list.toArray(new Supplier[0]);

@@ -1,6 +1,5 @@
 package banduty.knightsheraldry.items.armor;
 
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -14,7 +13,6 @@ public enum ArmorVariant {
     DARK("dark_", 1.10, 1.0, 1.10, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.IRON_INGOT)),
     DARK_GILDED("dark_gilded_", 1.10, 1.0, 1.10, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.IRON_INGOT)),
     GOLDEN("golden_", 1.20, 0.0, 1.05, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.GOLD_INGOT)),
-    NETHERITE("netherite_", 1.50, 2.0, 1.00, 0.0, 1.0, 0.02, () -> Ingredient.of(Items.NETHERITE_INGOT), true),
 
     BESAGEWS("_besagews", 1.00, 0.0, 1.00, 0.20, 1.0, 0.01, () -> Ingredient.of(Items.IRON_INGOT)),
     RIMMED("_rimmed", 1.00, 1.0, 1.00, 0.20, 0.0, 0.01, () -> Ingredient.of(Items.IRON_INGOT));
@@ -27,17 +25,10 @@ public enum ArmorVariant {
     private final double armorBonus;
     private final double deflectBonus;
     private final Supplier<Ingredient> ingredientSupplier;
-    private final boolean fireResistant;
 
     ArmorVariant(String prefix, double durabilityMult, double toughnessBonus,
                  double weightMult, double weightBonus, double armorBonus,
                  double deflectBonus, Supplier<Ingredient> ingredientSupplier) {
-        this(prefix, durabilityMult, toughnessBonus, weightMult, weightBonus, armorBonus, deflectBonus, ingredientSupplier, false);
-    }
-
-    ArmorVariant(String prefix, double durabilityMult, double toughnessBonus,
-                 double weightMult, double weightBonus, double armorBonus,
-                 double deflectBonus, Supplier<Ingredient> ingredientSupplier, boolean fireResistant) {
         this.prefix = prefix;
         this.durabilityMult = durabilityMult;
         this.toughnessBonus = toughnessBonus;
@@ -46,11 +37,6 @@ public enum ArmorVariant {
         this.armorBonus = armorBonus;
         this.deflectBonus = deflectBonus;
         this.ingredientSupplier = ingredientSupplier;
-        this.fireResistant = fireResistant;
-    }
-
-    public Item.Properties properties(Item.Properties properties) {
-        return fireResistant ? properties.fireResistant() : properties;
     }
 
     public String id(String baseName) {
