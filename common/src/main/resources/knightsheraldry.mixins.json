@@ -18,7 +18,9 @@
     "EntityRendererMixin",
     "HorseRendererMixin",
     "ItemInHandLayerMixin",
-    "ItemInHandRendererMixin"
+    "ItemInHandRendererMixin",
+    "MinecraftMixin",
+    "MultiPlayerGameModeAccessor"
   ],
   "server": [
   ],

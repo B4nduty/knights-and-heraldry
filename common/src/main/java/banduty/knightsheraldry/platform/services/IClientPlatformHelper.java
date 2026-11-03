@@ -5,4 +5,6 @@ import software.bernie.geckolib.animation.RawAnimation;
 
 public interface IClientPlatformHelper {
     RawAnimation loadAnimation(LivingEntity livingEntity);
+
+    void sendOffhandAttack(int entityId, boolean sneaking);
 }

@@ -1,10 +1,12 @@
 package banduty.knightsheraldry.platform;
 
+import banduty.knightsheraldry.networking.payload.OffhandAttackC2SPacket;
 import banduty.knightsheraldry.platform.services.IClientPlatformHelper;
 import net.bettercombat.api.AttackHand;
 import net.bettercombat.logic.PlayerAttackHelper;
 import net.bettercombat.logic.PlayerAttackProperties;
 import net.minecraft.world.entity.LivingEntity;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.minecraft.world.entity.player.Player;
 import software.bernie.geckolib.animation.Animation;
 import software.bernie.geckolib.animation.RawAnimation;
@@ -21,5 +23,10 @@ public class NeoForgeClientPlatformHelper implements IClientPlatformHelper {
             animation = RawAnimation.begin().then("standby", Animation.LoopType.LOOP);
         }
         return animation;
+    }
+
+    @Override
+    public void sendOffhandAttack(int entityId, boolean sneaking) {
+        PacketDistributor.sendToServer(new OffhandAttackC2SPacket(entityId, sneaking));
     }
 }

@@ -1,17 +1,21 @@
 package banduty.knightsheraldry;
 
+import banduty.knightsheraldry.combat.OffhandAttack;
 import banduty.knightsheraldry.config.KHConfigs;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.entity.custom.Craftman;
 import banduty.knightsheraldry.entity.custom.CraftmanTradeManager;
 import banduty.knightsheraldry.event.UseItemHandler;
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.networking.payload.OffhandAttackC2SPacket;
 import banduty.knightsheraldry.trades.KHFabricVillagerTrades;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
@@ -33,6 +37,10 @@ public class KnightsHeraldryFabric implements ModInitializer {
         Craftman.init();
         KHFabricVillagerTrades.register();
         UseItemCallback.EVENT.register(new UseItemHandler());
+
+        PayloadTypeRegistry.playC2S().register(OffhandAttackC2SPacket.TYPE, OffhandAttackC2SPacket.STREAM_CODEC);
+        ServerPlayNetworking.registerGlobalReceiver(OffhandAttackC2SPacket.TYPE,
+                (payload, context) -> context.server().execute(() -> OffhandAttack.handle(context.player(), payload)));
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(content -> {
             content.accept(KHItems.CRAFTMAN_SPAWN_EGG.get());

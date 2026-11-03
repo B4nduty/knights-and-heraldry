@@ -1,6 +1,8 @@
 package banduty.knightsheraldry.platform;
 
+import banduty.knightsheraldry.networking.payload.OffhandAttackC2SPacket;
 import banduty.knightsheraldry.platform.services.IClientPlatformHelper;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.bettercombat.api.AttackHand;
 import net.bettercombat.logic.PlayerAttackHelper;
 import net.bettercombat.logic.PlayerAttackProperties;
@@ -21,5 +23,10 @@ public class FabricClientPlatformHelper implements IClientPlatformHelper {
             animation = RawAnimation.begin().then("standby", Animation.LoopType.LOOP);
         }
         return animation;
+    }
+
+    @Override
+    public void sendOffhandAttack(int entityId, boolean sneaking) {
+        ClientPlayNetworking.send(new OffhandAttackC2SPacket(entityId, sneaking));
     }
 }
