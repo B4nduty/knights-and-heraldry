@@ -68,15 +68,13 @@ public class ClothArrow extends KHExtendedArrowItem {
             if (!level.isClientSide()) {
                 if (stack.getCount() > 1) {
                     ItemStack ignitedArrow = stack.split(1);
-                    stack.set(SCDataComponents.ARROW_IGNITED.get(), true);
-                    stack.set(SCDataComponents.IGNITE_TIME.get(), level.getGameTime());
+                    ignite(ignitedArrow, level);
 
                     if (!player.getInventory().add(ignitedArrow)) {
                         player.drop(ignitedArrow, false);
                     }
                 } else {
-                    stack.set(SCDataComponents.ARROW_IGNITED.get(), true);
-                    stack.set(SCDataComponents.IGNITE_TIME.get(), level.getGameTime());
+                    ignite(stack, level);
                 }
             } else {
                 float pitch = 0.5f + player.getRandom().nextFloat() * 1.5f;
@@ -108,8 +106,6 @@ public class ClothArrow extends KHExtendedArrowItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player user, InteractionHand hand) {
         ItemStack itemStack = user.getItemInHand(hand);
         ItemStack offHandStack;
-        if (Boolean.TRUE.equals(itemStack.get(KHDataComponents.EXTINGUISHED.get())))
-            return super.use(level, user, hand);
         if (itemStack == user.getMainHandItem()) offHandStack = user.getOffhandItem();
         else offHandStack = user.getMainHandItem();
         if (offHandStack.is(Items.WATER_BUCKET) && Boolean.TRUE.equals(itemStack.get(SCDataComponents.ARROW_IGNITED.get()))) {
@@ -132,15 +128,13 @@ public class ClothArrow extends KHExtendedArrowItem {
             if (!level.isClientSide()) {
                 if (itemStack.getCount() > 1) {
                     ItemStack ignitedArrow = itemStack.split(1);
-                    ignitedArrow.set(SCDataComponents.ARROW_IGNITED.get(), true);
-                    ignitedArrow.set(SCDataComponents.IGNITE_TIME.get(), level.getGameTime());
+                    ignite(ignitedArrow, level);
 
                     if (!user.getInventory().add(ignitedArrow)) {
                         user.drop(ignitedArrow, false);
                     }
                 } else {
-                    itemStack.set(SCDataComponents.ARROW_IGNITED.get(), true);
-                    itemStack.set(SCDataComponents.IGNITE_TIME.get(), level.getGameTime());
+                    ignite(itemStack, level);
                 }
 
                 if (user instanceof ServerPlayer serverPlayer && !serverPlayer.isCreative()) {
@@ -152,6 +146,12 @@ public class ClothArrow extends KHExtendedArrowItem {
             }
         }
         return InteractionResultHolder.success(itemStack);
+    }
+
+    private static void ignite(ItemStack stack, Level level) {
+        stack.remove(KHDataComponents.EXTINGUISHED.get());
+        stack.set(SCDataComponents.ARROW_IGNITED.get(), true);
+        stack.set(SCDataComponents.IGNITE_TIME.get(), level.getGameTime());
     }
 
     @Override
