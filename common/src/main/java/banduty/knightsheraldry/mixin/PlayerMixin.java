@@ -1,6 +1,7 @@
 package banduty.knightsheraldry.mixin;
 
 import banduty.knightsheraldry.items.item.khsield.HeaterShield;
+import banduty.knightsheraldry.items.item.khweapon.Estoc;
 import banduty.knightsheraldry.items.item.khweapon.Lance;
 import banduty.knightsheraldry.util.playerdata.PlayerVelocity;
 import banduty.stoneycore.data.IEntityDataSaver;
@@ -32,23 +33,25 @@ public abstract class PlayerMixin {
 
         if (!(player instanceof ServerPlayer serverPlayer)) return;
 
-        boolean lanceStackCharged = knightsheraldry$lanceStackCharged(player);
-        if (!lanceStackCharged) return;
+        if (!knightsheraldry$holdingLanceWeapon(player)) return;
 
         float velocity = knightsheraldry$calculateVelocity(serverPlayer);
 
         PlayerVelocity.updateSpeedHistory((IEntityDataSaver) player, velocity);
     }
 
+    // Tracks mount speed while a lance-style weapon (lance, or the estoc's mounted charge) is held. Tracking
+    // before the weapon is charged keeps the previous position fresh, so the first charged tick doesn't measure
+    // the distance travelled since the weapon was last used.
     @Unique
-    private boolean knightsheraldry$lanceStackCharged(Player player) {
-        ItemStack mainHand = player.getMainHandItem();
-        if (mainHand.getItem() instanceof Lance) return Lance.isCharged(mainHand);
+    private boolean knightsheraldry$holdingLanceWeapon(Player player) {
+        return knightsheraldry$isLanceWeapon(player.getMainHandItem())
+                || knightsheraldry$isLanceWeapon(player.getOffhandItem());
+    }
 
-        ItemStack offHand = player.getOffhandItem();
-        if (offHand.getItem() instanceof Lance) return Lance.isCharged(offHand);
-
-        return false;
+    @Unique
+    private static boolean knightsheraldry$isLanceWeapon(ItemStack stack) {
+        return stack.getItem() instanceof Lance || stack.getItem() instanceof Estoc;
     }
 
     @Unique
