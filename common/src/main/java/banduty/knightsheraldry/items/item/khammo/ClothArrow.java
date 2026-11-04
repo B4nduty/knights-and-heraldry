@@ -65,6 +65,8 @@ public class ClothArrow extends KHExtendedArrowItem {
         if (player == null) return InteractionResult.PASS;
 
         if (level.getBlockState(pos).is(Blocks.FIRE)) {
+            // Extinguished cloth arrows are spent and can't be relit.
+            if (Boolean.TRUE.equals(stack.get(KHDataComponents.EXTINGUISHED.get()))) return InteractionResult.PASS;
             if (!level.isClientSide()) {
                 if (stack.getCount() > 1) {
                     ItemStack ignitedArrow = stack.split(1);
@@ -106,6 +108,8 @@ public class ClothArrow extends KHExtendedArrowItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player user, InteractionHand hand) {
         ItemStack itemStack = user.getItemInHand(hand);
         ItemStack offHandStack;
+        if (Boolean.TRUE.equals(itemStack.get(KHDataComponents.EXTINGUISHED.get())))
+            return super.use(level, user, hand);
         if (itemStack == user.getMainHandItem()) offHandStack = user.getOffhandItem();
         else offHandStack = user.getMainHandItem();
         if (offHandStack.is(Items.WATER_BUCKET) && Boolean.TRUE.equals(itemStack.get(SCDataComponents.ARROW_IGNITED.get()))) {

@@ -258,6 +258,7 @@
   "text.tooltip.knightsheraldry.throw-to-pin": "§lБросьте, §rчтобы §l§4обездвижить цель §rна §45 секунд.",
   "text.tooltip.knightsheraldry.ignite": "§lПКМ §rс §lогнивом §r- §l§4поджечь",
   "text.tooltip.knightsheraldry.extinguish": "§lПКМ §rс §lведром воды §r- §l§4потушить",
+  "text.tooltip.knightsheraldry.extinguished": "§7Потушена §r- нельзя поджечь снова",
   "text.tooltip.knightsheraldry.right_click-flint_steel-fire": "§lПКМ §rс §lогнивом §r- §l§4поджечь",
   "text.config.knightsheraldry.title": "Knights & Heraldry",
   "text.config.knightsheraldry.section.lance": "Копьё",

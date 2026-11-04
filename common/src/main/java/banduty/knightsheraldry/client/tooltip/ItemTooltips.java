@@ -2,6 +2,7 @@ package banduty.knightsheraldry.client.tooltip;
 
 import banduty.knightsheraldry.items.item.khammo.ClothArrow;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
+import banduty.knightsheraldry.util.itemdata.KHDataComponents;
 import banduty.knightsheraldry.util.itemdata.KHTags;
 import banduty.stoneycore.data.SCDataComponents;
 import net.minecraft.network.chat.Component;
@@ -22,6 +23,8 @@ public final class ItemTooltips {
         if (stack.getItem() instanceof ClothArrow) {
             if (Boolean.TRUE.equals(stack.get(SCDataComponents.ARROW_IGNITED.get()))) {
                 tooltip.add(Component.translatable("text.tooltip.knightsheraldry.extinguish"));
+            } else if (Boolean.TRUE.equals(stack.get(KHDataComponents.EXTINGUISHED.get()))) {
+                tooltip.add(Component.translatable("text.tooltip.knightsheraldry.extinguished"));
             } else {
                 tooltip.add(Component.translatable("text.tooltip.knightsheraldry.ignite"));
             }

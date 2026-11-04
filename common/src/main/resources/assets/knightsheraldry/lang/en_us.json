@@ -416,6 +416,7 @@
   "text.tooltip.knightsheraldry.throw-to-pin": "§lThrow §rto §4Pin §ran §lEntity §rfor §45 §lSeconds",
   "text.tooltip.knightsheraldry.ignite": "Right-click with §lFlint & Steel §rto ignite",
   "text.tooltip.knightsheraldry.extinguish": "Right-click with §lWater Bucket §rto extinguish",
+  "text.tooltip.knightsheraldry.extinguished": "§7Extinguished §r- cannot be relit",
   "text.tooltip.knightsheraldry.right_click-flint_steel-fire": "Right-click with §lFlint & Steel §rto fire",
   "text.tooltip.knightsheraldry.repairmans_kit.cooldown": "Cooldown: %s",
   "text.message.knightsheraldry.repairmans_kit.missing_materials": "The kit is missing the materials for this item",
