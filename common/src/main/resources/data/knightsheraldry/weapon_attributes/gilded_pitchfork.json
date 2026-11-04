@@ -3,9 +3,7 @@
   "attributes": {
     "attack_range": 6,
     "attacks": [
-      {
-        "damageMultiplier": 0.0
-      }
+      {}
     ]
   }
 }
