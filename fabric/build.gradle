@@ -106,6 +106,10 @@ dependencies {
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
+
+    modRuntimeOnly "curse.maven:spark-361579:5759670"
+    // spark's CurseForge jar doesn't bundle its fabric-permissions-api-v0 dependency
+    modRuntimeOnly "me.lucko:fabric-permissions-api:0.3.1"
 }
 
 sourceSets {
