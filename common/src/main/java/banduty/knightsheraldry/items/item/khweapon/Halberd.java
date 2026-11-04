@@ -31,7 +31,7 @@ public class Halberd extends Sword3dItem {
                 target.addEffect(new MobEffectInstance(KHEffects.PIN, 2 * 20));
             }
 
-            double maxDistance = SCWeaponUtil.getMaxDistance(this);
+            double maxDistance = SCWeaponUtil.getMaxDistance(stack);
             AABB detectionBox = new AABB(player.getOnPos()).inflate(maxDistance);
             Vec3 playerPos = player.position();
             player.level().getEntitiesOfClass(LivingEntity.class, detectionBox, entity ->
@@ -39,8 +39,8 @@ public class Halberd extends Sword3dItem {
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.position());
-                        double damage = SCDamageCalculator.applyArmor(player, SCWeaponUtil.calculateDamage(this, distance, damageType), damageType);
-                        double maxDamage = SCWeaponUtil.getMaxDamage(damageType, this);
+                        double damage = SCDamageCalculator.applyArmor(player, SCWeaponUtil.calculateDamage(stack, distance, damageType), damageType);
+                        double maxDamage = SCWeaponUtil.getMaxDamage(damageType, stack);
 
                         if (damage >= maxDamage) {
                             critical = true;

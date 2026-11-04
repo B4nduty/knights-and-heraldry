@@ -24,7 +24,7 @@ public class Billhook extends Sword3dItem {
 
         if (attacker instanceof Player player) {
             SCDamageType damageType = SCWeaponUtil.calculateDamageType(stack, CombatSelect.getComboCount(player));
-            double maxDistance = SCWeaponUtil.getMaxDistance(this);
+            double maxDistance = SCWeaponUtil.getMaxDistance(stack);
             AABB detectionBox = new AABB(player.getOnPos()).inflate(maxDistance);
             Vec3 playerPos = player.position();
             player.level().getEntitiesOfClass(LivingEntity.class, detectionBox, entity ->
@@ -32,9 +32,9 @@ public class Billhook extends Sword3dItem {
                     .forEach(entity -> {
                         boolean critical = false;
                         double distance = playerPos.distanceTo(target.position());
-                        double damage = SCDamageCalculator.applyArmor(player, SCWeaponUtil.calculateDamage(this, distance,
+                        double damage = SCDamageCalculator.applyArmor(player, SCWeaponUtil.calculateDamage(stack, distance,
                                 damageType), damageType);
-                        double maxDamage = SCWeaponUtil.getMaxDamage(damageType, this);
+                        double maxDamage = SCWeaponUtil.getMaxDamage(damageType, stack);
 
                         if (damage >= maxDamage) {
                             critical = true;
