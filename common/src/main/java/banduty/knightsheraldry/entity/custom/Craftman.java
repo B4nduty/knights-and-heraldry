@@ -433,9 +433,17 @@ public class Craftman extends AbstractVillager {
             ));
 
             this.updateTrades();
-        } else if (this.getOffers().isEmpty()) {
+        } else if (this.tickCount % 100 == 0 && this.getOffers().isEmpty()) {
+            // Retry occasionally (e.g. after a datapack reload) instead of every tick: with no trade
+            // file for this biome the offers stay empty and this would otherwise rebuild them each tick.
             this.updateTrades();
         }
+    }
+
+    @Override
+    public int getVillagerXp() {
+        // Drives the XP progress bar in the trading screen; thresholds match vanilla villager levels.
+        return this.getCraftmanData().xp();
     }
 
     @Override
@@ -522,14 +530,27 @@ public class Craftman extends AbstractVillager {
         this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 0.5) {
             @Override
             public boolean canUse() {
-                return !Craftman.this.getBrain().isActive(Activity.REST)
-                        && super.canUse();
+                return !Craftman.this.isBrainDrivingMovement() && super.canUse();
+            }
+
+            @Override
+            public boolean canContinueToUse() {
+                return !Craftman.this.isBrainDrivingMovement() && super.canContinueToUse();
             }
         });
         this.goalSelector.addGoal(9, new InteractGoal(this, Player.class, 3.0F, 1.0F));
         this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 8.0F));
     }
 
+
+    /**
+     * While resting, panicking or hiding the brain sets walk targets, so the goal-based wandering must stay out
+     * of the way; otherwise both fight over the navigation and the craftman re-paths constantly.
+     */
+    private boolean isBrainDrivingMovement() {
+        Brain<Craftman> brain = this.getBrain();
+        return brain.isActive(Activity.REST) || brain.isActive(Activity.PANIC) || brain.isActive(Activity.HIDE);
+    }
 
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {

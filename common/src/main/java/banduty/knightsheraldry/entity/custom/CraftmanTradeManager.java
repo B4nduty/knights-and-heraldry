@@ -1,5 +1,6 @@
 package banduty.knightsheraldry.entity.custom;
 
+import banduty.knightsheraldry.KnightsHeraldry;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -12,6 +13,7 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
 
 import java.util.ArrayList;
@@ -75,6 +77,7 @@ public class CraftmanTradeManager extends SimpleJsonResourceReloadListener {
                 JsonArray tradesArray = GsonHelper.getAsJsonArray(jsonObject, "trades", new JsonArray());
                 for (JsonElement tradeElem : tradesArray) {
                     JsonObject tradeObj = tradeElem.getAsJsonObject();
+                    String resultId = GsonHelper.getAsString(tradeObj.getAsJsonObject("result"), "item");
 
                     int level = GsonHelper.getAsInt(tradeObj, "level", 1);
 
@@ -96,6 +99,12 @@ public class CraftmanTradeManager extends SimpleJsonResourceReloadListener {
                     int xp = GsonHelper.getAsInt(tradeObj, "xp", 2);
                     float priceMultiplier = GsonHelper.getAsFloat(tradeObj, "price_multiplier", 0.05f);
 
+                    // Unknown item ids resolve to air: a missing cost would make the trade free, a missing result useless.
+                    if (itemA == Items.AIR || itemResult == Items.AIR || (costB != null && costB.item().value() == Items.AIR)) {
+                        KnightsHeraldry.LOG.warn("Skipping craftman trade for '{}' in {}: unknown item id", resultId, fileLoc);
+                        continue;
+                    }
+
                     DatapackTrade trade = new DatapackTrade(level, costA, costB, result, maxUses, xp, priceMultiplier);
 
                     container.trades.add(trade);
@@ -103,7 +112,7 @@ public class CraftmanTradeManager extends SimpleJsonResourceReloadListener {
 
                 PROFESSION_TRADES.computeIfAbsent("craftman", k -> new HashMap<>()).put(biomeKey, container);
             } catch (Exception e) {
-                // Log formatting parsing errors safely
+                KnightsHeraldry.LOG.error("Failed to load craftman trades from {}", fileLoc, e);
             }
         }
     }
