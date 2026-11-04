@@ -1,6 +1,7 @@
 package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.client.entity.*;
+import banduty.knightsheraldry.client.input.KHKeyMappings;
 import banduty.knightsheraldry.client.tooltip.RepairKitClientTooltip;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.event.ItemTooltipHandler;
@@ -22,6 +23,8 @@ import banduty.knightsheraldry.util.itemdata.RepairKitContents;
 import banduty.knightsheraldry.util.itemdata.RepairKitTooltip;
 import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -42,6 +45,9 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
 
         KHPayloadsClient.init();
         KHPayloadsClient.registerS2CReceivers();
+
+        KeyBindingHelper.registerKeyBinding(KHKeyMappings.TOGGLE_GRIP);
+        ClientTickEvents.END_CLIENT_TICK.register(KHKeyMappings::onClientTick);
 
         ItemTooltipCallback.EVENT.register(new ItemTooltipHandler());
         TooltipComponentCallback.EVENT.register(data ->

@@ -1,6 +1,7 @@
 package banduty.knightsheraldry.platform;
 
 import banduty.knightsheraldry.networking.payload.OffhandAttackC2SPacket;
+import banduty.knightsheraldry.networking.payload.ToggleGripC2SPacket;
 import banduty.knightsheraldry.platform.services.IClientPlatformHelper;
 import net.bettercombat.api.AttackHand;
 import net.bettercombat.logic.PlayerAttackHelper;
@@ -28,5 +29,10 @@ public class NeoForgeClientPlatformHelper implements IClientPlatformHelper {
     @Override
     public void sendOffhandAttack(int entityId, boolean sneaking) {
         PacketDistributor.sendToServer(new OffhandAttackC2SPacket(entityId, sneaking));
+    }
+
+    @Override
+    public void sendToggleGrip() {
+        PacketDistributor.sendToServer(ToggleGripC2SPacket.INSTANCE);
     }
 }

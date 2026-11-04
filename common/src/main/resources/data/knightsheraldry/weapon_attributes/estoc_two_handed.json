@@ -1,0 +1,30 @@
+{
+  "attributes": {
+    "attack_range": 5.0,
+    "two_handed": true,
+    "pose": "bettercombat:pose_two_handed_sword",
+    "category": "rapier",
+    "attacks": [
+      {
+        "hitbox": "FORWARD_BOX",
+        "damage_multiplier": 1.1,
+        "angle": 100,
+        "upswing": 0.5,
+        "animation": "bettercombat:two_handed_stab_right",
+        "swing_sound": {
+          "id": "bettercombat:rapier_stab"
+        }
+      },
+      {
+        "hitbox": "FORWARD_BOX",
+        "damage_multiplier": 1.1,
+        "angle": 100,
+        "upswing": 0.5,
+        "animation": "bettercombat:two_handed_stab_left",
+        "swing_sound": {
+          "id": "bettercombat:rapier_stab"
+        }
+      }
+    ]
+  }
+}

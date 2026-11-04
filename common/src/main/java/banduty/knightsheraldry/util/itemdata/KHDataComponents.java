@@ -19,6 +19,8 @@ public interface KHDataComponents {
             builder -> builder.persistent(DyedItemColor.CODEC).networkSynchronized(DyedItemColor.STREAM_CODEC));
     Supplier<DataComponentType<Boolean>> EXTINGUISHED = register("extinguished",
             b -> b.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
+    Supplier<DataComponentType<Boolean>> TWO_HANDED_GRIP = register("two_handed_grip",
+            b -> b.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
     Supplier<DataComponentType<Boolean>> PIGLIN = register("piglin",
             b -> b.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
     Supplier<DataComponentType<RepairKitContents>> REPAIR_KIT_CONTENTS = register("repair_kit_contents",

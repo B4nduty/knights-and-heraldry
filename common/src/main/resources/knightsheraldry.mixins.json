@@ -10,6 +10,7 @@
     "PiglinAIMixin",
     "PiglinMixin",
     "PlayerAttackHelperMixin",
+    "WeaponRegistryMixin",
     "PlayerMixin",
     "PowderSnowBlockMixin"
   ],

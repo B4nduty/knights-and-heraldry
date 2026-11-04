@@ -98,9 +98,11 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(itemArray(KHItems.BRIGANDINE.list()));
 
         tag(KHTags.DUAL_WIELDABLE.getTag())
+                .add(KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get());
+
+        tag(KHTags.VERSATILE.getTag())
                 .add(KHItems.ESTOC.get(), KHItems.GILDED_ESTOC.get(),
-                        KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get(),
-                        KHItems.DAGGER.get(), KHItems.GILDED_DAGGER.get());
+                        KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get());
 
         tag(KHTags.TWO_HANDED.getTag())
                 .add(KHItems.LONGSWORD.get(), KHItems.V_LONGSWORD.get(), KHItems.GILDED_LONGSWORD.get(), KHItems.GILDED_V_LONGSWORD.get(),

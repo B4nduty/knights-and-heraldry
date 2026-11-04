@@ -1,6 +1,7 @@
 package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.client.entity.*;
+import banduty.knightsheraldry.client.input.KHKeyMappings;
 import banduty.knightsheraldry.client.item.SurcoatWithBannerModel;
 import banduty.knightsheraldry.client.tooltip.ItemTooltips;
 import banduty.knightsheraldry.client.tooltip.RepairKitClientTooltip;
@@ -19,6 +20,7 @@ import banduty.knightsheraldry.screen.ManuscriptBookScreen;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
 import banduty.knightsheraldry.util.itemdata.RepairKitTooltip;
 import banduty.stoneycore.items.custom.armor.underarmor.SCDyeableUnderArmor;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -112,6 +114,16 @@ public class KnightsHeraldryNeoForgeClient {
     @SubscribeEvent
     public static void onRegisterClientTooltipComponents(RegisterClientTooltipComponentFactoriesEvent event) {
         event.register(RepairKitTooltip.class, t -> new RepairKitClientTooltip(t.contents()));
+    }
+
+    @SubscribeEvent
+    public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
+        event.register(KHKeyMappings.TOGGLE_GRIP);
+    }
+
+    @SubscribeEvent
+    public static void onClientTick(ClientTickEvent.Post event) {
+        KHKeyMappings.onClientTick(Minecraft.getInstance());
     }
 
     @SubscribeEvent

@@ -1,6 +1,7 @@
 package banduty.knightsheraldry.datagen;
 
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.util.GripUtil;
 import banduty.knightsheraldry.sounds.KHSounds;
 import banduty.stoneycore.combat.damagetype.SCDamageType;
 import banduty.stoneycore.datagen.DefinitionsProvider;
@@ -76,18 +77,35 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
-                                .slashingDamage(6.0f, 9.5f, 4.5f)
-                                .bludgeoningDamage(4.5f, 7.0f, 3.0f)
-                                .piercingDamage(4.0f, 6.5f, 2.5f)
-                                .levelRadii(1.5, 3.0, 4.5)
+                                // One-handed stance: arming sword damage with a bit more reach
+                                .slashingDamage(5.5f, 8.5f, 4.0f)
+                                .bludgeoningDamage(4.0f, 7.0f, 3.0f)
+                                .piercingDamage(4.0f, 7.0f, 3.0f)
+                                .levelRadii(1.25, 2.75, 4.0)
                                 .anim(3)
-                                .pierceAnim(2)
+                                .pierceAnim(3)
                                 .blockCooldown(100)
                                 .parryWindow(7)
 
                 ).build(),
                 KHItems.BASTARD_SWORD.get(), KHItems.GILDED_BASTARD_SWORD.get()
         );
+        // Two-handed grip: close to the longsword with slightly shorter reach. Not an item: GripUtil applies it to
+        // the held stack through StoneyCore's weapon_definition component.
+        var bastardSwordTwoHanded = Builder.create().melee(
+                        MeleeBuilder.create()
+                                .slashingDamage(6.5f, 10.5f, 5.0f)
+                                .bludgeoningDamage(5.0f, 7.5f, 3.0f)
+                                .piercingDamage(4.0f, 6.0f, 2.0f)
+                                .levelRadii(1.75, 3.75, 4.5)
+                                .anim(3)
+                                .pierceAnim(2)
+                                .blockCooldown(100)
+                                .parryWindow(7)
+
+                ).build();
+        consumer.accept(GripUtil.twoHandedId(KHItems.BASTARD_SWORD.get()), bastardSwordTwoHanded);
+        consumer.accept(GripUtil.twoHandedId(KHItems.GILDED_BASTARD_SWORD.get()), bastardSwordTwoHanded);
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
                                 .slashingDamage(0, 2.0f, 9.0f, 7.0f)

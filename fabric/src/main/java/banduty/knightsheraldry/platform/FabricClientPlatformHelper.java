@@ -1,6 +1,7 @@
 package banduty.knightsheraldry.platform;
 
 import banduty.knightsheraldry.networking.payload.OffhandAttackC2SPacket;
+import banduty.knightsheraldry.networking.payload.ToggleGripC2SPacket;
 import banduty.knightsheraldry.platform.services.IClientPlatformHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.bettercombat.api.AttackHand;
@@ -28,5 +29,10 @@ public class FabricClientPlatformHelper implements IClientPlatformHelper {
     @Override
     public void sendOffhandAttack(int entityId, boolean sneaking) {
         ClientPlayNetworking.send(new OffhandAttackC2SPacket(entityId, sneaking));
+    }
+
+    @Override
+    public void sendToggleGrip() {
+        ClientPlayNetworking.send(ToggleGripC2SPacket.INSTANCE);
     }
 }
