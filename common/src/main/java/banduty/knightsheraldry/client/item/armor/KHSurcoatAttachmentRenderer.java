@@ -49,14 +49,11 @@ public class KHSurcoatAttachmentRenderer implements ArmorAttachmentRenderer {
                 ResourceLocation patternId = layer.pattern().unwrapKey().map(ResourceKey::location).orElse(null);
                 if (patternId == null) continue;
 
-                String patternName = patternId.getPath();
-                if (patternName.contains("/")) {
-                    patternName = patternName.substring(patternName.lastIndexOf('/') + 1);
-                }
-
+                // Mirrors the item model layout: banner_pattern/<item>/<patternNs>/<patternPath>.png
                 ResourceLocation texturePatternPath = ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID,
                         "textures/entity/attachment/banner_pattern/" +
-                        BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "/" + patternName + ".png");
+                        BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getPath() + "/" +
+                        patternId.getNamespace() + "/" + patternId.getPath() + ".png");
                 VertexConsumer overlayConsumer = multiBufferSource.getBuffer(RenderType.armorCutoutNoCull(texturePatternPath));
                 model.renderToBuffer(poseStack, overlayConsumer, i, OverlayTexture.NO_OVERLAY, layer.color().getTextureDiffuseColor());
             }
