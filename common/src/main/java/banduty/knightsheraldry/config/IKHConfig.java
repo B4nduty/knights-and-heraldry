@@ -11,10 +11,6 @@ public interface IKHConfig {
 
     List<String> getBannerModelItemPaths();
 
-    boolean includeVanillaBannerPatterns();
-
-    List<String> getBannerPatternNames();
-
     int getRepairKitSlotCapacity();
 
     int getRepairKitRepairPercent();

@@ -28,12 +28,6 @@ public class KHConfigs implements ConfigData {
     ));
 
     @ConfigEntry.Gui.Tooltip
-    public boolean includeVanillaBannerPatterns = true;
-
-    @ConfigEntry.Gui.Tooltip
-    public List<String> bannerPatternNames = new ArrayList<>();
-
-    @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(min = 1, max = 999)
     public int repairKitSlotCapacity = 64;
 

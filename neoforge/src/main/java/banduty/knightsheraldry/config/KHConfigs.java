@@ -12,8 +12,6 @@ public class KHConfigs {
     public static final ModConfigSpec.IntValue wardartCooldown;
 
     public static final ModConfigSpec.ConfigValue<List<? extends String>> bannerModelItemPaths;
-    public static final ModConfigSpec.BooleanValue includeVanillaBannerPatterns;
-    public static final ModConfigSpec.ConfigValue<List<? extends String>> bannerPatternNames;
 
     public static final ModConfigSpec.IntValue repairKitSlotCapacity;
     public static final ModConfigSpec.IntValue repairKitRepairPercent;
@@ -43,19 +41,6 @@ public class KHConfigs {
                                 "knightsheraldry:surcoat",
                                 "knightsheraldry:surcoat_sleeveless"
                         ),
-                        entry -> entry instanceof String value
-                                && value.matches("[a-z0-9_.-]+:[a-z0-9/._-]+")
-                );
-
-        includeVanillaBannerPatterns = builder
-                .comment("Whether to register models for vanilla banner patterns")
-                .define("includeVanillaBannerPatterns", true);
-
-        bannerPatternNames = builder
-                .comment("Additional banner pattern registry IDs to register models for")
-                .defineList(
-                        "bannerPatternNames",
-                        List.of(),
                         entry -> entry instanceof String value
                                 && value.matches("[a-z0-9_.-]+:[a-z0-9/._-]+")
                 );

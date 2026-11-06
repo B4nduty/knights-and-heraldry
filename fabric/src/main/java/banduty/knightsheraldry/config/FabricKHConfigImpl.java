@@ -27,16 +27,6 @@ public class FabricKHConfigImpl extends KHConfigImpl {
     }
 
     @Override
-    public boolean includeVanillaBannerPatterns() {
-        return KnightsHeraldryFabric.CONFIG.includeVanillaBannerPatterns;
-    }
-
-    @Override
-    public List<String> getBannerPatternNames() {
-        return List.copyOf(KnightsHeraldryFabric.CONFIG.bannerPatternNames);
-    }
-
-    @Override
     public int getRepairKitSlotCapacity() {
         return KnightsHeraldryFabric.CONFIG.repairKitSlotCapacity;
     }

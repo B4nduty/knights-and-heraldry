@@ -26,18 +26,6 @@ public class NeoForgeKHConfigImpl extends KHConfigImpl {
     }
 
     @Override
-    public boolean includeVanillaBannerPatterns() {
-        return KHConfigs.includeVanillaBannerPatterns.get();
-    }
-
-    @Override
-    public List<String> getBannerPatternNames() {
-        return KHConfigs.bannerPatternNames.get().stream()
-                .map(String::valueOf)
-                .toList();
-    }
-
-    @Override
     public int getRepairKitSlotCapacity() {
         return KHConfigs.repairKitSlotCapacity.get();
     }

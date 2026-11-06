@@ -18,6 +18,7 @@ import banduty.knightsheraldry.model.ModEntityModelLayers;
 import banduty.knightsheraldry.networking.KHPayloadsClient;
 import banduty.knightsheraldry.screen.KHScreenHandlers;
 import banduty.knightsheraldry.screen.ManuscriptBookScreen;
+import banduty.knightsheraldry.util.itemdata.KHModelLoadingPlugin;
 import banduty.knightsheraldry.util.itemdata.ModModelPredicates;
 import banduty.knightsheraldry.util.itemdata.RepairKitContents;
 import banduty.knightsheraldry.util.itemdata.RepairKitTooltip;
@@ -42,6 +43,8 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityModelLayerRegistry.registerModelLayer(ModEntityModelLayers.HORSE_BARDING_MODEL_LAYER, HorseBardingModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(WarDartModel.LAYER_LOCATION, WarDartModel::createLayer);
+
+        KHModelLoadingPlugin.register();
 
         KHPayloadsClient.init();
         KHPayloadsClient.registerS2CReceivers();

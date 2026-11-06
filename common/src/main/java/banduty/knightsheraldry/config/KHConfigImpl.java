@@ -24,16 +24,6 @@ public abstract class KHConfigImpl implements IKHConfig {
     }
 
     @Override
-    public boolean includeVanillaBannerPatterns() {
-        throw new UnsupportedOperationException("Not implemented");
-    }
-
-    @Override
-    public List<String> getBannerPatternNames() {
-        throw new UnsupportedOperationException("Not implemented");
-    }
-
-    @Override
     public int getRepairKitSlotCapacity() {
         throw new UnsupportedOperationException("Not implemented");
     }
