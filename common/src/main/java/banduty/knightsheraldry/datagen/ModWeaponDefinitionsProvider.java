@@ -42,10 +42,12 @@ public class ModWeaponDefinitionsProvider extends DefinitionsProvider.Weapon {
         );
         consumer.accept(Builder.create().melee(
                         MeleeBuilder.create()
-                                .slashingDamage()
+                                .slashingDamage(3.0f, 5.0f)
                                 .bludgeoningDamage()
                                 .piercingDamage(5.0f, 8.0f)
                                 .levelRadii(3, 4.5)
+                                .anim(3)
+                                .pierceAnim(2, 3)
 
                 ).build(),
                 KHItems.RAPIER.get(), KHItems.GILDED_RAPIER.get()

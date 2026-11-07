@@ -1,8 +1,19 @@
 {
-  "parent": "bettercombat:rapier",
+  "parent": "bettercombat:sword",
   "attributes": {
     "attack_range": 4.5,
     "attacks": [
+      {
+        "hitbox": "HORIZONTAL_PLANE",
+        "angle": 100,
+        "animation": "bettercombat:one_handed_slash_horizontal_right"
+      },
+      {
+        "hitbox": "FORWARD_BOX",
+        "angle": 100,
+        "upswing": 0.5,
+        "animation": "bettercombat:one_handed_stab"
+      },
       {
         "hitbox": "FORWARD_BOX",
         "angle": 100,
