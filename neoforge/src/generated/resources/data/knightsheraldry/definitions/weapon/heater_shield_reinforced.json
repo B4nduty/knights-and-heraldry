@@ -1,8 +1,6 @@
 {
   "melee": {
-    "blockCooldown": 100,
     "blockingEnabled": true,
-    "parryWindow": 7,
     "piercingAnimation": []
   },
   "usage": [

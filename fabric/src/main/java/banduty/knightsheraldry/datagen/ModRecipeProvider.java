@@ -612,6 +612,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.TASSETS.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.TASSETS.get())), new ItemStack(Items.HONEYCOMB, 4));
 
+        createCraftmanAnvilRecipe(exporter, 10, 0.25f, KHItems.LONG_TASSETS.get(), unfinished(new ItemStack(KHItems.TASSETS.get())), new ItemStack(SCItems.HOT_IRON.get(), 4));
+
+        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.LONG_TASSETS.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.LONG_TASSETS.get())), new ItemStack(Items.GOLD_INGOT, 4));
+
+        createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.LONG_TASSETS.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.LONG_TASSETS.get())), new ItemStack(Items.HONEYCOMB, 4));
+
         // Rim Guards
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.RIM_GUARDS.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_RIM_GUARDS.get()), new ItemStack(Items.SAND));
 

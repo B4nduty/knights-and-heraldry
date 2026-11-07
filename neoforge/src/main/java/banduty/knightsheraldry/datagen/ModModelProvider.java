@@ -232,6 +232,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.XIIII_PLATE_BREASTPLATE,
                 KHItems.PLACKART,
                 KHItems.TASSETS,
+                KHItems.LONG_TASSETS,
                 KHItems.GREAVES,
                 KHItems.SABATONS,
                 KHItems.BARBUTE,

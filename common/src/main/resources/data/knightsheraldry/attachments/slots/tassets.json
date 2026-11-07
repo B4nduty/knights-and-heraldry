@@ -4,7 +4,10 @@
   "items": [
     "knightsheraldry:tassets",
     "knightsheraldry:dark_tassets",
-    "knightsheraldry:golden_tassets"
+    "knightsheraldry:golden_tassets",
+    "knightsheraldry:long_tassets",
+    "knightsheraldry:dark_long_tassets",
+    "knightsheraldry:golden_long_tassets"
   ],
   "icon": "knightsheraldry:container/icon/tassets",
   "required_slot": "breastplate"

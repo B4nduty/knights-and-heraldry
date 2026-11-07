@@ -67,7 +67,9 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
 
         addFamily(map, KHItems.PLACKART, new ArmorStats(0.5, 0.5, 2.0, 0.04, 0, 0, true));
 
-        addFamily(map, KHItems.TASSETS, new ArmorStats(1.0, 1.0, 3.0, 0.05, 0, 0, true));
+        addFamily(map, KHItems.TASSETS, new ArmorStats(1.0, 1.0, 0.5, 0.02, 0, 0, true));
+
+        addFamily(map, KHItems.LONG_TASSETS, new ArmorStats(2.0, 1.0, 6.0, 0.15, 0, 0, true));
         return map;
     }
 
@@ -157,11 +159,11 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
 
     private static Map<Supplier<Item>, ArmorStats> createLegsMap() {
         Map<Supplier<Item>, ArmorStats> map = new HashMap<>();
-        addFamily(map, KHItems.BRIGANDINE_CUISSES, new ArmorStats(1.0, 1.0, 3.5, 0.0, 0, 0, false));
+        addFamily(map, KHItems.BRIGANDINE_CUISSES, new ArmorStats(1.0, 1.0, 3.5, 0.02, 0, 0, false));
 
-        addFamily(map, KHItems.PLATE_CUISSES, new ArmorStats(2.0, 1.0, 5.5, 0.10, 0, 0, true));
+        addFamily(map, KHItems.PLATE_CUISSES, new ArmorStats(2.0, 1.0, 5.5, 0.07, 0, 0, true));
 
-        addFamily(map, KHItems.GREAVES, new ArmorStats(0.0, 1.0, 2.5, 0.05, 0, 0, false));
+        addFamily(map, KHItems.GREAVES, new ArmorStats(0.0, 1.0, 2.0, 0.02, 0, 0, false));
         return map;
     }
 

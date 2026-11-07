@@ -1,7 +1,7 @@
 {
   "armor": 1.0,
-  "deflectChance": 0.05,
+  "deflectChance": 0.02,
   "hungerDrainMultiplier": 0.1,
   "toughness": 2.0,
-  "weight": 3.3
+  "weight": 0.6
 }

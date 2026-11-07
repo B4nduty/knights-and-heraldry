@@ -268,9 +268,15 @@ public interface KHItems {
             KHChestplateAttachment::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
+
     ArmorFamily TASSETS = attachmentFamily(
             "tassets", 220,
             KHChestplateAttachment::new,
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
+    ArmorFamily LONG_TASSETS = attachmentFamily(
+            "long_tassets", 300,
+            KHLongTassets::new,
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
 

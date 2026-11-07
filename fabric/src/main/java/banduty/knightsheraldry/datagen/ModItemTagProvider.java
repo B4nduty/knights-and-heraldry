@@ -117,7 +117,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         KHItems.BRIGANDINE.get(ArmorVariant.GOLDEN).get(),
                         KHItems.PLATE_CUIRASS.get(ArmorVariant.GOLDEN).get(), KHItems.MAXIMILLIAN_CUIRASS.get(ArmorVariant.GOLDEN).get(),
                         KHItems.XIIII_PLATE_CUIRASS.get(ArmorVariant.GOLDEN).get(), KHItems.XIIII_PLATE_BREASTPLATE.get(ArmorVariant.GOLDEN).get(),
-                        KHItems.PLACKART.get(ArmorVariant.GOLDEN).get(), KHItems.TASSETS.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.PLACKART.get(ArmorVariant.GOLDEN).get(), KHItems.TASSETS.get(ArmorVariant.GOLDEN).get(), KHItems.LONG_TASSETS.get(ArmorVariant.GOLDEN).get(),
                         KHItems.BARBUTE.get(ArmorVariant.GOLDEN).get(), KHItems.BASCINET.get(ArmorVariant.GOLDEN).get(),
                         KHItems.KETTLE_HELM.get(ArmorVariant.GOLDEN).get(), KHItems.NASAL_HELM.get(ArmorVariant.GOLDEN).get(),
                         KHItems.VIKING_HELM.get(ArmorVariant.GOLDEN).get(), KHItems.BURGONET.get(ArmorVariant.GOLDEN).get(),
@@ -148,6 +148,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(itemArray(KHItems.XIIII_PLATE_BREASTPLATE.list()))
                 .add(itemArray(KHItems.PLACKART.list()))
                 .add(itemArray(KHItems.TASSETS.list()))
+                .add(itemArray(KHItems.LONG_TASSETS.list()))
                 .add(itemArray(KHItems.BARBUTE.list()))
                 .add(itemArray(KHItems.BASCINET.list()))
                 .add(itemArray(KHItems.KETTLE_HELM.list()))

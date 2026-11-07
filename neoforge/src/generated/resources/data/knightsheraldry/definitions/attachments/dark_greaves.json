@@ -1,6 +1,6 @@
 {
   "armor": 1.0,
-  "deflectChance": 0.05,
+  "deflectChance": 0.02,
   "toughness": 1.0,
-  "weight": 2.8
+  "weight": 2.2
 }

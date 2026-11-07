@@ -117,6 +117,7 @@ public class KHMobGearProvider extends MobGearDataProvider {
                         KHItems.XIIII_PLATE_BREASTPLATE,
                         KHItems.PLACKART,
                         KHItems.TASSETS,
+                        KHItems.LONG_TASSETS,
                         KHItems.GAUNTLET,
                         KHItems.BRIGANDINE_HARNESS,
                         KHItems.PLATE_HARNESS

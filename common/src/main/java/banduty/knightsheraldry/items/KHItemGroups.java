@@ -336,9 +336,13 @@ public interface KHItemGroups {
                     itemStack(KHItems.PLACKART.get()),
                     itemStack(KHItems.PLACKART.get(ArmorVariant.DARK).get()),
                     itemStack(KHItems.PLACKART.get(ArmorVariant.GOLDEN).get()),
+
                     itemStack(KHItems.TASSETS.get()),
+                    itemStack(KHItems.LONG_TASSETS.get()),
                     itemStack(KHItems.TASSETS.get(ArmorVariant.DARK).get()),
+                    itemStack(KHItems.LONG_TASSETS.get(ArmorVariant.DARK).get()),
                     itemStack(KHItems.TASSETS.get(ArmorVariant.GOLDEN).get()),
+                    itemStack(KHItems.LONG_TASSETS.get(ArmorVariant.GOLDEN).get()),
 
                     itemStack(KHItems.SURCOAT.get()),
                     itemStack(KHItems.SURCOAT_SLEEVELESS.get()),
