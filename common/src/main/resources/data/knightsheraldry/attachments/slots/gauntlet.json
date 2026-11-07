@@ -1,0 +1,11 @@
+{
+  "slot": "gauntlet",
+  "armor": "chestplate",
+  "items": [
+    "knightsheraldry:gauntlet",
+    "knightsheraldry:dark_gauntlet",
+    "knightsheraldry:golden_gauntlet"
+  ],
+  "icon": "knightsheraldry:container/icon/gauntlet",
+  "protectedSlots": ["gloves"]
+}

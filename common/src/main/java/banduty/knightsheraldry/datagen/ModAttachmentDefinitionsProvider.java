@@ -147,11 +147,11 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
         map.put(KHItems.LEATHER_GLOVES, new ArmorStats(0.0, 0.0, 0.1, 0, 0, -10, false));
         map.put(KHItems.MAIL_GLOVES, new ArmorStats(0.5, 0.0, 0.3, 0, 0, -10, false));
 
-        addFamily(map, KHItems.GAUNTLET, new ArmorStats(0.0, 2.0, 1.5, 0.05, 0, 30, false));
+        addFamily(map, KHItems.GAUNTLET, new ArmorStats(0.5, 0.5, 0.5, 0.01, 0, 30, false));
 
-        addFamily(map, KHItems.BRIGANDINE_HARNESS, new ArmorStats(1.0, 2.0, 2.0, 0.0, 0, 30, false));
+        addFamily(map, KHItems.BRIGANDINE_HARNESS, new ArmorStats(0.5, 1.5, 1.0, 0.01, 0, 0, false));
 
-        addFamily(map, KHItems.PLATE_HARNESS, new ArmorStats(2.0, 2.0, 2.5, 0.05, 0, 30, true));
+        addFamily(map, KHItems.PLATE_HARNESS, new ArmorStats(1.0, 1.5, 2.0, 0.04, 0, 0, true));
         return map;
     }
 

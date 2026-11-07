@@ -12,6 +12,5 @@
     "knightsheraldry:dark_plate_harness",
     "knightsheraldry:golden_plate_harness"
   ],
-  "icon": "knightsheraldry:container/icon/arm",
-  "protectedSlots": ["gloves"]
+  "icon": "knightsheraldry:container/icon/arm"
 }
