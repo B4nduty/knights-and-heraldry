@@ -15,9 +15,9 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 public class Halberd extends Sword3dItem {
-    public Halberd(float attackSpeed, Properties properties) {
+    public Halberd(float attackSpeed, int durability, Properties properties) {
         super(ModToolMaterials.WEAPONS,
-                properties.attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
+                properties.attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)), durability);
     }
 
     @Override

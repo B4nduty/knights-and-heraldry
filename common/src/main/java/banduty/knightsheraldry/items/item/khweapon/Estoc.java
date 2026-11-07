@@ -27,9 +27,9 @@ public class Estoc extends Sword3dItem {
     private boolean charged = false;
     private final SCDamageType onlyDamageType;
 
-    public Estoc(float attackSpeed, Properties properties, SCDamageType onlyDamageType) {
+    public Estoc(float attackSpeed, int durability, Properties properties, SCDamageType onlyDamageType) {
         super(ModToolMaterials.WEAPONS,
-                properties.attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
+                properties.attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)), durability);
         this.onlyDamageType = onlyDamageType;
     }
 

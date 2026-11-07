@@ -8,8 +8,8 @@ import net.minecraft.world.item.component.DyedItemColor;
 public class WoodenLance extends Lance {
     int defaultColor = 10511680;
 
-    public WoodenLance(float attackSpeed, Properties properties, SCDamageType onlyDamageType) {
-        super(attackSpeed, properties, onlyDamageType);
+    public WoodenLance(float attackSpeed, int durability, Properties properties, SCDamageType onlyDamageType) {
+        super(attackSpeed, durability, properties, onlyDamageType);
     }
 
     public int getColor(ItemStack stack) {

@@ -136,8 +136,6 @@ public class ModModelProvider extends FabricModelProviderPlus {
         registerItemWConditions(KHItems.SWALLOWTAIL_ARROW.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.HOOD.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.TORN_HOOD.get(), itemModelGenerators, registries);
-        registerItemWConditions(KHItems.HELMET_HOOD.get(), itemModelGenerators, registries);
-        registerItemWConditions(KHItems.HELMET_TORN_HOOD.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.CLOAK.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.TORN_CLOAK.get(), itemModelGenerators, registries);
         registerItemWConditions(KHItems.SURCOAT.get(), itemModelGenerators, registries);

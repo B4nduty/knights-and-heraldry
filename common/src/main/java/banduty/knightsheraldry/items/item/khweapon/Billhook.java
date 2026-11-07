@@ -13,9 +13,9 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 public class Billhook extends Sword3dItem {
-    public Billhook(float attackSpeed, Properties properties) {
+    public Billhook(float attackSpeed, int durability, Properties properties) {
         super(ModToolMaterials.WEAPONS,
-                properties.attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
+                properties.attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)), durability);
     }
 
     @Override

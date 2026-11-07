@@ -10,6 +10,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.core.component.DataComponentMap;
+import banduty.knightsheraldry.items.item.khweapon.Sword3dItem;
 import net.minecraft.world.level.Level;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
@@ -22,6 +24,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import java.util.function.Consumer;
 
 public class Flail extends SwordItem implements GeoItem, SCIconRendererProvider {
+    private final int durability;
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private LivingEntity fallbackLivingEntity = null;
 
@@ -33,10 +36,17 @@ public class Flail extends SwordItem implements GeoItem, SCIconRendererProvider 
         super.inventoryTick(stack, level, entity, slotId, isSelected);
     }
 
-    public Flail(float attackSpeed, Properties properties) {
+    public Flail(float attackSpeed, int durability, Properties properties) {
         super(ModToolMaterials.WEAPONS,
                 properties.attributes(SwordItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
+        // TieredItem overwrites Properties#durability with the tier's uses, so apply ours through components()
+        this.durability = durability;
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
+    }
+
+    @Override
+    public DataComponentMap components() {
+        return Sword3dItem.withDurability(super.components(), durability);
     }
 
     @Override

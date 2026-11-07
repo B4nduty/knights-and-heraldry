@@ -62,9 +62,9 @@ public interface KHItems {
     Supplier<Item> GILDED_RAPIER = sword("gilded_rapier", -2.2F, 209);
 
     Supplier<Item> ESTOC = registerItem("estoc",
-            () -> new Estoc(-2.4F, new Item.Properties().durability(235), SCDamageType.PIERCING));
+            () -> new Estoc(-2.4F, 235, new Item.Properties(), SCDamageType.PIERCING));
     Supplier<Item> GILDED_ESTOC = registerItem("gilded_estoc",
-            () -> new Estoc(-2.4F, new Item.Properties().durability(235), SCDamageType.PIERCING));
+            () -> new Estoc(-2.4F, 235, new Item.Properties(), SCDamageType.PIERCING));
 
     Supplier<Item> SWORD = sword("sword", -2.4F, 326);
     Supplier<Item> GILDED_SWORD = sword("gilded_sword", -2.4F, 326);
@@ -91,13 +91,13 @@ public interface KHItems {
     Supplier<Item> GILDED_SPIKED_MACE = sword("gilded_spiked_mace", -2.6F, 430);
 
     Supplier<Item> FLAIL = registerItem("flail",
-            () -> new Flail(-2.8F, new Item.Properties().durability(261)));
+            () -> new Flail(-2.8F, 261, new Item.Properties()));
     Supplier<Item> GILDED_FLAIL = registerItem("gilded_flail",
-            () -> new Flail(-2.8F, new Item.Properties().durability(261)));
+            () -> new Flail(-2.8F, 261, new Item.Properties()));
     Supplier<Item> BALL_FLAIL = registerItem("ball_flail",
-            () -> new Flail(-2.8F, new Item.Properties().durability(261)));
+            () -> new Flail(-2.8F, 261, new Item.Properties()));
     Supplier<Item> GILDED_BALL_FLAIL = registerItem("gilded_ball_flail",
-            () -> new Flail(-2.8F, new Item.Properties().durability(261)));
+            () -> new Flail(-2.8F, 261, new Item.Properties()));
 
     Supplier<Item> HAMMER = sword("hammer", -2.8F, 430);
     Supplier<Item> GILDED_HAMMER = sword("gilded_hammer", -2.8F, 430);
@@ -124,9 +124,9 @@ public interface KHItems {
     Supplier<Item> GILDED_PIKE = sword("gilded_pike", -2.8F, 196);
 
     Supplier<Item> BILLHOOK = registerItem("billhook",
-            () -> new Billhook(-2.4F, new Item.Properties().durability(391)));
+            () -> new Billhook(-2.4F, 391, new Item.Properties()));
     Supplier<Item> GILDED_BILLHOOK = registerItem("gilded_billhook",
-            () -> new Billhook(-2.4F, new Item.Properties().durability(391)));
+            () -> new Billhook(-2.4F, 391, new Item.Properties()));
 
     Supplier<Item> GLAIVE = sword("glaive", -2.2F, 391);
     Supplier<Item> GILDED_GLAIVE = sword("gilded_glaive", -2.2F, 391);
@@ -134,16 +134,16 @@ public interface KHItems {
     Supplier<Item> GILDED_CURVED_GLAIVE = sword("gilded_curved_glaive", -2.2F, 391);
 
     Supplier<Item> HALBERD = registerItem("halberd",
-            () -> new Halberd(-3F, new Item.Properties().durability(391)));
+            () -> new Halberd(-3F, 391, new Item.Properties()));
     Supplier<Item> GILDED_HALBERD = registerItem("gilded_halberd",
-            () -> new Halberd(-3F, new Item.Properties().durability(391)));
+            () -> new Halberd(-3F, 391, new Item.Properties()));
 
     Supplier<Item> LANCE = registerItem("lance",
-            () -> new Lance(-3.0F, new Item.Properties().durability(1), SCDamageType.PIERCING));
+            () -> new Lance(-3.0F, 1, new Item.Properties(), SCDamageType.PIERCING));
     Supplier<Item> GILDED_LANCE = registerItem("gilded_lance",
-            () -> new Lance(-3.0F, new Item.Properties().durability(1), SCDamageType.PIERCING));
+            () -> new Lance(-3.0F, 1, new Item.Properties(), SCDamageType.PIERCING));
     Supplier<Item> WOODEN_LANCE = registerItem("wooden_lance",
-            () -> new WoodenLance(-3.0F, new Item.Properties().durability(1), SCDamageType.PIERCING));
+            () -> new WoodenLance(-3.0F, 1, new Item.Properties(), SCDamageType.PIERCING));
 
     Supplier<Item> POLEAXE = axe("poleaxe", -2.8F, 391);
     Supplier<Item> GILDED_POLEAXE = axe("gilded_poleaxe", -2.8F, 391);
@@ -169,9 +169,9 @@ public interface KHItems {
     Supplier<Item> GILDED_ZWEIHANDER = sword("gilded_zweihander", -3.2F, 391);
 
     Supplier<Item> WARDART = registerItem("wardart",
-            () -> new WarDart(-2.6F, new Item.Properties().durability(326)));
+            () -> new WarDart(-2.6F, 326, new Item.Properties()));
     Supplier<Item> GILDED_WARDART = registerItem("gilded_wardart",
-            () -> new WarDart(-2.6F, new Item.Properties().durability(326)));
+            () -> new WarDart(-2.6F, 326, new Item.Properties()));
 
 
     Supplier<Item> HEATER_SHIELD = registerItem("heater_shield",
@@ -498,16 +498,11 @@ public interface KHItems {
     Supplier<Item> TORN_CLOAK = registerItem("torn_cloak",
             () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.CHESTPLATE, null));
 
-    Supplier<Item> HOOD = registerItem("hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET, new Vector3f(0f, -4f, 0f)));
-    Supplier<Item> TORN_HOOD = registerItem("torn_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET, new Vector3f(0f, -4f, 0f)));
+    // Worn straight on the head like a crown, or attached to under-armor (switching model over a helmet)
+    Supplier<Item> HOOD = registerItem("hood", () -> new KHHood(new Item.Properties().stacksTo(1)));
+    Supplier<Item> TORN_HOOD = registerItem("torn_hood", () -> new KHHood(new Item.Properties().stacksTo(1)));
     Supplier<Item> JESTER_HOOD = registerItem("jester_hood",
             () -> new KHCloak(new Item.Properties().stacksTo(1), true, ArmorItem.Type.HELMET, new Vector3f(0f, -4f, 0f)));
-    Supplier<Item> HELMET_HOOD = registerItem("helmet_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET, new Vector3f(0f, -6f, 0f)));
-    Supplier<Item> HELMET_TORN_HOOD = registerItem("helmet_torn_hood",
-            () -> new KHCloak(new Item.Properties().stacksTo(1), ArmorItem.Type.HELMET, new Vector3f(0f, -6f, 0f)));
 
     Supplier<Item> LONGBOW = registerItem("longbow",
             () -> new Longbow(new Item.Properties().stacksTo(1).durability(666)));
@@ -680,15 +675,7 @@ public interface KHItems {
 
     static Supplier<Item> sword(String id, float attackSpeed, int durability) {
         return registerItem(id, () -> new Sword3dItem(ModToolMaterials.WEAPONS,
-                new Item.Properties().attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed))) {
-            @Override
-            public DataComponentMap components() {
-                return DataComponentMap.builder()
-                        .addAll(super.components())
-                        .set(DataComponents.MAX_DAMAGE, durability)
-                        .build();
-            }
-        });
+                new Item.Properties().attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)), durability));
     }
 
     static Supplier<Item> axe(String id, float attackSpeed, int durability) {

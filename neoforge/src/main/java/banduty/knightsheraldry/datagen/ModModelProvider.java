@@ -97,7 +97,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 // Basic items
                 KHItems.CHAPERON.get(), KHItems.BROADHEAD_ARROW.get(), KHItems.BODKIN_ARROW.get(),
                 KHItems.SWALLOWTAIL_ARROW.get(), KHItems.HOOD.get(), KHItems.TORN_HOOD.get(),
-                KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get(), KHItems.CLOAK.get(),
+                KHItems.CLOAK.get(),
                 KHItems.TORN_CLOAK.get(), KHItems.CIVILIAN_SURCOAT.get(), KHItems.GIORNEA.get(),
                 KHItems.AVENTAIL.get(), KHItems.RIM_GUARDS.get(), KHItems.BESAGEWS.get(),
                 KHItems.QUILTED_COIF.get(), KHItems.GAMBESON_BREECHES.get(), KHItems.GAMBESON_BOOTS.get(),

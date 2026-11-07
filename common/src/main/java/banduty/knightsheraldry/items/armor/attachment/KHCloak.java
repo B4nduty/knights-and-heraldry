@@ -71,15 +71,13 @@ public class KHCloak extends Item implements ArmorAttachment, ArmorAttachmentRen
 
     @Override
     public boolean canEquip(ItemStack underArmorStack, Player player, ItemStack attachmentStack) {
-        if (this != KHItems.HELMET_HOOD.get() && this != KHItems.HELMET_TORN_HOOD.get())
-            return ArmorAttachment.super.canEquip(underArmorStack, player, attachmentStack);
-        for (ItemStack armorAttachments : SCUnderArmor.getArmorAttachments(underArmorStack)) {
-            if (armorAttachments.getItem() instanceof KHCloak)
-                return false;
-            if (armorAttachments.getItem() instanceof KHHelmetAttachment)
-                return true;
+        // A jester hood can't be worn over a hood
+        if (armorType == ArmorItem.Type.HELMET) {
+            for (ItemStack existing : SCUnderArmor.getArmorAttachments(underArmorStack)) {
+                if (KHHood.isHood(existing)) return false;
+            }
         }
-        return false;
+        return ArmorAttachment.super.canEquip(underArmorStack, player, attachmentStack);
     }
 
     @Override

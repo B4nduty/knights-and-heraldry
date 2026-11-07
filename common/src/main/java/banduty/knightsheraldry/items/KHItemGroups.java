@@ -418,8 +418,6 @@ public interface KHItemGroups {
                     itemStack(KHItems.HOOD.get()),
                     itemStack(KHItems.TORN_HOOD.get()),
                     itemStack(KHItems.JESTER_HOOD.get()),
-                    itemStack(KHItems.HELMET_HOOD.get()),
-                    itemStack(KHItems.HELMET_TORN_HOOD.get()),
 
                     itemStack(KHItems.CLOAK.get()),
                     itemStack(KHItems.TORN_CLOAK.get()),

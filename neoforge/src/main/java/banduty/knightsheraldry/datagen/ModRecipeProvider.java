@@ -216,20 +216,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.JESTER_HOOD.get()) + "_2"));
 
-        // Helmet Hood
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.HELMET_HOOD.get())
-                .requires(KHItems.HOOD.get())
-                .unlockedBy(getHasName(KHItems.HOOD.get()), has(KHItems.HOOD.get()))
-                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.HELMET_HOOD.get())));
-
-        // Helmet Torn Hood
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, KHItems.HELMET_TORN_HOOD.get())
-                .requires(KHItems.HELMET_HOOD.get())
-                .requires(Items.SHEARS)
-                .unlockedBy(getHasName(KHItems.HELMET_HOOD.get()), has(KHItems.HELMET_HOOD.get()))
-                .unlockedBy(getHasName(Items.SHEARS), has(Items.SHEARS))
-                .save(exporter, ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, getSimpleRecipeName(KHItems.HELMET_TORN_HOOD.get())));
-
         // Dagger Head
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.DAGGER_HEAD.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_DAGGER.get()));
         createCraftmanAnvilRecipeO(exporter, 3, 0.9f, KHItems.DAGGER.get(), false, finished(new ItemStack(KHItems.DAGGER_HEAD.get())), new ItemStack(Items.STICK));

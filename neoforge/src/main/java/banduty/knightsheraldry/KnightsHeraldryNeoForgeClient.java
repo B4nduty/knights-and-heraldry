@@ -2,13 +2,16 @@ package banduty.knightsheraldry;
 
 import banduty.knightsheraldry.client.entity.*;
 import banduty.knightsheraldry.client.input.KHKeyMappings;
+import banduty.knightsheraldry.client.item.KHHoodClientExtensions;
 import banduty.knightsheraldry.client.item.SurcoatWithBannerModel;
 import banduty.knightsheraldry.client.tooltip.ItemTooltips;
 import banduty.knightsheraldry.client.tooltip.RepairKitClientTooltip;
 import banduty.knightsheraldry.entity.KHEntities;
+import banduty.knightsheraldry.items.KHItems;
 import banduty.knightsheraldry.items.armor.attachment.KHChaperon;
 import banduty.knightsheraldry.items.armor.attachment.KHChestplateAttachment;
 import banduty.knightsheraldry.items.armor.attachment.KHCloak;
+import banduty.knightsheraldry.items.armor.attachment.KHHood;
 import banduty.knightsheraldry.items.armor.attachment.KHLeggingsAttachment;
 import banduty.knightsheraldry.items.armor.deco.DecoItem;
 import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
@@ -30,6 +33,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
 @EventBusSubscriber(modid = KnightsHeraldry.MOD_ID, value = Dist.CLIENT)
@@ -70,7 +74,7 @@ public class KnightsHeraldryNeoForgeClient {
                     if (tintIndex == 1) return TwoLayerDyeableDeco.getColor2(stack); // bottom
                     return -1;
                 }, item);
-            } else if (item instanceof SCDyeableUnderArmor || item instanceof KHChestplateAttachment || item instanceof KHCloak
+            } else if (item instanceof SCDyeableUnderArmor || item instanceof KHChestplateAttachment || item instanceof KHCloak || item instanceof KHHood
                     || item instanceof HorseBardingArmorItem || item instanceof KHLeggingsAttachment || item instanceof KHChaperon || item instanceof DecoItem) {
                 event.register((stack, tintIndex) -> {
                     if (tintIndex > 0) {
@@ -84,6 +88,7 @@ public class KnightsHeraldryNeoForgeClient {
                         case KHChestplateAttachment khChestplateAttachment ->
                                 defaultColor = khChestplateAttachment.getDefaultColor();
                         case KHCloak khCloak -> defaultColor = khCloak.getDefaultColor();
+                        case KHHood khHood -> defaultColor = khHood.getDefaultColor();
                         case KHLeggingsAttachment khLeggingsAttachment ->
                                 defaultColor = khLeggingsAttachment.getDefaultColor();
                         case KHChaperon khChaperon -> defaultColor = khChaperon.getDefaultColor();
@@ -97,6 +102,11 @@ public class KnightsHeraldryNeoForgeClient {
                 }, item);
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void registerClientExtensions(RegisterClientExtensionsEvent event) {
+        event.registerItem(new KHHoodClientExtensions(), KHItems.HOOD.get(), KHItems.TORN_HOOD.get());
     }
 
     @SubscribeEvent

@@ -143,7 +143,7 @@ public class KHMobGearProvider extends MobGearDataProvider {
         );
 
         attachments(EquipmentSlot.HEAD, ALLOWED_MOBS,
-                KHItems.HOOD, KHItems.TORN_HOOD, KHItems.JESTER_HOOD, KHItems.HELMET_HOOD, KHItems.HELMET_TORN_HOOD,
+                KHItems.HOOD, KHItems.TORN_HOOD, KHItems.JESTER_HOOD,
                 KHItems.CHAPERON, KHItems.GILDED_CHAPERON
         );
 

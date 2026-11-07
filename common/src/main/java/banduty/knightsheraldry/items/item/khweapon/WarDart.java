@@ -20,9 +20,9 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 
 public class WarDart extends Sword3dItem {
-    public WarDart(float attackSpeed, Properties properties) {
+    public WarDart(float attackSpeed, int durability, Properties properties) {
         super(ModToolMaterials.WEAPONS,
-                properties.attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)));
+                properties.attributes(Sword3dItem.createAttributes(ModToolMaterials.WEAPONS, 1, attackSpeed)), durability);
     }
 
     @Override

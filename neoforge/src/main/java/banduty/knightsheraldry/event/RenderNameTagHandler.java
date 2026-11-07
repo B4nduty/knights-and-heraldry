@@ -2,6 +2,7 @@ package banduty.knightsheraldry.event;
 
 import banduty.knightsheraldry.KnightsHeraldry;
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.items.armor.attachment.KHHood;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -21,9 +22,12 @@ public class RenderNameTagHandler {
 
         if (entity instanceof Player player) {
             ItemStack itemStack = player.getItemBySlot(EquipmentSlot.HEAD);
+            if (KHHood.isHood(itemStack)) {
+                event.setCanRender(TriState.FALSE);
+                return;
+            }
             for (ItemStack armorAttachments : SCUnderArmor.getArmorAttachments(itemStack)) {
-                if (armorAttachments.getItem() == KHItems.HOOD.get() || armorAttachments.getItem() == KHItems.TORN_HOOD.get() ||
-                        armorAttachments.getItem() == KHItems.HELMET_HOOD.get() || armorAttachments.getItem() == KHItems.HELMET_TORN_HOOD.get()) {
+                if (armorAttachments.getItem() == KHItems.HOOD.get() || armorAttachments.getItem() == KHItems.TORN_HOOD.get()) {
 
                     event.setCanRender(TriState.FALSE);
                     return;

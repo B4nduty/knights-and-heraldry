@@ -68,13 +68,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(KHItems.CLOAK.get(), KHItems.TORN_CLOAK.get());
 
         getOrCreateTagBuilder(SCTags.Item.HIDE_NAME_TAG.getTag())
-                .add(KHItems.HOOD.get(), KHItems.TORN_HOOD.get(), KHItems.JESTER_HOOD.get(), KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get());
+                .add(KHItems.HOOD.get(), KHItems.TORN_HOOD.get(), KHItems.JESTER_HOOD.get());
 
         getOrCreateTagBuilder(ItemTags.DYEABLE)
                 .add(KHItems.WOODEN_LANCE.get(), KHItems.QUILTED_COIF.get(), KHItems.GAMBESON.get(), KHItems.GAMBESON_BREECHES.get(),
                         KHItems.GAMBESON_BOOTS.get(), KHItems.ARMING_DOUBLET.get(), KHItems.ARMING_HOSE.get(),
                         KHItems.CLOAK.get(), KHItems.TORN_CLOAK.get(), KHItems.HOOD.get(), KHItems.TORN_HOOD.get(),
-                        KHItems.JESTER_HOOD.get(), KHItems.HELMET_HOOD.get(), KHItems.HELMET_TORN_HOOD.get(),
+                        KHItems.JESTER_HOOD.get(),
                         KHItems.PLUME.get(), KHItems.TRI_PLUME.get(), KHItems.FLUFFY_PLUME.get(),
                         KHItems.CHAPERON.get(), KHItems.GILDED_CHAPERON.get(),
                         KHItems.LEATHER_GLOVES.get(),

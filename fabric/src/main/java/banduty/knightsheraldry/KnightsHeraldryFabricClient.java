@@ -8,6 +8,10 @@ import banduty.knightsheraldry.event.ItemTooltipHandler;
 import banduty.knightsheraldry.items.armor.attachment.KHChaperon;
 import banduty.knightsheraldry.items.armor.attachment.KHChestplateAttachment;
 import banduty.knightsheraldry.items.armor.attachment.KHCloak;
+import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.items.armor.attachment.KHHood;
+import banduty.knightsheraldry.client.item.armor.KHHoodAttachmentRenderer;
+import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import banduty.knightsheraldry.items.armor.attachment.KHLeggingsAttachment;
 import banduty.knightsheraldry.items.armor.deco.DecoItem;
 import banduty.knightsheraldry.items.armor.deco.TwoLayerDyeableDeco;
@@ -46,6 +50,12 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
 
         KHModelLoadingPlugin.register();
 
+        // Hood worn straight on the head (attached to under-armor it renders through its attachment renderer)
+        KHHoodAttachmentRenderer hoodRenderer = new KHHoodAttachmentRenderer();
+        ArmorRenderer.register((poseStack, bufferSource, stack, entity, slot, light, contextModel) ->
+                hoodRenderer.renderHood(poseStack, bufferSource, light, entity, stack, contextModel, false),
+                KHItems.HOOD.get(), KHItems.TORN_HOOD.get());
+
         KHPayloadsClient.init();
         KHPayloadsClient.registerS2CReceivers();
 
@@ -73,7 +83,7 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
                     if (tintIndex == 1) return TwoLayerDyeableDeco.getColor2(stack); // bottom
                     return -1;
                 }, item);
-            } else if (item instanceof SCDyeableUnderArmor || item instanceof KHChestplateAttachment || item instanceof KHCloak
+            } else if (item instanceof SCDyeableUnderArmor || item instanceof KHChestplateAttachment || item instanceof KHCloak || item instanceof KHHood
                     || item instanceof HorseBardingArmorItem || item instanceof KHLeggingsAttachment || item instanceof KHChaperon
                     || item instanceof DecoItem || item instanceof ManuscriptBookItem) {
                 ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
@@ -90,6 +100,7 @@ public class KnightsHeraldryFabricClient implements ClientModInitializer {
                         case KHChestplateAttachment khChestplateAttachment ->
                                 defaultColor = khChestplateAttachment.getDefaultColor();
                         case KHCloak khCloak -> defaultColor = khCloak.getDefaultColor();
+                        case KHHood khHood -> defaultColor = khHood.getDefaultColor();
                         case KHLeggingsAttachment khLeggingsAttachment ->
                                 defaultColor = khLeggingsAttachment.getDefaultColor();
                         case KHChaperon khChaperon -> defaultColor = khChaperon.getDefaultColor();

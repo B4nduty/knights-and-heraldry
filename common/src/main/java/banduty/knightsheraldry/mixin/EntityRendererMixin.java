@@ -1,6 +1,7 @@
 package banduty.knightsheraldry.mixin;
 
 import banduty.knightsheraldry.items.KHItems;
+import banduty.knightsheraldry.items.armor.attachment.KHHood;
 import banduty.stoneycore.items.custom.armor.underarmor.SCUnderArmor;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -21,9 +22,12 @@ public class EntityRendererMixin<T extends Entity> {
     private void stoneycore$onRenderLabelIfPresent(T entity, Component displayName, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, float partialTick, CallbackInfo ci) {
         if (entity instanceof Player player) {
             ItemStack itemStack = player.getItemBySlot(EquipmentSlot.HEAD);
+            if (KHHood.isHood(itemStack)) {
+                ci.cancel();
+                return;
+            }
             for (ItemStack armorAttachment : SCUnderArmor.getArmorAttachments(itemStack)) {
-                if (armorAttachment.getItem() == KHItems.HOOD.get() || armorAttachment.getItem() == KHItems.TORN_HOOD.get() ||
-                        armorAttachment.getItem() == KHItems.HELMET_HOOD.get() || armorAttachment.getItem() == KHItems.HELMET_TORN_HOOD.get()) ci.cancel();
+                if (armorAttachment.getItem() == KHItems.HOOD.get() || armorAttachment.getItem() == KHItems.TORN_HOOD.get()) ci.cancel();
             }
         }
     }
