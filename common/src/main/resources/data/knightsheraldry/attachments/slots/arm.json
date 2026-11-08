@@ -2,9 +2,6 @@
   "slot": "arm",
   "armor": "chestplate",
   "items": [
-    "knightsheraldry:gauntlet",
-    "knightsheraldry:dark_gauntlet",
-    "knightsheraldry:golden_gauntlet",
     "knightsheraldry:brigandine_harness",
     "knightsheraldry:dark_brigandine_harness",
     "knightsheraldry:golden_brigandine_harness",
