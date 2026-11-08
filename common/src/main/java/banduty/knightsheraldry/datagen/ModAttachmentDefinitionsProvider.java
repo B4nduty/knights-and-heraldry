@@ -149,7 +149,7 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
 
         addFamily(map, KHItems.SAVOYARD, new ArmorStats(3.0, 3.0, 4.0, 0.15, 0, 0, true, KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
 
-        addFamily(map, KHItems.CUIRASSIER_HELM, new ArmorStats(3.0, 3.0, 4.0, 0.15, 0, 0, true, KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT_BIG));
+        addFamily(map, KHItems.CUIRASSIER_HELM, new ArmorStats(3.0, 3.0, 4.0, 0.15, 0, 0, true, KnightsHeraldry.MOD_ID, VISOR_FOUR_BARS));
 
         addFamily(map, KHItems.ARAGONESE_SALLET, new ArmorStats(3.0, 3.0, 4.0, 0.15, 0, 0, true, KnightsHeraldry.MOD_ID, VISOR_DOUBLE_EYESLIT));
 
