@@ -456,7 +456,7 @@ public interface KHItemGroups {
             .build());
 
     Supplier<CreativeModeTab> KH_INGREDIENT_TAB = register("kh_ingredient", () -> SCItemGroup.create(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "kh_deco"))
-            .icon(() -> new ItemStack(KHItems.HALBERD_HEAD.get()))
+            .icon(() -> new ItemStack(KHItems.MANUSCRIPT_BOOK.get()))
             .backgroundTexture(ResourceLocation.fromNamespaceAndPath(KnightsHeraldry.MOD_ID, "textures/gui/container/creative_inventory/tab_items.png"))
             .scrollerSprites(SCROLLER_SPRITE, SCROLLER_DISABLED_SPRITE)
             .topTabSprites(UNSELECTED_TOP_TABS, SELECTED_TOP_TABS)
