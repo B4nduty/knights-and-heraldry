@@ -21,9 +21,19 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
     }
 
     private record ArmorStats(double toughness, double armor, double weight, double deflectChance, float attackSpeed, int rechargeTime,
-                              boolean hasHungerDrain, String visorNamespace, String visorType) {
+                              boolean hasHungerDrain, String visorNamespace, String visorType, List<String> incompatibleSlots) {
         ArmorStats(double toughness, double armor, double weight, double deflectChance, float attackSpeed, int rechargeTime, boolean hasHungerDrain) {
             this(toughness, armor, weight, deflectChance, attackSpeed, rechargeTime, hasHungerDrain, null, null);
+        }
+
+        ArmorStats(double toughness, double armor, double weight, double deflectChance, float attackSpeed, int rechargeTime,
+                   boolean hasHungerDrain, String visorNamespace, String visorType) {
+            this(toughness, armor, weight, deflectChance, attackSpeed, rechargeTime, hasHungerDrain, visorNamespace, visorType, List.of());
+        }
+
+        ArmorStats incompatible(String... slots) {
+            return new ArmorStats(toughness, armor, weight, deflectChance, attackSpeed, rechargeTime,
+                    hasHungerDrain, visorNamespace, visorType, List.of(slots));
         }
     }
 
@@ -159,9 +169,9 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
 
     private static Map<Supplier<Item>, ArmorStats> createLegsMap() {
         Map<Supplier<Item>, ArmorStats> map = new HashMap<>();
-        addFamily(map, KHItems.BRIGANDINE_CUISSES, new ArmorStats(1.0, 1.0, 3.5, 0.02, 0, 0, false));
+        addFamily(map, KHItems.BRIGANDINE_CUISSES, new ArmorStats(1.0, 1.0, 3.0, 0.02, 0, 0, false));
 
-        addFamily(map, KHItems.PLATE_CUISSES, new ArmorStats(2.0, 1.0, 5.5, 0.07, 0, 0, true));
+        addFamily(map, KHItems.PLATE_CUISSES, new ArmorStats(2.0, 1.0, 5.0, 0.07, 0, 0, true));
 
         addFamily(map, KHItems.GREAVES, new ArmorStats(0.0, 1.0, 2.0, 0.02, 0, 0, false));
         return map;
@@ -213,6 +223,10 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
                 builder.visor(ResourceLocation.fromNamespaceAndPath(stats.visorNamespace, stats.visorType));
             }
 
+            if (!stats.incompatibleSlots.isEmpty()) {
+                builder.incompatibleSlots(stats.incompatibleSlots.toArray(new String[0]));
+            }
+
             consumer.accept(item.get(), builder.build());
         }
     }
@@ -242,7 +256,8 @@ public class ModAttachmentDefinitionsProvider extends DefinitionsProvider.ArmorA
                     Math.round(weight * 10.0) / 10.0,
                     Math.round(deflect * 100.0) / 100.0,
                     base.attackSpeed(), base.rechargeTime(), base.hasHungerDrain(),
-                    base.visorNamespace(), base.visorType()
+                    base.visorNamespace(), base.visorType(),
+                    base.incompatibleSlots()
             ));
         }
     }
