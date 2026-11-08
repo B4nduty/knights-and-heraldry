@@ -142,7 +142,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         KHItems.BLACK_SALLET_BEVOR.get(ArmorVariant.GOLDEN).get(), KHItems.FROGMOUTH.get(ArmorVariant.GOLDEN).get(),
                         KHItems.GREAT_ARMET.get(ArmorVariant.GOLDEN).get(), KHItems.GREAT_ARMET_2.get(ArmorVariant.GOLDEN).get(),
                         KHItems.GREAT_BASCINET.get(ArmorVariant.GOLDEN).get(), KHItems.GREAT_HOUNDSKUL_BASCINET.get(ArmorVariant.GOLDEN).get(),
-                        KHItems.MAXIMILLIAN_HELMET.get(ArmorVariant.GOLDEN).get(), KHItems.SAVOYARD.get(ArmorVariant.GOLDEN).get(),
+                        KHItems.MAXIMILLIAN_HELMET.get(ArmorVariant.GOLDEN).get(), KHItems.SAVOYARD.get(ArmorVariant.GOLDEN).get(), KHItems.CUIRASSIER_HELM.get(ArmorVariant.GOLDEN).get(),
                         KHItems.ARAGONESE_SALLET.get(ArmorVariant.GOLDEN).get(), KHItems.GAUNTLET.get(ArmorVariant.GOLDEN).get(),
                         KHItems.BRIGANDINE_HARNESS.get(ArmorVariant.GOLDEN).get(), KHItems.PLATE_HARNESS.get(ArmorVariant.GOLDEN).get(),
                         KHItems.BRIGANDINE_CUISSES.get(ArmorVariant.GOLDEN).get(), KHItems.PLATE_CUISSES.get(ArmorVariant.GOLDEN).get(),
@@ -189,6 +189,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(itemArray(KHItems.GREAT_HOUNDSKUL_BASCINET.list()))
                 .add(itemArray(KHItems.MAXIMILLIAN_HELMET.list()))
                 .add(itemArray(KHItems.SAVOYARD.list()))
+                .add(itemArray(KHItems.CUIRASSIER_HELM.list()))
                 .add(itemArray(KHItems.ARAGONESE_SALLET.list()))
                 .add(itemArray(KHItems.GAUNTLET.list()))
                 .add(itemArray(KHItems.PLATE_HARNESS.list()))

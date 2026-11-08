@@ -466,9 +466,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.BURGONET.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.BURGONET.get())), new ItemStack(Items.HONEYCOMB, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.BURGONET_FALLING_BUFFE.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.BURGONET_FALLING_BUFFE.get())), new ItemStack(Items.HONEYCOMB, 4));
 
-        createCraftmanAnvilRecipe(exporter, 10, 0.25f, KHItems.SAVOYARD.get(), unfinished(new ItemStack(KHItems.BURGONET.get())), new ItemStack(SCItems.HOT_IRON.get(), 2), new ItemStack(Items.SAND));
+        createCraftmanAnvilRecipe(exporter, 10, 0.25f, KHItems.SAVOYARD.get(), unfinished(new ItemStack(KHItems.BURGONET.get())), new ItemStack(KHItems.VISOR.get()), new ItemStack(Items.SAND));
         createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.SAVOYARD.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.SAVOYARD.get())), new ItemStack(Items.GOLD_INGOT, 4));
         createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.SAVOYARD.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.SAVOYARD.get())), new ItemStack(Items.HONEYCOMB, 4));
+
+        createCraftmanAnvilRecipe(exporter, 10, 0.25f, KHItems.CUIRASSIER_HELM.get(), unfinished(new ItemStack(KHItems.BURGONET.get())), new ItemStack(SCItems.HOT_IRON.get(), 2), new ItemStack(Items.SAND));
+        createCraftmanAnvilRecipe(exporter, 7, 0.7f, KHItems.CUIRASSIER_HELM.get(ArmorVariant.GOLDEN).get(), unfinished(new ItemStack(KHItems.CUIRASSIER_HELM.get())), new ItemStack(Items.GOLD_INGOT, 4));
+        createCraftmanAnvilRecipe(exporter, 7, 0.85f, KHItems.CUIRASSIER_HELM.get(ArmorVariant.DARK).get(), unfinished(new ItemStack(KHItems.CUIRASSIER_HELM.get())), new ItemStack(Items.HONEYCOMB, 4));
 
         // Sallet Piece
         createCraftmanAnvilRecipe(exporter, 3, 0.9f, KHItems.SALLET_PIECE.get(), new ItemStack(SCItems.HOT_IRON.get()), new ItemStack(KHItems.MANUSCRIPT_SALLET.get()));

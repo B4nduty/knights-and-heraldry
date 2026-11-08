@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 900,
+  "experience": 4.0,
+  "ingredient": {
+    "item": "knightsheraldry:cuirassier_helm"
+  },
+  "result": {
+    "components": {
+      "stoneycore:ignited": true
+    },
+    "count": 1,
+    "id": "knightsheraldry:cuirassier_helm"
+  }
+}

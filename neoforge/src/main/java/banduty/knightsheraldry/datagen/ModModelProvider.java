@@ -203,6 +203,7 @@ public class ModModelProvider extends NeoForgeModelProviderPlus {
                 KHItems.GREAT_HOUNDSKUL_BASCINET,
                 KHItems.MAXIMILLIAN_HELMET,
                 KHItems.SAVOYARD,
+                KHItems.CUIRASSIER_HELM,
                 KHItems.ARAGONESE_SALLET,
                 KHItems.SALLET_BEVOR
         ));

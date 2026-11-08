@@ -290,6 +290,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.GREAT_HOUNDSKUL_BASCINET.get()),
                     itemStack(KHItems.MAXIMILLIAN_HELMET.get()),
                     itemStack(KHItems.SAVOYARD.get()),
+                    itemStack(KHItems.CUIRASSIER_HELM.get()),
                     itemStack(KHItems.ARAGONESE_SALLET.get()),
 
                     itemStack(KHItems.FROGMOUTH.get(ArmorVariant.DARK).get()),
@@ -299,6 +300,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.GREAT_HOUNDSKUL_BASCINET.get(ArmorVariant.DARK).get()),
                     itemStack(KHItems.MAXIMILLIAN_HELMET.get(ArmorVariant.DARK).get()),
                     itemStack(KHItems.SAVOYARD.get(ArmorVariant.DARK).get()),
+                    itemStack(KHItems.CUIRASSIER_HELM.get(ArmorVariant.DARK).get()),
                     itemStack(KHItems.ARAGONESE_SALLET.get(ArmorVariant.DARK).get()),
 
                     itemStack(KHItems.FROGMOUTH.get(ArmorVariant.GOLDEN).get()),
@@ -308,6 +310,7 @@ public interface KHItemGroups {
                     itemStack(KHItems.GREAT_HOUNDSKUL_BASCINET.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.MAXIMILLIAN_HELMET.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.SAVOYARD.get(ArmorVariant.GOLDEN).get()),
+                    itemStack(KHItems.CUIRASSIER_HELM.get(ArmorVariant.GOLDEN).get()),
                     itemStack(KHItems.ARAGONESE_SALLET.get(ArmorVariant.GOLDEN).get()),
 
                     itemStack(KHItems.CHAPERON.get()),

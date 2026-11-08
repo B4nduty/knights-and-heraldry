@@ -433,6 +433,11 @@ public interface KHItems {
             (properties, ingredient) -> new KHSavoyard(properties, true, ingredient),
             new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
     );
+    ArmorFamily CUIRASSIER_HELM = attachmentFamily(
+            "cuirassier_helm", 234,
+            (properties, ingredient) -> new KHCuirassierHelm(properties, true, ingredient),
+            new ArmorVariant[]{ArmorVariant.PLAIN, ArmorVariant.DARK, ArmorVariant.GOLDEN}
+    );
     ArmorFamily ARAGONESE_SALLET = attachmentFamily(
             "aragonese_sallet", 234,
             (properties, ingredient) -> new KHAragoneseSalletHelmet(properties, true, ingredient),
