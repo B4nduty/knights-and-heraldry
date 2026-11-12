@@ -1,8 +1,6 @@
 package banduty.knightsheraldry.networking;
 
 import banduty.knightsheraldry.KnightsHeraldry;
-import banduty.knightsheraldry.combat.OffhandAttack;
-import banduty.knightsheraldry.networking.payload.OffhandAttackC2SPacket;
 import banduty.knightsheraldry.networking.payload.ToggleGripC2SPacket;
 import banduty.knightsheraldry.networking.payload.VelocityS2CPacket;
 import banduty.knightsheraldry.util.GripUtil;
@@ -22,8 +20,6 @@ public class KHPayload {
                 .executesOn(HandlerThread.MAIN);
 
         registrar.playToClient(VelocityS2CPacket.TYPE, VelocityS2CPacket.STREAM_CODEC, VelocityS2CPacket::handle);
-        registrar.playToServer(OffhandAttackC2SPacket.TYPE, OffhandAttackC2SPacket.STREAM_CODEC,
-                (payload, context) -> OffhandAttack.handle((ServerPlayer) context.player(), payload));
         registrar.playToServer(ToggleGripC2SPacket.TYPE, ToggleGripC2SPacket.STREAM_CODEC,
                 (payload, context) -> GripUtil.toggle((ServerPlayer) context.player()));
     }

@@ -413,7 +413,6 @@
   "component.itemgroup.knightsheraldry.tab.kh_weapons": "KH Weapons",
   "component.itemgroup.knightsheraldry.tab.kh_ingredient": "KH Ingredient",
   "component.itemgroup.knightsheraldry.tab.kh_armors": "KH Armors",
-  "text.tooltip.knightsheraldry.dual_wieldable": "§6Dual Wieldable §7- hold one in each hand",
   "text.tooltip.knightsheraldry.grip.one_handed": "§6One-Handed Grip",
   "text.tooltip.knightsheraldry.grip.two_handed": "§6Two-Handed Grip",
   "text.tooltip.knightsheraldry.grip.switch": "§7Press §e%s§7 to switch grip",

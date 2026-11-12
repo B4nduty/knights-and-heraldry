@@ -1,13 +1,11 @@
 package banduty.knightsheraldry;
 
-import banduty.knightsheraldry.combat.OffhandAttack;
 import banduty.knightsheraldry.config.KHConfigs;
 import banduty.knightsheraldry.entity.KHEntities;
 import banduty.knightsheraldry.entity.custom.Craftman;
 import banduty.knightsheraldry.entity.custom.CraftmanTradeManager;
 import banduty.knightsheraldry.event.UseItemHandler;
 import banduty.knightsheraldry.items.KHItems;
-import banduty.knightsheraldry.networking.payload.OffhandAttackC2SPacket;
 import banduty.knightsheraldry.networking.payload.ToggleGripC2SPacket;
 import banduty.knightsheraldry.util.GripUtil;
 import banduty.knightsheraldry.trades.KHFabricVillagerTrades;
@@ -40,9 +38,6 @@ public class KnightsHeraldryFabric implements ModInitializer {
         KHFabricVillagerTrades.register();
         UseItemCallback.EVENT.register(new UseItemHandler());
 
-        PayloadTypeRegistry.playC2S().register(OffhandAttackC2SPacket.TYPE, OffhandAttackC2SPacket.STREAM_CODEC);
-        ServerPlayNetworking.registerGlobalReceiver(OffhandAttackC2SPacket.TYPE,
-                (payload, context) -> context.server().execute(() -> OffhandAttack.handle(context.player(), payload)));
         PayloadTypeRegistry.playC2S().register(ToggleGripC2SPacket.TYPE, ToggleGripC2SPacket.STREAM_CODEC);
         ServerPlayNetworking.registerGlobalReceiver(ToggleGripC2SPacket.TYPE,
                 (payload, context) -> context.server().execute(() -> GripUtil.toggle(context.player())));

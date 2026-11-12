@@ -5,7 +5,6 @@ import banduty.knightsheraldry.client.input.KHKeyMappings;
 import banduty.knightsheraldry.items.item.khrangeweapon.Handgonne;
 import banduty.knightsheraldry.util.GripUtil;
 import banduty.knightsheraldry.util.itemdata.KHDataComponents;
-import banduty.knightsheraldry.util.itemdata.KHTags;
 import banduty.stoneycore.data.SCDataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -17,11 +16,6 @@ public final class ItemTooltips {
     private ItemTooltips() {}
 
     public static void append(ItemStack stack, List<Component> tooltip) {
-        if (stack.is(KHTags.DUAL_WIELDABLE.getTag())) {
-            // Insert right below the item name so it reads as a weapon property.
-            tooltip.add(Math.min(1, tooltip.size()), Component.translatable("text.tooltip.knightsheraldry.dual_wieldable"));
-        }
-
         if (GripUtil.isVersatile(stack)) {
             int index = Math.min(1, tooltip.size());
             tooltip.add(index, Component.translatable(GripUtil.isTwoHandedGrip(stack)

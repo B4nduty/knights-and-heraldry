@@ -12,8 +12,6 @@ public enum KHTags {
     REPAIR_KIT_CHAIN("repair_kit/chain"),
     REPAIR_KIT_IRON("repair_kit/iron"),
     REPAIR_KIT_GOLD("repair_kit/gold"),
-    TWO_HANDED("two_handed"),
-    DUAL_WIELDABLE("dual_wieldable"),
     VERSATILE("versatile");
 
     private final TagKey<Item> tag;
