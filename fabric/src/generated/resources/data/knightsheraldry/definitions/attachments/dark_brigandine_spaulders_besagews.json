@@ -1,6 +1,10 @@
 {
   "armor": 1.5,
-  "deflectChance": 0.01,
+  "deflectChance": {
+    "BLUDGEONING": 0.02,
+    "PIERCING": 0.0,
+    "SLASHING": 0.01
+  },
   "toughness": 1.5,
   "weight": 0.8
 }

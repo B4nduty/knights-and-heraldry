@@ -1,6 +1,10 @@
 {
   "armor": 0.5,
-  "deflectChance": 0.01,
+  "deflectChance": {
+    "BLUDGEONING": 0.0,
+    "PIERCING": 0.0,
+    "SLASHING": 0.01
+  },
   "rechargeTime": 30,
   "toughness": 1.5,
   "weight": 0.6

@@ -1,6 +1,10 @@
 {
   "armor": 3.0,
-  "deflectChance": 0.15,
+  "deflectChance": {
+    "BLUDGEONING": 0.04,
+    "PIERCING": 0.0,
+    "SLASHING": 0.15
+  },
   "hungerDrainMultiplier": 0.1,
   "toughness": 3.0,
   "visoredHelmet": "knightsheraldry:v_shape",

@@ -1,5 +1,9 @@
 {
-  "deflectChance": 0.01,
+  "deflectChance": {
+    "BLUDGEONING": 0.0,
+    "PIERCING": 0.0,
+    "SLASHING": 0.01
+  },
   "toughness": 1.0,
   "weight": 1.0
 }

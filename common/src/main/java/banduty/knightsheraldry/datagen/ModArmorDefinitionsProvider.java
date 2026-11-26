@@ -16,75 +16,64 @@ public class ModArmorDefinitionsProvider extends DefinitionsProvider.Armor {
     protected void generateDefinitions(ArmorConsumer biConsumer) {
         // Gambeson Set
         biConsumer.accept(KHItems.QUILTED_COIF.get(), Builder.create()
-                        .weight(0.5)
-                        .damageResistance(0.04, 0.1, 0)
-                        .deflectChance(0.005)
-                        .build()
+                .weight(0.5)
+                .deflect(0.005, 0.05, 0.0)
+                .build()
         );
         biConsumer.accept(KHItems.GAMBESON.get(), Builder.create()
-                        .weight(5.0)
-                        .damageResistance(0.04, 0.1, 0)
-                        .deflectChance(0.025)
-                        .build()
+                .weight(5.0)
+                .deflect(0.025, 0.25, 0.0)
+                .build()
         );
         biConsumer.accept(KHItems.GAMBESON_BREECHES.get(), Builder.create()
-                        .weight(2.0)
-                        .damageResistance(0.04, 0.1, 0)
-                        .deflectChance(0.01)
-                        .build()
+                .weight(2.0)
+                .deflect(0.01, 0.1, 0.0)
+                .build()
         );
         biConsumer.accept(KHItems.GAMBESON_BOOTS.get(), Builder.create()
-                        .weight(1.0)
-                        .damageResistance(0.04, 0.1, 0)
-                        .deflectChance(0.002)
-                        .build()
+                .weight(1.0)
+                .deflect(0.002, 0.02, 0.0)
+                .build()
         );
 
         // Arming Set
         biConsumer.accept(KHItems.ARMING_DOUBLET.get(), Builder.create()
                 .weight(7.5)
-                .damageResistance(0.07, 0.07, 0)
-                .deflectChance(0.05)
+                .deflect(0.05, 0.05, 0.0)
                 .build()
         );
         biConsumer.accept(KHItems.ARMING_HOSE.get(), Builder.create()
                 .weight(5.0)
-                .damageResistance(0.07, 0.07, 0)
-                .deflectChance(0.03)
+                .deflect(0.03, 0.03, 0.0)
                 .build()
         );
 
         // Mail Set
         biConsumer.accept(KHItems.MAIL_COIF.get(), Builder.create()
-                        .weight(2.5)
-                        .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.04)
-                        .build()
+                .weight(2.5)
+                .deflect(0.04, 0.02, 0.0)
+                .build()
         );
         biConsumer.accept(KHItems.HAUBERK.get(), Builder.create()
-                        .weight(10.0)
-                        .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.07)
-                        .build()
+                .weight(10.0)
+                .deflect(0.07, 0.03, 0.0)
+                .build()
         );
         biConsumer.accept(KHItems.MAIL_BREECHES.get(), Builder.create()
-                        .weight(8.0)
-                        .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.05)
-                        .build()
+                .weight(8.0)
+                .deflect(0.05, 0.02, 0.0)
+                .build()
         );
         biConsumer.accept(KHItems.MAIL_BOOTS.get(), Builder.create()
-                        .weight(3.0)
-                        .damageResistance(0.1, 0.04, 0)
-                        .deflectChance(0.02)
-                        .build()
+                .weight(3.0)
+                .deflect(0.02, 0.01, 0.0)
+                .build()
         );
 
         // Horse Armor
         for (Supplier<Item> item : KHItems.HORSE_BARDING.list()) {
             biConsumer.accept(item.get(), Builder.create()
-                    .damageResistance(0.1, 0.04, 0)
-                    .deflectChance(0.6)
+                    .deflect(0.8, 0.4, 0)
                     .build()
             );
         }

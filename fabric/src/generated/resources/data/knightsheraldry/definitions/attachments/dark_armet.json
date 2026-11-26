@@ -1,6 +1,10 @@
 {
   "armor": 2.0,
-  "deflectChance": 0.1,
+  "deflectChance": {
+    "BLUDGEONING": 0.03,
+    "PIERCING": 0.0,
+    "SLASHING": 0.1
+  },
   "toughness": 3.0,
   "visoredHelmet": "knightsheraldry:double_eyeslit",
   "weight": 3.3

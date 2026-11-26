@@ -1,4 +1,9 @@
 {
+  "deflectChance": {
+    "BLUDGEONING": 0.01,
+    "PIERCING": 0.0,
+    "SLASHING": 0.0
+  },
   "rechargeTime": -10,
   "weight": 0.1
 }

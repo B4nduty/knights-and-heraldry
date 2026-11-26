@@ -1,6 +1,10 @@
 {
   "armor": 2.0,
-  "deflectChance": 0.02,
+  "deflectChance": {
+    "BLUDGEONING": 0.01,
+    "PIERCING": 0.0,
+    "SLASHING": 0.02
+  },
   "hungerDrainMultiplier": 0.1,
   "toughness": 2.5,
   "weight": 2.2

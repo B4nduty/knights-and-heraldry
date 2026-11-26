@@ -8,14 +8,14 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public enum ArmorVariant {
-    PLAIN("", 1.00, 0.0, 1.00, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.IRON_INGOT)),
-    GILDED("gilded_", 1.00, 0.0, 1.00, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.IRON_INGOT)),
-    DARK("dark_", 1.10, 1.0, 1.10, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.IRON_INGOT)),
-    DARK_GILDED("dark_gilded_", 1.10, 1.0, 1.10, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.IRON_INGOT)),
-    GOLDEN("golden_", 1.20, 0.0, 1.05, 0.0, 0.0, 0.0, () -> Ingredient.of(Items.GOLD_INGOT)),
+    PLAIN("", 1.00, 0.0, 1.00, 0.0, 0.0, 0, 0, 0, () -> Ingredient.of(Items.IRON_INGOT)),
+    GILDED("gilded_", 1.00, 0.0, 1.00, 0.0, 0.0, 0, 0, 0, () -> Ingredient.of(Items.IRON_INGOT)),
+    DARK("dark_", 1.10, 1.0, 1.10, 0.0, 0.0, 0, 0, 0, () -> Ingredient.of(Items.IRON_INGOT)),
+    DARK_GILDED("dark_gilded_", 1.10, 1.0, 1.10, 0.0, 0.0, 0, 0, 0, () -> Ingredient.of(Items.IRON_INGOT)),
+    GOLDEN("golden_", 1.20, 0.0, 1.05, 0.0, 0.0, 0, 0, 0, () -> Ingredient.of(Items.GOLD_INGOT)),
 
-    BESAGEWS("_besagews", 1.00, 0.0, 1.00, 0.20, 1.0, 0.01, () -> Ingredient.of(Items.IRON_INGOT)),
-    RIMMED("_rimmed", 1.00, 1.0, 1.00, 0.20, 0.0, 0.01, () -> Ingredient.of(Items.IRON_INGOT));
+    BESAGEWS("_besagews", 1.00, 0.0, 1.00, 0.20, 1.0, 0.01, 0.01, 0, () -> Ingredient.of(Items.IRON_INGOT)),
+    RIMMED("_rimmed", 1.00, 1.0, 1.00, 0.20, 0.0, 0.01, 0.01, 0, () -> Ingredient.of(Items.IRON_INGOT));
 
     public final String prefix;
     private final double durabilityMult;
@@ -23,19 +23,23 @@ public enum ArmorVariant {
     private final double weightMult;
     private final double weightBonus;
     private final double armorBonus;
-    private final double deflectBonus;
+    private final double deflectSlashingBonus;
+    private final double deflectBlugeoningBonus;
+    private final double deflectPiercingBonus;
     private final Supplier<Ingredient> ingredientSupplier;
 
     ArmorVariant(String prefix, double durabilityMult, double toughnessBonus,
                  double weightMult, double weightBonus, double armorBonus,
-                 double deflectBonus, Supplier<Ingredient> ingredientSupplier) {
+                 double deflectSlashingBonus, double deflectBlugeoningBonus, double deflectPiercingBonus, Supplier<Ingredient> ingredientSupplier) {
         this.prefix = prefix;
         this.durabilityMult = durabilityMult;
         this.toughnessBonus = toughnessBonus;
         this.weightMult = weightMult;
         this.weightBonus = weightBonus;
         this.armorBonus = armorBonus;
-        this.deflectBonus = deflectBonus;
+        this.deflectSlashingBonus = deflectSlashingBonus;
+        this.deflectBlugeoningBonus = deflectBlugeoningBonus;
+        this.deflectPiercingBonus = deflectPiercingBonus;
         this.ingredientSupplier = ingredientSupplier;
     }
 
@@ -69,8 +73,16 @@ public enum ArmorVariant {
         return baseArmor + armorBonus;
     }
 
-    public double deflect(double baseDeflect) {
-        return baseDeflect + deflectBonus;
+    public double deflectSlashing(double baseDeflect) {
+        return baseDeflect + deflectSlashingBonus;
+    }
+
+    public double deflectBludgeoning(double baseDeflect) {
+        return baseDeflect + deflectBlugeoningBonus;
+    }
+
+    public double deflectPiercing(double baseDeflect) {
+        return baseDeflect + deflectPiercingBonus;
     }
 
     public Ingredient ingredient() {
